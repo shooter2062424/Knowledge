@@ -9,8 +9,12 @@
   - 避免在標籤內直接使用 `>`;可改寫為「大於」等文字。
 
 ## 內容組織
-- 每個研究主題建立 **獨立的主題資料夾**(例如 `investing/`、`ai-token-save/`),報告放在該資料夾內。
+- 採 **「大類 → 主題」兩層** 結構:先分大類資料夾,再於其下建主題資料夾,報告放主題資料夾內。
+  - 大類示例:`investing/`(投資)、`technology/`(科技與技術研究)。
+  - 路徑示例:`investing/just-keep-buying/...`、`technology/ai-token-saving/...`、`technology/telecom-3gpp/...`。
+- 資料夾命名一律用 **小寫英文 + 連字號**,保持網址乾淨。
 - 報告結尾附上「來源」區塊,以 Markdown 超連結列出參考來源。
+- **預設分支為 `main`**;完成的筆記應整理到 `main`,讓 repo 首頁直接看到分類。
 
 ## 取得 YouTube 逐字稿的流程
 1. 先用 `WebFetch` / `WebSearch` 取得標題與內容。
