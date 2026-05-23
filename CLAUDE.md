@@ -17,4 +17,8 @@
 2. **若線上逐字稿服務失效(403/404/被擋),改用 Python 嘗試抓取**,例如:
    - `pip install youtube-transcript-api`,以 `YouTubeTranscriptApi().list(vid)` 與 `.fetch(vid, languages=[...])` 取得字幕。
    - 或 `yt-dlp --skip-download --write-auto-subs --write-subs --sub-langs "zh-Hant,zh,en" <url>`。
-3. **環境限制備註:** 本遠端環境的對外連線會被 TLS 攔截代理(自簽憑證)處理,且 YouTube 常以資料中心 IP 封鎖請求,因此 Python 直連 YouTube 可能失敗(`RequestBlocked` 或 `CERTIFICATE_VERIFY_FAILED`)。此時退而求其次:以影片標題搜尋相關報導/逐字稿文章還原內容,並於筆記中標註「非逐字稿」。
+3. **若被 IP 封鎖,可嘗試 free proxy 繞過**:抓取免費 proxy 清單(如 proxyscrape、TheSpeedX/PROXY-List),搭配 `youtube-transcript-api` 的 `http_client=requests.Session(proxies=...)` 逐一嘗試。
+4. **本遠端環境的實測結論(2026-05):**
+   - 直連:`youtube-transcript-api` 得到 `RequestBlocked`(資料中心 IP 被擋);`yt-dlp` 得到 `CERTIFICATE_VERIFY_FAILED`(環境 TLS 攔截代理用自簽憑證)。
+   - free proxy:38 個免費 proxy 全數 `ProxyError`——本沙箱只允許走核可出口,無法透過任意第三方 proxy 連到 `youtube.com:443`。
+   - **結論:在此遠端環境抓 YouTube 字幕目前不可行**;上述 Python 方法應於使用者本機可運作。退而求其次:以影片標題搜尋相關報導/逐字稿文章還原內容,並於筆記中明確標註「非逐字稿」。
