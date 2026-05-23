@@ -87,27 +87,240 @@ flowchart TD
 
 ---
 
-## 4. 原始碼結構
+## 4. 原始碼結構(實際 clone 驗證)
+
+> 以下為在本機 `git clone` rtk-ai/rtk(Apache-2.0)後,逐目錄確認的真實結構。
 
 ```
 src/
-├── main.rs               # Clap 進入點;將 Commands enum 路由到過濾模組
-├── core/
-│   └── tracking.rs       # SQLite token 節省指標
-└── cmds/                 # 每個生態系一個資料夾;各自有 README 與 //! 文件
-    ├── system/           # ls, tree, grep, find, wc, env, json, log, deps(與語言無關)
-    ├── git/              # git, gh (GitHub CLI), gt (Graphite), diff 工具
-    ├── rust/             # cargo、test/error 執行器
-    ├── go/               # go test/build/vet, golangci-lint
-    ├── js/               # npm, pnpm, npx, vitest, jest, tsc, eslint, prettier, next, prisma, playwright
-    ├── python/           # ruff, pytest, mypy, pip
-    ├── ruby/             # rake, rails test, rspec, rubocop
-    ├── dotnet/           # dotnet CLI, binlog, trx, format 報告
-    ├── jvm/              # JVM 系工具
-    └── cloud/            # aws, docker, kubectl, curl, wget, psql
+├── main.rs            # Clap 進入點;將子指令路由到對應過濾模組
+├── core/              # 執行骨架與共用機制
+│   ├── runner.rs      # 指令執行骨架:擷取原始輸出 → 過濾 → 輸出 → 記錄
+│   ├── stream.rs      # 串流/擷取式執行(capture / streaming / passthrough)
+│   ├── toml_filter.rs # 宣告式 TOML 過濾引擎
+│   ├── tracking.rs    # SQLite 節省指標(history.db)
+│   ├── tee.rs         # 失敗時保存完整輸出並附提示
+│   ├── truncate.rs    # 全域截斷上限(errors/warnings/list/inventory)
+│   └── filter.rs · config.rs · telemetry.rs · utils.rs …
+├── filters/           # 59 個「宣告式」.toml 過濾器(make/gradle/terraform/helm…)
+├── cmds/              # 「程式化」過濾模組(複雜解析,各含 README + //! 文件)
+│   └── system/ git/ rust/ go/ js/ python/ ruby/ dotnet/ jvm/ cloud/
+├── hooks/             # hook 安裝與 `rtk rewrite`(init.rs · rewrite_cmd.rs · permissions.rs)
+├── discover/          # `rtk discover`:掃描 session log 找優化機會 + 改寫規則 registry
+├── analytics/         # `rtk gain`:節省統計彙整
+├── parser/            # 共用解析器
+└── learn/             # 教學/學習輔助
 ```
 
-每個 `cmds/*` 子目錄都附自己的 README,說明檔案職責、解析策略與跨指令相依——對貢獻者相當友善的慣例。
+另有頂層 `hooks/` 目錄存放各代理的 hook 腳本(`claude/`、`copilot/`、`cursor/`、`cline/`、`windsurf/`、`codex/`、`opencode/`…)。**兩種過濾途徑並存**:簡單的「去雜訊」用 `src/filters/*.toml` 宣告式規則;需要結構化解析的(如 grep 分組、git diff)用 `src/cmds/*` 的 Rust 模組。
+
+---
+
+## 4.5 實作深入剖析:程式如何運行、過濾、輸出、偵測(附真實程式碼)
+
+> 本節片段均節錄自 rtk 原始碼(於本機 clone 後逐檔閱讀),並標註檔案位置。
+
+### A. 一條指令的生命週期(執行骨架 `src/core/runner.rs`)
+
+每個過濾模組共用同一套骨架:**計時開始 → 執行真實指令並擷取輸出 → 套用過濾函式 → 輸出(可選 tee 提示)→ 記錄節省**。三種模式:`Filtered`(擷取後整批過濾)、`Streamed`(邊串流邊過濾)、`Passthrough`(不過濾直接轉送)。核心片段:
+
+```rust
+// 失敗時可「跳過過濾、回傳原始輸出」——避免出錯時把關鍵訊息濾掉
+if opts.skip_filter_on_failure && exit_code != 0 {
+    print!("{}", result.raw_stdout);
+    eprint!("{}", result.raw_stderr);
+    timer.track(&cmd_label, …, raw, raw);          // 原始 == 過濾後,節省 0
+    return Ok(exit_code);
+}
+let filtered = filter_fn(text_to_filter);          // 套用該指令的過濾器
+print_with_hint(&filtered, raw, label, exit_code); // 輸出 + 可選 tee 提示
+timer.track(&cmd_label, …, raw_for_tracking, &filtered); // 記錄(原始 vs 過濾)
+```
+
+`RunOptions` 旗標決定行為:`skip_filter_on_failure`(失敗顯示原始)、`filter_stdout_only`(只過濾 stdout)、`inherit_stdin`(支援管線輸入如 `cat f | rtk wc`)、`tee_label`(啟用失敗存檔)。
+
+### B. Hook 如何「透明改寫」指令
+
+安裝的 hook 是一個**很薄的委派腳本**(`hooks/claude/rtk-rewrite.sh`),所有改寫邏輯都在 Rust 端(`rtk rewrite` → `src/discover/registry.rs`)。流程:Claude Code 執行 Bash 前觸發 PreToolUse hook → 腳本以 `jq` 取出指令 → 呼叫 `rtk rewrite "<cmd>"` → 依**退出碼**決定處理方式:
+
+| 退出碼 | stdout | 意義 |
+|---|---|---|
+| 0 | 改寫後指令 | 找到改寫且無權限規則 → 自動允許 |
+| 1 | (無) | 無 RTK 對應 → 原樣放行 |
+| 2 | (無) | 命中 deny 規則 → 交給 Claude Code 原生 deny |
+| 3 | 改寫後指令 | 命中 ask 規則 → 改寫但仍讓使用者確認 |
+
+退出 0 時,腳本回傳 PreToolUse JSON,把指令換成改寫版並標記允許(節錄 `rtk-rewrite.sh`):
+
+```bash
+jq -c --arg cmd "$REWRITTEN" \
+  '.tool_input.command = $cmd | {
+     "hookSpecificOutput": {
+       "hookEventName": "PreToolUse",
+       "permissionDecision": "allow",
+       "updatedInput": .tool_input } }' <<<"$INPUT"
+```
+
+**安全設計(`src/hooks/rewrite_cmd.rs`):** 先檢查 deny/ask **再**改寫(連非 RTK 指令也涵蓋);且「無任何規則」的預設(`Default`)必須對應 **exit 3(ask)而非 0(allow)**——否則任何沒設權限的指令都會被自動放行,破壞最小權限原則(對應 issue #1155)。
+
+**改寫規則(`src/discover/rules.rs`)** 是一張靜態表,每條規則含正則、目標指令、可改寫前綴與各子指令的預估節省:
+
+```rust
+pub struct RtkRule {
+    pub pattern: &'static str,        // 例:^(?:git|yadm)\s+(status|log|diff|…)
+    pub rtk_cmd: &'static str,        // "rtk git"
+    pub rewrite_prefixes: &'static [&'static str], // ["git","yadm"]
+    pub category: &'static str,
+    pub savings_pct: f64,
+    pub subcmd_savings: &'static [(&'static str, f64)],
+    …
+}
+```
+
+複合指令(含 `&&`、`||`、`;`、`|`)會被 lexer 切段、**逐段獨立改寫**,再替換前綴(`git status` → `rtk git status`);遇 heredoc、`gh --json/--jq`、`cat` 特殊旗標等會跳過改寫以免破壞輸出。
+
+### C. 過濾邏輯:兩套機制 + 截斷上限
+
+**機制一:宣告式 TOML 過濾器(`src/filters/*.toml`,共 59 個)。** 用正則描述「刪哪些行、保留多少、全刪光時印什麼」,引擎為 `src/core/toml_filter.rs`。完整範例(`make.toml`):
+
+```toml
+[filters.make]
+match_command = "^make\\b"
+strip_lines_matching = [
+  "^make\\[\\d+\\]:",        # 刪掉 Entering/Leaving directory
+  "^\\s*$",                  # 刪空白行
+  "^Nothing to be done",
+]
+max_lines = 50
+on_empty = "make: ok"        # 全被刪光時,只回一句「make: ok」
+```
+
+部分過濾器用 `match_output` 做**短路**:整段輸出命中某模式就壓成一句話(如 `ok (build succeeded)`、`ok (synced)`),並用 `unless` 當**安全閥**——只要出現 `error`/`warning` 就不短路,確保失敗訊息永不被吞掉(見 rsync、swift-build、bundle、poetry、uv、brew、dotnet)。
+
+**機制二:程式化 Rust 過濾器(`src/cmds/*`)。** 給需要結構化解析的指令。例如 `rtk grep` 其實在底層呼叫 **ripgrep(rg)**,把結果**依檔案分組**、截斷過長行、套用上限,輸出 `file:line:content` 格式讓代理好解析(`src/cmds/system/grep_cmd.rs`)。
+
+**全域截斷上限(`src/core/truncate.rs`)** 體現「錯誤最該被看到」的哲學:
+
+```rust
+pub const CAP_ERRORS: usize = 20;     // 錯誤:最該保留,給最多
+pub const CAP_WARNINGS: usize = 10;   // 警告:訊號密度較低
+pub const CAP_LIST: usize = 20;       // 扁平清單(PR、服務、套件)
+pub const CAP_INVENTORY: usize = 50;  // 清查類(pip list、docker images)
+```
+
+**安全網彙整:** ① `skip_filter_on_failure`(失敗回原始)② `on_empty`(全刪光時的占位訊息)③ `unless` 守衛(有錯就不短路)④ 過濾失敗 fallback 回原始。
+
+### D. 輸出與 tee:失敗也不丟資料(`src/core/tee.rs`)
+
+輸出時除了印過濾結果,還可把**完整未過濾輸出**存檔。`should_tee` 條件:功能開啟、模式為 `Failures`(預設,僅失敗)/`Always`、且原始輸出 ≥ **500 bytes**。存到 `~/.local/share/rtk/tee/{epoch}_{slug}.log`(單檔上限 1 MB、保留最新 20 個),並在輸出末尾附提示:
+
+```
+[full output: ~/.local/share/rtk/tee/1700000000_cargo_test.log]
+[see remaining: tail -n +22 ~/.local/share/rtk/tee/…]
+```
+
+代理拿到的是精簡版,但**真要除錯時完整日誌仍在**。
+
+### E. 系統如何「偵測」與「計算節省」
+
+**Token 估算是啟發式,不是真 tokenizer(`src/core/tracking.rs`):**
+
+```rust
+pub fn estimate_tokens(text: &str) -> usize {
+    (text.len() as f64 / 4.0).ceil() as usize   // 約每 4 bytes 一個 token
+}
+```
+
+> ⚠️ 用的是 **UTF-8 byte 長度**,所以中文/多位元組文字會被高估;原始碼註解也明說「要精確請接你 LLM 的 tokenizer」。
+
+**追蹤儲存於 SQLite(`~/.local/share/rtk/history.db`,WAL 模式 + busy_timeout,支援多個 Claude 並行)。** `commands` 表每筆記:`timestamp、original_cmd、rtk_cmd、input_tokens、output_tokens、saved_tokens、savings_pct、exec_time_ms、project_path`。節省計算:
+
+```rust
+let saved = input_tokens.saturating_sub(output_tokens);
+let pct = if input_tokens > 0 { saved as f64 / input_tokens as f64 * 100.0 } else { 0.0 };
+```
+
+超過 **90 天**的紀錄每次寫入時清理;passthrough 指令記為 `0/0` 以免稀釋統計。**`rtk gain`(`src/analytics/gain.rs`)** 把各筆加總,算 `avg_savings_pct`,並附 `by_command`、`by_day` 分解(可依專案路徑過濾)。
+
+**`rtk discover` 如何找優化機會(`src/discover/`):** 它**不是掃 shell history**,而是掃 **Claude Code 的 session 紀錄** `~/.claude/projects/<專案>/*.jsonl`:解析每行 JSON,抓出 `tool_use` 為 `Bash` 的指令,並用 `tool_use_id` 對回 `tool_result`(取得**真實輸出長度**與是否錯誤);再以 `classify_command`(用 `RegexSet` 取最具體規則)估算每個指令可省多少 token,產出「你最該為哪些指令裝 RTK」的報告。輸出長度缺失時才退回各類別平均值(如 cargo test 預設 500)。
+
+---
+
+## 4.6 大量真實範例(before → after)
+
+> 以下皆取自各過濾器 `*.toml` 內建的 `[[tests.*]]` 測試案例(input/expected),為**真實**對照,非杜撰。
+
+### 建置工具
+
+**make**(`^make\b`,刪 Entering/Leaving 與空白,3→1 行):
+```
+make[1]: Entering directory '/home/user'      gcc -O2 foo.c
+gcc -O2 foo.c                            →
+make[1]: Leaving directory '/home/user'
+```
+
+**dotnet build**(命中 `0 Warning(s)/0 Error(s)` 短路,~11→1 行):整段 Microsoft 橫幅 + restore + `Build succeeded` → **`ok (build succeeded)`**。
+
+**xcodebuild**(刪 25+ 種建置階段前綴 `CompileSwift`/`Ld`/`CodeSign`/`builtin-`…,~13→1):全部編譯細節 → **`** BUILD SUCCEEDED **`**。
+
+**mvn**(刪 `[INFO] ---`/`Building`/`Downloading`,6→3):只留 `BUILD SUCCESS` + 耗時 + 完成時間。
+
+**gradle**(刪 `UP-TO-DATE`/`NO-SOURCE`/daemon 行,6→3):只留實際執行的 `:app:test` 與 `BUILD FAILED`。
+
+**swift build**(`Build complete!` 短路、但有 `warning:/error:` 則不短路)→ **`ok (build complete)`**。
+
+**gcc/g++**:連結錯誤**原樣保留**(錯誤永不刪):
+```
+/usr/bin/ld: /tmp/main.o: undefined reference to 'missing_func'
+collect2: error: ld returned 1 exit status
+```
+
+### Linter / 型別檢查
+
+**biome / oxlint / ty**:乾淨時把 `Checked N files`/`Finished in…`/版本橫幅刪光 → **`biome: ok`**(或 `All checks passed!`);**有診斷則逐字保留**。
+
+**yamllint / shellcheck / hadolint / markdownlint**:只刪空白行,**所有診斷與 `^-- SCxxxx` caret 指標完整保留**(只壓縮排版,不丟訊號)。例如 shellcheck 7→6 行(僅移除中間空白)。
+
+### 基礎設施 / 網路
+
+**terraform plan / tofu plan**(刪 `Refreshing state`/state lock/`# … unchanged`,~10→4 行,`on_empty="… no changes detected"`):
+```
+Acquiring state lock...                  Terraform will perform the following actions:
+Refreshing state... [id=vpc-abc]           # aws_instance.web will be created
+Refreshing state... [id=sg-123]    →       + resource "aws_instance" "web" {}
+Releasing state lock...                  Plan: 1 to add, 0 to change, 0 to destroy.
+Terraform will perform the following …
+  …
+Plan: 1 to add, 0 to change, 0 to destroy.
+```
+
+**ping**(刪每封包行,`tail_lines=4` 只留統計,~8→3 行):
+```
+PING example.com (93.184.216.34): 56 …    --- example.com ping statistics ---
+64 bytes from … icmp_seq=0 time=14.2 ms → 4 packets transmitted, 4 received, 0.0% loss
+… (4 個封包行) …                          round-trip min/avg/max = 13.8/14.0/14.2 ms
+--- statistics ---  …
+```
+
+**rsync**(`total size is` 短路成 `ok (synced)`,~7→1;有 `error/failed/No such file` 則原樣)。
+**helm**(刪 glog `W0000` 警告)、**iptables**(刪 Docker 管理鏈 `Chain DOCKER`/`BR-`)、**systemctl status / df / du / ps**(刪空白、套 `max_lines`)。
+
+### 套件管理(下載/安裝雜訊 → 一句話)
+
+**uv sync**(`Audited N packages` 短路,2→1):
+```
+Resolved 42 packages in 123ms
+Audited 42 packages in 0.05ms     →     ok (up to date)
+```
+**bundle install** → `ok bundle: complete`;**poetry install**(刪 Downloading/Installing,~8→2);**composer install** → `ok (up to date)`;**brew install**(刪 `==> Downloading/Pouring` 與 `###` 進度條)→ `ok (already installed)`。
+
+### 其他 CLI
+
+**ansible-playbook**(刪 `ok:`/`skipping:`,只留 `changed:`/`failed:`/PLAY RECAP,~13→7)。
+**ollama run**(刪 ANSI 與 Braille spinner `⠋⠙⠹`,4→1):只留模型回覆那一行。
+**gcloud / jira / jq**:刪空白、`truncate_lines_at` 截長行、`max_lines` 套上限(大型 JSON 才會被截)。
+
+> 由表可見最大降幅來自**短路型**過濾器(dotnet ~11→1、xcodebuild ~13→1、bundle ~7→1)與**逐項剝除型**(ping、ansible、xcodebuild);而 linter/型別檢查多採「只刪空白、保留全部診斷」的保守策略。
 
 ---
 
@@ -212,7 +425,7 @@ RTK 透過三種機制支援 13+ 種代理平台:
 - **核心團隊:** Patrick Szymkowiak(創辦人)、Florian Bruniaux、Adrien Eppling。
 - **社群:** Discord + 開放 GitHub 貢獻。
 
-> **來源衝突——授權與遙測:** 倉庫自身文件(擷取到的 README/CLAUDE.md)聲明採 **Apache License 2.0**,並有 **可選加入(opt-in)、匿名、彙總式遙測**(不含原始碼、路徑、機密或個資;以 `rtk telemetry status` / `forget` 管理)。另一篇第三方部落格則宣稱 **MIT 授權、無遙測**。**請以倉庫的 `LICENSE` 檔與遙測文件為準**,使用前直接查證。
+> **授權與遙測(已由 clone 直接確認):** `LICENSE` 檔確認為 **Apache License 2.0**(先前某第三方部落格宣稱 MIT,**有誤**)。遙測為 **可選加入(opt-in)**:原始碼有 `src/core/telemetry.rs` 與 `docs/TELEMETRY.md`,以 `rtk telemetry` 子指令管理;預設不傳送,且不含原始碼、路徑或個資。
 
 ---
 
