@@ -6,6 +6,7 @@
 
 - **just-keep-buying** — [《持續買進》(Nick Maggiulli)重點](./investing/just-keep-buying/just-keep-buying-nick-maggiulli.md)
 - **ai-stock-analysis** — [用 AI 輔助股票分析:該怎麼問、有哪些工具](./investing/ai-stock-analysis/using-ai-for-stock-analysis.md)
+- **options-earnings-volatility** — [賣財報波動率:選擇權策略與真正的風險](./investing/options-earnings-volatility/selling-earnings-volatility.md)
 
 ## technology(科技與技術研究)
 
