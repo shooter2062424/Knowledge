@@ -26,3 +26,7 @@
    - 直連:`youtube-transcript-api` 得到 `RequestBlocked`(資料中心 IP 被擋);`yt-dlp` 得到 `CERTIFICATE_VERIFY_FAILED`(環境 TLS 攔截代理用自簽憑證)。
    - free proxy:38 個免費 proxy 全數 `ProxyError`——本沙箱只允許走核可出口,無法透過任意第三方 proxy 連到 `youtube.com:443`。
    - **結論:在此遠端環境抓 YouTube 字幕目前不可行**;上述 Python 方法應於使用者本機可運作。退而求其次:以影片標題搜尋相關報導/逐字稿文章還原內容,並於筆記中明確標註「非逐字稿」。
+5. **本機(使用者家中電腦)的實測結論(2026-05):**
+   - `youtube-transcript-api` 與 `yt-dlp`(2026.02.04)皆已安裝,且本機有 `node` v24 可當 JS runtime,**沒有 IP 被擋或 TLS 問題**——遠端的封鎖在本機不存在。
+   - 新版 yt-dlp 抓字幕需 JS runtime,務必加上 `--js-runtimes node`(否則會誤報「has no automatic captions」)。
+   - **真正的卡點變成「影片本身有沒有字幕」**:若影片未提供字幕也無自動字幕(`TranscriptsDisabled` / `has no automatic captions`),則任何工具都拿不到逐字稿,此時才退而以標題 + 既有知識還原並標註「非逐字稿」。
