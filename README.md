@@ -22,7 +22,10 @@
 ### 其他主題
 
 - **ai-token-saving** — [RTK(Rust Token Killer)深入研究報告](./technology/ai-token-saving/rtk-rust-token-killer-report.md)
-- **llm-architecture** — [Attention Residuals:把注意力「轉 90 度」用在網路深度上](./technology/llm-architecture/attention-residuals.md)
+- **llm-architecture**
+  - [Attention Residuals:把注意力「轉 90 度」用在網路深度上](./technology/llm-architecture/attention-residuals.md)
+  - [KV Cache:每個 LLM 背後那個看不見的把戲](./technology/llm-architecture/kv-cache.md)
 - **multi-agent-forecasting** — [Nexus:四代理分工的時間序列預測](./technology/multi-agent-forecasting/nexus-time-series.md)
+- **world-models-jepa** — [Yann LeCun 的 JEPA 與世界模型(上)](./technology/world-models-jepa/jepa-lecun-world-models.md)
 - **voxcpm-tts** — [VoxCPM:無分詞器的開源 TTS](./technology/voxcpm-tts/voxcpm-report.md)
 - **telecom-3gpp** — [3GPP 懸疑小說《頻譜密典》](./technology/telecom-3gpp/spectrum-codex-novel.md)
