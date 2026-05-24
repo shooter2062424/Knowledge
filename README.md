@@ -16,6 +16,7 @@
 - [什麼是 AI Harness?兩種 harness 的差別](./technology/agentic-engineering/ai-harness-explained.md)
 - [AI Agent 三大核心技:Function Calling、MCP、A2A](./technology/agentic-engineering/function-calling-mcp-a2a.md)
 - [awesome-agentic-ai-zh:中文學習路線圖](./technology/agentic-engineering/awesome-agentic-ai-zh-roadmap.md)
+- [AI Agent 記憶管理:有時候 Markdown 檔案就夠了](./technology/agentic-engineering/markdown-agent-memory.md)
 
 ### 其他主題
 
