@@ -87,6 +87,19 @@ flowchart LR
 
 ---
 
+## 9. 應用案例:設計一個會省錢的客服機器人
+
+**情境:** 做一個吃「公司 FAQ + 工具說明 + 使用者問題」的客服 agent,每天上萬次呼叫。
+
+- **照「順序」排 prompt:** 把 **不變的部分放最前**——system prompt、工具定義、整份 FAQ 文件;**使用者的問題放最後**。
+- **開 prompt caching:** 因為前綴(system+FAQ)每次都一樣,供應商把這段的 KV cache 留在 GPU 記憶體,**第二次起免重算**,只對「新問題」那幾十個 token 跑注意力 → 每次呼叫便宜一個量級(對應第 8 節的 5 美分 vs $1)。
+- **反例(常見錯誤):** 把使用者問題或時間戳放在 **最前面** → 每次前綴都變 → **整段 cache 失效**、每次都全額重算,帳單暴增。
+- **長對話/agent 迴圈:** 每多一輪 cache 變大(第 7 節),所以要主動 **修剪過時訊息**(對應 [[markdown-agent-memory]] 的「縮減」與 [[12-factor-agents]] F3「掌握上下文窗口」),避免 context 越拖越慢越貴。
+
+> 一句話落地:**穩定前綴 + 尾載查詢 + 修剪歷史** = 同樣的模型、同樣的答案,推論成本可差 10 倍。
+
+---
+
 ## 來源
 
 - [YouTube:KV Cache — The Invisible Trick Behind Every LLM(Adam Rosler)](https://youtu.be/tGp6Ns9GtSU)

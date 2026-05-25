@@ -48,6 +48,16 @@ flowchart TD
 
 ---
 
+## 6. 應用案例:同一個「查天氣的旅遊助理」,三種層次
+
+- **只有 Function Calling:** 你自己定義一個 `get_weather(city)` 函式給模型;使用者問「東京天氣?」→ 模型輸出 `get_weather("Tokyo")`,你的程式呼叫氣象 API、把結果餵回 → 模型回答。**綁死你寫的那一個工具。**
+- **升級到 MCP:** 改接一個現成的「天氣 MCP server」+「行事曆 MCP server」+「檔案 MCP server」;同一個助理(MCP host,如 Claude Code)即插即用這三個 server,不必為每個服務各寫整合。換一個相容 client 也能重用同一批 server。
+- **再到 A2A:** 規劃一趟旅行時,「協調者 agent」把任務拆給 **專職 agent**——查機票的、查天氣的、排行程的——各自完成再彙整。對應 [[nexus-time-series]] 的四代理分工與 [[12-factor-agents]] F10「小型聚焦代理」。
+
+> 一句話:**先讓模型會用一個工具(FC)→ 讓工具變成即插即用生態(MCP)→ 讓多個 agent 互相協作(A2A)**,正是 [[zero-person-ai-company]] 那種「AI 公司」能運作的底層協定。
+
+---
+
 ## 來源
 
 - [YouTube:AI Agent 三大核心技:Function Calling、MCP、A2A](https://youtu.be/PyctX9GQjXs)(非逐字稿,僅標題與既有知識還原)

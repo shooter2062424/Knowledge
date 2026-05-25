@@ -94,6 +94,17 @@ flowchart TD
 
 ---
 
+## 9. 應用案例:它對誰有用、怎麼用
+
+- **訓練前沿大模型的團隊(最直接):** 想在 **固定算力預算** 下榨出更低 loss——block 版可少用約 1.25× 計算追平 baseline、只多約 4% 訓練負擔。等於「同樣的 GPU 時數,訓出更強的模型」。Kimi 已把它插進 **Kimi Linear** 架構驗證。
+- **需要強多步推理的應用:** 因為漲幅最大的是 GPQA Diamond、數學等任務(後層能選擇性回取早期表示),做 **數學/程式/長鏈推理** 產品的人最該關注。
+- **架構研究者:** 與 MHC 正交,可當作「深度方向」的獨立改進維度來組合實驗(但注意報酬可能遞減、且犧牲簡潔)。
+- **一般 LLM 使用者/應用開發者:** 短期不需要動手——這是 **預訓練階段** 的架構改動,你會在「下一代基礎模型更便宜、推理更強」中間接受益。
+
+> 與本 repo 關聯:這是 [[kv-cache]] 之外另一條「讓 LLM 更有效率」的路線,差別在 **kv-cache 是推論期省成本,attention residuals 是訓練期/架構層提升品質與效率**。
+
+---
+
 ## 來源
 
 - [YouTube:An Insanely Elegant LLM Architecture Breakthrough Just Dropped(bycloud)](https://youtu.be/iw1VF8HOCrk)

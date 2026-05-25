@@ -112,6 +112,20 @@ flowchart LR
 
 ---
 
+## 10. 應用案例:本 Knowledge 倉庫自己就是範例
+
+這套「Markdown 即記憶」最貼身的應用案例,**就是你正在讀的這個 repo + 它的記憶系統**:
+
+- `MEMORY.md`(本機 `~/.claude/.../memory/`)= 文中的 **長期精選層**,每次 session 啟動載入;一行一則指標。
+- `memory/<slug>.md` 單一事實檔(含 frontmatter `type: user/feedback/project/reference`)= **精選知識** 的具體載體;例如本專案就用它記住了「每週日 06:30 整理 GitHub Weekly 的排程」「中文 commit 用無 BOM UTF-8」等。
+- **Git 版本控制**(本 repo 直接 push 到 `main`)= 文中「可提交、回滾、分支記憶」的實踐。
+- **grep/ripgrep 搜尋**(規模還小,<1000 檔)= 文中第一階段搜尋策略,完全夠用,還沒到要上 BM25/向量的規模。
+- `CLAUDE.md` 的寫作慣例 = 文中「漸進式上下文披露 / 規則文件」,等同 agent 每次都讀的「程序記憶」。
+
+> 換句話說:這篇筆記描述的架構,正是維護這份知識庫的 agent 每天在跑的東西——**先試 Markdown,真的撞到規模牆(>5MB、需語意搜尋)再考慮資料庫**。
+
+---
+
 ## 來源
 
 - [dev.to:AI Agent Memory Management — When Markdown Files Are All You Need](https://dev.to/imaginex/ai-agent-memory-management-when-markdown-files-are-all-you-need-5ekk)
