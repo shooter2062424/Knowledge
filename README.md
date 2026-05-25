@@ -23,6 +23,7 @@
 
 ### 其他主題
 
+- **ai-productivity** — [AI 時代真正拉開差距的三種能力](./technology/ai-productivity/three-valuable-ai-skills.md)
 - **ai-token-saving** — [RTK(Rust Token Killer)深入研究報告](./technology/ai-token-saving/rtk-rust-token-killer-report.md)
 - **llm-architecture**
   - [Attention Residuals:把注意力「轉 90 度」用在網路深度上](./technology/llm-architecture/attention-residuals.md)
