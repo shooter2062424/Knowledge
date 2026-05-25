@@ -324,6 +324,21 @@ Audited 42 packages in 0.05ms     →     ok (up to date)
 
 ---
 
+## 4.7 應用案例:一個真實工作情境
+
+**情境:** 一位工程師用 Claude Code 在混合 TypeScript / Rust 專案裡修一個失敗的測試,典型迴圈是「跑測試 → 看 git 狀態 → grep 找用法 → 改 → 再跑」。
+
+1. **一次性安裝:** `rtk init -g`(裝 Claude Code 的 PreToolUse hook)。之後工程師與模型 **完全照舊** 下指令,什麼都不用改。
+2. **模型發 `cargo test`** → hook 透明改寫成 `rtk cargo test` → 真實跑測試後,RTK **只回傳失敗的測試 + 錯誤**,把上千行「test result: ok」全濾掉(此指令實測約省 91.8%)。模型上下文只看到它真正需要的訊號。
+3. **模型發 `git status`** → `rtk git status` 回傳精簡變更清單(約省 80%);`git diff` 只回 diff 區塊。
+4. **模型發 `grep -r "parseConfig" src/`** → `rtk grep` 底層用 ripgrep、**依檔案分組** 輸出 `file:line:content`,截掉超長行(約省 49.5%)。
+5. **某次 `cargo build` 真的失敗** → RTK 一樣回精簡錯誤,但因為原始輸出 ≥500 bytes 且命中失敗,**tee 把完整日誌存到 `~/.local/share/rtk/tee/…`** 並在結尾附路徑——模型先看精簡版,工程師要深挖時完整日誌仍在。
+6. **收工檢視成效:** 跑 `rtk gain`,看到這段 session「原始 ~118k → 過濾後 ~24k tokens、平均省約 80%」,還能 `by_command` / `by_day` 分解。`rtk discover` 進一步掃 `~/.claude/projects/*.jsonl`,指出「你還有哪些常用指令該裝 RTK」。
+
+> **關鍵心法(可遷移):** 採用方式是 **量測你自己的 `rtk gain`**,而不是直接相信標題的 60–90%——省多少高度取決於你的工作型態(跑測試/建置/git 密集 → 省很多;純讀檔 → 較少,且 Claude 內建 Read/Grep 會繞過 hook)。並 **保持失敗時 tee 開啟**,讓壓縮永不阻礙除錯。這正呼應 [[kv-cache]] 的成本觀(在最冗長的來源處就把雜訊去掉,等於同時省 API 成本與上下文視窗)。
+
+---
+
 ## 5. 支援的指令範圍
 
 橫跨以下類別共 100+ 指令:
