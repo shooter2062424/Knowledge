@@ -20,6 +20,7 @@
 - [awesome-agentic-ai-zh:中文學習路線圖](./technology/agentic-engineering/awesome-agentic-ai-zh-roadmap.md)
 - [AI Agent 記憶管理:有時候 Markdown 檔案就夠了](./technology/agentic-engineering/markdown-agent-memory.md)
 - [Karpathy autoresearch:讓 AI agent 自主做 ML 研究的最小 harness](./technology/agentic-engineering/karpathy-autoresearch.md)
+- [Grep 就夠了嗎?Agent Harness 如何左右代理式檢索](./technology/agentic-engineering/grep-vs-vector-agentic-search.md)
 - [打造「0 人 AI 公司」:Hermes Agent + Paperclip 多代理協作](./technology/agentic-engineering/zero-person-ai-company.md)
 
 ### 其他主題
