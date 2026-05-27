@@ -8,6 +8,7 @@
 - **ai-stock-analysis** — [用 AI 輔助股票分析:該怎麼問、有哪些工具](./investing/ai-stock-analysis/using-ai-for-stock-analysis.md)
 - **options-earnings-volatility** — [賣財報波動率:選擇權策略與真正的風險](./investing/options-earnings-volatility/selling-earnings-volatility.md)
 - **technical-analysis** — [雙底雙頂:看的不是形態,而是動能衰減](./investing/technical-analysis/double-top-bottom-momentum.md)
+- **analyst-insights** — [別再相信目標價:前外資分析師拆解法人在看什麼](./investing/analyst-insights/target-prices-institutional-secrets.md)
 
 ## technology(科技與技術研究)
 
