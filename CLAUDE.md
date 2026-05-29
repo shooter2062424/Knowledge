@@ -11,10 +11,15 @@
   - 避免在標籤內直接使用 `>`;可改寫為「大於」等文字。
 
 ## 內容組織
-- 採 **「大類 → 主題」兩層** 結構:先分大類資料夾,再於其下建主題資料夾,報告放主題資料夾內。
+- 採 **「大類 → 中類 → 主題」三層** 結構:大類資料夾下分中類(子領域)資料夾,報告放在中類資料夾內(同一中類可放多篇相關報告)。
   - 大類示例:`investing/`(投資)、`technology/`(科技與技術研究)。
-  - 路徑示例:`investing/just-keep-buying/...`、`technology/ai-token-saving/...`、`technology/telecom-3gpp/...`。
+  - 現有中類:
+    - `investing/`:`strategy`、`derivatives`、`technical-analysis`、`ai-assisted`。
+    - `technology/`:`ai-agents`(再分 `foundations`/`autonomy`/`memory-retrieval`/`applications`/`resources`)、`llm-internals`(`architecture`/`inference`/`world-models`)、`ai-productivity`、`applied-ai`(`design`/`forecasting`/`speech-synthesis`)、`telecom`、`github-weekly`(週報 cron 落點)。
+  - 路徑示例:`technology/ai-agents/foundations/12-factor-agents.md`、`investing/strategy/just-keep-buying-nick-maggiulli.md`。
+  - 新筆記歸到最貼切的中類;若不屬於任何現有中類,可新增中類資料夾並更新 README 索引。
 - 資料夾命名一律用 **小寫英文 + 連字號**,保持網址乾淨。
+- **筆記檔名一旦建立盡量不要改**(筆記內以 `[[檔名slug]]` 互相連結,改名會讓連結失效)。
 - 報告結尾附上「來源」區塊,以 Markdown 超連結列出參考來源。
 - **預設分支為 `main`**;完成的筆記應整理到 `main`,讓 repo 首頁直接看到分類。
 
