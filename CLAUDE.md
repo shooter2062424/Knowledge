@@ -18,6 +18,15 @@
 - 報告結尾附上「來源」區塊,以 Markdown 超連結列出參考來源。
 - **預設分支為 `main`**;完成的筆記應整理到 `main`,讓 repo 首頁直接看到分類。
 
+## 兩個倉庫的分工(重要)
+- **本倉庫(Knowledge / knowledgedb)** 只放 **知識整理 report**(繁中筆記)。
+- **給 Claude 用的 skill / hook / command / agent** 一律放到另一個倉庫:
+  - **claude_marketplace** — `git@github.com:shooter2062424/claude_marketplace.git`(HTTPS: `https://github.com/shooter2062424/claude_marketplace.git`)
+  - 它是一個 **multi-plugin marketplace**:`.claude-plugin/marketplace.json` 列出所有 plugin;各 plugin 放在 `plugins/<name>/`,內含 `.claude-plugin/plugin.json` 與 `skills/ hooks/ commands/ agents/`。
+  - 新增 skill 時:歸到對應類別的 plugin(目前知識/學習類為 `knowledge-tools`);沒有對應類別就新增一個 plugin 並更新 `marketplace.json`。
+  - 使用者安裝:`/plugin marketplace add shooter2062424/claude_marketplace` → `/plugin install <plugin>@claude_marketplace`。
+- **慣例:** 日後若需求同時產生「知識」與「給 Claude 的能力」,report 進本倉庫、skill/plugin 進 claude_marketplace,兩邊各自 commit。
+
 ## 取得 YouTube 逐字稿的流程
 1. 先用 `WebFetch` / `WebSearch` 取得標題與內容。
 2. **若線上逐字稿服務失效(403/404/被擋),改用 Python 嘗試抓取**,例如:
