@@ -101,4 +101,5 @@ flowchart LR
 ## 來源
 
 - [Google Cloud:AI agent trends 2026(官方報告 PDF)](https://services.google.com/fh/files/misc/google_cloud_ai_agent_trends_2026_report.pdf)
+- 本地存檔(Git LFS):[`assets/reports/google_cloud_ai_agent_trends_2026_report.pdf`](../../assets/reports/google_cloud_ai_agent_trends_2026_report.pdf)
 - 數據:Google Cloud《The ROI of AI 2025》(n=3,466 企業決策者);Forrester / Google-Ipsos 等調查
