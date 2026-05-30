@@ -26,7 +26,7 @@
 ## 兩個倉庫的分工(重要)
 - **本倉庫(Knowledge / knowledgedb)** 只放 **知識整理 report**(繁中筆記)。
 - **給 Claude 用的 skill / hook / command / agent** 一律放到另一個倉庫:
-  - **ai-grocery**(舊名 claude_marketplace,2026-05-31 改名)— `git@github.com:shooter2062424/ai-grocery.git`(HTTPS: `https://github.com/shooter2062424/ai-grocery.git`)。本機 clone 仍在 `C:\Users\shoot\project\claude_marketplace`(資料夾沿用舊名,remote 已指向 ai-grocery)。
+  - **ai-grocery**(舊名 claude_marketplace,2026-05-31 改名)— `git@github.com:shooter2062424/ai-grocery.git`(HTTPS: `https://github.com/shooter2062424/ai-grocery.git`)。本機 clone 在 `C:\Users\shoot\project\ai-grocery`。
   - 它是一個 **multi-plugin marketplace**:`.claude-plugin/marketplace.json` 列出所有 plugin;各 plugin 放在 `plugins/<name>/`,內含 `.claude-plugin/plugin.json` 與 `skills/ hooks/ commands/ agents/`。
   - 新增 skill 時:歸到對應類別的 plugin(目前知識/學習類為 `knowledge-tools`);沒有對應類別就新增一個 plugin 並更新 `marketplace.json`。
   - 使用者安裝:`/plugin marketplace add shooter2062424/ai-grocery`(GitHub repo 路徑)→ `/plugin install <plugin>@ai-grocery`(`@` 後用 **marketplace 名稱**,定義在 `marketplace.json` 的 `name`)。repo 名與 marketplace 名稱已統一為 `ai-grocery`。
