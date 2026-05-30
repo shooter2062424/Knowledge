@@ -38,6 +38,7 @@ flowchart LR
     T --> T9["📊 ai-industry"]
     T --> T10["🏗️ system-design"]
     T --> T8["🖥️ claude-code"]
+    T --> T11["🌲 dev-tools"]
     T --> T6["⚛️ quantum-computing"]
     T --> T5["📡 telecom"]
     T1 --> T1a["foundations · autonomy · memory-retrieval<br/>applications · resources"]
@@ -55,6 +56,7 @@ flowchart LR
   - [📊 ai-industry(AI 產業與算力經濟)](#-ai-industryai-產業與算力經濟)
   - [🏗️ system-design(系統設計與架構)](#️-system-design系統設計與架構)
   - [🖥️ claude-code(Claude Code 維運)](#️-claude-codeclaude-code-維運)
+  - [🌲 dev-tools(開發者工具)](#-dev-tools開發者工具)
   - [🛡️ ai-safety(AI 安全與評測)](#️-ai-safetyai-安全與評測)
   - [⚛️ quantum-computing(量子計算)](#️-quantum-computing量子計算)
   - [📡 telecom(電信)](#-telecom電信)
@@ -172,6 +174,11 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [搬移專案目錄後如何保住 `--continue` 對話歷史](./technology/claude-code/continue-after-directory-move.md) | 歷史按路徑編碼存 ~/.claude/projects;搬目錄要同步改名 |
+
+### 🌲 dev-tools(開發者工具)
+| 主題 | 一句話 |
+|---|---|
+| [Tree-sitter:給程式工具用的「增量解析」引擎](./technology/dev-tools/tree-sitter.md) | 把原始碼變成可查詢、改一字不必重剖的語法樹;編輯器/GitHub/AI agent 的底層 |
 
 ### 🛡️ ai-safety(AI 安全與評測)
 | 主題 | 一句話 |
