@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-44_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-45_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-2-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -36,6 +36,7 @@ flowchart LR
     T --> T4["🎨 applied-ai"]
     T --> T7["🛡️ ai-safety"]
     T --> T9["📊 ai-industry"]
+    T --> T10["🏗️ system-design"]
     T --> T8["🖥️ claude-code"]
     T --> T6["⚛️ quantum-computing"]
     T --> T5["📡 telecom"]
@@ -52,6 +53,7 @@ flowchart LR
   - [🚀 ai-productivity(AI 生產力)](#-ai-productivityai-生產力)
   - [🎨 applied-ai(應用)](#-applied-ai應用)
   - [📊 ai-industry(AI 產業與算力經濟)](#-ai-industryai-產業與算力經濟)
+  - [🏗️ system-design(系統設計與架構)](#️-system-design系統設計與架構)
   - [🖥️ claude-code(Claude Code 維運)](#️-claude-codeclaude-code-維運)
   - [🛡️ ai-safety(AI 安全與評測)](#️-ai-safetyai-安全與評測)
   - [⚛️ quantum-computing(量子計算)](#️-quantum-computing量子計算)
@@ -160,6 +162,11 @@ flowchart LR
 | [AI 算力與 Token 經濟學:省錢神話撞上天價帳單](./technology/ai-industry/ai-compute-token-economics.md) | 降本悖論、token maxing、從比智商到比划算、應用層替硬體打工 |
 | [Google Cloud:AI Agent 趨勢 2026(五大轉變)](./technology/ai-industry/google-cloud-ai-agent-trends-2026.md) | 員工/工作流/客服/資安/規模五趨勢;A2A·MCP·AP2 三協定 |
 | [黃仁勳談生死與接班:不做接班計畫,而是不停傳遞知識](./technology/ai-industry/jensen-huang-succession-and-vision.md) | 每場會議都是推理會議;組織韌性來自知識擴散非繼任者 |
+
+### 🏗️ system-design(系統設計與架構)
+| 主題 | 一句話 |
+|---|---|
+| [為什麼 AI 寫的網站一上線就掛?用手搖飲店看懂架構擴展](./technology/system-design/scaling-web-architecture-bubble-tea.md) | 快取/Docker/CI-CD/負載平衡/Replica/微服務/CDN/Queue 是被問題逼出來的 |
 
 ### 🖥️ claude-code(Claude Code 維運)
 | 主題 | 一句話 |
