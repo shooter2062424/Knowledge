@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-39_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-40_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-2-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -35,6 +35,7 @@ flowchart LR
     T --> T3["🚀 ai-productivity"]
     T --> T4["🎨 applied-ai"]
     T --> T7["🛡️ ai-safety"]
+    T --> T9["📊 ai-industry"]
     T --> T8["🖥️ claude-code"]
     T --> T6["⚛️ quantum-computing"]
     T --> T5["📡 telecom"]
@@ -50,6 +51,7 @@ flowchart LR
   - [🧬 llm-internals(模型架構與推論)](#-llm-internals模型架構與推論)
   - [🚀 ai-productivity(AI 生產力)](#-ai-productivityai-生產力)
   - [🎨 applied-ai(應用)](#-applied-ai應用)
+  - [📊 ai-industry(AI 產業與算力經濟)](#-ai-industryai-產業與算力經濟)
   - [🖥️ claude-code(Claude Code 維運)](#️-claude-codeclaude-code-維運)
   - [🛡️ ai-safety(AI 安全與評測)](#️-ai-safetyai-安全與評測)
   - [⚛️ quantum-computing(量子計算)](#️-quantum-computing量子計算)
@@ -149,6 +151,11 @@ flowchart LR
 | [Claude Design 使用評測:AI 設計工具與設計師的品味](./technology/applied-ai/design/claude-design-review.md) | 執行被接管,人往「什麼該存在」的決策層移動 |
 | [Nexus:四代理分工的時間序列預測](./technology/applied-ai/forecasting/nexus-time-series.md) | 把「事件」帶進預測,而非只外推曲線 |
 | [VoxCPM:無分詞器的開源 TTS](./technology/applied-ai/speech-synthesis/voxcpm-report.md) | 直接生成連續語音表示、可用文字描述設計聲音 |
+
+### 📊 ai-industry(AI 產業與算力經濟)
+| 主題 | 一句話 |
+|---|---|
+| [AI 算力與 Token 經濟學:省錢神話撞上天價帳單](./technology/ai-industry/ai-compute-token-economics.md) | 降本悖論、token maxing、從比智商到比划算、應用層替硬體打工 |
 
 ### 🖥️ claude-code(Claude Code 維運)
 | 主題 | 一句話 |
