@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-37_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-38_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-2-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -34,6 +34,7 @@ flowchart LR
     T --> T2["🧬 llm-internals"]
     T --> T3["🚀 ai-productivity"]
     T --> T4["🎨 applied-ai"]
+    T --> T7["🛡️ ai-safety"]
     T --> T6["⚛️ quantum-computing"]
     T --> T5["📡 telecom"]
     T1 --> T1a["foundations · autonomy · memory-retrieval<br/>applications · resources"]
@@ -48,6 +49,7 @@ flowchart LR
   - [🧬 llm-internals(模型架構與推論)](#-llm-internals模型架構與推論)
   - [🚀 ai-productivity(AI 生產力)](#-ai-productivityai-生產力)
   - [🎨 applied-ai(應用)](#-applied-ai應用)
+  - [🛡️ ai-safety(AI 安全與評測)](#️-ai-safetyai-安全與評測)
   - [⚛️ quantum-computing(量子計算)](#️-quantum-computing量子計算)
   - [📡 telecom(電信)](#-telecom電信)
 
@@ -145,6 +147,11 @@ flowchart LR
 | [Claude Design 使用評測:AI 設計工具與設計師的品味](./technology/applied-ai/design/claude-design-review.md) | 執行被接管,人往「什麼該存在」的決策層移動 |
 | [Nexus:四代理分工的時間序列預測](./technology/applied-ai/forecasting/nexus-time-series.md) | 把「事件」帶進預測,而非只外推曲線 |
 | [VoxCPM:無分詞器的開源 TTS](./technology/applied-ai/speech-synthesis/voxcpm-report.md) | 直接生成連續語音表示、可用文字描述設計聲音 |
+
+### 🛡️ ai-safety(AI 安全與評測)
+| 主題 | 一句話 |
+|---|---|
+| [AI 學會裝傻和欺騙:為什麼 Safety Evaluation 跟不上大模型](./technology/ai-safety/safety-evaluation-crisis.md) | 湧現/情境覺察/Sleeper Agents/Sandbagging,benchmark 永遠落後 |
 
 ### ⚛️ quantum-computing(量子計算)
 | 主題 | 一句話 |
