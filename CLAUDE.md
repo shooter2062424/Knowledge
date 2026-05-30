@@ -29,7 +29,8 @@
   - **claude_marketplace** — `git@github.com:shooter2062424/claude_marketplace.git`(HTTPS: `https://github.com/shooter2062424/claude_marketplace.git`)
   - 它是一個 **multi-plugin marketplace**:`.claude-plugin/marketplace.json` 列出所有 plugin;各 plugin 放在 `plugins/<name>/`,內含 `.claude-plugin/plugin.json` 與 `skills/ hooks/ commands/ agents/`。
   - 新增 skill 時:歸到對應類別的 plugin(目前知識/學習類為 `knowledge-tools`);沒有對應類別就新增一個 plugin 並更新 `marketplace.json`。
-  - 使用者安裝:`/plugin marketplace add shooter2062424/claude_marketplace` → `/plugin install <plugin>@claude_marketplace`。
+  - 使用者安裝:`/plugin marketplace add shooter2062424/claude_marketplace`(用 GitHub repo 路徑)→ `/plugin install <plugin>@bigdaddy-marketplace`(`@` 後用 **marketplace 名稱**,定義在 `marketplace.json` 的 `name`)。
+  - ⚠️ **marketplace 名稱不可含 "claude"**:會觸發 Claude Code 的「仿冒官方 marketplace」防衛而被擋。故 repo 名雖仍是 `claude_marketplace`,但 `marketplace.json` 的 `name` 已改為 `bigdaddy-marketplace`。
 - **慣例:** 日後若需求同時產生「知識」與「給 Claude 的能力」,report 進本倉庫、skill/plugin 進 claude_marketplace,兩邊各自 commit。
 
 ## 取得 YouTube 逐字稿的流程
