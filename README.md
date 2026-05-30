@@ -39,6 +39,7 @@ flowchart LR
     T --> T10["🏗️ system-design"]
     T --> T8["🖥️ claude-code"]
     T --> T11["🌲 dev-tools"]
+    T --> T12["🗞️ github-weekly"]
     T --> T6["⚛️ quantum-computing"]
     T --> T5["📡 telecom"]
     T1 --> T1a["foundations · autonomy · memory-retrieval<br/>applications · resources"]
@@ -60,6 +61,7 @@ flowchart LR
   - [🛡️ ai-safety(AI 安全與評測)](#️-ai-safetyai-安全與評測)
   - [⚛️ quantum-computing(量子計算)](#️-quantum-computing量子計算)
   - [📡 telecom(電信)](#-telecom電信)
+  - [🗞️ github-weekly(GitHub 週報)](#️-github-weeklygithub-週報)
 
 ---
 
@@ -194,6 +196,11 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [3GPP 懸疑小說《頻譜密典》](./technology/telecom/spectrum-codex-novel.md) | 用懸疑小說包裝 3GPP 協定知識 |
+
+### 🗞️ github-weekly(GitHub 週報)
+| 期數 | 主題 |
+|---|---|
+| [第 115 期:桌面 AI 助手、程式 Agent 知識系統與隱身瀏覽器](./technology/github-weekly/issue-115.md) | OpenHuman / CodeGraph / CloakBrowser / CLI-Anything / LingBot-Map |
 
 ---
 
