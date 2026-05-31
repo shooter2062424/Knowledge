@@ -131,6 +131,7 @@ flowchart LR
 | [Man Group:用 Claude Skills 治理打通系統化交易](./technology/ai-agents/applications/claude-skills-governance-man-group.md) | 組織 context 是 IP;skill 治理解鎖企業級 |
 | [落地競賽:OpenAI 與 Anthropic 同日進軍企業導入](./technology/ai-agents/applications/enterprise-ai-adoption-race.md) | 企業買的不是模型,是落地能力 |
 | [打造「0 人 AI 公司」:Hermes Agent + Paperclip](./technology/ai-agents/applications/zero-person-ai-company.md) | 只對 CEO 下目標,agent 自動招募協作 |
+| [把 Hermes 爆改成主 Agent 中樞:調度 SubAgent 與 Claude/Gemini/Codex](./technology/ai-agents/applications/hermes-main-agent-orchestration.md) | 單一入口路由多模型 CLI;gateway/ACP/任務監控/分層抓取 |
 
 **resources — 學習資源**
 | 主題 | 一句話 |
