@@ -30,6 +30,7 @@ flowchart LR
     I --> I2["derivatives"]
     I --> I3["technical-analysis"]
     I --> I4["ai-assisted"]
+    I --> I5["equity-research"]
     T --> T1["🤖 ai-agents"]
     T --> T2["🧬 llm-internals"]
     T --> T3["🚀 ai-productivity"]
@@ -92,6 +93,11 @@ flowchart LR
 |---|---|
 | [用 AI 輔助股票分析:該怎麼問、有哪些工具](./investing/ai-assisted/using-ai-for-stock-analysis.md) | 盤前問「情報與計畫」而非「今天買哪支」 |
 | [用 Claude Code + Jesse 做 AI 演算法交易](./investing/ai-assisted/ai-algo-trading-claude-jesse.md) | 重點是驗證流程(顯著性檢定→回測→Monte Carlo→樣本外),不是那支策略 |
+
+### 📊 equity-research(個股與產業研究)
+| 主題 | 一句話 |
+|---|---|
+| [AI 是威脅還是機遇?軟體股多點開花的選股邏輯](./investing/equity-research/ai-software-stocks-usage-based.md) | 贏家三共性:2B + 按用量收費 + AI 帶來新增收入;基礎設施層最佳 |
 
 ---
 
