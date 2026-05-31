@@ -76,6 +76,7 @@ flowchart LR
 | [《持續買進》(Nick Maggiulli)](./investing/strategy/just-keep-buying-nick-maggiulli.md) | 把「買不買、何時買」變成不需意志力的自動規則 |
 | [別再相信目標價:前外資分析師拆解法人在看什麼](./investing/strategy/target-prices-institutional-secrets.md) | 法人不看目標價,看的是想法的改變與預期差 |
 | [收入高卻存不住錢?7 個正在掏空你的隱形習慣](./investing/strategy/hidden-money-draining-habits.md) | 先付給自己、只背好債、抑制生活膨脹、用槓桿買龍頭 |
+| [4 隻「無論何時都能安心買入」的 ETF](./investing/strategy/four-buy-anytime-etfs.md) | SGOV/JEPI/DGRO/ALLW;靠機制而非預測,長期增值+扛跌+低成本 |
 
 ### 🎲 derivatives(衍生性商品)
 | 主題 | 一句話 |
@@ -194,6 +195,7 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [Tree-sitter:給程式工具用的「增量解析」引擎](./technology/dev-tools/tree-sitter.md) | 把原始碼變成可查詢、改一字不必重剖的語法樹;編輯器/GitHub/AI agent 的底層 |
+| [Understand-Anything vs Graphify:codebase 變知識圖譜給 AI 查](./technology/dev-tools/understand-anything-vs-graphify.md) | 省 token vs 視覺化的取捨;Graphify 省一半 token+本地模型,Understand-Anything 圖更好 |
 
 ### 🛡️ ai-safety(AI 安全與評測)
 | 主題 | 一句話 |
