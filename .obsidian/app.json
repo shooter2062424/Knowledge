@@ -1,0 +1,16 @@
+{
+  "useMarkdownLinks": false,
+  "newLinkFormat": "shortest",
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "assets/attachments",
+  "showUnsupportedFiles": false,
+  "spellcheck": false,
+  "promptDelete": false,
+  "readableLineLength": true,
+  "strictLineBreaks": false,
+  "showLineNumber": true,
+  "foldHeading": true,
+  "foldIndent": true,
+  "showFrontmatter": true,
+  "defaultViewMode": "preview"
+}

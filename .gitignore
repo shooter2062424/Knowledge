@@ -1,0 +1,19 @@
+# --- Obsidian:保留共用設定,忽略本機/易變狀態 ---
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.obsidian/graph-default.json
+.obsidian/plugins/*/data.json
+.trash/
+
+# --- 委託任務(本機暫存,不入庫) ---
+quests/
+
+# --- 作業系統雜訊 ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- 暫存/逐字稿等 ---
+*.tmp
+_transcripts.json.br
