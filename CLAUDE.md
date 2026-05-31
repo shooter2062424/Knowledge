@@ -46,4 +46,13 @@
 5. **本機(使用者家中電腦)的實測結論(2026-05):**
    - `youtube-transcript-api` 與 `yt-dlp`(2026.02.04)皆已安裝,且本機有 `node` v24 可當 JS runtime,**沒有 IP 被擋或 TLS 問題**——遠端的封鎖在本機不存在。
    - 新版 yt-dlp 抓字幕需 JS runtime,務必加上 `--js-runtimes node`(否則會誤報「has no automatic captions」)。
-   - **真正的卡點變成「影片本身有沒有字幕」**:若影片未提供字幕也無自動字幕(`TranscriptsDisabled` / `has no automatic captions`),則任何工具都拿不到逐字稿,此時才退而以標題 + 既有知識還原並標註「非逐字稿」。
+   - **真正的卡點變成「影片本身有沒有字幕」**:若影片未提供字幕也無自動字幕(`TranscriptsDisabled` / `has no automatic captions`),**先走第 6 步用 Whisper 轉錄**,不要直接退回「非逐字稿」。
+6. **影片完全沒有字幕時:下載音訊 + 跑 CPU 版 Whisper 轉錄(使用者指定的首選 fallback,2026-05 實測可行):**
+   - 本機已裝 `faster-whisper`(1.2.1)與 `PyAV`(av 16.x);**faster-whisper 透過 PyAV 解碼,可直接吃原始 `.mp4/.m4a/.webm`,不需系統 ffmpeg**(本機 ffmpeg 缺也沒關係)。
+   - **下載音訊**:`yt-dlp --no-update --js-runtimes node --remote-components ejs:github -f "bestaudio/best" -o "audio.%(ext)s" <url>`。
+     - **關鍵:`--remote-components ejs:github`**(JS challenge solver)。少了它,音訊資料下載常 `HTTP 403 Forbidden`(SABR-only 串流實驗)。
+     - **不要**加 `-x --audio-format mp3`(那會需要系統 ffmpeg);直接抓原始檔給 whisper 即可。
+   - **轉錄(CPU)**:`WhisperModel('small', device='cpu', compute_type='int8')` → `.transcribe(path, language='zh', vad_filter=True, beam_size=5)`,把 segment 文字寫進暫存 `.txt` 再用 Read 讀(終端機中文會亂碼)。3 分鐘音訊用 small 約數十秒;品質不足可換 `medium`(較慢)。
+   - 取得逐字稿後正常整理筆記;**在「來源」標註「該片無字幕,逐字稿以 CPU 版 faster-whisper 轉錄取得,非官方字幕」**(可能有少量聽寫誤差)。
+   - **只有當 Whisper 也拿不到**(影片無音訊/下載失敗)才退回「標題 + 說明欄 + 既有知識」並標註「非逐字稿」。
+   - 取 metadata(標題/說明欄)時若 `yt-dlp --print > file` 出現亂碼,改用 `yt_dlp` Python API 取 `info` 再用 `open(...,encoding='utf-8')` 寫檔。
