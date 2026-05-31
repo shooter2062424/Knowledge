@@ -85,6 +85,7 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [雙底雙頂:看的不是形態,而是動能衰減](./investing/technical-analysis/double-top-bottom-momentum.md) | 真假反轉的關鍵是第二隻腳/頭的動能有沒有衰減 |
+| [短線交易七條核心法則(熊貓有財)](./investing/technical-analysis/short-term-trading-7-rules.md) | 順勢/強勢股/別被洗盤嚇走/追新;但通篇沒講停損,風控要自己補 |
 
 ### 🤝 ai-assisted(AI 輔助投資)
 | 主題 | 一句話 |
