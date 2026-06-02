@@ -94,6 +94,37 @@ flowchart TB
 
 ---
 
+## 補充(bycloud 對論文的拆解):成本、MoE、後訓練、量化
+
+這支由 bycloud 對 58 頁技術報告的拆解,補上不少 AI Search 沒談到的點:
+
+### 成本經濟學(這次發布的真正主軸)
+V4 把**單 token 成本砍了近 75%**(對 V3.2)。DeepSeek API(75% 折扣、現已永久):約 **$0.435 / 百萬 input、$0.87 / 百萬 output**,cache hit $0.3625。對照:GLM 5.1 $1.4/$4.4、Gemini 3.1 Pro $2/$12、**Opus 4.6 $5/$25**。
+> 同樣預算:用 DeepSeek 可撐 **7 年**,用 Claude 只能 **4 個月**。而 DeepSeek 估計仍有 50–70% 毛利。**這是一次「性價比發布」,不是 benchmark maxing。**
+
+### 模型家族(6 個變體)
+- **V4 Pro**:1.6 兆總參數 / **49B 活躍**(史上最大開源)。**Flash**:284B 總 / **13B 活躍**。皆 1M context。
+- 變體:**Pro / Pro Base / Pro Max、Flash / Flash Base / Flash Max**——**Max 不是不同架構**,只是「最高推理 effort」設定(更長 context、更弱長度懲罰、不同 system prompt)。Base = 純預訓練未微調。
+- 推理模式:non-thinking / thinking-high / **think-max**。Pro Max 自稱**最強開源**(贏 Terminal Bench Hard),但坦承推理仍落後 GPT 5.4 / Gemini 3.1 Pro **約 3–6 個月**。
+
+### KV cache 壓縮的家族史
+MLA(V2/V3,比 GQA 小 3.6x)→ DSA(V3.2,稀疏只讀 ~248 個 KV,128k 時少讀 ~64x)→ **V4 = DSA + 真正縮小記憶體**:Pro 用約 10% KV(9.5x)、Flash 約 7%(13.7x);**對 GQA baseline 總共縮 34x(Pro)/ 49x(Flash)**。注意:**仍是二次方注意力,只是慢很多,不是線性注意力。**
+
+### MoE 細節
+DeepSeek MoE:**256 個細粒度 router experts + 共享 experts**;router 激活從 Sigmoid 改 **Square Root SoftPlus** + 加序列級平衡損失(避免長序列塌縮到少數 expert)。**把前幾層的 dense 層改成 hash routing**(由 token ID 決定 expert,給 token 級模式穩定路徑,不浪費容量學路由)。
+
+### 後訓練的大決定:最終模型「不直接 RL」
+不對最終模型直接做 RL,而是:**複製 base model → 各領域(數學/程式/agent/指令)分別訓練 specialist**(可驗證任務用 GRPO,不可驗證用 generative reward model 按 rubric 評分)→ 再用 **on-policy distillation** 把多個 specialist 老師的能力**蒸餾回一個統一模型**。好處:避免混合 RL 目標互相衝突,讓最終模型不被單一 RL 目標主導。(對照 [[grpo-vs-gepa]] 的 GRPO。)
+
+### 圍繞「推理瓶頸」重設計整個 stack
+- 訓練資料 32–33T token(雙倍於以往);用 token splitting、fill-in-the-middle、**DSML(XML 工具呼叫格式,讓 tool use 結構化)**、document packing + **sample-level attention masking**(避免無關文件互相 attend)。
+- **FP4 量化感知訓練(QAT)** for MoE expert 權重(訓練時就模擬 FP4,而非事後量化);**對華為晶片 day-zero 推理支援**(中國 NVIDIA 受限)。
+> 主題:**「怎麼讓 100 萬 token context 真的便宜?」**——當注意力變便宜,瓶頸就轉移到 expert 權重的搬運與計算,於是連這層都量化。整份論文「讀起來更像系統工程論文」。
+
+> 🔸 排名小差異:AI Search 說「第二強開源(僅次 Kimi K2.6)」,bycloud 說「第三(在 Kimi K2.6 與 Mimo V2.5 Pro 之後)」——以實際榜單為準,總之是**開源前段班、逼近頂級閉源**。
+
+---
+
 ## 應用案例 / 為什麼值得讀
 
 - **理解「為什麼長 context 這麼貴、以及怎麼壓」**:CSA/HCA/Sliding Window 三路徑是「**多解析度注意力**」的具體範例——對照本庫 [[kv-cache]](KV cache 是什麼、為何爆炸),V4 正是把 KV cache 砍 90% 的實作。
@@ -114,5 +145,6 @@ flowchart TB
 ## 來源
 
 - YouTube:[The insane engineering of Deepseek V4(AI Search)](https://youtu.be/XJUpuOBpT-4)
+- YouTube:[How DeepSeek V4 Broke AI's Cost Curse(bycloud,論文 part 1)](https://youtu.be/gC76aeibdFA) — 成本、MoE、後訓練蒸餾、FP4 等細節來源。
 - [DeepSeek V4 官方說明](https://api-docs.deepseek.com/news/news260424);DeepSeek V4 論文與開源(Hugging Face / GitHub,含 mHC 論文與 fused kernel repo)。
 - 延伸:本庫 [[kv-cache]]、[[context-engineering-processing-vs-thinking]]、[[long-running-agents-goal-evaluation]]。
