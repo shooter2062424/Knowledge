@@ -77,7 +77,7 @@ flowchart LR
 | [別再相信目標價:前外資分析師拆解法人在看什麼](./investing/strategy/target-prices-institutional-secrets.md) | 法人不看目標價,看的是想法的改變與預期差 |
 | [收入高卻存不住錢?7 個正在掏空你的隱形習慣](./investing/strategy/hidden-money-draining-habits.md) | 先付給自己、只背好債、抑制生活膨脹、用槓桿買龍頭 |
 | [4 隻「無論何時都能安心買入」的 ETF](./investing/strategy/four-buy-anytime-etfs.md) | SGOV/JEPI/DGRO/ALLW;靠機制而非預測,長期增值+扛跌+低成本 |
-| [《像冠軍一樣思考和交易》(Minervini)](./investing/strategy/minervini-think-trade-like-champion.md) | SEPA + Trend Template + VCP;核心是停損與部位控制,不是更會預測 |
+| [《像冠軍一樣思考和交易》(Minervini)](./investing/strategy/minervini-think-trade-like-champion.md) | SEPA/Stage2/Trend Template 8條/VCP(2-6T)/停損3-8%/漸進建倉/賣出規則;核心是控風險 |
 
 ### 🎲 derivatives(衍生性商品)
 | 主題 | 一句話 |
