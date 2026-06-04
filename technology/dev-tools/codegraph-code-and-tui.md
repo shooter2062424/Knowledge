@@ -36,6 +36,14 @@ flowchart LR
 `codegraph_search`(找符號)、`codegraph_node`(看某符號詳情)、`codegraph_callers`(誰呼叫它)、`codegraph_callees`(它呼叫誰)、`codegraph_explore`(探索鄰居)、`codegraph_impact`(改它會影響什麼)、`codegraph_files`(檔案結構)、`codegraph_status`。
 > **省 token 的原理**:agent 問「誰呼叫 `foo`?改它影響哪些測試?」時,**查 SQLite 圖譜一次回答**,而不是 grep 全庫 + 讀十幾個檔——這就是「少 94% 工具呼叫」的來源(對照 [[understand-anything-vs-graphify]]、[[grep-vs-vector-agentic-search]]、[[context-engineering-processing-vs-thinking]] 的「索引取代吞整包」)。
 
+### agent 怎麼接:MCP(而且是 daemon + proxy)
+**agent ↔ CodeGraph 走 MCP(Model Context Protocol),不是另開一套 HTTP API。**
+- `codegraph serve` 的描述就是「Start CodeGraph as an **MCP server** for AI assistants」——把上面 8 個工具以 **MCP 工具** 形式暴露;`codegraph install` 則把這個 server **註冊進各家 agent 設定**(Claude Code/Cursor/Codex/opencode/Hermes),之後 agent 透過 MCP(本地 stdio / JSON-RPC)呼叫,而非打 REST。
+- `src/mcp/` 透露它是 **「daemon + proxy」** 架構,不是每次重開:
+  - `daemon.ts`(397 行):**常駐背景進程**,持有 SQLite 圖譜(索引保持熱的)。
+  - `transport.ts`(407 行)+ `proxy.ts`(450 行):每個 agent 啟動的 MCP server 進程其實是個**薄代理**,透過 transport 連到那個 daemon。
+  - 好處:**多個 agent / session 共用同一份熱索引**,不必各自重載整庫的圖 → 啟動快、省記憶體。
+
 ### CLI 指令(commander)
 `init / index / sync / status / query / files / serve(起 MCP)/ callers / callees / impact / affected / install / uninstall`。`install` 會把自己註冊進 Claude Code、Cursor、Codex CLI、opencode、**Hermes Agent**(見 [[hermes-main-agent-orchestration]])。
 
