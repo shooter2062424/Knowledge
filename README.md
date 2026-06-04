@@ -79,6 +79,7 @@ flowchart LR
 | [4 隻「無論何時都能安心買入」的 ETF](./investing/strategy/four-buy-anytime-etfs.md) | SGOV/JEPI/DGRO/ALLW;靠機制而非預測,長期增值+扛跌+低成本 |
 | [《像冠軍一樣思考和交易》(Minervini)](./investing/strategy/minervini-think-trade-like-champion.md) | SEPA/Stage2/Trend Template 8條/VCP(2-6T)/停損3-8%/漸進建倉/賣出規則;核心是控風險 |
 | [股癌選股心法:籌碼/技術都是工具,本質是選對題材的好股](./investing/strategy/gooaye-stock-picking-philosophy.md) | 籌碼太懸、技術只是工具;先選題材(看得懂有未來)再比估值;選股選得好要飯要到老 |
+| [《會想的人,先有錢》(Jonathan Clements)](./investing/strategy/thinkers-get-rich-jonathan-clements.md) | 整天看盤沒賺比較多;依時間軸配置+指數+定期定額;投資是手段不是目的 |
 
 ### 🎲 derivatives(衍生性商品)
 | 主題 | 一句話 |
