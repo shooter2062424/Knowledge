@@ -114,6 +114,7 @@ flowchart LR
 |---|---|
 | [什麼是 AI Harness?兩種 harness 的差別](./technology/ai-agents/foundations/ai-harness-explained.md) | harness = 模型權重以外的一切 |
 | [Harness Engineering 的演進:Prompt → Context → Harness](./technology/ai-agents/foundations/harness-engineering-evolution.md) | context 撞牆在越摘要越失真;harness 用 loop+每輪乾淨 context 取代(Ralph) |
+| [Pi Agent:用「留白」的極簡 harness 對沖框架易變](./technology/ai-agents/foundations/pi-agent-minimal-harness.md) | OpenClaw 的大腦;刻意不內建 MCP/sub-agent,能用 TS 擴展自己的 harness;build less |
 | [12-Factor Agents:打造可上線、可靠的 LLM 代理](./technology/ai-agents/foundations/12-factor-agents.md) | 大量普通軟體 + 少量精心設計的 LLM 步驟 |
 | [CLAUDE.md 12 條規則:把編碼錯誤率從 41% 壓到 3%](./technology/ai-agents/foundations/claude-md-12-rules.md) | 每條規則都對應一個你實際踩過的坑 |
 | [AI Agent 三大核心技:Function Calling、MCP、A2A](./technology/ai-agents/foundations/function-calling-mcp-a2a.md) | 會用工具 → 即插即用生態 → agent 互相協作 |
