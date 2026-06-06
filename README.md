@@ -8,8 +8,8 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-45_篇-4c8bf5?style=flat-square)
-![Categories](https://img.shields.io/badge/大類-2-9b59b6?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-46_篇-4c8bf5?style=flat-square)
+![Categories](https://img.shields.io/badge/大類-3-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
 ![Made with](https://img.shields.io/badge/協作-Claude_Code-d97757?style=flat-square)
@@ -26,6 +26,8 @@
 flowchart LR
     K["🧠 Knowledge"] --> I["💰 investing"]
     K --> T["⚙️ technology"]
+    K --> C["💼 career"]
+    C --> C1["workplace"]
     I --> I1["strategy"]
     I --> I2["derivatives"]
     I --> I3["technical-analysis"]
@@ -63,6 +65,7 @@ flowchart LR
   - [⚛️ quantum-computing(量子計算)](#️-quantum-computing量子計算)
   - [📡 telecom(電信)](#-telecom電信)
   - [🗞️ github-weekly(GitHub 週報)](#️-github-weeklygithub-週報)
+- [💼 career(職涯與職場)](#-career職涯與職場)
 
 ---
 
@@ -238,6 +241,15 @@ flowchart LR
 | 期數 | 主題 |
 |---|---|
 | [第 115 期:桌面 AI 助手、程式 Agent 知識系統與隱身瀏覽器](./technology/github-weekly/issue-115.md) | OpenHuman / CodeGraph / CloakBrowser / CLI-Anything / LingBot-Map |
+
+---
+
+## 💼 career(職涯與職場)
+
+### 🧑‍💼 workplace(職場生存)
+| 主題 | 一句話 |
+|---|---|
+| [十大恐怖主管特質:從竹科裸辭看「只做向上管理」如何逼走好員工](./career/workplace/ten-toxic-manager-traits.md) | 看主管做了什麼別聽他說什麼;光說不練/微觀管理/造假……中一點就是有毒信號 |
 
 ---
 
