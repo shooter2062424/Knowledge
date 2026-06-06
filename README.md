@@ -8,8 +8,8 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-49_篇-4c8bf5?style=flat-square)
-![Categories](https://img.shields.io/badge/大類-3-9b59b6?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-50_篇-4c8bf5?style=flat-square)
+![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
 ![Made with](https://img.shields.io/badge/協作-Claude_Code-d97757?style=flat-square)
@@ -28,6 +28,8 @@ flowchart LR
     K --> T["⚙️ technology"]
     K --> C["💼 career"]
     C --> C1["workplace"]
+    K --> H["🩺 health"]
+    H --> H1["wellness"]
     I --> I1["strategy"]
     I --> I2["derivatives"]
     I --> I3["technical-analysis"]
@@ -66,6 +68,7 @@ flowchart LR
   - [📡 telecom(電信)](#-telecom電信)
   - [🗞️ github-weekly(GitHub 週報)](#️-github-weeklygithub-週報)
 - [💼 career(職涯與職場)](#-career職涯與職場)
+- [🩺 health(健康與身體)](#-health健康與身體)
 
 ---
 
@@ -253,6 +256,17 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [十大恐怖主管特質:從竹科裸辭看「只做向上管理」如何逼走好員工](./career/workplace/ten-toxic-manager-traits.md) | 看主管做了什麼別聽他說什麼;光說不練/微觀管理/造假……中一點就是有毒信號 |
+
+---
+
+## 🩺 health(健康與身體)
+
+> ⚠️ 健康相關筆記為衛教資訊整理,**非醫療建議**;診斷與治療請諮詢醫師。
+
+### 🌱 wellness(健康保健)
+| 主題 | 一句話 |
+|---|---|
+| [你以為健康,其實天天慢性發炎:四個敵人與四個對策](./health/wellness/chronic-inflammation-four-enemies.md) | 超加工食品/久坐/內臟脂肪/睡眠不足走四條路徑;只改一個或吞薑黃素沒用;驗 HS-CRP |
 
 ---
 
