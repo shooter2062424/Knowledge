@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-47_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-48_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-3-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -185,6 +185,7 @@ flowchart LR
 | [你可能用錯 AI 了:Processing vs Thinking 與三層 token 效率陷阱](./technology/ai-productivity/context-engineering-processing-vs-thinking.md) | 別讓 AI 搬磚;讀檔/長對話/agent 檢索三層 context engineering |
 | [AI 編程的三個致命錯覺(OpenCode Dax Raad)](./technology/ai-productivity/ai-coding-three-illusions-opencode.md) | 自動變快/執行就贏/在飛皆是幻覺;瓶頸是想清楚做什麼,慢下來打地基才最快 |
 | [AI 時代怎麼「讀」程式碼:6 個技巧](./technology/ai-productivity/reading-code-ai-era-6-techniques.md) | 從進入點/先讀測試/跟著資料走/跳雜訊/讀一條失敗路徑/壓成一句話 |
+| [AI 旅遊規劃組合技:NotebookLM + Gemini + My Maps](./technology/ai-productivity/ai-travel-planning-notebooklm-gemini.md) | 蒐集即時資料→整合零散素材→Canvas排程當裁判→CSV匯地圖→Live現場助理;分工是關鍵 |
 
 ### 🎨 applied-ai(應用)
 | 主題 | 一句話 |
