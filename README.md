@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-53_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-69_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -256,6 +256,22 @@ flowchart LR
 | 期數 | 主題 |
 |---|---|
 | [第 115 期:桌面 AI 助手、程式 Agent 知識系統與隱身瀏覽器](./technology/github-weekly/issue-115.md) | OpenHuman / CodeGraph / CloakBrowser / CLI-Anything / LingBot-Map |
+| [第 114 期:DeepSeek V4 終端編程 Agent、金融 Agent 集合與開源電子簽](./technology/github-weekly/issue-114.md) | DeepSeek-TUI / financial-services / DocuSeal / easy-vibe / SuperSplat |
+| [第 113 期:AI 終端機開源、駭客工具箱、Skill 生態與一句話生成影片](./technology/github-weekly/issue-113.md) | Warp / hackingtool / Skills / awesome-codex-skills / Pixelle-Video |
+| [第 112 期:DeepSeek V4 開源、GPT-Image-2 玩法庫與開源金融終端](./technology/github-weekly/issue-112.md) | DeepSeek-V4-Pro / GPT-Image-2-prompts / FinceptTerminal / DeepTutor / Apollo-11 |
+| [第 111 期:Karpathy 經驗的 Claude Code 設定、Agent 協作平台與新 TTS](./technology/github-weekly/issue-111.md) | karpathy-skills / Multica / VoxCPM2 / MarkItDown / QMD |
+| [第 110 期:Rust 版 Claude Code、端側 AI、記憶宮殿與自進化 Agent](./technology/github-weekly/issue-110.md) | claw-code / AI Edge Gallery / MemPalace / Hermes Agent / OpenScreen |
+| [第 109 期:被開源的 Claude Code、JS 排版引擎與瀏覽器端 3D 建模](./technology/github-weekly/issue-109.md) | Claude Code / Pretext / Claude How To / Gemma 4 / Pascal Editor |
+| [第 108 期:Claude Code 終極優化、離線生存電腦與從零手搓 Agent](./technology/github-weekly/issue-108.md) | Everything Claude Code / N.O.M.A.D. / Learn Claude Code / Page Agent / OpenMAIC |
+| [第 107 期:被 OpenAI 收購的 AI 安全工具、AI 代理事務所與上下文資料庫](./technology/github-weekly/issue-107.md) | promptfoo / agency-agents / awesome-openclaw-skills / claude-hud / OpenViking |
+| [第 106 期:阿里 OpenClaw 替代、WiFi 人體感知與多代理深度研究](./technology/github-weekly/issue-106.md) | CoPaw / RuView / worldmonitor / GitNexus / deer-flow |
+| [第 105 期:Rust 版 OpenClaw、本地語音克隆、Qwen3.5 與 AI 滲透測試](./technology/github-weekly/issue-105.md) | zeroclaw / voicebox / Qwen3.5 / pentagi / carbon |
+| [第 104 期:智譜 GLM-5 旗艦模型、AI 編碼助手配置管理與金融研究 Agent](./technology/github-weekly/issue-104.md) | GLM-5 / cc-switch / shannon / monty / dexter |
+| [第 103 期:超輕量 OpenClaw 復刻、程式 Agent 記憶與聊天記錄分析](./technology/github-weekly/issue-103.md) | NanoBot / Beads / ChatLab / Vision-Agents / KeyStats |
+| [第 102 期:個人 AI 助理、React 生成影片與 Kimi K2.5 開源模型](./technology/github-weekly/issue-102.md) | OpenClaw / Remotion / Kimi K2.5 / PageIndex / LangExtract |
+| [第 101 期:開源版 Cowork、資料工程實戰課、瀏覽器 MCP 與設計 Agent Skill](./technology/github-weekly/issue-101.md) | Eigent / data-engineering-zoomcamp / chrome-devtools-mcp / ui-ux-pro-max-skill / VoidNovelEngine |
+| [第 100 期:開源程式 Agent、AI 技能框架與電腦操作 Agent](./technology/github-weekly/issue-100.md) | opencode / Superpowers / TARS / MiroThinker / icloud-downloader / wechat-exporter |
+| [第 99 期:AI 程式代理編排、Claude Skills 與 Agent 生成 UI](./technology/github-weekly/issue-99.md) | vibe-kanban / skills / A2UI / Mole / fresh / rendercv |
 
 ---
 
