@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-70_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-71_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -252,6 +252,7 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [3GPP 懸疑小說《頻譜密典》](./technology/telecom/spectrum-codex-novel.md) | 用懸疑小說包裝 3GPP 協定知識 |
+| [WiFi 是怎麼傳遞資訊的?把資訊裝進電磁波的硬核原理](./technology/telecom/wifi-how-it-works.md) | QAM 在振幅相位刻位元、OFDM 擠千條子載波、MIMO 開平行空間;WiFi4→7 提速之路 |
 
 ### 🗞️ github-weekly(GitHub 週報)
 | 期數 | 主題 |
