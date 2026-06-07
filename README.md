@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-69_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-70_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -161,6 +161,7 @@ flowchart LR
 | [Agent Streaming 格式設計:串流是要設計的應用層介面](./technology/ai-agents/applications/agent-streaming-format-design.md) | 頻道×命名空間、快照/增量(JSON Patch)、存整段事件序列、斷線重連 |
 | [用 AI 分析 Agent Traces:讓 agent 讀 trace,人類把持品味](./technology/ai-agents/applications/agent-trace-analysis-with-ai.md) | 三方案(自有 coding agent/執行時自診斷/批次掃描);agent 放大規模、人決定方向 |
 | [AI 時代怎麼創業?Anthropic 新創 Playbook 四階段 workflow](./technology/ai-agents/applications/anthropic-startup-playbook.md) | 十人獨角獸;Idea/MVP/Launch/Scale 各用哪個 Claude;差距是誰把 AI 系統化得更好 |
+| [AI Operating System(AIOS):讓 AI 長期懂你、替你工作的系統](./technology/ai-agents/applications/ai-operating-system-aios.md) | 四核心 Context/Connections/Capabilities/Cadence;progressive loading 省 context;從操作者變系統擁有者 |
 
 **resources — 學習資源**
 | 主題 | 一句話 |
