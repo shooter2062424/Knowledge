@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-51_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-52_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -44,6 +44,7 @@ flowchart LR
     T --> T10["🏗️ system-design"]
     T --> T8["🖥️ claude-code"]
     T --> T11["🌲 dev-tools"]
+    T --> T13["🎨 web-dev"]
     T --> T12["🗞️ github-weekly"]
     T --> T6["⚛️ quantum-computing"]
     T --> T5["📡 telecom"]
@@ -63,6 +64,7 @@ flowchart LR
   - [🏗️ system-design(系統設計與架構)](#️-system-design系統設計與架構)
   - [🖥️ claude-code(Claude Code 維運)](#️-claude-codeclaude-code-維運)
   - [🌲 dev-tools(開發者工具)](#-dev-tools開發者工具)
+  - [🎨 web-dev(網頁前端開發)](#-web-dev網頁前端開發)
   - [🛡️ ai-safety(AI 安全與評測)](#️-ai-safetyai-安全與評測)
   - [⚛️ quantum-computing(量子計算)](#️-quantum-computing量子計算)
   - [📡 telecom(電信)](#-telecom電信)
@@ -227,6 +229,11 @@ flowchart LR
 | [CodeGraph 原始碼深讀:架構與 shimmer TUI 怎麼做](./technology/dev-tools/codegraph-code-and-tui.md) | Tree-sitter→SQLite 圖譜→MCP 8 工具;TUI 用 worker 直寫 fd1 讓動畫不被 SQLite 凍住 |
 | [C++ 演進史:複雜性詛咒、記憶體危機與 AI 時代絕地反擊](./technology/dev-tools/cpp-evolution-complexity-ai-era.md) | 三座冰山(複雜性/泛型反噬/Rust 圍剿);但 PyTorch/CUDA/llama.cpp 引擎全是 C++ |
 | [ddddocr 原始碼深讀:離線驗證碼識別 SDK(OCR/檢測/滑塊/MCP)](./technology/dev-tools/ddddocr-captcha-ocr.md) | ONNX+CTC 解碼、YOLOX 檢測、OpenCV 滑塊;FastAPI+MCP 給 agent 用;雙面刃工具 |
+
+### 🎨 web-dev(網頁前端開發)
+| 主題 | 一句話 |
+|---|---|
+| [CSS View Transitions:純 CSS 讓多頁網站有 SPA 般轉場](./technology/web-dev/css-view-transitions.md) | 一行 @view-transition 啟用;old/new/group 三偽元素+共享圖 morph;progressive enhancement |
 
 ### 🛡️ ai-safety(AI 安全與評測)
 | 主題 | 一句話 |
