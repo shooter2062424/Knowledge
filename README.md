@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-50_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-51_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -206,6 +206,7 @@ flowchart LR
 | [Google Cloud:AI Agent 趨勢 2026(五大轉變)](./technology/ai-industry/google-cloud-ai-agent-trends-2026.md) | 員工/工作流/客服/資安/規模五趨勢;A2A·MCP·AP2 三協定 |
 | [黃仁勳談生死與接班:不做接班計畫,而是不停傳遞知識](./technology/ai-industry/jensen-huang-succession-and-vision.md) | 每場會議都是推理會議;組織韌性來自知識擴散非繼任者 |
 | [NVIDIA N1X 能撞開 x86 四十年城牆嗎?三個變量定成敗](./technology/ai-industry/nvidia-n1x-vs-x86.md) | 換的不是速度是 CUDA;消費牆已破,但續航/需求/企業三牆未過;邊緣 vs 資料中心兩線作戰 |
+| [NVIDIA RTX Spark(GB10 超級晶片)技術解析](./technology/ai-industry/rtx-spark-gb10-soc.md) | 10+10核Arm+近桌面5070 GPU+128G統一記憶體;最適合本地AI推理之一;隱憂是Win on ARM |
 | [大模型 API 中轉站起底:0.5 折的 GPT/Claude 摻了多少水](./technology/ai-industry/llm-api-relay-stations.md) | 便宜來自薅大廠訂閱/免費羊毛(非換便宜模型);降質摻水+資安風險;灰色地帶 |
 
 ### 🏗️ system-design(系統設計與架構)
