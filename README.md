@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-77_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-78_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -37,6 +37,7 @@ flowchart LR
     I --> I5["equity-research"]
     T --> T1["🤖 ai-agents"]
     T --> T2["🧬 llm-internals"]
+    T --> T14["📐 machine-learning"]
     T --> T3["🚀 ai-productivity"]
     T --> T4["🎨 applied-ai"]
     T --> T7["🛡️ ai-safety"]
@@ -58,6 +59,7 @@ flowchart LR
 - [⚙️ technology(科技與技術研究)](#️-technology科技與技術研究)
   - [🤖 ai-agents(代理工程)](#-ai-agents代理工程)
   - [🧬 llm-internals(模型架構與推論)](#-llm-internals模型架構與推論)
+  - [📐 machine-learning(機器學習模型與方法)](#-machine-learning機器學習模型與方法)
   - [🚀 ai-productivity(AI 生產力)](#-ai-productivityai-生產力)
   - [🎨 applied-ai(應用)](#-applied-ai應用)
   - [📊 ai-industry(AI 產業與算力經濟)](#-ai-industryai-產業與算力經濟)
@@ -184,6 +186,11 @@ flowchart LR
 | [Yann LeCun 的 JEPA 與世界模型](./technology/llm-internals/world-models/jepa-lecun-world-models.md) | 非生成、聯合嵌入預測;反 LLM 的另一條路 |
 | [Sutton 的 enactive AI:一張自相矛盾的反大模型藍圖](./technology/llm-internals/world-models/sutton-enactive-ai.md) | 行動認知≠生成式;兩根柱子撞自己的獎勵假設與苦澀教訓;三桌賭 2028/2030 |
 | [SDAR:用逐 token 門控穩住多輪 Agent 的 RL 後訓練](./technology/llm-internals/training/sdar-agentic-rl.md) | RL 為主幹+門控蒸餾,避免多輪 OPSD 崩潰、技能內化 |
+
+### 📐 machine-learning(機器學習模型與方法)
+| 主題 | 一句話 |
+|---|---|
+| [LimiX:用「遮罩聯合分布」打造的結構化資料(表格)基礎模型](./technology/machine-learning/limix-tabular-foundation-model.md) | 一個模型四任務(分類/迴歸/填補/生成);CCMM+axis-wise attention;in-context 免訓練;勝 XGBoost/TabPFN |
 
 ### 🚀 ai-productivity(AI 生產力)
 | 主題 | 一句話 |
