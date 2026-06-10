@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-78_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-79_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -181,6 +181,7 @@ flowchart LR
 | [DeepSeek V4 的瘋狂工程:用不夠的資源做出頂尖模型](./technology/llm-internals/architecture/deepseek-v4-engineering.md) | hybrid attention(CSA/HCA/滑窗)+ mHC 雙隨機約束防爆 + Muon + 通訊重疊;KV cache 砍 90% |
 | [microGPT(Karpathy):200 行純 Python 講完整個 GPT 演算法](./technology/llm-internals/architecture/microgpt-karpathy.md) | autograd→架構→Adam→取樣全在眼前;KV cache 顯式;「其餘都只是效率」 |
 | [大型語言模型,簡單講(3Blue1Brown)](./technology/llm-internals/architecture/llm-explained-3blue1brown.md) | LLM=下一字機率函式;參數/反向傳播/預訓練/RLHF/Transformer attention 白話入門 |
+| [DiffusionGemma:把「擴散」搬進語言模型,並行生成可自我修正](./technology/llm-internals/architecture/diffusion-gemma.md) | 非自迴歸,256-token 畫布多輪去噪;瓶頸從記憶體頻寬轉計算;雙向注意力能改錯解數獨 |
 | [KV Cache:每個 LLM 背後那個看不見的把戲](./technology/llm-internals/inference/kv-cache.md) | 穩定前綴 + 尾載查詢,推論便宜 10 倍 |
 | [RTK(Rust Token Killer)深入研究](./technology/llm-internals/inference/rtk-rust-token-killer-report.md) | 在 I/O 邊界確定性壓縮工具輸出,省 60–90% token |
 | [Yann LeCun 的 JEPA 與世界模型](./technology/llm-internals/world-models/jepa-lecun-world-models.md) | 非生成、聯合嵌入預測;反 LLM 的另一條路 |
