@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-79_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-80_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -102,6 +102,7 @@ flowchart LR
 |---|---|
 | [雙底雙頂:看的不是形態,而是動能衰減](./investing/technical-analysis/double-top-bottom-momentum.md) | 真假反轉的關鍵是第二隻腳/頭的動能有沒有衰減 |
 | [短線交易七條核心法則(熊貓有財)](./investing/technical-analysis/short-term-trading-7-rules.md) | 順勢/強勢股/別被洗盤嚇走/追新;但通篇沒講停損,風控要自己補 |
+| [當沖有技巧嗎?NYSE 傳奇交易員 Peter Tuchman 的 40 年心法](./investing/technical-analysis/peter-tuchman-day-trading.md) | 別靠財報/FOMO 當沖;最大敵人是恐懼;移動平均+RSI;自我重塑與感恩心態 |
 
 ### 🤝 ai-assisted(AI 輔助投資)
 | 主題 | 一句話 |
