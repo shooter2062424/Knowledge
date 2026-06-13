@@ -25,15 +25,15 @@
 
 ```mermaid
 flowchart TB
-    U["你按 Enter"] --> G["QueryGuard 上鎖<br/>(idle → dispatching → running)"]
-    G --> A1["① 組這一圈的請求<br/>system prompt + 壓縮閘 + 對話訊息"]
-    A1 --> A2["② 串流送給 Anthropic API"]
-    A2 --> A3{"這一圈模型有要求工具嗎?"}
-    A3 -->|"有"| A4["③ 執行工具<br/>先過權限階梯,再決定並行或串行"]
-    A4 --> A5["④ 工具結果回灌成下一圈的 user 訊息<br/>順手排空佇列、注入記憶與 skill"]
+    U["你按 Enter"] --> G["QueryGuard 上鎖<br/>idle→dispatching→running"]
+    G --> A1["① 組請求<br/>system prompt<br/>+ 壓縮閘 + 對話"]
+    A1 --> A2["② 串流送給<br/>Anthropic API"]
+    A2 --> A3{"這圈模型<br/>有要工具嗎?"}
+    A3 -->|有| A4["③ 執行工具<br/>權限階梯→<br/>並行 / 串行"]
+    A4 --> A5["④ 結果回灌成<br/>下一圈 user 訊息<br/>順手排佇列、注入 skill"]
     A5 --> A1
-    A3 -->|"沒有(needsFollowUp=false)"| A6["跑 stop hooks → 回合結束<br/>QueryGuard 解鎖(running → idle)"]
-    A6 --> A7["你剛剛若插過話 → 佇列現在登場,開下一圈"]
+    A3 -->|沒有| A6["跑 stop hooks<br/>→ 回合結束<br/>QueryGuard 解鎖"]
+    A6 --> A7["你剛插的話<br/>→ 佇列登場,開下一圈"]
 ```
 
 > **一句話心法**:Claude Code = 「**把對話+工具結果反覆回灌給模型,直到模型不再要求工具**」的迴圈。所有難點都在「每圈餵什麼、何時壓縮、工具怎麼安全並行、你插話怎麼排」。
@@ -73,10 +73,10 @@ get isActive(): boolean { return this._status !== 'idle' }   // dispatching+runn
 
 ```mermaid
 flowchart LR
-    I["閒置 idle"] -->|"reserve()"| D["放行中 dispatching<br/>(此刻 isActive 已是 true,<br/>正是防併發的關鍵空窗)"]
-    D -->|"tryStart():這場真的開演"| R["執行中 running"]
-    D -->|"cancelReservation():排隊失敗、退回"| I
-    R -->|"end():演完散場"| I
+    I["閒置<br/>idle"] -->|"reserve()"| D["放行中 dispatching<br/>isActive 已 = true<br/>(防併發的關鍵空窗)"]
+    D -->|"tryStart()"| R["執行中<br/>running"]
+    D -->|取消退回| I
+    R -->|"end()"| I
 ```
 
 **為什麼要 `dispatching` 這個中間態**:從「決定要跑」到「query 真的啟動」之間有一段 async 空窗。如果這段時間 guard 還是 `idle`,你**手快連按兩次 Enter** 時,第二次提交會看到 `idle`、誤判「現在沒事我可以跑」,於是同時啟動**兩個** query、把對話搞亂。`reserve()` 在第一個 `await` 前就同步把狀態推成 `dispatching`,讓 `isActive` 立刻變 `true`,把競爭者擋去排隊。`generation` 計數器則解決另一個競態:被 `end()` 的必須是「自己這一代」,避免一個 stale 的 `finally` 把後來啟動的新 query 給關掉。
@@ -195,14 +195,14 @@ const INLINE_NOTIFICATION_MODES = new Set(['prompt', 'task-notification'])
 
 ```mermaid
 flowchart TD
-    S["你按 Enter 的當下"] --> Q{"queryGuard.isActive?"}
-    Q -->|否| IMM["立刻開新回合(步驟 0)"]
-    Q -->|是| EN["enqueue(預設 next)"]
-    EN --> W{"Claude 此刻在做什麼?"}
-    W -->|"多步工具迴圈中<br/>(還會再叫工具)"| B["路徑B:下一個工具迭代<br/>邊界注入當前回合<br/>→ 幾乎立刻接手"]
-    W -->|"最後純文字回覆<br/>(不再叫工具了)"| A["路徑A:沒有邊界可注入<br/>→ 等回合結束才處理"]
-    W -->|"你打的是 /slash 指令"| A2["路徑A:中途注入明確排除 slash<br/>→ 等回合結束"]
-    W -->|"指令是 now 優先級(遠端)"| AB["abort 當前操作直接插隊"]
+    S["你按 Enter"] --> Q{"queryGuard<br/>.isActive?"}
+    Q -->|否| IMM["立刻開新回合"]
+    Q -->|是| EN["進佇列<br/>(預設 next)"]
+    EN --> W{"Claude<br/>此刻在做什麼?"}
+    W -->|"還在叫工具"| B["路徑 B<br/>下個工具邊界<br/>注入當前回合<br/>→ 幾乎立刻接手"]
+    W -->|"在講結案台詞"| A["路徑 A<br/>沒邊界可注入<br/>→ 等回合結束"]
+    W -->|"打的是 /slash"| A2["路徑 A<br/>slash 不中途注入<br/>→ 等回合結束"]
+    W -->|"now 緊急訊息"| AB["abort<br/>插隊"]
 ```
 
 | 你輸入當下 Claude 正在… | 行為 | 機制 |
