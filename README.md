@@ -110,6 +110,7 @@ flowchart LR
 | [用 AI 輔助股票分析:該怎麼問、有哪些工具](./investing/ai-assisted/using-ai-for-stock-analysis.md) | 盤前問「情報與計畫」而非「今天買哪支」 |
 | [用 Claude Code + Jesse 做 AI 演算法交易](./investing/ai-assisted/ai-algo-trading-claude-jesse.md) | 重點是驗證流程(顯著性檢定→回測→Monte Carlo→樣本外),不是那支策略 |
 | [用 Python 做強化學習交易機器人(EUR/USD 外匯)](./investing/ai-assisted/rl-trading-bot-forex.md) | RL 五要素+Gym/PPO 四檔架構;訓練漂亮、樣本外打回原形;市場噪音難抓信號 |
+| [用 Claude + TradingView 蓋盤前交易計畫流水線(Humbled Trader)](./investing/ai-assisted/humbled-trader-claude-tradingview-pipeline.md) | Scanner A→B→Pine/Python 回測→排程→Telegram;AI 是放大器不是策略生成器 |
 
 ### 📊 equity-research(個股與產業研究)
 | 主題 | 一句話 |
@@ -254,7 +255,8 @@ flowchart LR
 | [CodeGraph 原始碼深讀:架構與 shimmer TUI 怎麼做](./technology/dev-tools/codegraph-code-and-tui.md) | Tree-sitter→SQLite 圖譜→MCP 8 工具;TUI 用 worker 直寫 fd1 讓動畫不被 SQLite 凍住 |
 | [C++ 演進史:複雜性詛咒、記憶體危機與 AI 時代絕地反擊](./technology/dev-tools/cpp-evolution-complexity-ai-era.md) | 三座冰山(複雜性/泛型反噬/Rust 圍剿);但 PyTorch/CUDA/llama.cpp 引擎全是 C++ |
 | [ddddocr 原始碼深讀:離線驗證碼識別 SDK(OCR/檢測/滑塊/MCP)](./technology/dev-tools/ddddocr-captcha-ocr.md) | ONNX+CTC 解碼、YOLOX 檢測、OpenCV 滑塊;FastAPI+MCP 給 agent 用;雙面刃工具 |
-| [whisper.cpp vs faster-whisper:本機 CPU 轉錄 Benchmark](./technology/dev-tools/whisper-cpp-vs-faster-whisper-benchmark.md) | 同 small 模型準確度相同;whisper.cpp 快 1.4-1.9×;轉 wav 僅 0.5s;改用 whisper.cpp |
+| [whisper.cpp vs faster-whisper:本機 CPU 轉錄 Benchmark](./technology/dev-tools/whisper-cpp-vs-faster-whisper-benchmark.md) | 同 small 準確度相同;whisper.cpp 快 1.4-1.9× 但無 VAD 會在配樂段幻覺迴圈;按素材分流 |
+| [Python 3.15 新特性:frozendict / Sentinel / lazy import](./technology/dev-tools/python-3-15-new-features.md) | 三個把奇技淫巧變語言內建的特性;附「以前怎麼解/現在怎麼解」對照 |
 
 ### 🎨 web-dev(網頁前端開發)
 | 主題 | 一句話 |
