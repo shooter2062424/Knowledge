@@ -878,6 +878,47 @@ if (toolUseContext.abortController.signal.aborted) {
 
 ---
 
+## 總覽 A:它的「Harness Engineering」做法(把散在各時刻的點收成一張圖)
+
+前面的時間線就是 harness 在跑。但如果把鏡頭拉遠、問「Claude Code 把 agent harness 工程化成什麼樣子」,答案是**一個刻意做薄、把所有變化外化出去的 async generator 迴圈**。對照本庫 [[ai-harness-explained]]、[[harness-engineering-evolution]]、[[loop-engineering]] 的概念,它的 harness 工程體現在七個決策:
+
+1. **harness = 一個 `while(true)` async generator,合約只有一條**:「把對話 + 工具結果回灌給模型,直到模型不再要求工具」。`query.ts`(~1700 行)就是整個 harness,`QueryEngine.ts` 只是外層 driver(時刻 0、4)。
+2. **退出訊號自己數,不信 API**:用 `needsFollowUp`(串流中看到任何 tool_use 就設)當唯一 loop-exit 訊號,而非 `stop_reason`(時刻 4)。harness 對「模型到底還要不要做事」有自己的真相來源。
+3. **變化全外化,核心不長肉**:同一個 `query()` 被主迴圈、子 agent、fork、壓縮 summarizer **共用**;差異全塞進「傳進去的 `ToolUseContext` + 工具池 + system prompt」(時刻 10、11)。要長新行為是「換餵進去的東西」,不是改迴圈。
+4. **可測試性內建(deps 注入)**:`callModel/microcompact/autocompact/uuid` 四個最常被 mock 的 I/O 抽成 `query/deps.ts`,測試塞 fake 即可,不用 spyOn 整個模組。
+5. **跨圈狀態收斂成單一 `State` + `transition`**:每條續跑路徑都 `state = {...}; continue`,且 `transition.reason` 記錄「這圈為何續跑」(`max_output_tokens_recovery`/`stop_hook_blocking`/`token_budget_continuation`…),刻意做成「準 reducer」形狀、也讓測試能斷言走了哪條 recovery(時刻 4、12)。
+6. **錯誤與中止是 harness 的一級公民**:單一 `abortController.signal` 貫穿全程;串流/非串流各有「補齊缺失 tool_result」的策略(否則 API 會壞);可恢復錯誤(PTL / max_output_tokens)在串流時 `withheld` 暫不吐、確定 recovery 失敗才吐,避免把中間錯誤洩漏給「一見 error 就終止 session」的 SDK 消費端(時刻 4、12)。
+7. **單輪/多輪由 stop hooks 決定,不是硬編**:沒有 tool_use 不代表結束——hook 回 blocking error 就把它當 user 訊息回灌、`continue` 成多輪(時刻 12)。harness 把「要不要再跑一圈」這個決定權開放給可插拔的 hook。
+
+> **一句話**:它的 harness engineering 哲學是 **「迴圈做到最薄、契約做到最清、所有變化外化、錯誤與中止當頭等公民」**——薄到子 agent、fork、壓縮都能原封不動複用它。這正是 [[harness-engineering-evolution]] 講的「從 prompt → context → harness」演進的成熟終點:你工程化的不是提示詞,是**那個驅動模型的迴圈本身**。
+
+---
+
+## 總覽 B:它的「Context Window 管理」做法(整個視窗誰佔了、何時清)
+
+Context window 管理在主線散在時刻 2(組裝)、3、8、9、11(壓縮),這裡收成一張完整的「**這塊有限的視窗,誰住進來、住多久、滿了先趕誰**」:
+
+**① 視窗裡住了什麼、依什麼順序排(時刻 2)**
+- **system prompt**:靜態段(身份/工具指引,boundary 之前、可全域快取)+ 動態段(memory 行為/output style/env,boundary 之後)。`git status` append 在 system prompt 尾巴。
+- **messages[0]**:你的 `CLAUDE.md` + 今天日期,包成 `<system-reminder>` 的第一則 user 訊息(**不在 system prompt 裡**)。
+- **對話本體**:user/assistant/tool_result 一圈圈累積。
+- **每圈動態注入**:skill listing(只佔 **1%** 視窗,delta 只送新的,時刻 8)、排隊指令(時刻 1)、memory/skill prefetch、deferred MCP 工具(預設不佔,要用才由 ToolSearch 載入,時刻 9)。
+
+**② 怎麼知道「快滿了」(token 估算與門檻)**
+- 精準用 API `countTokens`,拿不到就 `length/4`(JSON 用 `/2`);image/document 一律算 2000 token 避免低估。
+- 門檻不是「滿了才壓」,而是 `200K − 20K(留給摘要輸出)− 13K(安全邊際)≈ 167K` 就觸發(時刻 11);另有 warning/error/blocking 多層門檻給 UI 與手動操作把關。
+
+**③ 滿了先趕誰(兩段式壓縮,時刻 3 + 11)**
+- 每圈送 API 前依序:`applyToolResultBudget`(限制工具結果總量)→ `snip` → **microcompact**(輕量,只清舊 tool_result;暖快取用 server 端 `cache_edits`、冷快取直接清內容)→ **autocompact**(重量,fork 一個 summarizer 把整段對話換成 9 段摘要)。
+- **壓縮後重新注入**有預算:最近 5 個檔案(每檔 ≤5K、總 ≤50K token)、用過的 skill(≤5K/總 ≤25K)、plan、deferred tools delta——**且會跟保留的尾段 diff,已經有的不重注入**。
+
+**④ 整套都在伺候 prompt cache(這是貫穿全篇的主軸)**
+- system prompt 的 boundary、fork 的位元組級相同前綴、microcompact 的冷熱分流、summarizer fork 不設 maxOutputTokens——**每個 context 管理決策旁邊都站著「別讓伺服器快取失效」這個考量**。context 管理不只是「省視窗」,更是「省錢」:一次 cache miss 等於整段前綴重算重收費。
+
+> **一句話**:它的 context 管理是 **「分層佔位(各有 token 預算)+ 漸進揭露(skill/MCP 要用才載)+ 兩段式壓縮(輕的先上、重的 fork 摘要)+ 全程護著 prompt cache」**。對照本庫 [[markdown-agent-memory]](對話之外的記憶)、[[context-engineering-processing-vs-thinking]](token 效率三層陷阱),這份是「官方怎麼把有限視窗用到極致」的實作對照。
+
+---
+
 ## 改 code 速查表(每站的「動哪裡 / 踩什麼雷」彙整)
 
 | 你想改的 | 時刻 | 動這個檔/函式 | 最大的雷 |
