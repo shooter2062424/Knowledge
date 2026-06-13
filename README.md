@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-94_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-95_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -281,6 +281,7 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [搬移專案目錄後如何保住 `--continue` 對話歷史](./technology/claude-code/continue-after-directory-move.md) | 歷史按路徑編碼存 ~/.claude/projects;搬目錄要同步改名 |
+| [Claude Code 原始碼徹底拆解:一句 prompt 的一生](./technology/claude-code/claude-code-architecture-deep-dive.md) | 讀外洩原碼+CCB;harness 主迴圈/工具並行/skill 漸進揭露/MCP defer/子agent fork/壓縮;含 queue prompt 機制與改 code 速查 |
 
 ### 🌲 dev-tools(開發者工具)
 | 主題 | 一句話 |
