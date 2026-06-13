@@ -912,6 +912,33 @@ if (toolUseContext.abortController.signal.aborted) {
 
 Context window 管理在主線散在步驟 2(組裝)、3、8、9、11(壓縮),這裡收成一張完整的「**這塊有限的視窗,誰住進來、住多久、滿了先趕誰**」:
 
+### ⓪ 你打 `/context` 看到的那張分項表,是怎麼算出來的
+
+你截圖那張「Messages 70.2% / System tools 1.3% / Skills 0.9% / Memory files 0.5% / System prompt 0.3% / Custom agents 0.0% / MCP tools(deferred)2.3% / System tools(deferred)1.4% / Free space 26.7%」,**不是 Claude Code 內部隨便估的,而是 `/context` 指令(`utils/analyzeContext.ts`)現場算的**——而且它的算法本身就把「context 管理」講得最清楚。
+
+**怎麼算的(關鍵):每一類別都被『單獨拎出來、丟去真實 API 的 `countTokens` 數一次』**,不是把整包除以四。`analyzeContext.ts` 對每一塊各呼叫一次 `countTokensWithFallback`(API 精準數,數不到才退 Haiku 估):
+
+| `/context` 類別 | 它是什麼(對到哪一步驟) | 怎麼被獨立計數 |
+|---|---|---|
+| **System prompt** | 編劇的公版前言+特別交代(步驟 2) | 把 system prompt 區塊單獨數 |
+| **System tools** | 內建工具的 schema(模型看得到的工具說明) | `countTokens([], 工具schema)`,再扣掉 skill 那部分 |
+| **MCP tools** | 有載入的 MCP 工具 schema | 把 MCP 工具 schema 單獨數 |
+| **MCP tools(deferred)** | 你接的 MCP server(如截圖的 Gmail)**沒載入**的工具(步驟 9) | 單獨數,但標 `isDeferred` |
+| **System tools(deferred)** | 被延遲的內建工具(ToolSearch 機制) | 單獨數,標 `isDeferred` |
+| **Custom agents** | 你的自訂 agent 定義(截圖的 vercel:*) | 把 agent 定義單獨數 |
+| **Memory files** | 你的 `CLAUDE.md` / memory(步驟 2) | 每個檔當一則 user 訊息數 |
+| **Skills** | skill 的書目(只佔 1%,步驟 8) | 把 skill frontmatter 單獨數 |
+| **Messages** | 整段對話(步驟 11 壓縮的對象) | 對話本體數 |
+| **Free space** | 剩下的 | `視窗 − 實際用量 − 保留緩衝` |
+
+**三個一看就懂全局的重點:**
+
+1. **`deferred` 類別「顯示但不計入用量」**(`analyzeContext.ts:1100` 的 `cat.isDeferred ? 0 : cat.tokens`)。所以你截圖上方那 **73%** 是「非 deferred 類別的總和」(70.2+1.3+0.9+0.5+0.3+0.0≈73.2%),那 22.5k 的 Gmail MCP 工具與 14.1k 的 deferred 系統工具**不算在 73% 裡**——它們只是「在後院待命、讓你知道存在」,要用才由 ToolSearch 拉進來真正佔位(步驟 9 的 defer 機制,在這張表上現形)。
+2. **跟 compact 的關係:整張表裡只有 `Messages` 會無上限長大、也只有它會被壓縮趕走。** 其餘(System prompt、tools、skills、memory、agents)是**每一圈都固定付的開銷**,壓縮一概不碰。表上那個 **Autocompact buffer**(保留緩衝)就是步驟 11 講的「預留 20K 給摘要 + 13K 安全墊」在 `/context` 上的可視化——當 `Messages` 把實際用量推過 `視窗−那塊緩衝`(≈167K / 1M)的門檻,autocompact 就只把 `Messages` 縮掉。
+3. **跟你(user)的關係:這張表就是「你每一次請求都在付的固定稅單」。** Memory files = 你的 `CLAUDE.md`、Skills = 你裝的 skill、Custom agents = 你的 agent、MCP tools = 你接的 server——**這些都是你的設定造成的固定成本,每一圈都重付**。所以想省 context,先看這張表:把不用的 MCP server / skill / agent 拔掉,`Free space` 立刻變大;而 `Messages` 太大就是該 `/compact` 或開新 session 了。(總量它還會優先用 API 回報的真實 `input + cache_creation + cache_read` 來跟狀態列對齊。)
+
+> 換句話說,`/context` 不只是個漂亮的長條圖——**它是「把上面整套 context 管理機制,逐類別現場 API 數給你看」的儀表板**。下面就把這套機制的設計面收完。
+
 **① 視窗裡住了什麼、依什麼順序排(步驟 2)**
 - **system prompt**:靜態段(身份/工具指引,boundary 之前、可全域快取)+ 動態段(memory 行為/output style/env,boundary 之後)。`git status` append 在 system prompt 尾巴。
 - **messages[0]**:你的 `CLAUDE.md` + 今天日期,包成 `<system-reminder>` 的第一則 user 訊息(**不在 system prompt 裡**)。
