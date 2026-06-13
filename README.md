@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-89_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-92_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -73,6 +73,38 @@ flowchart LR
   - [🗞️ github-weekly(GitHub 週報)](#️-github-weeklygithub-週報)
 - [💼 career(職涯與職場)](#-career職涯與職場)
 - [🩺 health(健康與身體)](#-health健康與身體)
+- [📇 依來源 / 作者索引](#-依來源--作者索引)
+
+---
+
+## 📇 依來源 / 作者索引
+
+> 上面的目錄是「**依主題分類**」;這一節是「**依來源/作者分類**」的交叉索引,方便你想「某個頻道/作者我整理過哪些」時快速翻找。**只列出累積 ≥2 篇的重複來源**;單篇來源請用上方主題分類查找。
+
+### 🎙️ YouTube 頻道 / 創作者
+
+| 來源 | 篇數 | 筆記 |
+|---|---|---|
+| **Gary Chen(@garytalksstuff)** — AI agent 工程與生產力 | 16 | [定義任務](./technology/ai-productivity/defining-tasks-not-prompts.md) · [Processing vs Thinking](./technology/ai-productivity/context-engineering-processing-vs-thinking.md) · [Claude 降智/算力危機](./technology/ai-productivity/claude-throttling-opus-4-7.md) · [Opus 4.7 升級工作流](./technology/ai-productivity/opus-4-7-workflow-upgrades.md) · [多工具工作流](./technology/ai-productivity/multi-tool-ai-workflow.md) · [Anthropic 改用 HTML](./technology/ai-productivity/anthropic-html-work-pages.md) · [新創 Playbook](./technology/ai-agents/applications/anthropic-startup-playbook.md) · [Dynamic Workflows](./technology/ai-agents/foundations/claude-dynamic-workflows.md) · [Task Decomposition](./technology/ai-agents/foundations/task-decomposition-agentic-workflow.md) · [/goal 跑 27hr](./technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md) · [Bitter Lesson 舊 prompt](./technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md) · [Karpathy Software 3.0](./technology/ai-agents/foundations/karpathy-software-3-0.md) · [Stanford Beyond LLM](./technology/ai-agents/resources/stanford-beyond-llm-course.md) · [Skill 實戰](./technology/ai-agents/applications/building-claude-skills.md) · [落地競賽](./technology/ai-agents/applications/enterprise-ai-adoption-race.md) · [Claude Design 評測](./technology/applied-ai/design/claude-design-review.md) |
+| **美投君 / 美投讲美股(@MeiTouJun)** — 美股投資 | 3 | [4 隻安心買 ETF](./investing/strategy/four-buy-anytime-etfs.md) · [軟體股選股邏輯](./investing/equity-research/ai-software-stocks-usage-based.md) · [美股升息風險研判](./investing/strategy/us-stocks-rate-hike-risk-2026.md) |
+| **風傳媒 下班經濟學 / The Storm Media** — 台股/投資 | 3 | [別再相信目標價(721)](./investing/strategy/target-prices-institutional-secrets.md) · [孫慶龍 PE 五檔價(735)](./investing/equity-research/sun-qinglong-pe-band-valuation.md) · [股癌選股心法](./investing/strategy/gooaye-stock-picking-philosophy.md) |
+| **Caleb Writes Code** — agent harness | 2 | [Harness 演進史](./technology/ai-agents/foundations/harness-engineering-evolution.md) · [Pi Agent 極簡 harness](./technology/ai-agents/foundations/pi-agent-minimal-harness.md) |
+| **基地** — 半導體/AI 趨勢拆解 | 2 | [NVIDIA N1X vs x86](./technology/ai-industry/nvidia-n1x-vs-x86.md) · [Sutton 行動認知 AI](./technology/llm-internals/world-models/sutton-enactive-ai.md) |
+| **Debug Tuboshu** — AI 寫網站/前端 | 2 | [零程式碼做網站](./technology/applied-ai/design/ai-website-building-claude-code.md) · [手搖飲看網站架構擴展](./technology/system-design/scaling-web-architecture-bubble-tea.md) |
+
+### ✍️ 個人/部落格/官方
+
+| 來源 | 篇數 | 筆記 |
+|---|---|---|
+| **Andrej Karpathy(本人著作/repo)** | 2 | [microGPT 200 行](./technology/llm-internals/architecture/microgpt-karpathy.md) · [autoresearch 最小 harness](./technology/ai-agents/autonomy/karpathy-autoresearch.md) |
+| **blog.aihao.tw(ihower)** — agent 工程 | 2 | [Agent Streaming 格式設計](./technology/ai-agents/applications/agent-streaming-format-design.md) · [用 AI 分析 Agent Traces](./technology/ai-agents/applications/agent-trace-analysis-with-ai.md) |
+| **Anthropic(官方研究/頻道)** | 2 | [五大 Agent 模式](./technology/ai-agents/foundations/five-agent-patterns.md) · [Man Group 用 Claude Skills 治理](./technology/ai-agents/applications/claude-skills-governance-man-group.md) |
+
+### 🗞️ 週報
+
+| 來源 | 篇數 | 筆記 |
+|---|---|---|
+| **GitHub Weekly(itcoffee66/githubweekly)** | 17 | [第 99–115 期(整個 github-weekly 資料夾)](./technology/github-weekly/) |
 
 ---
 
