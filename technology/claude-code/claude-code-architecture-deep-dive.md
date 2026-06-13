@@ -13,9 +13,9 @@
 
 ## 序幕:週五下午,你按了 Enter
 
-週五下午四點,你想在下班前把一件煩了很久的事做掉:這個專案的測試還在用 jest,你早就想換成 vitest。你打開 Claude Code,敲下一行字、按 Enter:
+週五下午四點,你想在下班前把一件煩了很久的事做掉:這個專案的測試還在用老舊的 `unittest`,你早就想換成 `pytest`。你打開 Claude Code,敲下一行字、按 Enter:
 
-> 「**幫我把這個專案所有測試從 jest 改成 vitest,跑一次確認綠燈**」
+> 「**幫我把這個專案所有測試從 unittest 改成 pytest,跑一次確認綠燈**」
 
 游標閃了一下。終端開始有東西冒出來。**就在你按下 Enter 到第一個字出現的這短短一瞬間,以及接下來它改檔、跑測試、回報綠燈的幾分鐘裡,Claude Code 內部其實上演了一齣 12 幕的戲。** 這篇就是那齣戲的逐幕慢動作——而你,就是那個按下 Enter 的人,我們會一路跟著你這句話走到底。
 
@@ -41,6 +41,8 @@ flowchart TB
 ---
 
 ## 時刻 0|按下 Enter 的前 0 毫秒:那把同步鎖
+
+大幕拉開。第一幕短到你以為什麼都還沒發生——你手指剛離開 Enter 鍵,連第一個字都還沒冒出來。但 Claude Code 已經先做了一件事:**上一把鎖,免得你手一快、它就分裂成兩個。**
 
 入口是 `REPL.tsx` 的 `onSubmit`,它先算一個布林:
 
@@ -361,7 +363,7 @@ let needsFollowUp = false
 if (msgToolUseBlocks.length > 0) { toolUseBlocks.push(...msgToolUseBlocks); needsFollowUp = true }
 ```
 
-串流結束後,`needsFollowUp === false` → 模型沒要求工具 → 走收尾(時刻 12);`true` → 去執行工具(時刻 5)。我們的 vitest 任務,模型第一圈會先想「我得看看測試長怎樣」,吐出 `Grep "jest"` / `Read package.json` 的 tool_use → `needsFollowUp=true`。
+串流結束後,`needsFollowUp === false` → 模型沒要求工具 → 走收尾(時刻 12);`true` → 去執行工具(時刻 5)。我們的 pytest 遷移任務,模型第一圈會先想「我得看看測試長怎樣」,吐出 `Grep "import unittest"` / `Read pyproject.toml` 的 tool_use → `needsFollowUp=true`。
 
 **藏延遲的把戲**:模型還在吐後面的 token 時,前面 parse 出來的 tool_use **已經開始跑了**(`StreamingToolExecutor`)。等模型講完,工具可能也好了——**把工具延遲藏進串流延遲**。同樣手法用在 `generateToolUseSummary`(Haiku 約 1 秒)、memory prefetch、skill prefetch:全部「回合開頭 fire-and-forget 啟動、工具跑完才非阻塞收割」,把它們的延遲藏在下一圈模型串流的 5–30 秒底下,主鏈路零等待。
 
@@ -375,7 +377,7 @@ if (msgToolUseBlocks.length > 0) { toolUseBlocks.push(...msgToolUseBlocks); need
 
 ## 時刻 5|模型要動工具了:三段式權限階梯
 
-模型吐出 `Read package.json`。每個工具呼叫都過一條管線:`inputSchema.safeParse`(zod 型別)→ `validateInput`(語意驗證)→ **`canUseTool`(權限)** → `call()` → 結果序列化回模型。權限是一條短路梯子:
+模型吐出 `Read pyproject.toml`。每個工具呼叫都過一條管線:`inputSchema.safeParse`(zod 型別)→ `validateInput`(語意驗證)→ **`canUseTool`(權限)** → `call()` → 結果序列化回模型。權限是一條短路梯子:
 
 ```ts
 // permissions/permissions.ts:hasPermissionsToUseToolInner(精簡)
@@ -403,7 +405,7 @@ if (toolPermissionContext.mode === 'acceptEdits' && isInWorkingDir)
 
 **為什麼這樣排**:`acceptEdits`(自動接受編輯)和 `bypass`(全部放行)都很方便,但若它們能繞過「改你自己的 git 設定 / shell 設定」這種高危操作,一個惡意 repo 就能靠 `acceptEdits` 偷改 `.git/config` 提權。把 safetyCheck 排在這些放行邏輯**之前**,等於「再怎麼放行,動到我命根子的東西還是要問」。
 
-待會的 `Bash "npm run test"` 還有一手:`preparePermissionMatcher` 把 compound command(`a && b && c`)**拆成各 subcommand** 分別比對 permission pattern——`ls && git push` 裡只要 `git push` 命中 `Bash(git *)` 規則就觸發確認,parse 失敗時 fail-safe 回「全部要比對」寧可多問。
+待會的 `Bash "pytest"` 還有一手:`preparePermissionMatcher` 把 compound command(`a && b && c`)**拆成各 subcommand** 分別比對 permission pattern——`ls && git push` 裡只要 `git push` 命中 `Bash(git *)` 規則就觸發確認,parse 失敗時 fail-safe 回「全部要比對」寧可多問。
 
 > **想改權限**:某工具要不要問動它的 `checkPermissions()`(回 `allow/ask/deny/passthrough`,`passthrough` 會在 `permissions.ts` 被轉 `ask`);**陷阱**:整工具/路徑層的 deny/ask rule 在 1a/1b 就短路,你的 `checkPermissions` 可能根本不被呼叫。要新增「bypass 也擋」的敏感路徑,改 `filesystem.ts:checkPathSafetyForAutoEdit` 回 `{safe:false, classifierApprovable:false}`。
 
@@ -422,7 +424,7 @@ if (toolPermissionContext.mode === 'acceptEdits' && isInWorkingDir)
 
 ## 時刻 6|模型一次吐了三個工具:「唯讀即並行」與兄弟中止
 
-模型決定一次 `Read package.json` + `Read vitest.config.ts` + `Grep "jest"`。能不能同時跑?答案藏在一條**不變式**裡:每個 Tool 有 `isConcurrencySafe(input)`,而它的預設實作直接綁定唯讀——
+模型決定一次 `Read pyproject.toml` + `Read conftest.py` + `Grep "import unittest"`。能不能同時跑?答案藏在一條**不變式**裡:每個 Tool 有 `isConcurrencySafe(input)`,而它的預設實作直接綁定唯讀——
 
 ```ts
 // Tool.ts:TOOL_DEFAULTS —— fail-closed 預設 + 「唯讀即並行」
@@ -494,15 +496,17 @@ async call(input, ctx, _canUseTool, parentMessage, onProgress) {
 
 ---
 
-## 時刻 7|工具想上網:WebFetch 與 CCB 的 Web Search
+## 時刻 7|插一段小支線:工具想上網
 
-如果任務需要查 vitest 遷移文件,模型會用 `WebFetch`。官方內建 `WebFetch`(抓網頁)與 `WebSearch`(server tool)。**CCB 在這一站補了一層**:它的 `WebSearchTool` 用 adapter 工廠在「官方 server tool / Bing / Brave / Exa」之間自動切換(優先序:`WEB_SEARCH_ADAPTER` 環境變數 > 第三方 provider(OpenAI/Gemini/Grok)→ bing > 第一方 Anthropic base URL → api > 其餘 → exa),四個 backend 實作同一個 `WebSearchAdapter.search()` 介面。CCB 還補了 Computer Use(截圖+鍵鼠,Windows 走 `SendMessageW` 對綁定 HWND 送訊息、不搶焦點)與 Chrome Use(透過官方 claude-for-chrome MCP)。**這些都只是「多註冊幾個工具」,迴圈本身一行沒改。**
+主線繼續往下之前,先順一個你這個任務可能會遇到的小岔路——**它要上網查資料**。這一幕刻意短:它的重點不是「又一個複雜機制」,而是反過來證明前面那套工具框架有多通用——**上網只是「多註冊幾個工具」,主迴圈一行都沒動。**
+
+如果任務需要查 pytest 遷移文件(例如 `unittest` 的 `setUp` 對應 pytest 的 fixture 怎麼寫),模型會用 `WebFetch`。官方內建 `WebFetch`(抓網頁)與 `WebSearch`(server tool)。**CCB 在這一站補了一層**:它的 `WebSearchTool` 用 adapter 工廠在「官方 server tool / Bing / Brave / Exa」之間自動切換(優先序:`WEB_SEARCH_ADAPTER` 環境變數 > 第三方 provider(OpenAI/Gemini/Grok)→ bing > 第一方 Anthropic base URL → api > 其餘 → exa),四個 backend 實作同一個 `WebSearchAdapter.search()` 介面。CCB 還補了 Computer Use(截圖+鍵鼠,Windows 走 `SendMessageW` 對綁定 HWND 送訊息、不搶焦點)與 Chrome Use(透過官方 claude-for-chrome MCP)。**這些都只是「多註冊幾個工具」,迴圈本身一行沒改。**
 
 ---
 
 ## 時刻 8|模型發現有個 skill:漸進揭露(每回合只花 1% context 講有哪些 skill)
 
-假設這 repo 有個 `migrate-tests` 的 SKILL.md。Claude **不會**把它整份內文塞進 context,而是兩段式揭露。**第一段只露名字**,而且預算卡得極死:
+回到主線。模型正打算動手改檔,這時它發現——假設這 repo 有個 `migrate-to-pytest` 的 SKILL.md(裡面寫了你們團隊偏好的 pytest 慣例)。Claude **不會**把它整份內文塞進 context,而是兩段式揭露。**第一段只露名字**,而且預算卡得極死:
 
 ```ts
 // tools/SkillTool/prompt.ts:21-142 —— listing 只佔 context 1%,bundled 永不截斷
@@ -814,7 +818,7 @@ const recentFiles = Object.entries(readFileState).filter(file =>
 
 ## 時刻 12|綠燈:回合怎麼結束、單輪如何變多輪
 
-模型最後 `Bash "npm run test"` 看到全綠,吐一段純文字總結、**沒有再要求工具** → `needsFollowUp=false`。但「沒有 tool_use」不代表一定結束——還要過 stop hooks:
+模型最後 `Bash "pytest"` 看到全綠,吐一段純文字總結、**沒有再要求工具** → `needsFollowUp=false`。但「沒有 tool_use」不代表一定結束——還要過 stop hooks:
 
 ```ts
 // query.ts:1267-1306 —— stop hook 的 blocking error 讓「單輪」變「多輪」
