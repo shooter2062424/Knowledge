@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-86_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-88_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -27,7 +27,7 @@ flowchart LR
     K["🧠 Knowledge"] --> I["💰 investing"]
     K --> T["⚙️ technology"]
     K --> C["💼 career"]
-    C --> C1["workplace"]
+    C --> C1["workplace · mindset"]
     K --> H["🩺 health"]
     H --> H1["wellness"]
     I --> I1["strategy"]
@@ -171,6 +171,7 @@ flowchart LR
 | [用 AI 分析 Agent Traces:讓 agent 讀 trace,人類把持品味](./technology/ai-agents/applications/agent-trace-analysis-with-ai.md) | 三方案(自有 coding agent/執行時自診斷/批次掃描);agent 放大規模、人決定方向 |
 | [AI 時代怎麼創業?Anthropic 新創 Playbook 四階段 workflow](./technology/ai-agents/applications/anthropic-startup-playbook.md) | 十人獨角獸;Idea/MVP/Launch/Scale 各用哪個 Claude;差距是誰把 AI 系統化得更好 |
 | [AI Operating System(AIOS):讓 AI 長期懂你、替你工作的系統](./technology/ai-agents/applications/ai-operating-system-aios.md) | 四核心 Context/Connections/Capabilities/Cadence;progressive loading 省 context;從操作者變系統擁有者 |
+| [當 PR 變 Prompt Request:Steinberger 用 Agent 自製工具治理開源](./technology/ai-agents/applications/agent-native-tooling-steinberger.md) | Vision.md 當憲法自動審 PR;煩躁驅動開發;為 AI 造接口+沙盒;為 AI 造工具是複利 |
 
 **resources — 學習資源**
 | 主題 | 一句話 |
@@ -304,6 +305,11 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [十大恐怖主管特質:從竹科裸辭看「只做向上管理」如何逼走好員工](./career/workplace/ten-toxic-manager-traits.md) | 看主管做了什麼別聽他說什麼;光說不練/微觀管理/造假……中一點就是有毒信號 |
+
+### 🌱 mindset(職涯心態與成長)
+| 主題 | 一句話 |
+|---|---|
+| [蘇姿丰 MIT 2026 畢業演講:如何創造自己的運氣](./career/mindset/lisa-su-mit-commencement.md) | 不是知道答案而是能搞明白;向最難問題奔跑;AI 不能決定問題/判斷/負責,那是人類價值 |
 
 ---
 
