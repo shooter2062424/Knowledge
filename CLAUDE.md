@@ -52,7 +52,11 @@
    - **下載音訊**:`yt-dlp --no-update --js-runtimes node --remote-components ejs:github -f "bestaudio/best" -o "audio.%(ext)s" <url>`。
      - **關鍵:`--remote-components ejs:github`**(JS challenge solver)。少了它,音訊資料下載常 `HTTP 403 Forbidden`(SABR-only 串流實驗)。
      - **不要**加 `-x --audio-format mp3`(那會需要系統 ffmpeg);直接抓原始檔給 whisper 即可。
-   - **轉錄(CPU)**:`WhisperModel('small', device='cpu', compute_type='int8')` → `.transcribe(path, language='zh', vad_filter=True, beam_size=5)`,把 segment 文字寫進暫存 `.txt` 再用 Read 讀(終端機中文會亂碼)。3 分鐘音訊用 small 約數十秒;品質不足可換 `medium`(較慢)。
-   - 取得逐字稿後正常整理筆記;**在「來源」標註「該片無字幕,逐字稿以 CPU 版 faster-whisper 轉錄取得,非官方字幕」**(可能有少量聽寫誤差)。
+   - **轉錄引擎(2026-06-13 benchmark 後改用 whisper.cpp 為主):** 實測 whisper.cpp(`pywhispercpp`)比 faster-whisper **快 1.4–1.9×、準確度相同**(同 small 模型),詳見 `technology/dev-tools/whisper-cpp-vs-faster-whisper-benchmark.md`。**首選流程:**
+     1. 用 **PyAV 把音訊轉 16kHz mono wav**(免系統 ffmpeg,開銷僅約 0.5s):`av.open` → `AudioResampler(format='s16',layout='mono',rate=16000)` → 寫 `wave`。
+     2. **whisper.cpp 轉錄**:`from pywhispercpp.model import Model; Model('small', n_threads=8, language='zh', print_realtime=False, print_progress=False).transcribe('audio.wav')`,segment 文字寫暫存 `.txt` 再 Read(終端機中文亂碼)。首次會自動下載 `ggml-small`。
+     - **fallback**:若 `pywhispercpp` 在某環境跑不動,改回 faster-whisper `WhisperModel('small', device='cpu', compute_type='int8').transcribe(path, language='zh', vad_filter=True, beam_size=5)`(可直接吃 mp4、不需轉 wav)。
+     - 品質不足兩者都可換 `medium`(較慢);換引擎救不了 small 的同音錯字。
+   - 取得逐字稿後正常整理筆記;**在「來源」標註「該片無字幕,逐字稿以 CPU 版 Whisper(whisper.cpp / faster-whisper)轉錄取得,非官方字幕」**(可能有少量聽寫誤差);中文影片若原音是英文,轉出來會是英文逐字稿。
    - **只有當 Whisper 也拿不到**(影片無音訊/下載失敗)才退回「標題 + 說明欄 + 既有知識」並標註「非逐字稿」。
    - 取 metadata(標題/說明欄)時若 `yt-dlp --print > file` 出現亂碼,改用 `yt_dlp` Python API 取 `info` 再用 `open(...,encoding='utf-8')` 寫檔。
