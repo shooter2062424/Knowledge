@@ -6,7 +6,9 @@
 
 ## 一句話結論
 
-**同樣 small 模型下,兩者準確度幾乎相同(都受 small 模型限制、錯誤模式一致),但 whisper.cpp 明顯更快——中文 1.9×、英文 1.4×。** 即使 whisper.cpp 需要先把音訊轉成 16kHz wav(本機無系統 ffmpeg,用已裝的 **PyAV** 轉,開銷僅 **0.5 秒**可忽略),端到端仍大幅勝出。→ **未來預設改用 whisper.cpp(pywhispercpp)+ PyAV 轉 wav;faster-whisper 留作 fallback。**
+**同樣 small 模型下,兩者準確度幾乎相同(都受 small 模型限制、錯誤模式一致),但 whisper.cpp 明顯更快——中文 1.9×、英文 1.4×。** 即使 whisper.cpp 需要先把音訊轉成 16kHz wav(本機無系統 ffmpeg,用已裝的 **PyAV** 轉,開銷僅 **0.5 秒**可忽略),端到端仍大幅勝出。
+
+> ⚠️ **但有一個會毀掉整份逐字稿的致命前提(實戰踩雷後補充,見下方「重大踩雷」):whisper.cpp 沒有內建 VAD,遇到背景音樂/長靜音/純配樂段會陷入「幻覺迴圈」——同一句話重複幾百行,整篇報廢。** 所以**不是無腦換 whisper.cpp**,而是:**乾淨人聲(演講/單人解說)→ whisper.cpp(快);有背景音樂/旁白配樂/雜訊的影片 → faster-whisper(`vad_filter=True`,穩)。**
 
 ---
 
@@ -56,6 +58,19 @@
 
 ---
 
+## 重大踩雷:whisper.cpp 無 VAD → 背景音樂/靜音段「幻覺迴圈」
+
+benchmark 用的是**乾淨人聲**素材,所以沒暴露這個問題;但在一支**帶背景配樂的財經敘事影片**(社交套利,~39 分鐘)實測時踩了大雷:
+
+- **現象**:whisper.cpp 從某個轉場配樂段開始,**把同一句話「我剛剛在中國爆發的那個時候…」連續重複了數百行**(line 280 一路壞到結尾),整份逐字稿從中段全毀、無法使用。
+- **根因**:**whisper.cpp(pywhispercpp)沒有內建 VAD(語音活動偵測)**。當某段沒有語音(純配樂、長靜音、雜訊)時,Whisper 模型仍被迫「解碼出文字」,就會吐出上一段的殘留並陷入自我重複的**幻覺迴圈(hallucination loop)**。
+- **faster-whisper 為何沒事**:它的 `vad_filter=True` 會**先用 Silero VAD 把非語音段切掉**,根本不丟給模型解碼,從源頭杜絕了這種迴圈。用 faster-whisper 重轉同一支影片即乾淨正常。
+- **教訓**:速度數字漂亮 ≠ 可直接上線。**「會不會在無語音段崩掉」對真實 YouTube 影片(幾乎都有片頭/轉場配樂)比「快 1.9×」更關鍵。**
+
+> 結論不是推翻 whisper.cpp,而是**按素材分流**:單人乾淨講話用 whisper.cpp 賺速度;只要影片有配樂/旁白/雜訊就走 faster-whisper 的 VAD。不確定時,**預設走 faster-whisper(穩),確定是乾淨人聲再切 whisper.cpp(快)**。
+
+---
+
 ## 實用性對比(決定預設的關鍵)
 
 | 面向 | faster-whisper | whisper.cpp(pywhispercpp) |
@@ -64,17 +79,20 @@
 | 準確度(同模型) | 基準 | **相當** |
 | 輸入格式 | **直接吃 mp4/m4a/webm(PyAV 內建)** | 需 16kHz wav → 用 PyAV 轉(僅 0.5s) |
 | 系統 ffmpeg | 不需要 | 不需要(PyAV 轉 wav 繞過) |
-| 內建 VAD | **有(`vad_filter`)** | 無(需自理或不用) |
+| 內建 VAD | **有(`vad_filter`,防幻覺迴圈)** | **無 → 背景音樂/靜音段會幻覺迴圈報廢** |
 | 安裝 | 已裝 | `pip install pywhispercpp`(有預編譯 wheel,免 cmake) |
+| 適用素材 | **任何影片(含配樂/雜訊)都穩** | **僅限乾淨人聲** |
 
-> faster-whisper 唯二的便利(直接吃原始檔、內建 VAD)在「PyAV 轉 wav 只要 0.5 秒」面前不構成障礙;VAD 對乾淨的演講/解說音訊影響不大。
+> faster-whisper 的 VAD **不是可有可無的便利,而是真實 YouTube 影片的剛需**——大多數影片都有片頭/轉場配樂,whisper.cpp 無 VAD 會在那些段落幻覺迴圈。VAD 只對「全程乾淨人聲」的素材才可省略。
 
 ---
 
 ## 結論與決策
 
-- **未來預設轉錄引擎改為 whisper.cpp(`pywhispercpp` + `ggml-small`)**,搭配 **PyAV 把音訊轉 16kHz mono wav** 的前處理。理由:**速度快近 2 倍、準確度相同、轉 wav 開銷可忽略**。
-- **faster-whisper 保留為 fallback**(若某環境 `pywhispercpp` 跑不動,或需要內建 VAD)。
+- **按素材分流,不要無腦二選一**:
+  - **乾淨人聲(單人演講/解說、無配樂)→ whisper.cpp(`pywhispercpp` + `ggml-small`)+ PyAV 轉 16kHz wav**,賺 1.4–1.9× 速度。
+  - **有背景音樂/旁白配樂/雜訊的影片(多數 YouTube 影片)→ faster-whisper + `vad_filter=True`**,避免無 VAD 的幻覺迴圈。
+  - **拿不準時預設走 faster-whisper(穩),確定乾淨人聲再切 whisper.cpp(快)。**
 - **要更高準確度** → 兩者都升 `medium` 模型(換引擎救不了 small 的同音錯字)。
 - 已同步更新 Knowledge `CLAUDE.md` 的 YouTube 轉錄流程與記憶 [[youtube-whisper-fallback]]。
 
