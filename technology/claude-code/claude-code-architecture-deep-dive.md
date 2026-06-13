@@ -20,25 +20,16 @@
 接下來這句話會走過 12 個時刻。先看全景——**整個 Claude Code 的本體,其實就是一個 async generator 的 `while(true)`**(`src/query.ts`,1729 行),外面包一層 driver(`QueryEngine.ts`)。你以為很神的工具、skill、子 agent,都只是「每一圈餵給這個迴圈的東西不一樣」:
 
 ```mermaid
-sequenceDiagram
-    participant You as 你(REPL)
-    participant G as QueryGuard
-    participant L as query.ts 主迴圈
-    participant M as Anthropic API
-    participant T as 工具執行器
-    You->>G: 按 Enter → reserve()(idle→dispatching)
-    G->>L: tryStart()(dispatching→running)
-    loop 每一圈(turn),直到某圈沒有 tool_use
-        L->>L: 組請求(system prompt + 壓縮閘 + messages)
-        L->>M: 串流送出
-        M-->>L: 邊吐 text/thinking/tool_use
-        Note over L,T: 看到 tool_use 就 needsFollowUp=true,並立刻開跑
-        L->>T: 執行工具(權限→並行/串行)
-        T-->>L: tool_result(回灌成下一圈的 user 訊息)
-        L->>L: 順手排空佇列、注入記憶/skill
-    end
-    L->>G: 沒有 tool_use → stop hooks → end()(running→idle)
-    G-->>You: 回合結束;若你剛剛打過字,佇列現在登場
+flowchart TB
+    U["你按 Enter"] --> G["QueryGuard reserve<br/>idle to dispatching to running"]
+    G --> A1["1. 組請求<br/>system prompt + 壓縮閘 + messages"]
+    A1 --> A2["2. 串流送給 Anthropic API"]
+    A2 --> A3{"這圈有 tool_use?"}
+    A3 -->|"有 needsFollowUp=true"| A4["3. 執行工具<br/>權限階梯 then 並行或串行"]
+    A4 --> A5["4. tool_result 回灌成下一圈 user 訊息<br/>順手排空佇列 + 注入記憶/skill"]
+    A5 --> A1
+    A3 -->|"沒有"| A6["跑 stop hooks then 回合結束<br/>QueryGuard end: running to idle"]
+    A6 --> A7["若你剛打過字 then 佇列現在登場"]
 ```
 
 > **一句話心法**:Claude Code = 「**把對話+工具結果反覆回灌給模型,直到模型不再要求工具**」的迴圈。所有難點都在「每圈餵什麼、何時壓縮、工具怎麼安全並行、你插話怎麼排」。
@@ -75,16 +66,11 @@ get isActive(): boolean { return this._status !== 'idle' }   // dispatching+runn
 ```
 
 ```mermaid
-stateDiagram-v2
-    [*] --> idle
-    idle --> dispatching: reserve()(已撈出指令,但 async 鏈還沒到 onQuery)
-    dispatching --> running: tryStart()(query 真的開跑)
-    dispatching --> idle: cancelReservation()(排隊處理失敗)
-    running --> idle: end(generation)
-    note right of dispatching
-      isActive 在這裡就 = true
-      ← 這是防併發的關鍵空窗
-    end note
+flowchart LR
+    I["idle"] -->|"reserve()"| D["dispatching<br/>isActive 已=true<br/>防併發的關鍵空窗"]
+    D -->|"tryStart() = query 真的開跑"| R["running"]
+    D -->|"cancelReservation() = 排隊失敗"| I
+    R -->|"end(generation)"| I
 ```
 
 **為什麼要 `dispatching` 這個中間態**:從「決定要跑」到「query 真的啟動」之間有一段 async 空窗。如果這段時間 guard 還是 `idle`,你**手快連按兩次 Enter** 時,第二次提交會看到 `idle`、誤判「現在沒事我可以跑」,於是同時啟動**兩個** query、把對話搞亂。`reserve()` 在第一個 `await` 前就同步把狀態推成 `dispatching`,讓 `isActive` 立刻變 `true`,把競爭者擋去排隊。`generation` 計數器則解決另一個競態:被 `end()` 的必須是「自己這一代」,避免一個 stale 的 `finally` 把後來啟動的新 query 給關掉。
