@@ -1,310 +1,879 @@
-# Claude Code 原始碼徹底拆解:跟著一句 prompt 走完它的一生(附 CCB 二開版的群控/Remote/Web Search)
+# 一句 prompt 的一生:Claude Code 原始碼徹底拆解(從你按 Enter 到綠燈收工)
 
-> 本筆記直接讀**外洩/復刻的 Claude Code 原始碼**整理而成,目標是讓你「看完就懂它的系統設計,而且有能力改它的 code」。素材是兩個 repo,都已 clone 到本機讀完再刪、未進本庫:
-> 1. **官方原始碼(經 npm sourcemap 外洩)**:`yasasbanukaofficial/claude-code`(2026-03-31,Chaofan Shou 發現官方 npm 包忘了 `.npmignore` 掉 `.map`,`sourcesContent` 把整包 TS 原碼塞在裡面)。1900+ 檔、1300+ `.ts`。**這是理解架構的主體。**
-> 2. **CCB(Claude Code Best / 踩踩背)**:`claude-code-best/claude-code`,社群把官方完整復刻並擴充企業/好玩功能(群控、ACP、Remote Control、Web Search、Poor Mode…)。3300+ 檔。**用來看「同一套引擎還能長出什麼」。**
+> 這篇不照「子系統」分章,而是**跟著一句真實的 prompt 走一條完整的時間線**——從你按下 Enter 那一刻,到 Claude 跑完測試、回合結束。每經過一個「時刻」,該登場的機制(harness 迴圈、佇列、system prompt、權限、工具並行、skill、MCP、子 agent、壓縮)就**在它真正發揮作用的那一秒被拆開來深講**,並標清楚它跟前後時刻怎麼咬合。CCB(二開版)的群控/Remote/Web Search/Poor 等擴充,也**折進它接管的那一站**,而不是另開一塊。
 >
-> 為了精讀,動用了 **13 個 fan-out agent**(8 個讀官方各子系統 + 5 個讀 CCB 各功能群),每個 agent 把對應檔案讀完回傳結構化發現,再由我綜合。下面所有 `檔案:行號` 都是真的。
+> 目標有兩個、同等重要:**看懂它為什麼這樣設計**、以及**有能力自己改它的 code**。所以每一站都有三件事:真實程式碼片段(逐行註解在講什麼)、為什麼這樣做(不這樣會怎樣 / 踩過什麼事故 / 代價)、以及**這站想改要動哪裡、會踩什麼雷**。
+>
+> **素材**:兩個 repo,都已 clone 到本機讀完再刪、未進本庫。
+> 1. **官方原始碼(npm sourcemap 外洩)**:`yasasbanukaofficial/claude-code`(2026-03-31,Chaofan Shou 發現官方 npm 包忘了把 `.map` 加進 `.npmignore`,`sourcesContent` 把整包 TS 原碼塞在裡面)。1900+ 檔。**架構主體。**
+> 2. **CCB(Claude Code Best / 踩踩背)**:`claude-code-best/claude-code`,社群完整復刻官方並擴充企業/好玩功能。3300+ 檔。**看同一具引擎還能長出什麼。**
+> 為了精讀動用了 **13 個 fan-out agent**(8 個讀官方各子系統 + 5 個讀 CCB),所有 `檔案:行號` 都是真的。
 
 ---
 
-## 0. 先給你一張全景圖
+## 我們要追的那句話
 
-Claude Code 的本體其實小得驚人:**一個 async generator 的 `while(true)` 迴圈**(`src/query.ts`,1729 行),外面包一層 driver(`QueryEngine.ts`)。所有你以為很神的東西——工具、skill、MCP、子 agent、壓縮——都只是「**餵給這個迴圈的東西不一樣**」而已。
-
-```mermaid
-flowchart TB
-    U["你打字 + Enter"] --> Q{"queryGuard<br/>有 query 在跑嗎?"}
-    Q -->|否| EX["executeUserInput<br/>立刻開一個回合"]
-    Q -->|是| EN["enqueue 進統一佇列<br/>(優先序 now/next/later)"]
-    EX --> LOOP["query.ts 主迴圈"]
-    subgraph LOOP["query.ts 主迴圈(harness 本體)"]
-        A1["1. 組請求:system prompt(靜態+動態)<br/>+ messages + tools"] --> A2["2. 送壓縮閘:snip→microcompact→autocompact"]
-        A2 --> A3["3. 串流 LLM 回應"]
-        A3 --> A4{"這輪有 tool_use?<br/>(needsFollowUp)"}
-        A4 -->|有| A5["4. 執行工具<br/>(權限階梯→並行/串行)"]
-        A5 --> A6["5. tool_result 回灌 + 排空佇列注入"]
-        A6 --> A1
-        A4 -->|沒有| A7["跑 stop hooks→結束回合"]
-    end
-    A7 --> DR["回合結束:useQueueProcessor<br/>排空佇列開下一回合"]
-    DR -.-> Q
-```
-
-> **一句話心法**:Claude Code = 「**把對話 + 工具結果反覆回灌給模型,直到模型不再要求工具**」的迴圈;難的全在「迴圈每一步餵什麼、什麼時候壓縮、工具怎麼安全並行、佇列怎麼排」。
-
----
-
-## 1. 主線:一句 prompt 的一生(12 站)
-
-我們用一個具體任務貫穿全場:你在某個 repo 裡輸入
+你在某個 repo 裡打字、按 Enter:
 
 > 「**幫我把這個專案所有測試從 jest 改成 vitest,跑一次確認綠燈**」
 
-然後按 Enter。接下來發生的事,把 Claude Code 的每個巧思都會踩到一次。
+接下來這句話會走過 12 個時刻。先看全景——**整個 Claude Code 的本體,其實就是一個 async generator 的 `while(true)`**(`src/query.ts`,1729 行),外面包一層 driver(`QueryEngine.ts`)。你以為很神的工具、skill、子 agent,都只是「每一圈餵給這個迴圈的東西不一樣」:
 
-### 站 1|按下 Enter 的瞬間:該立刻跑,還是排隊?
-
-入口是 `REPL.tsx` 的 `onSubmit`。它算一個布林(`REPL.tsx:3343`):
-
-```ts
-const submitsNow = !isLoading || speculationAccept || activeRemote.isRemoteMode
+```mermaid
+sequenceDiagram
+    participant You as 你(REPL)
+    participant G as QueryGuard
+    participant L as query.ts 主迴圈
+    participant M as Anthropic API
+    participant T as 工具執行器
+    You->>G: 按 Enter → reserve()(idle→dispatching)
+    G->>L: tryStart()(dispatching→running)
+    loop 每一圈(turn),直到某圈沒有 tool_use
+        L->>L: 組請求(system prompt + 壓縮閘 + messages)
+        L->>M: 串流送出
+        M-->>L: 邊吐 text/thinking/tool_use
+        Note over L,T: 看到 tool_use 就 needsFollowUp=true,並立刻開跑
+        L->>T: 執行工具(權限→並行/串行)
+        T-->>L: tool_result(回灌成下一圈的 user 訊息)
+        L->>L: 順手排空佇列、注入記憶/skill
+    end
+    L->>G: 沒有 tool_use → stop hooks → end()(running→idle)
+    G-->>You: 回合結束;若你剛剛打過字,佇列現在登場
 ```
 
-現在沒有別的 query 在跑 → `submitsNow=true` → 直接走 `executeUserInput`。**但這裡藏了 Claude Code 全系統最關鍵的同步原語:`QueryGuard`(三態鎖)**。`executeUserInput` 在碰到第一個 `await` 之前就同步呼叫 `queryGuard.reserve()`,把狀態從 `idle` 推到 `dispatching`(還沒到 `running`)。為什麼要一個中間態?——因為「從佇列撈出指令」到「query 真的啟動」之間有一段 async 空窗,如果這段時間 guard 還是 `idle`,另一個並行進來的提交會誤判「現在沒事、我可以立刻跑」,於是同時啟動**兩個** query。`dispatching` 這個中間態讓 `isActive` 立刻回 `true`,把競爭者擋去排隊。**這就是「為什麼你狂按 Enter 不會跑出兩條對話」的根因。**
-
-### 站 2|組裝 system prompt:靜態段、動態段,與那條神祕的 boundary
-
-`getSystemPrompt()`(`constants/prompts.ts:444`)回傳一個 **string 陣列**,每個元素是一個 block。它刻意切成兩半,中間插一個 marker `SYSTEM_PROMPT_DYNAMIC_BOUNDARY`:
-
-- **boundary 之前(靜態段)**:身份、`# System`、`# Doing tasks`、`# Executing actions with care`、`# Using your tools`、`# Tone and style`、`# Output efficiency`。這些**每個使用者、每個 session 都一樣**,被標成 `cacheScope: global/org`,可以跨使用者、跨組織共用 Anthropic 伺服器端的 **prompt cache**。
-- **boundary 之後(動態段)**:memory 行為說明、output style、`# Environment`、語言、MCP 指令… 這些是 session 專屬的。
-
-`splitSysPromptPrefix()`(`api.ts:321`)就靠這個 marker 把陣列切成「可全域快取的前綴」與「session 專屬的後綴」。**巧思**:動態段大多其實 session 內也不變(memory 行為、output style),所以用 `systemPromptSection()` 算一次快取到 `/clear`;只有「turn 之間真的會變」的(MCP server 可能斷線/重連)才用一個名字嚇人的 `DANGEROUS_uncachedSystemPromptSection()`,而且強制你傳 `_reason`——**用命名當 code-review 防呆**,一眼看出「這段會破壞快取」。
-
-> 有趣的反直覺:身份字串**不是**寫死「You are Claude Code」。正常互動路徑是 `getSimpleIntroSection` 回的「You are an interactive agent that helps users...」;「You are Claude Code, Anthropic's official CLI」只出現在 `CLAUDE_CODE_SIMPLE` 捷徑和子 agent 的 `DEFAULT_AGENT_PROMPT`。這是為了讓自訂 **output style** 能徹底重塑人格。
-
-### 站 3|你的 CLAUDE.md 去哪了?——它根本不在 system prompt 裡
-
-這是最反直覺的一站。你的專案 `CLAUDE.md`、`MEMORY.md` 內容、今天日期,**統統不進 system prompt**,而是被包成一則「`<system-reminder>` 開頭的 user 訊息」塞到 `messages[0]`(`prependUserContext`,`api.ts:449`)。所以在模型眼裡,你的專案規則是**「對話的第一句 user 訊息」**,不是系統人格。
-
-為什麼這樣設計?三個原因,全是工程取捨:
-1. **保護快取**:CLAUDE.md 每個專案不同,放進 system prompt 會讓「可全域共用的前綴」碎裂成千千萬萬種。
-2. **能被壓縮**:放在對話裡,它就能跟著 `/compact` 一起被摘要。
-3. **可被當 attachment 餵**:未來改注入方式不必動 system 前綴。
-
-而 `git status` 走的是**另一條路**:它確實在 system prompt 裡——`getGitStatus()` 組好字串後由 `appendSystemContext()` 接到 system prompt **陣列尾端**(`query.ts:450`)。所以記住這個對照:**git status 在 system prompt 尾巴,CLAUDE.md 在對話開頭。**
-
-### 站 4|進迴圈前的「壓縮三連閘」
-
-`messagesForQuery` 在每輪送 API 前,依序過四關(`query.ts:379→454`):`applyToolResultBudget`(限制工具結果總量)→ `snip` → `microcompact` → `autocompact`。第一輪對話很短,這四關全是 no-op。**我們先跳過,等對話變長(站 11)再回來看它的精妙。**
-
-### 站 5|串流 + 「迴圈何時停」的真正訊號
-
-主迴圈核心是 `for await (const message of deps.callModel({...}))`(`query.ts:659`)。模型一邊吐 token,Claude Code 一邊處理。這裡有個容易誤會的點:**判斷「這一輪要不要繼續」靠的不是 API 的 `stop_reason`**。原始碼直接註明(`query.ts:554`)`stop_reason==='tool_use'` 不可靠;真正的訊號是一個叫 `needsFollowUp` 的布林——**串流中只要出現任何一個 `tool_use` 區塊,就把它設 `true`**。串流結束後:
-
-- `needsFollowUp === true` → 去執行工具,然後組下一輪(站 6→站 1)。
-- `needsFollowUp === false` → 模型沒要求工具 → 跑 stop hooks → `return {reason:'completed'}`,回合結束。
-
-我們的 vitest 任務,模型第一輪會先想「我得看看現在測試長怎樣」,於是吐出 `Grep` / `Read` 的 tool_use → `needsFollowUp=true`。
-
-> **另一個藏在串流裡的把戲**:模型還在吐後面的 token 時,前面已經 parse 出來的 tool_use **已經開始執行了**(`StreamingToolExecutor`)。等模型講完,工具可能也跑完了——**把工具延遲藏進串流延遲**。同理,`generateToolUseSummary`(Haiku)、memory prefetch、skill prefetch 都採「回合開頭 fire-and-forget,工具跑完才非阻塞收割」,把它們的延遲藏在下一輪模型串流的 5–30 秒底下,主鏈路零等待。
-
-### 站 6|工具要跑了:三段式權限階梯
-
-模型要 `Read package.json`、`Grep "jest"`、最後 `Bash "npm run test"`。每個工具呼叫都過一條管線(`toolExecution.ts`):`inputSchema.safeParse`(zod 型別)→ `validateInput`(語意驗證)→ **`canUseTool`(權限)** → `call()` → 把結果序列化回 model。
-
-權限階梯(`permissions.ts:hasPermissionsToUseToolInner`)是一條短路梯子,順序大致是:**整工具 deny rule → 整工具 ask rule → 工具自己的 `checkPermissions` → bypass/acceptEdits 放行 → 內容級 ask rule → safetyCheck(`.git`/`.claude`/shell config 等敏感路徑)**。最精妙的是「**哪些東西連 `--dangerously-skip-permissions` 都擋不住**」分得極細:`.git`、`.claude`、shell 設定檔這類 safetyCheck **即使在 bypass 模式也強制問你**;`acceptEdits` 的快速放行只在路徑落在工作目錄內、且排在 safetyCheck 之後。所以「我全部放行」不會誤傷到「改你自己的 git 設定」這種高危操作。
-
-`Bash "npm run test"` 還有一手:`preparePermissionMatcher` 會把 compound command(`a && b && c`)**拆成各 subcommand** 分別比對 permission pattern——`ls && git push` 裡只要 `git push` 命中 `Bash(git *)` 規則就會觸發確認。
-
-### 站 7|並行還是串行?一條「唯讀 ⇒ 可並行」的不變式
-
-模型一次吐了三個唯讀工具(`Read`×2 + `Grep`)。Claude Code 怎麼決定它們能不能同時跑?答案是每個 Tool 都有 `isConcurrencySafe(input)`,而它的預設實作直接是 **`return this.isReadOnly(input)`**——**唯讀就是並行安全**。注意這是**吃 input 的函式**,不是靜態旗標:同一個 Bash 工具,`ls` 唯讀可並行、`rm` 不可並行,粒度細到單次呼叫。
-
-`partitionToolCalls`(`toolOrchestration.ts:91`)把**連續的** safe 工具併成一批並行跑(上限 10,可用 `CLAUDE_CODE_MAX_TOOL_USE_CONCURRENCY` 改),其餘各自串行。並行用一個叫 `generators.all` 的小工具,以 `Promise.race` 做到「**誰先好誰先吐**」。
-
-> **兄弟中止的巧思**:並行批次裡,只有 **Bash 出錯**才會去殺掉同批的其他工具(`siblingAbortController.abort('sibling_error')`)。理由寫在註解裡:bash 常有隱含依賴鏈(`mkdir` 失敗→後面都沒意義),但 `Read`/`WebFetch` 彼此獨立,一個失敗不該牽連其他。
-
-### 站 8|Skill 的「漸進揭露」:每回合只花 1% context 講有哪些 skill
-
-假設這個 repo 有一個 `migrate-tests` 的 SKILL.md。Claude Code **不會**把它整份內文塞進 context,而是分兩段揭露(progressive disclosure):
-
-- **第一段(只露名字)**:每回合產生一個 `skill_listing` 的 `<system-reminder>`,裡面只有「`- 名稱: 一行描述`」,而且**硬性限制在 context 視窗的 1%**(`SKILL_BUDGET_CONTEXT_PERCENT=0.01`),每條描述上限 250 字。預算不夠時分層降級:官方 bundled skill 永不截斷,第三方先截短描述、再只剩名字。還用一個 per-agent 的 `sentSkillNames` Set 做 **delta**——只送沒送過的新 skill,不每回合重貼整份清單。
-- **第二段(展開內文)**:模型看到 listing 覺得有用,才呼叫那個唯一的 `Skill` 工具,這時 `getPromptForCommand` 才把整份 markdown 注入。
-
-**安全細節**:skill 內文裡的 `` !`shell` `` 內嵌指令,**只有非 MCP 來源才執行**(`if (loadedFrom !== 'mcp')`)——遠端 MCP 來的 skill markdown 視為不可信,杜絕遠端 server 靠 skill 內文注入 shell。
-
-### 站 9|MCP 工具:預設「藏起來」,要用再搜
-
-如果你接了 MCP server(比如一個有 60 個 API 的 OpenAPI server),Claude Code **預設把所有 MCP 工具 defer(延遲載入)**——`isDeferredTool` 對 `isMcp` 直接回 `true`。它們不進初始 prompt(否則 15–60KB 的工具描述直接灌爆),而是模型先呼叫 `ToolSearchTool`(query 形如 `select:Name` 或關鍵字),拿回一個 `tool_reference`,API 才把完整 schema 展開。MCP 工具命名空間是 `mcp__<server>__<tool>`。
-
-連線本身也很有韌性:`connectToServer` 與各 `fetch*ForClient` 全 memoize/LRU;一旦 `onclose` 就清掉所有相關快取,**下次呼叫自動重連**——把「重連」隱藏成「快取失效」,呼叫端根本不用感知連線狀態。
-
-### 站 10|「這事很大,我派個分身去做」——subagent 與 fork
-
-模型決定先派一個子 agent 去把測試檔逐一改寫。它呼叫 `Agent` 工具。**最關鍵的設計決策**:子 agent **沒有自己的 harness,它用的是和主迴圈完全相同的 `query()`**(`runAgent.ts:748`)。差異全部外化到「傳進去的 `ToolUseContext` + 工具池 + system prompt」。
-
-- **工具池獨立組**:用 `workerPermissionContext` 重新 `assembleToolPool`,刻意不繼承父層限制;且把 `Agent` 工具本身放進子 agent 的禁用清單,**防止無限遞迴 spawn**。
-- **背景化的精妙**:同步代理其實先註冊成前景,迴圈裡用 `Promise.race([下一則訊息, backgroundPromise])`。使用者或一個 120 秒計時器一觸發 `backgroundAll()`,**剩下的迴圈被接到另一個 detached closure 繼續跑**,立刻回傳 `async_launched`。執行到一半無痛切背景而不中斷推論——這段是整個子系統最巧的地方。
-- **結果怎麼回來**:背景代理完成時,父層那一輪可能早結束了。所以結果**不走 tool_result,而是包成 `<task-notification>` XML 當一則 user 訊息**重新注入主迴圈,coordinator 的 prompt 再教模型「這看起來像 user 訊息但其實是系統通知,別把它當對話對象」。
-
-至於 **fork**(不指定 `subagent_type`):它的存在幾乎只為了 **prompt cache**。`buildForkedMessages` 讓所有 fork child 的 API 請求前綴**位元組完全相同**(整則父 assistant + 固定占位 tool_result),只有最後一段 directive 因 child 而異;system prompt 直接塞父層「已 render 的位元組」而不重算(重算會因 GrowthBook 冷/熱漂移而 cache miss)。所以官方還警告「fork 別設 model」——換模型就無法共用 cache。
-
-### 站 11|context 滿了:壓縮三連閘的真面目
-
-改了 20 個檔、跑了幾次測試,對話到了 ~167K token。現在站 4 跳過的壓縮閘開始發威。Claude Code 有**兩種完全不同**的壓縮,且都發生在「送 API 之前」:
-
-**(A) microcompact —— 不叫 LLM、極輕量。** 它只把舊的 `tool_result` 內容換成佔位字串。聰明在它**分冷熱兩條路**:
-- 快取**冷**了(距上一則 assistant 超過設定分鐘數,server cache 反正過期了):直接改本地訊息內容,把舊 tool result 清成 `[Old tool result content cleared]`,趁機縮小重寫量。
-- 快取**暖**著:**絕不改本地訊息**(改了會白白破壞暖快取),而是 queue 一個 `cache_edits` block 叫 **API 在伺服器端**刪掉 tool result。
-
-**(B) full compact —— 重量級,fork 一個 summarizer。** `shouldAutoCompact` 用 `tokenCount` 比閾值。閾值怎麼算很講究(`autoCompact.ts`):200K 視窗先扣「為摘要輸出保留的 20K」(實測 p99.99 摘要要 17,387 token,所以選 20K),再扣 13K 安全邊際,**所以實際約在 167K 觸發**。觸發後 fork 一個 `maxTurns=1` 的 agent,用 9 段式 prompt 把對話摘要成一段文字(本筆記開頭那種「Primary Request / Key Concepts / Files / Errors / Pending Tasks / Next Step」就是它),原始訊息全丟、只留摘要,再**重新注入最近 5 個檔案 + 用過的 skill/plan**。
-
-這裡有三個真實事故換來的設計:
-- **fork summarizer 重用主對話 cache**:壓縮請求的前綴跟主對話一致才命中快取(實驗:不這樣做 98% cache miss)。為此 fork 路徑刻意不設 `maxOutputTokens`(設了會經 `Math.min` 改動 thinking budget 而 cache 失效)。
-- **circuit breaker**:`MAX_CONSECUTIVE_AUTOCOMPACT_FAILURES=3`。背景是真實事故——「1279 個 session 連續壓縮失敗 3272 次、一天浪費 25 萬次 API call」。連 3 次失敗就停手。
-- **`<analysis>` 草稿欄**:讓模型先寫 `<analysis>` 把思路鋪開(提升摘要品質),但事後用 regex 整段刪掉只留 `<summary>`——**用 output token 換品質、零 context 成本**。
-
-### 站 12|綠燈:回合結束
-
-模型最後跑 `npm run test` 看到全綠,吐出一段純文字總結、**沒有再要求工具** → `needsFollowUp=false` → 跑 stop hooks → 回合結束 → `QueryGuard` 回 `idle`。如果你在它工作時又打了字,現在輪到佇列登場(下一章)。
+> **一句話心法**:Claude Code = 「**把對話+工具結果反覆回灌給模型,直到模型不再要求工具**」的迴圈。所有難點都在「每圈餵什麼、何時壓縮、工具怎麼安全並行、你插話怎麼排」。
 
 ---
 
-## 2. 專章:Claude Code 怎麼處理 queue prompt(你的問題)
+## 時刻 0|按下 Enter 的前 0 毫秒:那把同步鎖
 
-> 你的觀察:「**有時候它會 queue 住等上一個指令,有時候上一個還在跑它就把下一個 prompt 接進來處理了。**」這不是隨機,是兩條明確的消費路徑 + 一個優先序佇列決定的。以下每一行都從原始碼驗證過。
-
-### 2.1 一個 module 級的「統一指令佇列」
-
-核心是 `utils/messageQueueManager.ts`:一個**完全獨立於 React** 的 module-level 陣列 `commandQueue`,所有東西(你的輸入、任務通知、群控訊息)都進這一個佇列。React 端用 `useSyncExternalStore` 訂閱——**刻意不放進 React state**,因為註解明說要「繞過 Ink 的 React context 傳遞延遲造成的漏通知」(Ink 的 render 排程不可靠,external store 的同步 emit 才能保證 dequeue 後 effect 必定 re-run,不然排隊的 prompt 會永久卡住)。
-
-三個優先級(`PRIORITY_ORDER`):
-
-| 優先級 | 數字 | 誰用 |
-|---|---|---|
-| `now` | 0 | 需要**中斷當前回合**的緊急訊息(遠端 chat client、steering) |
-| `next` | 1 | **你在輸入框打的 prompt** |
-| `later` | 2 | 任務通知、系統訊息(`enqueuePendingNotification` 預設值) |
-
-`dequeue` 不是純 FIFO,是**優先序感知**:掃整個陣列挑「priority 數字最小、同級最早進」的那個。`later` 給通知是刻意的——註解寫「user input is never starved by system messages」(你的輸入永遠不會被系統訊息餓死)。
-
-### 2.2 兩條消費路徑 = 你看到的兩種行為
-
-**路徑 A|回合「之間」排空(= queue 住等上一個跑完)**
-`hooks/useQueueProcessor.ts` 是個 React effect,開頭三道 early-return:
+入口是 `REPL.tsx` 的 `onSubmit`,它先算一個布林:
 
 ```ts
+// REPL.tsx:3343 —— submitsNow 為真才「立刻跑」,否則排隊
+const submitsNow = !isLoading || speculationAccept || activeRemote.isRemoteMode
+```
+
+現在沒別的 query 在跑,`submitsNow=true`,走 `executeUserInput`。但在它碰到**第一個 `await` 之前**,就同步做了一件全系統最關鍵的事——把一把叫 `QueryGuard` 的鎖從 `idle` 推到 `dispatching`。為什麼需要這把鎖、為什麼是**三**個狀態而不是兩個?
+
+```ts
+// utils/QueryGuard.ts:38-101 —— 三態 state machine
+reserve(): boolean {                    // idle → dispatching
+  if (this._status !== 'idle') return false
+  this._status = 'dispatching'; this._notify(); return true
+}
+tryStart(): number | null {             // dispatching → running
+  if (this._status === 'running') return null
+  this._status = 'running'; ++this._generation; this._notify(); return this._generation
+}
+end(generation: number): boolean {      // running → idle(只有同一代才能關)
+  if (this._generation !== generation) return false
+  if (this._status !== 'running') return false
+  this._status = 'idle'; this._notify(); return true
+}
+get isActive(): boolean { return this._status !== 'idle' }   // dispatching+running 都算「忙」
+```
+
+```mermaid
+stateDiagram-v2
+    [*] --> idle
+    idle --> dispatching: reserve()(已撈出指令,但 async 鏈還沒到 onQuery)
+    dispatching --> running: tryStart()(query 真的開跑)
+    dispatching --> idle: cancelReservation()(排隊處理失敗)
+    running --> idle: end(generation)
+    note right of dispatching
+      isActive 在這裡就 = true
+      ← 這是防併發的關鍵空窗
+    end note
+```
+
+**為什麼要 `dispatching` 這個中間態**:從「決定要跑」到「query 真的啟動」之間有一段 async 空窗。如果這段時間 guard 還是 `idle`,你**手快連按兩次 Enter** 時,第二次提交會看到 `idle`、誤判「現在沒事我可以跑」,於是同時啟動**兩個** query、把對話搞亂。`reserve()` 在第一個 `await` 前就同步把狀態推成 `dispatching`,讓 `isActive` 立刻變 `true`,把競爭者擋去排隊。`generation` 計數器則解決另一個競態:被 `end()` 的必須是「自己這一代」,避免一個 stale 的 `finally` 把後來啟動的新 query 給關掉。
+
+> **想改**:這把鎖是「立刻跑 vs 排隊」的總開關,下一刻就會用到它。要改判定一定要記得 `isActive` 涵蓋 `dispatching`+`running` 兩態——只檢查 `running` 就會在空窗期漏掉併發。
+
+---
+
+## 時刻 1|如果此刻 Claude 正在跑、你又打了字:佇列怎麼排(你的核心問題)
+
+先把這一刻講透,因為它正是你問的「**有時 queue 住等上一個、有時上一個還在跑就接手**」。假設 Claude 已經在改測試了,你又補一句「順便把 CI 設定也更新一下」。
+
+### 1a|一個 module 級的「統一佇列」,獨立於 React
+
+```ts
+// utils/messageQueueManager.ts:53-108 —— 佇列本體完全不在 React state 裡
+const commandQueue: QueuedCommand[] = []
+let snapshot: readonly QueuedCommand[] = Object.freeze([])   // 凍結快照,給 useSyncExternalStore
+const queueChanged = createSignal()
+function notifySubscribers(): void {
+  snapshot = Object.freeze([...commandQueue]); queueChanged.emit()
+}
+const PRIORITY_ORDER: Record<QueuePriority, number> = { now: 0, next: 1, later: 2 }
+export function dequeue(filter?: (cmd: QueuedCommand) => boolean): QueuedCommand | undefined {
+  let bestIdx = -1, bestPriority = Infinity
+  for (let i = 0; i < commandQueue.length; i++) {              // 不是純 FIFO,是「優先序感知」
+    const cmd = commandQueue[i]!
+    if (filter && !filter(cmd)) continue
+    const priority = PRIORITY_ORDER[cmd.priority ?? 'next']
+    if (priority < bestPriority) { bestIdx = i; bestPriority = priority }  // 嚴格 < ⇒ 同級保 FIFO
+  }
+  if (bestIdx === -1) return undefined
+  const [dequeued] = commandQueue.splice(bestIdx, 1); notifySubscribers(); return dequeued
+}
+```
+
+**為什麼放 module 級而不放 React state**:原始碼註解明說是要「繞過 Ink(終端 React 渲染器)的 context 傳遞延遲造成的漏通知」。Ink 的 render 排程不可靠,如果佇列靠 React context 傳播,dequeue 後的 effect 可能不 re-run,**排隊的 prompt 會永久卡死**。改用 `useSyncExternalStore` 訂閱一個外部 store,同步 `emit` 才能保證每次變動都 re-render。
+
+三個優先級的分工(這是「不會插隊亂套」的根基):
+
+| 優先級 | 數字 | 誰用 | 語意 |
+|---|---|---|---|
+| `now` | 0 | 遠端 chat client、steering | **中斷當前回合**插隊 |
+| `next` | 1 | **你在輸入框打的字** | 你的輸入永遠排在系統訊息前面 |
+| `later` | 2 | 任務通知、背景 agent 完成通知 | `enqueuePendingNotification` 預設值 |
+
+`later` 給通知是刻意的——註解寫「user input is never starved by system messages」(你的輸入永遠不被系統訊息餓死)。
+
+### 1b|按 Enter 的那一刻,唯一的分流點
+
+```ts
+// utils/handlePromptSubmit.ts:313-386 —— 「排隊 vs 立即」就這一個 if
+if (queryGuard.isActive || isExternalLoading) {
+  if (mode !== 'prompt' && mode !== 'bash') return         // 只有 prompt/bash 能排隊
+  if (params.hasInterruptibleToolInProgress) {              // 若當前工具全是可中斷的(如 Sleep)
+    params.abortController?.abort('interrupt')              // → 提早結束當前回合好馬上處理
+  }
+  enqueue({ value: finalInput.trim(), mode, pastedContents, skipSlashCommands, uuid })
+  onInputChange('')                                         // 清空輸入框、顯示在佇列預覽
+  return
+}
+// guard 不忙 → 直接執行(時刻 0 的路徑)
+await executeUserInput({ queuedCommands: [cmd], ... })
+```
+
+### 1c|進了佇列後,兩條消費路徑 = 你看到的兩種行為
+
+**路徑 A|回合「之間」才排空(= 你看到的「queue 住等上一個」)**
+
+```ts
+// hooks/useQueueProcessor.ts:35-67 —— 只在 query 結束後才排空佇列
+const isQueryActive = useSyncExternalStore(queryGuard.subscribe, queryGuard.getSnapshot)
+const queueSnapshot = useSyncExternalStore(subscribeToCommandQueue, getCommandQueueSnapshot)
 useEffect(() => {
   if (isQueryActive) return            // ← 有 query 在跑就什麼都不做
   if (hasActiveLocalJsxUI) return
   if (queueSnapshot.length === 0) return
-  processQueueIfReady({ executeInput: executeQueuedInput })
+  processQueueIfReady({ executeInput: executeQueuedInput })   // guard 變 idle 才會跑到這
 }, [queueSnapshot, isQueryActive, ...])
 ```
 
-只有整個 query 結束、`QueryGuard` 變回 `idle`、`isQueryActive` 翻成 `false`,這個 effect 才會 re-run 並排空佇列、**開一個全新回合**。`processQueueIfReady` 還會把「同一個 mode 的多則排隊訊息」一次 drain 合併成單一回合(slash 與 bash 例外,逐一處理以保留錯誤隔離/exit code)。
-
-**路徑 B|回合「中途」即時注入(= 上一個還在跑就接手)**
-主迴圈每跑完一輪工具、要發下一次 model 請求前,會做這件事(`query.ts:1570`):
+只有整個 query 結束、guard `end()` 回 `idle`、`isQueryActive` 翻 `false`,這個 effect 才 re-run,排空佇列、**開一個全新回合**。排空時的批次策略也有巧思:
 
 ```ts
-const queuedCommandsSnapshot = getCommandsByMaxPriority(sleepRan ? 'later' : 'next')
-  .filter(cmd => isSlashCommand(cmd) ? false : (isMainThread ? cmd.agentId === undefined : ...))
-// ↓ 把它們當 attachment 塞進「當前這個回合」
-for await (const attachment of getAttachmentMessages(..., queuedCommandsSnapshot, ...)) {
-  yield attachment; toolResults.push(attachment)
+// utils/queueProcessor.ts:61-86 —— slash/bash 單發,其餘同 mode 合併
+const isMainThread = (cmd) => cmd.agentId === undefined     // 只取主執行緒的,不吞子 agent 的通知
+const next = peek(isMainThread)
+if (isSlashCommand(next) || next.mode === 'bash') {
+  void executeInput([dequeue(isMainThread)!])               // 單發:保 per-command 錯誤隔離/exit code
+} else {
+  const cmds = dequeueAllMatching(c => isMainThread(c) && !isSlashCommand(c) && c.mode === next.mode)
+  void executeInput(cmds)                                   // 批次:多則排隊訊息合併成「一個」回合
 }
 ```
 
-也就是說:**只要 Claude 還在多步工具迴圈中(下一個 tool 迭代邊界還沒到回合結束),你插的那句 prompt 會在下一個邊界被撈出來、當成一則 user attachment 注入當前回合**,Claude 直接讀到並回應,不必等下一回合。`getQueuedCommandAttachments` 把它包成 `type:'queued_command'`,只接受 `prompt` 與 `task-notification` 兩種 mode(bash 排除)。
+**路徑 B|回合「中途」即時注入(= 你看到的「上一個還在跑就接手」)**
 
-### 2.3 所以「排隊 vs 立刻」到底取決於什麼
+主迴圈每跑完一圈工具、要發下一次 model 請求前,會順手把佇列裡屬於自己、非 slash 的指令撈出來,**當成 attachment 塞進「當前這個回合」**:
 
-| 你輸入的當下,Claude 正在… | 行為 | 為什麼 |
+```ts
+// query.ts:1570 —— mid-turn drain:把排隊的 prompt 注入當前回合
+const queuedCommandsSnapshot = getCommandsByMaxPriority(sleepRan ? 'later' : 'next')
+  .filter(cmd => isSlashCommand(cmd) ? false                 // slash 排除(要走 processSlashCommand)
+                : (isMainThread ? cmd.agentId === undefined : ...))
+for await (const attachment of getAttachmentMessages(..., queuedCommandsSnapshot, ...)) {
+  yield attachment; toolResults.push(attachment)             // 變成本回合的一則 user 訊息
+}
+```
+
+```ts
+// utils/attachments.ts:1044-1058 —— 只有 prompt / task-notification 兩種 mode 會被中途注入
+const INLINE_NOTIFICATION_MODES = new Set(['prompt', 'task-notification'])
+```
+
+### 1d|所以「排隊 vs 立刻」到底看什麼
+
+```mermaid
+flowchart TD
+    S["你按 Enter 的當下"] --> Q{"queryGuard.isActive?"}
+    Q -->|否| IMM["立刻開新回合(時刻 0)"]
+    Q -->|是| EN["enqueue(預設 next)"]
+    EN --> W{"Claude 此刻在做什麼?"}
+    W -->|"多步工具迴圈中<br/>(還會再叫工具)"| B["路徑B:下一個工具迭代<br/>邊界注入當前回合<br/>→ 幾乎立刻接手"]
+    W -->|"最後純文字回覆<br/>(不再叫工具了)"| A["路徑A:沒有邊界可注入<br/>→ 等回合結束才處理"]
+    W -->|"你打的是 /slash 指令"| A2["路徑A:中途注入明確排除 slash<br/>→ 等回合結束"]
+    W -->|"指令是 now 優先級(遠端)"| AB["abort 當前操作直接插隊"]
+```
+
+| 你輸入當下 Claude 正在… | 行為 | 機制 |
 |---|---|---|
-| **多步工具迴圈中間**(還會再叫工具) | **幾乎立刻接手**(路徑 B) | 下一個 tool 迭代邊界把它注入當前回合 |
-| **最後一段純文字回覆**(不再叫工具了) | **排隊等回合結束**(路徑 A) | 沒有後續迭代邊界可注入,只能等 `useQueueProcessor` |
-| 你打的是 **slash command**(`/model` 等) | **排隊等回合結束** | 中途注入明確排除 slash(它得走 `processSlashCommand`,不能當文字送模型) |
-| 指令是 **`now` 優先級**(遠端/steering) | **直接 abort 當前操作插隊** | `REPL.tsx:4100` 與 `print.ts:1858` 偵測到 `now` 就 `abortController.abort('interrupt')` |
-| 你按 **Esc** | 看情況:有 task 在跑→中斷 query;Claude idle 但佇列有料→把可編輯的排隊指令拉回輸入框 | `useCancelRequest.ts` 的兩段優先序 |
+| **多步工具迴圈中間**(還會再叫工具) | **幾乎立刻接手** | 路徑 B:`query.ts:1570` 注入當前回合 |
+| **最後一段純文字回覆**(不再叫工具) | **排隊等回合結束** | 路徑 A:沒有後續迭代邊界,只能等 `useQueueProcessor` |
+| 你打 **slash command**(`/model`…) | **排隊等回合結束** | 中途注入排除 slash,要走 `processSlashCommand` |
+| 指令是 **`now` 優先級** | **abort 當前操作插隊** | 見下方 headless steering |
 
-> **補充兩個冷知識**:
-> - **互動模式幾乎不做「真正的 mid-turn steering」**——TUI 裡你打的 prompt 一律 `next` 優先級、等回合結束(路徑 A 為主);路徑 B 的「注入當前回合」是發生在「回合本來就還沒結束(還在叫工具)」時順手 drain。真正「打斷正在進行的回合插話」是 headless/print 模式 + `now` 優先級才有(`print.ts` 訂閱佇列、一見 `now` 就 abort)。
-> - **agent scoping**:這個佇列是整個 process 共享(主執行緒 + 同進程子 agent)。每個迴圈只撈「給自己的」——主執行緒撈 `agentId===undefined`,子 agent 撈自己的 id。**子 agent 永遠看不到你的 prompt 串流。**
+互動模式(TUI)裡你打的 prompt 一律 `next` 優先級,**沒有「真正打斷正在進行的回合」這回事**——路徑 B 的「注入當前回合」只發生在「回合本來就還沒結束(還在叫工具)」時順手撈。真正的「打斷插話」只有 headless / 遠端的 `now` 優先級才有:
 
-### 2.4 想改它的話(改 code 指南)
+```ts
+// cli/print.ts:1858-1961 —— headless 模式的真 steering:now 訊息一到就 abort
+subscribeToCommandQueue(() => {
+  if (abortController && getCommandsByMaxPriority('now').length > 0) abortController.abort('interrupt')
+})
+while ((command = dequeue(isMainThread))) {                 // drain 迴圈:連續 prompt 合併成一次 ask()
+  if (command.mode === 'prompt') {
+    while (canBatchWith(command, peek(isMainThread))) batch.push(dequeue(isMainThread)!)
+    if (batch.length > 1) command = { ...command, value: joinPromptValues(batch.map(c => c.value)) }
+  }
+}
+```
 
-- **改「何時排隊 vs 立即」**:`handlePromptSubmit.ts:313` 的 `if (queryGuard.isActive || isExternalLoading)`。陷阱:`isActive` 涵蓋 `dispatching`+`running` 兩態,別只檢查 `running`,否則會在 async 空窗啟動第二個 query。
-- **讓互動模式也支援「插話打斷」**:仿 `print.ts:1858` 在 REPL 訂閱 `subscribeToCommandQueue`,偵測 `now` 時 abort,並給使用者一個把訊息標成 `now` 的入口(目前 `enqueue` 預設 `next`)。
-- **改優先序/新增一級**:`messageQueueManager.ts:151` 的 `PRIORITY_ORDER` + `textInputTypes.ts` 的 `QueuePriority`。注意 `dequeue` 用嚴格 `<` 保證同級 FIFO,改成 `<=` 會破壞 FIFO。
-- **鐵律**:任何 mutation 函式都必須呼叫 `notifySubscribers()` 重建 frozen snapshot,漏掉會讓排隊的 prompt 永久不被處理。
+> **跨子系統咬合**:這個佇列是整個 process 共享的(主執行緒 + 同進程子 agent)。每個迴圈只撈「給自己的」(主執行緒撈 `agentId===undefined`,子 agent 撈自己的 id),所以**子 agent 永遠看不到你的 prompt 串流**——這條規則在時刻 10(子 agent)會再用到。
 
----
+### 1e|CCB 把這條輸入管線接出去:群控 + Channels
 
-## 3. 把這些巧思收斂成「設計模式」
+這一站正是 CCB 動手腳的地方——**它幾乎不改迴圈,只把「輸入從哪來」接出去**:
 
-讀完整個 codebase,會發現它反覆用同幾招:
+- **群控(Pipe IPC + LAN)**:每個 CCB 實例開一個 NDJSON 的 Unix domain socket(Win 用 Named Pipe);同機靠 `~/.claude/pipes/registry.json` + 檔案鎖(`writeFile` 的 `wx` flag = `O_CREAT|O_EXCL`)選 main/sub,main 角色綁穩定的 `machineId`(Win 讀 registry MachineGuid、Linux 讀 `/etc/machine-id`)而非啟動順序,所以 main 崩了同機 sub 能無縫 `main-recover`。跨機用 **UDP multicast beacon**(多播組 `224.0.71.67`、埠 `7101`,每 3 秒廣播、15 秒逾時)做零配置發現,`TTL=1` 只在同網段。你 `/pipes` 勾選目標後,**你打的 prompt 被廣播到遠端 slave 執行**——而它走的正是上面這個同一套 `now/next/later` 佇列,`now` 級會 `abort` 插隊。
+- **Channels**:讓一個 MCP server 把外部 IM(Telegram/Discord/飛書/微信)訊息**推進正在跑的會話**——server 發 `notifications/claude/channel`,handler `wrapChannelMessage` 包成 `<channel>` 標籤(meta key 過 `SAFE_META_KEY` 正則防 XML 注入)後 `enqueue({priority:'next'})` 進**同一個佇列**,`SleepTool` 1 秒內醒來處理。**等於你不在終端,別人也能餵 prompt 進來。**
 
-1. **「藏延遲」模式**:任何能提前啟動、晚點收割的東西(工具串流執行、tool-use summary、memory/skill prefetch),都「回合開頭 fire-and-forget,工具跑完才非阻塞收割」,把延遲藏進別的延遲底下。
-2. **「為快取而生」模式**:靜態/動態 system prompt boundary、fork 的位元組級相同前綴、microcompact 的冷熱分流、autocompact fork 不設 maxOutputTokens——**整個系統都在伺候 Anthropic 伺服器端的 prompt cache**,因為 cache 命中=省錢省延遲。
-3. **「fail-closed 預設」模式**:`buildTool` 的 `TOOL_DEFAULTS` 把沒宣告的工具一律當「會寫入、不可並行、跳過分類器」;skill 權限用 allowlist(`SAFE_SKILL_PROPERTIES`)而非 blocklist——**新功能預設要使用者確認**,而非默默放行。
-4. **「真實事故驅動」模式**:circuit breaker(25 萬 call/天事故)、子 agent 的 `setAppStateForTasks` 必須通根(否則背景 bash 變殭屍)、Langfuse 用全域 `startObservation`(否則 TTFT 變負)——大量設計旁邊都掛著一個 BQ 查詢或 issue 編號。
-5. **「單一可變 State + transition」模式**:主迴圈把跨輪狀態收斂成一個 `State` 物件,每條續跑路徑都寫 `state = {...}` 再 `continue`,刻意為未來抽成純函式 reducer 鋪路。
-
----
-
-## 4. CCB 擴充篇:把同一具引擎開出終端機
-
-CCB(踩踩背)證明了上面那具引擎有多通用——它幾乎不動核心迴圈,只在**輸入/輸出邊界**接上新管線,就長出一整排企業/好玩功能。全部用編譯期 `feature('XXX')` flag 門控。
-
-### 4.1 群控:一台變一群(Pipe IPC + LAN 零配置)
-
-**同機**:每個實例開一個 NDJSON 的 Unix domain socket(Windows 用 Named Pipe);靠 `~/.claude/pipes/registry.json` + 檔案鎖(`writeFile` 的 `wx` flag = `O_CREAT|O_EXCL`)選出誰是 main、誰是 sub。**main 角色綁穩定的 `machineId`(Win 讀 registry 的 MachineGuid、Linux 讀 `/etc/machine-id`)而非啟動順序**,所以 main 崩了同機 sub 能無縫 `main-recover` 接管。
-
-**跨機(LAN)**:用 **UDP multicast beacon**——綁多播組 `224.0.71.67`(`CC`=Claude Code)埠 `7101`,每 3 秒廣播自己 `{pipeName, machineId, ip, tcpPort, role}`,15 秒沒收到就判定 peer 丟失。**零配置、不用填 IP**。巧思:明確 `setMulticastInterface(localIp)` 綁真實網卡,避開 Windows 上 WSL/Docker 虛擬網卡劫持多播的坑;`TTL=1` 只在同網段不跨路由器。
-
-**操作**:`/pipes` 開面板勾選目標,之後你打的一般 prompt 就被 `routeToSelectedPipes` 廣播到選中的 slave 執行,本地不跑;slave 的 AI 輸出、工具事件 stream 回 master 顯示;slave 要用需授權工具時,`permission_request` 送回 master 彈出帶 `[角色 主機/IP]` 標籤的確認框。**這整套就是把站 2.1 那個優先序佇列接上 socket**——群控進來的 prompt 也走 `now/next/later`,`now` 級會 abort 當前回合插隊。
-
-### 4.2 ACP:接進 Zed / Cursor
-
-`ccb --acp` 把自己變成一個 stdio + NDJSON 的 **ACP(Agent Client Protocol)agent 子進程**。IDE 寫 NDJSON 請求進 stdin、讀通知出 stdout(`console.*` 全導去 stderr 以免污染協定)。每個 ACP session 對應一個**獨立的 `QueryEngine` 實例**;入站 prompt 經 `promptToQueryInput` 攤平成字串餵 `submitMessage`,出站 `SDKMessage` 經 `forwardSessionUpdates` 轉成 ACP 的 `sessionUpdate`(agent_message_chunk / tool_call / plan…)推回 IDE。權限統一走 `hasPermissionsToUseTool`,只有 `ask` 才 `conn.requestPermission` 讓 IDE 彈窗。
-
-### 4.3 Remote Control:手機看 CC
-
-三種「遠端」拓撲共用同一套 `stream-json` 子進程協定:
-- **Bridge(手機/瀏覽器看)= pull 模型**:本機 CC 用 **HTTP 長輪詢**向一台 server(雲端或自托管 Docker RCS)註冊環境、領取會話工作,收到就 spawn 一個 `claude --print --output-format stream-json` 子進程跑,stdout NDJSON 串回 server,手機開 Web UI 就能看與控。**控制面走 HTTP REST(好穿反向代理),資料面才走 WebSocket/SSE。** 自托管只要設 `CLAUDE_BRIDGE_BASE_URL` + `CLAUDE_BRIDGE_OAUTH_TOKEN`,`isSelfHostedBridge()` 就讓 `isBridgeEnabled` 直接回 true、跳過所有訂閱/GrowthBook 檢查。
-- **Daemon**:把 bridge 變常駐服務(supervisor 管多個 worker、崩潰指數退避重啟、PID 寫檔讓別的 CLI `status/stop`)。
-- **SSH Remote**:`ccb ssh host`——在沒裝 CC、沒 API key 的遠端主機上跑 CC,**憑據完全不出本機**:遠端的 `ANTHROPIC_BASE_URL` 指向經 `ssh -R` 反向隧道回本機的 `SSHAuthProxy`,由本機注入真實憑據。
-
-### 4.4 Web Search / Poor Mode / Channels / Langfuse
-
-- **Web Search**:adapter 工廠,在官方 server tool 與自抓的 **Bing / Brave / Exa** 之間切換(優先序:`WEB_SEARCH_ADAPTER` 環境變數 > 第三方 provider→bing > 第一方→api > 其餘→exa)。
-- **Poor Mode(穷鬼模式)**:`/poor` 切換、寫進 `settings.json`(用 `active || undefined` 讓關閉時直接刪 key 保持乾淨)。它**不是一個總開關,而是散在各處的 early-return 守衛**——`isPoorModeActive()` 被「記憶提取、鍵入建議、子 agent 摘要、attachment 側查詢、驗證 agent、auto-mode 模型降級」各自查一次,把這些「不直接服務當前回答、卻額外燒 token 的背景 LLM 副查詢」全關掉。因為每個背景任務觸發點不同,所以刻意分散成多個 guard。
-- **Channels**:讓一個 MCP server 把外部 IM(Telegram/Discord/飛書/微信)訊息**推進正在跑的會話**——server 發 `notifications/claude/channel`,handler `wrapChannelMessage` 包成 `<channel>` 標籤(meta key 過 `SAFE_META_KEY` 正則防 XML 注入)→ `enqueue` 進那個統一佇列(`priority:'next'`)→ `SleepTool` 1 秒內醒來處理。權限核准改成**結構化事件**(server 解析 `yes tbxkq` 後發 `{request_id, behavior}`),`shortRequestId` 把 toolUseID 雜湊成「去掉 l 的 5 個字母 + 過髒字 blocklist」,手機輸入不用切鍵盤又不會拼出社死的字。
-- **Langfuse**:純觀測旁路,用 OpenTelemetry 把每輪 agent loop 變成 trace(根 trace=一個 turn,底下掛 LLM generation + tool observation)。`isLangfuseEnabled()` 只看兩把 key 在不在,沒設就零開銷 no-op。
-
-### 4.5 token-budget:`+500k` 自動跑到底
-
-CCB 給 prompt 加了個語法:結尾寫 `+500k` 或 `spend 2M tokens`,agent 就**自動持續工作到 output token 達預算的 90%**,不用一直按 Enter 催「繼續」。`checkTokenBudget`(每輪結束跑)在 `turnTokens < budget*0.9` 且非收益遞減(連 3 輪 delta<500 token)時注入一個 nudge 續跑。停在 90% 而非 100% 是避免最後一輪衝過頭。(官方原始碼裡也有 `query/tokenBudget.ts` 的對應 `TOKEN_BUDGET` feature。)
+> **想改 queue**:① 改「排隊 vs 立即」動 `handlePromptSubmit.ts:313`;② 新增優先級動 `messageQueueManager.ts:151` 的 `PRIORITY_ORDER`(`dequeue` 用嚴格 `<` 保 FIFO,改 `<=` 會壞);③ 讓互動模式也能 `now` 插話,仿 `print.ts:1858` 在 REPL 訂閱佇列;④ **鐵律**:任何 mutation 都要呼叫 `notifySubscribers()`,漏掉排隊 prompt 永久不處理。
 
 ---
 
-## 5. 「我要改 code」總速查表
+## 時刻 2|組這一圈的請求:system prompt 的「靜/動雙段」,與你的 CLAUDE.md 去哪了
 
-| 你想改的行為 | 動這個檔/函式 | 最大的陷阱 |
-|---|---|---|
-| 主迴圈終止/續跑條件 | `query.ts` 的 `if(!needsFollowUp)` 區(L1062)與底部 `state=next`(L1715) | 防死循環的旗標(`maxOutputTokensRecoveryCount` 等)務必正確帶進新 State |
-| 工具並行上限 | `toolOrchestration.ts:getMaxToolUseConcurrency`(預設 10)或 env | 只影響非串流路徑;串流路徑要改 `StreamingToolExecutor` |
-| 某工具能否並行 | 該工具的 `isConcurrencySafe(input)`(`Tool.ts:402`) | 在 partition 與 streaming executor 兩處被呼叫,`throw` 即視為不安全 |
-| 新增內建工具 | 在 `src/tools/MyTool/` 用 `buildTool({...})`,再到 `tools.ts:getAllBaseTools()` 加入 | 有安全意義一定要覆寫 `toAutoClassifierInput`;唯讀要顯式 `isReadOnly()=true` |
-| 某工具要不要問使用者 | 該工具的 `checkPermissions()` 回 `allow/ask/deny/passthrough` | 整工具/路徑層的 deny/ask rule 會先短路,你的 `checkPermissions` 可能根本不被呼叫 |
-| 強制 prompt 的敏感路徑(bypass 也擋) | `filesystem.ts:checkPathSafetyForAutoEdit`,回 `{safe:false, classifierApprovable:false}` | 設 `classifierApprovable:true` 則 auto 模式分類器仍可放行 |
-| system prompt 文字 | `constants/prompts.ts` 對應 `get*Section()` | boundary **之前**的任何改動會 bust 全體 global cache |
-| 自動壓縮觸發時機 | `autoCompact.ts:AUTOCOMPACT_BUFFER_TOKENS`(13K)或 env `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` | 閾值同時被多處用,改一個常數會牽動 UI 的 percentLeft |
-| 壓縮後保留幾個檔案 | `compact.ts:POST_COMPACT_MAX_FILES_TO_RESTORE`(5)等 | 調太大會讓壓縮後立刻又觸發壓縮 |
-| 摘要 9 段內容 | `compact/prompt.ts:BASE_COMPACT_PROMPT` | 改 `<summary>` 包裝要同步 `formatCompactSummary` 的 regex |
-| skill listing 預算/截斷 | `SkillTool/prompt.ts:SKILL_BUDGET_CONTEXT_PERCENT`(0.01) | bundled skill 走「永不截斷」分支 |
-| 子 agent 可用工具 | `constants/tools.ts` 的四個 Set | 背景代理要加進 `ASYNC_AGENT_ALLOWED_TOOLS` 才生效 |
-| queue「排隊 vs 立即」 | `handlePromptSubmit.ts:313` | `isActive` 涵蓋 dispatching+running,別只檢查 running |
-| (CCB)群控傳輸/協定 | `utils/pipeTransport.ts` / `lanBeacon.ts` | LAN 路徑用 `feature('LAN_PIPES')` 包,跨模組相依要 lazy require 避免 Bun 循環依賴崩潰 |
-| (CCB)Poor Mode 多關一個背景功能 | 在該功能觸發點加 `isPoorModeActive()` early-return | 不必動 `poorMode.ts` 本體 |
+回到主線。Claude 要發第一次 API 請求了。`getSystemPrompt()` 回的不是一個字串,是一個**陣列**,刻意切成兩半,中間插一個 marker:
+
+```ts
+// constants/prompts.ts:560-576 —— system prompt 的最終組裝
+return [
+  // --- 靜態段(可跨使用者/組織快取)---
+  getSimpleIntroSection(outputStyleConfig),   // 身份
+  getSimpleSystemSection(),                   // # System
+  outputStyleConfig === null || outputStyleConfig.keepCodingInstructions === true
+    ? getSimpleDoingTasksSection() : null,    // # Doing tasks(可被 output style 抽掉)
+  getActionsSection(),                        // # Executing actions with care
+  getUsingYourToolsSection(enabledTools),     // # Using your tools
+  getSimpleToneAndStyleSection(),             // # Tone and style
+  getOutputEfficiencySection(),               // # Output efficiency
+  // === BOUNDARY MARKER - DO NOT MOVE OR REMOVE ===
+  ...(shouldUseGlobalCacheScope() ? [SYSTEM_PROMPT_DYNAMIC_BOUNDARY] : []),
+  // --- 動態段(session 專屬)---
+  ...resolvedDynamicSections,                 // memory 行為、output style、env、語言、MCP 指令…
+].filter(s => s !== null)
+```
+
+**為什麼要這條 boundary**:`splitSysPromptPrefix()` 靠這個 marker 把陣列切成「boundary 之前 = 跨使用者/組織可共用的 prompt cache」和「之後 = session 專屬」。Anthropic 伺服器端的 prompt cache 命中=省錢省延遲,而身份/工具指引這些**每個人都一樣**的東西放前面就能全域共用;memory、env 這些**每個 session 不同**的放後面。代價是:**一旦動到 boundary 之前的任何一個字,全體使用者的 global cache 一起失效**——所以原始碼用大寫註解 `DO NOT MOVE OR REMOVE`。
+
+動態段大多其實 session 內也不變,所以用一層快取:
+
+```ts
+// constants/systemPromptSections.ts:48-57 —— 動態段的 once-cache
+return Promise.all(sections.map(async s => {
+  if (!s.cacheBreak && cache.has(s.name)) return cache.get(s.name) ?? null  // 命中即回
+  const value = await s.compute()
+  setSystemPromptSectionCacheEntry(s.name, value); return value
+}))
+```
+
+只有「turn 之間真的會變」的(MCP server 可能斷線重連)才用一個名字嚇人的 `DANGEROUS_uncachedSystemPromptSection()`,而且強制傳 `_reason`——**用命名當 code-review 防呆**,一眼看出「這段會破壞快取」。
+
+**反直覺一**:身份字串不是寫死「You are Claude Code」:
+
+```ts
+// constants/prompts.ts:179-183 —— 身份依 output style 動態切換措辭
+return `You are an interactive agent that helps users ${outputStyleConfig !== null
+  ? 'according to your "Output Style" below, which describes how you should respond to user queries.'
+  : 'with software engineering tasks.'} ...`
+```
+
+這是為了讓自訂 **output style** 能徹底重塑人格——「You are Claude Code, Anthropic's official CLI」只出現在 `CLAUDE_CODE_SIMPLE` 捷徑和子 agent 的 `DEFAULT_AGENT_PROMPT`。
+
+**反直覺二(最常被誤解)**:你的專案 `CLAUDE.md`、`MEMORY.md` 內容、今天日期,**統統不進 system prompt**,而是被包成一則 user 訊息塞到 `messages[0]`:
+
+```ts
+// utils/api.ts:461-473 —— CLAUDE.md 走「對話第一句」,不是 system prompt
+return [
+  createUserMessage({
+    content: `<system-reminder>\nAs you answer the user's questions, you can use the following context:\n${
+      Object.entries(context).map(([k, v]) => `# ${k}\n${v}`).join('\n')}
+      IMPORTANT: this context may or may not be relevant...\n</system-reminder>\n`,
+    isMeta: true,
+  }),
+  ...messages,
+]
+```
+
+> 你在自己 session 開頭看到的那段 `<system-reminder># claudeMd ...` 就是這裡產的。**為什麼這樣設計**:① CLAUDE.md 每個專案不同,放進 system prompt 會讓「可全域共用的前綴」碎裂;② 放對話裡它就能跟著 `/compact` 一起被摘要(時刻 11 會用到);③ 冠上 `OVERRIDE any default behavior` 提升權重。
+
+而 `git status` 走的是**另一條路**——它確實在 system prompt 裡,但 append 在**尾端**:
+
+```ts
+// utils/api.ts:437-447 —— git status 以「key: value」接到 system prompt 陣列尾巴
+export function appendSystemContext(systemPrompt, context) {
+  return [...systemPrompt, Object.entries(context).map(([k, v]) => `${k}: ${v}`).join('\n')].filter(Boolean)
+}
+```
+
+記住這個對照:**git status 在 system prompt 尾巴,CLAUDE.md 在對話開頭。**
+
+> **想改 system prompt**:改某段文字動 `constants/prompts.ts` 對應 `get*Section()`,但 boundary **之前**任何改動會 bust 全體 global cache;新增動態段在 `dynamicSections` 陣列加 `systemPromptSection('name', fn)`,會變動的才用 `DANGEROUS_uncached*` 並寫 reason;改 CLAUDE.md 注入格式動 `api.ts:461` 的 `prependUserContext`(注意 `NODE_ENV==='test'` 時它直接 return,測試看不到效果)。
 
 ---
 
-## 6. 應用案例 / 你可以拿這份筆記做什麼
+## 時刻 3|送 API 之前的「壓縮閘」(現在是 no-op,先記住它在這)
 
-- **debug「為什麼我的 prompt 卡住了」**:對照第 2 章——多半是你在 Claude 的「最後純文字回覆」階段或打了 slash command,落到路徑 A 等回合結束。想要插話打斷,得用 `now` 優先級(目前只 headless/遠端有,互動模式要自己接)。
-- **自己接一套「手機看 Claude Code」**:CCB 的 Remote Control 自托管(`docker build` RCS + 設兩個 env)是現成藍圖;原理就是「本機 CC 長輪詢領工作 + spawn `--print stream-json` 子進程串回 server」。
-- **寫一個會自動觸發、不爆 context 的 skill**:照站 8 的 progressive disclosure——描述壓在 250 字內、把重內容放進 SKILL.md 本體讓模型用 `Skill` 工具才展開;要「跟著你碰的檔案才現身」就加 `paths` frontmatter(conditional skill)。
-- **改 Claude Code 行為**:第 5 章速查表直接給你「改哪個檔、踩哪個雷」。最該記住的元規則:**任何 boundary 之前的 system prompt 改動、任何破壞 fork/壓縮前綴位元組一致性的改動,都會 bust prompt cache 而暴漲成本。**
-- **理解「為什麼 Claude Code 這麼省 token 又這麼快」**:不是模型特別,是這具 harness 把「藏延遲 + 伺服快取命中 + 漸進揭露 + 兩段式壓縮」這四件事做到了極致。對照本庫 [[loop-engineering]]、[[ai-harness-explained]]、[[harness-engineering-evolution]]、[[self-harness]]、[[markdown-agent-memory]],這份是它們的「官方實作對照組」。
+`messagesForQuery` 在送出前會依序過四關:`applyToolResultBudget`(限制工具結果總量)→ `snip` → `microcompact` → `autocompact`。第一圈對話很短,這四關全是 no-op。**這道閘的精妙要等對話變長(時刻 11)才看得出來**,先記住它卡在「每圈送 API 前」這個位置。
+
+---
+
+## 時刻 4|串流開始:迴圈何時停的真正訊號,與「邊吐邊跑」
+
+請求送出,模型開始吐 token。主迴圈核心是:
+
+```ts
+// query.ts:659 串流主迴圈(精簡)
+for await (const message of deps.callModel({ messages, systemPrompt, tools, signal, ... })) {
+  // ... 處理每一個串流出來的 message
+}
+```
+
+這裡有個最容易誤會的點:**判斷「這圈要不要繼續」靠的不是 API 的 `stop_reason`**。
+
+```ts
+// query.ts:554-558 —— needsFollowUp 才是唯一的 loop-exit 訊號
+// Note: stop_reason === 'tool_use' is unreliable -- it's not always set correctly.
+const toolUseBlocks: ToolUseBlock[] = []
+let needsFollowUp = false
+// 串流中:只要看到任何 tool_use 區塊就設 true
+if (msgToolUseBlocks.length > 0) { toolUseBlocks.push(...msgToolUseBlocks); needsFollowUp = true }
+```
+
+串流結束後,`needsFollowUp === false` → 模型沒要求工具 → 走收尾(時刻 12);`true` → 去執行工具(時刻 5)。我們的 vitest 任務,模型第一圈會先想「我得看看測試長怎樣」,吐出 `Grep "jest"` / `Read package.json` 的 tool_use → `needsFollowUp=true`。
+
+**藏延遲的把戲**:模型還在吐後面的 token 時,前面 parse 出來的 tool_use **已經開始跑了**(`StreamingToolExecutor`)。等模型講完,工具可能也好了——**把工具延遲藏進串流延遲**。同樣手法用在 `generateToolUseSummary`(Haiku 約 1 秒)、memory prefetch、skill prefetch:全部「回合開頭 fire-and-forget 啟動、工具跑完才非阻塞收割」,把它們的延遲藏在下一圈模型串流的 5–30 秒底下,主鏈路零等待。
+
+**為什麼不直接信 `stop_reason`**:原始碼直接註明它「不總是正確設定」。串流場景下,只要實際出現了 tool_use 區塊就一定得跟進,用自己數到的區塊當訊號比信 API 欄位可靠。
+
+> **CCB 在這一站接管「輸出」**:時刻 1 群控接的是輸入,**Remote Control** 接的是這條串流輸出。`ccb --remote-control` 讓本機 CC 用 HTTP 長輪詢向一台 server(雲端或自托管 Docker RCS)領會話工作,收到就 spawn 一個 `claude --print --output-format stream-json` 子進程,**這條串流 NDJSON 串回 server**,你手機開 Web UI 就能即時看到工具活動、遠端批准權限。控制面走 HTTP REST(好穿反向代理)、資料面才走 WebSocket/SSE。自托管只要設 `CLAUDE_BRIDGE_BASE_URL` + `CLAUDE_BRIDGE_OAUTH_TOKEN`,`isSelfHostedBridge()` 就讓 `isBridgeEnabled` 直接回 true、跳過所有訂閱檢查。
+
+> **想改迴圈終止/續跑**:集中在 `query.ts` 的 `if(!needsFollowUp)` 區(L1062 起)與底部 `state = {...}`(L1715)。新增一種 recovery 就建一個新 `State`(含新的 `transition.reason`)再 `continue`;務必把防死循環的旗標(`maxOutputTokensRecoveryCount` 等)正確帶過去——原始碼有一處 L1290 註解就是在修一次無限循環。
+
+---
+
+## 時刻 5|模型要動工具了:三段式權限階梯
+
+模型吐出 `Read package.json`。每個工具呼叫都過一條管線:`inputSchema.safeParse`(zod 型別)→ `validateInput`(語意驗證)→ **`canUseTool`(權限)** → `call()` → 結果序列化回模型。權限是一條短路梯子:
+
+```ts
+// permissions/permissions.ts:hasPermissionsToUseToolInner(精簡)
+if (denyRule) return { behavior: 'deny' }                    // 1a 整工具被 deny
+if (askRule)  return { behavior: 'ask' }                     // 1b 整工具強制 ask
+const parsed = tool.inputSchema.parse(input)
+toolPermissionResult = await tool.checkPermissions(parsed, context)  // 1c 問工具自己
+// 1d/1f/1g: 工具自報 deny / 內容級 ask rule / safetyCheck —— 都優先於 bypass
+if (shouldBypassPermissions) return { behavior: 'allow' }   // 2a 全部放行模式
+return toolPermissionResult.behavior === 'passthrough'      // 3 passthrough → 轉 ask
+  ? { ...toolPermissionResult, behavior: 'ask' } : toolPermissionResult
+```
+
+最精妙的是「**哪些東西連 `--dangerously-skip-permissions` 都擋不住**」分得極細。`.git`、`.claude`、shell 設定檔這類 safetyCheck **即使在 bypass 模式也強制問你**:
+
+```ts
+// permissions/filesystem.ts —— acceptEdits 為何擋不住敏感路徑
+const safetyCheck = checkPathSafetyForAutoEdit(path, pathsToCheck)   // 1.7 safetyCheck 在前
+if (!safetyCheck.safe) return { behavior: 'ask',
+  decisionReason: { type: 'safetyCheck', classifierApprovable: safetyCheck.classifierApprovable } }
+// 3 acceptEdits 只在 working dir 內放行,且排在 safetyCheck 之後
+if (toolPermissionContext.mode === 'acceptEdits' && isInWorkingDir)
+  return { behavior: 'allow', decisionReason: { type: 'mode', mode } }
+```
+
+**為什麼這樣排**:`acceptEdits`(自動接受編輯)和 `bypass`(全部放行)都很方便,但若它們能繞過「改你自己的 git 設定 / shell 設定」這種高危操作,一個惡意 repo 就能靠 `acceptEdits` 偷改 `.git/config` 提權。把 safetyCheck 排在這些放行邏輯**之前**,等於「再怎麼放行,動到我命根子的東西還是要問」。
+
+待會的 `Bash "npm run test"` 還有一手:`preparePermissionMatcher` 把 compound command(`a && b && c`)**拆成各 subcommand** 分別比對 permission pattern——`ls && git push` 裡只要 `git push` 命中 `Bash(git *)` 規則就觸發確認,parse 失敗時 fail-safe 回「全部要比對」寧可多問。
+
+> **想改權限**:某工具要不要問動它的 `checkPermissions()`(回 `allow/ask/deny/passthrough`,`passthrough` 會在 `permissions.ts` 被轉 `ask`);**陷阱**:整工具/路徑層的 deny/ask rule 在 1a/1b 就短路,你的 `checkPermissions` 可能根本不被呼叫。要新增「bypass 也擋」的敏感路徑,改 `filesystem.ts:checkPathSafetyForAutoEdit` 回 `{safe:false, classifierApprovable:false}`。
+
+---
+
+## 時刻 6|模型一次吐了三個工具:「唯讀即並行」與兄弟中止
+
+模型決定一次 `Read package.json` + `Read vitest.config.ts` + `Grep "jest"`。能不能同時跑?答案藏在一條**不變式**裡:每個 Tool 有 `isConcurrencySafe(input)`,而它的預設實作直接綁定唯讀——
+
+```ts
+// Tool.ts:TOOL_DEFAULTS —— fail-closed 預設 + 「唯讀即並行」
+const TOOL_DEFAULTS = {
+  isConcurrencySafe: (_input?) => false,   // 預設不安全
+  isReadOnly:        (_input?) => false,   // 預設會寫
+  checkPermissions:  (input, _ctx?) => Promise.resolve({ behavior: 'allow', updatedInput: input }),
+  toAutoClassifierInput: (_input?) => '',  // 預設略過分類器
+}
+export function buildTool(def) { return { ...TOOL_DEFAULTS, userFacingName: () => def.name, ...def } }
+```
+
+注意 `isConcurrencySafe` 是**吃 input 的函式**而非靜態旗標:同一個 Bash 工具,`ls` 唯讀可並行、`rm` 不可並行,粒度細到單次呼叫(Bash 內部 `isConcurrencySafe` 直接 `return this.isReadOnly(input)`)。調度時:
+
+```ts
+// services/tools/toolOrchestration.ts:partitionToolCalls —— 連續 safe 工具併批並行
+const isConcurrencySafe = parsedInput?.success
+  ? (() => { try { return Boolean(tool?.isConcurrencySafe(parsedInput.data)) } catch { return false } })()
+  : false                                                  // parse 失敗或 throw → 保守當不安全
+if (isConcurrencySafe && acc.at(-1)?.isConcurrencySafe)
+  acc.at(-1).blocks.push(toolUse)                          // 併入同一並行批
+else acc.push({ isConcurrencySafe, blocks: [toolUse] })    // 自成一批 → 串行
+```
+
+串流路徑的並行語意更嚴格(safe 全並行、unsafe 獨佔),還有一個只針對 Bash 的「兄弟中止」:
+
+```ts
+// services/tools/StreamingToolExecutor.ts:129-363
+private canExecuteTool(isConcurrencySafe: boolean): boolean {
+  const executing = this.tools.filter(t => t.status === 'executing')
+  return executing.length === 0 || (isConcurrencySafe && executing.every(t => t.isConcurrencySafe))
+}
+// 只有 Bash 出錯才殺掉同批其他工具:
+if (tool.block.name === BASH_TOOL_NAME) { this.hasErrored = true; this.siblingAbortController.abort('sibling_error') }
+```
+
+**為什麼只有 Bash 連坐**:bash 命令常有隱含依賴鏈(`mkdir x && cd x && ...`,`mkdir` 失敗後面全沒意義),但 `Read`/`WebFetch` 彼此獨立,一個失敗不該牽連其他。
+
+> **想改並行**:某工具能否並行改它的 `isConcurrencySafe(input)`(在 partition 與 streaming executor 兩處被呼叫,`throw` 即視為不安全);全域上限改 `toolOrchestration.ts:getMaxToolUseConcurrency`(預設 10)或 env `CLAUDE_CODE_MAX_TOOL_USE_CONCURRENCY`(**只影響非串流路徑**,串流路徑沒有數值上限、靠 `canExecuteTool` 邏輯)。**陷阱**:`partitionToolCalls` 只併**連續**的 safe 工具,中間插一個 unsafe 就打斷批次。
+
+工具跑完,結果回灌成下一圈的訊息:
+
+```ts
+// query.ts:1380-1408 + 1716 —— tool_result 收集 + 組下一圈
+for await (const update of toolUpdates) {
+  if (update.message) {
+    yield update.message
+    toolResults.push(...normalizeMessagesForAPI([update.message], tools).filter(_ => _.type === 'user'))
+  }
+}
+// 下一圈的 messages:
+messages: [...messagesForQuery, ...assistantMessages, ...toolResults]
+```
+
+進度(中間訊息)與最終結果是分離的——`call()` 對外永遠是單純 `Promise`,進度走 `onProgress` callback:
+
+```ts
+// tools/BashTool/BashTool.tsx —— 內部用 generator,進度走 onProgress,return 才是最終結果
+async call(input, ctx, _canUseTool, parentMessage, onProgress) {
+  const gen = runShellCommand({ input, ... }); let r
+  do {
+    r = await gen.next()
+    if (!r.done && onProgress) onProgress({ toolUseID: `bash-progress-${n++}`,
+      data: { type: 'bash_progress', output: r.value.output } })   // 中間進度只渲染 UI、不進對話
+  } while (!r.done)
+  result = r.value   // generator 的 return value 才是進對話的最終結果
+}
+```
+
+---
+
+## 時刻 7|工具想上網:WebFetch 與 CCB 的 Web Search
+
+如果任務需要查 vitest 遷移文件,模型會用 `WebFetch`。官方內建 `WebFetch`(抓網頁)與 `WebSearch`(server tool)。**CCB 在這一站補了一層**:它的 `WebSearchTool` 用 adapter 工廠在「官方 server tool / Bing / Brave / Exa」之間自動切換(優先序:`WEB_SEARCH_ADAPTER` 環境變數 > 第三方 provider(OpenAI/Gemini/Grok)→ bing > 第一方 Anthropic base URL → api > 其餘 → exa),四個 backend 實作同一個 `WebSearchAdapter.search()` 介面。CCB 還補了 Computer Use(截圖+鍵鼠,Windows 走 `SendMessageW` 對綁定 HWND 送訊息、不搶焦點)與 Chrome Use(透過官方 claude-for-chrome MCP)。**這些都只是「多註冊幾個工具」,迴圈本身一行沒改。**
+
+---
+
+## 時刻 8|模型發現有個 skill:漸進揭露(每回合只花 1% context 講有哪些 skill)
+
+假設這 repo 有個 `migrate-tests` 的 SKILL.md。Claude **不會**把它整份內文塞進 context,而是兩段式揭露。**第一段只露名字**,而且預算卡得極死:
+
+```ts
+// tools/SkillTool/prompt.ts:21-142 —— listing 只佔 context 1%,bundled 永不截斷
+export const SKILL_BUDGET_CONTEXT_PERCENT = 0.01
+export const MAX_LISTING_DESC_CHARS = 250
+for (let i = 0; i < commands.length; i++) {                 // 先把 bundled 與其餘分開
+  if (commands[i].source === 'bundled') bundledIndices.add(i)   // 官方 bundled:永不被截斷
+  else restCommands.push(commands[i])
+}
+const maxDescLen = Math.floor(availableForDescs / restCommands.length)
+if (maxDescLen < MIN_DESC_LENGTH) {                         // 預算極限:其餘只剩名稱,bundled 保描述
+  return commands.map((cmd, i) => bundledIndices.has(i) ? fullEntries[i].full : `- ${cmd.name}`).join('\n')
+}
+```
+
+而且用 delta,只送沒送過的新 skill,不每回合重貼整份清單:
+
+```ts
+// utils/attachments.ts:2676-2750 —— 合併本地+MCP skill,用 sentSkillNames 做 delta
+let allCommands = mcpSkills.length > 0 ? uniqBy([...localCommands, ...mcpSkills], 'name') : localCommands
+const newSkills = allCommands.filter(cmd => !sent.has(cmd.name))   // 只送沒送過的
+if (newSkills.length === 0) return []
+for (const cmd of newSkills) sent.add(cmd.name)
+return [{ type: 'skill_listing', content: formatCommandsWithinBudget(newSkills, contextWindowTokens), ... }]
+```
+
+**第二段才展開內文**——模型看到 listing 覺得有用,呼叫那個唯一的 `Skill` 工具,這時才把整份 markdown 注入:
+
+```ts
+// skills/loadSkillsDir.ts:344-399 —— skill 內文展開(延遲求值),含安全分支
+async getPromptForCommand(args, toolUseContext) {
+  let finalContent = baseDir ? `Base directory for this skill: ${baseDir}\n\n${markdownContent}` : markdownContent
+  finalContent = substituteArguments(finalContent, args, true, argumentNames)
+  finalContent = finalContent.replace(/\$\{CLAUDE_SESSION_ID\}/g, getSessionId())
+  // Security: MCP skills are remote and untrusted — never execute inline shell
+  if (loadedFrom !== 'mcp') {
+    finalContent = await executeShellCommandsInPrompt(finalContent, ...)   // 只有非 MCP 來源才跑內嵌 !`shell`
+  }
+  return [{ type: 'text', text: finalContent }]
+}
+```
+
+**為什麼漸進揭露**:你可能裝了 50 個 skill,每個 SKILL.md 動輒幾 KB。全塞進 context 既爆預算又稀釋注意力。只露「名稱+250 字描述」讓模型「發現」,要用再展開——原始碼註解直言「冗長的 whenToUse 只浪費 turn-1 的 cache_creation token 卻不提升 match 率」。**安全細節**:MCP 來的 skill markdown 視為不可信,`if (loadedFrom !== 'mcp')` 杜絕遠端 server 靠 skill 內文注入 shell。
+
+skill 的權限用 allowlist 而非 blocklist:
+
+```ts
+// tools/SkillTool/SkillTool.ts:529-933 —— 只有屬性全在白名單才 auto-allow
+if (commandObj?.type === 'prompt' && skillHasOnlySafeProperties(commandObj))
+  return { behavior: 'allow', updatedInput: { skill, args } }
+const SAFE_SKILL_PROPERTIES = new Set(['type','progressMessage','model','effort','source','context','agent',/*...*/])
+function skillHasOnlySafeProperties(command) {
+  for (const key of Object.keys(command)) {
+    if (SAFE_SKILL_PROPERTIES.has(key)) continue
+    if (command[key] == null) continue
+    return false   // 出現白名單外的有值屬性 → 不自動放行
+  }
+  return true
+}
+```
+
+**為什麼用白名單**:未來給 skill 物件**新增任何屬性**,預設都會讓 `skillHasOnlySafeProperties` 回 false → 要使用者確認,而不是默默取得權限。**新功能預設要被審查**,這比黑名單安全。
+
+> **想改 skill**:listing 預算動 `SkillTool/prompt.ts:SKILL_BUDGET_CONTEXT_PERCENT`(bundled 走「永不截斷」分支);新增 frontmatter 欄位動 `loadSkillsDir.ts:parseSkillFrontmatterFields`,**若新欄位影響權限務必同步加進 `SAFE_SKILL_PROPERTIES`**,否則帶該欄位的 skill 全變成要確認;`context: fork` 的 skill 會跑在隔離子 agent(接到時刻 10)。
+
+---
+
+## 時刻 9|你接了一個 MCP server:預設「藏起來」,要用再搜
+
+如果你接了一個有 60 個 API 的 MCP server,Claude **預設把所有 MCP 工具 defer(延遲載入)**,不進初始 prompt:
+
+```ts
+// tools/ToolSearchTool/prompt.ts —— 哪些工具要 defer
+export function isDeferredTool(tool: Tool): boolean {
+  if (tool.alwaysLoad === true) return false   // _meta['anthropic/alwaysLoad'] 反向 opt-in
+  if (tool.isMcp === true) return true          // MCP tool 一律 defer
+  if (tool.name === TOOL_SEARCH_TOOL_NAME) return false
+  return tool.shouldDefer === true
+}
+```
+
+**為什麼**:幾十台 server 的工具描述(OpenAPI server 常塞 15–60KB)會灌爆初始 prompt。改成模型先呼叫 `ToolSearchTool`(query 形如 `select:Name` 或關鍵字),拿回 `tool_reference`,API 才展開完整 schema。每個 MCP tool 怎麼被即時包成內部 Tool:
+
+```ts
+// services/mcp/client.ts —— MCP tool 包成內部 Tool 模板
+return toolsToProcess.map((tool): Tool => ({ ...MCPTool,
+  name: skipPrefix ? tool.name : buildMcpToolName(client.name, tool.name),   // mcp__<server>__<tool>
+  isMcp: true,
+  searchHint: tool._meta?.['anthropic/searchHint'],
+  alwaysLoad: tool._meta?.['anthropic/alwaysLoad'] === true,
+  isReadOnly()    { return tool.annotations?.readOnlyHint ?? false },        // annotations → 能力旗標
+  isDestructive() { return tool.annotations?.destructiveHint ?? false },
+  inputJSONSchema: tool.inputSchema,
+  async checkPermissions() { return { behavior: 'passthrough',
+    suggestions: [{ type: 'addRules', rules: [{ toolName: fullyQualifiedName }], behavior: 'allow' }] } },
+  async call(args, ctx, _c, parent, onProgress) { /* ensureConnectedClient → 帶重試的 callTool */ },
+}))
+```
+
+連線本身極有韌性,把「重連」隱藏成「快取失效」:
+
+```ts
+// services/mcp/client.ts —— onclose 清快取讓下次呼叫自動重連
+client.onclose = () => {
+  fetchToolsForClient.cache.delete(name); fetchResourcesForClient.cache.delete(name)
+  connectToServer.cache.delete(getServerCacheKey(name, serverRef))
+}
+// onerror:SDK 失敗只呼 onerror 不呼 onclose,會讓 pending callTool 永久 hang,所以手動補
+if (isTerminalConnectionError(error.message) && ++consecutiveConnectionErrors >= MAX_ERRORS_BEFORE_RECONNECT)
+  closeTransportAndRejectPending('max consecutive terminal errors')
+```
+
+授權持久化的真理來源,還刻意留了一道安全邊界:
+
+```ts
+// services/mcp/utils.ts —— project(.mcp.json)server 的 approval 狀態
+export function getProjectMcpServerStatus(serverName): 'approved'|'rejected'|'pending' {
+  if (settings?.disabledMcpjsonServers?.some(...)) return 'rejected'
+  if (settings?.enabledMcpjsonServers?.some(...) || settings?.enableAllProjectMcpServers) return 'approved'
+  // bypass/非互動 只在 projectSettings 啟用時自動 approve —— 刻意不讀 repo 自身的 .claude/settings.json
+  if (hasSkipDangerousModePermissionPrompt() && isSettingSourceEnabled('projectSettings')) return 'approved'
+  return 'pending'
+}
+```
+
+**為什麼不讀 repo 自身 settings**:否則一個惡意 repo 在自己的 `.claude/settings.json` 裡寫 `enableAllProjectMcpServers: true`,你一 clone 下來開 bypass 模式就自動連上它指定的 MCP server → RCE。
+
+> **想改 MCP**:讓某些 tool 不 defer——server 端在 `tool._meta` 設 `anthropic/alwaysLoad:true`,或改 `isDeferredTool`,整體開關用 env `ENABLE_TOOL_SEARCH`(`true/auto/false`);新增 transport 在 `client.ts:connectToServer` 的 if/else 鏈加分支,並更新 `isLocalMcpServer`(決定批次併發)。
+
+---
+
+## 時刻 10|「這事很大,派個分身去做」:子 agent、fork、與背景化
+
+模型決定「逐一改 20 個測試檔」太佔對話,派一個子 agent。**最關鍵的設計決策**:子 agent **沒有自己的 harness,它用的就是主迴圈那個 `query()`**:
+
+```ts
+// tools/AgentTool/runAgent.ts:748-757 —— 子代理跑的就是同一個 query()
+for await (const message of query({
+  messages: initialMessages,
+  systemPrompt: agentSystemPrompt,
+  canUseTool,
+  toolUseContext: agentToolUseContext,   // ← 差別全在這個隔離的 context + 工具池 + prompt
+  querySource,
+  maxTurns: maxTurns ?? agentDefinition.maxTurns,
+})) { ... yield message }
+```
+
+工具池**獨立組**,且故意把 `Agent` 工具本身從子 agent 的工具集拿掉防無限遞迴:
+
+```ts
+// tools/AgentTool/AgentTool.tsx:567-577 —— 同步/背景判斷 + worker 工具池獨立組
+const shouldRunAsync = (run_in_background === true || selectedAgent.background === true
+  || isCoordinator || forceAsync || (proactiveModule?.isProactiveActive() ?? false)) && !isBackgroundTasksDisabled
+const workerPermissionContext = { ...appState.toolPermissionContext, mode: selectedAgent.permissionMode ?? 'acceptEdits' }
+const workerTools = assembleToolPool(workerPermissionContext, appState.mcp.tools)   // 不繼承父層限制
+```
+
+**背景化的精妙**:同步代理先註冊成前景,迴圈用 `Promise.race([下一則訊息, backgroundPromise])`。你或一個 120 秒計時器一觸發 `backgroundAll()`,**剩下的迴圈被接到另一個 detached closure 繼續跑**,立刻回傳 `async_launched`——執行到一半無痛切背景而不中斷推論。背景代理完成時父層那圈早結束了,所以結果**不走 tool_result,而是包成 `<task-notification>` XML 當一則 user 訊息**重新注入主迴圈(咬合時刻 1 的佇列——它用 `task-notification` mode、`later` 優先級):
+
+```ts
+// tasks/LocalAgentTask/LocalAgentTask.tsx:252-261 —— 背景結果以 <task-notification> 回注
+const message = `<${TASK_NOTIFICATION_TAG}>
+<${TASK_ID_TAG}>${taskId}</${TASK_ID_TAG}>
+<${STATUS_TAG}>${status}</${STATUS_TAG}>
+<${SUMMARY_TAG}>${summary}</${SUMMARY_TAG}>${resultSection}${usageSection}${worktreeSection}
+</${TASK_NOTIFICATION_TAG}>`
+enqueuePendingNotification({ value: message, mode: 'task-notification' })   // 進時刻 1 那個佇列
+```
+
+context 隔離有一條救命規則:
+
+```ts
+// utils/forkedAgent.ts:410-417 —— 一般狀態隔離,但「任務狀態」必須通根
+setAppState: overrides?.shareSetAppState ? parentContext.setAppState : () => {},   // 背景代理:no-op
+// Task registration/kill 永遠要到根 store,否則背景代理開的 bash task 殺不掉變殭屍
+setAppStateForTasks: parentContext.setAppStateForTasks ?? parentContext.setAppState,
+```
+
+**為什麼這樣拆**:如果連 task 狀態都隔離,背景代理開的背景 bash 註冊不到根 store,你想 `TaskStop` 也殺不到它,變成 PPID=1 殭屍。
+
+而 **fork**(不指定 `subagent_type`)幾乎只為 **prompt cache** 而生:
+
+```ts
+// tools/AgentTool/forkSubagent.ts:142-168 —— fork 讓所有 child 前綴位元組相同
+const toolResultBlocks = toolUseBlocks.map(block => ({ type: 'tool_result',
+  tool_use_id: block.id, content: [{ type: 'text', text: FORK_PLACEHOLDER_RESULT }] }))   // 固定占位文字
+const toolResultMessage = createUserMessage({
+  content: [...toolResultBlocks, { type: 'text', text: buildChildMessage(directive) }] })  // 只有 directive 因 child 而異
+return [fullAssistantMessage, toolResultMessage]
+```
+
+**為什麼**:多個並行 fork 的 API 請求前綴**位元組完全相同**(整則父 assistant + 固定占位 result),只有最後一段 directive 不同 → 全部共用 prompt cache;system prompt 也直接塞父層「已 render 的位元組」而非重算(重算會因 GrowthBook 冷/熱漂移而 cache miss)。所以官方還警告「fork 別設 model」——換模型就無法共用 cache。
+
+子 agent 之間 / 續跑用 `SendMessage` 路由:
+
+```ts
+// tools/SendMessageTool/SendMessageTool.ts:804-833 —— 名稱→agentId,running 排隊,stopped 復活
+const agentId = appState.agentNameRegistry.get(input.to) ?? toAgentId(input.to)
+const task = appState.tasks[agentId]
+if (task.status === 'running') { queuePendingMessage(agentId, input.message); return { ...'queued' } }
+else { await resumeAgentBackground({ agentId, prompt: input.message }) }   // 已停 → 自磁碟 transcript 復活
+```
+
+> **CCB 在這一站接管「規模」**:`fork-subagent` 是 CCB 把官方 fork 機制 feature 化(`FEATURE_FORK_SUBAGENT`);**群控**則更進一步——把「派分身」從「同進程子 agent」擴展到「跨機器的另一台 CCB」,你在 master 勾選的遠端 slave 就是一個遠端 worker,結果與權限請求 stream 回 master(帶 `[角色 主機/IP]` 標籤的確認框)。`coordinator-mode` 則把主 agent 變成純編排者(只有 Agent/SendMessage/TaskStop 工具)。
+
+> **想改子 agent**:同步/背景觸發動 `AgentTool.tsx:567`;子 agent 可用工具動 `constants/tools.ts` 四個 Set(背景代理要加進 `ASYNC_AGENT_ALLOWED_TOOLS`);改 fork 行為動 `forkSubagent.ts`(**占位文字 `FORK_PLACEHOLDER_RESULT` 務必保持所有 fork 相同**,否則破壞 cache 前綴);**陷阱**:`setAppState` no-op 但 `setAppStateForTasks` 必須通根,別改錯。
+
+---
+
+## 時刻 11|對話變長了:時刻 3 那道壓縮閘終於發威
+
+改了 20 個檔、跑了幾次測試,對話到了 ~167K token。時刻 3 跳過的閘現在啟動。Claude 有**兩種完全不同**的壓縮,都在「送 API 之前」跑。
+
+**先算門檻**(為什麼是 167K 而不是 200K):
+
+```ts
+// services/compact/autoCompact.ts —— 觸發門檻 ≈ 200K - 20K - 13K
+export const MAX_OUTPUT_TOKENS_FOR_SUMMARY = 20_000        // 為「摘要那段輸出」預留(實測 p99.99 要 17,387)
+export const AUTOCOMPACT_BUFFER_TOKENS = 13_000            // 安全邊際
+export function getEffectiveContextWindowSize(model) {
+  const reserved = Math.min(getMaxOutputTokensForModel(model), MAX_OUTPUT_TOKENS_FOR_SUMMARY)
+  return getContextWindowForModel(model, getSdkBetas()) - reserved   // 200K - 20K = 180K
+}
+export function getAutoCompactThreshold(model) {
+  return getEffectiveContextWindowSize(model) - AUTOCOMPACT_BUFFER_TOKENS   // 180K - 13K = 167K
+}
+```
+
+**(A) microcompact —— 不叫 LLM、極輕量**,只把舊 tool_result 內容換掉。聰明在**分冷熱兩條路**:
+
+```ts
+// services/compact/microCompact.ts —— 冷快取直接清內容 vs 暖快取 cache-editing
+const timeBasedResult = maybeTimeBasedMicrocompact(messages, querySource)   // 冷:距上則 assistant 超過 gap 分鐘
+if (timeBasedResult) return timeBasedResult                                  // → 直接清掉舊 tool result(反正 cache 過期了)
+if (feature('CACHED_MICROCOMPACT')) {
+  const mod = await getCachedMCModule()
+  if (mod.isCachedMicrocompactEnabled() && mod.isModelSupportedForCacheEditing(model) && isMainThreadSource(querySource))
+    return await cachedMicrocompactPath(messages, querySource)   // 暖:不改本地訊息,叫 API 在伺服器端刪
+}
+return { messages }   // 外部 build 兩條都不可用 → no-op,壓力交給 autocompact
+```
+
+**為什麼分冷熱**:快取**暖**著時若直接改本地訊息,會白白破壞那個暖前綴(下一次請求 cache miss);所以暖時改用 API 的 `cache_edits` 在**伺服器端**刪 tool result、本地訊息不動。快取**冷**了(time-based)反正前綴要重寫,就趁機直接清掉舊內容縮小重寫量。
+
+**(B) full compact —— 重量級,fork 一個 summarizer**。送出的請求長這樣:
+
+```ts
+// services/compact/compact.ts —— 摘要請求:寫死 system、去圖、關 thinking、只給 Read、20K 上限
+const streamingGen = queryModelWithStreaming({
+  messages: normalizeMessagesForAPI(stripImagesFromMessages(stripReinjectedAttachments(
+    [...getMessagesAfterCompactBoundary(messages), summaryRequest]))),
+  systemPrompt: asSystemPrompt(['You are a helpful AI assistant tasked with summarizing conversations.']),
+  thinkingConfig: { type: 'disabled' },
+  tools,   // [FileReadTool](+ToolSearchTool if enabled)
+  options: { maxOutputTokensOverride: Math.min(COMPACT_MAX_OUTPUT_TOKENS, ...), querySource: 'compact' },
+})
+```
+
+摘要 prompt 是固定的 9 段結構,還有個用完即丟的草稿欄:
+
+```ts
+// services/compact/prompt.ts —— 9 段摘要模板 + <analysis> 草稿事後刪掉
+const BASE_COMPACT_PROMPT = `... Your summary should include:
+1. Primary Request and Intent ...
+3. Files and Code Sections: ... include full code snippets where applicable ...
+6. All user messages: List ALL user messages that are not tool results ...
+9. Optional Next Step: ... include direct quotes from the most recent conversation ... verbatim`
+formattedSummary = formattedSummary.replace(/<analysis>[\s\S]*?<\/analysis>/, '')   // 草稿丟掉,只留 <summary>
+```
+
+**為什麼這麼多講究**(全是真實事故/實驗換來的):
+- **fork summarizer 重用主對話 cache**:壓縮請求前綴跟主對話一致才命中(實驗:不這樣 98% cache miss)。為此 fork 路徑刻意不設 `maxOutputTokens`(設了會經 `Math.min` 改動 thinking budget 而 cache 失效)。
+- **circuit breaker**:`MAX_CONSECUTIVE_AUTOCOMPACT_FAILURES=3`,背景是真實事故「1279 個 session 連續壓縮失敗 3272 次、一天浪費 25 萬次 API call」:
+  ```ts
+  // services/compact/autoCompact.ts —— 連 3 次失敗就停手 + 編排順序
+  if (tracking?.consecutiveFailures >= MAX_CONSECUTIVE_AUTOCOMPACT_FAILURES) return { wasCompacted: false }
+  const sessionMemoryResult = await trySessionMemoryCompaction(...)   // 先試 session memory
+  if (sessionMemoryResult) return { wasCompacted: true, ... }
+  const compactionResult = await compactConversation(messages, ..., true /*isAutoCompact*/, recompactionInfo)
+  ```
+- **`<analysis>` 草稿**:讓模型先鋪思路提升摘要品質,但事後 regex 整段刪掉——**用 output token 換品質、零 context 成本**。
+
+壓縮後保留什麼:丟掉全部原始訊息,只留一段摘要文字 + 重新注入最近 5 個檔案:
+
+```ts
+// services/compact/compact.ts —— 依 timestamp 取最近 5 檔重讀,受雙預算約束
+const recentFiles = Object.entries(readFileState).filter(file =>
+    !shouldExcludeFromPostCompactRestore(file.filename, agentId)   // 排除 claude.md / plan
+    && !preservedReadPaths.has(expandPath(file.filename)))          // 排除保留尾段已有的
+  .sort((a, b) => b.timestamp - a.timestamp).slice(0, 5)            // 最近 5 個
+// per-file 上限 5K token、總預算 50K token
+```
+
+> **CCB 在這一站接管「成本」**:① **token-budget** 是相反方向——讓 agent「多花到刀口」:prompt 結尾寫 `+500k`,`checkTokenBudget` 在每圈結束時若 `turnTokens < budget*0.9` 且非收益遞減(連 3 圈 delta<500)就注入 nudge 自動續跑,不用一直按 Enter。停 90% 是避免最後一圈衝過頭。② **Poor Mode(穷鬼模式)**:`/poor` 切換、寫 `settings.json`(用 `active || undefined` 讓關閉時直接刪 key)。它**不是總開關,而是散在各處的 early-return 守衛**——`isPoorModeActive()` 被「記憶提取、鍵入建議、子 agent 摘要、attachment 側查詢、auto-mode 模型降級」各自查一次,把這些「不直接服務當前回答卻額外燒 token 的背景 LLM 副查詢」全關掉。
+
+> **想改壓縮**:觸發時機調 `autoCompact.ts:AUTOCOMPACT_BUFFER_TOKENS`(13K,變大→更早壓縮)或 env `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE`;保留幾個檔案調 `compact.ts:POST_COMPACT_MAX_FILES_TO_RESTORE`(**調太大會讓壓縮後立刻又觸發壓縮**);摘要段落改 `compact/prompt.ts:BASE_COMPACT_PROMPT`(改 `<summary>` 包裝要同步 `formatCompactSummary` 的 regex);microcompact 哪些 tool 結果可清改 `microCompact.ts:COMPACTABLE_TOOLS`;**順序鐵律**:`microcompact` 必須在 `autocompact` 之前(`query.ts:412-467`)。
+
+---
+
+## 時刻 12|綠燈:回合怎麼結束、單輪如何變多輪
+
+模型最後 `Bash "npm run test"` 看到全綠,吐一段純文字總結、**沒有再要求工具** → `needsFollowUp=false`。但「沒有 tool_use」不代表一定結束——還要過 stop hooks:
+
+```ts
+// query.ts:1267-1306 —— stop hook 的 blocking error 讓「單輪」變「多輪」
+const stopHookResult = yield* handleStopHooks(messagesForQuery, assistantMessages, ...)
+if (stopHookResult.preventContinuation) return { reason: 'stop_hook_prevented' }
+if (stopHookResult.blockingErrors.length > 0) {
+  const next: State = { messages: [...messagesForQuery, ...assistantMessages, ...stopHookResult.blockingErrors],
+    stopHookActive: true, transition: { reason: 'stop_hook_blocking' } }
+  state = next; continue   // hook 否決 → 回灌成 user 訊息續跑(多輪)
+}
+return { reason: 'completed' }
+```
+
+**為什麼**:你的 `Stop` hook(例如「沒跑 lint 不准結束」)回一個 blocking error,Claude Code 把它當 user 訊息回灌、`continue` 進下一圈,讓模型回應這個阻擋——這就是「單輪自然延伸成多輪」。**陷阱(原始碼明擋)**:對 API error / prompt-too-long **不要**跑 stop hook,否則「error → hook 阻擋 → retry → error」會無限燒 API。
+
+中止訊號也在這裡收尾——單一 `abortController.signal` 貫穿全程,串流/非串流各有不同的「補洞」策略保證每個 tool_use 都有對應的 tool_result(不然 API 會壞):
+
+```ts
+// query.ts:1015-1029 —— 被中止時補齊缺失的 tool_result
+if (toolUseContext.abortController.signal.aborted) {
+  if (streamingToolExecutor) {
+    for await (const update of streamingToolExecutor.getRemainingResults()) {
+      if (update.message) yield update.message   // 為被中止/排隊中的工具補合成 tool_result
+    }
+  } else { yield* yieldMissingToolResultBlocks(assistantMessages, 'Interrupted by user') }
+  return { reason: 'aborted_streaming' }
+}
+```
+
+回合結束,`query()` 正常 return,`QueryGuard.end()` 把狀態推回 `idle`。`isQueryActive` 翻 `false` → **時刻 1 的 `useQueueProcessor` 立刻被喚醒**:如果你在它工作時補過「順便改 CI」,現在就排空佇列、開下一個回合。**整條時間線首尾相接,回到時刻 1。**
+
+---
+
+## 把這趟旅程收斂成 5 個設計模式
+
+走完一遍會發現,整個 codebase 反覆用同幾招——記住這 5 個,你就抓到它的「設計品味」:
+
+1. **「藏延遲」**:任何能提前啟動、晚點收割的(串流式工具執行、tool-use summary、memory/skill prefetch),都「回合開頭 fire-and-forget,工具跑完才非阻塞收割」,把延遲藏進別的延遲底下(時刻 4)。
+2. **「為快取而生」**:靜/動 system prompt boundary、fork 的位元組級相同前綴、microcompact 冷熱分流、summarizer fork 不設 maxOutputTokens——**整個系統都在伺候伺服器端 prompt cache**(時刻 2、10、11)。
+3. **「fail-closed 預設」**:`TOOL_DEFAULTS` 把沒宣告的工具當「會寫、不可並行、跳過分類器」;skill 權限用 allowlist 而非 blocklist——**新功能預設要被審查**(時刻 6、8)。
+4. **「真實事故驅動」**:circuit breaker(25 萬 call/天)、`setAppStateForTasks` 必須通根(否則殭屍)、safetyCheck bypass-immune(防惡意 repo 提權)——大量設計旁邊都掛著一個 BQ 查詢或 issue(時刻 5、9、10、11)。
+5. **「單一可變 State + transition」**:主迴圈把跨圈狀態收斂成一個 `State` 物件,每條續跑路徑都寫 `state = {...}` 再 `continue`,刻意為未來抽成純函式 reducer 鋪路(時刻 4、12)。
+
+---
+
+## 改 code 速查表(每站的「動哪裡 / 踩什麼雷」彙整)
+
+| 你想改的 | 時刻 | 動這個檔/函式 | 最大的雷 |
+|---|---|---|---|
+| queue「排隊 vs 立即」 | 1 | `handlePromptSubmit.ts:313` | `isActive` 含 dispatching+running,別只查 running |
+| 新增/改優先級 | 1 | `messageQueueManager.ts:151` `PRIORITY_ORDER` | `dequeue` 用嚴格 `<` 保 FIFO,改 `<=` 會壞 |
+| 讓互動模式能插話打斷 | 1 | 仿 `print.ts:1858` 在 REPL 訂閱佇列偵測 `now` | 要給使用者標 `now` 的入口(預設 `next`) |
+| system prompt 文字 | 2 | `constants/prompts.ts` 各 `get*Section()` | boundary **之前**的改動 bust 全體 global cache |
+| CLAUDE.md 注入格式 | 2 | `api.ts:461` `prependUserContext` | `NODE_ENV==='test'` 時直接 return |
+| 迴圈終止/續跑條件 | 4/12 | `query.ts` `if(!needsFollowUp)`(L1062)、`state=next`(L1715) | 防死循環旗標要正確帶進新 State |
+| 某工具要不要問使用者 | 5 | 該工具 `checkPermissions()` | 整工具 deny/ask rule 會先短路 |
+| bypass 也擋的敏感路徑 | 5 | `filesystem.ts:checkPathSafetyForAutoEdit` | `classifierApprovable:true` 則分類器仍可放行 |
+| 某工具能否並行 | 6 | 該工具 `isConcurrencySafe(input)` | 在 partition 與 streaming 兩處被呼叫,throw=不安全 |
+| 並行上限 | 6 | `toolOrchestration.ts:getMaxToolUseConcurrency`(10) | 只影響非串流路徑 |
+| skill listing 預算 | 8 | `SkillTool/prompt.ts:SKILL_BUDGET_CONTEXT_PERCENT` | bundled skill 走「永不截斷」分支 |
+| skill 新增 frontmatter 欄位 | 8 | `loadSkillsDir.ts:parseSkillFrontmatterFields` | 影響權限的要同步加 `SAFE_SKILL_PROPERTIES` |
+| MCP tool 不 defer | 9 | `tool._meta.alwaysLoad` 或 `isDeferredTool` | haiku/非 first-party 代理會強制退回 standard |
+| 子 agent 可用工具 | 10 | `constants/tools.ts` 四個 Set | 背景代理要加進 `ASYNC_AGENT_ALLOWED_TOOLS` |
+| fork 行為 | 10 | `forkSubagent.ts` | 占位文字要所有 fork 相同(維持 cache 前綴) |
+| 自動壓縮時機 | 11 | `autoCompact.ts:AUTOCOMPACT_BUFFER_TOKENS` | 牽動 UI 的 percentLeft |
+| 壓縮後保留幾檔 | 11 | `compact.ts:POST_COMPACT_MAX_FILES_TO_RESTORE` | 調太大會壓縮後立刻又觸發壓縮 |
+| 摘要 9 段內容 | 11 | `compact/prompt.ts:BASE_COMPACT_PROMPT` | 改 `<summary>` 包裝要同步 `formatCompactSummary` regex |
+| (CCB)群控傳輸/協定 | 1 | `utils/pipeTransport.ts` / `lanBeacon.ts` | LAN 路徑用 `feature('LAN_PIPES')` 包,跨模組要 lazy require 避免 Bun 循環依賴崩潰 |
+| (CCB)Poor Mode 多關一個背景功能 | 11 | 在該功能觸發點加 `isPoorModeActive()` early-return | 不必動 `poorMode.ts` 本體 |
+
+---
+
+## 應用案例 / 你可以拿這份筆記做什麼
+
+- **debug「我的 prompt 為什麼卡住」**:對照時刻 1d——多半是你在 Claude 的「最後純文字回覆」階段或打了 slash command,落到路徑 A 等回合結束。想插話打斷得用 `now` 優先級(目前只 headless/遠端有)。
+- **自己接「手機看 Claude Code」**:CCB 的 Remote Control 自托管(時刻 4)是現成藍圖——`docker build` 一個 RCS、設兩個 env;原理是「本機 CC 長輪詢領工作 + spawn `--print stream-json` 子進程串回 server」。
+- **寫一個會自動觸發又不爆 context 的 skill**:照時刻 8——描述壓在 250 字內、重內容放進 SKILL.md 本體讓模型用 `Skill` 工具才展開;要「跟著你碰的檔案才現身」就加 `paths` frontmatter(conditional skill)。
+- **理解「為什麼 Claude Code 又省又快」**:不是模型特別,是這具 harness 把**藏延遲 + 伺服快取命中 + 漸進揭露 + 兩段式壓縮**做到極致。對照本庫 [[loop-engineering]]、[[ai-harness-explained]]、[[harness-engineering-evolution]]、[[self-harness]]、[[markdown-agent-memory]],這份是它們的「官方實作對照組」。
+- **最該記住的元規則**:任何 boundary 之前的 system prompt 改動、任何破壞 fork/壓縮前綴位元組一致性的改動,**都會 bust prompt cache 而暴漲成本**——改它的 code 之前先問「我會不會動到快取前綴」。
 
 ---
 
 ## 來源
 
-- **官方原始碼(npm sourcemap 外洩)**:`yasasbanukaofficial/claude-code`,<https://github.com/yasasbanukaofficial/claude-code>(2026-03-31,Chaofan Shou @Fried_rice 發現;本筆記已 clone 全部 1900+ 檔讀完再刪,未進本庫)。
+- **官方原始碼(npm sourcemap 外洩)**:`yasasbanukaofficial/claude-code`,<https://github.com/yasasbanukaofficial/claude-code>(2026-03-31,Chaofan Shou @Fried_rice 發現)。本筆記已 clone 全部 1900+ 檔讀完再刪、未進本庫;所有 `檔案:行號` 與程式碼片段均引自此原始碼(片段為求精簡有刪節,但忠於原碼語意)。
 - **CCB(Claude Code Best / 踩踩背)**:`claude-code-best/claude-code`,<https://github.com/claude-code-best/claude-code>;功能文檔 <https://ccb.agent-aura.top/>。
-- 本筆記由 **13 個 fan-out subagent** 分頭精讀各子系統(harness/queue/tools/skills/MCP/multi-agent/system-prompt/compaction + CCB 的群控/ACP/Remote/WebSearch/Poor)的結構化發現綜合而成;關鍵檔案行號均引自上述原始碼。**僅供學習研究;Claude Code 一切權利屬 Anthropic。**
+- 本筆記由 **13 個 fan-out subagent** 分頭精讀各子系統(harness/queue/tools/skills/MCP/multi-agent/system-prompt/compaction + CCB 的群控/ACP/Remote/WebSearch/Poor)後綜合,並由作者親自核對關鍵程式碼。**僅供學習研究;Claude Code 一切權利屬 Anthropic。**
