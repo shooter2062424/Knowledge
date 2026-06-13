@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-84_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-85_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -118,6 +118,7 @@ flowchart LR
 | [孫慶龍 EPS×本益比五檔價估值法 + 護國群山](./investing/equity-research/sun-qinglong-pe-band-valuation.md) | 預估EPS×歷史PE分位→特價/便宜/合理/昂貴/瘋狂;便宜只賺一次、成長讓複利反覆工作 |
 | [玻璃基板取代有機載板?欣興/群創/友達的技術門檻與量產時程](./investing/equity-research/glass-substrate-supply-chain.md) | TGV最難、永久GCS量產落2026底~2028後;Absolics領先、台廠相對落後;分清路線/進度/含金量 |
 | [SpaceX 為什麼這時間點上市?Musk 在 JP Morgan 訪談](./investing/equity-research/spacex-ipo-musk-jpmorgan.md) | 不缺錢但要進大成長期;Starlink V3/Starship/太空AI數據中心;最硬訊號是晶片記憶體瓶頸 |
+| [SpaceX 崛起史:從被嘲笑的新創到航天巨頭的商業飛輪](./investing/equity-research/spacex-rise-history.md) | 降成本(白痴指數/五步法)+回收→NASA訂單→星鏈現金流+星盾國防→反哺星艦;IPO只是節點 |
 
 ---
 
