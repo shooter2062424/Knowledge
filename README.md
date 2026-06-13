@@ -173,6 +173,7 @@ flowchart LR
 | [AI 時代怎麼創業?Anthropic 新創 Playbook 四階段 workflow](./technology/ai-agents/applications/anthropic-startup-playbook.md) | 十人獨角獸;Idea/MVP/Launch/Scale 各用哪個 Claude;差距是誰把 AI 系統化得更好 |
 | [AI Operating System(AIOS):讓 AI 長期懂你、替你工作的系統](./technology/ai-agents/applications/ai-operating-system-aios.md) | 四核心 Context/Connections/Capabilities/Cadence;progressive loading 省 context;從操作者變系統擁有者 |
 | [當 PR 變 Prompt Request:Steinberger 用 Agent 自製工具治理開源](./technology/ai-agents/applications/agent-native-tooling-steinberger.md) | Vision.md 當憲法自動審 PR;煩躁驅動開發;為 AI 造接口+沙盒;為 AI 造工具是複利 |
+| [4 組頂級 Agent Skill:元能力/工程/設計/內容](./technology/ai-agents/applications/top-skills-for-agents.md) | 8 個 Skill 逐一讀碼;Skill Creator/Find Skills/Superpowers/gstack/Matt Pocock/Frontend Design/UIUX Pro Max/baoyu-skills |
 
 **resources — 學習資源**
 | 主題 | 一句話 |
