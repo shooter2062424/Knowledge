@@ -1,9 +1,0 @@
-{
-  "subsystem": "misc (Claude Code infrastructure utilities)",
-  "whatItDoes": "Claude Code execution-time miscellaneous infrastructure layer",
-  "internalStructure": "Four-layer vertical organization",
-  "keyFiles": [],
-  "dependsOn": [],
-  "usedBy": [],
-  "publicSurface": "Main entry points"
-}
