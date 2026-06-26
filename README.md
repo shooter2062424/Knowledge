@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-101_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-102_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -276,6 +276,7 @@ flowchart LR
 | [NVIDIA RTX Spark(GB10 超級晶片)技術解析](./technology/ai-industry/rtx-spark-gb10-soc.md) | 10+10核Arm+近桌面5070 GPU+128G統一記憶體;最適合本地AI推理之一;隱憂是Win on ARM |
 | [大模型 API 中轉站起底:0.5 折的 GPT/Claude 摻了多少水](./technology/ai-industry/llm-api-relay-stations.md) | 便宜來自薅大廠訂閱/免費羊毛(非換便宜模型);降質摻水+資安風險;灰色地帶 |
 | [再訪田淵棟:46.5 億估值的 RSI 與 AI 自進化](./technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) | 遞迴自我改進、預訓練上限決定 RL 上限、可解釋性、前沿之爭=組織架構之爭、四維生物職涯觀 |
+| [HBM 高頻寬記憶體原理:矽中介層、TSV、堆疊鍵合一次看懂](./technology/ai-industry/hbm-high-bandwidth-memory-principle.md) | 頻寬=頻率×位寬,HBM 拚位寬;矽中介層解布線、TSV(博世製程)+ 堆疊解容量;三寡頭與 DRAM 漲價 |
 
 ### 🏗️ system-design(系統設計與架構)
 | 主題 | 一句話 |
