@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-102_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-103_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -183,6 +183,7 @@ flowchart LR
 | [PDDL-Instruct:用邏輯 CoT + 外部驗證教 LLM 做符號規劃](./technology/ai-agents/foundations/pddl-instruct-llm-planning.md) | 把規劃拆成可被 VAL 逐步驗證的原子步;不靠自我糾錯;Blocksworld 28%→94% |
 | [Claude Dynamic Workflows 解析:何時該用、何時別用](./technology/ai-agents/foundations/claude-dynamic-workflows.md) | Claude 寫腳本指揮上百 agent;與 skill/subagent/agent team/goal 之別;任務能否切成獨立小塊 |
 | [Self-Harness:讓 Agent 自己改進操作自己的 harness](./technology/ai-agents/foundations/self-harness.md) | 挖弱點→提最小修改→非退化驗證;權重不動只改 harness;三模型 held-out +33~60% |
+| [Mixture-of-Agents(MoA):分層提議+聚合,純開源打贏 GPT-4o](./technology/ai-agents/foundations/mixture-of-agents-moa.md) | LLM 協作性:看到別人答案會更好;Proposer/Aggregator 分工;不訓練只靠 prompt;AlpacaEval 65.1% vs 57.5% |
 | [Loop Engineering:從寫提示詞到設計驅動 agent 的循環](./technology/ai-agents/foundations/loop-engineering.md) | Boris 三階段;loop=心跳/work tree/skill/MCP/子agent+記憶脊柱;/goal vs /loop;四條件測試 |
 
 **autonomy — 自主與長時間運行**
