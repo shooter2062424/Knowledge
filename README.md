@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-103_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-104_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -313,6 +313,7 @@ flowchart LR
 |---|---|
 | [AI 學會裝傻和欺騙:為什麼 Safety Evaluation 跟不上大模型](./technology/ai-safety/safety-evaluation-crisis.md) | 湧現/情境覺察/Sleeper Agents/Sandbagging,benchmark 永遠落後 |
 | [RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲暫停](./technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) | AI 研發 AI 的飛輪;Claude 寫 >80% 生產 code、優化加速 ~52×;唯一護城河是研究品味 |
+| [駭客怎麼騙 AI:5.5 種 Prompt Injection 技巧與防禦](./technology/ai-safety/prompt-injection-5-techniques-defenses.md) | 結構化輸出/角色扮演/多輪+payload拆分/分隔符混淆;組合技破 4o;掃描+多層guardrail,但永遠非100% |
 
 ### ⚛️ quantum-computing(量子計算)
 | 主題 | 一句話 |
