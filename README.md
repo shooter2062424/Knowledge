@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-104_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-105_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -360,6 +360,11 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [蘇姿丰 MIT 2026 畢業演講:如何創造自己的運氣](./career/mindset/lisa-su-mit-commencement.md) | 不是知道答案而是能搞明白;向最難問題奔跑;AI 不能決定問題/判斷/負責,那是人類價值 |
+
+### 🧩 interview-prep(工程師面試與刷題)
+| 主題 | 一句話 |
+|---|---|
+| [LeetCode 怎麼刷最有效(上):從 0 刷到 200 題](./career/interview-prep/leetcode-0-to-200-grinding-experience.md) | 轉職仔七年 222 題;盲刷無效→認命學 DSA;關鍵是建立「演算法思維」(先定主軸再實作) |
 
 ---
 
