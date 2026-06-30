@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-107_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-108_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -217,6 +217,7 @@ flowchart LR
 | [AI Operating System(AIOS):讓 AI 長期懂你、替你工作的系統](./technology/ai-agents/applications/ai-operating-system-aios.md) | 四核心 Context/Connections/Capabilities/Cadence;progressive loading 省 context;從操作者變系統擁有者 |
 | [當 PR 變 Prompt Request:Steinberger 用 Agent 自製工具治理開源](./technology/ai-agents/applications/agent-native-tooling-steinberger.md) | Vision.md 當憲法自動審 PR;煩躁驅動開發;為 AI 造接口+沙盒;為 AI 造工具是複利 |
 | [4 組頂級 Agent Skill:元能力/工程/設計/內容](./technology/ai-agents/applications/top-skills-for-agents.md) | 8 個 Skill 逐一讀碼;Skill Creator/Find Skills/Superpowers/gstack/Matt Pocock/Frontend Design/UIUX Pro Max/baoyu-skills |
+| [COMPILOT:讓現成 LLM 當「優化 agent」在與編譯器閉環中優化迴圈](./technology/ai-agents/applications/compilot-llm-guided-loop-optimization.md) | LLM 提議變換、編譯器保證合法+實測加速;免微調、不生程式碼;PolyBench 3.54×、勝 Pluto 2.94× |
 
 **resources — 學習資源**
 | 主題 | 一句話 |
