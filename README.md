@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-109_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-110_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -85,7 +85,7 @@ flowchart LR
 
 | 來源 | 篇數 | 筆記 |
 |---|---|---|
-| **Gary Chen(@garytalksstuff)** — AI agent 工程與生產力 | 16 | [定義任務](./technology/ai-productivity/defining-tasks-not-prompts.md) · [Processing vs Thinking](./technology/ai-productivity/context-engineering-processing-vs-thinking.md) · [Claude 降智/算力危機](./technology/ai-productivity/claude-throttling-opus-4-7.md) · [Opus 4.7 升級工作流](./technology/ai-productivity/opus-4-7-workflow-upgrades.md) · [多工具工作流](./technology/ai-productivity/multi-tool-ai-workflow.md) · [Anthropic 改用 HTML](./technology/ai-productivity/anthropic-html-work-pages.md) · [新創 Playbook](./technology/ai-agents/applications/anthropic-startup-playbook.md) · [Dynamic Workflows](./technology/ai-agents/foundations/claude-dynamic-workflows.md) · [Task Decomposition](./technology/ai-agents/foundations/task-decomposition-agentic-workflow.md) · [/goal 跑 27hr](./technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md) · [Bitter Lesson 舊 prompt](./technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md) · [Karpathy Software 3.0](./technology/ai-agents/foundations/karpathy-software-3-0.md) · [Stanford Beyond LLM](./technology/ai-agents/resources/stanford-beyond-llm-course.md) · [Skill 實戰](./technology/ai-agents/applications/building-claude-skills.md) · [落地競賽](./technology/ai-agents/applications/enterprise-ai-adoption-race.md) · [Claude Design 評測](./technology/applied-ai/design/claude-design-review.md) |
+| **Gary Chen(@garytalksstuff)** — AI agent 工程與生產力 | 17 | [定義任務](./technology/ai-productivity/defining-tasks-not-prompts.md) · [Processing vs Thinking](./technology/ai-productivity/context-engineering-processing-vs-thinking.md) · [Claude 降智/算力危機](./technology/ai-productivity/claude-throttling-opus-4-7.md) · [Opus 4.7 升級工作流](./technology/ai-productivity/opus-4-7-workflow-upgrades.md) · [多工具工作流](./technology/ai-productivity/multi-tool-ai-workflow.md) · [Anthropic 改用 HTML](./technology/ai-productivity/anthropic-html-work-pages.md) · [新創 Playbook](./technology/ai-agents/applications/anthropic-startup-playbook.md) · [Dynamic Workflows](./technology/ai-agents/foundations/claude-dynamic-workflows.md) · [Task Decomposition](./technology/ai-agents/foundations/task-decomposition-agentic-workflow.md) · [/goal 跑 27hr](./technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md) · [Bitter Lesson 舊 prompt](./technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md) · [Karpathy Software 3.0](./technology/ai-agents/foundations/karpathy-software-3-0.md) · [Stanford Beyond LLM](./technology/ai-agents/resources/stanford-beyond-llm-course.md) · [Skill 實戰](./technology/ai-agents/applications/building-claude-skills.md) · [落地競賽](./technology/ai-agents/applications/enterprise-ai-adoption-race.md) · [Claude Design 評測](./technology/applied-ai/design/claude-design-review.md) · [Loop Engineering 實務](./technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md) |
 | **美投君 / 美投讲美股(@MeiTouJun)** — 美股投資 | 4 | [4 隻安心買 ETF](./investing/strategy/four-buy-anytime-etfs.md) · [軟體股選股邏輯](./investing/equity-research/ai-software-stocks-usage-based.md) · [美股升息風險研判](./investing/strategy/us-stocks-rate-hike-risk-2026.md) · [海鷗對沖策略](./investing/derivatives/seagull-options-hedge.md) |
 | **風傳媒 下班經濟學 / The Storm Media** — 台股/投資 | 3 | [別再相信目標價(721)](./investing/strategy/target-prices-institutional-secrets.md) · [孫慶龍 PE 五檔價(735)](./investing/equity-research/sun-qinglong-pe-band-valuation.md) · [股癌選股心法](./investing/strategy/gooaye-stock-picking-philosophy.md) |
 | **Caleb Writes Code** — agent harness | 2 | [Harness 演進史](./technology/ai-agents/foundations/harness-engineering-evolution.md) · [Pi Agent 極簡 harness](./technology/ai-agents/foundations/pi-agent-minimal-harness.md) |
@@ -185,6 +185,7 @@ flowchart LR
 | [Self-Harness:讓 Agent 自己改進操作自己的 harness](./technology/ai-agents/foundations/self-harness.md) | 挖弱點→提最小修改→非退化驗證;權重不動只改 harness;三模型 held-out +33~60% |
 | [Mixture-of-Agents(MoA):分層提議+聚合,純開源打贏 GPT-4o](./technology/ai-agents/foundations/mixture-of-agents-moa.md) | LLM 協作性:看到別人答案會更好;Proposer/Aggregator 分工;不訓練只靠 prompt;AlpacaEval 65.1% vs 57.5% |
 | [「Loop Engineering」是名詞詐騙嗎?一個反方吐槽視角](./technology/ai-agents/foundations/loop-engineering-buzzword-critique.md) | Prompt→Context→Harness→Loop 都在講「自動化駕馭」;拆三位炒作者+5 組件不正交;抓本質(Raft/K8s control loop)別追名詞 |
+| [Loop Engineering 實務:怎麼設計、什麼值得做、失控三坑(Gary Chen)](./technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md) | Trigger+Verifiable Goal;Rubric/yes-no 清單定義完成;三檢查判斷值不值得;hard stop/邊界/驗收+別球員兼裁判 |
 | [Loop Engineering:從寫提示詞到設計驅動 agent 的循環](./technology/ai-agents/foundations/loop-engineering.md) | Boris 三階段;loop=心跳/work tree/skill/MCP/子agent+記憶脊柱;/goal vs /loop;四條件測試 |
 
 **autonomy — 自主與長時間運行**
