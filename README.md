@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-115_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-120_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -106,7 +106,7 @@ flowchart LR
 
 | 來源 | 篇數 | 筆記 |
 |---|---|---|
-| **GitHub Weekly(itcoffee66/githubweekly)** | 17 | [第 99–115 期(整個 github-weekly 資料夾)](./technology/github-weekly/) |
+| **GitHub Weekly(itcoffee66/githubweekly)** | 22 | [第 99–120 期(整個 github-weekly 資料夾)](./technology/github-weekly/) |
 
 ---
 
