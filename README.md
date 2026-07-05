@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-120_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-127_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -86,7 +86,7 @@ flowchart LR
 | 來源 | 篇數 | 筆記 |
 |---|---|---|
 | **Gary Chen(@garytalksstuff)** — AI agent 工程與生產力 | 21 | [定義任務](./technology/ai-productivity/defining-tasks-not-prompts.md) · [Processing vs Thinking](./technology/ai-productivity/context-engineering-processing-vs-thinking.md) · [Claude 降智/算力危機](./technology/ai-productivity/claude-throttling-opus-4-7.md) · [Opus 4.7 升級工作流](./technology/ai-productivity/opus-4-7-workflow-upgrades.md) · [多工具工作流](./technology/ai-productivity/multi-tool-ai-workflow.md) · [Anthropic 改用 HTML](./technology/ai-productivity/anthropic-html-work-pages.md) · [新創 Playbook](./technology/ai-agents/applications/anthropic-startup-playbook.md) · [Dynamic Workflows](./technology/ai-agents/foundations/claude-dynamic-workflows.md) · [Task Decomposition](./technology/ai-agents/foundations/task-decomposition-agentic-workflow.md) · [/goal 跑 27hr](./technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md) · [Bitter Lesson 舊 prompt](./technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md) · [Karpathy Software 3.0](./technology/ai-agents/foundations/karpathy-software-3-0.md) · [Stanford Beyond LLM](./technology/ai-agents/resources/stanford-beyond-llm-course.md) · [Skill 實戰](./technology/ai-agents/applications/building-claude-skills.md) · [落地競賽](./technology/ai-agents/applications/enterprise-ai-adoption-race.md) · [Claude Design 評測](./technology/applied-ai/design/claude-design-review.md) · [Loop Engineering 實務](./technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md) · [Claude×Codex 互審 harness](./technology/ai-agents/applications/cross-model-review-claude-codex-harness.md) · [做產品給 AI 用(AX/AXO)](./technology/ai-agents/applications/products-for-ai-ax-axo-luckin-mcp.md) · [Claude Fable 72 小時](./technology/ai-industry/claude-fable-72-hours-model-dependency.md) · [Codex 新手四基本功](./technology/ai-productivity/codex-beginner-guide-four-basics.md) |
-| **美投君 / 美投讲美股(@MeiTouJun)** — 美股投資 | 4 | [4 隻安心買 ETF](./investing/strategy/four-buy-anytime-etfs.md) · [軟體股選股邏輯](./investing/equity-research/ai-software-stocks-usage-based.md) · [美股升息風險研判](./investing/strategy/us-stocks-rate-hike-risk-2026.md) · [海鷗對沖策略](./investing/derivatives/seagull-options-hedge.md) |
+| **美投君 / 美投讲美股(@MeiTouJun)** — 美股投資 | 11 | [4 隻安心買 ETF](./investing/strategy/four-buy-anytime-etfs.md) · [軟體股選股邏輯](./investing/equity-research/ai-software-stocks-usage-based.md) · [美股升息風險研判](./investing/strategy/us-stocks-rate-hike-risk-2026.md) · [海鷗對沖策略](./investing/derivatives/seagull-options-hedge.md) · [下半年前瞻(存量vs增量)](./investing/strategy/us-stocks-h2-2026-outlook-stock-vs-flow-ai.md) · [半導體 2000 泡沫對照](./investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md) · [三大風險/解毒觸發點](./investing/strategy/us-stocks-three-risks-detox-trigger.md) · [連漲13天/AI三信號](./investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md) · [AI應用層4趨勢](./investing/equity-research/ai-application-layer-4-trends-earnings.md) · [AI產業C→B轉向](./investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md) · [特斯拉FSD/造芯片](./investing/equity-research/tesla-earnings-fsd-chip-spacex-four-quadrant.md) |
 | **風傳媒 下班經濟學 / The Storm Media** — 台股/投資 | 3 | [別再相信目標價(721)](./investing/strategy/target-prices-institutional-secrets.md) · [孫慶龍 PE 五檔價(735)](./investing/equity-research/sun-qinglong-pe-band-valuation.md) · [股癌選股心法](./investing/strategy/gooaye-stock-picking-philosophy.md) |
 | **Caleb Writes Code** — agent harness | 2 | [Harness 演進史](./technology/ai-agents/foundations/harness-engineering-evolution.md) · [Pi Agent 極簡 harness](./technology/ai-agents/foundations/pi-agent-minimal-harness.md) |
 | **基地** — 半導體/AI 趨勢拆解 | 2 | [NVIDIA N1X vs x86](./technology/ai-industry/nvidia-n1x-vs-x86.md) · [Sutton 行動認知 AI](./technology/llm-internals/world-models/sutton-enactive-ai.md) |
@@ -127,6 +127,10 @@ flowchart LR
 | [美股升息風險研判:3 類股票該避、1 類反而是機會(美投君)](./investing/strategy/us-stocks-rate-hike-risk-2026.md) | 放鷹展示決心但行為按兵不動;擁擠 AI 半導體最危險、優質龍頭抗跌、埋伏應用層 |
 | [社交套利(Chris Camillo):從日常生活挖暴利機會](./investing/strategy/social-arbitrage-chris-camillo.md) | 交易資訊差不是股價;生活觀察當另類數據;資金分桶+倉位紀律;誠實談倖存者偏差 |
 | [交易的贏家數學:期望值/系統設計/變異數/風險](./investing/strategy/trading-math-expectancy-variance-risk.md) | 期望值=勝率×賺−敗率×賠;甜蜜點與 breakeven;賭徒謬誤;部位大小+破產風險+復原數學 |
+| [下半年美股前瞻:宏觀四變數 + AI 存量 vs 增量邏輯(美投君)](./investing/strategy/us-stocks-h2-2026-outlook-stock-vs-flow-ai.md) | 通脹下行/中期選舉/K型消費;存量(零和搶資源)vs 增量(正和一起賺);標普 8200 |
+| [這次半導體狂歡是 2000 泡沫重演嗎?(美投君)](./investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md) | 五個相同、四個不同;客戶從泡沫公司變大科技;情緒扭轉時基本面救不了股價;盯 Token/ARR |
+| [美股狂熱會終結嗎?三大短期風險與「市場需要觸發點解毒」(美投君)](./investing/strategy/us-stocks-three-risks-detox-trigger.md) | 狂熱僅限半導體非全面泡沫;通脹/換帥/川普三觸發點;出發點不重要、市場需要一個理由冷靜 |
+| [美股連漲 13 天還能追嗎?真實通脹、AI 情緒三信號(美投君)](./investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md) | 47 項自製真實通脹續降;Anthropic ARR/Meta/亞馬遜三信號;踏空風險 > 回調風險;AI 變現大年 |
 
 ### 🎲 derivatives(衍生性商品)
 | 主題 | 一句話 |
@@ -157,6 +161,9 @@ flowchart LR
 | [玻璃基板取代有機載板?欣興/群創/友達的技術門檻與量產時程](./investing/equity-research/glass-substrate-supply-chain.md) | TGV最難、永久GCS量產落2026底~2028後;Absolics領先、台廠相對落後;分清路線/進度/含金量 |
 | [SpaceX 為什麼這時間點上市?Musk 在 JP Morgan 訪談](./investing/equity-research/spacex-ipo-musk-jpmorgan.md) | 不缺錢但要進大成長期;Starlink V3/Starship/太空AI數據中心;最硬訊號是晶片記憶體瓶頸 |
 | [SpaceX 崛起史:從被嘲笑的新創到航天巨頭的商業飛輪](./investing/equity-research/spacex-rise-history.md) | 降成本(白痴指數/五步法)+回收→NASA訂單→星鏈現金流+星盾國防→反哺星艦;IPO只是節點 |
+| [AI 應用層 4 大前瞻趨勢:從財報季挖下一輪機會(美投君)](./investing/equity-research/ai-application-layer-4-trends-earnings.md) | 流量轉 AI Agent 主導/Agent 管理(Okta·ServiceNow)/盯 ROI 按結果收費(Palantir·DataDog)/AI 原生崛起 |
+| [AI 產業秘密轉向:C→B、訂閱→用量,算力成勝負手(美投君)](./investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md) | Anthropic 跑通 B 端→OpenAI/Google 跟進;算力克制者漲價、囤算力的 OpenAI 反超;甲骨文彈性大 |
+| [特斯拉財報深挖:FSD 拐點/造芯片/四象限/SpaceX 合併風險(美投君)](./investing/equity-research/tesla-earnings-fsd-chip-spacex-four-quadrant.md) | 收入弱是一次性、毛利大超預期;FSD 北美滲透 ~40%;Terafab 燒現金流;LEAP call 的隱藏壓力 |
 
 ---
 
