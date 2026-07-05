@@ -12,6 +12,49 @@
 
 ---
 
+## 🔄 2026-07 更新:三方比較 + whisper.cpp 已加 VAD(但綁定沒跟上)
+
+> 這份 benchmark 原本只比 whisper.cpp vs faster-whisper。使用者問「**現在(2026-07)三個引擎——原版 OpenAI Whisper、faster-whisper、新版 whisper.cpp——哪個最穩且快?我現在用哪個?**」補充如下。
+
+### ① 我們現在用的是 faster-whisper
+本 Knowledge 的 YouTube 轉錄流程(CLAUDE.md 第 6 步)用的是 **faster-whisper**:`WhisperModel('small', device='cpu', compute_type='int8', cpu_threads=6).transcribe(path, language='zh', vad_filter=True, beam_size=5, condition_on_previous_text=False, no_repeat_ngram_size=3)`。
+
+### ② 三個引擎的定位
+
+| 引擎 | 本質 | 速度(CPU) | 內建 VAD | Python API |
+|---|---|---|---|---|
+| **原版 OpenAI Whisper**(`openai-whisper`) | PyTorch 參考實作 | **最慢**(基準 1×)、最吃記憶體 | ❌ 無(靠 30s 窗口,靜音段易幻覺) | 有,但慢 |
+| **faster-whisper**(CTranslate2) | 重寫的推論後端 | 比原版快約 **4×**、省記憶體 | ✅ **內建 Silero VAD(`vad_filter=True`,一行搞定)** | **turnkey** |
+| **whisper.cpp**(GGML,C/C++) | 純 C/C++、GGML | CPU 最快之一,**Apple Silicon(Metal/Core ML)壓倒性** | ⚠️ **CLI 已加(見③),但 Python 綁定沒跟上** | `pywhispercpp`,但不透傳 VAD |
+
+> **準確度三者相同**:都用同一套 OpenAI Whisper 權重,WER 由**模型大小**決定(small ≈ 3.4% EN WER、medium ≈ 2.9%),**不是引擎差異**。要更準只能升 model,不是換引擎。
+
+### ③ 最重要的更新:whisper.cpp 現在有 VAD 了——但只在 CLI
+
+- **whisper.cpp 本體**(v1.7.6 起、至 **v1.8.x / v1.9.1**,2026)**已內建 Silero VAD**:`whisper-cli --vad --vad-model ggml-silero-v*.bin`,還可調 `--vad-threshold`、`--vad-min-silence-duration-ms` 等。**原本「無 VAD → 幻覺迴圈」的致命缺陷,在 CLI 端已被補上。**
+- **但我們是用 `pywhispercpp`(Python 綁定,最新 v1.5.0,2026-05)** ——**它目前不透傳 VAD 參數**(README 說「可傳任意 whisper.cpp 參數」,但社群實測 pywhispercpp **沒有 turnkey 的 Silero VAD**)。也就是說:**若走 Python 綁定,那個「背景音樂→同句重複數百行」的雷仍在**;要吃到 whisper.cpp 的 VAD,得改成 **shell out 呼叫 `whisper-cli --vad`**(另需下載 `ggml-silero` VAD 模型)。
+
+### ④ 速度:看硬體,不是誰恆快
+
+外部 2026 benchmark(promptquorum)與本機實測合看:
+- **Apple Silicon(Metal / Core ML)**:**whisper.cpp 壓倒性勝**(faster-whisper 無法用 Metal),可比 faster-whisper CPU 快約 3×。
+- **NVIDIA GPU**:**faster-whisper 勝**(CTranslate2 int8,~12× 即時 vs whisper.cpp CUDA ~8×)。
+- **x86 CPU(我們的環境,Windows、無 GPU)**:**兩者接近、互有勝負**。本機自測(small)whisper.cpp 快 1.4–1.9×;但 promptquorum 的 base 模型測試反而是 faster-whisper int8(~20× 即時)略勝 whisper.cpp(~15×)。**差距取決於 model/量化/機器,不是一面倒。**
+- **原版 OpenAI Whisper**:三者最慢,除非要「最標準參考輸出」否則不推 CPU 上用。
+
+### ⑤ 結論(2026-07):本 pipeline 續用 faster-whisper
+
+**在「Windows x86、無 GPU、Python 程式化、任意 YouTube 音訊(幾乎都有片頭/配樂)」這個組合下,faster-whisper 仍是最穩且夠快的預設**,原因:
+1. **turnkey Silero VAD(`vad_filter=True`)**——這是對付任意音訊幻覺迴圈的剛需,而 pywhispercpp 至今拿不到;
+2. x86 CPU 上速度與 whisper.cpp 同級(甚至某些配置更快);
+3. 直接吃 mp4/m4a/webm(PyAV),不必轉 wav。
+
+**什麼時候才值得換 whisper.cpp**:① 你在 **Apple Silicon** 上(Metal/Core ML 巨大加速);② **嵌入式 / 無 Python** 環境(純 C 二進位);③ 素材是**乾淨單人人聲**且想在 x86 上多榨 1.4–1.9× 速度(此時無 VAD 也沒差)。**這三種都不是本機情況,故維持 faster-whisper。** 若未來 `pywhispercpp` 開放 VAD 透傳,再重評。
+
+
+
+---
+
 ## 測試設置(力求公平)
 
 | 項目 | 設定 |
@@ -123,3 +166,4 @@ text = ' '.join(s.text.strip() for s in m.transcribe('audio.wav'))
 - whisper.cpp(ggerganov):<https://github.com/ggml-org/whisper.cpp>;Python 綁定 `pywhispercpp` 1.5.0(預編譯 wheel)。
 - faster-whisper(SYSTRAN,CTranslate2 後端):<https://github.com/SYSTRAN/faster-whisper>。
 - 測試音訊:本機既有的兩支 YouTube 影片音訊(中文科技解說 + 蘇姿丰 MIT 演講英文原音)各前 5 分鐘;benchmark 為單機單次量測,數字會隨機器/負載浮動,但兩引擎相對差距穩定。
+- **2026-07 更新來源**:whisper.cpp 內建 Silero VAD(`--vad`,v1.7.6+/v1.8.x/v1.9.1)— <https://github.com/ggml-org/whisper.cpp>、VAD 討論 [issue #3003](https://github.com/ggml-org/whisper.cpp/issues/3003);`pywhispercpp` v1.5.0(無 turnkey VAD)— <https://github.com/absadiki/pywhispercpp>;三方 2026 benchmark(CPU/GPU/Apple Silicon 速度、WER、VAD)— [promptquorum 2026 比較](https://www.promptquorum.com/power-local-llm/local-whisper-stt-comparison-2026);原版 OpenAI Whisper — <https://github.com/openai/whisper>。
