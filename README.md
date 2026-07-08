@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-128_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-129_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -194,6 +194,7 @@ flowchart LR
 | [「Loop Engineering」是名詞詐騙嗎?一個反方吐槽視角](./technology/ai-agents/foundations/loop-engineering-buzzword-critique.md) | Prompt→Context→Harness→Loop 都在講「自動化駕馭」;拆三位炒作者+5 組件不正交;抓本質(Raft/K8s control loop)別追名詞 |
 | [Loop Engineering 實務:怎麼設計、什麼值得做、失控三坑(Gary Chen)](./technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md) | Trigger+Verifiable Goal;Rubric/yes-no 清單定義完成;三檢查判斷值不值得;hard stop/邊界/驗收+別球員兼裁判 |
 | [19 分鐘搞懂 Harness/Loop/LLM Ops/Eval:一張圖串起記憶/RAG/Tracing](./technology/ai-agents/foundations/agent-harness-loop-llmops-eval-explained.md) | LLM=懂全人類卻不懂你的馬;三種記憶+蒸餾閘門;loop 知道何時停;tracing→eval→診斷→上線自我演化 |
+| [Claude Code 官方定義的四種 Loop:Turn/Goal/Time/Proactive](./technology/ai-agents/foundations/claude-code-loop-types-official.md) | 官方權威定義;交出去越多自動化越深(檢查→停止條件→觸發→prompt);/goal·/loop·/schedule·dynamic workflows |
 | [Loop Engineering:從寫提示詞到設計驅動 agent 的循環](./technology/ai-agents/foundations/loop-engineering.md) | Boris 三階段;loop=心跳/work tree/skill/MCP/子agent+記憶脊柱;/goal vs /loop;四條件測試 |
 
 **autonomy — 自主與長時間運行**
