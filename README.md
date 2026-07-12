@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-133_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-134_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -131,6 +131,7 @@ flowchart LR
 | [這次半導體狂歡是 2000 泡沫重演嗎?(美投君)](./investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md) | 五個相同、四個不同;客戶從泡沫公司變大科技;情緒扭轉時基本面救不了股價;盯 Token/ARR |
 | [美股狂熱會終結嗎?三大短期風險與「市場需要觸發點解毒」(美投君)](./investing/strategy/us-stocks-three-risks-detox-trigger.md) | 狂熱僅限半導體非全面泡沫;通脹/換帥/川普三觸發點;出發點不重要、市場需要一個理由冷靜 |
 | [美股連漲 13 天還能追嗎?真實通脹、AI 情緒三信號(美投君)](./investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md) | 47 項自製真實通脹續降;Anthropic ARR/Meta/亞馬遜三信號;踏空風險 > 回調風險;AI 變現大年 |
+| [為什麼你買什麼跌什麼?散戶虧錢的底層邏輯不是運氣,是沒系統(極簡經濟學)](./investing/strategy/retail-investor-losing-system-not-luck.md) | 資訊你最後知道、大腦損失規避讓你賺小賠大;專注可控四件事(ETF/100−年齡/定期定額/買前定好賣點);散戶唯一優勢是時間 |
 
 ### 🎲 derivatives(衍生性商品)
 | 主題 | 一句話 |
