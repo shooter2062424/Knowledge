@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-136_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-139_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -85,7 +85,7 @@ flowchart LR
 
 | 來源 | 篇數 | 筆記 |
 |---|---|---|
-| **Gary Chen(@garytalksstuff)** — AI agent 工程與生產力 | 24 | [定義任務](./technology/ai-productivity/defining-tasks-not-prompts.md) · [Processing vs Thinking](./technology/ai-productivity/context-engineering-processing-vs-thinking.md) · [Claude 降智/算力危機](./technology/ai-productivity/claude-throttling-opus-4-7.md) · [Opus 4.7 升級工作流](./technology/ai-productivity/opus-4-7-workflow-upgrades.md) · [多工具工作流](./technology/ai-productivity/multi-tool-ai-workflow.md) · [Anthropic 改用 HTML](./technology/ai-productivity/anthropic-html-work-pages.md) · [新創 Playbook](./technology/ai-agents/applications/anthropic-startup-playbook.md) · [Dynamic Workflows](./technology/ai-agents/foundations/claude-dynamic-workflows.md) · [Task Decomposition](./technology/ai-agents/foundations/task-decomposition-agentic-workflow.md) · [/goal 跑 27hr](./technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md) · [Bitter Lesson 舊 prompt](./technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md) · [Karpathy Software 3.0](./technology/ai-agents/foundations/karpathy-software-3-0.md) · [Stanford Beyond LLM](./technology/ai-agents/resources/stanford-beyond-llm-course.md) · [Skill 實戰](./technology/ai-agents/applications/building-claude-skills.md) · [落地競賽](./technology/ai-agents/applications/enterprise-ai-adoption-race.md) · [Claude Design 評測](./technology/applied-ai/design/claude-design-review.md) · [Loop Engineering 實務](./technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md) · [Claude×Codex 互審 harness](./technology/ai-agents/applications/cross-model-review-claude-codex-harness.md) · [做產品給 AI 用(AX/AXO)](./technology/ai-agents/applications/products-for-ai-ax-axo-luckin-mcp.md) · [Claude Fable 72 小時](./technology/ai-industry/claude-fable-72-hours-model-dependency.md) · [Codex 新手四基本功](./technology/ai-productivity/codex-beginner-guide-four-basics.md) · [語音輸入 x AI](./technology/ai-productivity/voice-input-ai-context-transformation.md) · [Google Agentic Engineering Day 1](./technology/ai-agents/foundations/google-agentic-engineering-day1.md) · [Codex 2.0 新功能實戰](./technology/ai-productivity/codex-2-record-replay-mobile-remote.md) |
+| **Gary Chen(@garytalksstuff)** — AI agent 工程與生產力 | 25 | [定義任務](./technology/ai-productivity/defining-tasks-not-prompts.md) · [Processing vs Thinking](./technology/ai-productivity/context-engineering-processing-vs-thinking.md) · [Claude 降智/算力危機](./technology/ai-productivity/claude-throttling-opus-4-7.md) · [Opus 4.7 升級工作流](./technology/ai-productivity/opus-4-7-workflow-upgrades.md) · [多工具工作流](./technology/ai-productivity/multi-tool-ai-workflow.md) · [Anthropic 改用 HTML](./technology/ai-productivity/anthropic-html-work-pages.md) · [新創 Playbook](./technology/ai-agents/applications/anthropic-startup-playbook.md) · [Dynamic Workflows](./technology/ai-agents/foundations/claude-dynamic-workflows.md) · [Task Decomposition](./technology/ai-agents/foundations/task-decomposition-agentic-workflow.md) · [/goal 跑 27hr](./technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md) · [Bitter Lesson 舊 prompt](./technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md) · [Karpathy Software 3.0](./technology/ai-agents/foundations/karpathy-software-3-0.md) · [Stanford Beyond LLM](./technology/ai-agents/resources/stanford-beyond-llm-course.md) · [Skill 實戰](./technology/ai-agents/applications/building-claude-skills.md) · [落地競賽](./technology/ai-agents/applications/enterprise-ai-adoption-race.md) · [Claude Design 評測](./technology/applied-ai/design/claude-design-review.md) · [Loop Engineering 實務](./technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md) · [Claude×Codex 互審 harness](./technology/ai-agents/applications/cross-model-review-claude-codex-harness.md) · [做產品給 AI 用(AX/AXO)](./technology/ai-agents/applications/products-for-ai-ax-axo-luckin-mcp.md) · [Claude Fable 72 小時](./technology/ai-industry/claude-fable-72-hours-model-dependency.md) · [Codex 新手四基本功](./technology/ai-productivity/codex-beginner-guide-four-basics.md) · [語音輸入 x AI](./technology/ai-productivity/voice-input-ai-context-transformation.md) · [Google Agentic Engineering Day 1](./technology/ai-agents/foundations/google-agentic-engineering-day1.md) · [Codex 2.0 新功能實戰](./technology/ai-productivity/codex-2-record-replay-mobile-remote.md) · [給非技術人員的 Git/GitHub](./technology/ai-productivity/git-github-for-vibe-coders.md) |
 | **美投君 / 美投讲美股(@MeiTouJun)** — 美股投資 | 12 | [4 隻安心買 ETF](./investing/strategy/four-buy-anytime-etfs.md) · [軟體股選股邏輯](./investing/equity-research/ai-software-stocks-usage-based.md) · [美股升息風險研判](./investing/strategy/us-stocks-rate-hike-risk-2026.md) · [海鷗對沖策略](./investing/derivatives/seagull-options-hedge.md) · [下半年前瞻(存量vs增量)](./investing/strategy/us-stocks-h2-2026-outlook-stock-vs-flow-ai.md) · [半導體 2000 泡沫對照](./investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md) · [三大風險/解毒觸發點](./investing/strategy/us-stocks-three-risks-detox-trigger.md) · [連漲13天/AI三信號](./investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md) · [AI應用層4趨勢](./investing/equity-research/ai-application-layer-4-trends-earnings.md) · [AI產業C→B轉向](./investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md) · [特斯拉FSD/造芯片](./investing/equity-research/tesla-earnings-fsd-chip-spacex-four-quadrant.md) · [AI採納/電力革命對照](./investing/equity-research/ai-adoption-electricity-revolution-analogy.md) |
 | **風傳媒 下班經濟學 / The Storm Media** — 台股/投資 | 3 | [別再相信目標價(721)](./investing/strategy/target-prices-institutional-secrets.md) · [孫慶龍 PE 五檔價(735)](./investing/equity-research/sun-qinglong-pe-band-valuation.md) · [股癌選股心法](./investing/strategy/gooaye-stock-picking-philosophy.md) |
 | **Caleb Writes Code** — agent harness | 2 | [Harness 演進史](./technology/ai-agents/foundations/harness-engineering-evolution.md) · [Pi Agent 極簡 harness](./technology/ai-agents/foundations/pi-agent-minimal-harness.md) |
@@ -106,7 +106,7 @@ flowchart LR
 
 | 來源 | 篇數 | 筆記 |
 |---|---|---|
-| **GitHub Weekly(itcoffee66/githubweekly)** | 22 | [第 99–120 期(整個 github-weekly 資料夾)](./technology/github-weekly/) |
+| **GitHub Weekly(itcoffee66/githubweekly)** | 24 | [第 99–122 期(整個 github-weekly 資料夾)](./technology/github-weekly/) |
 
 ---
 
@@ -282,6 +282,7 @@ flowchart LR
 | [Codex 新手指南:駕馭「會動你檔案的 AI Agent」四基本功](./technology/ai-productivity/codex-beginner-guide-four-basics.md) | 專案/權限/上下文/AGENTS.md;非技術者也能上手;它是助理也是家教;Memory vs AGENTS.md |
 | [AI 時代最被低估的技能:語音輸入 + 「context 轉換遊戲」視角](./technology/ai-productivity/voice-input-ai-context-transformation.md) | 說話快 3 倍、且不壓縮細節=你的品味;brain dump→Ask 精修→給 agent;走路捕捉靈感;人=賦予意義者 |
 | [Codex 2.0 新功能實戰:懸停導航/Fork、側邊對話/引導、Record & Replay、手機遠端(Gary Chen)](./technology/ai-productivity/codex-2-record-replay-mobile-remote.md) | Fork 開平行宇宙重試;side chat vs steering 分流插手;錄螢幕變 Skill(跨 AI 接力);手機當遠端指揮台;工作從親手做變掌舵 |
+| [給非技術人員的 Git / GitHub:Vibe Coding 必學基礎技能(Gary Chen)](./technology/ai-productivity/git-github-for-vibe-coders.md) | 不用當 Git 專家、只要聽得懂 AI 在問什麼;commit=存檔、push≠commit;branch 一張桌 vs worktree 兩張桌;金鑰外洩救不回;conflict 是等你下產品決策 |
 
 ### 🎨 applied-ai(應用)
 | 主題 | 一句話 |
@@ -355,6 +356,8 @@ flowchart LR
 ### 🗞️ github-weekly(GitHub 週報)
 | 期數 | 主題 |
 |---|---|
+| [第 122 期:AI 求職助手、Photoshop 版 GIMP、Agent 省 Token 外掛與本地會議助手](./technology/github-weekly/issue-122.md) | ai-job-search / PhotoGIMP / caveman / Meetily / OfficeCLI |
+| [第 121 期:DeepSeek 推理加速、Google 設計記憶規範、AI 投研技能包與 AI 滲透測試](./technology/github-weekly/issue-121.md) | DeepSpec / DESIGN.md / AI Berkshire / Strix / free-for-dev |
 | [第 115 期:桌面 AI 助手、程式 Agent 知識系統與隱身瀏覽器](./technology/github-weekly/issue-115.md) | OpenHuman / CodeGraph / CloakBrowser / CLI-Anything / LingBot-Map |
 | [第 114 期:DeepSeek V4 終端編程 Agent、金融 Agent 集合與開源電子簽](./technology/github-weekly/issue-114.md) | DeepSeek-TUI / financial-services / DocuSeal / easy-vibe / SuperSplat |
 | [第 113 期:AI 終端機開源、駭客工具箱、Skill 生態與一句話生成影片](./technology/github-weekly/issue-113.md) | Warp / hackingtool / Skills / awesome-codex-skills / Pixelle-Video |
