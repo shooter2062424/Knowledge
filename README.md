@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-139_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-140_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -235,6 +235,7 @@ flowchart LR
 | [COMPILOT:讓現成 LLM 當「優化 agent」在與編譯器閉環中優化迴圈](./technology/ai-agents/applications/compilot-llm-guided-loop-optimization.md) | LLM 提議變換、編譯器保證合法+實測加速;免微調、不生程式碼;PolyBench 3.54×、勝 Pluto 2.94× |
 | [Cross-Model Review:stop hook+skill+marker 讓 Claude 跟 Codex 自動互審](./technology/ai-agents/applications/cross-model-review-claude-codex-harness.md) | 異質模型互審到「共識」才放行;紀律靠系統不靠意志;solo dev 的自建 harness |
 | [為什麼你該做產品給 AI 用:UX→AX→AXO 三層框架(瑞幸 MCP)](./technology/ai-agents/applications/products-for-ai-ax-axo-luckin-mcp.md) | App 從給人點擊變成被 AI 調用;競爭從「被人看見」到「被 AI 選到」;AX/AXO/漸進授權/資料調度權 |
+| [tmux-bridge-mcp 原始碼深讀:讓多個 AI Agent 透過 tmux 分頁互相對話](./technology/ai-agents/applications/tmux-bridge-mcp.md) | 9 個 MCP 工具、唯一依賴 tmux;read guard 用檔案當跨行程旗標強制先讀再動手;type 與 Enter 分離;絕不輪詢、對方回你的 pane;kimi-adapter 土砲 tool calling |
 
 **resources — 學習資源**
 | 主題 | 一句話 |
