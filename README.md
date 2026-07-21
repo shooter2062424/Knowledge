@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-142_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-143_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -331,6 +331,7 @@ flowchart LR
 | [C++ 演進史:複雜性詛咒、記憶體危機與 AI 時代絕地反擊](./technology/dev-tools/cpp-evolution-complexity-ai-era.md) | 三座冰山(複雜性/泛型反噬/Rust 圍剿);但 PyTorch/CUDA/llama.cpp 引擎全是 C++ |
 | [ddddocr 原始碼深讀:離線驗證碼識別 SDK(OCR/檢測/滑塊/MCP)](./technology/dev-tools/ddddocr-captcha-ocr.md) | ONNX+CTC 解碼、YOLOX 檢測、OpenCV 滑塊;FastAPI+MCP 給 agent 用;雙面刃工具 |
 | [whisper.cpp vs faster-whisper:本機 CPU 轉錄 Benchmark](./technology/dev-tools/whisper-cpp-vs-faster-whisper-benchmark.md) | 同 small 準確度相同;whisper.cpp 快 1.4-1.9× 但無 VAD 會在配樂段幻覺迴圈;按素材分流 |
+| [MOSS-Transcribe-Diarize 0.9B 評估:端到端轉錄+分辨說話者,值得換嗎?](./technology/dev-tools/moss-transcribe-diarize-evaluation.md) | 一次直出文字+時間戳+說話者+聲學事件、準確度 SOTA;但主賣點 diarization 對單人素材沒用、我們 CPU-only 它為 GPU 設計→主力維持 faster-whisper,多人對談+有 GPU 再議 |
 | [Python 3.15 新特性:frozendict / Sentinel / lazy import](./technology/dev-tools/python-3-15-new-features.md) | 三個把奇技淫巧變語言內建的特性;附「以前怎麼解/現在怎麼解」對照 |
 
 ### 🎨 web-dev(網頁前端開發)
