@@ -162,4 +162,4 @@ Matt 靠深厚的軟體工程底子,把它用在兩個地方:
 ## 來源
 
 - 影片:[17 萬星的 Matt Pocock skills,到底強在哪?skills 全拆解(Gary Chen @garytalksstuff,2026-07-22,官方 zh-TW 字幕)](https://www.youtube.com/watch?v=aR97E7aKEgg)
-- 延伸(本庫):[Skill 實戰:從製作到維護](./building-claude-skills.md)、[4 組頂級 Agent Skill(含 Matt Pocock/Superpowers)](./top-skills-for-agents.md)、[AI 安全接手舊專案五步驟](../../ai-productivity/ai-brownfield-codebase-five-steps.md)、[OpenAI GPT-5.6 官方提示指南(先做減法)](../foundations/gpt-5-6-prompting-guide-openai.md)、[Bitter Lesson:模型變強後砍舊 prompt](../foundations/bitter-lesson-cut-old-patterns.md)
+- 延伸(本庫):[模型越強,Superpowers vs Matt Skills 該刪誰(專講「寫計畫」勝負手)](./superpowers-vs-matt-skills-strong-model.md)、[Skill 實戰:從製作到維護](./building-claude-skills.md)、[4 組頂級 Agent Skill(含 Matt Pocock/Superpowers)](./top-skills-for-agents.md)、[AI 安全接手舊專案五步驟](../../ai-productivity/ai-brownfield-codebase-five-steps.md)、[OpenAI GPT-5.6 官方提示指南(先做減法)](../foundations/gpt-5-6-prompting-guide-openai.md)、[Bitter Lesson:模型變強後砍舊 prompt](../foundations/bitter-lesson-cut-old-patterns.md)

@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-144_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-145_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -238,6 +238,7 @@ flowchart LR
 | [為什麼你該做產品給 AI 用:UX→AX→AXO 三層框架(瑞幸 MCP)](./technology/ai-agents/applications/products-for-ai-ax-axo-luckin-mcp.md) | App 從給人點擊變成被 AI 調用;競爭從「被人看見」到「被 AI 選到」;AX/AXO/漸進授權/資料調度權 |
 | [tmux-bridge-mcp 原始碼深讀:讓多個 AI Agent 透過 tmux 分頁互相對話](./technology/ai-agents/applications/tmux-bridge-mcp.md) | 9 個 MCP 工具、唯一依賴 tmux;read guard 用檔案當跨行程旗標強制先讀再動手;type 與 Enter 分離;絕不輪詢、對方回你的 pane;kimi-adapter 土砲 tool calling |
 | [Matt Pocock 的 AI 開發 skills 全拆解:最紅的 skill 只有五行字(Gary Chen)](./technology/ai-agents/applications/matt-pocock-skills-teardown.md) | grill-me 讓 AI 拷問你搶回決策權;to-spec 禁寫 code、to-tickets 按功能拆、TDD 防作弊;深模組 vs 淺模組「刪除測試」;指引詞壓縮領域知識;成為專家才能控制 AI |
+| [模型越強,Superpowers 和 Matt Skills 該刪掉誰?工作流選擇框架(AI随风)](./technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) | 弱模型要詳細輸入、強模型要精簡(給目標+驗證條件);骨架相同、勝負在「寫計畫」——Superpowers 把 code 寫死是累贅、Matt 給功能點靠推理;強模型+速度用 Matt、團隊嚴審用 Superpowers |
 
 **resources — 學習資源**
 | 主題 | 一句話 |
