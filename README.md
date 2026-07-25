@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-146_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-149_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -90,6 +90,7 @@ flowchart LR
 | **風傳媒 下班經濟學 / The Storm Media** — 台股/投資 | 3 | [別再相信目標價(721)](./investing/strategy/target-prices-institutional-secrets.md) · [孫慶龍 PE 五檔價(735)](./investing/equity-research/sun-qinglong-pe-band-valuation.md) · [股癌選股心法](./investing/strategy/gooaye-stock-picking-philosophy.md) |
 | **Caleb Writes Code** — agent harness | 2 | [Harness 演進史](./technology/ai-agents/foundations/harness-engineering-evolution.md) · [Pi Agent 極簡 harness](./technology/ai-agents/foundations/pi-agent-minimal-harness.md) |
 | **基地** — 半導體/AI 趨勢拆解 | 2 | [NVIDIA N1X vs x86](./technology/ai-industry/nvidia-n1x-vs-x86.md) · [Sutton 行動認知 AI](./technology/llm-internals/world-models/sutton-enactive-ai.md) |
+| **Redknot-乔红** — 動畫講硬核硬體/半導體原理 | 3 | [HBM 原理](./technology/ai-industry/hbm-high-bandwidth-memory-principle.md) · [先進封裝](./technology/ai-industry/advanced-packaging-explained.md) · [RAID 陣列/RAID 5 安全性](./technology/system-design/raid-explained-why-raid5-unsafe.md) |
 | **硅谷101(陳茜)** — 矽谷深度科技/商業訪談 | 2 | [SpaceX 崛起史](./investing/equity-research/spacex-rise-history.md) · [田淵棟 RSI 與 AI 自進化](./technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) |
 | **Debug Tuboshu** — AI 寫網站/前端 | 2 | [零程式碼做網站](./technology/applied-ai/design/ai-website-building-claude-code.md) · [手搖飲看網站架構擴展](./technology/system-design/scaling-web-architecture-bubble-tea.md) |
 | **白白说大模型** — 大模型/Agent 原理 | 2 | [Agent 最該具備的 Skill](./technology/ai-agents/applications/top-skills-for-agents.md) · [工具調用:FC→MCP→CLI](./technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) |
@@ -240,6 +241,7 @@ flowchart LR
 | [Matt Pocock 的 AI 開發 skills 全拆解:最紅的 skill 只有五行字(Gary Chen)](./technology/ai-agents/applications/matt-pocock-skills-teardown.md) | grill-me 讓 AI 拷問你搶回決策權;to-spec 禁寫 code、to-tickets 按功能拆、TDD 防作弊;深模組 vs 淺模組「刪除測試」;指引詞壓縮領域知識;成為專家才能控制 AI |
 | [模型越強,Superpowers 和 Matt Skills 該刪掉誰?工作流選擇框架(AI随风)](./technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) | 弱模型要詳細輸入、強模型要精簡(給目標+驗證條件);骨架相同、勝負在「寫計畫」——Superpowers 把 code 寫死是累贅、Matt 給功能點靠推理;強模型+速度用 Matt、團隊嚴審用 Superpowers |
 | [Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生(AI超元域)](./technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) | 主 agent 拆解→分派 subagent 並行→合併;每 subagent 獨立模型(Kimi K3/MiniMax/GPT-5.6)+工具+skill;CC Switch 接第三方;多模型對抗審查抓嚴重 bug;具 Graph Engineering 初級特徵 |
+| [to-tickets 深入實操:把 spec 拆成 agent 能穩定開工的工單(01Coder)](./technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) | spec 不是工作單元;按功能縱向切(tracer bullet)非按層;標依賴→frontier 並行調度;prefactor 先行/擴展-收縮;先讀代碼才拆(6→9 張)|
 
 **resources — 學習資源**
 | 主題 | 一句話 |
@@ -310,6 +312,7 @@ flowchart LR
 | [大模型 API 中轉站起底:0.5 折的 GPT/Claude 摻了多少水](./technology/ai-industry/llm-api-relay-stations.md) | 便宜來自薅大廠訂閱/免費羊毛(非換便宜模型);降質摻水+資安風險;灰色地帶 |
 | [再訪田淵棟:46.5 億估值的 RSI 與 AI 自進化](./technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) | 遞迴自我改進、預訓練上限決定 RL 上限、可解釋性、前沿之爭=組織架構之爭、四維生物職涯觀 |
 | [HBM 高頻寬記憶體原理:矽中介層、TSV、堆疊鍵合一次看懂](./technology/ai-industry/hbm-high-bandwidth-memory-principle.md) | 頻寬=頻率×位寬,HBM 拚位寬;矽中介層解布線、TSV(博世製程)+ 堆疊解容量;三寡頭與 DRAM 漲價 |
+| [什麼是先進封裝?從有機基板到矽中介層、TSV、矽橋、玻璃基板一次看懂](./technology/ai-industry/advanced-packaging-explained.md) | 封裝從配角變主角;有機基板減成/半加成法 10μm;chiplet→晶片內互聯;矽中介層+TSV=2.5D(HBM-GPU 4000 連線);矽橋/玻璃基板降本 |
 | [史上最強 AI 模型只活 72 小時:Claude Fable 事件與別把流程綁死單一模型](./technology/ai-industry/claude-fable-72-hours-model-dependency.md) | Fable=Mythos 加護欄;能修 bug=能找漏洞遭政府禁;用強模型三技巧;留可替換方案 |
 
 ### 🏗️ system-design(系統設計與架構)
@@ -317,6 +320,7 @@ flowchart LR
 |---|---|
 | [為什麼 AI 寫的網站一上線就掛?用手搖飲店看懂架構擴展](./technology/system-design/scaling-web-architecture-bubble-tea.md) | 快取/Docker/CI-CD/負載平衡/Replica/微服務/CDN/Queue 是被問題逼出來的 |
 | [現在正在主導的 5 個程式設計概念](./technology/system-design/dominating-programming-concepts.md) | 反應式/邊緣運算/資料導向設計/LLM 應用架構/本地優先;都是心智模型的轉變 |
+| [硬碟陣列 RAID 一次看懂:RAID 0/1/5/6 與 RAID 5 為什麼「不安全」](./technology/system-design/raid-explained-why-raid5-unsafe.md) | RAID 5 校驗=XOR 半加;「重建失敗率 99%」真相是 URE(每 12.5TB 一次)+ RAID 層看不見文件系統;ZFS RAID-Z 能感知文件;RAID 6 能壞兩塊 |
 
 ### 🖥️ claude-code(Claude Code 維運)
 | 主題 | 一句話 |
