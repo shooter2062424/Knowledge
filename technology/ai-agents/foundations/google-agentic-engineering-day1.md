@@ -112,4 +112,5 @@ flowchart LR
 ## 來源
 
 - Gary Chen(@garytalksstuff),〈Google Agentic Engineering 課程拆解 Day 1,從 Vibe Coding 到 Agentic Engineering〉,YouTube:<https://youtu.be/GzHfE50N8x4>(2026-07-10,約 16 分鐘)
+- **➡️ 續集已整理:[Google 課程 Day 2+3:MCP、A2A、AP2 三協定與 Skill 上線的四地雷四防線](./google-agentic-engineering-day2-3.md)**(2026-07-26)。
 - 本文依該片**官方 zh-TW 字幕**整理。原始教材為 Google 五天 AI 開發課程 Day 1(51 頁講義);後續 Day 2(agent 工具/MCP/A2A)、Day 3(skills/記憶/context 優化)、Day 4(security/evaluation)、Day 5(spec-driven production 開發)作者表示有興趣會續做。數據(85% 用 agent、41% 新 code 為 AI、生產力 +25–39%、METR −19%、Terminal Bench 前 5、LangChain +13.7)依影片轉述。
