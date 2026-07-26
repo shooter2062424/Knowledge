@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-149_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-150_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -94,6 +94,7 @@ flowchart LR
 | **硅谷101(陳茜)** — 矽谷深度科技/商業訪談 | 2 | [SpaceX 崛起史](./investing/equity-research/spacex-rise-history.md) · [田淵棟 RSI 與 AI 自進化](./technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) |
 | **Debug Tuboshu** — AI 寫網站/前端 | 2 | [零程式碼做網站](./technology/applied-ai/design/ai-website-building-claude-code.md) · [手搖飲看網站架構擴展](./technology/system-design/scaling-web-architecture-bubble-tea.md) |
 | **白白说大模型** — 大模型/Agent 原理 | 2 | [Agent 最該具備的 Skill](./technology/ai-agents/applications/top-skills-for-agents.md) · [工具調用:FC→MCP→CLI](./technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) |
+| **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
 
 ### ✍️ 個人/部落格/官方
 
@@ -202,6 +203,7 @@ flowchart LR
 | [Loop Engineering:從寫提示詞到設計驅動 agent 的循環](./technology/ai-agents/foundations/loop-engineering.md) | Boris 三階段;loop=心跳/work tree/skill/MCP/子agent+記憶脊柱;/goal vs /loop;四條件測試 |
 | [Google Agentic Engineering 課程 Day 1:從 vibe coding 到 agentic engineering](./technology/ai-agents/foundations/google-agentic-engineering-day1.md) | 驗證是分水嶺(測試 vs evals);工廠模型「產出是產程式碼的系統」;Agent=Model+Harness(6 件);Generation is solved,驗證/判斷/方向才是新手藝 |
 | [OpenAI GPT-5.6 官方提示指南:從「規定步驟」轉向「描述終點+停止條件」](./technology/ai-agents/foundations/gpt-5-6-prompting-guide-openai.md) | 先做減法、outcome-first、停止條件是靈魂;PTC/自主邊界/檢索預算;一次只動一個變數的遷移法;精簡 prompt 分數+10~15%、token−41~66% |
+| [Claude 5 時代的 Context Engineering 新規則:Claude Code 刪掉 80% 系統提示詞(01Coder)](./technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) | unhobbling 給模型鬆綁;六組變化(給規則→給判斷力/堆示例→設計接口/全塞前面→漸進式披露…);CLAUDE.md 輕量、Skills 別寫太死但留真鐵律;/doctor 自動瘦身 |
 
 **autonomy — 自主與長時間運行**
 | 主題 | 一句話 |
