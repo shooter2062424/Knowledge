@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-156_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-157_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -93,7 +93,7 @@ flowchart LR
 | **Redknot-乔红** — 動畫講硬核硬體/半導體原理 | 3 | [HBM 原理](./technology/ai-industry/hbm-high-bandwidth-memory-principle.md) · [先進封裝](./technology/ai-industry/advanced-packaging-explained.md) · [RAID 陣列/RAID 5 安全性](./technology/system-design/raid-explained-why-raid5-unsafe.md) |
 | **硅谷101(陳茜)** — 矽谷深度科技/商業訪談 | 2 | [SpaceX 崛起史](./investing/equity-research/spacex-rise-history.md) · [田淵棟 RSI 與 AI 自進化](./technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) |
 | **Debug Tuboshu** — AI 寫網站/前端 | 2 | [零程式碼做網站](./technology/applied-ai/design/ai-website-building-claude-code.md) · [手搖飲看網站架構擴展](./technology/system-design/scaling-web-architecture-bubble-tea.md) |
-| **白白说大模型** — 大模型/Agent 原理 | 2 | [Agent 最該具備的 Skill](./technology/ai-agents/applications/top-skills-for-agents.md) · [工具調用:FC→MCP→CLI](./technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) |
+| **白白说大模型** — 大模型/Agent 原理 | 3 | [Agent 最該具備的 Skill](./technology/ai-agents/applications/top-skills-for-agents.md) · [工具調用:FC→MCP→CLI](./technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) · [2026 Agent 工程師能力與面試題](./technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) |
 | **Why QQ(為什麼叫 QQ)** — 一線工程師視角拆解 AI 工程文 | 1 | [Harness/Loop/Graph 三層排障地圖](./technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) |
 | **Jim AI Notebook** — AI 每日深度解析 | 1 | [MCP 2026-07-28 最大改版](./technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) |
 | **wow** — AI agent 真實系統壓測 | 1 | [Graphify 知識圖譜實戰壓測](./technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) |
@@ -184,6 +184,7 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [什麼是 AI Harness?兩種 harness 的差別](./technology/ai-agents/foundations/ai-harness-explained.md) | harness = 模型權重以外的一切 |
+| [2026 Agent 工程師要什麼能力:四塊拼圖(附 11 道面試題與標準答案)](./technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) | Demo↔生產的鴻溝;人機協同掛起/工單/喚醒;攔截→指數退避→兜底降級;三黃金指標(完成率>95%、工具異常<0.1%、P99<500ms);熔斷防燒錢;LLM-as-a-Judge + 灰度 5% + Trace ID |
 | [Harness/Loop/Graph 三層排障地圖:把「Agent 又抽風了」變成排查工單](./technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) | 環境/反饋/流程三層 + 七症狀決策表;七條可抄實踐(證據驅動停止、有界重試四要素、工具寧窄勿寬…);三個坑(圖過早儀式化、術語通膨、廠商敘事)|
 | [Harness Engineering 的演進:Prompt → Context → Harness](./technology/ai-agents/foundations/harness-engineering-evolution.md) | context 撞牆在越摘要越失真;harness 用 loop+每輪乾淨 context 取代(Ralph) |
 | [Pi Agent:用「留白」的極簡 harness 對沖框架易變](./technology/ai-agents/foundations/pi-agent-minimal-harness.md) | OpenClaw 的大腦;刻意不內建 MCP/sub-agent,能用 TS 擴展自己的 harness;build less |
