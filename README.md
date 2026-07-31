@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-158_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-160_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -111,7 +111,7 @@ flowchart LR
 
 | 來源 | 篇數 | 筆記 |
 |---|---|---|
-| **GitHub Weekly(itcoffee66/githubweekly)** | 24 | [第 99–122 期(整個 github-weekly 資料夾)](./technology/github-weekly/) |
+| **GitHub Weekly(itcoffee66/githubweekly)** | 26 | [第 99–124 期(整個 github-weekly 資料夾)](./technology/github-weekly/) |
 
 ---
 
@@ -380,6 +380,8 @@ flowchart LR
 ### 🗞️ github-weekly(GitHub 週報)
 | 期數 | 主題 |
 |---|---|
+| [第 124 期:Kimi K3/Kimi Code、AI 網關、開源部署平台、反 AI 味設計 Skill](./technology/github-weekly/issue-124.md) | Kimi Code / OmniRoute / Openship / Hallmark / Buzz |
+| [第 123 期:多說話人 ASR、並行 Agent 工作台、DESIGN.md 合集與 AI 交易 Agent](./technology/github-weekly/issue-123.md) | MOSS-Transcribe-Diarize / Orca / awesome-design-md / Vibe-Trading / exercises-dataset |
 | [第 122 期:AI 求職助手、Photoshop 版 GIMP、Agent 省 Token 外掛與本地會議助手](./technology/github-weekly/issue-122.md) | ai-job-search / PhotoGIMP / caveman / Meetily / OfficeCLI |
 | [第 121 期:DeepSeek 推理加速、Google 設計記憶規範、AI 投研技能包與 AI 滲透測試](./technology/github-weekly/issue-121.md) | DeepSpec / DESIGN.md / AI Berkshire / Strix / free-for-dev |
 | [第 115 期:桌面 AI 助手、程式 Agent 知識系統與隱身瀏覽器](./technology/github-weekly/issue-115.md) | OpenHuman / CodeGraph / CloakBrowser / CLI-Anything / LingBot-Map |
