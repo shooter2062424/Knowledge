@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-157_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-158_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -94,7 +94,7 @@ flowchart LR
 | **硅谷101(陳茜)** — 矽谷深度科技/商業訪談 | 2 | [SpaceX 崛起史](./investing/equity-research/spacex-rise-history.md) · [田淵棟 RSI 與 AI 自進化](./technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) |
 | **Debug Tuboshu** — AI 寫網站/前端 | 2 | [零程式碼做網站](./technology/applied-ai/design/ai-website-building-claude-code.md) · [手搖飲看網站架構擴展](./technology/system-design/scaling-web-architecture-bubble-tea.md) |
 | **白白说大模型** — 大模型/Agent 原理 | 3 | [Agent 最該具備的 Skill](./technology/ai-agents/applications/top-skills-for-agents.md) · [工具調用:FC→MCP→CLI](./technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) · [2026 Agent 工程師能力與面試題](./technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) |
-| **Why QQ(為什麼叫 QQ)** — 一線工程師視角拆解 AI 工程文 | 1 | [Harness/Loop/Graph 三層排障地圖](./technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) |
+| **Why QQ(為什麼叫 QQ)** — 一線工程師視角拆解 AI 工程文 | 2 | [Harness/Loop/Graph 三層排障地圖](./technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) · [Codebase-Memory-MCP vs CodeGraph 兩條路線](./technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) |
 | **Jim AI Notebook** — AI 每日深度解析 | 1 | [MCP 2026-07-28 最大改版](./technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) |
 | **wow** — AI agent 真實系統壓測 | 1 | [Graphify 知識圖譜實戰壓測](./technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) |
 | **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
@@ -228,6 +228,7 @@ flowchart LR
 | [Vectorless RAG:不靠相似度,靠「結構導航」找對地方](./technology/ai-agents/memory-retrieval/vectorless-rag-structure-navigation.md) | LLM 在文件階層樹上推理導航(PageIndex);相似≠相關,FinanceBench 50%→98.7% |
 | [LLM Wiki(Karpathy):讓 LLM 增量維護會複利的知識庫](./technology/ai-agents/memory-retrieval/llm-wiki-karpathy.md) | 別只 RAG 臨時拼湊;wiki 編譯一次後保持更新;ingest/query/lint + index/log;本倉庫就是實例 |
 | [Codebase-Memory:Tree-Sitter 知識圖譜 + MCP,探索程式碼省 10 倍 token](./technology/ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md) | 把 codebase 建成可查詢圖譜(SQLite,66 語言);結構查詢走預存邊,品質 83% vs 92% 但省 10× token、快 100× |
+| [「Token 省 120 倍」該怎麼讀?Codebase-Memory-MCP vs CodeGraph 兩條路線](./technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) | 120 倍是 5 題 micro-benchmark、論文系統評測是 10 倍;純 C 靜態二進位 vs TypeScript 框架規則;圖譜當「團隊資產」(快照 commit 進 Git)vs 本地快取;瓶頸不是模型智商是輸入頻寬 |
 | [Graphify 實戰壓測:10 萬 Star 程式碼知識圖譜打不贏 grep?](./technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) | tree-sitter AST 建圖 2 秒/0 token(280 節點);9 題真實壓測前 8 題與純 grep 打平、只省 24% token;變更影響分析卡在 Shell→Python 無邊(AST only 的「自知 vs 他指」);價值在「讓人看」而非「讓 AI 找」;最後一道牆 = 缺軟體世界模型 |
 | [到底需不需要 GraphRAG?9 種 RAG 方案實測 + 脈絡優化](./technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md) | 簡單 1-hop 關係常勝精緻 GraphRAG;極簡工具自主 agent 最佳;脈絡優化省 19–53% token;檢索≠生成用得上 |
 
