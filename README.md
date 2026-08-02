@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-165_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-166_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -94,6 +94,7 @@ flowchart LR
 | **硅谷101(陳茜)** — 矽谷深度科技/商業訪談 | 2 | [SpaceX 崛起史](./investing/equity-research/spacex-rise-history.md) · [田淵棟 RSI 與 AI 自進化](./technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) |
 | **Debug Tuboshu** — AI 寫網站/前端 | 2 | [零程式碼做網站](./technology/applied-ai/design/ai-website-building-claude-code.md) · [手搖飲看網站架構擴展](./technology/system-design/scaling-web-architecture-bubble-tea.md) |
 | **白白说大模型** — 大模型/Agent 原理 | 3 | [Agent 最該具備的 Skill](./technology/ai-agents/applications/top-skills-for-agents.md) · [工具調用:FC→MCP→CLI](./technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) · [2026 Agent 工程師能力與面試題](./technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) |
+| **Systems Made Better** — Claude 工作流與知識系統 | 1 | [用 Claude 蓋會自我改進的知識庫](./technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md) |
 | **Blink 的 AI 筆記** — AI × 知識管理實踐 | 1 | [Project Cairn:經驗知識化 Skill](./technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) |
 | **智用 AI** — AI 底層技術與成本拆解 | 1 | [GPT-5.6 Sol 自優化 kernel 與 Luna 定價](./technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) |
 | **李廠長來了** — AI Agent 趨勢與職場應用 | 1 | [未來一年的 6 個 AI Agent 趨勢](./technology/ai-agents/foundations/six-ai-agent-trends-next-year.md) |
@@ -234,6 +235,7 @@ flowchart LR
 | [Vectorless RAG:不靠相似度,靠「結構導航」找對地方](./technology/ai-agents/memory-retrieval/vectorless-rag-structure-navigation.md) | LLM 在文件階層樹上推理導航(PageIndex);相似≠相關,FinanceBench 50%→98.7% |
 | [LLM Wiki(Karpathy):讓 LLM 增量維護會複利的知識庫](./technology/ai-agents/memory-retrieval/llm-wiki-karpathy.md) | 別只 RAG 臨時拼湊;wiki 編譯一次後保持更新;ingest/query/lint + index/log;本倉庫就是實例 |
 | [Codebase-Memory:Tree-Sitter 知識圖譜 + MCP,探索程式碼省 10 倍 token](./technology/ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md) | 把 codebase 建成可查詢圖譜(SQLite,66 語言);結構查詢走預存邊,品質 83% vs 92% 但省 10× token、快 100× |
+| [用 Claude 蓋會自我改進的知識庫:三資料夾 + 一個 CLAUDE.md + 五步驟](./technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md) | Karpathy 式知識庫實作;raw(不整理)/wiki(AI 寫)/outputs(存回去產生複利);**讓 AI 當圖書館員**;編 wiki 前先給反 AI 腔寫作規則;每月 health check 七項稽核 |
 | [Project Cairn:把「做過的事」沉澱成可複用知識的開源 Skill](./technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) | 專案側(AGENTS.md+cairn/)與知識庫側(Obsidian/Notion/飛書)分離;LOG 朝後看+ROADMAP 朝前看(能管住很軸的 AI);知識畢業需人工確認;**體感×阻力**框架:LLM Wiki 整理「給到的資料」、Cairn 沉澱「做過的事」 |
 | [「Token 省 120 倍」該怎麼讀?Codebase-Memory-MCP vs CodeGraph 兩條路線](./technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) | 120 倍是 5 題 micro-benchmark、論文系統評測是 10 倍;純 C 靜態二進位 vs TypeScript 框架規則;圖譜當「團隊資產」(快照 commit 進 Git)vs 本地快取;瓶頸不是模型智商是輸入頻寬 |
 | [Graphify 實戰壓測:10 萬 Star 程式碼知識圖譜打不贏 grep?](./technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) | tree-sitter AST 建圖 2 秒/0 token(280 節點);9 題真實壓測前 8 題與純 grep 打平、只省 24% token;變更影響分析卡在 Shell→Python 無邊(AST only 的「自知 vs 他指」);價值在「讓人看」而非「讓 AI 找」;最後一道牆 = 缺軟體世界模型 |
