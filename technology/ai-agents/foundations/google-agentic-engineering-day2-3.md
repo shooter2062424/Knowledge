@@ -258,4 +258,5 @@ Skill 越複雜,只考 3 題肯定不夠。把平常會遇到的**幾十種經�
 
 - 影片:[20 分鐘看完 Google AI 課程 Day 2+3 精華。MCP, A2A, Skills 解析(Gary Chen @garytalksstuff,2026-07-26,官方 zh-TW 字幕)](https://youtu.be/XTCP1qoa3cc)
   - 作者另在 Patreon 提供完整文章與提示詞模板;預告會繼續出 Day 4、Day 5。
+- **➡️ 系列完結篇已整理:[Google 課程 Day 4+5:怎麼放心讓 AI 上正式環境](./google-agentic-engineering-day4-5.md)**(2026-08-02)——講清楚(spec)、設邊界(zero-trust)、做驗收(evals)三個動作。
 - 延伸(本庫):[Google Agentic Engineering 課程 Day 1(Agent = Model + Harness)](./google-agentic-engineering-day1.md)、[AI Agent 三大核心技:Function Calling、MCP、A2A](./function-calling-mcp-a2a.md)、[工具調用演進:ReAct → FC → MCP → CLI](./function-calling-mcp-cli-tool-evolution.md)、[Skill 實戰:從製作到維護](../applications/building-claude-skills.md)、[Matt Pocock skills 全拆解](../applications/matt-pocock-skills-teardown.md)、[Claude 5 Context Engineering 新規則](./context-engineering-claude-5-unhobbling.md)、[駭客怎麼騙 AI:Prompt Injection 與防禦](../../ai-safety/prompt-injection-5-techniques-defenses.md)
