@@ -313,4 +313,5 @@ flowchart TD
 - MCP Release Candidate Rewrite — The New Stack:<https://thenewstack.io/mcp-release-candidate-rewrite/>
 - MCP 加入 Agentic AI Foundation(官方公告,2025-12-09):<https://blog.modelcontextprotocol.io/posts/2025-12-09-mcp-joins-agentic-ai-foundation/>
 - Linux Foundation Announces the Formation of the Agentic AI Foundation:<https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation>
+- **➡️ 實務遷移篇已整理:[MCP 無狀態化怎麼遷移:十分鐘自查、三個危險點與責任轉移](./mcp-stateless-migration-guide.md)**(Why QQ,2026-08-02)——90% 的 server 升 SDK 即可、哪 3 類人要動架構、社群一手踩坑,以及「狀態在哪裡責任就在哪裡」的分析框架。
 - 延伸(本庫):[Function Calling → MCP → A2A 的演進](./function-calling-mcp-a2a.md) · [工具調用:FC→MCP→CLI](./function-calling-mcp-cli-tool-evolution.md) · [Google 課程 Day 2+3:MCP/A2A/AP2 三協定](./google-agentic-engineering-day2-3.md) · [tmux-bridge-mcp 實例](../applications/tmux-bridge-mcp.md)

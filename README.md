@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-168_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-169_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -98,7 +98,7 @@ flowchart LR
 | **Blink 的 AI 筆記** — AI × 知識管理實踐 | 1 | [Project Cairn:經驗知識化 Skill](./technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) |
 | **智用 AI** — AI 底層技術與成本拆解 | 1 | [GPT-5.6 Sol 自優化 kernel 與 Luna 定價](./technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) |
 | **李廠長來了** — AI Agent 趨勢與職場應用 | 1 | [未來一年的 6 個 AI Agent 趨勢](./technology/ai-agents/foundations/six-ai-agent-trends-next-year.md) |
-| **Why QQ(為什麼叫 QQ)** — 一線工程師視角拆解 AI 工程文 | 2 | [Harness/Loop/Graph 三層排障地圖](./technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) · [Codebase-Memory-MCP vs CodeGraph 兩條路線](./technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) |
+| **Why QQ(為什麼叫 QQ)** — 一線工程師視角拆解 AI 工程文 | 3 | [Harness/Loop/Graph 三層排障地圖](./technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) · [Codebase-Memory-MCP vs CodeGraph 兩條路線](./technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) · [MCP 無狀態化遷移指南](./technology/ai-agents/foundations/mcp-stateless-migration-guide.md) |
 | **Jim AI Notebook** — AI 每日深度解析 | 1 | [MCP 2026-07-28 最大改版](./technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) |
 | **wow** — AI agent 真實系統壓測 | 2 | [Graphify 知識圖譜實戰壓測](./technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) · [本體論護欄與神經符號 AI(Frank Coyle)](./technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
 | **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
@@ -200,6 +200,7 @@ flowchart LR
 | [五大 Agent 模式(2026 生產系統至少用一個)](./technology/ai-agents/foundations/five-agent-patterns.md) | Prompt Chaining/Routing/Parallelization/Orchestrator-Workers/Evaluator-Optimizer;工作流 vs 自主 |
 | [12-Factor Agents:打造可上線、可靠的 LLM 代理](./technology/ai-agents/foundations/12-factor-agents.md) | 大量普通軟體 + 少量精心設計的 LLM 步驟 |
 | [CLAUDE.md 12 條規則:把編碼錯誤率從 41% 壓到 3%](./technology/ai-agents/foundations/claude-md-12-rules.md) | 每條規則都對應一個你實際踩過的坑 |
+| [MCP 無狀態化怎麼遷移:十分鐘自查、三個危險點與責任轉移](./technology/ai-agents/foundations/mcp-stateless-migration-guide.md) | 90% 的 server 升 SDK 即可、2.5% 拿 session 當儲存鍵最慘;推送式互動無寬限期硬失敗;requestState 是敵意輸入要封印;**升級 SDK ≠ 啟用新協議**;框架:狀態在哪裡責任就在哪裡 |
 | [MCP 史上最大改版(2026-07-28):從「打電話」變成「寄信」](./technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) | 移除 session/握手改無狀態、新增 server/discover、MRTR 取代 server 主動請求、拿掉 SSE 續傳;Roots/Sampling/Logging 退場(12 個月搬遷期,首次有正式棄用政策);新舊版互不相容 |
 | [AI Agent 三大核心技:Function Calling、MCP、A2A](./technology/ai-agents/foundations/function-calling-mcp-a2a.md) | 會用工具 → 即插即用生態 → agent 互相協作 |
 | [AI Agent 工具調用一次講清:ReAct → Function Calling → MCP → CLI](./technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) | 約束解碼保證 100% 合法 JSON;MCP 解 N×M 重工;CLI 人機共用、Perplexity 棄 MCP 轉 CLI |
