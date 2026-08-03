@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-169_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-170_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -94,6 +94,7 @@ flowchart LR
 | **硅谷101(陳茜)** — 矽谷深度科技/商業訪談 | 2 | [SpaceX 崛起史](./investing/equity-research/spacex-rise-history.md) · [田淵棟 RSI 與 AI 自進化](./technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) |
 | **Debug Tuboshu** — AI 寫網站/前端 | 2 | [零程式碼做網站](./technology/applied-ai/design/ai-website-building-claude-code.md) · [手搖飲看網站架構擴展](./technology/system-design/scaling-web-architecture-bubble-tea.md) |
 | **白白说大模型** — 大模型/Agent 原理 | 3 | [Agent 最該具備的 Skill](./technology/ai-agents/applications/top-skills-for-agents.md) · [工具調用:FC→MCP→CLI](./technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) · [2026 Agent 工程師能力與面試題](./technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) |
+| **Token101** — LLM 應用考點導向短講 | 1 | [結構化 JSON 輸出的四道鎖](./technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md) |
 | **Systems Made Better** — Claude 工作流與知識系統 | 1 | [用 Claude 蓋會自我改進的知識庫](./technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md) |
 | **Blink 的 AI 筆記** — AI × 知識管理實踐 | 1 | [Project Cairn:經驗知識化 Skill](./technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) |
 | **智用 AI** — AI 底層技術與成本拆解 | 1 | [GPT-5.6 Sol 自優化 kernel 與 Luna 定價](./technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) |
@@ -200,6 +201,7 @@ flowchart LR
 | [五大 Agent 模式(2026 生產系統至少用一個)](./technology/ai-agents/foundations/five-agent-patterns.md) | Prompt Chaining/Routing/Parallelization/Orchestrator-Workers/Evaluator-Optimizer;工作流 vs 自主 |
 | [12-Factor Agents:打造可上線、可靠的 LLM 代理](./technology/ai-agents/foundations/12-factor-agents.md) | 大量普通軟體 + 少量精心設計的 LLM 步驟 |
 | [CLAUDE.md 12 條規則:把編碼錯誤率從 41% 壓到 3%](./technology/ai-agents/foundations/claude-md-12-rules.md) | 每條規則都對應一個你實際踩過的坑 |
+| [怎麼確保結構化 JSON 輸出可靠:Tool Use → 校驗器 → 帶錯誤重試](./technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md) | 提示詞只是機率;Tool Use+Schema 鎖形狀、`tool_choice` 至少要 `any`;Schema 不管對錯要自己再算一遍;重試必帶「原文+失敗輸出+具體錯誤」;資訊不存在靠 Optional/unclear 兜底 |
 | [MCP 無狀態化怎麼遷移:十分鐘自查、三個危險點與責任轉移](./technology/ai-agents/foundations/mcp-stateless-migration-guide.md) | 90% 的 server 升 SDK 即可、2.5% 拿 session 當儲存鍵最慘;推送式互動無寬限期硬失敗;requestState 是敵意輸入要封印;**升級 SDK ≠ 啟用新協議**;框架:狀態在哪裡責任就在哪裡 |
 | [MCP 史上最大改版(2026-07-28):從「打電話」變成「寄信」](./technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) | 移除 session/握手改無狀態、新增 server/discover、MRTR 取代 server 主動請求、拿掉 SSE 續傳;Roots/Sampling/Logging 退場(12 個月搬遷期,首次有正式棄用政策);新舊版互不相容 |
 | [AI Agent 三大核心技:Function Calling、MCP、A2A](./technology/ai-agents/foundations/function-calling-mcp-a2a.md) | 會用工具 → 即插即用生態 → agent 互相協作 |
