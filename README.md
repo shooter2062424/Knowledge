@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-171_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-172_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -241,6 +241,7 @@ flowchart LR
 | [Vectorless RAG:不靠相似度,靠「結構導航」找對地方](./technology/ai-agents/memory-retrieval/vectorless-rag-structure-navigation.md) | LLM 在文件階層樹上推理導航(PageIndex);相似≠相關,FinanceBench 50%→98.7% |
 | [LLM Wiki(Karpathy):讓 LLM 增量維護會複利的知識庫](./technology/ai-agents/memory-retrieval/llm-wiki-karpathy.md) | 別只 RAG 臨時拼湊;wiki 編譯一次後保持更新;ingest/query/lint + index/log;本倉庫就是實例 |
 | [Codebase-Memory:Tree-Sitter 知識圖譜 + MCP,探索程式碼省 10 倍 token](./technology/ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md) | 把 codebase 建成可查詢圖譜(SQLite,66 語言);結構查詢走預存邊,品質 83% vs 92% 但省 10× token、快 100× |
+| [MemHarness:記憶是「重建」不是「重播」(arXiv 2607.28272)](./technology/ai-agents/memory-retrieval/memharness-memory-reconstructed-not-replayed.md) | 記憶條目=(抽象策略, **來源狀態**)才能比對「當時 vs 現在」;不適用就輸出 `<EMPTY>` 改自我推理;GRPO 端到端 RL 無 ground truth;**關掉記憶仍勝純 RL** → 重建訓練提升本體推理;原始記憶直接注入反而變差 |
 | [用 Claude 蓋會自我改進的知識庫:三資料夾 + 一個 CLAUDE.md + 五步驟](./technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md) | Karpathy 式知識庫實作;raw(不整理)/wiki(AI 寫)/outputs(存回去產生複利);**讓 AI 當圖書館員**;編 wiki 前先給反 AI 腔寫作規則;每月 health check 七項稽核 |
 | [Project Cairn:把「做過的事」沉澱成可複用知識的開源 Skill](./technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) | 專案側(AGENTS.md+cairn/)與知識庫側(Obsidian/Notion/飛書)分離;LOG 朝後看+ROADMAP 朝前看(能管住很軸的 AI);知識畢業需人工確認;**體感×阻力**框架:LLM Wiki 整理「給到的資料」、Cairn 沉澱「做過的事」 |
 | [「Token 省 120 倍」該怎麼讀?Codebase-Memory-MCP vs CodeGraph 兩條路線](./technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) | 120 倍是 5 題 micro-benchmark、論文系統評測是 10 倍;純 C 靜態二進位 vs TypeScript 框架規則;圖譜當「團隊資產」(快照 commit 進 Git)vs 本地快取;瓶頸不是模型智商是輸入頻寬 |
