@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-174_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-176_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -97,10 +97,11 @@ flowchart LR
 | **AI超元域** — Agent 專案實測與部署 | 2 | [Codex Multi-agent V2 與 Graph Engineering](./technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) · [qm:YC 開源的多人 Agent Harness](./technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md) |
 | **Token101** — LLM 應用考點導向短講 | 1 | [結構化 JSON 輸出的四道鎖](./technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md) |
 | **Systems Made Better** — Claude 工作流與知識系統 | 1 | [用 Claude 蓋會自我改進的知識庫](./technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md) |
+| **Jerry's Productivity Tech Channel(簡睿學堂)** — 跨平台工具與生產力 | 1 | [dbx 資料庫客戶端 + MCP](./technology/dev-tools/dbx-rust-database-client-mcp.md) |
 | **Blink 的 AI 筆記** — AI × 知識管理實踐 | 1 | [Project Cairn:經驗知識化 Skill](./technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) |
 | **智用 AI** — AI 底層技術與成本拆解 | 1 | [GPT-5.6 Sol 自優化 kernel 與 Luna 定價](./technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) |
 | **李廠長來了** — AI Agent 趨勢與職場應用 | 1 | [未來一年的 6 個 AI Agent 趨勢](./technology/ai-agents/foundations/six-ai-agent-trends-next-year.md) |
-| **Why QQ(為什麼叫 QQ)** — 一線工程師視角拆解 AI 工程文 | 4 | [Harness/Loop/Graph 三層排障地圖](./technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) · [Codebase-Memory-MCP vs CodeGraph 兩條路線](./technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) · [MCP 無狀態化遷移指南](./technology/ai-agents/foundations/mcp-stateless-migration-guide.md) · [Loop 與 Graph 之爭](./technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) |
+| **Why QQ(為什麼叫 QQ)** — 一線工程師視角拆解 AI 工程文 | 5 | [Harness/Loop/Graph 三層排障地圖](./technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) · [Codebase-Memory-MCP vs CodeGraph 兩條路線](./technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) · [MCP 無狀態化遷移指南](./technology/ai-agents/foundations/mcp-stateless-migration-guide.md) · [Loop 與 Graph 之爭](./technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) · [Opus 5 系統提示詞的工程模式](./technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) |
 | **Jim AI Notebook** — AI 每日深度解析 | 1 | [MCP 2026-07-28 最大改版](./technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) |
 | **wow** — AI agent 真實系統壓測 | 2 | [Graphify 知識圖譜實戰壓測](./technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) · [本體論護欄與神經符號 AI(Frank Coyle)](./technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
 | **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
@@ -192,6 +193,7 @@ flowchart LR
 |---|---|
 | [什麼是 AI Harness?兩種 harness 的差別](./technology/ai-agents/foundations/ai-harness-explained.md) | harness = 模型權重以外的一切 |
 | [Google 課程 Day 4+5:怎麼放心讓 AI 上正式環境(講清楚/設邊界/做驗收)](./technology/ai-agents/foundations/google-agentic-engineering-day4-5.md) | spec 五件事(含好壞路徑的完成定義);格式差 40%(Markdown+YAML);zero-trust 三層(sandbox/Vibe Diff 簽核/防 slopsquatting);四個驗收招式;**驗證能力 = 自動化能力上限**;瓶頸移到 reviewer(burnout +45%) |
+| [Opus 5 系統提示詞公開後:五條可抄的工程模式與「提示詞債務」](./technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) | 先定性再分析(52 段有 38 段逐字吻合);**能力篇幅壓倒人設**是關鍵差距;五模式=工具契約/破壞性二次確認/版本號防並發/URL 白名單/自檢改寫成 CI lint;規則不維護會腐爛 |
 | [「Loop 已死,Graph 當立」?從工程視角看透這場名詞之爭](./technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) | 引爆點與那篇「只有一個句號」的嘲諷文;**把聊天記錄當資料庫**是失控根因;三做法(狀態外置且有所有者/誰決定下一步/回邊要帶證據);**Graph 修不好錯誤的目標**;升級順序與「模型提議、執行時約束」 |
 | [Graph Engineering 八分鐘講清楚:從柯尼斯堡七橋到 108 個 agent 的 DAG](./technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) | Claude Code 當場寫 427 行 JS 當 runtime 展開 108 agent(5 階段 DAG,查核佔 75 個);多 agent 約 15× token,靠 prompt cache 從 $10 降到 $1;**改變的不是圖而是節點**,瓶頸從節點轉到邊 |
 | [AI Agent 沒有「世界地圖」:用本體論給大模型套上邏輯護欄](./technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) | 神經符號 AI;80 年代專家系統敗在算力非邏輯;大模型=被鎖密室的軍師;Pydantic 守型別 + RDFS/OWL 守常識(傳遞性/唯一性防重複退款/互斥/封閉值域);純粹智能體不該能直接改 DB |
@@ -365,6 +367,7 @@ flowchart LR
 ### 🌲 dev-tools(開發者工具)
 | 主題 | 一句話 |
 |---|---|
+| [dbx:單一執行檔的跨平台資料庫客戶端(Rust)+ MCP Server](./technology/dev-tools/dbx-rust-database-client-mcp.md) | 70+ 資料庫約 20MB、免 Java、可攜模式;MCP 獨立發布且**權限只能收緊**(白名單 + read_only/safe_write/high_risk_write);**DuckDB 直接 SELECT 查大型 CSV/JSON** |
 | [Tree-sitter:給程式工具用的「增量解析」引擎](./technology/dev-tools/tree-sitter.md) | 把原始碼變成可查詢、改一字不必重剖的語法樹;編輯器/GitHub/AI agent 的底層 |
 | [Understand-Anything vs Graphify:codebase 變知識圖譜給 AI 查](./technology/dev-tools/understand-anything-vs-graphify.md) | 省 token vs 視覺化的取捨;Graphify 省一半 token+本地模型,Understand-Anything 圖更好 |
 | [CodeGraph 原始碼深讀:架構與 shimmer TUI 怎麼做](./technology/dev-tools/codegraph-code-and-tui.md) | Tree-sitter→SQLite 圖譜→MCP 8 工具;TUI 用 worker 直寫 fd1 讓動畫不被 SQLite 凍住 |
