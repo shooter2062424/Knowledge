@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-177_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-178_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -112,6 +112,7 @@ flowchart LR
 |---|---|---|
 | **Andrej Karpathy(本人著作/repo)** | 3 | [microGPT 200 行](./technology/llm-internals/architecture/microgpt-karpathy.md) · [autoresearch 最小 harness](./technology/ai-agents/autonomy/karpathy-autoresearch.md) · [LLM Wiki 知識庫模式](./technology/ai-agents/memory-retrieval/llm-wiki-karpathy.md) |
 | **blog.aihao.tw(ihower)** — agent 工程 | 2 | [Agent Streaming 格式設計](./technology/ai-agents/applications/agent-streaming-format-design.md) · [用 AI 分析 Agent Traces](./technology/ai-agents/applications/agent-trace-analysis-with-ai.md) |
+| **Prime Intellect(官方部落格)** | 1 | [Prime Agent:RLM 與 Continual Harness](./technology/ai-agents/foundations/prime-agent-rlm-continual-harness.md) |
 | **Anthropic(官方研究/頻道)** | 3 | [五大 Agent 模式](./technology/ai-agents/foundations/five-agent-patterns.md) · [Man Group 用 Claude Skills 治理](./technology/ai-agents/applications/claude-skills-governance-man-group.md) · [J-Space 全域工作空間](./technology/llm-internals/interpretability/j-space-global-workspace-claude.md) |
 
 ### 🗞️ 週報
@@ -193,6 +194,7 @@ flowchart LR
 |---|---|
 | [什麼是 AI Harness?兩種 harness 的差別](./technology/ai-agents/foundations/ai-harness-explained.md) | harness = 模型權重以外的一切 |
 | [Google 課程 Day 4+5:怎麼放心讓 AI 上正式環境(講清楚/設邊界/做驗收)](./technology/ai-agents/foundations/google-agentic-engineering-day4-5.md) | spec 五件事(含好壞路徑的完成定義);格式差 40%(Markdown+YAML);zero-trust 三層(sandbox/Vibe Diff 簽核/防 slopsquatting);四個驗收招式;**驗證能力 = 自動化能力上限**;瓶頸移到 reviewer(burnout +45%) |
+| [Prime Agent:用一個 IPython kernel 取代所有工具 schema,讓 harness 自己改自己](./technology/ai-agents/foundations/prime-agent-rlm-continual-harness.md) | RLM(kernel 為唯一工具)+ Continual Harness(prompts/子代理/skills/memory 走同一組 CRUD);/refine 記錄觸發與結果;A2A 限核心家庭;append-only 歷史;**Factorio reward hacking:提醒擋不住,還被固化成作弊技能** |
 | [Opus 5 系統提示詞公開後:五條可抄的工程模式與「提示詞債務」](./technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) | 先定性再分析(52 段有 38 段逐字吻合);**能力篇幅壓倒人設**是關鍵差距;五模式=工具契約/破壞性二次確認/版本號防並發/URL 白名單/自檢改寫成 CI lint;規則不維護會腐爛 |
 | [「Loop 已死,Graph 當立」?從工程視角看透這場名詞之爭](./technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) | 引爆點與那篇「只有一個句號」的嘲諷文;**把聊天記錄當資料庫**是失控根因;三做法(狀態外置且有所有者/誰決定下一步/回邊要帶證據);**Graph 修不好錯誤的目標**;升級順序與「模型提議、執行時約束」 |
 | [Graph Engineering 八分鐘講清楚:從柯尼斯堡七橋到 108 個 agent 的 DAG](./technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) | Claude Code 當場寫 427 行 JS 當 runtime 展開 108 agent(5 階段 DAG,查核佔 75 個);多 agent 約 15× token,靠 prompt cache 從 $10 降到 $1;**改變的不是圖而是節點**,瓶頸從節點轉到邊 |
