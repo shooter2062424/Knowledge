@@ -2,6 +2,8 @@
 
 > 整理自 YouTube 頻道 **Jim AI Notebook**〈MCP 史上最大改版:Agentic 世代的到來〉(2026-07-31,15:53)。本文的技術細節另**直接比對官方 changelog** 逐條核實(`modelcontextprotocol.io/specification/2026-07-28/changelog`)。
 >
+> 📎 同主題延伸:[[mcp-stateless-migration-guide]](遷移風險與自查)、[[mcp-stateless-deployment-ops-view]](部署拓樸與 SEP 編號對照)
+>
 > 一句話:**這次改版沒有讓 MCP 變得更聰明,而是讓它變得「更無聊」——而無聊在這裡是好話。** 官方沒有加新功能,而是把最底層的運作方式整個重蓋(移除協定層 session、拿掉握手、改成無狀態),同時替 **Roots、Sampling、Logging** 三個核心功能貼上退場公告,並第一次給出**為期 12 個月的正式搬遷期**。
 
 ---
