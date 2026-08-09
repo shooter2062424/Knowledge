@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-181_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-182_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -102,6 +102,7 @@ flowchart LR
 | **Jerry's Productivity Tech Channel(簡睿學堂)** — 跨平台工具與生產力 | 1 | [dbx 資料庫客戶端 + MCP](./technology/dev-tools/dbx-rust-database-client-mcp.md) |
 | **Blink 的 AI 筆記** — AI × 知識管理實踐 | 1 | [Project Cairn:經驗知識化 Skill](./technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) |
 | **智用 AI** — AI 底層技術與成本拆解 | 1 | [GPT-5.6 Sol 自優化 kernel 與 Luna 定價](./technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) |
+| **PyData / PyCon DE** — Python 資料工程與科學研討會 | 1 | [一兆筆紀錄的即時搜尋去重管線](./technology/system-design/trillion-record-realtime-search-kafka-dedup.md) |
 | **李廠長來了** — AI Agent 趨勢與職場應用 | 1 | [未來一年的 6 個 AI Agent 趨勢](./technology/ai-agents/foundations/six-ai-agent-trends-next-year.md) |
 | **Why QQ(為什麼叫 QQ)** — 一線工程師視角拆解 AI 工程文 | 5 | [Harness/Loop/Graph 三層排障地圖](./technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) · [Codebase-Memory-MCP vs CodeGraph 兩條路線](./technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) · [MCP 無狀態化遷移指南](./technology/ai-agents/foundations/mcp-stateless-migration-guide.md) · [Loop 與 Graph 之爭](./technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) · [Opus 5 系統提示詞的工程模式](./technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) |
 | **Jim AI Notebook** — AI 每日深度解析 | 1 | [MCP 2026-07-28 最大改版](./technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) |
@@ -365,6 +366,7 @@ flowchart LR
 |---|---|
 | [為什麼 AI 寫的網站一上線就掛?用手搖飲店看懂架構擴展](./technology/system-design/scaling-web-architecture-bubble-tea.md) | 快取/Docker/CI-CD/負載平衡/Replica/微服務/CDN/Queue 是被問題逼出來的 |
 | [現在正在主導的 5 個程式設計概念](./technology/system-design/dominating-programming-concepts.md) | 反應式/邊緣運算/資料導向設計/LLM 應用架構/本地優先;都是心智模型的轉變 |
+| [一兆筆紀錄的即時搜尋:從 36 小時延遲砍到 5 分鐘的去重管線](./technology/system-design/trillion-record-realtime-search-kafka-dedup.md) | ReversingLabs 實戰:ScyllaDB 真相來源 + Kafka 觸發 + Solr 索引;dict 當 FIFO buffer、**逐出時才處理**(加入時處理會 stale)、只 ack 觸發那則 offset;backlog 讓服務不 poll 觸發 Kafka health check 死亡迴圈 → 每輪處理設上限;10 萬/秒壓到 2 千/秒 |
 | [硬碟陣列 RAID 一次看懂:RAID 0/1/5/6 與 RAID 5 為什麼「不安全」](./technology/system-design/raid-explained-why-raid5-unsafe.md) | RAID 5 校驗=XOR 半加;「重建失敗率 99%」真相是 URE(每 12.5TB 一次)+ RAID 層看不見文件系統;ZFS RAID-Z 能感知文件;RAID 6 能壞兩塊 |
 
 ### 🖥️ claude-code(Claude Code 維運)
