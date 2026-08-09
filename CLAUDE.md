@@ -20,7 +20,7 @@
 - 採 **「大類 → 中類 → 主題」三層** 結構:大類資料夾下分中類(子領域)資料夾,報告放在中類資料夾內(同一中類可放多篇相關報告)。
   - 大類示例:`investing/`(投資)、`technology/`(科技與技術研究)。
   - 現有中類:
-    - `investing/`:`strategy`、`derivatives`、`technical-analysis`、`ai-assisted`。
+    - `investing/`:`strategy`、`derivatives`、`technical-analysis`、`ai-assisted`、`equity-research`、`personal-finance`(房貸/稅務/繼承等個人理財與政策)。
     - `technology/`:`ai-agents`(再分 `foundations`/`autonomy`/`memory-retrieval`/`applications`/`resources`)、`llm-internals`(`architecture`/`inference`/`world-models`)、`ai-productivity`、`applied-ai`(`design`/`forecasting`/`speech-synthesis`)、`telecom`、`github-weekly`(週報 cron 落點)。
   - 路徑示例:`technology/ai-agents/foundations/12-factor-agents.md`、`investing/strategy/just-keep-buying-nick-maggiulli.md`。
   - 新筆記歸到最貼切的中類;若不屬於任何現有中類,可新增中類資料夾並更新 README 索引。
