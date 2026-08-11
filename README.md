@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-185_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-186_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -96,6 +96,7 @@ flowchart LR
 | **硅谷101(陳茜)** — 矽谷深度科技/商業訪談 | 2 | [SpaceX 崛起史](./investing/equity-research/spacex-rise-history.md) · [田淵棟 RSI 與 AI 自進化](./technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) |
 | **Debug Tuboshu** — AI 寫網站/前端 | 2 | [零程式碼做網站](./technology/applied-ai/design/ai-website-building-claude-code.md) · [手搖飲看網站架構擴展](./technology/system-design/scaling-web-architecture-bubble-tea.md) |
 | **白白说大模型** — 大模型/Agent 原理 | 4 | [Agent 最該具備的 Skill](./technology/ai-agents/applications/top-skills-for-agents.md) · [工具調用:FC→MCP→CLI](./technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) · [2026 Agent 工程師能力與面試題](./technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) · [什麼樣的 Agent 專案能給履歷加分](./technology/ai-agents/applications/agent-project-resume-enterprise-grade.md) |
+| **AI随风** — AI 工具實測與工作流拆解 | 2 | [Superpowers vs Matt Skills 該刪誰](./technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) · [herdr:讓 Agent 互相指揮的終端 runtime](./technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
 | **AI超元域** — Agent 專案實測與部署 | 2 | [Codex Multi-agent V2 與 Graph Engineering](./technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) · [qm:YC 開源的多人 Agent Harness](./technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md) |
 | **Token101** — LLM 應用考點導向短講 | 1 | [結構化 JSON 輸出的四道鎖](./technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md) |
 | **Systems Made Better** — Claude 工作流與知識系統 | 1 | [用 Claude 蓋會自我改進的知識庫](./technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md) |
@@ -287,6 +288,7 @@ flowchart LR
 | [Matt Pocock 的 AI 開發 skills 全拆解:最紅的 skill 只有五行字(Gary Chen)](./technology/ai-agents/applications/matt-pocock-skills-teardown.md) | grill-me 讓 AI 拷問你搶回決策權;to-spec 禁寫 code、to-tickets 按功能拆、TDD 防作弊;深模組 vs 淺模組「刪除測試」;指引詞壓縮領域知識;成為專家才能控制 AI |
 | [模型越強,Superpowers 和 Matt Skills 該刪掉誰?工作流選擇框架(AI随风)](./technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) | 弱模型要詳細輸入、強模型要精簡(給目標+驗證條件);骨架相同、勝負在「寫計畫」——Superpowers 把 code 寫死是累贅、Matt 給功能點靠推理;強模型+速度用 Matt、團隊嚴審用 Superpowers |
 | [什麼樣的 Agent 專案才能給履歷加分:玩具 Demo 與企業級的分水嶺](./technology/ai-agents/applications/agent-project-resume-enterprise-grade.md) | 四維分辨(業務流/架構/初衷/**能不能給數字**);多 agent 要順著業務流長出來;分層記憶三層;人機協同三級(金流要強授權二次確認);Trace ID 三探針;四維量化指標 + 履歷工程語言重構 |
+| [herdr:讓 Agent 互相指揮的終端 runtime(AI随风)](./technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) | Rust 單一二進位、背景 server + 終端 client,關筆電 agent 續跑;**⭐ agent 狀態靠 regex 掃終端畫面判定**(19 份偵測 manifest,不需任何一方支援協定,代價是對方改 UI 就壞);Layout/Pane/Agent 三原語;B 全程不知道 A 與 herdr 存在;實測 Claude↔Codex 來回 7 輪才過審 —— 協商回合數是真實成本;⚠️ 影片稱「YC 支持」無法核實 |
 | [qm(YC 開源):把個人 Agent 變成「多人可用」的 Agent Harness](./technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md) | scope 隔離(各自的 memory/files/keychain/權限/持久 sandbox);**沒有自己的內核**——Pi/OpenCode/Codex/Claude Code 驅動同一 core;安全姿態 Strict/Auto/Dangerous 但命令政策全檔位生效;官方自陳非多租戶邊界 |
 | [Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生(AI超元域)](./technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) | 主 agent 拆解→分派 subagent 並行→合併;每 subagent 獨立模型(Kimi K3/MiniMax/GPT-5.6)+工具+skill;CC Switch 接第三方;多模型對抗審查抓嚴重 bug;具 Graph Engineering 初級特徵 |
 | [to-tickets 深入實操:把 spec 拆成 agent 能穩定開工的工單(01Coder)](./technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) | spec 不是工作單元;按功能縱向切(tracer bullet)非按層;標依賴→frontier 並行調度;prefactor 先行/擴展-收縮;先讀代碼才拆(6→9 張)|
