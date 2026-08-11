@@ -8,7 +8,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-184_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-185_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -105,7 +105,7 @@ flowchart LR
 | **Better Stack** — observability 廠商的開發者/AI 新聞短講 | 1 | [MCP 無狀態化的維運視角](./technology/ai-agents/foundations/mcp-stateless-deployment-ops-view.md) |
 | **PyData / PyCon DE** — Python 資料工程與科學研討會 | 1 | [一兆筆紀錄的即時搜尋去重管線](./technology/system-design/trillion-record-realtime-search-kafka-dedup.md) |
 | **李廠長來了** — AI Agent 趨勢與職場應用 | 1 | [未來一年的 6 個 AI Agent 趨勢](./technology/ai-agents/foundations/six-ai-agent-trends-next-year.md) |
-| **Why QQ(為什麼叫 QQ)** — 一線工程師視角拆解 AI 工程文 | 5 | [Harness/Loop/Graph 三層排障地圖](./technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) · [Codebase-Memory-MCP vs CodeGraph 兩條路線](./technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) · [MCP 無狀態化遷移指南](./technology/ai-agents/foundations/mcp-stateless-migration-guide.md) · [Loop 與 Graph 之爭](./technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) · [Opus 5 系統提示詞的工程模式](./technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) |
+| **Why QQ(為什麼叫 QQ)** — 一線工程師視角拆解 AI 工程文 | 6 | [Harness/Loop/Graph 三層排障地圖](./technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) · [Codebase-Memory-MCP vs CodeGraph 兩條路線](./technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) · [MCP 無狀態化遷移指南](./technology/ai-agents/foundations/mcp-stateless-migration-guide.md) · [Loop 與 Graph 之爭](./technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) · [Opus 5 系統提示詞的工程模式](./technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) · [Skill 三層工程棧「跑/做/驗」](./technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md) |
 | **Jim AI Notebook** — AI 每日深度解析 | 1 | [MCP 2026-07-28 最大改版](./technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) |
 | **wow** — AI agent 真實系統壓測 | 2 | [Graphify 知識圖譜實戰壓測](./technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) · [本體論護欄與神經符號 AI(Frank Coyle)](./technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
 | **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
@@ -219,6 +219,7 @@ flowchart LR
 | [12-Factor Agents:打造可上線、可靠的 LLM 代理](./technology/ai-agents/foundations/12-factor-agents.md) | 大量普通軟體 + 少量精心設計的 LLM 步驟 |
 | [CLAUDE.md 12 條規則:把編碼錯誤率從 41% 壓到 3%](./technology/ai-agents/foundations/claude-md-12-rules.md) | 每條規則都對應一個你實際踩過的坑 |
 | [怎麼確保結構化 JSON 輸出可靠:Tool Use → 校驗器 → 帶錯誤重試](./technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md) | 提示詞只是機率;Tool Use+Schema 鎖形狀、`tool_choice` 至少要 `any`;Schema 不管對錯要自己再算一遍;重試必帶「原文+失敗輸出+具體錯誤」;資訊不存在靠 Optional/unclear 兜底 |
+| [Skill 不是能力,是能力的施工圖:Agent 交不出活的三層工程棧「跑/做/驗」](./technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md) | 跑(執行環境)/做(Skill)/驗(應用層)三問少一個都翻車;**格式可移植 ≠ 能力可移植**;Cloudflare Computer 三後端與持久化成本(npm install FUSE 124.7s vs ext4 63.9s,但 metadata 操作反而快 0.66~0.95×);⚠️ 已核實 open-kimi-ppt-skill **因版權清空** —— Skill 是供應鏈輸入,`allowed-tools` 仍是實驗欄位不能當沙箱 |
 | [MCP 無狀態化的維運視角:砍 Redis、恢復 round robin、縮到零](./technology/ai-agents/foundations/mcp-stateless-deployment-ops-view.md) | SEP-2575 砍握手 / SEP-2567 砍 session ID;舊版痛在基礎建設(sticky session 或 Redis 二選一);**Cloudflare 說 MCP 不再需要 Durable Objects**;`Mcp-Method`/`Mcp-Name` 讓閘道免解 JSON 就能限流稽核;requestState 才是 round robin 成立的真正關鍵 |
 | [MCP 無狀態化怎麼遷移:十分鐘自查、三個危險點與責任轉移](./technology/ai-agents/foundations/mcp-stateless-migration-guide.md) | 90% 的 server 升 SDK 即可、2.5% 拿 session 當儲存鍵最慘;推送式互動無寬限期硬失敗;requestState 是敵意輸入要封印;**升級 SDK ≠ 啟用新協議**;框架:狀態在哪裡責任就在哪裡 |
 | [MCP 史上最大改版(2026-07-28):從「打電話」變成「寄信」](./technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) | 移除 session/握手改無狀態、新增 server/discover、MRTR 取代 server 主動請求、拿掉 SSE 續傳;Roots/Sampling/Logging 退場(12 個月搬遷期,首次有正式棄用政策);新舊版互不相容 |
