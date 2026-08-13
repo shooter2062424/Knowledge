@@ -6,9 +6,11 @@
 
 把文章、論文、YouTube 逐字稿與開源程式碼,整理成「先框架、再細節、附應用案例」的筆記。
 
+🔎 **查某支影片 / 某篇論文整理過了沒?** 看 [來源索引 INDEX-SOURCES.md](./INDEX-SOURCES.md)(video id / arXiv 編號 → 筆記,自動產生)
+
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-188_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-189_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -95,7 +97,7 @@ flowchart LR
 | **Redknot-乔红** — 動畫講硬核硬體/半導體原理 | 3 | [HBM 原理](./technology/ai-industry/hbm-high-bandwidth-memory-principle.md) · [先進封裝](./technology/ai-industry/advanced-packaging-explained.md) · [RAID 陣列/RAID 5 安全性](./technology/system-design/raid-explained-why-raid5-unsafe.md) |
 | **硅谷101(陳茜)** — 矽谷深度科技/商業訪談 | 2 | [SpaceX 崛起史](./investing/equity-research/spacex-rise-history.md) · [田淵棟 RSI 與 AI 自進化](./technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) |
 | **Debug Tuboshu** — AI 寫網站/前端 | 2 | [零程式碼做網站](./technology/applied-ai/design/ai-website-building-claude-code.md) · [手搖飲看網站架構擴展](./technology/system-design/scaling-web-architecture-bubble-tea.md) |
-| **白白说大模型** — 大模型/Agent 原理 | 4 | [Agent 最該具備的 Skill](./technology/ai-agents/applications/top-skills-for-agents.md) · [工具調用:FC→MCP→CLI](./technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) · [2026 Agent 工程師能力與面試題](./technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) · [什麼樣的 Agent 專案能給履歷加分](./technology/ai-agents/applications/agent-project-resume-enterprise-grade.md) |
+| **白白说大模型** — 大模型/Agent 原理 | 5 | [Agent 最該具備的 Skill](./technology/ai-agents/applications/top-skills-for-agents.md) · [工具調用:FC→MCP→CLI](./technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) · [2026 Agent 工程師能力與面試題](./technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) · [什麼樣的 Agent 專案能給履歷加分](./technology/ai-agents/applications/agent-project-resume-enterprise-grade.md) · [7 種 Agent 架構選型](./technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md) |
 | **AI随风** — AI 工具實測與工作流拆解 | 2 | [Superpowers vs Matt Skills 該刪誰](./technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) · [herdr:讓 Agent 互相指揮的終端 runtime](./technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
 | **AI超元域** — Agent 專案實測與部署 | 2 | [Codex Multi-agent V2 與 Graph Engineering](./technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) · [qm:YC 開源的多人 Agent Harness](./technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md) |
 | **Token101** — LLM 應用考點導向短講 | 1 | [結構化 JSON 輸出的四道鎖](./technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md) |
@@ -208,6 +210,7 @@ flowchart LR
 | [Google 課程 Day 4+5:怎麼放心讓 AI 上正式環境(講清楚/設邊界/做驗收)](./technology/ai-agents/foundations/google-agentic-engineering-day4-5.md) | spec 五件事(含好壞路徑的完成定義);格式差 40%(Markdown+YAML);zero-trust 三層(sandbox/Vibe Diff 簽核/防 slopsquatting);四個驗收招式;**驗證能力 = 自動化能力上限**;瓶頸移到 reviewer(burnout +45%) |
 | [Prime Agent:用一個 IPython kernel 取代所有工具 schema,讓 harness 自己改自己](./technology/ai-agents/foundations/prime-agent-rlm-continual-harness.md) | RLM(kernel 為唯一工具)+ Continual Harness(prompts/子代理/skills/memory 走同一組 CRUD);/refine 記錄觸發與結果;A2A 限核心家庭;append-only 歷史;**Factorio reward hacking:提醒擋不住,還被固化成作弊技能** |
 | [Opus 5 系統提示詞公開後:五條可抄的工程模式與「提示詞債務」](./technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) | 先定性再分析(52 段有 38 段逐字吻合);**能力篇幅壓倒人設**是關鍵差距;五模式=工具契約/破壞性二次確認/版本號防並發/URL 白名單/自檢改寫成 CI lint;規則不維護會腐爛 |
+| [7 種主流 Agent 架構選型:從單槍匹馬到工業流水線](./technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md) | 單Agent/ReAct/Plan-Execute/多Agent/Router+Skill/Blackboard/Graph Workflow 七檔對照;**Router+Skill「不讓模型想,讓模型選」**(分診台比喻)是 AI Coding 首選;Blackboard 出錯難定位是誰在何時寫錯;**盲目多加一層帶來的不是更聰明的產品,是翻倍 token 帳單與難追蹤的幻覺** |
 | [「Loop 已死,Graph 當立」?從工程視角看透這場名詞之爭](./technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) | 引爆點與那篇「只有一個句號」的嘲諷文;**把聊天記錄當資料庫**是失控根因;三做法(狀態外置且有所有者/誰決定下一步/回邊要帶證據);**Graph 修不好錯誤的目標**;升級順序與「模型提議、執行時約束」 |
 | [Graph Engineering 八分鐘講清楚:從柯尼斯堡七橋到 108 個 agent 的 DAG](./technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) | Claude Code 當場寫 427 行 JS 當 runtime 展開 108 agent(5 階段 DAG,查核佔 75 個);多 agent 約 15× token,靠 prompt cache 從 $10 降到 $1;**改變的不是圖而是節點**,瓶頸從節點轉到邊 |
 | [AI Agent 沒有「世界地圖」:用本體論給大模型套上邏輯護欄](./technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) | 神經符號 AI;80 年代專家系統敗在算力非邏輯;大模型=被鎖密室的軍師;Pydantic 守型別 + RDFS/OWL 守常識(傳遞性/唯一性防重複退款/互斥/封閉值域);純粹智能體不該能直接改 DB |
