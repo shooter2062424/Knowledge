@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**147 個 YouTube video id**、**15 個 arXiv 編號**,涵蓋 **158 篇**筆記。
+> 統計:**149 個 YouTube video id**、**15 個 arXiv 編號**,涵蓋 **160 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(147 部,依 video id 排序)
+## YouTube(149 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -67,6 +67,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `dVRFSzbLR7M` | C++ 演進史:複雜性詛咒、記憶體危機,與 AI 時代的絕地反擊 | [technology/dev-tools/cpp-evolution-complexity-ai-era.md](./technology/dev-tools/cpp-evolution-complexity-ai-era.md) |
 | `E8Bx9OlpmdM` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [technology/claude-code/output-style-communication-not-intelligence.md](./technology/claude-code/output-style-communication-not-intelligence.md) |
 | `Ec1jRVQ_YZU` | 別再相信目標價:前外資分析師拆解法人到底在看什麼 | [investing/strategy/target-prices-institutional-secrets.md](./investing/strategy/target-prices-institutional-secrets.md) |
+| `eiisw5N2U6w` | 用需求逼出 Agent 的五臟六腑:工作流 vs 智能體的分界,與 LangGraph 只做的三件事 | [technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md](./technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md) |
 | `eKW9ITaltWw` | 一支影片看完 Stanford「Beyond LLM」:從 LLM 到 Multi-Agent 的技術地圖 | [technology/ai-agents/resources/stanford-beyond-llm-course.md](./technology/ai-agents/resources/stanford-beyond-llm-course.md) |
 | `EOg4gY0Yln0` | 讓訊號自己交易:Man Group 用 Claude Skills 治理打通系統化交易 | [technology/ai-agents/applications/claude-skills-governance-man-group.md](./technology/ai-agents/applications/claude-skills-governance-man-group.md) |
 | `eWkZlS5JMD4` | 駭客怎麼騙 AI:5.5 種 Prompt Injection 技巧與防禦實戰 | [technology/ai-safety/prompt-injection-5-techniques-defenses.md](./technology/ai-safety/prompt-injection-5-techniques-defenses.md) |
@@ -119,6 +120,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `oW6MHjzxHpU` | 賣財報波動率:把 $1 萬變 $100 萬的選擇權策略(以及它真正的風險) | [investing/derivatives/selling-earnings-volatility.md](./investing/derivatives/selling-earnings-volatility.md) |
 | `P6UWIA_bvt8` | 大模型 API「中轉站」起底:0.5 折的 GPT/Claude 到底摻了多少水? | [technology/ai-industry/llm-api-relay-stations.md](./technology/ai-industry/llm-api-relay-stations.md) |
 | `pJR6I9_06e4` | Codex 2.0 新功能實戰:懸停導航 + Fork、側邊對話/引導、Record & Replay、手機遠端操控 | [technology/ai-productivity/codex-2-record-replay-mobile-remote.md](./technology/ai-productivity/codex-2-record-replay-mobile-remote.md) |
+| `pmWgyZM7mB8` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
 | `PpeCur6fEXc` | 讓 AI agent 連續跑 27 小時:/goal 功能與「Evaluation 才是關鍵」 | [technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md](./technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md) |
 | `pR7teM31_wI` | AI 學會了裝傻和欺騙:為什麼現有 Safety Evaluation 跟不上大模型 | [technology/ai-safety/safety-evaluation-crisis.md](./technology/ai-safety/safety-evaluation-crisis.md) |
 | `PuqX3Kv2ino` | Skill 實戰:從製作到維護一份「agent 會自動觸發、產出穩定、人類維護得了」的 skill | [technology/ai-agents/applications/building-claude-skills.md](./technology/ai-agents/applications/building-claude-skills.md) |
