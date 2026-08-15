@@ -19,8 +19,8 @@
 | 3 | gooaye 記憶更新 | `33 7 * * *`(每日 07:33) | 更新 ai-grocery 的股癌 agent 記憶層 |
 | 4 | 美投君 頻道 | `50 7 * * *`(每日 07:50) | @MeiTouJun 新影片(無字幕→Whisper) |
 
-**最近一次重建:2026-08-12(當日第二輪)**。本 session job id:①`7bedd63f` ②`0b7c8c41` ③`932d52c3` ④`3c3670ba`(約 **08-19** 到期)。
-(歷輪 job id:2026-07-26 建立的 `a2860f8e` / `c4193a54` / `0c987c21` / `803bb28d` → 08-02 重建為 `5d1c5a23` / `2a785098` / `cae3ee4f` / `ed2ef6c8` → 08-08 重建為 `c5b7e3de` / `bc3e9033` / `ee2f5bc3` / `912caf5c` → 08-12 重建為 `527ace5c` / `33f00fe0` / `695ccbb1` / `b82f9725` → 同日再全數重建為現行的四組。每次都是**全刪後統一重建**,讓四個到期日同步。)
+**最近一次重建:2026-08-15**。本 session job id:①`7200afbe` ②`32e17b91` ③`d1ff4626` ④`bff7377f`(約 **08-22** 到期)。
+(歷輪 job id:2026-07-26 建立的 `a2860f8e` / `c4193a54` / `0c987c21` / `803bb28d` → 08-02 重建為 `5d1c5a23` / `2a785098` / `cae3ee4f` / `ed2ef6c8` → 08-08 重建為 `c5b7e3de` / `bc3e9033` / `ee2f5bc3` / `912caf5c` → 08-12 重建為 `527ace5c` / `33f00fe0` / `695ccbb1` / `b82f9725` → 同日再重建為 `7bedd63f` / `0b7c8c41` / `932d52c3` / `3c3670ba` → 08-15 重建為現行的四組(**本輪順便把 CRLF、403 重試、pipe 遮蔽退出碼三個新踩坑,以及重建來源索引的步驟寫進 prompt**)。每次都是**全刪後統一重建**,讓四個到期日同步。)
 
 ---
 
@@ -37,6 +37,11 @@ grep -rlF --include=*.md -- "<id>" .
 - `-F` fixed-string、`--` 終止選項解析(**video id 可能以連字號開頭**,如 `-ih9NBMHiU8`,否則被當參數)。
 - **`--include=*.md` 必須放在 `--` 之前!** 若寫成 `grep -rF -- "<id>" . --include=*.md`,`--include` 會被當成**檔名** → grep 回 **exit 2**(No such file)→ `if grep …` 走 else → **每支影片都誤報 NEW**,會白跑整批 Whisper。(2026-07-11 踩到,10 支全誤判。)
 - 判斷用 exit code:**0=SEEN、非 0=NEW**。
+- ⚠️⚠️⚠️ **若把 id 先寫進暫存檔再迴圈讀,寫檔務必指定 `newline='\n'`。** Python 在 Windows 文字模式預設寫 **CRLF**,行尾多出的 `\r` 會讓 `grep -F` 完全找不到 → **22 支全部誤報 NEW**。(2026-08-15 踩到。)正確寫法:
+  ```python
+  open(path, 'w', newline='\n').write('\n'.join(ids) + '\n')
+  ```
+  最穩的做法還是**逐支直接 grep**,不要繞暫存檔。
 
 ### ⚠️ git commit / push
 
@@ -44,6 +49,14 @@ grep -rlF --include=*.md -- "<id>" .
 - commit 訊息用**無 BOM UTF-8 暫存檔**:`printf '%s' '訊息' > .git/COMMIT_MSG_TMP && git commit -q -F .git/COMMIT_MSG_TMP && rm -f .git/COMMIT_MSG_TMP`
 - push 若遇 **git-lfs locksverify 錯誤**,改用:
   `git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push -q origin main`
+
+### ⚠️ 新增筆記後要重建來源索引
+
+```bash
+python scripts/build_source_index.py
+```
+
+會覆寫根目錄的 `INDEX-SOURCES.md`(video id / arXiv 編號 → 筆記對照表)。之後查「這支整理過沒」可直接 `grep -F -- "<id>" INDEX-SOURCES.md`,比全庫掃快。**該檔為自動產生,不要手動編輯。**
 
 ### ⚠️ 中文亂碼
 
@@ -64,6 +77,8 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 - 下載音訊:`yt-dlp --no-update --js-runtimes node --remote-components ejs:github -f "bestaudio/best"`(**`--remote-components` 解 403**)。
 - **轉完務必掃結尾**有無「同句重複數十行」(幻覺迴圈)。
 - 多支影片時**用單一背景進程串跑**,避免多進程 CPU 競爭。
+- ⚠️ **遇 `HTTP Error 403: Forbidden` 就用「同參數重試」(最多 3 次)**,通常第 2~3 次會成功。**不要改 `--extractor-args player_client`** —— 改了會產生假的 `This video is DRM protected` 錯誤,更難查。
+- ⚠️ **不要寫 `yt-dlp … | tail -1`** —— pipe 的退出碼是 `tail` 的,**yt-dlp 的失敗會被吞掉**,導致下一步拿不到檔案才報一個看不懂的錯。要看退出碼就用 `${PIPESTATUS[0]}`,或乾脆不接 pipe。
 
 ---
 
@@ -74,9 +89,9 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 1. 用 WebFetch 撈 https://github.com/itcoffee66/githubweekly/tree/main/_weekly 找期數最大的 NNN.md,取 https://raw.githubusercontent.com/itcoffee66/githubweekly/main/_weekly/NNN.md 全文。(WebFetch 有快取,可另用 curl -s -o /dev/null -w "%{http_code}" 直接驗證下一期是否已發布。)
 2. 去重:若 C:\Users\shoot\project\Knowledge\technology\github-weekly\issue-NNN.md 已存在就跳過、只回報、不 commit。
 3. 未整理的:依 CLAUDE.md 規範(繁中、必要時 Mermaid、結尾附來源)整理成 technology/github-weekly/issue-NNN.md,逐一列出收錄專案的名稱/用途/亮點/連結。
-4. 更新 README.md 的 github-weekly 索引與筆記數 badge。
+4. 更新 README.md 的 github-weekly 索引與筆記數 badge,並跑 python scripts/build_source_index.py 重建來源索引。
 5. 用無 BOM UTF-8 暫存檔(.git/COMMIT_MSG_TMP,printf '%s')git commit -q -F 提交(繁中訊息、[feat] 前綴)並 git push -q origin main。清暫存。⚠️ 用精準 git add <檔案> 而非 git add -A(避免誤入 grep.exe.stackdump 等垃圾檔)。push 若遇到 git-lfs locksverify 錯誤,改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push -q origin main 重試。
-沒有新一期就只回報、不空 commit。完成後回報期數與結果。（此為 session-only 每日排程,7 天後會自動到期,若仍需要請在到期前用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。）
+沒有新一期就只回報、不空 commit。完成後回報期數與結果。(此為 session-only 每日排程,7 天後會自動到期,若仍需要請在到期前用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
 ---
@@ -86,11 +101,14 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 ```text
 每日整理 Gary Chen YouTube 頻道(@garytalksstuff)新影片到 Knowledge。步驟:
 1. 用 yt-dlp --no-update --js-runtimes node --flat-playlist --playlist-end 12 --print "%(id)s" "https://www.youtube.com/@garytalksstuff/videos" 列最新 12 部(標題在終端機會 cp950 亂碼,改用 yt_dlp Python API 取 info 再以 utf-8 寫檔)。
-2. 去重:用 Grep 在 C:\Users\shoot\project\Knowledge 搜每個 video id(youtu.be/<id> 或 watch?v=<id>),已在既有筆記來源 = 跳過。⚠️ video id 可能以連字號開頭(如 -ih9NBMHiU8),grep 會把它當參數而誤報 NEW → 一律用 `grep -rlF --include=*.md -- "<id>" .`(-F fixed-string、-- 終止選項解析)。⚠️⚠️ 重點:`--include=*.md` 必須放在 `--` 之前!若寫成 `grep -rF -- "<id>" . --include=*.md`,`--include` 會被當成檔名 → grep 回 exit 2(No such file)→ `if grep …` 走 else → 每支影片都誤報 NEW、白跑整篇(2026-07-11 踩過這坑)。判斷用 exit code:0=SEEN、非0=NEW。
-3. 未整理的:優先抓官方字幕(yt-dlp --write-subs --sub-langs zh-Hant/zh-TW/zh/zh-Hans/en),無官方字幕再抓自動字幕,都無則走 Whisper(下載音訊 --remote-components ejs:github + faster-whisper small/int8 zh,vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3)。逐字稿寫暫存檔再用 Read 讀,避免終端機中文亂碼。
-4. 依 CLAUDE.md 寫作規範整理繁中筆記(含應用案例、Mermaid、來源),歸到三層結構最貼切中類(多為 technology/ai-agents/{foundations,autonomy,memory-retrieval,applications,resources} 或 technology/ai-productivity;LLM 架構→llm-internals;設計工具→applied-ai/design)。
-5. 更新 README 對應表格、筆記數 badge、Gary Chen 作者索引篇數(主題表格與作者索引兩處都要)。無 BOM UTF-8 檔 commit([feat] 前綴)、git push -q origin main。⚠️ 用精準 git add <檔案> 而非 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試。清暫存。
-無新片只回報、不空 commit。回報新增/略過哪些影片。（session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。）
+2. 去重:用 Grep 在 C:\Users\shoot\project\Knowledge 搜每個 video id(youtu.be/<id> 或 watch?v=<id>),已在既有筆記來源 = 跳過。也可先查 INDEX-SOURCES.md(grep -F -- "<id>" INDEX-SOURCES.md)。
+   ⚠️ video id 可能以連字號開頭(如 -ih9NBMHiU8),grep 會把它當參數而誤報 NEW → 一律用 `grep -rlF --include=*.md -- "<id>" .`(-F fixed-string、-- 終止選項解析)。
+   ⚠️⚠️ `--include=*.md` 必須放在 `--` 之前!寫成 `grep -rF -- "<id>" . --include=*.md` 會被當成檔名 → exit 2 → 每支都誤報 NEW、白跑整篇(2026-07-11 踩過)。
+   ⚠️⚠️⚠️ 若把 id 先寫進暫存檔再迴圈讀,**寫檔務必用 newline='\n'**(Python 在 Windows 預設寫 CRLF,行尾多一個 \r 會讓 grep 全部找不到 → 22 支全誤報 NEW,2026-08-15 踩過)。判斷用 exit code:0=SEEN、非0=NEW。
+3. 未整理的:優先抓官方字幕(yt-dlp --write-subs --sub-langs zh-Hant/zh-TW/zh/zh-Hans/en),無官方字幕再抓自動字幕,都無則走 Whisper(下載音訊 --remote-components ejs:github + faster-whisper small/int8 zh,vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3)。⚠️ yt-dlp 遇 HTTP 403 就用同參數重試(最多 3 次),不要改 player_client。⚠️ 不要用 `yt-dlp … | tail -1`,pipe 會遮蔽退出碼讓失敗被吞掉。逐字稿寫暫存檔再用 Read 讀,避免終端機中文亂碼;轉完掃結尾有無同句重複數十行(幻覺迴圈)。
+4. 依 CLAUDE.md 寫作規範整理繁中筆記(含應用案例、Mermaid、來源),歸到三層結構最貼切中類(多為 technology/ai-agents/{foundations,autonomy,memory-retrieval,applications,resources}、technology/claude-code 或 technology/ai-productivity;LLM 架構→llm-internals;設計工具→applied-ai/design)。
+5. 更新 README 對應表格、筆記數 badge、Gary Chen 作者索引篇數(主題表格與作者索引兩處都要),並跑 python scripts/build_source_index.py 重建來源索引。無 BOM UTF-8 檔 commit([feat] 前綴)、git push -q origin main。⚠️ 用精準 git add <檔案> 而非 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試。清暫存。
+無新片只回報、不空 commit。回報新增/略過哪些影片。(session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
 ---
@@ -102,10 +120,10 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 ```text
 每日更新 ai-grocery 的 gooaye(股癌模擬)agent 記憶層。位置:C:\Users\shoot\project\ai-grocery\plugins\investing-like-pro\gooaye\(build_memory.py 在 gooaye/scripts/、記憶檔在 gooaye/references/)。步驟:
 1. cd C:\Users\shoot\project\ai-grocery 先 git pull。
-2. 記憶來源 whatmkreallysaid.com 的 transcripts.json.br(brotli,需 pip install brotli);用 pack_manifest.json 的 episode_count 比對 references/mention-timeline.json 的 meta.built_at_ep,沒新集就只回報、不 commit。
+2. 記憶來源 whatmkreallysaid.com 的 transcripts.json.br(brotli,需 pip install brotli);用 pack_manifest.json 的 episode_count 比對 references/mention-timeline.json 的 meta.built_at_ep,沒新集就只回報、不 commit。⚠️ manifest 網址是根路徑 https://whatmkreallysaid.com/pack_manifest.json,不是 /data/ 底下。
 3. 有新集:跑 gooaye/scripts/build_memory.py(會自動下載最新 pack)重算機器檔(mention-timeline.json、ranking.json、recency-ranking.md)→ 由 AI 依最近約 60 集逐字稿重寫 references/recent-stance.md(質化摘要,標非投資建議、集數越大越新)。取最新集逐字稿的方式:用 urllib 下載 transcripts.json.br → brotli.decompress → json.loads 得到 list,每筆有 n/t/d/dt/desc/tx 欄位;把 tx 寫暫存 .txt 再用 Read 讀(避免終端機中文亂碼)。
 4. 無 BOM UTF-8 暫存檔 commit(繁中訊息)、git push(SSH origin main)。清暫存下載的 pack。
-回報更新到第幾集。沒新集不空 commit。⚠️ 教育用途、非投資建議。（session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。）
+回報更新到第幾集。沒新集不空 commit。⚠️ 教育用途、非投資建議。(session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
 ---
@@ -117,11 +135,14 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 ```text
 每日整理美投君/美投讲美股(@MeiTouJun)YouTube 新影片到 Knowledge。⚠️ 此頻道影片幾乎都無字幕,多為 20+ 分鐘,需走 Whisper。步驟:
 1. 用 yt-dlp --no-update --js-runtimes node --flat-playlist --playlist-end 10 --print "%(id)s|||%(title)s" "https://www.youtube.com/@MeiTouJun/videos" 列最新 10 部。
-2. 去重:用 Grep 在 C:\Users\shoot\project\Knowledge 搜每個 video id(youtu.be/<id> 或 watch?v=<id>),已整理過就跳過。⚠️ video id 可能以連字號開頭(如 -ih9NBMHiU8),grep 會把它當參數而誤報 NEW → 一律用 `grep -rlF --include=*.md -- "<id>" .`(-F fixed-string、-- 終止選項解析)。⚠️⚠️ 重點:`--include=*.md` 必須放在 `--` 之前!若寫成 `grep -rF -- "<id>" . --include=*.md`,`--include` 會被當成檔名 → grep 回 exit 2(No such file)→ `if grep …` 走 else → 每支影片都誤報 NEW,會白跑 10 支 Whisper(2026-07-11 踩過這坑)。判斷用 exit code:0=SEEN、非0=NEW。
-3. 未整理的:先試官方/自動字幕;無則走 Whisper——下載音訊 yt-dlp --no-update --js-runtimes node --remote-components ejs:github -f "bestaudio/best"(--remote-components 解 403),再用 faster-whisper(WhisperModel small, device=cpu, compute_type=int8, cpu_threads=6, transcribe language=zh, vad_filter=True, condition_on_previous_text=False, no_repeat_ngram_size=3)。segment 寫暫存 .txt 再 Read。轉完掃結尾有無同句重複數十行(幻覺迴圈)。多支影片時用單一背景進程串跑,避免多進程 CPU 競爭。
-4. 依 CLAUDE.md 整理繁中筆記(含應用案例、Mermaid、來源註明「該片無字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕」、⚠️非投資建議)。歸 investing 中類:個股/產業→equity-research、心法/ETF/被動→strategy、AI 輔助→ai-assisted、選擇權→derivatives、技術分析→technical-analysis。
-5. 更新 README 表格、筆記數 badge、美投君作者索引篇數。無 BOM UTF-8 commit([feat] 前綴)、git push -q origin main。⚠️ 用精準 git add <檔案> 而非 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試。清暫存(音訊數十 MB)。
-無新片只回報、不空 commit。回報新增/略過哪些影片。（session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。）
+2. 去重:用 Grep 在 C:\Users\shoot\project\Knowledge 搜每個 video id(youtu.be/<id> 或 watch?v=<id>),已整理過就跳過。也可先查 INDEX-SOURCES.md(grep -F -- "<id>" INDEX-SOURCES.md)。
+   ⚠️ video id 可能以連字號開頭(如 -ih9NBMHiU8),grep 會把它當參數而誤報 NEW → 一律用 `grep -rlF --include=*.md -- "<id>" .`(-F fixed-string、-- 終止選項解析)。
+   ⚠️⚠️ `--include=*.md` 必須放在 `--` 之前!寫成 `grep -rF -- "<id>" . --include=*.md` 會被當成檔名 → exit 2 → 每支都誤報 NEW、白跑 10 支 Whisper(2026-07-11 踩過)。
+   ⚠️⚠️⚠️ 若把 id 先寫進暫存檔再迴圈讀,**寫檔務必用 newline='\n'**(Python 在 Windows 預設寫 CRLF,行尾多一個 \r 會讓 grep 全部找不到 → 全部誤報 NEW,2026-08-15 踩過)。判斷用 exit code:0=SEEN、非0=NEW。
+3. 未整理的:先試官方/自動字幕;無則走 Whisper——下載音訊 yt-dlp --no-update --js-runtimes node --remote-components ejs:github -f "bestaudio/best"(--remote-components 解 403),再用 faster-whisper(WhisperModel small, device=cpu, compute_type=int8, cpu_threads=6, transcribe language=zh, vad_filter=True, condition_on_previous_text=False, no_repeat_ngram_size=3)。⚠️ 遇 HTTP 403 就用同參數重試(最多 3 次),不要改 player_client;⚠️ 不要用 `yt-dlp … | tail -1`,pipe 會遮蔽退出碼讓失敗被吞掉。segment 寫暫存 .txt 再 Read。轉完掃結尾有無同句重複數十行(幻覺迴圈)。多支影片時用單一背景進程串跑,避免多進程 CPU 競爭。
+4. 依 CLAUDE.md 整理繁中筆記(含應用案例、Mermaid、來源註明「該片無字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕」、⚠️非投資建議)。歸 investing 中類:個股/產業→equity-research、心法/ETF/被動→strategy、AI 輔助→ai-assisted、選擇權→derivatives、技術分析→technical-analysis、房貸稅務繼承→personal-finance。
+5. 更新 README 表格、筆記數 badge、美投君作者索引篇數,並跑 python scripts/build_source_index.py 重建來源索引。無 BOM UTF-8 commit([feat] 前綴)、git push -q origin main。⚠️ 用精準 git add <檔案> 而非 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試。清暫存(音訊數十 MB)。
+無新片只回報、不空 commit。回報新增/略過哪些影片。(session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
 ---
