@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-191_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-192_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -107,6 +107,7 @@ flowchart LR
 | **智用 AI** — AI 底層技術與成本拆解 | 1 | [GPT-5.6 Sol 自優化 kernel 與 Luna 定價](./technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) |
 | **YAHA學堂** — Claude Code 實測與工程最佳實踐 | 1 | [CLAUDE.md 砍 82% 與維護兩步法](./technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
 | **可樂 AI 實驗室** — AI 編程落地與量化系統架構 | 1 | [Agent 五大核心與 LangGraph](./technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md) |
+| **TGLTommy(唐國樑)** — 大模型系統架構與 Agent 工程 | 1 | [DeepSeek Harness runtime 與 Cordis 論文](./technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) |
 | **Better Stack** — observability 廠商的開發者/AI 新聞短講 | 1 | [MCP 無狀態化的維運視角](./technology/ai-agents/foundations/mcp-stateless-deployment-ops-view.md) |
 | **PyData / PyCon DE** — Python 資料工程與科學研討會 | 1 | [一兆筆紀錄的即時搜尋去重管線](./technology/system-design/trillion-record-realtime-search-kafka-dedup.md) |
 | **李廠長來了** — AI Agent 趨勢與職場應用 | 1 | [未來一年的 6 個 AI Agent 趨勢](./technology/ai-agents/foundations/six-ai-agent-trends-next-year.md) |
@@ -213,6 +214,7 @@ flowchart LR
 | [Prime Agent:用一個 IPython kernel 取代所有工具 schema,讓 harness 自己改自己](./technology/ai-agents/foundations/prime-agent-rlm-continual-harness.md) | RLM(kernel 為唯一工具)+ Continual Harness(prompts/子代理/skills/memory 走同一組 CRUD);/refine 記錄觸發與結果;A2A 限核心家庭;append-only 歷史;**Factorio reward hacking:提醒擋不住,還被固化成作弊技能** |
 | [Opus 5 系統提示詞公開後:五條可抄的工程模式與「提示詞債務」](./technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) | 先定性再分析(52 段有 38 段逐字吻合);**能力篇幅壓倒人設**是關鍵差距;五模式=工具契約/破壞性二次確認/版本號防並發/URL 白名單/自檢改寫成 CI lint;規則不維護會腐爛 |
 | [用需求逼出 Agent 的五臟六腑:工作流 vs 智能體,LangGraph 只做三件事](./technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md) | 五核心(大腦/工具/外部知識/指令/記憶)被需求逐步逼出來;⭐ **按順序串起來那是工作流不是智能體——本質仍是人類在決策,任一步崩整條崩**;Observe-Reason-Act 閉環直到 **DoD** 才跳出;LangGraph = 節點+邊(靈魂,可回退)+Scratchpad;**真正的壁壘不是敲程式碼,是你腦子裡的業務流程**;⚠️ 非投資建議 |
+| [Agent 為什麼會長成 Runtime:DeepSeek Harness 的插件樹與事件日誌 + Cordis 論文](./technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) | **插件樹決定「是誰、擁有什麼」,事件日誌決定「經歷過什麼、還能安全做什麼」**;Everything is a Plugin(連 agent loop 本身都是);**Model-visible means logged** 有 runtime invariant 斷言;⭐ **崩潰恢復區分三態 —— 未啟動 / 完成 / 結果未知(先查外部狀態)**;Surface 追加式壓縮不刪舊資料;monotonic guard 只能收緊;底層 Cordis 論文證明 **Confluence:動態歷史不留痕跡**;含 **20 張流程圖** |
 | [7 種主流 Agent 架構選型:從單槍匹馬到工業流水線](./technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md) | 單Agent/ReAct/Plan-Execute/多Agent/Router+Skill/Blackboard/Graph Workflow 七檔對照;**Router+Skill「不讓模型想,讓模型選」**(分診台比喻)是 AI Coding 首選;Blackboard 出錯難定位是誰在何時寫錯;**盲目多加一層帶來的不是更聰明的產品,是翻倍 token 帳單與難追蹤的幻覺** |
 | [「Loop 已死,Graph 當立」?從工程視角看透這場名詞之爭](./technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) | 引爆點與那篇「只有一個句號」的嘲諷文;**把聊天記錄當資料庫**是失控根因;三做法(狀態外置且有所有者/誰決定下一步/回邊要帶證據);**Graph 修不好錯誤的目標**;升級順序與「模型提議、執行時約束」 |
 | [Graph Engineering 八分鐘講清楚:從柯尼斯堡七橋到 108 個 agent 的 DAG](./technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) | Claude Code 當場寫 427 行 JS 當 runtime 展開 108 agent(5 階段 DAG,查核佔 75 個);多 agent 約 15× token,靠 prompt cache 從 $10 降到 $1;**改變的不是圖而是節點**,瓶頸從節點轉到邊 |
