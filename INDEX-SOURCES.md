@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**151 個 YouTube video id**、**15 個 arXiv 編號**,涵蓋 **162 篇**筆記。
+> 統計:**152 個 YouTube video id**、**15 個 arXiv 編號**,涵蓋 **163 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(151 部,依 video id 排序)
+## YouTube(152 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -136,6 +136,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `QwOUDPiBzfU` | 孫慶龍的「EPS × 本益比五檔價」估值法 + 護國群山、成長股複利 | [investing/equity-research/sun-qinglong-pe-band-valuation.md](./investing/equity-research/sun-qinglong-pe-band-valuation.md) |
 | `RAFQc6zHdXE` | Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生 subagent | [technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md](./technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) |
 | `rKV5JcALQoQ` | J-Space:Claude 內心那層「說得出口的思考」——用全域工作空間理論解讀模型意識 | [technology/llm-internals/interpretability/j-space-global-workspace-claude.md](./technology/llm-internals/interpretability/j-space-global-workspace-claude.md) |
+| `rLNGSDYkK-w` | Claude Code Hooks 完全指南:CLAUDE.md 是提醒紙條,Hook 才是自動門 | [technology/claude-code/claude-code-hooks-complete-guide.md](./technology/claude-code/claude-code-hooks-complete-guide.md) |
 | `rv9aZRdtxsU` | MCP 無狀態化怎麼遷移:十分鐘自查、三個真正危險的點,與「狀態在哪裡,責任就在哪裡」 | [technology/ai-agents/foundations/mcp-stateless-migration-guide.md](./technology/ai-agents/foundations/mcp-stateless-migration-guide.md) |
 | `s3yiXTxueoI` | Harness / Loop / Graph 三層排障地圖:把「Agent 又抽風了」翻譯成可執行的排查工單 | [technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md](./technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) |
 | `SPyXyB7lgWU` | 加息會引發美股大跌嗎?用 2000 泡沫「三階段」對照 AI 這輪革命(美投君) | [investing/strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md](./investing/strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md) |
