@@ -12,7 +12,7 @@
 
 ```mermaid
 flowchart LR
-    M["Mythos<br/>(怪物級,官方稱 frightening<br/>=最強 hacker,只限量給資安大公司)"] -->|加一層安全護欄<br/>鎖住最危險能力| F["Claude Fable<br/>(公開版,一般人可用)"]
+    M["Mythos<br/>(怪物級,官方稱 frightening<br/>=最強 hacker,只限量給資安大公司)"] -->|"加一層安全護欄<br/>鎖住最危險能力"| F["Claude Fable<br/>(公開版,一般人可用)"]
     F -->|"有人叫它讀 code base 找 bug<br/>= 繞過護欄(政府說法)"| G["美國政府:國安為由<br/>禁所有外國人使用"]
     G -->|"一個外國人都不能用<br/>= 只能對所有人關掉"| X["72 小時後全面下線"]
 ```

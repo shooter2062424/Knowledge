@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**150 個 YouTube video id**、**15 個 arXiv 編號**,涵蓋 **161 篇**筆記。
+> 統計:**151 個 YouTube video id**、**15 個 arXiv 編號**,涵蓋 **162 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(150 部,依 video id 排序)
+## YouTube(151 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -93,6 +93,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `h7RA7yyMBYY` | 量子計算:量子效應如何突破計算的邊界 | [technology/quantum-computing/quantum-computing-explained.md](./technology/quantum-computing/quantum-computing-explained.md) |
 | `HcbjFO1mRIw` | Project Cairn:把「做過的事」沉澱成可複用知識的開源 Skill(高體感 × 低阻力) | [technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md](./technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) |
 | `hfgeEa-rg0A` | 怎麼確保結構化 JSON 輸出真的可靠:提示詞 → Tool Use → 校驗器 → 帶錯誤的重試 | [technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md](./technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md) |
+| `HhZcnM9tR7s` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | `Hnf1ExYg3M8` | SpaceX 為什麼這時間點上市?Musk 在 JP Morgan 投資人訪談說了什麼 | [investing/equity-research/spacex-ipo-musk-jpmorgan.md](./investing/equity-research/spacex-ipo-musk-jpmorgan.md) |
 | `hR5ephowvLM` | AI Agent 工具調用一次講清:從 ReAct → Function Calling → MCP → CLI | [technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md](./technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) |
 | `HyHKizkVuVM` | Skill 不是能力,是能力的施工圖:Agent 交不出活的三層工程棧「跑 / 做 / 驗」 | [technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md](./technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md) |
