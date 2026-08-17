@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**152 個 YouTube video id**、**15 個 arXiv 編號**,涵蓋 **163 篇**筆記。
+> 統計:**153 個 YouTube video id**、**15 個 arXiv 編號**,涵蓋 **164 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(152 部,依 video id 排序)
+## YouTube(153 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -120,6 +120,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `oBy94l_48CQ` | 2026 年 Agent 開發工程師要什麼能力:從 Demo 到生產系統的四塊拼圖(附面試題與標準答案) | [technology/ai-agents/foundations/production-agent-engineer-skills-2026.md](./technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) |
 | `oW4hgB1vIoY` | 用 Python 做強化學習交易機器人:在 EUR/USD 外匯訓練 AI Agent | [investing/ai-assisted/rl-trading-bot-forex.md](./investing/ai-assisted/rl-trading-bot-forex.md) |
 | `oW6MHjzxHpU` | 賣財報波動率:把 $1 萬變 $100 萬的選擇權策略(以及它真正的風險) | [investing/derivatives/selling-earnings-volatility.md](./investing/derivatives/selling-earnings-volatility.md) |
+| `oZC00ImTJt8` | 存量邏輯下的四條投資原則:把握價值而非趨勢,以及該盯的那個訊號 | [investing/strategy/ai-investing-four-principles-stock-logic.md](./investing/strategy/ai-investing-four-principles-stock-logic.md) |
 | `P6UWIA_bvt8` | 大模型 API「中轉站」起底:0.5 折的 GPT/Claude 到底摻了多少水? | [technology/ai-industry/llm-api-relay-stations.md](./technology/ai-industry/llm-api-relay-stations.md) |
 | `pJR6I9_06e4` | Codex 2.0 新功能實戰:懸停導航 + Fork、側邊對話/引導、Record & Replay、手機遠端操控 | [technology/ai-productivity/codex-2-record-replay-mobile-remote.md](./technology/ai-productivity/codex-2-record-replay-mobile-remote.md) |
 | `pmWgyZM7mB8` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
