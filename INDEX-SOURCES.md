@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**153 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **165 篇**筆記。
+> 統計:**154 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **166 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(153 部,依 video id 排序)
+## YouTube(154 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -51,6 +51,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `_RD3iFDhuzs` | Karpathy 訪談:Software 3.0、Jagged Intelligence 與 Agentic Engineering | [technology/ai-agents/foundations/karpathy-software-3-0.md](./technology/ai-agents/foundations/karpathy-software-3-0.md) |
 | `aR97E7aKEgg` | Matt Pocock 的 AI 開發 skills 全拆解:最紅的 skill 只有五行字,強在哪? | [technology/ai-agents/applications/matt-pocock-skills-teardown.md](./technology/ai-agents/applications/matt-pocock-skills-teardown.md) |
 | `atqcAb7MFAM` | 給非技術人員的 Git / GitHub:Vibe Coding 必學的基礎技能 | [technology/ai-productivity/git-github-for-vibe-coders.md](./technology/ai-productivity/git-github-for-vibe-coders.md) |
+| `aYfZN8t6AQs` | Mem0 記憶架構拆解:三個儲存、抽取管線,與那個「加起來再除以 2.5」的混合排序 | [technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md](./technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md) |
 | `aZEmxJ9ivzg` | 學了那麼多 AI,為什麼還是沒加薪?——省下的時間 85% 被雜事吃掉,以及納許議價怎麼算你該開多少 | [career/mindset/ai-skills-no-raise-nash-bargaining.md](./career/mindset/ai-skills-no-raise-nash-bargaining.md) |
 | `B91bZL8wcAI` | 什麼是 AI Harness?兩種「harness」的差別 | [technology/ai-agents/foundations/ai-harness-explained.md](./technology/ai-agents/foundations/ai-harness-explained.md) |
 | `BAfRVpKIxZ4` | 交易的「贏家數學」:期望值、系統設計、變異數、風險,與一個改變交易的問題 | [investing/strategy/trading-math-expectancy-variance-risk.md](./investing/strategy/trading-math-expectancy-variance-risk.md) |

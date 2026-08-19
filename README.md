@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-197_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-198_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -108,6 +108,7 @@ flowchart LR
 | **YAHA學堂** — Claude Code 實測與工程最佳實踐 | 1 | [CLAUDE.md 砍 82% 與維護兩步法](./technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
 | **可樂 AI 實驗室** — AI 編程落地與量化系統架構 | 1 | [Agent 五大核心與 LangGraph](./technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md) |
 | **技術爬爬蝦 TechShrimp** — AI 工具保姆級教學與實測 | 1 | [Pi 極簡 Agent 完整拆解](./technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
+| **Hugging Face(Alejandro AO)** — AI 工程架構深度解說 | 1 | [Mem0 記憶架構拆解](./technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md) |
 | **TGLTommy(唐國樑)** — 大模型系統架構與 Agent 工程 | 1 | [DeepSeek Harness runtime 與 Cordis 論文](./technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) |
 | **Better Stack** — observability 廠商的開發者/AI 新聞短講 | 1 | [MCP 無狀態化的維運視角](./technology/ai-agents/foundations/mcp-stateless-deployment-ops-view.md) |
 | **PyData / PyCon DE** — Python 資料工程與科學研討會 | 1 | [一兆筆紀錄的即時搜尋去重管線](./technology/system-design/trillion-record-realtime-search-kafka-dedup.md) |
@@ -271,6 +272,7 @@ flowchart LR
 | [LLM Wiki(Karpathy):讓 LLM 增量維護會複利的知識庫](./technology/ai-agents/memory-retrieval/llm-wiki-karpathy.md) | 別只 RAG 臨時拼湊;wiki 編譯一次後保持更新;ingest/query/lint + index/log;本倉庫就是實例 |
 | [Codebase-Memory:Tree-Sitter 知識圖譜 + MCP,探索程式碼省 10 倍 token](./technology/ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md) | 把 codebase 建成可查詢圖譜(SQLite,66 語言);結構查詢走預存邊,品質 83% vs 92% 但省 10× token、快 100× |
 | [Agent Memory 綜述:用「形式 / 功能 / 動態」三個切面收拾一個亂掉的領域](./technology/ai-agents/memory-retrieval/agent-memory-survey-forms-functions-dynamics.md) | ⭐ **四欄表切開 Agent Memory / LLM Memory / RAG / Context Engineering** —— 很多「有記憶」拆開只是後兩者;形式(1D 序列 / 2D 圖樹 / 3D 階層)· 功能(事實 / 經驗 / 工作,**Skill 屬經驗記憶**)· 動態(形成 → 演化 → 檢索);**遺忘是一等公民**;⚠️ 檢索的「時機」常被忽略;可當本區索引篇 |
+| [Mem0 記憶架構拆解:三個儲存、抽取管線,與混合排序](./technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md) | 對話記憶 ≠ 長期記憶;三儲存(主向量庫 + 實體庫 + SQLite 存**最近 10 則解代名詞**);`infer=True` 走 LLM 抽取;檢索候選池 **max(top_k × 4, 60)**;三路加總(語意 + BM25 + **實體加權 0–0.5,連結越少分越高**);**⭐ 讀原始碼補正兩點:除數是自適應非固定 2.5、門檻只擋語意且擋在加總前(關鍵字救不回來)** |
 | [MemHarness:記憶是「重建」不是「重播」(arXiv 2607.28272)](./technology/ai-agents/memory-retrieval/memharness-memory-reconstructed-not-replayed.md) | 記憶條目=(抽象策略, **來源狀態**)才能比對「當時 vs 現在」;不適用就輸出 `<EMPTY>` 改自我推理;GRPO 端到端 RL 無 ground truth;**關掉記憶仍勝純 RL** → 重建訓練提升本體推理;原始記憶直接注入反而變差 |
 | [用 Claude 蓋會自我改進的知識庫:三資料夾 + 一個 CLAUDE.md + 五步驟](./technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md) | Karpathy 式知識庫實作;raw(不整理)/wiki(AI 寫)/outputs(存回去產生複利);**讓 AI 當圖書館員**;編 wiki 前先給反 AI 腔寫作規則;每月 health check 七項稽核 |
 | [Project Cairn:把「做過的事」沉澱成可複用知識的開源 Skill](./technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) | 專案側(AGENTS.md+cairn/)與知識庫側(Obsidian/Notion/飛書)分離;LOG 朝後看+ROADMAP 朝前看(能管住很軸的 AI);知識畢業需人工確認;**體感×阻力**框架:LLM Wiki 整理「給到的資料」、Cairn 沉澱「做過的事」 |
