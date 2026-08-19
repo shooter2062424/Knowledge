@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**154 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **166 篇**筆記。
+> 統計:**155 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **167 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(154 部,依 video id 排序)
+## YouTube(155 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -61,6 +61,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `CGd5zDUrWnw` | Agent 為什麼會長成 Runtime:DeepSeek Harness 的插件樹與事件日誌,以及底下那篇 Cordis 論文 | [technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md](./technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) |
 | `cgKUgAJE3cs` | AI 產業秘密轉向:大模型集體從 C 端轉 B 端、訂閱轉用量,而「算力」成了現階段的勝負手 | [investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md](./investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md) |
 | `CMs8YMU6_RM` | AI 改 code 一直「改 A 壞 B」?讓 AI 安全接手舊專案(Brownfield)的五個步驟 | [technology/ai-productivity/ai-brownfield-codebase-five-steps.md](./technology/ai-productivity/ai-brownfield-codebase-five-steps.md) |
+| `d4329xvSDK4` | AI 額度老是不夠用?三招省 Token:丟掉、縮減、打折 | [technology/ai-productivity/token-saving-three-moves-context-control.md](./technology/ai-productivity/token-saving-three-moves-context-control.md) |
 | `DcibeCh1aZ4` | 美股連漲 13 天還能追嗎?「真實通脹」數據、AI 情緒三大轉向信號,與「踏空風險 > 回調風險」 | [investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md](./investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md) |
 | `dECosPI6SUc` | 「Loop 已死,Graph 當立」?從工程視角看透這場名詞之爭 | [technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md](./technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) |
 | `diU-Nbb1P_c` | 4 組頂級 Agent Skill:從「自我進化」到「工程／設計／內容」生產力套件 | [technology/ai-agents/applications/top-skills-for-agents.md](./technology/ai-agents/applications/top-skills-for-agents.md) |
