@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**153 個 YouTube video id**、**15 個 arXiv 編號**,涵蓋 **164 篇**筆記。
+> 統計:**153 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **165 篇**筆記。
 
 ---
 
@@ -184,7 +184,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(15 篇,依編號排序)
+## arXiv(16 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -194,6 +194,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2509.03505` | LimiX:用「遮罩聯合分布」打造的結構化資料(表格)基礎模型 | [technology/machine-learning/limix-tabular-foundation-model.md](./technology/machine-learning/limix-tabular-foundation-model.md) |
 | `2509.13351` | PDDL-Instruct:用「邏輯式 CoT + 外部驗證」教 LLM 做真正的符號規劃 | [technology/ai-agents/foundations/pddl-instruct-llm-planning.md](./technology/ai-agents/foundations/pddl-instruct-llm-planning.md) |
 | `2511.00592` | COMPILOT:讓現成 LLM 當「優化 agent」,在與編譯器的閉環對話中把迴圈優化到 3.5 倍 | [technology/ai-agents/applications/compilot-llm-guided-loop-optimization.md](./technology/ai-agents/applications/compilot-llm-guided-loop-optimization.md) |
+| `2512.13564` | Agent Memory 綜述:用「形式 / 功能 / 動態」三個切面收拾一個亂掉的領域 | [technology/ai-agents/memory-retrieval/agent-memory-survey-forms-functions-dynamics.md](./technology/ai-agents/memory-retrieval/agent-memory-survey-forms-functions-dynamics.md) |
 | `2601.01554` | MOSS-Transcribe-Diarize 0.9B 評估:端到端「轉錄+分辨說話者」開源模型,對我們的管線是否值得換? | [technology/dev-tools/moss-transcribe-diarize-evaluation.md](./technology/dev-tools/moss-transcribe-diarize-evaluation.md) |
 | `2603.27277` | Codebase-Memory:把程式碼變成「可查詢的知識圖譜」,讓 LLM 探索程式碼省 10 倍 token | [technology/ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md](./technology/ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md) |
 | `2605.15155` | SDAR:用「逐 token 門控」穩住多輪 Agent 的強化學習後訓練 | [technology/llm-internals/training/sdar-agentic-rl.md](./technology/llm-internals/training/sdar-agentic-rl.md) |

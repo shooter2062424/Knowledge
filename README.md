@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-195_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-197_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -270,6 +270,7 @@ flowchart LR
 | [Vectorless RAG:不靠相似度,靠「結構導航」找對地方](./technology/ai-agents/memory-retrieval/vectorless-rag-structure-navigation.md) | LLM 在文件階層樹上推理導航(PageIndex);相似≠相關,FinanceBench 50%→98.7% |
 | [LLM Wiki(Karpathy):讓 LLM 增量維護會複利的知識庫](./technology/ai-agents/memory-retrieval/llm-wiki-karpathy.md) | 別只 RAG 臨時拼湊;wiki 編譯一次後保持更新;ingest/query/lint + index/log;本倉庫就是實例 |
 | [Codebase-Memory:Tree-Sitter 知識圖譜 + MCP,探索程式碼省 10 倍 token](./technology/ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md) | 把 codebase 建成可查詢圖譜(SQLite,66 語言);結構查詢走預存邊,品質 83% vs 92% 但省 10× token、快 100× |
+| [Agent Memory 綜述:用「形式 / 功能 / 動態」三個切面收拾一個亂掉的領域](./technology/ai-agents/memory-retrieval/agent-memory-survey-forms-functions-dynamics.md) | ⭐ **四欄表切開 Agent Memory / LLM Memory / RAG / Context Engineering** —— 很多「有記憶」拆開只是後兩者;形式(1D 序列 / 2D 圖樹 / 3D 階層)· 功能(事實 / 經驗 / 工作,**Skill 屬經驗記憶**)· 動態(形成 → 演化 → 檢索);**遺忘是一等公民**;⚠️ 檢索的「時機」常被忽略;可當本區索引篇 |
 | [MemHarness:記憶是「重建」不是「重播」(arXiv 2607.28272)](./technology/ai-agents/memory-retrieval/memharness-memory-reconstructed-not-replayed.md) | 記憶條目=(抽象策略, **來源狀態**)才能比對「當時 vs 現在」;不適用就輸出 `<EMPTY>` 改自我推理;GRPO 端到端 RL 無 ground truth;**關掉記憶仍勝純 RL** → 重建訓練提升本體推理;原始記憶直接注入反而變差 |
 | [用 Claude 蓋會自我改進的知識庫:三資料夾 + 一個 CLAUDE.md + 五步驟](./technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md) | Karpathy 式知識庫實作;raw(不整理)/wiki(AI 寫)/outputs(存回去產生複利);**讓 AI 當圖書館員**;編 wiki 前先給反 AI 腔寫作規則;每月 health check 七項稽核 |
 | [Project Cairn:把「做過的事」沉澱成可複用知識的開源 Skill](./technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) | 專案側(AGENTS.md+cairn/)與知識庫側(Obsidian/Notion/飛書)分離;LOG 朝後看+ROADMAP 朝前看(能管住很軸的 AI);知識畢業需人工確認;**體感×阻力**框架:LLM Wiki 整理「給到的資料」、Cairn 沉澱「做過的事」 |
@@ -299,6 +300,7 @@ flowchart LR
 | [模型越強,Superpowers 和 Matt Skills 該刪掉誰?工作流選擇框架(AI随风)](./technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) | 弱模型要詳細輸入、強模型要精簡(給目標+驗證條件);骨架相同、勝負在「寫計畫」——Superpowers 把 code 寫死是累贅、Matt 給功能點靠推理;強模型+速度用 Matt、團隊嚴審用 Superpowers |
 | [什麼樣的 Agent 專案才能給履歷加分:玩具 Demo 與企業級的分水嶺](./technology/ai-agents/applications/agent-project-resume-enterprise-grade.md) | 四維分辨(業務流/架構/初衷/**能不能給數字**);多 agent 要順著業務流長出來;分層記憶三層;人機協同三級(金流要強授權二次確認);Trace ID 三探針;四維量化指標 + 履歷工程語言重構 |
 | [herdr:讓 Agent 互相指揮的終端 runtime(AI随风)](./technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) | Rust 單一二進位、背景 server + 終端 client,關筆電 agent 續跑;**⭐ agent 狀態靠 regex 掃終端畫面判定**(19 份偵測 manifest,不需任何一方支援協定,代價是對方改 UI 就壞);Layout/Pane/Agent 三原語;B 全程不知道 A 與 herdr 存在;實測 Claude↔Codex 來回 7 輪才過審 —— 協商回合數是真實成本;⚠️ 影片稱「YC 支持」無法核實 |
+| [2026 年八月的三場 Harness 發表:Muse Code、Grok Bot、Microsoft Agent Framework GA](./technology/ai-agents/applications/agent-harness-launches-august-2026.md) | ⚠️ **全依二手媒體、未讀原始碼**,定位是索引與對照;**Claude Code 約 98.4% 程式碼是 harness 基礎設施而非 AI 邏輯**(微軟引用);Muse Code 扇出 sub-agent + **contributor 方案十分之一價換回饋**;**⭐ Grok Bot 給每個 agent 一台持久雲端 VM —— 沙箱問題的第三種答案**;MS 合併 Semantic Kernel + AutoGen,**內建迴圈上限 40 回合** |
 | [Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,與「刻意不做沙箱」](./technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) | 4 工具 + 約 1000 token 系統提示詞(打招呼 1.1k vs Codex 18k);**⭐ 雙層循環已核實**(內層注入 steering、外層等 follow-up,`agent-loop.ts` 僅 796 行);對話樹可分支 ⚠️ **但只回退對話不回退程式碼,要配 git**;沒有 MCP/Subagent/Plan/Todo —— 全靠插件,**每個插件都是一段系統提示詞故建議 `-L` 專案級安裝**;⚠️ **全程最高權限、無沙箱且刻意為之**(官方:半吊子沙箱易被誤認為安全邊界)|
 | [qm(YC 開源):把個人 Agent 變成「多人可用」的 Agent Harness](./technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md) | scope 隔離(各自的 memory/files/keychain/權限/持久 sandbox);**沒有自己的內核**——Pi/OpenCode/Codex/Claude Code 驅動同一 core;安全姿態 Strict/Auto/Dangerous 但命令政策全檔位生效;官方自陳非多租戶邊界 |
 | [Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生(AI超元域)](./technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) | 主 agent 拆解→分派 subagent 並行→合併;每 subagent 獨立模型(Kimi K3/MiniMax/GPT-5.6)+工具+skill;CC Switch 接第三方;多模型對抗審查抓嚴重 bug;具 Graph Engineering 初級特徵 |
