@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**157 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **169 篇**筆記。
+> 統計:**158 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **169 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(157 部,依 video id 排序)
+## YouTube(158 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -125,6 +125,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `oW6MHjzxHpU` | 賣財報波動率:把 $1 萬變 $100 萬的選擇權策略(以及它真正的風險) | [investing/derivatives/selling-earnings-volatility.md](./investing/derivatives/selling-earnings-volatility.md) |
 | `oZC00ImTJt8` | 存量邏輯下的四條投資原則:把握價值而非趨勢,以及該盯的那個訊號 | [investing/strategy/ai-investing-four-principles-stock-logic.md](./investing/strategy/ai-investing-four-principles-stock-logic.md) |
 | `P6UWIA_bvt8` | 大模型 API「中轉站」起底:0.5 折的 GPT/Claude 到底摻了多少水? | [technology/ai-industry/llm-api-relay-stations.md](./technology/ai-industry/llm-api-relay-stations.md) |
+| `pGYrWsNQ8A0` | Attention Residuals:把注意力「轉 90 度」用在網路深度上 | [technology/llm-internals/architecture/attention-residuals.md](./technology/llm-internals/architecture/attention-residuals.md) |
 | `pJR6I9_06e4` | Codex 2.0 新功能實戰:懸停導航 + Fork、側邊對話/引導、Record & Replay、手機遠端操控 | [technology/ai-productivity/codex-2-record-replay-mobile-remote.md](./technology/ai-productivity/codex-2-record-replay-mobile-remote.md) |
 | `pmWgyZM7mB8` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
 | `PpeCur6fEXc` | 讓 AI agent 連續跑 27 小時:/goal 功能與「Evaluation 才是關鍵」 | [technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md](./technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md) |
