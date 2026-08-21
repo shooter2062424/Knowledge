@@ -86,6 +86,36 @@ o = {'quiet': True, 'skip_download': True, 'js_runtimes': {'node': {}}}   # ✅
 
 ---
 
+### ⚠️⚠️ 連續 403 = 先檢查 yt-dlp 版本(2026-08-22 踩過)
+
+**症狀**:`--remote-components ejs:github` 有加,但**每一支影片、每一次嘗試都 403**(當天 6 次全掛)。
+log 的最後一段會露餡:
+
+```
+WARNING: [youtube] [jsc] Error solving n challenge ... found 0 n function possibilities
+WARNING: n challenge solving failed: Some formats may be missing
+ERROR: unable to download video data: HTTP Error 403: Forbidden
+```
+
+**根因**:yt-dlp 的 **n-challenge solver 跟不上當前的 YouTube player** ⇒ 拿到的下載網址沒簽名 ⇒ 403。
+當時本機是 **2026.02.04(約半年前)**。
+
+**修法**:
+
+```bash
+python -m pip install -U yt-dlp
+```
+
+更新到 2026.08.19 後,**第 1 次嘗試就下載成功**。
+
+> ⭐ **判斷準則:**
+> - **偶發 403、重試會過** ⇒ 是 SABR 實驗,照原本的「同參數重試 3 次」處理即可
+> - ⚠️ **連續 3 次全 403、而且 log 有 `n challenge solving failed`** ⇒ **不是重試能解決的,是版本落後** ⇒ 先 `pip install -U yt-dlp` 再說
+>
+> ⚠️ 排程 prompt 裡的 `--no-update` 是避免執行中途自動更新,**不代表不該定期手動更新**。
+
+---
+
 ### ⚠️ Whisper 轉錄配方
 
 ```python
