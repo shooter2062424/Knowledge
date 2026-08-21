@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**158 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **169 篇**筆記。
+> 統計:**159 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **170 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(158 部,依 video id 排序)
+## YouTube(159 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -85,6 +85,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `FrAAxWbxSyE` | Claude 5 時代的 Context Engineering 新規則:Claude Code 刪掉 80% 系統提示詞,評測卻沒掉 | [technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md](./technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
 | `FvWfAgNyEWc` | 硬碟陣列 RAID 一次看懂:RAID 0/1/5/6 原理,以及 RAID 5 為什麼「不安全」的真相 | [technology/system-design/raid-explained-why-raid5-unsafe.md](./technology/system-design/raid-explained-why-raid5-unsafe.md) |
 | `fX0Am0Rhnfg` | 4 隻「無論何時都能安心買入」的 ETF:靠機制賺錢,不靠預測 | [investing/strategy/four-buy-anytime-etfs.md](./investing/strategy/four-buy-anytime-etfs.md) |
+| `gAUvadRNFNE` | 為什麼跟有些人聊天特別有趣:四個特質,而且都不是話術 | [life/communication/four-traits-interesting-conversation.md](./life/communication/four-traits-interesting-conversation.md) |
 | `gC76aeibdFA` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [technology/llm-internals/architecture/deepseek-v4-engineering.md](./technology/llm-internals/architecture/deepseek-v4-engineering.md) |
 | `gcCTxeLA6Mg` | NVIDIA N1X 能撞開 x86 四十年的城牆嗎?三個變量決定成敗 | [technology/ai-industry/nvidia-n1x-vs-x86.md](./technology/ai-industry/nvidia-n1x-vs-x86.md) |
 | `gD_so3Nc7Y0` | 當沖有技巧嗎?紐約證交所傳奇交易員 Peter Tuchman 的 40 年心法 | [investing/technical-analysis/peter-tuchman-day-trading.md](./investing/technical-analysis/peter-tuchman-day-trading.md) |

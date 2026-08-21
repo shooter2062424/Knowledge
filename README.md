@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-202_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-203_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -30,6 +30,8 @@ flowchart LR
     K --> T["⚙️ technology"]
     K --> C["💼 career"]
     C --> C1["workplace · mindset"]
+    K --> L["🌿 life"]
+    L --> L1["communication"]
     K --> H["🩺 health"]
     H --> H1["wellness"]
     I --> I1["strategy"]
@@ -92,6 +94,7 @@ flowchart LR
 | **程序员老王** — LLM 底層原理白話拆解 | 2 | [Token 與 Embedding(LLM vs RAG)](./technology/llm-internals/architecture/token-vs-embedding-llm-and-rag.md) · [Attention Residuals(白話推導,與 bycloud 版合併)](./technology/llm-internals/architecture/attention-residuals.md) |
 | **Thinking Machines Lab** — LLM 系統與推論工程 | 1 | [擊敗推論不確定性(batch invariance)](./technology/llm-internals/inference/defeating-nondeterminism-batch-invariance.md) |
 | **EZ.Encoder Academy** — 大模型面試題與論文精讀 | 1 | [Pre-norm vs Post-norm](./technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md) |
+| **Ellen 李** — 社交心理與對話魅力 | 1 | [聊天有趣的四個特質](./life/communication/four-traits-interesting-conversation.md) |
 | **TVBS NEWS(十點不一樣)** — 台灣政策與財經新聞 | 1 | [青安 3.0 與繼承性別數據](./investing/personal-finance/qingan-3-0-and-inheritance-gender-gap.md) |
 | **JohnLu 談股(John Lu Talk Stock)** — K 線與技術分析短片 | 1 | [高位陰後陽/低位陽後陰口訣](./investing/technical-analysis/high-yin-then-yang-low-yang-then-yin.md) |
 | **風傳媒 下班經濟學 / The Storm Media** — 台股/投資 | 3 | [別再相信目標價(721)](./investing/strategy/target-prices-institutional-secrets.md) · [孫慶龍 PE 五檔價(735)](./investing/equity-research/sun-qinglong-pe-band-valuation.md) · [股癌選股心法](./investing/strategy/gooaye-stock-picking-philosophy.md) |
@@ -489,6 +492,15 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [LeetCode 怎麼刷最有效(上):從 0 刷到 200 題](./career/interview-prep/leetcode-0-to-200-grinding-experience.md) | 轉職仔七年 222 題;盲刷無效→認命學 DSA;關鍵是建立「演算法思維」(先定主軸再實作) |
+
+---
+
+## 🌿 life(生活與人際)
+
+### 💬 communication(溝通與人際連結)
+| 主題 | 一句話 |
+|---|---|
+| [為什麼跟有些人聊天特別有趣:四個特質,而且都不是話術](./life/communication/four-traits-interesting-conversation.md) | 認識自己(**self-concept clarity 高則社交焦慮低**)、講得清楚(**寫下來才會發現自己沒想清楚**)、同理與坦率**不是二選一**、自在分享脆弱;**⭐ 講者刻意排除幽默感——問的是「我們的幽默有多少是逃避脆弱的防衛機制」** |
 
 ---
 
