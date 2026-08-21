@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**159 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **170 篇**筆記。
+> 統計:**160 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **171 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(159 部,依 video id 排序)
+## YouTube(160 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -32,6 +32,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `-ih9NBMHiU8` | AI 應用層 4 大前瞻趨勢:從財報季挖出的下一輪機會(流量、Agent 管理、ROI、AI 原生) | [investing/equity-research/ai-application-layer-4-trends-earnings.md](./investing/equity-research/ai-application-layer-4-trends-earnings.md) |
 | `-XLTrE5bjko` | 收入高卻存不住錢?7 個正在掏空你的隱形習慣 | [investing/strategy/hidden-money-draining-habits.md](./investing/strategy/hidden-money-draining-habits.md) |
 | `0-Rr2iho6CI` | 未來一年的 6 個 AI Agent 趨勢:從「背提示詞」到「當 AI 管理者」 | [technology/ai-agents/foundations/six-ai-agent-trends-next-year.md](./technology/ai-agents/foundations/six-ai-agent-trends-next-year.md) |
+| `0ANjSvoFq0g` | 用高階函式降低程式碼閱讀負擔:重點不是變短,是讀者的注意力放在哪 | [technology/software-engineering/higher-order-functions-readable-code.md](./technology/software-engineering/higher-order-functions-readable-code.md) |
 | `0kvj3lbJqoY` | AI 像 100 年前的電力革命:真正的商機不在「AI 應用」,而在「AI 採納」(美投君) | [investing/equity-research/ai-adoption-electricity-revolution-analogy.md](./investing/equity-research/ai-adoption-electricity-revolution-analogy.md) |
 | `18QEjrwaNVM` | Opus 5 系統提示詞公開之後:五條可直接抄的工程模式,與「提示詞債務」 | [technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md](./technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) |
 | `1a1VXDdIyrk` | Harness Engineering 的演進:從 Prompt → Context → Harness(與 loop 架構) | [technology/ai-agents/foundations/harness-engineering-evolution.md](./technology/ai-agents/foundations/harness-engineering-evolution.md) |

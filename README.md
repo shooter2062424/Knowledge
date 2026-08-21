@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-203_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-204_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -47,6 +47,7 @@ flowchart LR
     T --> T7["🛡️ ai-safety"]
     T --> T9["📊 ai-industry"]
     T --> T10["🏗️ system-design"]
+    T --> T15["🧱 software-engineering"]
     T --> T8["🖥️ claude-code"]
     T --> T11["🌲 dev-tools"]
     T --> T13["🎨 web-dev"]
@@ -95,6 +96,7 @@ flowchart LR
 | **Thinking Machines Lab** — LLM 系統與推論工程 | 1 | [擊敗推論不確定性(batch invariance)](./technology/llm-internals/inference/defeating-nondeterminism-batch-invariance.md) |
 | **EZ.Encoder Academy** — 大模型面試題與論文精讀 | 1 | [Pre-norm vs Post-norm](./technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md) |
 | **Ellen 李** — 社交心理與對話魅力 | 1 | [聊天有趣的四個特質](./life/communication/four-traits-interesting-conversation.md) |
+| **ExplainThis 軟體工程白話聊** — 軟體工程白話解說 | 1 | [高階函式與閱讀負擔](./technology/software-engineering/higher-order-functions-readable-code.md) |
 | **TVBS NEWS(十點不一樣)** — 台灣政策與財經新聞 | 1 | [青安 3.0 與繼承性別數據](./investing/personal-finance/qingan-3-0-and-inheritance-gender-gap.md) |
 | **JohnLu 談股(John Lu Talk Stock)** — K 線與技術分析短片 | 1 | [高位陰後陽/低位陽後陰口訣](./investing/technical-analysis/high-yin-then-yang-low-yang-then-yin.md) |
 | **風傳媒 下班經濟學 / The Storm Media** — 台股/投資 | 3 | [別再相信目標價(721)](./investing/strategy/target-prices-institutional-secrets.md) · [孫慶龍 PE 五檔價(735)](./investing/equity-research/sun-qinglong-pe-band-valuation.md) · [股癌選股心法](./investing/strategy/gooaye-stock-picking-philosophy.md) |
@@ -391,6 +393,11 @@ flowchart LR
 | [HBM 高頻寬記憶體原理:矽中介層、TSV、堆疊鍵合一次看懂](./technology/ai-industry/hbm-high-bandwidth-memory-principle.md) | 頻寬=頻率×位寬,HBM 拚位寬;矽中介層解布線、TSV(博世製程)+ 堆疊解容量;三寡頭與 DRAM 漲價 |
 | [什麼是先進封裝?從有機基板到矽中介層、TSV、矽橋、玻璃基板一次看懂](./technology/ai-industry/advanced-packaging-explained.md) | 封裝從配角變主角;有機基板減成/半加成法 10μm;chiplet→晶片內互聯;矽中介層+TSV=2.5D(HBM-GPU 4000 連線);矽橋/玻璃基板降本 |
 | [史上最強 AI 模型只活 72 小時:Claude Fable 事件與別把流程綁死單一模型](./technology/ai-industry/claude-fable-72-hours-model-dependency.md) | Fable=Mythos 加護欄;能修 bug=能找漏洞遭政府禁;用強模型三技巧;留可替換方案 |
+
+### 🧱 software-engineering(軟體工程與程式碼品質)
+| 主題 | 一句話 |
+|---|---|
+| [用高階函式降低程式碼閱讀負擔:重點不是變短,是讀者的注意力放在哪](./technology/software-engineering/higher-order-functions-readable-code.md) | 並排比較找出重複的**骨架**;迴圈描述「如何檢查」、`every` 宣告「在檢查什麼」;`filter` 答「哪些留下」/`map` 答「留下的長什麼樣」;**⚠️ 抽象化要壓縮語意層級、不能只是改名**;**補三個反例:`forEach`+async 不等待、`map`/`filter` 不能 break、熱路徑的多次走訪** |
 
 ### 🏗️ system-design(系統設計與架構)
 | 主題 | 一句話 |
