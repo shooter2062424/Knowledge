@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**155 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **167 篇**筆記。
+> 統計:**156 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **168 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(155 部,依 video id 排序)
+## YouTube(156 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -57,6 +57,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `BAfRVpKIxZ4` | 交易的「贏家數學」:期望值、系統設計、變異數、風險,與一個改變交易的問題 | [investing/strategy/trading-math-expectancy-variance-risk.md](./investing/strategy/trading-math-expectancy-variance-risk.md) |
 | `BhHMGRcbPkQ` | 為什麼 Anthropic 工程師棄 Markdown 改用 HTML:當「理解」變成真正的瓶頸 | [technology/ai-productivity/anthropic-html-work-pages.md](./technology/ai-productivity/anthropic-html-work-pages.md) |
 | `bPWcSxkD6Uo` | WiFi 是怎麼傳遞資訊的?把資訊裝進電磁波的硬核原理 | [technology/telecom/wifi-how-it-works.md](./technology/telecom/wifi-how-it-works.md) |
+| `BQveePDWavA` | Token 與 Embedding 的分工:為什麼 LLM 的 embedding 和 RAG 的 embedding 不是同一回事 | [technology/llm-internals/architecture/token-vs-embedding-llm-and-rag.md](./technology/llm-internals/architecture/token-vs-embedding-llm-and-rag.md) |
 | `ByBLjNA3MvY` | 海鷗策略(Seagull):牛市中「不踏空又不怕跌」的三腿期權對沖 | [investing/derivatives/seagull-options-hedge.md](./investing/derivatives/seagull-options-hedge.md) |
 | `CGd5zDUrWnw` | Agent 為什麼會長成 Runtime:DeepSeek Harness 的插件樹與事件日誌,以及底下那篇 Cordis 論文 | [technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md](./technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) |
 | `cgKUgAJE3cs` | AI 產業秘密轉向:大模型集體從 C 端轉 B 端、訂閱轉用量,而「算力」成了現階段的勝負手 | [investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md](./investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md) |
