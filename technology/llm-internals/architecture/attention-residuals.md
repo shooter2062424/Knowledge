@@ -102,6 +102,8 @@ flowchart TD
 - **一般 LLM 使用者/應用開發者:** 短期不需要動手——這是 **預訓練階段** 的架構改動,你會在「下一代基礎模型更便宜、推理更強」中間接受益。
 
 > 與本 repo 關聯:這是 [[kv-cache]] 之外另一條「讓 LLM 更有效率」的路線,差別在 **kv-cache 是推論期省成本,attention residuals 是訓練期/架構層提升品質與效率**。
+>
+> ⭐ **前傳:[[pre-norm-vs-post-norm-transformer]]** —— 本文第 2 節說的 **Pre-norm Dilution**,要先懂「為什麼大家從 post-norm 換到 pre-norm」才好理解。那篇串了 2019–2025 的五篇論文,**其中微軟 DeepNet 那篇還直接反駁了前一篇對 post-norm 失效原因的解釋**。合起來看是一條「解法製造新問題」的鏈:post-norm 梯度不穩 → pre-norm 解決 → **但殘差變成單純累加、早期層訊號被稀釋** → Attention Residuals。
 
 ---
 

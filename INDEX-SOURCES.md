@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**156 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **168 篇**筆記。
+> 統計:**157 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **169 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(156 部,依 video id 排序)
+## YouTube(157 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -138,6 +138,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `QHHTcYBEIEo` | 別追「最強 AI」:用一張分工地圖建立你的多工具工作流 | [technology/ai-productivity/multi-tool-ai-workflow.md](./technology/ai-productivity/multi-tool-ai-workflow.md) |
 | `qnIlKvW00Sk` | AI Agent 最大的缺陷:它沒有「世界地圖」——用本體論給大模型套上邏輯護欄 | [technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md](./technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
 | `QwOUDPiBzfU` | 孫慶龍的「EPS × 本益比五檔價」估值法 + 護國群山、成長股複利 | [investing/equity-research/sun-qinglong-pe-band-valuation.md](./investing/equity-research/sun-qinglong-pe-band-valuation.md) |
+| `R549oFP9uN8` | Pre-norm vs Post-norm:為什麼現在的大模型全都把 LayerNorm 搬到前面 | [technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md](./technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md) |
 | `RAFQc6zHdXE` | Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生 subagent | [technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md](./technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) |
 | `rKV5JcALQoQ` | J-Space:Claude 內心那層「說得出口的思考」——用全域工作空間理論解讀模型意識 | [technology/llm-internals/interpretability/j-space-global-workspace-claude.md](./technology/llm-internals/interpretability/j-space-global-workspace-claude.md) |
 | `rLNGSDYkK-w` | Claude Code Hooks 完全指南:CLAUDE.md 是提醒紙條,Hook 才是自動門 | [technology/claude-code/claude-code-hooks-complete-guide.md](./technology/claude-code/claude-code-hooks-complete-guide.md) |

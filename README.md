@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-201_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-202_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -91,6 +91,7 @@ flowchart LR
 | **美投君 / 美投讲美股(@MeiTouJun)** — 美股投資 | 17 | [4 隻安心買 ETF](./investing/strategy/four-buy-anytime-etfs.md) · [軟體股選股邏輯](./investing/equity-research/ai-software-stocks-usage-based.md) · [美股升息風險研判](./investing/strategy/us-stocks-rate-hike-risk-2026.md) · [海鷗對沖策略](./investing/derivatives/seagull-options-hedge.md) · [下半年前瞻(存量vs增量)](./investing/strategy/us-stocks-h2-2026-outlook-stock-vs-flow-ai.md) · [半導體 2000 泡沫對照](./investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md) · [三大風險/解毒觸發點](./investing/strategy/us-stocks-three-risks-detox-trigger.md) · [連漲13天/AI三信號](./investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md) · [AI應用層4趨勢](./investing/equity-research/ai-application-layer-4-trends-earnings.md) · [AI產業C→B轉向](./investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md) · [特斯拉FSD/造芯片](./investing/equity-research/tesla-earnings-fsd-chip-spacex-four-quadrant.md) · [AI採納/電力革命對照](./investing/equity-research/ai-adoption-electricity-revolution-analogy.md) · [加息三階段/AI vs 2000](./investing/strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md) · [特斯拉 Q2 資本開支衝擊](./investing/equity-research/tesla-q2-2026-capex-shock-vs-narrative.md) · [微軟三大質疑拆解](./investing/equity-research/microsoft-fy26q1-three-doubts-resolved.md) · [PLTR 增速見頂與估值消化](./investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md) · [AI 投資四原則(存量邏輯)](./investing/strategy/ai-investing-four-principles-stock-logic.md) |
 | **程序员老王** — LLM 底層原理白話拆解 | 1 | [Token 與 Embedding(LLM vs RAG)](./technology/llm-internals/architecture/token-vs-embedding-llm-and-rag.md) |
 | **Thinking Machines Lab** — LLM 系統與推論工程 | 1 | [擊敗推論不確定性(batch invariance)](./technology/llm-internals/inference/defeating-nondeterminism-batch-invariance.md) |
+| **EZ.Encoder Academy** — 大模型面試題與論文精讀 | 1 | [Pre-norm vs Post-norm](./technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md) |
 | **TVBS NEWS(十點不一樣)** — 台灣政策與財經新聞 | 1 | [青安 3.0 與繼承性別數據](./investing/personal-finance/qingan-3-0-and-inheritance-gender-gap.md) |
 | **JohnLu 談股(John Lu Talk Stock)** — K 線與技術分析短片 | 1 | [高位陰後陽/低位陽後陰口訣](./investing/technical-analysis/high-yin-then-yang-low-yang-then-yin.md) |
 | **風傳媒 下班經濟學 / The Storm Media** — 台股/投資 | 3 | [別再相信目標價(721)](./investing/strategy/target-prices-institutional-secrets.md) · [孫慶龍 PE 五檔價(735)](./investing/equity-research/sun-qinglong-pe-band-valuation.md) · [股癌選股心法](./investing/strategy/gooaye-stock-picking-philosophy.md) |
@@ -320,6 +321,7 @@ flowchart LR
 ### 🧬 llm-internals(模型架構與推論)
 | 主題 | 一句話 |
 |---|---|
+| [Pre-norm vs Post-norm:為什麼現在的大模型全都把 LayerNorm 搬到前面](./technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md) | ⭐ **是 attention-residuals 的前傳**;差別不只前後、更在「在不在殘差內」;梯度**連乘 vs 連加**、pre-norm 免 warmup;**⚠️ 微軟 DeepNet 反駁「末層梯度太大」說,主張是初期 update 爆炸導致梯度消失**(不收斂的模型梯度反而更小);Peri-LN 把兩者結合;**補:DeepNorm 其實救活了 post-norm 訓到 1000 層、Gemma 2 已在用 sandwich norm、QK-Norm** |
 | [Attention Residuals:把注意力「轉 90 度」用在網路深度上](./technology/llm-internals/architecture/attention-residuals.md) | Kimi 對「層」做注意力,緩解 pre-norm dilution |
 | [DeepSeek V4 的瘋狂工程:用不夠的資源做出頂尖模型](./technology/llm-internals/architecture/deepseek-v4-engineering.md) | hybrid attention(CSA/HCA/滑窗)+ mHC 雙隨機約束防爆 + Muon + 通訊重疊;KV cache 砍 90% |
 | [microGPT(Karpathy):200 行純 Python 講完整個 GPT 演算法](./technology/llm-internals/architecture/microgpt-karpathy.md) | autograd→架構→Adam→取樣全在眼前;KV cache 顯式;「其餘都只是效率」 |
