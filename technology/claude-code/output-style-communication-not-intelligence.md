@@ -66,16 +66,23 @@ flowchart TB
 
 ---
 
-## 三、內建的四套 style(不用自己寫)
+## 三、內建的 style(不用自己寫)
 
-輸入 `/config` 就會看到 Claude Code 本來就內建四套:
+> ⭐⭐ **2026-08-22 更新(比對官方文件後修正)**:本節原本寫「內建四套」——**官方文件現在列的是 Default 加上四套,共五套**,新增的是 **`Concise`**。
+> ⚠️ **而 `Concise` 恰恰是最貼近本篇主題(治囉嗦)的那一套** —— 兩支來源影片都沒提到它,大概是錄製時還沒有(需 **Claude Code v2.1.237 以上**)。**要治囉嗦,先試它,再考慮自己寫。**
+
+輸入 `/config` → **Output style** 就會看到:
 
 | Style | 特性 | 適合誰 |
 |---|---|---|
 | **Default** | 簡潔、有效率——你現在每天看到的樣子 | 一般狀況 |
-| **Proactive** | 行動派,廢話更少,**能動手就直接動手**,不花時間多討論 | 目標明確、趕進度時 |
-| **Learning** | 會**故意停下來留一小段程式碼讓你親手寫**,邊用邊練 | 真的想學寫程式的人(影片作者自己不愛) |
+| **Proactive** | 行動派,廢話更少,**能動手就直接動手**,不花時間多討論。官方註明這比 auto mode 的自主性引導更強,**而且不改變你的權限模式**——該問的還是會問 | 目標明確、趕進度時 |
+| ⭐ **Concise**(新) | **先講結果**,跳過開場白與過程敘述,預設保持簡短;⭐ **但工程工作做得跟 Default 一樣徹底**,你要細節時它照給。⭐⭐ **而且一定完整保留:錯誤報告、安全警告、破壞性動作的確認** | ⭐ **嫌囉嗦的人的第一選擇** |
+| **Learning** | 會**故意停下來留一小段程式碼讓你親手寫**(在程式碼裡放 `TODO(human)` 標記),邊用邊練 | 真的想學寫程式的人 |
 | **Explanatory** | 每做一個改動都順便解釋:架構為何這樣設計、這段用了什麼 pattern、專案慣例是什麼 | 見下方 ⭐ |
+
+> ⭐ **關於 Learning,YAHA 版補了一個很有說服力的用法**:**Lydia Hallie 自己說她所有的 side project 全開 Learning**,就是為了不讓手生。
+> **如果你擔心天天用 AI 把自己用廢了,這個風格就是解藥。**
 
 ### ⭐ Explanatory 的正確用法與反效果
 
@@ -89,13 +96,133 @@ flowchart TB
 
 ---
 
-## 四、設定方式(三步驟)
+## 四、設定方式與 ⚠️ 三個坑(2026-08-22 補,已比對官方文件核實)
+
+### 基本三步驟
 
 1. **複製** 你要的 output style 文字
 2. **貼給 Claude Code**,說「幫我把這個加進 output style」——它會自動放到正確位置
-3. **輸入 `/config` → 找到 output style → 選擇 → Enter**,立刻生效
+3. **輸入 `/config` → 找到 Output style → 選擇 → Enter**
 
 不會做的話,直接請 Claude Code 手把手帶你做,或直接叫它幫你設定。
+
+> ⚠️ **`/output-style` 這個獨立指令已經沒了** —— 官方文件註明它在 **v2.1.73 棄用、v2.1.91 移除**。現在只有兩條路:**`/config`** 或**直接編輯 `outputStyle` 設定值**。看到舊教學叫你打 `/output-style` 的,那是過期資訊。
+
+### ⚠️⚠️ 坑一:`keep-coding-instructions` —— 這行決定它還是不是工程師
+
+**這是 YAHA 版點出的最大坑,而官方文件完全證實。**
+
+**背景**:Claude Code 開工前會先讀一份工作守則(system prompt),**你寫的 output style 規則是被加在這份守則的末尾**。但守則裡本來還有**一大段軟體工程規範**(官方明列:如何界定改動範圍、怎麼寫註解、如何驗證成果)。
+
+⭐⭐ **關鍵:自訂 output style 預設會把那段工程規範「整個扔掉」——`keep-coding-instructions` 的預設值是 `false`。**
+
+```markdown
+---
+name: ELI5
+description: 把我當五歲小孩講話
+keep-coding-instructions: true      # ⭐ 只換說話方式、程式照寫 ⇒ 必須 true
+---
+
+(以下是你的說話規則)
+```
+
+| 你的目的 | 該設什麼 |
+|---|---|
+| ⭐ **只想換說話方式,但程式要照樣好好寫** | **`true`** |
+| 它根本不是在做軟體工程(寫作助理、資料分析) | 留空 / `false`(預設) |
+
+> ⚠️ **預設值 `false` 是給「寫作助理」那種用途設計的。** 如果你只是嫌它囉嗦就自己寫了一套 style 卻沒加這行,**等於順手把工程規範也一起關掉了** —— 說話變好聽了,做事的品質卻默默掉了,而且不會有任何警告。
+
+**✅ 官方 frontmatter 完整欄位:**
+
+| 欄位 | 用途 | 預設 |
+|---|---|---|
+| `name` | 風格名稱 | **繼承檔名** |
+| `description` | 顯示在 `/config` 選單裡的說明 | 無 |
+| ⭐ `keep-coding-instructions` | 保留內建的軟體工程規範 | ⚠️ **`false`** |
+| `force-for-plugin` | **僅 plugin 用**:plugin 啟用時自動套用、不需使用者選擇,**會覆蓋使用者的 `outputStyle` 設定**;多個 plugin 都設時取先載入的那個 | `false` |
+
+> ⭐ **`force-for-plugin` 對有在維護 plugin 的人特別要注意** —— 它會蓋掉使用者自己的選擇,等於替別人決定 Claude 怎麼講話。用之前想清楚。
+
+### ⚠️ 坑二:改檔案不會生效,要 `/clear`
+
+**這是最容易鬼打牆的一個。**
+
+```mermaid
+flowchart TB
+    A["output style 屬於 system prompt"] --> B["⭐ 而 system prompt<br/>一個 session 只在「開始時」讀一次"]
+    B --> C["✅ 走 /config 選單切換<br/>⇒ 會幫你重載,當場生效"]
+    B --> D["⚠️ 自己用編輯器改設定檔<br/>⇒ 進行中的 session 感知不到,天書照舊"]
+    D --> E["✅ 修法:/clear 或開新 session"]
+```
+
+**✅ 官方原文證實**:output style 是 system prompt 的一部分,而 Claude Code **在 session 開始時讀取一次**;變更**在 `/clear` 或新 session 之後才生效**。
+
+> ⭐ **記住這條規矩:手動改完設定,必須 `/clear` 或重開 session。**
+> 新增的風格檔要出現在選單裡,也是同一個道理。
+
+### 📁 坑三:檔案到底放哪(⭐ 本文原先未能核實,現已由官方文件確認)
+
+**自訂風格檔可以放三個層級**:
+
+| 層級 | 路徑 |
+|---|---|
+| **使用者層** | `~/.claude/output-styles` |
+| **專案層** | `.claude/output-styles` |
+| 受管政策層 | 受管設定目錄下的 `.claude/output-styles` |
+
+⭐ **專案層還有一個容易忽略的規則**:Claude Code 會從**工作目錄一路往上到 repo 根目錄**,載入沿途**每一個** `.claude/output-styles/`;**同名衝突時,離工作目錄最近的那個勝出。**
+
+**而「當前選了哪一套」記在哪**:走 `/config` 選單挑選時,Claude Code 把選擇存到 **`.claude/settings.local.json`**(專案本地層級)。也可以直接編輯:
+
+```json
+{ "outputStyle": "Explanatory" }
+```
+
+---
+
+## 四之二、⭐ 官方文件補充的三件事(兩支影片都沒提)
+
+### ⭐⭐ ① 它只作用於「主對話」——subagent 不受影響
+
+**這是最容易誤解的範圍限制:**
+
+| 對象 | output style 有效嗎 |
+|---|---|
+| 主對話 | ✅ 有 |
+| ⚠️ **subagent** | ❌ **無效** —— subagent 跑自己的 system prompt |
+| **fork** | ✅ **有效**(例外)—— 因為 fork 繼承母對話的完整 system prompt |
+
+> ⚠️ **實務意義**:如果你把工作大量丟給 subagent,**那些回覆不會照你的風格走**。覺得「明明設了卻沒用」時,先確認那段輸出到底是誰產的。
+> ⭐ 而這也解釋了為什麼 `/branch`(fork)那招會成立 —— **fork 繼承完整 system prompt,所以在副本裡測風格才有意義。**
+
+### ② token 成本:有兩個方向,不是只有省
+
+| 面向 | 影響 |
+|---|---|
+| **輸入** | ⚠️ 加規則到 system prompt ⇒ **input token 增加**;但 **prompt caching 會在第一次請求之後把成本壓下來** |
+| **輸出** | ⭐ **Explanatory 與 Learning 是「設計上就會更長」** ⇒ output token 增加;**`Concise` 則相反** |
+| 自訂風格 | 取決於你叫它產出什麼 |
+
+> ⭐ **這條直接接上 [[token-saving-three-moves-context-control]] 的「輸出比輸入貴」**:選 Explanatory 是**主動買貴**換學習效果 —— 值得,但要知道自己在買什麼。**而在自己熟的專案開 Explanatory,就是純粹花錢買你已經知道的事。**
+
+### ③ ⭐ 這五個功能到底該用哪一個
+
+官方給了一張很好用的對照表:
+
+| 功能 | 怎麼運作 | 什麼時候用 |
+|---|---|---|
+| ⭐ **Output style** | **直接改 system prompt**,每一次回覆都套用 | 你要的是**不同的角色、語氣或預設輸出格式** |
+| **CLAUDE.md** | 在 system prompt **之後**加一則 user message | Claude 應該一直知道你的**專案慣例與程式庫脈絡** |
+| `--append-system-prompt` | **附加**到 system prompt,不移除任何東西 | 單次呼叫的一次性追加 |
+| **Agents** | 跑一個有自己 system prompt / 模型 / 工具的 subagent | 要一個**獨立範圍**的助手處理特定任務 |
+| **Skills** | 被叫用或判定相關時載入任務專屬指示 | 你有一個**可重複使用的工作流** |
+
+⭐⭐ **兩個關鍵區分值得記:**
+1. **output style 是「改寫」system prompt,`--append-system-prompt` 是「附加」** —— 前者會拿掉東西(見坑一),後者不會。
+2. **講「你的專案是什麼」用 CLAUDE.md,講「你希望它怎麼說話」用 output style。** 混用是很多人 CLAUDE.md 越寫越肥的原因之一 —— 參見 [[claude-md-cut-82-percent-and-maintain-it]]。
+
+> 📎 官方另有一頁 `debug-your-config` 專門處理「output style 沒生效」的診斷。
 
 ---
 
@@ -220,7 +347,9 @@ Matt Pocock 針對同一個問題的做法**不是 output style,而是一個叫 
 | 趕時間 / vibe coding 隨便玩 | 言簡意賅的那套,衝進度 |
 | 下班前或加班中 | Lydia 的 ELI5,讓自己頭不那麼痛 |
 
-⚠️ **本文未能就地核實儲存路徑**:本機目前沒有 `~/.claude/output-styles/` 目錄,settings 也沒有 `outputStyle` 鍵(從未設定過)。依影片說法,**風格檔案放在 output styles 資料夾、當前選用的風格記在 settings 檔**——實際路徑請以你的 Claude Code 版本 `/config` 顯示為準。
+✅ **2026-08-22 更新:儲存路徑已由官方文件確認**(本文原先標記為未能核實)——**風格檔**放在三個層級的 `output-styles/` 目錄(使用者 `~/.claude/output-styles`、專案 `.claude/output-styles`、受管政策),**當前選用的風格**記在 **`.claude/settings.local.json`** 的 `outputStyle` 鍵。詳見第四節坑三。
+
+> ⭐ **所以「跟著專案走」這個玩法是成立的**,而且比影片說的更細:**專案層會從工作目錄一路往上載入每一層的 `output-styles/`,同名時最接近工作目錄的勝出** —— monorepo 裡各子專案可以各有一套。
 
 ### ② 它不是設定一次就用到底的東西
 
@@ -314,7 +443,7 @@ Matt Pocock 針對同一個問題的做法**不是 output style,而是一個叫 
 1. **先分清楚是「做錯了」還是「說不清」。** 那些抱怨幾乎都是後者——測試照樣過,罵的是看不懂。Matt Pocock 貼的天書範例,他自己承認**那段其實是關鍵資訊**。
 2. **output style 只改變說話方式,不影響寫程式的能力。** 同一顆腦子,換一種報告格式。
 3. **Lydia Hallie(Claude Code 團隊)的 ELI5**:當我五歲、簡單詞彙、短句、只講必要的、術語講完馬上解釋、最後說「做了什麼/成不成功/我下一步做什麼」。
-4. **內建四套**:Default(簡潔)/ Proactive(少廢話直接動手)/ Learning(留 code 給你寫)/ Explanatory(每個改動都解釋)。
+4. **內建五套(⭐ 已依官方文件修正,原寫四套)**:Default / Proactive(少廢話直接動手)/ ⭐ **Concise(先講結果、預設簡短,但工程做得跟 Default 一樣徹底,且一定完整保留錯誤報告與安全警告)** / Learning(留 `TODO(human)` 給你寫)/ Explanatory(每個改動都解釋)。⚠️ **`Concise` 是最貼近「治囉嗦」的那一套,兩支影片都沒提到(需 v2.1.237+)—— 自己動手寫之前先試它。**
 5. **⚠️ Explanatory 只該用在不熟的專案。** 熟悉的專案開了會把你早就知道的事重講一遍——**本來想解決囉嗦,結果更囉嗦**。
 6. **⭐ 生成自己的風格用 `/branch`**:拿一段真實讀不懂的輸出,叫它用五種風格重寫,挑一種做成 style。不打斷原本工作。
 7. **STE100(ASD-STE100)**:歐洲航太幾十年前的寫作標準——短句、一句一動作、固定詞彙表且一詞一義。**技術文件沒人看得懂不是 AI 時代的新問題,工程界早就付出過代價並解決過。**
@@ -323,14 +452,24 @@ Matt Pocock 針對同一個問題的做法**不是 output style,而是一個叫 
 10. **⭐ 核心原則:光說「講簡單一點」沒用,它只會把長廢話換成短廢話。** 要(a)把偏好精鍊成**原則**,(b)**叫它用你的詞彙**。
 11. **最狠的一句**:AI 丟一千字你根本不會讀,只會掃過去心想「應該沒問題吧」然後按確認。**輸出縮到幾行,你才會真的讀進去,才擋得住該擋的東西。** —— 這是安全問題,不只是舒適度。
 12. **不是設定一次就用到底**:能力會進步,技術密度要往上調;不同專案、不同任務、甚至當天累不累都可以切換。
+13. ⚠️⚠️ **最大的坑:`keep-coding-instructions` 預設是 `false`。** 自訂 output style **預設會把內建的軟體工程規範整個扔掉**(官方明列:如何界定改動範圍、怎麼寫註解、如何驗證成果)。**只想換說話方式就必須寫 `keep-coding-instructions: true`** —— 否則說話變好聽,做事品質默默掉,而且**不會有任何警告**。
+14. ⚠️ **改設定檔不會當場生效**:output style 屬於 system prompt,**一個 session 只在開始時讀一次**。走 `/config` 選單切換會重載(當場生效);**自己用編輯器改檔案,要 `/clear` 或重開 session**。新風格檔要出現在選單裡也是同理。
+15. ⚠️ **`/output-style` 獨立指令已在 v2.1.73 棄用、v2.1.91 移除** —— 現在只能用 `/config` 或直接改 `outputStyle` 設定值。
+16. **📁 檔案位置(官方確認)**:風格檔放 `~/.claude/output-styles`(使用者)或 `.claude/output-styles`(專案);⭐ **專案層會從工作目錄一路往上載入每一層,同名時最近的勝出**。選用的風格記在 `.claude/settings.local.json`。
+17. ⭐⭐ **範圍限制:output style 只作用於主對話,subagent 不受影響**(它跑自己的 system prompt);**fork 是例外**,因為繼承母對話的完整 system prompt —— 這也正是 `/branch` 那招能成立的原因。
+18. **token 成本有兩個方向**:規則進 system prompt ⇒ input 增加(prompt caching 會攤掉);而 **Explanatory / Learning 設計上就會產出更長的回覆 ⇒ output 增加,`Concise` 相反**。⭐ **在自己熟的專案開 Explanatory,是純粹花錢買你已經知道的事。**
+19. ⭐ **該用哪個功能**:要**不同角色/語氣/預設格式** ⇒ output style(**改寫** system prompt);要它知道**專案慣例** ⇒ CLAUDE.md(在 system prompt 之後加 user message);一次性追加 ⇒ `--append-system-prompt`(**附加**、不移除);獨立範圍的助手 ⇒ Agents;可重用工作流 ⇒ Skills。
 
 ---
 
 ## 來源
 
 - [You Think Claude Got Dumber? You're Actually Just Missing This Setting — Gary Chen](https://www.youtube.com/watch?v=E8Bx9OlpmdM)(2026-08,約 11.7 分鐘,官方繁中字幕)
+- ⭐ [你以為 Fable 5 降智了?我實測在 ClaudeCode 加一行設置,AI 瞬間說人話 — YAHA学堂](https://youtu.be/nlNDzop6tBw)(2026-08-22,約 6.5 分鐘,官方 zh 字幕)—— **第四節的三個坑來自此片**(`keep-coding-instructions`、改檔案要 `/clear`、選單重載);另提供實測對比:同一問題預設風格 700 多字,換 ELI5 後不到 400 字
+- ⭐ [Claude Code 官方文件:Output styles](https://code.claude.com/docs/en/output-styles) —— **已比對核實**:五種內建風格(含本文原先漏掉的 `Concise`)、frontmatter 四個欄位與 `keep-coding-instructions` 預設 `false`、三個層級的檔案路徑與就近優先規則、`/output-style` 的棄用與移除版本、**subagent 不套用 / fork 例外**、token 成本方向、以及與 CLAUDE.md / `--append-system-prompt` / Agents / Skills 的對照表
 - 影片引用:Claude Code 團隊工程師 **Lydia Hallie** 的推特貼文(ELI5 output style)、**Matt Pocock** 對 Opus 5 輸出風格的公開評論與其 `wait what` skill
 - [ASD-STE100 Simplified Technical English](https://www.asd-ste100.org/)(歐洲航太與國防工業協會維護的寫作標準)
 - 本倉庫相關筆記:[[claude-md-from-zero-to-mastery]]、[[superpowers-vs-matt-skills-strong-model]]、[[agent-skill-three-layer-run-do-verify]]
 
-> ⚠️ 影片提到 output style 存放於專案的 `settings.local.json`,**本文未能就地核實**——本機從未設定過(無 `output-styles` 目錄、settings 無 `outputStyle` 鍵)。實際路徑與可用選項請以你的 Claude Code 版本 `/config` 顯示為準。
+> ✅ **2026-08-22:本文原先標記「未能就地核實儲存路徑」的部分,已比對官方文件確認並寫進第四節坑三。**
+> ⚠️ 但**版本差異仍然存在** —— `Concise` 需 v2.1.237 以上、`/output-style` 在 v2.1.91 後已移除。**可用選項請以你當下的 `/config` 選單為準**;官方另有 `debug-your-config` 一頁專門診斷「output style 沒生效」。

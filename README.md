@@ -113,7 +113,7 @@ flowchart LR
 | **Jerry's Productivity Tech Channel(簡睿學堂)** — 跨平台工具與生產力 | 1 | [dbx 資料庫客戶端 + MCP](./technology/dev-tools/dbx-rust-database-client-mcp.md) |
 | **Blink 的 AI 筆記** — AI × 知識管理實踐 | 1 | [Project Cairn:經驗知識化 Skill](./technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) |
 | **智用 AI** — AI 底層技術與成本拆解 | 1 | [GPT-5.6 Sol 自優化 kernel 與 Luna 定價](./technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) |
-| **YAHA學堂** — Claude Code 實測與工程最佳實踐 | 1 | [CLAUDE.md 砍 82% 與維護兩步法](./technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
+| **YAHA學堂** — Claude Code 實測與工程最佳實踐 | 2 | [CLAUDE.md 砍 82% 與維護兩步法](./technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) · [output style 三個坑(與 Gary Chen 版合併)](./technology/claude-code/output-style-communication-not-intelligence.md) |
 | **可樂 AI 實驗室** — AI 編程落地與量化系統架構 | 1 | [Agent 五大核心與 LangGraph](./technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md) |
 | **技術爬爬蝦 TechShrimp** — AI 工具保姆級教學與實測 | 1 | [Pi 極簡 Agent 完整拆解](./technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | **Hugging Face(Alejandro AO)** — AI 工程架構深度解說 | 1 | [Mem0 記憶架構拆解](./technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md) |
@@ -410,7 +410,7 @@ flowchart LR
 ### 🖥️ claude-code(Claude Code 維運)
 | 主題 | 一句話 |
 |---|---|
-| [Claude 不是變笨,是講話方式跟你對不上:用 output style 治囉嗦](./technology/claude-code/output-style-communication-not-intelligence.md) | 先分清「做錯了」還是「說不清」——那些降智抱怨測試都過了;內建四套(⚠️ Explanatory 只該用在不熟的專案,熟專案開了更囉嗦);`/branch` 拿真實看不懂的輸出叫它重寫五種風格;航太 ASD-STE100 標準;**光說「講簡單一點」沒用,它只會把長廢話換成短廢話**——要精鍊成原則+用你的詞彙;千字輸出你只會掃過去按確認,縮到幾行才擋得住 |
+| [Claude 不是變笨,是講話方式跟你對不上:用 output style 治囉嗦](./technology/claude-code/output-style-communication-not-intelligence.md) | 先分清「做錯了」還是「說不清」——那些降智抱怨測試都過了;**⭐ 內建五套(比對官方文件修正,新增 `Concise`——最貼近治囉嗦卻沒人提)**;⚠️ Explanatory 只該用在不熟的專案;`/branch` 叫它重寫五種風格;ASD-STE100;**光說「講簡單一點」沒用,只會把長廢話換成短廢話**;**⚠️⚠️ 三個坑:`keep-coding-instructions` 預設 false 會把工程規範整個扔掉、改設定檔要 `/clear` 才生效、`/output-style` 已移除**;**⭐ subagent 不套用(fork 例外)** |
 | [Claude Code Hooks 完全指南:CLAUDE.md 是提醒紙條,Hook 才是自動門](./technology/claude-code/claude-code-hooks-complete-guide.md) | **CLAUDE.md 靠模型自覺、Hook 由軟體強制**;三層架構 Event/Matcher/Handler;五個真實案例(Superpowers 用 SessionStart 對付 Skill 載入隨機性、Claude-Mem 注入長期記憶、**Impeccable 把快檢查放 PostToolUse、深度檢查放 Stop**);prompt 只能看給的資料、agent 可先讀檔跑測試;⚠️ **Stop Hook 一定要有結束條件**(以內容版本記錄已通過 + 三輪上限)|
 | [CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題與一個減號的坑](./technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) | `/context` 量化佔用(798→143);Anthropic 優化 Opus5/Fable5 時系統提示詞也砍逾八成且**評測無可測量退步**;三問(自己找得到嗎/都用得到嗎/會過期嗎);⚠️ **YAML frontmatter 少一個減號 → 規則默默變全局常駐**;`/insights` 掃對話找該加什麼、`/doctor` 砍該刪的(**只檢查已 commit 的檔案**);⭐ 留存判準:**跟預設行為相異才值得寫** |
 | [15 分鐘學完 CLAUDE.md:從入門到精通](./technology/claude-code/claude-md-from-zero-to-mastery.md) | User/Project/Nested 三層疊加;`/init` 太完整反而吃 Instruction Budget;減法三問+加法五問;長流程→Skill、紅線→Hook;`/insights` 新增、對照 Prompting Guide 修剪;CLAUDE.md 第一行 reference AGENTS.md 只維護一份 |

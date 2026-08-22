@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**160 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **171 篇**筆記。
+> 統計:**161 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **171 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(160 部,依 video id 排序)
+## YouTube(161 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -121,6 +121,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `MdZWB8eC83Q` | Bitter Lesson:模型變強後,你的舊 prompt 正在拖垮新模型 | [technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md](./technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md) |
 | `MlhsoWmyEKE` | 落地競賽:OpenAI 與 Anthropic 同日進軍企業導入,承認「只有模型沒用」 | [technology/ai-agents/applications/enterprise-ai-adoption-race.md](./technology/ai-agents/applications/enterprise-ai-adoption-race.md) |
 | `mnuk1GkJxDU` | 股癌選股心法:籌碼/技術都是工具,本質是「選對題材的好股」 | [investing/strategy/gooaye-stock-picking-philosophy.md](./investing/strategy/gooaye-stock-picking-philosophy.md) |
+| `nlNDzop6tBw` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [technology/claude-code/output-style-communication-not-intelligence.md](./technology/claude-code/output-style-communication-not-intelligence.md) |
 | `nLZ-C7bbZzs` | PLTR 財報後大漲 30%:市場真正在交易的不是業績,是「增速見頂」風險的釋放 | [investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md](./investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md) |
 | `oBy94l_48CQ` | 2026 年 Agent 開發工程師要什麼能力:從 Demo 到生產系統的四塊拼圖(附面試題與標準答案) | [technology/ai-agents/foundations/production-agent-engineer-skills-2026.md](./technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) |
 | `oW4hgB1vIoY` | 用 Python 做強化學習交易機器人:在 EUR/USD 外匯訓練 AI Agent | [investing/ai-assisted/rl-trading-bot-forex.md](./investing/ai-assisted/rl-trading-bot-forex.md) |
