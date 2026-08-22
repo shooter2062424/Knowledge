@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**161 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **171 篇**筆記。
+> 統計:**162 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **172 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(161 部,依 video id 排序)
+## YouTube(162 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -62,6 +62,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `ByBLjNA3MvY` | 海鷗策略(Seagull):牛市中「不踏空又不怕跌」的三腿期權對沖 | [investing/derivatives/seagull-options-hedge.md](./investing/derivatives/seagull-options-hedge.md) |
 | `CGd5zDUrWnw` | Agent 為什麼會長成 Runtime:DeepSeek Harness 的插件樹與事件日誌,以及底下那篇 Cordis 論文 | [technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md](./technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) |
 | `cgKUgAJE3cs` | AI 產業秘密轉向:大模型集體從 C 端轉 B 端、訂閱轉用量,而「算力」成了現階段的勝負手 | [investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md](./investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md) |
+| `CKKJuFVMvXQ` | Graph Engineering:把腦袋裡的分工、路由與驗收畫出來,別再當人肉 routing system | [technology/ai-agents/foundations/graph-engineering-node-edge-state.md](./technology/ai-agents/foundations/graph-engineering-node-edge-state.md) |
 | `CMs8YMU6_RM` | AI 改 code 一直「改 A 壞 B」?讓 AI 安全接手舊專案(Brownfield)的五個步驟 | [technology/ai-productivity/ai-brownfield-codebase-five-steps.md](./technology/ai-productivity/ai-brownfield-codebase-five-steps.md) |
 | `d4329xvSDK4` | AI 額度老是不夠用?三招省 Token:丟掉、縮減、打折 | [technology/ai-productivity/token-saving-three-moves-context-control.md](./technology/ai-productivity/token-saving-three-moves-context-control.md) |
 | `DcibeCh1aZ4` | 美股連漲 13 天還能追嗎?「真實通脹」數據、AI 情緒三大轉向信號,與「踏空風險 > 回調風險」 | [investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md](./investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md) |
