@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**162 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **172 篇**筆記。
+> 統計:**163 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **172 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(162 部,依 video id 排序)
+## YouTube(163 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -166,6 +166,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `VD9zEKQEJxo` | Sutton 的「行動認知 AI(enactive AI)」:一張自相矛盾的反大模型藍圖 | [technology/llm-internals/world-models/sutton-enactive-ai.md](./technology/llm-internals/world-models/sutton-enactive-ai.md) |
 | `vkpS7WztTMc` | 蘇姿丰 MIT 2026 畢業演講:如何創造自己的運氣,以及 AI 時代人類無可取代的價值 | [career/mindset/lisa-su-mit-commencement.md](./career/mindset/lisa-su-mit-commencement.md) |
 | `W973FsTECa8` | to-tickets 深入實操:把 spec 拆成 agent「能穩定開工、單獨驗收、可並行」的工單 | [technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md](./technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) |
+| `Wah1vdFE92k` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | `wexH7AueOeA` | NVIDIA RTX Spark(GB10 超級晶片)技術解析:最適合本地 AI 推理的 SoC 之一? | [technology/ai-industry/rtx-spark-gb10-soc.md](./technology/ai-industry/rtx-spark-gb10-soc.md) |
 | `wj7mHCviMvs` | 15 分鐘學完 CLAUDE.md:三個位置、做減法的三問、做加法的五問、以及怎麼「修剪」 | [technology/claude-code/claude-md-from-zero-to-mastery.md](./technology/claude-code/claude-md-from-zero-to-mastery.md) |
 | `WOMdoiy9Qas` | Opus 4.7 不是更強的 4.6,是另一種模型:四個該跟著升級的工作流 | [technology/ai-productivity/opus-4-7-workflow-upgrades.md](./technology/ai-productivity/opus-4-7-workflow-upgrades.md) |

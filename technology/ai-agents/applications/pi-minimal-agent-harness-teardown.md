@@ -2,7 +2,7 @@
 
 > 整理自兩支影片交叉比對:
 > - **技術爬爬蝦 TechShrimp**〈Pi 大道至簡,超越 Codex 和 Claude Code 的極簡 Agent,保姆級全攻略〉(2026-08-16,約 44.6 分鐘)
-> - ⭐ **畅的科技工坊**〈Pi Agent 完整上手指南:輕量 AI Coding Agent、Extension、Package、Session Tree 實戰〉(2026-08-20,約 32.5 分鐘,官方 zh-CN 字幕)—— **第六、六之二、七之二節的操作細節與第八節的沙箱更新來自此片**
+> - ⭐ **畅的科技工坊**〈[Pi Agent 完整上手指南:輕量 AI Coding Agent、Extension、Package、Session Tree 實戰](https://www.youtube.com/watch?v=Wah1vdFE92k)〉(2026-08-20,約 32.5 分鐘,官方 zh-CN 字幕)—— **第六、六之二、七之二節的操作細節與第八節的沙箱更新來自此片**
 >
 > 依 CLAUDE.md 慣例,另**實地 clone `earendil-works/pi`(91.3K stars)讀原始碼核實**,文中標出核實結果。
 
@@ -698,10 +698,11 @@ git add -A && git commit -m "before: <要嘗試的事>"
 ## 來源
 
 - [Pi 大道至簡,超越 Codex 和 Claude Code 的極簡 Agent,保姆級全攻略 — 技術爬爬蝦 TechShrimp](https://www.youtube.com/watch?v=HhZcnM9tR7s)(2026-08-16,約 44.6 分鐘)
+- ⭐ [Pi Agent 完整上手指南:輕量 AI Coding Agent、Extension、Package、Session Tree 實戰 — 畅的科技工坊](https://www.youtube.com/watch?v=Wah1vdFE92k)(2026-08-20,約 32.5 分鐘,**官方 zh-CN 字幕**) —— 第六節的 Extension/Package 之分、第六之二節的配置檔與工作模式、第七節的 AGENTS.md 層級與 trust 澄清、第八節的社群 sandbox extension 更新皆來自此片
 - [earendil-works/pi](https://github.com/earendil-works/pi) —— 已 clone 核實:`README.md`、`packages/agent/src/agent-loop.ts`(雙層循環)、`packages/coding-agent/src/core/tools/index.ts`(工具組成)、`packages/coding-agent/docs/security.md`、`packages/coding-agent/docs/containerization.md`
 - [pi.dev](https://pi.dev) —— 官網與文件
 - 本倉庫相關筆記:[[agent-runtime-deepseek-harness-cordis]]、[[seven-agent-architectures-selection-guide]]、[[claude-md-cut-82-percent-and-maintain-it]]、[[encrypted-reasoning-traces-portable-key-flaw]]
 
-> 該片無字幕,逐字稿以 CPU 版 faster-whisper(small / int8 / zh)轉錄取得,**非官方字幕**,可能有少量聽寫誤差。文中專有名詞已對照原始碼校正(轉錄中的「派 / Pie」為 **Pi**、「大到致減」為**大道至簡**、「碳號」為**驚嘆號 `!`**、「克龍」為 **clone**、「Folk」為 **fork**、「斜線錘」為 **`/tree`**、「staring」為 **steering**、「杀箱」為**沙箱**、「全线」為**權限**、「Azence.md」為 **AGENTS.md**)。
+> ⚠️ **技術爬爬蝦那一片**無字幕,逐字稿以 CPU 版 faster-whisper(small / int8 / zh)轉錄取得,**非官方字幕**(畅的科技工坊該片有官方 zh-CN 字幕,無此問題),可能有少量聽寫誤差。文中專有名詞已對照原始碼校正(轉錄中的「派 / Pie」為 **Pi**、「大到致減」為**大道至簡**、「碳號」為**驚嘆號 `!`**、「克龍」為 **clone**、「Folk」為 **fork**、「斜線錘」為 **`/tree`**、「staring」為 **steering**、「杀箱」為**沙箱**、「全线」為**權限**、「Azence.md」為 **AGENTS.md**)。
 >
 > ⚠️ **本文對第三方基準測試(Composio、Databricks)僅轉述影片說法,未獨立驗證。** Pi 迭代快速,指令與插件生態可能已變動,以官方文件為準。
