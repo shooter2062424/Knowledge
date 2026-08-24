@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**163 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **172 篇**筆記。
+> 統計:**164 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **173 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(163 部,依 video id 排序)
+## YouTube(164 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -49,6 +49,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `7pSZx9-VT3k` | 「Token 省 120 倍」該怎麼讀?Codebase-Memory-MCP vs CodeGraph:同一個痛點的兩條路線 | [technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md](./technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) |
 | `91yRxsdc0gA` | 這次半導體狂歡是 2000 泡沫重演嗎?五個相同、四個不同、兩個要盯的信號 | [investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md](./investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md) |
 | `9tREtYASGbs` | 微軟財報大漲 15% 的真正原因:三大質疑逐一拆解,以及 AI 價值鏈的位移 | [investing/equity-research/microsoft-fy26q1-three-doubts-resolved.md](./investing/equity-research/microsoft-fy26q1-three-doubts-resolved.md) |
+| `_oDISo3B3xw` | 美債史詩級拋售:真正的變量不是 40 兆債務,是新任聯準會主席的「溝通方式」 | [investing/strategy/us-treasury-selloff-warsh-communication-shift.md](./investing/strategy/us-treasury-selloff-warsh-communication-shift.md) |
 | `_RD3iFDhuzs` | Karpathy 訪談:Software 3.0、Jagged Intelligence 與 Agentic Engineering | [technology/ai-agents/foundations/karpathy-software-3-0.md](./technology/ai-agents/foundations/karpathy-software-3-0.md) |
 | `aR97E7aKEgg` | Matt Pocock 的 AI 開發 skills 全拆解:最紅的 skill 只有五行字,強在哪? | [technology/ai-agents/applications/matt-pocock-skills-teardown.md](./technology/ai-agents/applications/matt-pocock-skills-teardown.md) |
 | `atqcAb7MFAM` | 給非技術人員的 Git / GitHub:Vibe Coding 必學的基礎技能 | [technology/ai-productivity/git-github-for-vibe-coders.md](./technology/ai-productivity/git-github-for-vibe-coders.md) |
