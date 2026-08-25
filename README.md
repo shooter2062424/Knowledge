@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-206_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-212_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -135,6 +135,12 @@ flowchart LR
 | **blog.aihao.tw(ihower)** — agent 工程 | 2 | [Agent Streaming 格式設計](./technology/ai-agents/applications/agent-streaming-format-design.md) · [用 AI 分析 Agent Traces](./technology/ai-agents/applications/agent-trace-analysis-with-ai.md) |
 | **Prime Intellect(官方部落格)** | 1 | [Prime Agent:RLM 與 Continual Harness](./technology/ai-agents/foundations/prime-agent-rlm-continual-harness.md) |
 | **Anthropic(官方研究/頻道)** | 3 | [五大 Agent 模式](./technology/ai-agents/foundations/five-agent-patterns.md) · [Man Group 用 Claude Skills 治理](./technology/ai-agents/applications/claude-skills-governance-man-group.md) · [J-Space 全域工作空間](./technology/llm-internals/interpretability/j-space-global-workspace-claude.md) |
+| **OpenAI(官方部落格/文件)** | 1 | [Codex 平台化與 open agent harness](./technology/ai-agents/applications/codex-as-a-platform-open-agent-harness.md) |
+| **Claude Code 官方文件** | 1 | [Claude Code 2026 功能演進時間軸](./technology/claude-code/claude-code-2026-feature-timeline.md) |
+| **ARC Prize Foundation(論文)** | 1 | [ARC-AGI-3 agentic 基準](./technology/ai-safety/arc-agi-3-agentic-benchmark.md) |
+| **復旦大學 / 北京大學 / 上海啟迪智風(論文)** | 1 | [Agentic Harness Engineering](./technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md) |
+| **PricewaterhouseCoopers(論文)** | 1 | [Recursive Agent Harness](./technology/ai-agents/foundations/recursive-agent-harness-harness-recursion.md) |
+| **Microsoft / 復旦 / 浙大 / 愛丁堡(論文)** | 1 | [Harnessed Agentic RL(Agent Lightning v1.0)](./technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md) |
 
 ### 🗞️ 週報
 
@@ -259,6 +265,8 @@ flowchart LR
 | [「Loop Engineering」是名詞詐騙嗎?一個反方吐槽視角](./technology/ai-agents/foundations/loop-engineering-buzzword-critique.md) | Prompt→Context→Harness→Loop 都在講「自動化駕馭」;拆三位炒作者+5 組件不正交;抓本質(Raft/K8s control loop)別追名詞 |
 | [Loop Engineering 實務:怎麼設計、什麼值得做、失控三坑(Gary Chen)](./technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md) | Trigger+Verifiable Goal;Rubric/yes-no 清單定義完成;三檢查判斷值不值得;hard stop/邊界/驗收+別球員兼裁判 |
 | [Graph Engineering:把腦袋裡的分工、路由與驗收畫出來,別再當人肉 routing system](./technology/ai-agents/foundations/graph-engineering-node-edge-state.md) | **⭐ Loop Engineering 的續集**;五層分工(Prompt/Context/Harness/Loop/Graph)**層層嵌套非競爭**——前四層優化單一執行者、Graph 管多執行者協作;**⚠️ 畫流程圖 ≠ Graph Engineering**;三零件 node/edge/state;**⭐⭐ node ≠ agent——確定性工作三行程式碼搞定,派 LLM 按計算機只是浪費**;**state 要像有欄位的試算表、不是聊天紀錄**;fan-out/fan-in/verifier,**哪裡出錯退回哪裡修(回溯本身就是局部 Loop)**;**LLM 最大盲點是把「做完」當「做對」——生得出以假亂真的班表但票根本買不到**;**⚠️ 講者自承旅行案例前沿模型已能自理,不是每件事都要套 Graph** |
+| [Agentic Harness Engineering:讓 harness 自己演化自己,瓶頸是「可觀測性」](./technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md) | **⭐ 補上「harness 能不能自己改進自己」這一塊**;三根支柱(元件/經驗/決策可觀測)把每次修改變成**可證偽的契約**;七種正交元件皆為檔案、每次修改一個 git commit;**種子刻意最小以免汙染歸因**;軌跡 10M token 蒸餾成 10K;**⚠️ 唯讀清單防 reward hacking(不准停用 verifier / 換模型 / 調推理預算)**;Terminal-Bench 2 **69.7%→77.0%** 勝過 Codex 71.9%,凍結後遷移還**省 12% token**;**⭐⭐ 消融:工具/中介層/記憶各自扛起增益,但系統提示詞單獨用反而退步——「事實性結構能遷移,散文策略不行」**;⚠️ 自陳限制:**自我歸因對修好的準、對退步的瞎** |
+| [Recursive Agent Harness:遞迴的單位該是一次模型呼叫還是一整個 harness?](./technology/ai-agents/foundations/recursive-agent-harness-harness-recursion.md) | **coding agent 因上下文裝不下而退化成 regex;RLM 則完全沒有工具** —— RAH 讓遞迴單位是**完整 harness**;⭐ **用「普通程式碼」而非 schema 化工具來生子 agent**,才能參數化並行度/逐條指令/輸出路徑,**並擴展到任何 function-call 預算都撐不住的數量**;隔離上下文 + 用檔案彙整;**骨幹固定 GPT-5:RLM 64.38% → Codex 71.75% → RAH 81.36%**,增益歸因於 harness;**⭐ 論文自陳「貢獻是命名與評估,不是發明原語」**,並點名 Anthropic dynamic workflows 是同模式的生產版 |
 | [19 分鐘搞懂 Harness/Loop/LLM Ops/Eval:一張圖串起記憶/RAG/Tracing](./technology/ai-agents/foundations/agent-harness-loop-llmops-eval-explained.md) | LLM=懂全人類卻不懂你的馬;三種記憶+蒸餾閘門;loop 知道何時停;tracing→eval→診斷→上線自我演化 |
 | [Claude Code 官方定義的四種 Loop:Turn/Goal/Time/Proactive](./technology/ai-agents/foundations/claude-code-loop-types-official.md) | 官方權威定義;交出去越多自動化越深(檢查→停止條件→觸發→prompt);/goal·/loop·/schedule·dynamic workflows |
 | [Loop Engineering:從寫提示詞到設計驅動 agent 的循環](./technology/ai-agents/foundations/loop-engineering.md) | Boris 三階段;loop=心跳/work tree/skill/MCP/子agent+記憶脊柱;/goal vs /loop;四條件測試 |
@@ -315,6 +323,7 @@ flowchart LR
 | [herdr:讓 Agent 互相指揮的終端 runtime(AI随风)](./technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) | Rust 單一二進位、背景 server + 終端 client,關筆電 agent 續跑;**⭐ agent 狀態靠 regex 掃終端畫面判定**(19 份偵測 manifest,不需任何一方支援協定,代價是對方改 UI 就壞);Layout/Pane/Agent 三原語;B 全程不知道 A 與 herdr 存在;實測 Claude↔Codex 來回 7 輪才過審 —— 協商回合數是真實成本;⚠️ 影片稱「YC 支持」無法核實 |
 | [2026 年八月的三場 Harness 發表:Muse Code、Grok Bot、Microsoft Agent Framework GA](./technology/ai-agents/applications/agent-harness-launches-august-2026.md) | ⚠️ **全依二手媒體、未讀原始碼**,定位是索引與對照;**Claude Code 約 98.4% 程式碼是 harness 基礎設施而非 AI 邏輯**(微軟引用);Muse Code 扇出 sub-agent + **contributor 方案十分之一價換回饋**;**⭐ Grok Bot 給每個 agent 一台持久雲端 VM —— 沙箱問題的第三種答案**;MS 合併 Semantic Kernel + AutoGen,**內建迴圈上限 40 回合** |
 | [Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,與「刻意不做沙箱」](./technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) | 4 工具 + 約 1000 token 系統提示詞(打招呼 1.1k vs Codex 18k);**⭐ 雙層循環已核實**(`agent-loop.ts` 僅 796 行);**⭐ Extension(運行時能力)vs Package(分發容器)之分**;`models.json` 與 `modelstore.json` **一字之差、後者不可手改**;四種工作模式(Interactive/JSON/RPC/SDK);**⭐ AGENTS.md 向上逐級搜尋、`AGENTS.override.md` 完全覆寫、⚠️ trust 不影響 AGENTS.md 只影響 `.pi/`**;對話樹 `/tree` 留在原樹、`/fork` 完全獨立 ⚠️ **但只回退對話不回退程式碼**;**⚠️ 核心刻意無沙箱,但社群已有 pi-sandbox extension**(⚠️ 未經驗證,裝前先讀原始碼);**實測 20 分鐘做完一個遊戲、快取命中率 99.9%、花費約 15 美分** |
+| [Codex 平台化:OpenAI 把 harness 開源、模型留著](./technology/ai-agents/applications/codex-as-a-platform-open-agent-harness.md) | ⭐⭐ **開源邊界劃得很明確:harness、CLI、app-server、SDK 與整合面開放;模型存取與託管服務專有**;app-server 協定四原語 Threads/Turns/Events/**Approval requests**(審批是一等原語);主張**把 agent 帶進工作現場**而非把人叫進通用助理;**⭐⭐ 同模型只加「保留推理+上下文壓縮」,ARC-AGI-3 從 13.3% → 38.3% 且輸出 token 少六倍** |
 | [qm(YC 開源):把個人 Agent 變成「多人可用」的 Agent Harness](./technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md) | scope 隔離(各自的 memory/files/keychain/權限/持久 sandbox);**沒有自己的內核**——Pi/OpenCode/Codex/Claude Code 驅動同一 core;安全姿態 Strict/Auto/Dangerous 但命令政策全檔位生效;官方自陳非多租戶邊界 |
 | [Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生(AI超元域)](./technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) | 主 agent 拆解→分派 subagent 並行→合併;每 subagent 獨立模型(Kimi K3/MiniMax/GPT-5.6)+工具+skill;CC Switch 接第三方;多模型對抗審查抓嚴重 bug;具 Graph Engineering 初級特徵 |
 | [to-tickets 深入實操:把 spec 拆成 agent 能穩定開工的工單(01Coder)](./technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) | spec 不是工作單元;按功能縱向切(tracer bullet)非按層;標依賴→frontier 並行調度;prefactor 先行/擴展-收縮;先讀代碼才拆(6→9 張)|
@@ -343,6 +352,7 @@ flowchart LR
 | [Yann LeCun 的 JEPA 與世界模型](./technology/llm-internals/world-models/jepa-lecun-world-models.md) | 非生成、聯合嵌入預測;反 LLM 的另一條路 |
 | [Sutton 的 enactive AI:一張自相矛盾的反大模型藍圖](./technology/llm-internals/world-models/sutton-enactive-ai.md) | 行動認知≠生成式;兩根柱子撞自己的獎勵假設與苦澀教訓;三桌賭 2028/2030 |
 | [SDAR:用逐 token 門控穩住多輪 Agent 的 RL 後訓練](./technology/llm-internals/training/sdar-agentic-rl.md) | RL 為主幹+門控蒸餾,避免多輪 OPSD 崩潰、技能內化 |
+| [Harnessed Agentic RL:當 harness 而不是訓練器擁有互動迴圈,RL 會壞在哪四個地方](./technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md) | 用**部署時的同一個 harness** 做 RL,縮小訓練與實用的落差;**潛在狀態變成 harness+環境、rollout 暴露成一串請求–回應對**;**⚠️ 四個挑戰**:重新分詞後 token ID 變了導致樣本無法安全合併、一次 rollout 產生動態樣本數、**樣本層級正規化會讓「生較多子 agent」的 rollout 權重變大**、樣本數只有跑完才知道的排程問題;框架僅 **3,500 行**;⭐ **只用 6K 樣本把 Qwen3.5-9B 在 SWE-bench Verified 從 41.8% 拉到 56.4%** |
 | [J-Space:Claude 內心那層「說得出口的思考」(Anthropic 全域工作空間)](./technology/llm-internals/interpretability/j-space-global-workspace-claude.md) | 借神經科學查 LLM「意識 vs 潛意識」;J-space=可轉文字/能推理的表示子集;關掉就不能推理;讀它能抓「編假數據」時亮起的 fake/manipulation |
 
 ### 📐 machine-learning(機器學習模型與方法)
@@ -415,6 +425,7 @@ flowchart LR
 |---|---|
 | [Claude 不是變笨,是講話方式跟你對不上:用 output style 治囉嗦](./technology/claude-code/output-style-communication-not-intelligence.md) | 先分清「做錯了」還是「說不清」——那些降智抱怨測試都過了;**⭐ 內建五套(比對官方文件修正,新增 `Concise`——最貼近治囉嗦卻沒人提)**;⚠️ Explanatory 只該用在不熟的專案;`/branch` 叫它重寫五種風格;ASD-STE100;**光說「講簡單一點」沒用,只會把長廢話換成短廢話**;**⚠️⚠️ 三個坑:`keep-coding-instructions` 預設 false 會把工程規範整個扔掉、改設定檔要 `/clear` 才生效、`/output-style` 已移除**;**⭐ subagent 不套用(fork 例外)** |
 | [Claude Code Hooks 完全指南:CLAUDE.md 是提醒紙條,Hook 才是自動門](./technology/claude-code/claude-code-hooks-complete-guide.md) | **CLAUDE.md 靠模型自覺、Hook 由軟體強制**;三層架構 Event/Matcher/Handler;五個真實案例(Superpowers 用 SessionStart 對付 Skill 載入隨機性、Claude-Mem 注入長期記憶、**Impeccable 把快檢查放 PostToolUse、深度檢查放 Stop**);prompt 只能看給的資料、agent 可先讀檔跑測試;⚠️ **Stop Hook 一定要有結束條件**(以內容版本記錄已通過 + 三輪上限)|
+| [Claude Code 2026 功能演進:從「權限提示」到「agent 艦隊」的半年軌跡](./technology/claude-code/claude-code-2026-feature-timeline.md) | 涵蓋 **Week 13(3月)~ Week 34(8月)、v2.1.83–v2.1.239**,按主題重新歸類;⭐ **權限線:auto mode 從 research preview 走到 8/14 成為預設**,每條防護都對應具體破壞面;**艦隊線:agent view → dynamic workflows → subagent 再生 subagent → 跨 session 訊息**;⭐ **最新 `/design` 把 artboard 工作流帶進 CLI**;**Windows 不再需要 Git Bash(改用 PowerShell)**;⭐ **兩個刻意不自動的設計:安全外掛產生修補但要你自己套用、`/design` 是它畫你挑** |
 | [CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題與一個減號的坑](./technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) | `/context` 量化佔用(798→143);Anthropic 優化 Opus5/Fable5 時系統提示詞也砍逾八成且**評測無可測量退步**;三問(自己找得到嗎/都用得到嗎/會過期嗎);⚠️ **YAML frontmatter 少一個減號 → 規則默默變全局常駐**;`/insights` 掃對話找該加什麼、`/doctor` 砍該刪的(**只檢查已 commit 的檔案**);⭐ 留存判準:**跟預設行為相異才值得寫** |
 | [15 分鐘學完 CLAUDE.md:從入門到精通](./technology/claude-code/claude-md-from-zero-to-mastery.md) | User/Project/Nested 三層疊加;`/init` 太完整反而吃 Instruction Budget;減法三問+加法五問;長流程→Skill、紅線→Hook;`/insights` 新增、對照 Prompting Guide 修剪;CLAUDE.md 第一行 reference AGENTS.md 只維護一份 |
 | [搬移專案目錄後如何保住 `--continue` 對話歷史](./technology/claude-code/continue-after-directory-move.md) | 歷史按路徑編碼存 ~/.claude/projects;搬目錄要同步改名 |
@@ -443,6 +454,7 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [AI 學會裝傻和欺騙:為什麼 Safety Evaluation 跟不上大模型](./technology/ai-safety/safety-evaluation-crisis.md) | 湧現/情境覺察/Sleeper Agents/Sandbagging,benchmark 永遠落後 |
+| [ARC-AGI-3:人類 100%、前沿 AI 不到 1% —— 用「行動效率」計分的 agentic 基準](./technology/ai-safety/arc-agi-3-agentic-benchmark.md) | **agent 從不被告知目標,連「什麼算贏」都要自己推斷**;⭐⭐ **把智能定義成效率,收斂成單一純量「行動效率」**(首次接觸解開所需回合數)——**懲罰暴力嘗試,但工具呼叫與推理步驟不計入動作**;RHAE 分數**取平方**(人類 10 步 vs AI 100 步 = 1%);⭐ **新穎性用「可壓縮性」檢驗**(一支程式解兩環境且短 50% ⇒ 不夠不同);**隨機策略解開一關不得高於萬分之一**;⭐⭐ **公開:私有比例被倒轉,公開集從訓練資源變成展示介面**;⭐ **LRM 邊界:需同時有足夠領域知識 + 精確正確性回饋** |
 | [RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲暫停](./technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) | AI 研發 AI 的飛輪;Claude 寫 >80% 生產 code、優化加速 ~52×;唯一護城河是研究品味 |
 | [加密的推理過程為什麼保不住:「全域金鑰 + 可攜載體」的架構教訓](./technology/ai-safety/encrypted-reasoning-traces-portable-key-flaw.md) | 密文能證明「是本廠商產生的」卻不能證明「屬於這次對話」;6,708 份公開 agent 軌跡中 4.9% session 洩漏敏感項(62 API 金鑰/33 密碼/7 私鑰);**可抄結論:context-bound AEAD 把 user/session/上下文綁進 MAC,且綁定值須由伺服器重新推導**;模型層拒絕訓練被列最弱;✅ 已揭露且廠商已修補 |
 | [駭客怎麼騙 AI:5.5 種 Prompt Injection 技巧與防禦](./technology/ai-safety/prompt-injection-5-techniques-defenses.md) | 結構化輸出/角色扮演/多輪+payload拆分/分隔符混淆;組合技破 4o;掃描+多層guardrail,但永遠非100% |

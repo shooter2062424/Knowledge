@@ -1,9 +1,15 @@
 # 2026 年八月的三場 Harness 發表:Muse Code、Grok Bot、Microsoft Agent Framework GA
 
-> ⚠️⚠️ **來源等級提醒(請先讀這段)**
-> 本篇三個主題**全部依二手媒體報導整理**,未取得官方公告原文、也**沒有實際安裝或讀原始碼核實**。
-> 這與本倉庫其他 harness 筆記([[agent-runtime-deepseek-harness-cordis]]、[[pi-minimal-agent-harness-teardown]]、[[herdr-terminal-runtime-agent-to-agent]])的可信度**不在同一個等級** —— 那三篇都 clone 過原始碼。
-> **本篇定位是「發生了什麼」的索引與對照,不是技術拆解。** 數字與細節請以官方文件為準。
+> ⚠️ **來源等級提醒(請先讀這段)—— 2026-08-26 更新,三節的可信度已經不同**
+>
+> | 章節 | 來源等級 |
+> |---|---|
+> | 一、Meta Muse Code | ⚠️ **仍為二手媒體報導**,未取得官方公告原文 |
+> | 二、xAI Grok Bot | ⚠️ **仍為二手媒體報導** |
+> | ⭐ 三、Microsoft Agent Framework | ✅ **已比對官方 devblog 兩篇核實**,並**修正了原先兩處二手說法**(見該節) |
+>
+> 本篇仍未實際安裝或讀原始碼,與 [[agent-runtime-deepseek-harness-cordis]]、[[pi-minimal-agent-harness-teardown]]、[[herdr-terminal-runtime-agent-to-agent]] 那種 clone 過原始碼的等級**仍不相同**。
+> **定位:「發生了什麼」的索引與對照。** 一、二兩節的數字與細節請以官方文件為準。
 
 > 📎 對照組:[[agent-runtime-deepseek-harness-cordis]](DeepSeek Harness + Cordis 論文)、[[pi-minimal-agent-harness-teardown]](Pi 極簡路線)、[[herdr-terminal-runtime-agent-to-agent]](終端 runtime)、[[qm-yc-multiplayer-agent-harness]]、[[seven-agent-architectures-selection-guide]]
 
@@ -89,18 +95,98 @@ xAI 自陳的內部用例:**過夜研究客戶名單並評分意向、草擬信�
 
 ## 三、Microsoft Agent Framework Harness / Foundry Hosted Agents GA(2026-08)
 
+> ✅ **本節已於 2026-08-26 比對官方 devblog 兩篇核實**(Harness 發布文 + BUILD 2026 公告),並修正了原先依 InfoQ 轉述而來的兩處說法。
+
 **三者中唯一明確把「harness」當成產品名稱來賣的。**
+
+### ⭐ 官方對 harness 的定義
+
+> **「一個有主張的(opinionated)、完全可自訂的、batteries-included 的 agent,它把一個 chat client 包進一條完整的 agentic pipeline。」**
+
+⭐ **開發者只需要提供三樣東西:chat client(模型連線)、agent 指令、選用的自訂工具。其餘的編排、記憶、規劃與治理全部由 harness 負責。**
+
+### ⭐⭐ 一個值得抄的設計切分:`ChatClientAgent` vs `HarnessAgent`
+
+| 類別 | 定位 |
+|---|---|
+| **`ChatClientAgent`** | 陽春版 —— **單純的 tool-calling** |
+| ⭐ **`HarnessAgent`** | **正式生產版 —— 帶規劃與記憶** |
+
+> ⭐ **把「簡單場景」與「複雜場景」做成兩個明確的類別,而不是一個帶滿參數的萬用類別。** 這跟 [[pi-minimal-agent-harness-teardown]] 的「核心極簡、能力靠插件疊」是相反的取捨,但兩者都在回答同一個問題:**該預設給多少?**
+
+### 內建能力(⭐ 全部預設啟用,可個別自訂)
+
+| 能力 | 官方描述 |
+|---|---|
+| **函式呼叫** | 自動 tool-calling 迴圈,**帶可設定的迭代上限** |
+| **歷史持久化** | **每次模型呼叫後就存檔** —— 目的明確寫著是**為了當機復原** |
+| **上下文管理** | ⭐ **「compaction(壓縮)」**,防止長工具鏈把上下文撐爆 |
+| **規劃系統** | **待辦清單 + plan/execute 模式**,追蹤多步驟工作 |
+| **檔案記憶** | 持久的 session 筆記與產出物,**跨輪次保留** |
+| ⭐ **Skills** | **「漸進式發現(progressive discovery)」的打包領域專業** |
+| **網路搜尋** | 若推論服務本身有內建搜尋則可用 |
+| ⭐ **審批流程** | **「不要再問我」規則 + 對安全操作的啟發式自動放行** |
+| **遙測** | 內建 **OpenTelemetry** |
+
+⭐ **「Skills 的漸進式發現」與 [[pi-minimal-agent-harness-teardown]] 的「用不到時上下文裡只有名稱與描述」是同一個機制** —— 兩家不約而同用同一招解決「能力多了會撐爆上下文」。
+
+⭐ **「不要再問我」+ 啟發式自動放行,比單純的「工具批准流程」精確得多** —— 它承認了一件事:**每次都問會把人問到麻痺,所以必須有降噪機制。**
+
+### ⚠️⚠️ 兩處修正(原先依二手報導的說法不準確)
+
+| 原先寫的 | ✅ 官方實際的說法 |
+|---|---|
+| ⚠️ 「shell 工具、背景 sub-agent 是**選用(附警告)**」 | ⭐ **它們是「preview,尚未發布」** —— 官方列在 preview 清單:**背景 agent(並行子任務)、檔案存取工具(讀寫限定於指定目錄)、自動循環直到完成條件、shell 命令執行** |
+| ⚠️ 「Semantic Kernel 與 AutoGen **兩個前身轉入維護模式**」 | ⭐ 官方只說 **MAF 於 2026-04-02 達到 1.0 GA,帶來 AutoGen 與 Semantic Kernel 的「收斂(convergence)」成單一受支援平台**。**「維護模式」四個字在官方兩篇裡都沒出現** —— 那是二手轉述的推論 |
+
+> ⭐ **第一條的修正方向很重要**:原先寫成「選用」會讓人以為現在就能用;實際上 **shell 執行與檔案存取都還在 preview**。**這也意味著微軟在「要不要給 agent 動手能力」上比報導顯示的更保守。**
+
+### ⭐ GA 的語言與 API(官方新增資訊)
+
+| 語言 | 進入點 |
+|---|---|
+| **Python** | `create_harness_agent` |
+| **.NET** | `HarnessAgent` |
+
+**兩者都 GA。**
+
+### ⭐⭐ BUILD 2026 一併釐清的兩件事
+
+**① GitHub Copilot SDK 連接器 —— ✅ 已達 1.0 stable(官方確認)**
+
+它把 **Copilot 的程式導向能力(shell 執行、檔案操作、URL 抓取、MCP server 整合)帶進 MAF 的標準程式模型**。⭐ **Copilot agent 就是一個標準的 MAF agent**,支援工具、指令、串流、session、MCP server 與 OpenTelemetry 可觀測性。
+
+> ⚠️ **但「Claude Agent SDK 連接器」在官方兩篇裡「都沒有提到」** —— 那是 InfoQ 摘要裡出現的說法,**本文無法核實,列為未證實**。
+
+**② ⭐⭐ CodeAct —— 這是這次搜尋裡最值得單獨記的一項**
+
+一種**減少模型回合數**的最佳化技術:
+
+```
+❌ 傳統做法:一次一個 tool call,來回很多輪
+✅ CodeAct:⭐ 模型「寫出一支簡短的 Python 程式」,
+           在程式裡用 call_tool(…) 呼叫你的工具,
+           在沙箱中「跑一次」,回傳一個彙整後的結果
+```
 
 | 項目 | 內容 |
 |---|---|
-| **狀態** | Harness 與 Foundry Hosted Agents 進入 **GA**;框架本身 1.0 是 2026-04 |
-| **⭐ 整併** | Agent Framework 把 **Semantic Kernel 與 AutoGen 合併**進統一的 1.0,**兩個前身轉入維護模式** |
-| **內建能力** | 函式呼叫與多步任務執行、**每次呼叫的歷史持久化與上下文壓縮**、工具批准流程、**OpenTelemetry 可觀測性**、網路搜尋與檔案記憶、規劃與執行模式 |
-| **選用(附警告)** | shell 工具、背景 sub-agent |
-| **⭐ 安全閥** | 內建**迴圈上限**以防失控執行(報導提到測試中為 **40 個往返回合**) |
-| **部署** | Foundry Hosted Agents 是託管部署目標,**依用量計費**(未給出費率) |
+| **套件** | `agent-framework-hyperlight`(**alpha**) |
+| ⭐ **隔離方式** | **Hyperlight micro-VM** |
+| ⭐ **官方 benchmark** | **執行快 52.4%、token 少 63.9%** |
 
-> ⭐ **「把 Semantic Kernel 與 AutoGen 合併、前身轉維護模式」是這則消息裡最實在的一條** —— 它解決的是微軟自己造成的碎片化(該用哪個框架)。
+> ⭐⭐ **CodeAct 的想法值得記,因為它把「工具呼叫」從「對話回合」搬到了「程式碼」裡。**
+> 這跟 [[graph-engineering-node-edge-state]] 那篇「node ≠ agent、確定性工作三行程式碼就搞定」是同一個直覺的兩種實作 —— **能用程式表達的編排,就不要浪費模型回合去表達。**
+>
+> ⚠️ 但注意 **alpha 階段**,而且它需要 **micro-VM 級的沙箱**才能安全執行模型生成的程式 —— **這也正是 [[pi-minimal-agent-harness-teardown]] 說「真正的隔離必須來自作業系統或虛擬化邊界」的同一件事。**
+
+### 其他
+
+| 項目 | 內容 |
+|---|---|
+| **BUILD 2026 一併達 1.0 stable 的** | GitHub Copilot SDK 整合、**多 agent handoff 編排模式**、**Agent Harness**、**Foundry Hosted Agents** |
+| **部署** | Foundry Hosted Agents 是託管部署目標,**依用量計費**(未給出費率) |
+| **安全閥** | 內建**可設定的迭代上限**以防失控執行(⚠️ 報導提到測試中為 **40 個往返回合**,**此具體數字官方未提,仍為二手**) |
 
 > ⭐ **內建迴圈上限值得抄。** 這正是 [[claude-code-hooks-complete-guide]] 裡 Stop Hook 那個坑的同一個問題:**沒有結束條件的自我糾錯迴圈會一直燒 token。** 微軟把它做成 runtime 的預設值,而不是留給使用者自己設。
 
@@ -126,7 +212,7 @@ flowchart TB
 | **平行化** | 扇出 sub-agent | 每個 Bot 各自獨立 | 背景 sub-agent(選用、附警告) |
 | **安全機制** | 未見報導 | **VM 隔離**,但持有你的憑證 | 工具批准 + **迴圈上限** |
 | **可觀測性** | 未見報導 | 未見報導 | **OpenTelemetry** |
-| **來源可信度** | 主流媒體(TechCrunch / CNBC / Forbes 等) | 主流媒體(VentureBeat) | 技術媒體(InfoQ) |
+| **來源可信度** | ⚠️ 主流媒體(TechCrunch / CNBC / Forbes 等) | ⚠️ 主流媒體(VentureBeat) | ✅ **官方 devblog 兩篇已核實** |
 
 ---
 
@@ -217,7 +303,12 @@ Muse Code 的 contributor 方案(**$0.10/$0.20 vs 正常 $1.25/$4.25**,約十分
 
 ## 來源
 
-⚠️ **以下皆為二手媒體報導,非官方公告。**
+### ✅ 官方(2026-08-26 補,用於核實第三節)
+
+- ⭐ [The Microsoft Agent Framework Harness is now released — Microsoft DevBlogs](https://devblogs.microsoft.com/agent-framework/the-microsoft-agent-framework-harness-is-now-released/) —— harness 定義、內建能力清單、preview 項目、Python `create_harness_agent` / .NET `HarnessAgent`、`ChatClientAgent` vs `HarnessAgent` 的切分
+- ⭐ [Microsoft Agent Framework at BUILD 2026: Agent Harness, Hosted Agents, CodeAct, and more — Microsoft DevBlogs](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/) —— GitHub Copilot SDK 連接器達 1.0、**CodeAct + Hyperlight micro-VM 與其 benchmark**、MAF 1.0 GA 於 2026-04-02 的 AutoGen/Semantic Kernel 收斂
+
+### ⚠️ 二手媒體報導(第一、二節仍僅依賴這些)
 
 - [Meta launches Muse Code, an AI agent for large code bases — TechCrunch](https://techcrunch.com/2026/08/05/meta-launches-muse-code-an-ai-agent-for-large-code-bases/)
 - [Meta debuts Muse Code to take on Anthropic and OpenAI — CNBC](https://www.cnbc.com/2026/08/05/meta-debuts-muse-code-to-take-on-anthropic-and-openai-.html)
@@ -227,3 +318,6 @@ Muse Code 的 contributor 方案(**$0.10/$0.20 vs 正常 $1.25/$4.25**,約十分
 - 本倉庫相關筆記:[[agent-runtime-deepseek-harness-cordis]]、[[pi-minimal-agent-harness-teardown]]、[[herdr-terminal-runtime-agent-to-agent]]、[[qm-yc-multiplayer-agent-harness]]、[[seven-agent-architectures-selection-guide]]、[[claude-code-hooks-complete-guide]]、[[encrypted-reasoning-traces-portable-key-flaw]]
 
 > ⚠️ 三項產品皆處於 beta / 早期階段,定價、可用平台與功能**很可能已經變動**。做決策前請查官方文件。
+>
+> ⭐ **2026-08-26 的核實結果摘要**:第三節已比對官方,**修正兩處**(shell/背景 agent 實為 **preview 而非「選用」**;**「維護模式」為官方未提的二手推論**),**新增數項**(GA 的 Python/.NET API、`ChatClientAgent` vs `HarnessAgent`、審批的「不要再問我」+ 啟發式放行、Skills 漸進式發現、**CodeAct 與其 52.4% / 63.9% 的 benchmark**)。
+> ⚠️ **仍未證實**:「Claude Agent SDK 連接器」(官方兩篇皆未提及)、「迴圈上限 40 個往返回合」這個具體數字。

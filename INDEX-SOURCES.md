@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**164 個 YouTube video id**、**16 個 arXiv 編號**,涵蓋 **173 篇**筆記。
+> 統計:**164 個 YouTube video id**、**20 個 arXiv 編號**,涵蓋 **177 篇**筆記。
 
 ---
 
@@ -195,7 +195,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(16 篇,依編號排序)
+## arXiv(20 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -207,14 +207,18 @@ grep -rlF --include=*.md -- "<id>" .
 | `2511.00592` | COMPILOT:讓現成 LLM 當「優化 agent」,在與編譯器的閉環對話中把迴圈優化到 3.5 倍 | [technology/ai-agents/applications/compilot-llm-guided-loop-optimization.md](./technology/ai-agents/applications/compilot-llm-guided-loop-optimization.md) |
 | `2512.13564` | Agent Memory 綜述:用「形式 / 功能 / 動態」三個切面收拾一個亂掉的領域 | [technology/ai-agents/memory-retrieval/agent-memory-survey-forms-functions-dynamics.md](./technology/ai-agents/memory-retrieval/agent-memory-survey-forms-functions-dynamics.md) |
 | `2601.01554` | MOSS-Transcribe-Diarize 0.9B 評估:端到端「轉錄+分辨說話者」開源模型,對我們的管線是否值得換? | [technology/dev-tools/moss-transcribe-diarize-evaluation.md](./technology/dev-tools/moss-transcribe-diarize-evaluation.md) |
+| `2603.24621` | ARC-AGI-3:人類 100%、前沿 AI 不到 1% —— 一個用「行動效率」而不是「對不對」計分的 agentic 基準 | [technology/ai-safety/arc-agi-3-agentic-benchmark.md](./technology/ai-safety/arc-agi-3-agentic-benchmark.md) |
 | `2603.27277` | Codebase-Memory:把程式碼變成「可查詢的知識圖譜」,讓 LLM 探索程式碼省 10 倍 token | [technology/ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md](./technology/ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md) |
+| `2604.25850` | Agentic Harness Engineering:讓 harness 自己演化自己,而瓶頸不是能力是「可觀測性」 | [technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md](./technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md) |
 | `2605.15155` | SDAR:用「逐 token 門控」穩住多輪 Agent 的強化學習後訓練 | [technology/llm-internals/training/sdar-agentic-rl.md](./technology/llm-internals/training/sdar-agentic-rl.md) |
 | `2605.15184` | Grep 就夠了嗎?Agent Harness 如何左右「代理式檢索」 | [technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md](./technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md) |
 | `2606.09498` | Self-Harness:讓 Agent 自己改進「操作自己的那層 harness」 | [technology/ai-agents/foundations/self-harness.md](./technology/ai-agents/foundations/self-harness.md) |
+| `2606.13643` | Recursive Agent Harness:遞迴的單位該是「一次模型呼叫」還是「一整個 harness」? | [technology/ai-agents/foundations/recursive-agent-harness-harness-recursion.md](./technology/ai-agents/foundations/recursive-agent-harness-harness-recursion.md) |
 | `2606.25656` | 到底需不需要 GraphRAG?9 種 RAG 方案實測對照 + 脈絡優化省 19–53% token | [technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md](./technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md) |
 | `2607.01232` | 一層就夠了?RL 後訓練的收益高度集中在單一「中間層」transformer | [technology/llm-internals/architecture/rl-gains-concentrate-single-middle-layer.md](./technology/llm-internals/architecture/rl-gains-concentrate-single-middle-layer.md) |
 | `2607.28272` | MemHarness:記憶是「重建」出來的,不是「重播」——用 RL 讓 agent 學會批判自己的經驗 | [technology/ai-agents/memory-retrieval/memharness-memory-reconstructed-not-replayed.md](./technology/ai-agents/memory-retrieval/memharness-memory-reconstructed-not-replayed.md) |
 | `2608.09867` | 加密的推理過程為什麼保不住:一個「全域金鑰 + 可攜載體」的架構教訓 | [technology/ai-safety/encrypted-reasoning-traces-portable-key-flaw.md](./technology/ai-safety/encrypted-reasoning-traces-portable-key-flaw.md) |
+| `2608.17528` | Harnessed Agentic RL:當 harness 而不是訓練器擁有互動迴圈,RL 會壞在哪四個地方 | [technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md](./technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md) |
 
 ---
 
