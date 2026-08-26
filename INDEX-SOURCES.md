@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**164 個 YouTube video id**、**20 個 arXiv 編號**,涵蓋 **177 篇**筆記。
+> 統計:**165 個 YouTube video id**、**20 個 arXiv 編號**,涵蓋 **178 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(164 部,依 video id 排序)
+## YouTube(165 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -121,6 +121,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `luN-yydHpYY` | Graphify 實戰壓測:10 萬 Star 的程式碼知識圖譜,打不贏 grep?「找」與「看」的分水嶺 | [technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md](./technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) |
 | `mBePcvqLX88` | Graph Engineering 八分鐘講清楚:從 1736 年的柯尼斯堡七橋,到 108 個 agent 的 DAG | [technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md](./technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) |
 | `MdZWB8eC83Q` | Bitter Lesson:模型變強後,你的舊 prompt 正在拖垮新模型 | [technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md](./technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md) |
+| `Mhq6IS2vSQM` | ChatGPT 瀏覽器擴充功能:借用你「已經登入」的瀏覽器,在背景跨分頁做事 | [technology/ai-productivity/chatgpt-browser-extension-agent.md](./technology/ai-productivity/chatgpt-browser-extension-agent.md) |
 | `MlhsoWmyEKE` | 落地競賽:OpenAI 與 Anthropic 同日進軍企業導入,承認「只有模型沒用」 | [technology/ai-agents/applications/enterprise-ai-adoption-race.md](./technology/ai-agents/applications/enterprise-ai-adoption-race.md) |
 | `mnuk1GkJxDU` | 股癌選股心法:籌碼/技術都是工具,本質是「選對題材的好股」 | [investing/strategy/gooaye-stock-picking-philosophy.md](./investing/strategy/gooaye-stock-picking-philosophy.md) |
 | `nlNDzop6tBw` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [technology/claude-code/output-style-communication-not-intelligence.md](./technology/claude-code/output-style-communication-not-intelligence.md) |
