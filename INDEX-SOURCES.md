@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**172 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **179 篇**筆記。
+> 統計:**173 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **180 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(172 部,依 video id 排序)
+## YouTube(173 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -122,6 +122,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `LPv1KfUXLCo` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [technology/llm-internals/training/cs336-training-cost-napkin-math.md](./technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `LPZh9BOjkQs` | 大型語言模型,簡單講(3Blue1Brown) | [technology/llm-internals/architecture/llm-explained-3blue1brown.md](./technology/llm-internals/architecture/llm-explained-3blue1brown.md) |
 | `luN-yydHpYY` | Graphify 實戰壓測:10 萬 Star 的程式碼知識圖譜,打不贏 grep?「找」與「看」的分水嶺 | [technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md](./technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) |
+| `m6U_TGf9Z_M` | 新版 Codex 全流程實戰:從資料夾、辦公文件、生圖,到 Skill / Hook / Worktree / 一鍵部署 | [technology/ai-agents/applications/codex-desktop-full-workflow-guide.md](./technology/ai-agents/applications/codex-desktop-full-workflow-guide.md) |
 | `mBePcvqLX88` | Graph Engineering 八分鐘講清楚:從 1736 年的柯尼斯堡七橋,到 108 個 agent 的 DAG | [technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md](./technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) |
 | `MdZWB8eC83Q` | Bitter Lesson:模型變強後,你的舊 prompt 正在拖垮新模型 | [technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md](./technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md) |
 | `Mhq6IS2vSQM` | ChatGPT 瀏覽器擴充功能:借用你「已經登入」的瀏覽器,在背景跨分頁做事 | [technology/ai-productivity/chatgpt-browser-extension-agent.md](./technology/ai-productivity/chatgpt-browser-extension-agent.md) |

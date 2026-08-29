@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-214_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-215_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -136,6 +136,7 @@ flowchart LR
 | **Prime Intellect(官方部落格)** | 1 | [Prime Agent:RLM 與 Continual Harness](./technology/ai-agents/foundations/prime-agent-rlm-continual-harness.md) |
 | **Anthropic(官方研究/頻道)** | 3 | [五大 Agent 模式](./technology/ai-agents/foundations/five-agent-patterns.md) · [Man Group 用 Claude Skills 治理](./technology/ai-agents/applications/claude-skills-governance-man-group.md) · [J-Space 全域工作空間](./technology/llm-internals/interpretability/j-space-global-workspace-claude.md) |
 | **OpenAI(官方部落格/文件)** | 1 | [Codex 平台化與 open agent harness](./technology/ai-agents/applications/codex-as-a-platform-open-agent-harness.md) |
+| **三颗门牙X** — AI 工具實戰全流程教學 | 1 | [新版 Codex 全流程實戰](./technology/ai-agents/applications/codex-desktop-full-workflow-guide.md) |
 | **Claude Code 官方文件** | 1 | [Claude Code 2026 功能演進時間軸](./technology/claude-code/claude-code-2026-feature-timeline.md) |
 | **ARC Prize Foundation(論文)** | 1 | [ARC-AGI-3 agentic 基準](./technology/ai-safety/arc-agi-3-agentic-benchmark.md) |
 | **復旦大學 / 北京大學 / 上海啟迪智風(論文)** | 1 | [Agentic Harness Engineering](./technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md) |
@@ -323,6 +324,7 @@ flowchart LR
 | [herdr:讓 Agent 互相指揮的終端 runtime(AI随风)](./technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) | Rust 單一二進位、背景 server + 終端 client,關筆電 agent 續跑;**⭐ agent 狀態靠 regex 掃終端畫面判定**(19 份偵測 manifest,不需任何一方支援協定,代價是對方改 UI 就壞);Layout/Pane/Agent 三原語;B 全程不知道 A 與 herdr 存在;實測 Claude↔Codex 來回 7 輪才過審 —— 協商回合數是真實成本;⚠️ 影片稱「YC 支持」無法核實 |
 | [2026 年八月的三場 Harness 發表:Muse Code、Grok Bot、Microsoft Agent Framework GA](./technology/ai-agents/applications/agent-harness-launches-august-2026.md) | ⚠️ **全依二手媒體、未讀原始碼**,定位是索引與對照;**Claude Code 約 98.4% 程式碼是 harness 基礎設施而非 AI 邏輯**(微軟引用);Muse Code 扇出 sub-agent + **contributor 方案十分之一價換回饋**;**⭐ Grok Bot 給每個 agent 一台持久雲端 VM —— 沙箱問題的第三種答案**;MS 合併 Semantic Kernel + AutoGen,**內建迴圈上限 40 回合** |
 | [Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,與「刻意不做沙箱」](./technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) | 4 工具 + 約 1000 token 系統提示詞(打招呼 1.1k vs Codex 18k);**⭐ 雙層循環已核實**(`agent-loop.ts` 僅 796 行);**⭐ Extension(運行時能力)vs Package(分發容器)之分**;`models.json` 與 `modelstore.json` **一字之差、後者不可手改**;四種工作模式(Interactive/JSON/RPC/SDK);**⭐ AGENTS.md 向上逐級搜尋、`AGENTS.override.md` 完全覆寫、⚠️ trust 不影響 AGENTS.md 只影響 `.pi/`**;對話樹 `/tree` 留在原樹、`/fork` 完全獨立 ⚠️ **但只回退對話不回退程式碼**;**⚠️ 核心刻意無沙箱,但社群已有 pi-sandbox extension**(⚠️ 未經驗證,裝前先讀原始碼);**實測 20 分鐘做完一個遊戲、快取命中率 99.9%、花費約 15 美分** |
+| [新版 Codex 全流程實戰:資料夾、辦公文件、Skill、Hook、Worktree 到一鍵部署](./technology/ai-agents/applications/codex-desktop-full-workflow-guide.md) | 桌面版 Codex 完整走查:主／補充資料夾當知識庫、一句話拆多任務並行、圖片批註改圖、**AGENTS.md 兩級合併**、插件=Skill+MCP+CLI、把工作流養成自己的 Skill、排程自動化;⭐ **Hook 官方有 11 個生命週期事件**(`PreToolUse` 可拒絕呼叫／改寫輸入),影片只演了一個;⚠️ **補正:AGENTS.md 有 32 KiB `project_doc_max_bytes` 上限且靜默截斷**、每層先找 `AGENTS.override.md`、多來源 hooks 是**疊加不是覆蓋**;**GPT-5.4／5.4-mini 已於 2026-08-31 從 Codex 退役** |
 | [Codex 平台化:OpenAI 把 harness 開源、模型留著](./technology/ai-agents/applications/codex-as-a-platform-open-agent-harness.md) | ⭐⭐ **開源邊界劃得很明確:harness、CLI、app-server、SDK 與整合面開放;模型存取與託管服務專有**;app-server 協定四原語 Threads/Turns/Events/**Approval requests**(審批是一等原語);主張**把 agent 帶進工作現場**而非把人叫進通用助理;**⭐⭐ 同模型只加「保留推理+上下文壓縮」,ARC-AGI-3 從 13.3% → 38.3% 且輸出 token 少六倍** |
 | [qm(YC 開源):把個人 Agent 變成「多人可用」的 Agent Harness](./technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md) | scope 隔離(各自的 memory/files/keychain/權限/持久 sandbox);**沒有自己的內核**——Pi/OpenCode/Codex/Claude Code 驅動同一 core;安全姿態 Strict/Auto/Dangerous 但命令政策全檔位生效;官方自陳非多租戶邊界 |
 | [Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生(AI超元域)](./technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) | 主 agent 拆解→分派 subagent 並行→合併;每 subagent 獨立模型(Kimi K3/MiniMax/GPT-5.6)+工具+skill;CC Switch 接第三方;多模型對抗審查抓嚴重 bug;具 Graph Engineering 初級特徵 |
