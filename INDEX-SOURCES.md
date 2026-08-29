@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**174 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **180 篇**筆記。
+> 統計:**175 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **181 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(174 部,依 video id 排序)
+## YouTube(175 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -165,6 +165,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `T3R3CFtYUww` | 什麼是先進封裝?從有機基板到矽中介層、TSV、矽橋、玻璃基板一次看懂 | [technology/ai-industry/advanced-packaging-explained.md](./technology/ai-industry/advanced-packaging-explained.md) |
 | `t4QF0t_Y2Bs` | Python 3.15 幾個值得關注的新特性:frozendict、Sentinel、lazy import | [technology/dev-tools/python-3-15-new-features.md](./technology/dev-tools/python-3-15-new-features.md) |
 | `t5CtfUWJjm4` | 為什麼 AI 寫的網站一上線就掛?用手搖飲店看懂網站架構擴展 | [technology/system-design/scaling-web-architecture-bubble-tea.md](./technology/system-design/scaling-web-architecture-bubble-tea.md) |
+| `t9WA-BkLUps` | 非技術者的資安入門:用五個問題做威脅建模,再交給 Codex Security 掃描 | [technology/ai-safety/vibe-coding-security-threat-modeling.md](./technology/ai-safety/vibe-coding-security-threat-modeling.md) |
 | `TBVjqvueeCo` | qm(YC 開源):把個人 Agent 變成「多人可用」的 Agent Harness —— scope 隔離、權限審批與可換 harness | [technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md](./technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md) |
 | `tGp6Ns9GtSU` | KV Cache:每個 LLM 背後那個看不見的把戲 | [technology/llm-internals/inference/kv-cache.md](./technology/llm-internals/inference/kv-cache.md) |
 | `thIPYsSsuIs` | 推理成本腰斬的背後:GPT-5.6 Sol 讓模型自己重寫核心,與 Luna 降價 80% 的算盤 | [technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md](./technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) |
