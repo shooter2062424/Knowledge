@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**165 個 YouTube video id**、**20 個 arXiv 編號**,涵蓋 **178 篇**筆記。
+> 統計:**172 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **179 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(165 部,依 video id 排序)
+## YouTube(172 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -46,6 +46,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `4j1omjaRu0A` | 在瘋狂股市裡,你還該「持續買入」嗎?——Nick Maggiulli 訪談筆記 | [investing/strategy/just-keep-buying-nick-maggiulli.md](./investing/strategy/just-keep-buying-nick-maggiulli.md) |
 | `4t8QcDdrL6Y` | AI 時代怎麼「讀」程式碼:6 個技巧(KodeKloud) | [technology/ai-productivity/reading-code-ai-era-6-techniques.md](./technology/ai-productivity/reading-code-ai-era-6-techniques.md) |
 | `5XeVLt9WejM` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [technology/ai-productivity/voice-input-ai-context-transformation.md](./technology/ai-productivity/voice-input-ai-context-transformation.md) |
+| `6OBtO9niT00` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [technology/llm-internals/training/cs336-training-cost-napkin-math.md](./technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `7pSZx9-VT3k` | 「Token 省 120 倍」該怎麼讀?Codebase-Memory-MCP vs CodeGraph:同一個痛點的兩條路線 | [technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md](./technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) |
 | `91yRxsdc0gA` | 這次半導體狂歡是 2000 泡沫重演嗎?五個相同、四個不同、兩個要盯的信號 | [investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md](./investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md) |
 | `9tREtYASGbs` | 微軟財報大漲 15% 的真正原因:三大質疑逐一拆解,以及 AI 價值鏈的位移 | [investing/equity-research/microsoft-fy26q1-three-doubts-resolved.md](./investing/equity-research/microsoft-fy26q1-three-doubts-resolved.md) |
@@ -73,6 +74,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `doc0NQas32U` | 雙底雙頂:看的不是形態像不像,而是動能有沒有衰減 | [investing/technical-analysis/double-top-bottom-momentum.md](./investing/technical-analysis/double-top-bottom-momentum.md) |
 | `dVRFSzbLR7M` | C++ 演進史:複雜性詛咒、記憶體危機,與 AI 時代的絕地反擊 | [technology/dev-tools/cpp-evolution-complexity-ai-era.md](./technology/dev-tools/cpp-evolution-complexity-ai-era.md) |
 | `E8Bx9OlpmdM` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [technology/claude-code/output-style-communication-not-intelligence.md](./technology/claude-code/output-style-communication-not-intelligence.md) |
+| `E8Mju53VB00` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [technology/llm-internals/training/cs336-training-cost-napkin-math.md](./technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `Ec1jRVQ_YZU` | 別再相信目標價:前外資分析師拆解法人到底在看什麼 | [investing/strategy/target-prices-institutional-secrets.md](./investing/strategy/target-prices-institutional-secrets.md) |
 | `eiisw5N2U6w` | 用需求逼出 Agent 的五臟六腑:工作流 vs 智能體的分界,與 LangGraph 只做的三件事 | [technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md](./technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md) |
 | `eKW9ITaltWw` | 一支影片看完 Stanford「Beyond LLM」:從 LLM 到 Multi-Agent 的技術地圖 | [technology/ai-agents/resources/stanford-beyond-llm-course.md](./technology/ai-agents/resources/stanford-beyond-llm-course.md) |
@@ -117,6 +119,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `kYkIdXwW2AE` | Yann LeCun 押 10 億美元賭 LLM 的另一條路:JEPA 與世界模型(上) | [technology/llm-internals/world-models/jepa-lecun-world-models.md](./technology/llm-internals/world-models/jepa-lecun-world-models.md) |
 | `L5LLzXrKFIY` | 史上最強 AI 模型只活了 72 小時:Claude Fable 事件與「別把流程綁死在單一模型」 | [technology/ai-industry/claude-fable-72-hours-model-dependency.md](./technology/ai-industry/claude-fable-72-hours-model-dependency.md) |
 | `ll-OBB-iswM` | 「Loop Engineering」是名詞詐騙嗎?一個反方吐槽視角 | [technology/ai-agents/foundations/loop-engineering-buzzword-critique.md](./technology/ai-agents/foundations/loop-engineering-buzzword-critique.md) |
+| `LPv1KfUXLCo` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [technology/llm-internals/training/cs336-training-cost-napkin-math.md](./technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `LPZh9BOjkQs` | 大型語言模型,簡單講(3Blue1Brown) | [technology/llm-internals/architecture/llm-explained-3blue1brown.md](./technology/llm-internals/architecture/llm-explained-3blue1brown.md) |
 | `luN-yydHpYY` | Graphify 實戰壓測:10 萬 Star 的程式碼知識圖譜,打不贏 grep?「找」與「看」的分水嶺 | [technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md](./technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) |
 | `mBePcvqLX88` | Graph Engineering 八分鐘講清楚:從 1736 年的柯尼斯堡七橋,到 108 個 agent 的 DAG | [technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md](./technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) |
@@ -124,6 +127,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `Mhq6IS2vSQM` | ChatGPT 瀏覽器擴充功能:借用你「已經登入」的瀏覽器,在背景跨分頁做事 | [technology/ai-productivity/chatgpt-browser-extension-agent.md](./technology/ai-productivity/chatgpt-browser-extension-agent.md) |
 | `MlhsoWmyEKE` | 落地競賽:OpenAI 與 Anthropic 同日進軍企業導入,承認「只有模型沒用」 | [technology/ai-agents/applications/enterprise-ai-adoption-race.md](./technology/ai-agents/applications/enterprise-ai-adoption-race.md) |
 | `mnuk1GkJxDU` | 股癌選股心法:籌碼/技術都是工具,本質是「選對題材的好股」 | [investing/strategy/gooaye-stock-picking-philosophy.md](./investing/strategy/gooaye-stock-picking-philosophy.md) |
+| `msHyYioAyNE` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [technology/llm-internals/training/cs336-training-cost-napkin-math.md](./technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `nlNDzop6tBw` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [technology/claude-code/output-style-communication-not-intelligence.md](./technology/claude-code/output-style-communication-not-intelligence.md) |
 | `nLZ-C7bbZzs` | PLTR 財報後大漲 30%:市場真正在交易的不是業績,是「增速見頂」風險的釋放 | [investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md](./investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md) |
 | `oBy94l_48CQ` | 2026 年 Agent 開發工程師要什麼能力:從 Demo 到生產系統的四塊拼圖(附面試題與標準答案) | [technology/ai-agents/foundations/production-agent-engineer-skills-2026.md](./technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) |
@@ -136,6 +140,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `pmWgyZM7mB8` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
 | `PpeCur6fEXc` | 讓 AI agent 連續跑 27 小時:/goal 功能與「Evaluation 才是關鍵」 | [technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md](./technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md) |
 | `pR7teM31_wI` | AI 學會了裝傻和欺騙:為什麼現有 Safety Evaluation 跟不上大模型 | [technology/ai-safety/safety-evaluation-crisis.md](./technology/ai-safety/safety-evaluation-crisis.md) |
+| `ptFiH_bHnJw` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [technology/llm-internals/training/cs336-training-cost-napkin-math.md](./technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `PuqX3Kv2ino` | Skill 實戰:從製作到維護一份「agent 會自動觸發、產出穩定、人類維護得了」的 skill | [technology/ai-agents/applications/building-claude-skills.md](./technology/ai-agents/applications/building-claude-skills.md) |
 | `px5M4ry8IO4` | 下半年美股前瞻:宏觀四變數 + AI 的「存量邏輯 vs 增量邏輯」 | [investing/strategy/us-stocks-h2-2026-outlook-stock-vs-flow-ai.md](./investing/strategy/us-stocks-h2-2026-outlook-stock-vs-flow-ai.md) |
 | `PxPWaP7mXFM` | AI 時代怎麼創業?Anthropic 新創 Playbook 的四階段 workflow | [technology/ai-agents/applications/anthropic-startup-playbook.md](./technology/ai-agents/applications/anthropic-startup-playbook.md) |
@@ -152,6 +157,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `rv9aZRdtxsU` | MCP 無狀態化怎麼遷移:十分鐘自查、三個真正危險的點,與「狀態在哪裡,責任就在哪裡」 | [technology/ai-agents/foundations/mcp-stateless-migration-guide.md](./technology/ai-agents/foundations/mcp-stateless-migration-guide.md) |
 | `s3yiXTxueoI` | Harness / Loop / Graph 三層排障地圖:把「Agent 又抽風了」翻譯成可執行的排查工單 | [technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md](./technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) |
 | `SPyXyB7lgWU` | 加息會引發美股大跌嗎?用 2000 泡沫「三階段」對照 AI 這輪革命(美投君) | [investing/strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md](./investing/strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md) |
+| `SQ3fZ1sAqXI` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [technology/llm-internals/training/cs336-training-cost-napkin-math.md](./technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `t0ZWNh-UXDs` | 一兆筆紀錄的即時搜尋:從 36 小時延遲砍到 5 分鐘的去重管線 | [technology/system-design/trillion-record-realtime-search-kafka-dedup.md](./technology/system-design/trillion-record-realtime-search-kafka-dedup.md) |
 | `T1k0MCmO-SA` | 《會想的人,先有錢》(Jonathan Clements):一整天看盤的人,沒有賺比較多 | [investing/strategy/thinkers-get-rich-jonathan-clements.md](./investing/strategy/thinkers-get-rich-jonathan-clements.md) |
 | `T3R3CFtYUww` | 什麼是先進封裝?從有機基板到矽中介層、TSV、矽橋、玻璃基板一次看懂 | [technology/ai-industry/advanced-packaging-explained.md](./technology/ai-industry/advanced-packaging-explained.md) |
@@ -175,6 +181,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `WuMlsfKeWHc` | Loop Engineering(循環工程):從「寫提示詞驅動 agent」到「設計驅動 agent 的循環」 | [technology/ai-agents/foundations/loop-engineering.md](./technology/ai-agents/foundations/loop-engineering.md) |
 | `x2meJPOn9ws` | SpaceX 崛起史:從被嘲笑的新創到航天巨頭,一套已跑起來的商業飛輪 | [investing/equity-research/spacex-rise-history.md](./investing/equity-research/spacex-rise-history.md) |
 | `x3QOpcGit4Q` | 當 PR 變成 Prompt Request:Peter Steinberger 用 Agent 自製工具維護開源項目 | [technology/ai-agents/applications/agent-native-tooling-steinberger.md](./technology/ai-agents/applications/agent-native-tooling-steinberger.md) |
+| `XDy8topNXcc` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [technology/llm-internals/training/cs336-training-cost-napkin-math.md](./technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `xEkNd6xG1qo` | 美股升息風險研判:哪三類股票該避、哪一類反而是機會(美投君) | [investing/strategy/us-stocks-rate-hike-risk-2026.md](./investing/strategy/us-stocks-rate-hike-risk-2026.md) |
 | `xFPiU5sit7g` | Codex 新手指南:駕馭「會動你檔案的 AI Agent」的四個基本功 | [technology/ai-productivity/codex-beginner-guide-four-basics.md](./technology/ai-productivity/codex-beginner-guide-four-basics.md) |
 | `XH1G58QqPIM` | CSS View Transitions:用純 CSS 讓「多頁網站」有單頁 App 般的轉場動畫 | [technology/web-dev/css-view-transitions.md](./technology/web-dev/css-view-transitions.md) |
@@ -196,10 +203,12 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(20 篇,依編號排序)
+## arXiv(22 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
+| `2002.05202` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [technology/llm-internals/training/cs336-training-cost-napkin-math.md](./technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
+| `2007.00072` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [technology/llm-internals/training/cs336-training-cost-napkin-math.md](./technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `2402.03300` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [technology/ai-agents/foundations/grpo-vs-gepa.md](./technology/ai-agents/foundations/grpo-vs-gepa.md) |
 | `2406.04692` | Mixture-of-Agents(MoA):用「分層提議 + 聚合」讓多個 LLM 互相加成,純開源打贏 GPT-4o | [technology/ai-agents/foundations/mixture-of-agents-moa.md](./technology/ai-agents/foundations/mixture-of-agents-moa.md) |
 | `2507.19457` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [technology/ai-agents/foundations/grpo-vs-gepa.md](./technology/ai-agents/foundations/grpo-vs-gepa.md) |

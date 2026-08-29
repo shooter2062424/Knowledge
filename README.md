@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-213_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-214_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -123,7 +123,7 @@ flowchart LR
 | **PyData / PyCon DE** — Python 資料工程與科學研討會 | 1 | [一兆筆紀錄的即時搜尋去重管線](./technology/system-design/trillion-record-realtime-search-kafka-dedup.md) |
 | **李廠長來了** — AI Agent 趨勢與職場應用 | 1 | [未來一年的 6 個 AI Agent 趨勢](./technology/ai-agents/foundations/six-ai-agent-trends-next-year.md) |
 | **Why QQ(為什麼叫 QQ)** — 一線工程師視角拆解 AI 工程文 | 6 | [Harness/Loop/Graph 三層排障地圖](./technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) · [Codebase-Memory-MCP vs CodeGraph 兩條路線](./technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) · [MCP 無狀態化遷移指南](./technology/ai-agents/foundations/mcp-stateless-migration-guide.md) · [Loop 與 Graph 之爭](./technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) · [Opus 5 系統提示詞的工程模式](./technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) · [Skill 三層工程棧「跑/做/驗」](./technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md) |
-| **Jim AI Notebook** — AI 每日深度解析 | 1 | [MCP 2026-07-28 最大改版](./technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) |
+| **Jim AI Notebook** — AI 每日深度解析 | 2 | [MCP 2026-07-28 最大改版](./technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) · [Stanford CS336 訓練成本餐巾紙算法](./technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | **wow** — AI agent 真實系統壓測 | 2 | [Graphify 知識圖譜實戰壓測](./technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) · [本體論護欄與神經符號 AI(Frank Coyle)](./technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
 | **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
 
@@ -353,6 +353,7 @@ flowchart LR
 | [Sutton 的 enactive AI:一張自相矛盾的反大模型藍圖](./technology/llm-internals/world-models/sutton-enactive-ai.md) | 行動認知≠生成式;兩根柱子撞自己的獎勵假設與苦澀教訓;三桌賭 2028/2030 |
 | [SDAR:用逐 token 門控穩住多輪 Agent 的 RL 後訓練](./technology/llm-internals/training/sdar-agentic-rl.md) | RL 為主幹+門控蒸餾,避免多輪 OPSD 崩潰、技能內化 |
 | [Harnessed Agentic RL:當 harness 而不是訓練器擁有互動迴圈,RL 會壞在哪四個地方](./technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md) | 用**部署時的同一個 harness** 做 RL,縮小訓練與實用的落差;**潛在狀態變成 harness+環境、rollout 暴露成一串請求–回應對**;**⚠️ 四個挑戰**:重新分詞後 token ID 變了導致樣本無法安全合併、一次 rollout 產生動態樣本數、**樣本層級正規化會讓「生較多子 agent」的 rollout 權重變大**、樣本數只有跑完才知道的排程問題;框架僅 **3,500 行**;⭐ **只用 6K 樣本把 Qwen3.5-9B 在 SWE-bench Verified 從 41.8% 拉到 56.4%** |
+| [一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷](./technology/llm-internals/training/cs336-training-cost-napkin-math.md) | `6ND` 估訓練 FLOPs(70B×15T、1024 張 H100、50% MFU = **144 天**)、訓練期每參數 **16 bytes**(8×80GB 只塞得下 **400 億**);⚠️ **H100 規格表 1,979 TFLOPS 是「含 sparsity」的行銷數字,稠密只有一半**——照表估會少估一倍時間;⭐ 轉折點:矩陣乘法佔 **99.80% FLOP 卻只佔 61% 時間**,正規化 **0.17% FLOP 吃掉 25.5% 時間**,瓶頸在**搬資料**;Karpathy 把 vocab 50257 湊成 50304 快 25%(波次量化);**補正:課堂那張卡的 108 個 SM 是 A100,H100 SXM5 是 132** |
 | [J-Space:Claude 內心那層「說得出口的思考」(Anthropic 全域工作空間)](./technology/llm-internals/interpretability/j-space-global-workspace-claude.md) | 借神經科學查 LLM「意識 vs 潛意識」;J-space=可轉文字/能推理的表示子集;關掉就不能推理;讀它能抓「編假數據」時亮起的 fake/manipulation |
 
 ### 📐 machine-learning(機器學習模型與方法)
