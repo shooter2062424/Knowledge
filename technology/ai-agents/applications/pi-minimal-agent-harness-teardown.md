@@ -1,10 +1,11 @@
 # Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」
 
-> 整理自兩支影片交叉比對:
-> - **技術爬爬蝦 TechShrimp**〈Pi 大道至簡,超越 Codex 和 Claude Code 的極簡 Agent,保姆級全攻略〉(2026-08-16,約 44.6 分鐘)
+> 整理自三支影片交叉比對:
+> - **技術爬爬蝦 TechShrimp**〈[Pi 大道至簡,超越 Codex 和 Claude Code 的極簡 Agent,保姆級全攻略](https://www.youtube.com/watch?v=HhZcnM9tR7s)〉(2026-08-16,約 44.6 分鐘)
 > - ⭐ **畅的科技工坊**〈[Pi Agent 完整上手指南:輕量 AI Coding Agent、Extension、Package、Session Tree 實戰](https://www.youtube.com/watch?v=Wah1vdFE92k)〉(2026-08-20,約 32.5 分鐘,官方 zh-CN 字幕)—— **第六、六之二、七之二節的操作細節與第八節的沙箱更新來自此片**
+> - ⭐ **暮闲**〈[pi agent 最佳实践 | Harness Agent 定制全流程实战](https://www.youtube.com/watch?v=EmwW59QMadY)〉(2026-06-06,約 32 分鐘,無字幕)—— **第六之三節的擴充開發全流程來自此片**
 >
-> 依 CLAUDE.md 慣例,另**實地 clone `earendil-works/pi`(91.3K stars)讀原始碼核實**,文中標出核實結果。
+> 依 CLAUDE.md 慣例,另**實地 clone `earendil-works/pi`(91.3K stars)讀原始碼與官方文件核實**,文中標出核實結果。
 
 > 📎 強烈建議與 [[agent-runtime-deepseek-harness-cordis]] 對照看 —— **兩者是同一個問題的兩種相反解法**。
 > 其他相關:[[seven-agent-architectures-selection-guide]]、[[herdr-terminal-runtime-agent-to-agent]]、[[agent-skill-three-layer-run-do-verify]]
@@ -376,6 +377,183 @@ flowchart TB
 
 ---
 
+## 六之三、⭐⭐ 擴充開發全流程實戰(2026-08-30 新增)
+
+> 本節整理自 **暮闲**〈pi agent 最佳实践 | Harness Agent 定制全流程实战〉(2026-06-06),
+> 並**逐項比對 clone 下來的官方文件**(`packages/coding-agent/docs/` 底下的
+> `extensions.md`、`packages.md`、`prompt-templates.md`、`themes.md`)。補正處已標出。
+
+### 先做定位判斷:你到底該不該用 Pi
+
+影片開頭給了一句很實用的分流,值得放在最前面:
+
+> **Pi 是「你要客製」時才選的東西。如果你要的是一個裝好就能用的 harness,直接用 OpenClaw 或 Hermes 會更好。**
+
+理由很直接:agent 記憶、接入通道、多 agent 這些能力,OpenClaw / Hermes 裝好就全都有;
+**Pi 只提供最基礎的「與模型互動」能力,其餘一律靠自定義擴充補**。
+影片也點出 **OpenClaw 底層就是基於 Pi 做擴充開發的** —— 這正好說明 Pi 的定位是「別人拿來蓋東西的地基」。
+
+實測畫面很能說明這件事:首次啟動 Pi,**連內建 Skill 都沒有**,只顯示專案底下自己的 Skill,
+「就像一張白紙」。
+
+```mermaid
+flowchart TD
+    A["Pi 核心<br/>只給:與模型互動"] --> B["TypeScript Extensions<br/>五種擴充點"]
+    A --> C["Skills<br/>放進約定目錄即可"]
+    A --> D["Prompt Templates<br/>自動變成斜線命令"]
+    A --> E["Themes<br/>只能改顏色"]
+    B --> F["pi package<br/>打包成資料夾 + package.json"]
+    C --> F
+    D --> F
+    E --> F
+    F --> G["分發給團隊<br/>統一風格與工具"]
+```
+
+### 一、TypeScript Extensions:五個擴充點
+
+影片實際示範了五種,全部**不需要改 Pi 原始碼**,只需照它暴露的介面寫:
+
+| # | 擴充點 | 官方 API | 影片示範 |
+|---|---|---|---|
+| 1 | **註冊自定義工具** | `pi.registerTool()` | 讀取當前專案的程式碼變更並回傳 |
+| 2 | **監聽會話開始** | `pi.on("session_start", …)` | 印訊息;可拿來做指標採集(一天對話幾次) |
+| 3 | **攔截工具呼叫** | `pi.on("tool_call", …)`,回傳 `{ block: true, reason }` | 刪檔前彈窗確認,選「否」就真的攔下來 |
+| 4 | **註冊斜線命令** | `pi.registerCommand()` | `/hello`;可自行補上官方沒有的命令 |
+| 5 | **註冊自定義模型供應商** | `registerProvider`(見 `custom-provider.md`) | 接自架的 LiteLLM |
+
+> 影片對第 1 點的類比很到位:**自定義工具的本質跟 MCP 一樣** —— 都是把工具描述交給模型,由模型決定怎麼傳參。
+
+官方文件列出的能力比影片示範的更多,值得知道還有:
+**`ctx.ui`**(select / confirm / input / notify)、**`ctx.ui.custom()`** 做完整 TUI 元件、
+**`pi.appendEntry()`** 存跨重啟的狀態、以及自定義 compaction 與自定義渲染。
+
+### 二、⚠️ 補正:不必退出重進,有 `/reload`
+
+影片全程的做法是「改完 `.ts` 就退出終端機再重進」,並說這是判斷擴充有沒有載入的關鍵。
+
+**官方文件明確寫著:放在自動探索目錄裡的擴充,可以用 `/reload` 熱重載。**
+
+> Extensions in auto-discovered locations can be hot-reloaded with `/reload`.
+
+也就是說,只要擴充是放在下列兩個位置之一,改完打 `/reload` 就好,不用重啟:
+
+| 範圍 | 路徑 |
+|---|---|
+| 全域 | `~/.pi/agent/extensions/` |
+| 專案 | `.pi/extensions/` |
+
+⚠️ 官方另註明 **`pi -e ./path.ts` 只適合臨時測試**,那樣放的擴充**不能**熱重載。
+影片沒有區分這兩者。
+
+### 三、Skills:放對目錄就好,但沒有安裝命令
+
+Skills 的位置(官方文件為準):
+
+- 全域:`~/.pi/agent/skills/`
+- 也讀跨 harness 的共用目錄 `~/.agent/skills/` —— **Codex、Claude Code、OpenClaw 等都會讀這個**
+- 專案:`.pi/skills/`
+
+影片點出一個實務落差:**Hermes 之類的工具有 `/skills` 搜尋與一鍵安裝,Pi 沒有,你得自己把檔案放進去。**
+但這正好是擴充點 4 的用途 —— 自己註冊一個安裝 Skill 的命令補上。
+
+### 四、Prompt Templates:為什麼有了 Skill 還要它
+
+影片回答了一個很多人會有的疑問:Skill 已經是一套高度定制的提示詞了,為何還要單獨的提示模板?
+
+> **提示模板是 Skill 的上一層封裝。** 它可以把「要怎麼調用這個 Skill」的講法固定下來,
+> 也可以在**一個模板裡觸發多個 Skill**。
+
+官方規格(影片沒講到這麼細):
+
+- 位置:全域 `~/.pi/agent/prompts/*.md`、專案 `.pi/prompts/*.md`(**專案的要先 trust**)
+- **檔名即命令名**:`review.md` → `/review`
+- frontmatter 的 `description` 選填,沒寫就取第一行非空白內容
+- ⭐ 還有 `argument-hint`,會顯示在自動完成的描述之前;慣例是
+  **`<角括號>` 表必填、`[方括號]` 表選填**
+- 可用 `--no-prompt-templates` 關閉探索
+
+影片有提到選單上的 **`U` / `P` 標記** —— 分別代表該項來自全域(user)或專案(project),
+這在同名衝突時很有用。
+
+### 五、Themes:只能改顏色,而且必須整份給
+
+影片說「主題只能改顏色,其他互動結構改不了」,而且強調**不能只保留想改的欄位,必須整份複製再改**。
+
+**官方文件證實這點,並給出精確數字:每個主題必須定義全部 51 個必填色彩 token。**
+另有 4 個選填 token 帶 fallback(`thinkingMax` → `thinkingXhigh`、
+`scrollbarThumb` 與 `searchMatchBg` → `selectedBg`、`searchMatchText` → `text`)。
+
+位置同樣是 `~/.pi/agent/themes/*.json` 與 `.pi/themes/*.json`;
+內建只有 `dark` 與 `light`,首次啟動會依終端機背景自動選一個。
+
+### 六、⚠️ 設定檔決定實際用哪個模型(影片踩到的坑)
+
+影片註冊完自架的 LiteLLM 供應商、也在 `/login` 選了它,結果**請求根本沒走到 LiteLLM**
+—— 他是靠 LiteLLM 那邊的日誌時間戳沒更新才發現的。
+
+原因是 **`settings.json` 已經把第一次登入時選的供應商記了下來**,得去改設定檔才會生效。
+
+> 影片給的延伸提醒很值得記:**如果你要拿 Pi 去做一個圖形介面,就必須把 `settings.json` 暴露出來讓使用者改。**
+
+### 七、pi package:把上面全部打包分發
+
+做法是建一個資料夾,底下放**約定名稱的目錄**(`extensions/`、`skills/`、`prompts/`、`themes/`),
+再用 `package.json` 的 `pi` key 把內容組織起來。**不必四種都有,有幾種填幾種。**
+
+官方支援的安裝來源比影片示範的多:
+
+```bash
+pi install npm:@foo/bar@1.0.0
+pi install git:github.com/user/repo@v1
+pi install https://github.com/user/repo
+pi install /absolute/path/to/package
+pi install ./relative/path/to/package
+
+pi remove npm:@foo/bar
+pi list                    # 列出已安裝套件
+pi update --all            # 更新 pi 本體 + 套件 + 對齊釘選的 git ref
+pi -e npm:@foo/bar         # ⭐ 只試不裝:裝到暫存目錄,僅本次執行有效
+```
+
+⭐ **影片說「裝完就是全域」,只講對了預設值。** 官方規格是:
+
+| 寫到哪 | 指令 | 用途 |
+|---|---|---|
+| 使用者設定 `~/.pi/agent/settings.json` | `pi install …`(預設) | 自己用 |
+| 專案設定 `.pi/settings.json` | `pi install -l …` | **可進版控分享給團隊;專案被 trust 後,Pi 啟動時會自動補裝缺少的套件** |
+
+後者才是影片結尾那個「讓團隊成員風格一致」訴求的正解 —— 不必每個人手動 `pi install`。
+
+### 八、⚠️⚠️ 補正:官方對套件有明確的安全警告,影片完全沒提
+
+`packages.md` 開頭就寫著:
+
+> **Pi packages run with full system access.** Extensions execute arbitrary code, and skills can
+> instruct the model to perform any action including running executables.
+> **Review source code before installing third-party packages.**
+
+擴充執行任意程式碼、Skill 能指示模型跑任何東西 —— 這與本文第八節「Pi 幾乎沒有安全機制,而且是刻意的」
+完全一致。**裝第三方 pi package 等於在本機執行陌生程式碼,務必先讀原始碼。**
+
+### 九、影片的貫穿範例:三層串起來
+
+影片用「程式碼變更影響評估」把所有擴充串成一條線,這個組合方式比單看任一項都有價值:
+
+```
+自定義工具(讀出當前變更)
+   ↓ 把變更內容當上下文交給
+Skill(依變更內容做評估,按約定格式輸出)
+   ↓ 由上一層封裝、並固定調用方式
+Prompt Template(變成 /assess-change 斜線命令)
+   ↓ 連同 theme 一起
+pi package(打包分發給團隊)
+```
+
+> 作者特別澄清:**別以為 Pi 只能做這種小功能。** 這個例子只是為了演示;
+> OpenClaw 與 Hermes 具備的 agent 記憶、接入通道、多 agent,用同一套擴充介面都做得出來。
+
+---
+
 ## 七、Skills 與記憶
 
 ### Skills 走標準協議
@@ -699,7 +877,8 @@ git add -A && git commit -m "before: <要嘗試的事>"
 
 - [Pi 大道至簡,超越 Codex 和 Claude Code 的極簡 Agent,保姆級全攻略 — 技術爬爬蝦 TechShrimp](https://www.youtube.com/watch?v=HhZcnM9tR7s)(2026-08-16,約 44.6 分鐘)
 - ⭐ [Pi Agent 完整上手指南:輕量 AI Coding Agent、Extension、Package、Session Tree 實戰 — 畅的科技工坊](https://www.youtube.com/watch?v=Wah1vdFE92k)(2026-08-20,約 32.5 分鐘,**官方 zh-CN 字幕**) —— 第六節的 Extension/Package 之分、第六之二節的配置檔與工作模式、第七節的 AGENTS.md 層級與 trust 澄清、第八節的社群 sandbox extension 更新皆來自此片
-- [earendil-works/pi](https://github.com/earendil-works/pi) —— 已 clone 核實:`README.md`、`packages/agent/src/agent-loop.ts`(雙層循環)、`packages/coding-agent/src/core/tools/index.ts`(工具組成)、`packages/coding-agent/docs/security.md`、`packages/coding-agent/docs/containerization.md`
+- ⭐ [pi agent 最佳实践 | Harness Agent 定制全流程实战 — 暮闲](https://www.youtube.com/watch?v=EmwW59QMadY)(2026-06-06,約 32 分鐘) —— 第六之三節的五種 Extension、Skills/Prompt Template/Theme 的放置方式、pi package 打包分發皆來自此片
+- [earendil-works/pi](https://github.com/earendil-works/pi) —— 已 clone 核實:`README.md`、`packages/agent/src/agent-loop.ts`(雙層循環)、`packages/coding-agent/src/core/tools/index.ts`(工具組成)、`packages/coding-agent/docs/security.md`、`packages/coding-agent/docs/containerization.md`;**2026-08-30 追加核實** `docs/extensions.md`(`/reload` 熱重載、擴充目錄、API 清單)、`docs/packages.md`(安裝來源、`-l` 專案設定、全系統存取的安全警告)、`docs/prompt-templates.md`(檔名即命令、`argument-hint` 慣例)、`docs/themes.md`(**51 個必填色彩 token**)
 - [pi.dev](https://pi.dev) —— 官網與文件
 - 本倉庫相關筆記:[[agent-runtime-deepseek-harness-cordis]]、[[seven-agent-architectures-selection-guide]]、[[claude-md-cut-82-percent-and-maintain-it]]、[[encrypted-reasoning-traces-portable-key-flaw]]
 

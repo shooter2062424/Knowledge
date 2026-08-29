@@ -116,6 +116,7 @@ flowchart LR
 | **YAHA學堂** — Claude Code 實測與工程最佳實踐 | 2 | [CLAUDE.md 砍 82% 與維護兩步法](./technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) · [output style 三個坑(與 Gary Chen 版合併)](./technology/claude-code/output-style-communication-not-intelligence.md) |
 | **可樂 AI 實驗室** — AI 編程落地與量化系統架構 | 1 | [Agent 五大核心與 LangGraph](./technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md) |
 | **畅的科技工坊** — AI Coding Agent 上手實戰 | 1 | [Pi Agent 完整上手指南(與技術爬爬蝦版合併)](./technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
+| **暮闲** — Agent 定制開發實戰 | 1 | [Pi 擴充開發全流程(併入 Pi 拆解筆記)](./technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | **技術爬爬蝦 TechShrimp** — AI 工具保姆級教學與實測 | 1 | [Pi 極簡 Agent 完整拆解](./technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | **Hugging Face(Alejandro AO)** — AI 工程架構深度解說 | 1 | [Mem0 記憶架構拆解](./technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md) |
 | **TGLTommy(唐國樑)** — 大模型系統架構與 Agent 工程 | 1 | [DeepSeek Harness runtime 與 Cordis 論文](./technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) |

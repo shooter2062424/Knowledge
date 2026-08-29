@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**173 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **180 篇**筆記。
+> 統計:**174 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **180 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(173 部,依 video id 排序)
+## YouTube(174 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -78,6 +78,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `Ec1jRVQ_YZU` | 別再相信目標價:前外資分析師拆解法人到底在看什麼 | [investing/strategy/target-prices-institutional-secrets.md](./investing/strategy/target-prices-institutional-secrets.md) |
 | `eiisw5N2U6w` | 用需求逼出 Agent 的五臟六腑:工作流 vs 智能體的分界,與 LangGraph 只做的三件事 | [technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md](./technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md) |
 | `eKW9ITaltWw` | 一支影片看完 Stanford「Beyond LLM」:從 LLM 到 Multi-Agent 的技術地圖 | [technology/ai-agents/resources/stanford-beyond-llm-course.md](./technology/ai-agents/resources/stanford-beyond-llm-course.md) |
+| `EmwW59QMadY` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | `EOg4gY0Yln0` | 讓訊號自己交易:Man Group 用 Claude Skills 治理打通系統化交易 | [technology/ai-agents/applications/claude-skills-governance-man-group.md](./technology/ai-agents/applications/claude-skills-governance-man-group.md) |
 | `eWkZlS5JMD4` | 駭客怎麼騙 AI:5.5 種 Prompt Injection 技巧與防禦實戰 | [technology/ai-safety/prompt-injection-5-techniques-defenses.md](./technology/ai-safety/prompt-injection-5-techniques-defenses.md) |
 | `EyZEJPP2JNQ` | AI Operating System(AIOS):一套讓 AI 長期懂你、替你工作的系統 | [technology/ai-agents/applications/ai-operating-system-aios.md](./technology/ai-agents/applications/ai-operating-system-aios.md) |
