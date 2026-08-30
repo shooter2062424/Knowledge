@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-216_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-217_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -113,7 +113,7 @@ flowchart LR
 | **Jerry's Productivity Tech Channel(簡睿學堂)** — 跨平台工具與生產力 | 1 | [dbx 資料庫客戶端 + MCP](./technology/dev-tools/dbx-rust-database-client-mcp.md) |
 | **Blink 的 AI 筆記** — AI × 知識管理實踐 | 1 | [Project Cairn:經驗知識化 Skill](./technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) |
 | **智用 AI** — AI 底層技術與成本拆解 | 1 | [GPT-5.6 Sol 自優化 kernel 與 Luna 定價](./technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) |
-| **YAHA學堂** — Claude Code 實測與工程最佳實踐 | 2 | [CLAUDE.md 砍 82% 與維護兩步法](./technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) · [output style 三個坑(與 Gary Chen 版合併)](./technology/claude-code/output-style-communication-not-intelligence.md) |
+| **YAHA學堂** — Claude Code 實測與工程最佳實踐 | 3 | [CLAUDE.md 砍 82% 與維護兩步法](./technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) · [output style 三個坑(與 Gary Chen 版合併)](./technology/claude-code/output-style-communication-not-intelligence.md) · [手寫第一個 MCP Server 的四個坑](./technology/ai-agents/foundations/mcp-server-first-build-four-pitfalls.md) |
 | **可樂 AI 實驗室** — AI 編程落地與量化系統架構 | 1 | [Agent 五大核心與 LangGraph](./technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md) |
 | **畅的科技工坊** — AI Coding Agent 上手實戰 | 1 | [Pi Agent 完整上手指南(與技術爬爬蝦版合併)](./technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | **暮闲** — Agent 定制開發實戰 | 1 | [Pi 擴充開發全流程(併入 Pi 拆解筆記)](./technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
@@ -251,6 +251,7 @@ flowchart LR
 | [怎麼確保結構化 JSON 輸出可靠:Tool Use → 校驗器 → 帶錯誤重試](./technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md) | 提示詞只是機率;Tool Use+Schema 鎖形狀、`tool_choice` 至少要 `any`;Schema 不管對錯要自己再算一遍;重試必帶「原文+失敗輸出+具體錯誤」;資訊不存在靠 Optional/unclear 兜底 |
 | [Skill 不是能力,是能力的施工圖:Agent 交不出活的三層工程棧「跑/做/驗」](./technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md) | 跑(執行環境)/做(Skill)/驗(應用層)三問少一個都翻車;**格式可移植 ≠ 能力可移植**;Cloudflare Computer 三後端與持久化成本(npm install FUSE 124.7s vs ext4 63.9s,但 metadata 操作反而快 0.66~0.95×);已讀 open-kimi-ppt 原始碼:七項視覺檢查清單 + **「位元組搜尋 `<p:fade>` 不夠,Office 會忽略 `cSld` 內的 transition」**、降級要明說;⚠️ 該 repo 上游**已因版權清空** —— Skill 是供應鏈輸入,`allowed-tools` 仍是實驗欄位不能當沙箱 |
 | [MCP 無狀態化的維運視角:砍 Redis、恢復 round robin、縮到零](./technology/ai-agents/foundations/mcp-stateless-deployment-ops-view.md) | SEP-2575 砍握手 / SEP-2567 砍 session ID;舊版痛在基礎建設(sticky session 或 Redis 二選一);**Cloudflare 說 MCP 不再需要 Durable Objects**;`Mcp-Method`/`Mcp-Name` 讓閘道免解 JSON 就能限流稽核;requestState 才是 round robin 成立的真正關鍵 |
+| [照新標準手寫第一個 MCP Server:四個坑,其中兩個不會報錯](./technology/ai-agents/foundations/mcp-server-first-build-four-pitfalls.md) | MCP 系列實作篇。`package.json` 要 `"type":"module"`(與 webpack/babel 無關)、`tsconfig` 的 `module` 與 `moduleResolution` **都寫 `Node16`** 否則報 `exports is not defined`;⭐ **stdout 是協定專用通道,`console.log` 會把訊息混進 JSON**,只能用 `console.error`;⭐ **`registerTool` 的描述是寫給模型看的** —— 只改那一行,Claude 就完全不呼叫工具;⚠️ **核實補正**:影片稱 `@modelcontextprotocol/sdk`「即將淘汰」,但 npm 上**未標 deprecated**,且與 `@modelcontextprotocol/server` 2.0.0 **同於 2026-07-27 發版**(並行維護);新規範辨識特徵為回應含 `resultType` 與 `_meta` |
 | [MCP 無狀態化怎麼遷移:十分鐘自查、三個危險點與責任轉移](./technology/ai-agents/foundations/mcp-stateless-migration-guide.md) | 90% 的 server 升 SDK 即可、2.5% 拿 session 當儲存鍵最慘;推送式互動無寬限期硬失敗;requestState 是敵意輸入要封印;**升級 SDK ≠ 啟用新協議**;框架:狀態在哪裡責任就在哪裡 |
 | [MCP 史上最大改版(2026-07-28):從「打電話」變成「寄信」](./technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) | 移除 session/握手改無狀態、新增 server/discover、MRTR 取代 server 主動請求、拿掉 SSE 續傳;Roots/Sampling/Logging 退場(12 個月搬遷期,首次有正式棄用政策);新舊版互不相容 |
 | [AI Agent 三大核心技:Function Calling、MCP、A2A](./technology/ai-agents/foundations/function-calling-mcp-a2a.md) | 會用工具 → 即插即用生態 → agent 互相協作 |
