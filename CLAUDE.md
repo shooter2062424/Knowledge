@@ -16,13 +16,33 @@
   - 換行使用 `<br/>`,且需在引號內。
   - 避免在標籤內直接使用 `>`;可改寫為「大於」等文字。
 
+## 📂 Repo 佈局(2026-08-30 重整)
+
+單一 repo,三個並列的頂層資料夾:
+
+```
+knowledge/    知識筆記,維持既有的 大類 → 中類 → 主題 三層結構
+research/     研究專案,一個題目一個資料夾(如 pundit-accuracy/)
+scripts/      通用腳本,按功能分類
+  ├── knowledge/  本庫維護(build_source_index、lint_mermaid)
+  ├── youtube/    頻道與影片擷取(collect_channel、discover_channels)
+  ├── media/      音訊處理(whisper_transcribe)
+  └── market/     行情與回測(candlestick)
+```
+
+- **筆記路徑一律以 `knowledge/` 開頭**;README 內部連結同樣是 `./knowledge/...`。
+- **`scripts/` 底下的腳本必須有完整的 Google style docstring**(brief 與參數說明可用中文)、
+  必要處加註解、並標註 type hint。
+- `research/` 底下的產出不進來源索引(`build_source_index.py` 會跳過)。
+- 研究用的原始資料(逐字稿等第三方內容)放 `research/<題目>/data/`,**不進版控**。
+
 ## 內容組織
 - 採 **「大類 → 中類 → 主題」三層** 結構:大類資料夾下分中類(子領域)資料夾,報告放在中類資料夾內(同一中類可放多篇相關報告)。
-  - 大類示例:`investing/`(投資)、`technology/`(科技與技術研究)。
+  - 大類示例:`knowledge/investing/`(投資)、`knowledge/technology/`(科技與技術研究)。
   - 現有中類:
-    - `investing/`:`strategy`、`derivatives`、`technical-analysis`、`ai-assisted`、`equity-research`、`personal-finance`(房貸/稅務/繼承等個人理財與政策)。
-    - `technology/`:`ai-agents`(再分 `foundations`/`autonomy`/`memory-retrieval`/`applications`/`resources`)、`llm-internals`(`architecture`/`inference`/`world-models`)、`ai-productivity`、`applied-ai`(`design`/`forecasting`/`speech-synthesis`)、`telecom`、`github-weekly`(週報 cron 落點)。
-  - 路徑示例:`technology/ai-agents/foundations/12-factor-agents.md`、`investing/strategy/just-keep-buying-nick-maggiulli.md`。
+    - `knowledge/investing/`:`strategy`、`derivatives`、`technical-analysis`、`ai-assisted`、`equity-research`、`personal-finance`(房貸/稅務/繼承等個人理財與政策)。
+    - `knowledge/technology/`:`ai-agents`(再分 `foundations`/`autonomy`/`memory-retrieval`/`applications`/`resources`)、`llm-internals`(`architecture`/`inference`/`world-models`)、`ai-productivity`、`applied-ai`(`design`/`forecasting`/`speech-synthesis`)、`telecom`、`github-weekly`(週報 cron 落點)。
+  - 路徑示例:`knowledge/technology/ai-agents/foundations/12-factor-agents.md`、`knowledge/investing/strategy/just-keep-buying-nick-maggiulli.md`。
   - 新筆記歸到最貼切的中類;若不屬於任何現有中類,可新增中類資料夾並更新 README 索引。
 - 資料夾命名一律用 **小寫英文 + 連字號**,保持網址乾淨。
 - **筆記檔名一旦建立盡量不要改**(筆記內以 `[[檔名slug]]` 互相連結,改名會讓連結失效)。
@@ -58,7 +78,7 @@
    - **下載音訊**:`yt-dlp --no-update --js-runtimes node --remote-components ejs:github -f "bestaudio/best" -o "audio.%(ext)s" <url>`。
      - **關鍵:`--remote-components ejs:github`**(JS challenge solver)。少了它,音訊資料下載常 `HTTP 403 Forbidden`(SABR-only 串流實驗)。
      - **不要**加 `-x --audio-format mp3`(那會需要系統 ffmpeg);直接抓原始檔給 whisper 即可。
-   - **轉錄引擎(2026-06-13 benchmark + 踩雷後:按素材分流):** 詳見 `technology/dev-tools/whisper-cpp-vs-faster-whisper-benchmark.md`。**whisper.cpp 比 faster-whisper 快 1.4–1.9×、準確度相同,但無內建 VAD ⇒ 遇背景音樂/長靜音會幻覺迴圈(同句重複數百行)整篇報廢。** 所以:
+   - **轉錄引擎(2026-06-13 benchmark + 踩雷後:按素材分流):** 詳見 `knowledge/technology/dev-tools/whisper-cpp-vs-faster-whisper-benchmark.md`。**whisper.cpp 比 faster-whisper 快 1.4–1.9×、準確度相同,但無內建 VAD ⇒ 遇背景音樂/長靜音會幻覺迴圈(同句重複數百行)整篇報廢。** 所以:
      - **預設走 faster-whisper(穩):**`WhisperModel('small', device='cpu', compute_type='int8', cpu_threads=6).transcribe(path, language='zh', vad_filter=True, beam_size=5)`——`vad_filter=True` 先切掉非語音段,可直接吃 mp4、不需轉 wav。**只要影片有片頭/轉場配樂/旁白配樂/雜訊(多數 YouTube 影片),一律用這個。**
      - **確定是乾淨單人人聲(演講/純口播、無配樂)才切 whisper.cpp 賺速度:**①用 PyAV 把音訊轉 16kHz mono wav(免 ffmpeg,約 0.5s):`av.open` → `AudioResampler(format='s16',layout='mono',rate=16000)` → 寫 `wave`;②`from pywhispercpp.model import Model; Model('small', n_threads=8, language='zh', print_realtime=False, print_progress=False).transcribe('audio.wav')`。首次自動下載 `ggml-small`。
      - **轉完務必掃一眼結尾有無「同一句重複數十/數百行」**——是 whisper.cpp 幻覺迴圈的徵兆,改用 faster-whisper 重轉。

@@ -17,3 +17,18 @@ desktop.ini
 # --- 暫存/逐字稿等 ---
 *.tmp
 _transcripts.json.br
+
+# --- Git Bash 在 Windows 上偶爾產生的當機轉存檔 ---
+*.stackdump
+
+# --- Python ---
+__pycache__/
+*.pyc
+
+# --- 研究原始資料:第三方逐字稿等,不進版控 ---
+research/*/data/
+
+# --- 媒體暫存 ---
+*.webm
+*.m4a
+*.mp4

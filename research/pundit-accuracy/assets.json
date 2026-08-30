@@ -1,0 +1,47 @@
+{
+  "_comment": "中文/俗稱 → yfinance ticker。key 為出現在逐字稿裡的說法,value 為可回測的標的。新增別名請一併確認 yfinance 抓得到。",
+
+  "標普": "^GSPC", "标普": "^GSPC", "標普500": "^GSPC", "标普500": "^GSPC",
+  "SPX": "^GSPC", "SPY": "SPY", "大盤": "^GSPC", "大盘": "^GSPC",
+  "納指": "^IXIC", "纳指": "^IXIC", "納斯達克": "^IXIC", "纳斯达克": "^IXIC",
+  "QQQ": "QQQ", "道瓊": "^DJI", "道琼": "^DJI", "道指": "^DJI",
+  "羅素": "^RUT", "罗素": "^RUT", "小型股": "^RUT",
+  "VIX": "^VIX", "恐慌指數": "^VIX", "恐慌指数": "^VIX",
+
+  "輝達": "NVDA", "英偉達": "NVDA", "英伟达": "NVDA", "NVDA": "NVDA", "老黃": "NVDA",
+  "蘋果": "AAPL", "苹果": "AAPL", "AAPL": "AAPL",
+  "微軟": "MSFT", "微软": "MSFT", "MSFT": "MSFT",
+  "特斯拉": "TSLA", "TSLA": "TSLA", "馬斯克的公司": "TSLA",
+  "亞馬遜": "AMZN", "亚马逊": "AMZN", "AMZN": "AMZN",
+  "谷歌": "GOOGL", "google": "GOOGL", "GOOGL": "GOOGL", "字母": "GOOGL",
+  "臉書": "META", "脸书": "META", "META": "META", "Meta": "META",
+  "博通": "AVGO", "AVGO": "AVGO",
+  "超微": "AMD", "AMD": "AMD",
+  "英特爾": "INTC", "英特尔": "INTC", "INTC": "INTC",
+  "美光": "MU", "MU": "MU",
+  "台積電": "TSM", "台积电": "TSM", "TSM": "TSM", "2330": "2330.TW",
+  "甲骨文": "ORCL", "ORCL": "ORCL",
+  "Palantir": "PLTR", "PLTR": "PLTR",
+  "ARM": "ARM", "ASML": "ASML",
+  "ANET": "ANET", "DDOG": "DDOG", "FTNT": "FTNT",
+  "COIN": "COIN", "MSTR": "MSTR",
+
+  "黃金": "GLD", "黄金": "GLD", "金價": "GLD", "金价": "GLD", "GLD": "GLD",
+  "白銀": "SLV", "白银": "SLV", "SLV": "SLV",
+  "黃金礦業": "GDX", "黄金矿业": "GDX", "金礦股": "GDX", "金矿股": "GDX", "GDX": "GDX",
+  "比特幣": "BTC-USD", "比特币": "BTC-USD", "BTC": "BTC-USD",
+  "以太坊": "ETH-USD", "ETH": "ETH-USD",
+  "原油": "CL=F", "油價": "CL=F", "油价": "CL=F", "WTI": "CL=F",
+  "天然氣": "NG=F", "天然气": "NG=F",
+
+  "美債": "TLT", "美债": "TLT", "長債": "TLT", "长债": "TLT", "TLT": "TLT",
+  "二十年期": "TLT", "十年期公債": "^TNX", "十年期国债": "^TNX", "十年期": "^TNX",
+  "美元": "DX-Y.NYB", "美元指數": "DX-Y.NYB", "美元指数": "DX-Y.NYB",
+  "日圓": "JPY=X", "日元": "JPY=X",
+
+  "半導體": "SOXX", "半导体": "SOXX", "費半": "SOXX", "费半": "SOXX", "SOXX": "SOXX",
+  "SMH": "SMH", "ARKK": "ARKK",
+  "台股": "^TWII", "加權指數": "^TWII", "加权指数": "^TWII",
+  "恒生": "^HSI", "恆生": "^HSI", "港股": "^HSI",
+  "A股": "000001.SS", "上證": "000001.SS", "上证": "000001.SS"
+}

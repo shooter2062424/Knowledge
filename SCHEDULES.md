@@ -53,7 +53,7 @@ grep -rlF --include=*.md -- "<id>" .
 ### ⚠️ 新增筆記後要重建來源索引
 
 ```bash
-python scripts/build_source_index.py
+python scripts/knowledge/build_source_index.py
 ```
 
 會覆寫根目錄的 `INDEX-SOURCES.md`(video id / arXiv 編號 → 筆記對照表)。之後查「這支整理過沒」可直接 `grep -F -- "<id>" INDEX-SOURCES.md`,比全庫掃快。**該檔為自動產生,不要手動編輯。**
@@ -142,7 +142,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 1. 用 WebFetch 撈 https://github.com/itcoffee66/githubweekly/tree/main/_weekly 找期數最大的 NNN.md,取 https://raw.githubusercontent.com/itcoffee66/githubweekly/main/_weekly/NNN.md 全文。(WebFetch 有快取,可另用 curl -s -o /dev/null -w "%{http_code}" 直接驗證下一期是否已發布。)
 2. 去重:若 C:\Users\shoot\project\Knowledge\technology\github-weekly\issue-NNN.md 已存在就跳過、只回報、不 commit。
 3. 未整理的:依 CLAUDE.md 規範(繁中、必要時 Mermaid、結尾附來源)整理成 technology/github-weekly/issue-NNN.md,逐一列出收錄專案的名稱/用途/亮點/連結。
-4. 更新 README.md 的 github-weekly 索引與筆記數 badge,並跑 python scripts/build_source_index.py 重建來源索引。
+4. 更新 README.md 的 github-weekly 索引與筆記數 badge,並跑 python scripts/knowledge/build_source_index.py 重建來源索引。
 5. 用無 BOM UTF-8 暫存檔(.git/COMMIT_MSG_TMP,printf '%s')git commit -q -F 提交(繁中訊息、[feat] 前綴)並 git push -q origin main。清暫存。⚠️ 用精準 git add <檔案> 而非 git add -A(避免誤入 grep.exe.stackdump 等垃圾檔)。push 若遇到 git-lfs locksverify 錯誤,改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push -q origin main 重試。
 沒有新一期就只回報、不空 commit。完成後回報期數與結果。
 ⚠️ 上游自 2026-08-03(第 124 期)起已長期無新期(截至 2026-08-26 已 23 天),連續空轉多日屬正常,不必特別排查。
@@ -166,8 +166,8 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 4. 依 CLAUDE.md 寫作規範整理繁中筆記(含應用案例、Mermaid、來源),歸到三層結構最貼切中類(多為 technology/ai-agents/{foundations,autonomy,memory-retrieval,applications,resources}、technology/claude-code 或 technology/ai-productivity;LLM 架構→llm-internals;軟體工程/程式碼品質→software-engineering;設計工具→applied-ai/design)。
    ⭐ 影片若提到可查證的官方規格/價格/機制(如 Anthropic 文件、API 定價),務必比對官方來源核實,並在筆記中標出補正處——這是本倉庫的核心價值。
    ⭐ **若該主題已有既有筆記(同一工具/同一篇論文),優先「增補既有筆記」而非新開重複主題**;檔名依慣例不動,並在檔頭與來源區塊同時列出兩支影片(⚠️ **來源要放完整網址,只寫標題會讓 build_source_index.py 漏收**,2026-08-23 踩過)。
-   ⭐ 產出 Mermaid 後跑 python scripts/lint_mermaid.py <檔案> 檢查語法。
-5. 更新 README 對應表格、筆記數 badge、Gary Chen 作者索引篇數(主題表格與作者索引兩處都要),並跑 python scripts/build_source_index.py 重建來源索引。無 BOM UTF-8 檔 commit([feat] 前綴)、git push -q origin main。⚠️ 用精準 git add <檔案> 而非 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試。清暫存。
+   ⭐ 產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案> 檢查語法。
+5. 更新 README 對應表格、筆記數 badge、Gary Chen 作者索引篇數(主題表格與作者索引兩處都要),並跑 python scripts/knowledge/build_source_index.py 重建來源索引。無 BOM UTF-8 檔 commit([feat] 前綴)、git push -q origin main。⚠️ 用精準 git add <檔案> 而非 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試。清暫存。
 無新片只回報、不空 commit。回報新增/略過哪些影片。(session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
@@ -209,8 +209,8 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 4. 依 CLAUDE.md 整理繁中筆記(含應用案例、Mermaid、來源註明「該片無字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕」、⚠️非投資建議)。歸 investing 中類:個股/產業→equity-research、心法/ETF/被動/宏觀市場研判→strategy、AI 輔助→ai-assisted、選擇權→derivatives、技術分析→technical-analysis、房貸稅務繼承→personal-finance。
    ⭐ Whisper 對人名與數字容易出錯,**在來源區塊列出已還原的專有名詞對照**(如「卧石」→沃什)。
    ⭐ **數字均為影片轉述、未獨立查證時要明講**;文末重申非投資建議。
-   ⭐ 產出 Mermaid 後跑 python scripts/lint_mermaid.py <檔案> 檢查語法。
-5. 更新 README 表格、筆記數 badge、美投君作者索引篇數,並跑 python scripts/build_source_index.py 重建來源索引(⚠️ **來源要放完整網址,只寫標題會漏收**)。無 BOM UTF-8 commit([feat] 前綴)、git push -q origin main。⚠️ 用精準 git add <檔案> 而非 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試。清暫存(音訊數十 MB)。
+   ⭐ 產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案> 檢查語法。
+5. 更新 README 表格、筆記數 badge、美投君作者索引篇數,並跑 python scripts/knowledge/build_source_index.py 重建來源索引(⚠️ **來源要放完整網址,只寫標題會漏收**)。無 BOM UTF-8 commit([feat] 前綴)、git push -q origin main。⚠️ 用精準 git add <檔案> 而非 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試。清暫存(音訊數十 MB)。
 無新片只回報、不空 commit。回報新增/略過哪些影片。(session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
