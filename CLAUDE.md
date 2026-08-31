@@ -1,7 +1,7 @@
 # Knowledge 倉庫慣例
 
 ## ⏰ 每日自動排程(session 恢復時必看)
-- 本倉庫有 **4 個每日 cron 排程**(GitHub Weekly 06:33、Gary Chen 07:10、gooaye 07:33、美投君 07:50)。
+- 本倉庫有 **5 個每日 cron 排程**(GitHub Weekly 06:33、Gary Chen 07:10、gooaye 07:33、美投君 07:50、**未涵蓋頻道巡檢 08:12**)。
 - ⚠️ 這些排程是 **session-only**:Claude 一關就消失,而且**每個 7 天後會自動到期(靜默消失、不通知)**,過期期間的新內容**不會自動補**。
 - **完整 prompt 原文與重建流程都存在 [`SCHEDULES.md`](./SCHEDULES.md)** —— 新 session 開始、或發現排程沒觸發時,先用 `CronList` 檢查,缺的就照 `SCHEDULES.md` 複製 prompt 用 `CronCreate` 重建,**並立刻跑一次補檢**(不要等隔天)。
 - 該檔也記錄了共通踩坑(去重 grep 指令、git add 精準、LFS push fallback、Whisper 配方)。
