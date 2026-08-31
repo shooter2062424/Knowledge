@@ -140,8 +140,8 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 ```text
 每日 GitHub Weekly 週報整理任務。步驟:
 1. 用 WebFetch 撈 https://github.com/itcoffee66/githubweekly/tree/main/_weekly 找期數最大的 NNN.md,取 https://raw.githubusercontent.com/itcoffee66/githubweekly/main/_weekly/NNN.md 全文。(WebFetch 有快取,可另用 curl -s -o /dev/null -w "%{http_code}" 直接驗證下一期是否已發布。)
-2. 去重:若 C:\Users\shoot\project\Knowledge\technology\github-weekly\issue-NNN.md 已存在就跳過、只回報、不 commit。
-3. 未整理的:依 CLAUDE.md 規範(繁中、必要時 Mermaid、結尾附來源)整理成 technology/github-weekly/issue-NNN.md,逐一列出收錄專案的名稱/用途/亮點/連結。
+2. 去重:若 C:\Users\shoot\project\Knowledge\knowledge\technology\github-weekly\issue-NNN.md 已存在就跳過、只回報、不 commit。
+3. 未整理的:依 CLAUDE.md 規範(繁中、必要時 Mermaid、結尾附來源)整理成 knowledge/technology/github-weekly/issue-NNN.md,逐一列出收錄專案的名稱/用途/亮點/連結。
 4. 更新 README.md 的 github-weekly 索引與筆記數 badge,並跑 python scripts/knowledge/build_source_index.py 重建來源索引。
 5. 用無 BOM UTF-8 暫存檔(.git/COMMIT_MSG_TMP,printf '%s')git commit -q -F 提交(繁中訊息、[feat] 前綴)並 git push -q origin main。清暫存。⚠️ 用精準 git add <檔案> 而非 git add -A(避免誤入 grep.exe.stackdump 等垃圾檔)。push 若遇到 git-lfs locksverify 錯誤,改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push -q origin main 重試。
 沒有新一期就只回報、不空 commit。完成後回報期數與結果。
@@ -163,7 +163,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
    ⚠️⚠️⚠️ 若把 id 先寫進暫存檔再迴圈讀,**寫檔務必用 newline='\n'**(Python 在 Windows 預設寫 CRLF,行尾多一個 \r 會讓 grep 全部找不到 → 22 支全誤報 NEW,2026-08-15 踩過)。判斷用 exit code:0=SEEN、非0=NEW。
    ⚠️ 驗證索引時**不要用 `grep … | head -1`** —— pipe 的退出碼是 head 的,grep 找不到也會被當成成功(2026-08-23 自己踩過)。
 3. 未整理的:優先抓官方字幕(yt-dlp --write-subs --sub-langs zh-Hant/zh-TW/zh/zh-Hans/en),無官方字幕再抓自動字幕,都無則走 Whisper(下載音訊 --remote-components ejs:github + faster-whisper small/int8 zh,vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3)。⚠️ yt-dlp 遇 HTTP 403 就用同參數重試(最多 3 次),不要改 player_client;⚠️ **連續 3 次全 403 且 log 出現 `n challenge solving failed` ⇒ 是 yt-dlp 版本落後,重試無用,先 `python -m pip install -U yt-dlp`**(2026-08-22 踩過)。⚠️ 不要用 `yt-dlp … | tail -1`,pipe 會遮蔽退出碼讓失敗被吞掉。逐字稿寫暫存檔再用 Read 讀,避免終端機中文亂碼;轉完掃結尾有無同句重複數十行(幻覺迴圈)。
-4. 依 CLAUDE.md 寫作規範整理繁中筆記(含應用案例、Mermaid、來源),歸到三層結構最貼切中類(多為 technology/ai-agents/{foundations,autonomy,memory-retrieval,applications,resources}、technology/claude-code 或 technology/ai-productivity;LLM 架構→llm-internals;軟體工程/程式碼品質→software-engineering;設計工具→applied-ai/design)。
+4. 依 CLAUDE.md 寫作規範整理繁中筆記(含應用案例、Mermaid、來源),歸到三層結構最貼切中類(多為 knowledge/technology/ai-agents/{foundations,autonomy,memory-retrieval,applications,resources}、knowledge/technology/claude-code 或 knowledge/technology/ai-productivity;LLM 架構→knowledge/technology/llm-internals;軟體工程/程式碼品質→knowledge/technology/software-engineering;設計工具→knowledge/technology/applied-ai/design;AI 安全→knowledge/technology/ai-safety)。
    ⭐ 影片若提到可查證的官方規格/價格/機制(如 Anthropic 文件、API 定價),務必比對官方來源核實,並在筆記中標出補正處——這是本倉庫的核心價值。
    ⭐ **若該主題已有既有筆記(同一工具/同一篇論文),優先「增補既有筆記」而非新開重複主題**;檔名依慣例不動,並在檔頭與來源區塊同時列出兩支影片(⚠️ **來源要放完整網址,只寫標題會讓 build_source_index.py 漏收**,2026-08-23 踩過)。
    ⭐ 產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案> 檢查語法。
@@ -206,7 +206,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
    ⚠️⚠️⚠️ 若把 id 先寫進暫存檔再迴圈讀,**寫檔務必用 newline='\n'**(Python 在 Windows 預設寫 CRLF,行尾多一個 \r 會讓 grep 全部找不到 → 全部誤報 NEW,2026-08-15 踩過)。判斷用 exit code:0=SEEN、非0=NEW。
    ⚠️ 驗證索引時**不要用 `grep … | head -1`** —— pipe 的退出碼是 head 的,grep 找不到也會被當成成功(2026-08-23 自己踩過)。
 3. 未整理的:先試官方/自動字幕;無則走 Whisper——下載音訊 yt-dlp --no-update --js-runtimes node --remote-components ejs:github -f "bestaudio/best"(--remote-components 解 403),再用 faster-whisper(WhisperModel small, device=cpu, compute_type=int8, cpu_threads=6, transcribe language=zh, vad_filter=True, condition_on_previous_text=False, no_repeat_ngram_size=3)。⚠️ 遇 HTTP 403 就用同參數重試(最多 3 次,間隔 20 秒),不要改 player_client(改了會誤報 DRM protected);⚠️ **連續 3 次全 403 且 log 出現 `n challenge solving failed` ⇒ 是 yt-dlp 版本落後,重試無用,先 `python -m pip install -U yt-dlp`**(2026-08-22 踩過)。⚠️ 不要用 `yt-dlp … | tail -1`,pipe 會遮蔽退出碼;要判斷成敗用 ${PIPESTATUS[0]} 或乾脆不接 pipe。segment 寫暫存 .txt 再 Read(檔案大時先切半)。轉完掃有無同句重複數十行(幻覺迴圈)。多支影片時用單一背景進程串跑,避免多進程 CPU 競爭。
-4. 依 CLAUDE.md 整理繁中筆記(含應用案例、Mermaid、來源註明「該片無字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕」、⚠️非投資建議)。歸 investing 中類:個股/產業→equity-research、心法/ETF/被動/宏觀市場研判→strategy、AI 輔助→ai-assisted、選擇權→derivatives、技術分析→technical-analysis、房貸稅務繼承→personal-finance。
+4. 依 CLAUDE.md 整理繁中筆記(含應用案例、Mermaid、來源註明「該片無字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕」、⚠️非投資建議)。歸 knowledge/investing/ 中類:個股/產業→equity-research、心法/ETF/被動/宏觀市場研判→strategy、AI 輔助→ai-assisted、選擇權→derivatives、技術分析→technical-analysis、房貸稅務繼承→personal-finance。
    ⭐ Whisper 對人名與數字容易出錯,**在來源區塊列出已還原的專有名詞對照**(如「卧石」→沃什)。
    ⭐ **數字均為影片轉述、未獨立查證時要明講**;文末重申非投資建議。
    ⭐ 產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案> 檢查語法。
@@ -234,4 +234,5 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 | 2026-08-21 | 到期前主動全刪重建為 `80eb1cba`/`200075b5`/`6de64cf1`/`7682556f`(約 **08-28** 到期)。**本輪把上述兩個新踩坑寫進 prompt,並補上 `lint_mermaid.py` 檢查與「影片提到可查證的官方規格/價格時要比對官方文件核實並標出補正」的步驟。** 當日四個排程都已跑過且皆無新內容,無需補檢 |
 | 2026-08-22 | 踩到 **yt-dlp 版本落後導致「持續性 403」** —— 三支影片 6 次嘗試全掛,log 顯示 `n challenge solving failed`;本機版本停在 2026.02.04(約半年前),更新到 2026.08.19 後第 1 次就成功。**與偶發性 403 的區分準則已寫入共通踩坑** |
 | 2026-08-23 | 自己踩到 **`grep … | head -1` 遮蔽退出碼**(找不到也回 0),連帶暴露另一個問題:**筆記檔頭只寫影片標題、沒放網址,導致 `build_source_index.py` 漏收該來源**。兩者都已寫進 prompt |
+| 2026-09-01 | 到期前主動全刪重建為 `ae5bf239`(GitHub Weekly)/ `881dd1ea`(Gary Chen)/ `8949d7df`(gooaye)/ `fb30e2ee`(美投君),約 **09-08** 到期。**本輪重點:同步 2026-08-30 的 repo 重整** —— 筆記路徑一律改為 `knowledge/...`、腳本改為 `scripts/knowledge/`;另新增三條踩坑(`git push … | grep …; echo $?` 會拿到 grep 的退出碼故改用 rev-parse 比對、印中文或 emoji 需先 reconfigure stdout 否則 cp950 崩潰、`wc -c` 位元組 vs `len(s)` 字元差約 3 倍別誤判內容遺失)與兩條慣例(財報類影片須比對 SEC/官方 IR 並列核實表、作者推廣自家產品時要標明立場)。⚠️ 已知缺口:README 作者索引 49 位,**僅 3 位有排程涵蓋**,詳見下節 |
 | 2026-08-26 | 到期前主動全刪重建為 `1b469bda`/`b3478479`/`e88151b9`/`07b52878`(約 **09-02** 到期)。**本輪新增三條踩坑(持續性 403 判準、pipe 遮蔽退出碼、來源需放完整網址)與一條慣例(同主題優先增補既有筆記、檔名不動),並補上 `technology/software-engineering` 這個新中類。** 當日四個排程都已跑過且皆無新內容,無需補檢 |
