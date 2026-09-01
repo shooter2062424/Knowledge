@@ -216,31 +216,45 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 
 ---
 
-## 5. 未涵蓋頻道每日巡檢(每日 08:12 / `12 8 * * *`)
+## 5. 未涵蓋頻道每日巡檢(每日 08:12 / `12 8 * * *`,job `28e85f8c`)
 
-> 2026-09-01 新增。緣由:盤點發現 README 作者索引共 **49 位,先前僅 3 位有排程涵蓋**,
-> 這陣子 pi agent / MCP / Codex / CS336 等內容都得靠手動丟連結補。
-> 本排程收攏「已累積 3 篇以上、但沒有專屬排程」的六個頻道。
+> 2026-09-01 新增,同日首次執行後依實測結果修訂。緣由:盤點發現 README 作者索引共 **49 位,
+> 先前僅 3 位有排程涵蓋**,pi agent / MCP / Codex / CS336 等內容都得靠手動丟連結補。
 
-| 頻道 | handle | 字幕 | 片長 | 成本 |
-|---|---|---|---|---|
-| Why QQ | `@whycallqq` | zh-Hans 官方 | ~12 分 | 低 |
-| 風傳媒 下班經濟學 | `@TheStormMedia` | zh-TW 官方 | ~25 分 | 低 |
-| Caleb Writes Code | `@CalebWritesCode` | 自動 | ~8 分 | 低 |
-| YAHA學堂 | `@YAHAClass` | 時有時無 | ~10 分 | 低–中 |
-| 白白说大模型 | `@白白说大模型` | **無** | ~21 分 | **高(Whisper)** |
-| Redknot-乔红 | `@redknot-miaomiao` | **無** | ~17 分 | **高(Whisper)** |
+### 頻道清單(handle 均已實際解析驗證,不要憑印象改寫)
 
-⚠️ **handle 全部於 2026-09-01 實際解析驗證過,不要憑印象改寫**(先前猜 handle 曾連續三個 404)。
+| 頻道 | handle | 字幕 | 片長 |
+|---|---|---|---|
+| Why QQ | `@whycallqq` | 官方 zh-Hans | 10–18 分 |
+| Caleb Writes Code | `@CalebWritesCode` | 自動(英文) | 8–11 分 |
+| YAHA學堂 | `@YAHAClass` | 時有時無 | 8–14 分 |
+| 白白说大模型 | `@白白说大模型` | **無** | 8–19 分 |
+| Redknot-乔红 | `@redknot-miaomiao` | 多數**無** | 14–19 分 |
 
-⚠️ **成本控管是這個排程的關鍵設計**:有字幕的頻道不限數量;
-**無字幕需 Whisper 的兩個頻道,一次執行最多只處理 1 支**,其餘只回報、等指示再補 ——
-否則單次排程可能燒掉數小時 CPU。
+**已移除:`@TheStormMedia`(風傳媒 下班經濟學)** —— 首次巡檢實測六支裡**三支會員限定抓不到**,
+免費部分偏健康與政論(還有一支 56 分鐘政論),與本倉庫主題距離遠、成本效益不佳。
 
-⚠️ 實測遇過**來源影片後來被設為私人**(白白说大模型的 `diU-Nbb1P_c`),取不到就跳過記錄、不要重試到底。
+### ⚠️⚠️ 產出上限(這個排程最重要的設計)
 
-完整 prompt 見 job `9fe20ecd`;內容與第 2、4 節同構(去重指令、Whisper 配方、
-核實要求、README 三處更新、push 驗證方式),差別只在頻道清單與成本上限。
+**每次執行最多產出 2–3 篇,其中需 Whisper 者最多 1 支。**
+
+首次巡檢(2026-09-01)發現這五個頻道有 **32 支存量未整理** ——
+原本 prompt 寫「有字幕者數量不限」,照字面執行會一次寫出 15 篇。
+**本倉庫每篇都要比對一手來源核實,一次灌一堆等於灌水。** 故改為限量慢慢消,約兩週消化完。
+
+挑選優先序:①**能增補既有筆記的優先**(不製造重複主題,價值最高)→ ②有字幕的(成本低)→ ③新到舊。
+
+### 存量清單(2026-09-01 首次巡檢盤點,已完成 1 支)
+
+- ✅ 已完成:Why QQ `j2I2TIvhs0c`(Jalapeño 首測拆解)→ `knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md`
+- **Why QQ 剩 5**:`nScMXSWz9aE` vgpu、`0K4JBcnO4eA` AI 原生 SDLC、`XOpYP4ZTbQA` Codex 開源 Harness(⭐可增補 codex-as-a-platform)、`wmr8KEpK3ks` Qwen 畫畫、`LRJV5lcsnfA` Herdr(⭐可增補 herdr-terminal-runtime-agent-to-agent)
+- **Caleb 剩 6**:`yHNp_rT6uEo` Jalapeño 分析(⭐可增補今日新篇)、`3WbXyUolFA0`、`ZxBRtRjMU88` HBF、`Cx-pVoBR7C0`、`8ji5vURIllM` Why harness is SO expensive、`O1JMZvgFxKE`
+- **白白说大模型 剩 6**(全需 Whisper):`acvK103404s` Agent Skills、`x-s1Dbp4BE4` Agent 架構十連問、`whdEwyY9A78` 單體 Loop→分散式 Graph(⭐可增補 graph-engineering-node-edge-state)、`wiQgPk8BnhM`、`3nv7ucCoTLs`、`XQXMSc0L5DA` 向量庫+RAG
+- **YAHA學堂 剩 4**:`H4zIuJ4G1QY`、`ahb8kfsZmIk`、`yrnGrdPZx_U`(以上無字幕)、`Wq1icAZYr4E` Claude 隱藏設定(官方字幕)
+- **Redknot 剩 3**:`eOcyZqtw0Fg` 玄戒 O100 堆疊、`BUHHheaKlDY` 光刻機光源(無字幕)、`rQR_0WZzjV4` SSD 原理(官方字幕)
+
+⚠️ 實測遇過**來源影片後來被設為私人**(白白说大模型的 `diU-Nbb1P_c`,是既有筆記的來源),
+取不到就跳過記錄、不要重試到底。
 
 ---
 
@@ -262,6 +276,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 | 2026-08-21 | 到期前主動全刪重建為 `80eb1cba`/`200075b5`/`6de64cf1`/`7682556f`(約 **08-28** 到期)。**本輪把上述兩個新踩坑寫進 prompt,並補上 `lint_mermaid.py` 檢查與「影片提到可查證的官方規格/價格時要比對官方文件核實並標出補正」的步驟。** 當日四個排程都已跑過且皆無新內容,無需補檢 |
 | 2026-08-22 | 踩到 **yt-dlp 版本落後導致「持續性 403」** —— 三支影片 6 次嘗試全掛,log 顯示 `n challenge solving failed`;本機版本停在 2026.02.04(約半年前),更新到 2026.08.19 後第 1 次就成功。**與偶發性 403 的區分準則已寫入共通踩坑** |
 | 2026-08-23 | 自己踩到 **`grep … | head -1` 遮蔽退出碼**(找不到也回 0),連帶暴露另一個問題:**筆記檔頭只寫影片標題、沒放網址,導致 `build_source_index.py` 漏收該來源**。兩者都已寫進 prompt |
+| 2026-09-01 | **第 5 排程首次執行後修訂為 `28e85f8c`** —— 實測發現五個頻道有 **32 支存量**,原本「有字幕者數量不限」會一次寫 15 篇,改為**每次上限 2–3 篇(Whisper 至多 1 支)**、並加入「優先增補既有筆記」的挑選序;**移除 `@TheStormMedia`**(半數會員限定、題材偏離)。當日完成 Why QQ 的 Jalapeño 拆解一篇 |
 | 2026-09-01 | **新增第 5 個排程 `9fe20ecd`(未涵蓋頻道每日巡檢 08:12)** —— 盤點發現作者索引 49 位僅 3 位有排程,六個已累積 3 篇以上的頻道全靠手動補;handle 已逐一解析驗證,並對無字幕頻道設「每次最多 1 支」的 Whisper 上限 |
 | 2026-09-01 | 到期前主動全刪重建為 `ae5bf239`(GitHub Weekly)/ `881dd1ea`(Gary Chen)/ `8949d7df`(gooaye)/ `fb30e2ee`(美投君),約 **09-08** 到期。**本輪重點:同步 2026-08-30 的 repo 重整** —— 筆記路徑一律改為 `knowledge/...`、腳本改為 `scripts/knowledge/`;另新增三條踩坑(`git push … | grep …; echo $?` 會拿到 grep 的退出碼故改用 rev-parse 比對、印中文或 emoji 需先 reconfigure stdout 否則 cp950 崩潰、`wc -c` 位元組 vs `len(s)` 字元差約 3 倍別誤判內容遺失)與兩條慣例(財報類影片須比對 SEC/官方 IR 並列核實表、作者推廣自家產品時要標明立場)。⚠️ 已知缺口:README 作者索引 49 位,**僅 3 位有排程涵蓋**,詳見下節 |
 | 2026-08-26 | 到期前主動全刪重建為 `1b469bda`/`b3478479`/`e88151b9`/`07b52878`(約 **09-02** 到期)。**本輪新增三條踩坑(持續性 403 判準、pipe 遮蔽退出碼、來源需放完整網址)與一條慣例(同主題優先增補既有筆記、檔名不動),並補上 `technology/software-engineering` 這個新中類。** 當日四個排程都已跑過且皆無新內容,無需補檢 |
