@@ -216,7 +216,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 
 ---
 
-## 5. 未涵蓋頻道每日巡檢(每日 08:12 / `12 8 * * *`,job `28e85f8c`)
+## 5. 未涵蓋頻道每日巡檢(每日 08:12 / `12 8 * * *`,job `c579118a`)
 
 > 2026-09-01 新增,同日首次執行後依實測結果修訂。緣由:盤點發現 README 作者索引共 **49 位,
 > 先前僅 3 位有排程涵蓋**,pi agent / MCP / Codex / CS336 等內容都得靠手動丟連結補。
@@ -229,6 +229,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 | Caleb Writes Code | `@CalebWritesCode` | 自動(英文) | 8–11 分 |
 | YAHA學堂 | `@YAHAClass` | 時有時無 | 8–14 分 |
 | 白白说大模型 | `@白白说大模型` | **無** | 8–19 分 |
+| 小Lin说 | `@xiao_lin_shuo` | **官方中文** | 15–29 分 |
 | Redknot-乔红 | `@redknot-miaomiao` | 多數**無** | 14–19 分 |
 
 **已移除:`@TheStormMedia`(風傳媒 下班經濟學)** —— 首次巡檢實測六支裡**三支會員限定抓不到**,
@@ -238,7 +239,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 
 **每次執行最多產出 2–3 篇,其中需 Whisper 者最多 1 支。**
 
-首次巡檢(2026-09-01)發現這五個頻道有 **32 支存量未整理** ——
+首次巡檢(2026-09-01)發現當時五個頻道有 **32 支存量未整理**(2026-09-02 加入小Lin说後約 39 支) ——
 原本 prompt 寫「有字幕者數量不限」,照字面執行會一次寫出 15 篇。
 **本倉庫每篇都要比對一手來源核實,一次灌一堆等於灌水。** 故改為限量慢慢消,約兩週消化完。
 
@@ -251,6 +252,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 - **Caleb 剩 6**:`yHNp_rT6uEo` Jalapeño 分析(⭐可增補今日新篇)、`3WbXyUolFA0`、`ZxBRtRjMU88` HBF、`Cx-pVoBR7C0`、`8ji5vURIllM` Why harness is SO expensive、`O1JMZvgFxKE`
 - **白白说大模型 剩 6**(全需 Whisper):`acvK103404s` Agent Skills、`x-s1Dbp4BE4` Agent 架構十連問、`whdEwyY9A78` 單體 Loop→分散式 Graph(⭐可增補 graph-engineering-node-edge-state)、`wiQgPk8BnhM`、`3nv7ucCoTLs`、`XQXMSc0L5DA` 向量庫+RAG
 - **YAHA學堂 剩 4**:`H4zIuJ4G1QY`、`ahb8kfsZmIk`、`yrnGrdPZx_U`(以上無字幕)、`Wq1icAZYr4E` Claude 隱藏設定(官方字幕)
+- **小Lin说 剩 8**(2026-09-02 加入,全有官方字幕):`8BN8p5xDkzw` 日圓創 40 年新低、`l38ceFOWOAE` 萬達、`fKoWrF49Qo8` 川普收入、`OcKl98ZQbMQ` AI 巨頭資本混戰(⭐可增補 nvda-fy27q2-guidance-and-circular-financing)、`wpb-DrbhEiY` SpaceX 上市(⭐可增補 spacex-ipo-musk-jpmorgan / spacex-rise-history)、`7oF-JqEtWDU`、`mcTAHffEkIw`、`7qWH7e_AEDs`
 - **Redknot 剩 3**:`eOcyZqtw0Fg` 玄戒 O100 堆疊、`BUHHheaKlDY` 光刻機光源(無字幕)、`rQR_0WZzjV4` SSD 原理(官方字幕)
 
 ⚠️ 實測遇過**來源影片後來被設為私人**(白白说大模型的 `diU-Nbb1P_c`,是既有筆記的來源),
@@ -276,6 +278,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 | 2026-08-21 | 到期前主動全刪重建為 `80eb1cba`/`200075b5`/`6de64cf1`/`7682556f`(約 **08-28** 到期)。**本輪把上述兩個新踩坑寫進 prompt,並補上 `lint_mermaid.py` 檢查與「影片提到可查證的官方規格/價格時要比對官方文件核實並標出補正」的步驟。** 當日四個排程都已跑過且皆無新內容,無需補檢 |
 | 2026-08-22 | 踩到 **yt-dlp 版本落後導致「持續性 403」** —— 三支影片 6 次嘗試全掛,log 顯示 `n challenge solving failed`;本機版本停在 2026.02.04(約半年前),更新到 2026.08.19 後第 1 次就成功。**與偶發性 403 的區分準則已寫入共通踩坑** |
 | 2026-08-23 | 自己踩到 **`grep … | head -1` 遮蔽退出碼**(找不到也回 0),連帶暴露另一個問題:**筆記檔頭只寫影片標題、沒放網址,導致 `build_source_index.py` 漏收該來源**。兩者都已寫進 prompt |
+| 2026-09-02 | 第 5 排程加入 **小Lin说 `@xiao_lin_shuo`**(282 萬訂閱、財經商業解說、**官方中文字幕不需 Whisper**、約兩週一支),重建為 `c579118a`。該頻道 8 支全未整理,存量由 31 增至約 39;其中 AI 資本混戰與 SpaceX 上市兩支可增補既有筆記 |
 | 2026-09-01 | **第 5 排程首次執行後修訂為 `28e85f8c`** —— 實測發現五個頻道有 **32 支存量**,原本「有字幕者數量不限」會一次寫 15 篇,改為**每次上限 2–3 篇(Whisper 至多 1 支)**、並加入「優先增補既有筆記」的挑選序;**移除 `@TheStormMedia`**(半數會員限定、題材偏離)。當日完成 Why QQ 的 Jalapeño 拆解一篇 |
 | 2026-09-01 | **新增第 5 個排程 `9fe20ecd`(未涵蓋頻道每日巡檢 08:12)** —— 盤點發現作者索引 49 位僅 3 位有排程,六個已累積 3 篇以上的頻道全靠手動補;handle 已逐一解析驗證,並對無字幕頻道設「每次最多 1 支」的 Whisper 上限 |
 | 2026-09-01 | 到期前主動全刪重建為 `ae5bf239`(GitHub Weekly)/ `881dd1ea`(Gary Chen)/ `8949d7df`(gooaye)/ `fb30e2ee`(美投君),約 **09-08** 到期。**本輪重點:同步 2026-08-30 的 repo 重整** —— 筆記路徑一律改為 `knowledge/...`、腳本改為 `scripts/knowledge/`;另新增三條踩坑(`git push … | grep …; echo $?` 會拿到 grep 的退出碼故改用 rev-parse 比對、印中文或 emoji 需先 reconfigure stdout 否則 cp950 崩潰、`wc -c` 位元組 vs `len(s)` 字元差約 3 倍別誤判內容遺失)與兩條慣例(財報類影片須比對 SEC/官方 IR 並列核實表、作者推廣自家產品時要標明立場)。⚠️ 已知缺口:README 作者索引 49 位,**僅 3 位有排程涵蓋**,詳見下節 |
