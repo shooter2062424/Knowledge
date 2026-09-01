@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-218_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-219_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -130,7 +130,7 @@ flowchart LR
 | **Better Stack** — observability 廠商的開發者/AI 新聞短講 | 1 | [MCP 無狀態化的維運視角](./knowledge/technology/ai-agents/foundations/mcp-stateless-deployment-ops-view.md) |
 | **PyData / PyCon DE** — Python 資料工程與科學研討會 | 1 | [一兆筆紀錄的即時搜尋去重管線](./knowledge/technology/system-design/trillion-record-realtime-search-kafka-dedup.md) |
 | **李廠長來了** — AI Agent 趨勢與職場應用 | 1 | [未來一年的 6 個 AI Agent 趨勢](./knowledge/technology/ai-agents/foundations/six-ai-agent-trends-next-year.md) |
-| **Why QQ(為什麼叫 QQ)** — 一線工程師視角拆解 AI 工程文 | 6 | [Harness/Loop/Graph 三層排障地圖](./knowledge/technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) · [Codebase-Memory-MCP vs CodeGraph 兩條路線](./knowledge/technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) · [MCP 無狀態化遷移指南](./knowledge/technology/ai-agents/foundations/mcp-stateless-migration-guide.md) · [Loop 與 Graph 之爭](./knowledge/technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) · [Opus 5 系統提示詞的工程模式](./knowledge/technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) · [Skill 三層工程棧「跑/做/驗」](./knowledge/technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md) |
+| **Why QQ(為什麼叫 QQ)** — 一線工程師視角拆解 AI 工程文 | 7 | [Harness/Loop/Graph 三層排障地圖](./knowledge/technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) · [Codebase-Memory-MCP vs CodeGraph 兩條路線](./knowledge/technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) · [MCP 無狀態化遷移指南](./knowledge/technology/ai-agents/foundations/mcp-stateless-migration-guide.md) · [Loop 與 Graph 之爭](./knowledge/technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) · [Opus 5 系統提示詞的工程模式](./knowledge/technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) · [Skill 三層工程棧「跑/做/驗」](./knowledge/technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md) · [Jalapeño 首批跑分與跑分邊界](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) |
 | **Jim AI Notebook** — AI 每日深度解析 | 2 | [MCP 2026-07-28 最大改版](./knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) · [Stanford CS336 訓練成本餐巾紙算法](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | **wow** — AI agent 真實系統壓測 | 2 | [Graphify 知識圖譜實戰壓測](./knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) · [本體論護欄與神經符號 AI(Frank Coyle)](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
 | **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
@@ -360,6 +360,7 @@ flowchart LR
 | [一層就夠了?RL 後訓練的收益集中在單一「中間層」](./knowledge/technology/llm-internals/architecture/rl-gains-concentrate-single-middle-layer.md) | 只訓練 1 個中間層即可追平/超過全參數 RL;層貢獻是預訓練內在屬性(跨資料/任務穩定);只訓中間層就贏全參數 |
 | [KV Cache:每個 LLM 背後那個看不見的把戲](./knowledge/technology/llm-internals/inference/kv-cache.md) | 穩定前綴 + 尾載查詢,推論便宜 10 倍 |
 | [為什麼 temperature=0 還是每次答案不一樣:兇手是 batch size,不是浮點數](./knowledge/technology/llm-internals/inference/defeating-nondeterminism-batch-invariance.md) | ⭐ **推翻「併發+atomic add」的常見解釋**(前向傳播裡通常一個 atomic add 都沒有);真因是伺服器負載讓 batch size 浮動、kernel 換歸約策略;要改 RMSNorm/matmul/attention 三種 kernel(**attention 要固定 split-size 而非 split-count**);**temp=0 取樣 1000 次得 80 種答案、全在第 103 個 token 分歧**,修正後全一致,代價 1.6×;**on-policy RL 的 KL 從 0.001 降到精確為 0** |
+| [Jalapeño 首批跑分:推理晶片的評判標準換了,以及怎麼讀廠商自己給的數字](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) | 評判座標由 TFLOPS 換成**既定功耗與延遲下的 Token 交付率**;三組每瓦吞吐 1.5–1.9×、端到端延遲降 43–72.5%;⭐⭐ **跑分邊界才是重點**:圖表按 **700W 額定歸一化但實測只跑到 550W**、`mixed` 混算輸入輸出**不等於體感速度**、限定 8K/1K 且未開推測解碼、**未含 Vera Rubin**;⭐⭐⭐ 定性精準——**「第三方現場核驗過的廠商成績」,不具備外部獨立復現條件**(到場核驗 ≠ 獨立測試 ≠ 可復現);Prefill 算力密集 → Decode 記憶體密集,解法是 KV Cache 留本地;⚠️ **能效變高不等於機房省電(傑文斯效應)**;核實補正:官方延遲區間 1.7–3.6×、高互動負載達 2.1–4.1×、對手為 1,200/1,400W 級 |
 | [RTK(Rust Token Killer)深入研究](./knowledge/technology/llm-internals/inference/rtk-rust-token-killer-report.md) | 在 I/O 邊界確定性壓縮工具輸出,省 60–90% token |
 | [Yann LeCun 的 JEPA 與世界模型](./knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md) | 非生成、聯合嵌入預測;反 LLM 的另一條路 |
 | [Sutton 的 enactive AI:一張自相矛盾的反大模型藍圖](./knowledge/technology/llm-internals/world-models/sutton-enactive-ai.md) | 行動認知≠生成式;兩根柱子撞自己的獎勵假設與苦澀教訓;三桌賭 2028/2030 |
