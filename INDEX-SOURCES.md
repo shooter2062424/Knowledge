@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**182 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **186 篇**筆記。
+> 統計:**183 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **186 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(182 部,依 video id 排序)
+## YouTube(183 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -205,6 +205,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `Ynv_WYO_slw` | Understand-Anything vs Graphify:把 codebase 變成知識圖譜給 AI 查,實測對比 | [knowledge/technology/dev-tools/understand-anything-vs-graphify.md](./knowledge/technology/dev-tools/understand-anything-vs-graphify.md) |
 | `yVvW0NaWe40` | 現在正在主導的 5 個程式設計概念 | [knowledge/technology/system-design/dominating-programming-concepts.md](./knowledge/technology/system-design/dominating-programming-concepts.md) |
 | `Yzpx4Xaigms` | Task Decomposition:把「給人看的 SOP」拆成「agent 跑得動的工作流」 | [knowledge/technology/ai-agents/foundations/task-decomposition-agentic-workflow.md](./knowledge/technology/ai-agents/foundations/task-decomposition-agentic-workflow.md) |
+| `Z-4AsgTYv2c` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
 | `z0IvtUIF65Y` | 股癌選股心法:籌碼/技術都是工具,本質是「選對題材的好股」 | [knowledge/investing/strategy/gooaye-stock-picking-philosophy.md](./knowledge/investing/strategy/gooaye-stock-picking-philosophy.md) |
 | `z2GFDO4HrZY` | AI 編程的三個致命錯覺(OpenCode 創辦人 Dax Raad) | [knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md](./knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md) |
 | `Z613KdxJpKg` | Claude Design 使用評測:AI 設計工具,以及設計師的核心競爭力往哪移動 | [knowledge/technology/applied-ai/design/claude-design-review.md](./knowledge/technology/applied-ai/design/claude-design-review.md) |
