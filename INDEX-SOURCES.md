@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**181 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **185 篇**筆記。
+> 統計:**182 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **186 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(181 部,依 video id 排序)
+## YouTube(182 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -195,6 +195,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `XH1G58QqPIM` | CSS View Transitions:用純 CSS 讓「多頁網站」有單頁 App 般的轉場動畫 | [knowledge/technology/web-dev/css-view-transitions.md](./knowledge/technology/web-dev/css-view-transitions.md) |
 | `xI3MCSTlCtA` | 為什麼你買什麼跌什麼?台股散戶虧錢的底層邏輯:不是運氣,是「沒有系統」 | [knowledge/investing/strategy/retail-investor-losing-system-not-luck.md](./knowledge/investing/strategy/retail-investor-losing-system-not-luck.md) |
 | `XJUpuOBpT-4` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
+| `XOpYP4ZTbQA` | Codex 平台化:OpenAI 把 harness 開源、模型留著 —— 以及一個「同模型換 harness 就 13.3% → 38.3%」的數字 | [knowledge/technology/ai-agents/applications/codex-as-a-platform-open-agent-harness.md](./knowledge/technology/ai-agents/applications/codex-as-a-platform-open-agent-harness.md) |
 | `XOyG9mE-6KY` | 特斯拉財報深挖:FSD 拐點、馬斯克造芯片、四象限投資邏輯與 SpaceX 合併的隱藏風險 | [knowledge/investing/equity-research/tesla-earnings-fsd-chip-spacex-four-quadrant.md](./knowledge/investing/equity-research/tesla-earnings-fsd-chip-spacex-four-quadrant.md) |
 | `XTCP1qoa3cc` | Google Agentic Engineering 課程 Day 2+3:MCP、A2A、AP2 三協定,與 Skill 上線的四地雷四防線 | [knowledge/technology/ai-agents/foundations/google-agentic-engineering-day2-3.md](./knowledge/technology/ai-agents/foundations/google-agentic-engineering-day2-3.md) |
 | `xzrvAERmvRk` | Cross-Model Review:用 stop hook + skill + marker 讓 Claude 跟 Codex 自動互審(自建 harness) | [knowledge/technology/ai-agents/applications/cross-model-review-claude-codex-harness.md](./knowledge/technology/ai-agents/applications/cross-model-review-claude-codex-harness.md) |

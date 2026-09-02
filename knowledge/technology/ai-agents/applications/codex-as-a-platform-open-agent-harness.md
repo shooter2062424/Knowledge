@@ -1,6 +1,6 @@
 # Codex 平台化:OpenAI 把 harness 開源、模型留著 —— 以及一個「同模型換 harness 就 13.3% → 38.3%」的數字
 
-> 整理自 **OpenAI Developers 官方部落格**〈Codex as a platform: build on the open agent harness〉。
+> 整理自 **OpenAI Developers 官方部落格**〈Codex as a platform: build on the open agent harness〉(§1–5),並於 2026-09-03 增補 **Why QQ**〈[Codex 開源 Harness | Codex CLI 快了 25 倍](https://www.youtube.com/watch?v=XOpYP4ZTbQA)〉的工程落地實務(§6,官方 zh-Hans 字幕),另比對 `openai/codex` repo 文件核實。
 > ⚠️ **來源說明**:OpenAI 另有〈Harness engineering: leveraging Codex in an agent-first world〉與〈Unrolling the Codex agent loop〉兩篇更深入的文章,**本文嘗試抓取時均回 HTTP 403(站方 bot 防護),未能取得內容**,故本文僅依 developers 站的平台文章整理。
 
 > ⭐ **強烈建議與 [[arc-agi-3-agentic-benchmark]] 對照看** —— 這篇引用的 ARC-AGI-3 數字,正好給那篇的「前沿 AI 低於 1%」補上了後續發展。
@@ -125,6 +125,148 @@ flowchart TB
 
 ---
 
+## 六、⭐⭐ 工程落地實務:把 harness 當成「安放工程約束的底座」(2026-09-03 新增)
+
+> 本節整理自 **Why QQ**〈[Codex 開源 Harness | Codex CLI 快了 25 倍 | 值得探討的](https://www.youtube.com/watch?v=XOpYP4ZTbQA)〉
+> (2026-08-28,約 11 分鐘,官方 zh-Hans 字幕)。
+> 前面幾節講**平台策略與開源邊界**;本節講**真要放進團隊流程時,工程上該卡哪些點**。
+
+### 6.1 問題換了:不再是「生成程式碼」,而是「流程控制」
+
+> **Agent 接進系統之後,真正的難點就不再是產出品質,而是:
+> 它讀了哪些檔案?拿了哪些上下文?出錯怎麼恢復?高危操作誰來批?**
+
+⚠️ 影片點出的落差很關鍵:**以前補全寫錯了還能逐行 code review;
+但一個能呼叫工具的 agent 翻車,影響範圍會順著憑證與介面一路擴散。**
+
+而**模型本身不會幫你管這些邊界** —— 只盯提示詞與模型能力,狀態、權限、重試最後會散落在各種腳本裡變成糊塗帳。
+
+### 6.2 Thread 與 Turn 拆開,是為了日後查得到
+
+本文 §2 已列出 app-server 的四個原語。這裡補上**為什麼要這樣拆**:
+
+| 概念 | 是什麼 | 拆開的好處 |
+|---|---|---|
+| **Thread** | 長期會話(修一個 PR、處理一張工單) | 「長期上下文」獨立 |
+| **Turn** | **一次具體請求回合**,必須有明確的開始、進度、工具流水、結束狀態與錯誤日誌 | 「單次執行流水」獨立 |
+
+> ⚠️ 很多團隊自建的 agent 工具把歷史與任務佇列全糊在一個聊天框裡 ——
+> **平時看不出問題,等你要查「這行 DB 變更是誰授權的」或想恢復一次中斷的任務時就傻眼了。**
+> 拆開之後,鑑權、計費、排障才清爽。
+
+### 6.3 工具分級:不要只標「讀 / 寫」
+
+> **讀日誌可能會漏 token;跑單元測試可能會寫快取或呼叫外部 API。**
+
+比較可靠的分級是綜合看三件事:**副作用、資料敏感度、能不能回滾。**
+
+**每一個「寫操作」工具都要做到:** 入參校驗、最小權限、**冪等設計**、落日誌、明確的異常回傳。
+(建工單要防重複、發版命令要帶審批單號。)
+
+> ⭐ **Agent 能幹多大的事取決於你給了多少能力;而系統的風險上限,直接由你設計的工具邊界決定。**
+
+### 6.4 審批卡片上該寫什麼
+
+官方 Relay 範例的閉環是:agent 發現異常 → 用 MCP 工具查資料 → **要做寫操作時系統拉起人工審批** → 你同意後業務介面同步刷新。
+
+搬到日常開發同理:**讀建構日誌、寫草稿隨便它;但凡要改資料庫、輪換金鑰,就必須進 approval 流程。**
+
+審批卡片上要寫清楚:
+
+- **動到什麼資源、影響面多大、參數對不對**
+- **可回滾的話,把回滾按鈕一起亮出來**
+- **不可逆操作在 UI 上標紅示警**
+
+> 它防不住所有風險,**但能給高危動作留下追責證據**。
+
+### 6.5 不要把所有事都塞進聊天框
+
+> 官方建議:**原本的 dashboard、IDE、工單系統都留著,把 agent 嵌進去就好。**
+
+排查線上事故時,值班同學要看的是大盤趨勢與告警時間線 ——
+agent 可以在旁邊幫忙順邏輯、查受限日誌,**但主戰場還是原本的監控面板**。
+
+⭐ **狀態回饋本身就是產品介面的一部分**:使用者最怕對著一個空轉的 loading 圖示發呆。
+「進行到哪一步、卡在哪、能不能取消」都該講清楚。
+
+### 6.6 ⭐ 導入階梯:先 `codex exec`,再 SDK,最後才 App Server
+
+官方給的分層建議很清醒:
+
+| 情境 | 用什麼 |
+|---|---|
+| 一次性腳本、CI 任務 | **`codex exec`** |
+| 需要程式化調度、串流消費 | **SDK** |
+| 要做帶複雜 UI 的內嵌 agent | **App Server** |
+
+`codex exec` 的設計對接管線很友善:**進度打進 stderr、最終結果丟 stdout**;
+搭配 `--json` 輸出串流事件,或用 `--output-schema` 鎖死 JSON Schema。
+
+> ⭐⭐ **建議的第一個任務:PR 風險摘要。** 把 diff 與測試日誌餵給 agent,讓它吐出受影響模組與補充測試建議。
+> ⚠️ **一開始一定要給唯讀沙箱,別一上來就讓它自動合併程式碼。**
+> 先跑幾週、看準確率與**人工採納率**,輸出夠穩健了再慢慢放開寫權限。
+
+### 6.7 ⚠️ 網路邊界:這條要卡死
+
+App Server 預設走**本地 stdio**。影片強調 TCP/WebSocket 仍是實驗性功能、不建議直接上生產 ——
+**這一點已比對官方 repo 文件確認,見 §6.11。**
+
+若非要跨機呼叫:**套 TLS、加 WebSocket 認證;裸跑 `ws://` 只配活在 localhost 與 SSH 隧道裡。**
+另外**工具端的權限校驗要自己重做,別完全相信上游傳來的鑑權。**
+
+### 6.8 可觀測性:沒有它,agent 就是你不敢碰的黑盒
+
+> 當業務方跑來吼「agent 把庫刪了」,你必須能精確定位到那一次 Turn:
+> **它讀了什麼上下文?呼叫了哪個版本的工具?誰點的人工確認?最後寫了哪一筆?**
+
+所以**每個 Turn 都要掛唯一 ID**,把模型請求、工具入參、審批結果與錯誤堆疊串在同一條線上。
+CI 場景保留原始 JSON Lines;線上產品把核心事件打進審計日誌。
+
+⭐ **這不只是防甩鍋** —— 還能抓出那些瘋狂重試、燒掉大量 token 的無效邏輯。
+
+### 6.9 評估 agent:別拿「今天生成幾行程式碼」自嗨
+
+| 用途 | 該看的指標 |
+|---|---|
+| PR 摘要 | **人工採納率**與漏報率 |
+| 故障排查 | **MTTR(平均恢復時間)有沒有降** |
+
+> ⚠️ **若上了 agent 反而增加老員工幫它擦屁股的時間,那就是負優化。**
+
+**效能也要拆開算:** 行程拉起、首屏渲染、**首次可輸入**,分別看 p50 與 p95。
+
+### 6.10 那個「快 25 倍」該怎麼讀
+
+Charlie Marsh 說重構生命週期後 Codex CLI 啟動快了約 **25 倍**。影片的態度很值得學:
+
+> **先問這是哪個指標** —— 行程拉起?首屏渲染?你能敲鍵盤了?還是模型回包了?**不同指標對應完全不同的優化路子。**
+
+從 0.148.0 的 release 與 PR 38642 可以看到線索:**TUI 還在初始化時,使用者就已經能開始起草提示詞** ——
+系統先給一個臨時輸入框,背景再慢慢跑初始化,最後把狀態無縫接管。
+
+> ⭐ 也就是說 **Codex 大幅提前的是「首屏可互動時間(TTI)」**,體感確實會起飛。
+> ⚠️ **但影片誠實地說:靠現有公開資料,算不出這個「先顯示輸入框」的做法對那 25 倍貢獻了多少,
+> 也不能證明背景所有載入邏輯都等比例縮短。**
+
+### 6.11 與官方 repo 的核實
+
+| 影片說法 | 核實結果 |
+|---|---|
+| 開源入口是 `openai/codex`(不是獨立的 codex-harness repo)、**Apache-2.0** | **屬實** |
+| `codex-rs/core` 承載核心邏輯、`app-server` 負責對外協定、另有 SDK | **屬實**,`codex-rs/` 下確有 `core`、`app-server`、`sdk/`(TypeScript 與 Python) |
+| Thread 與 Turn 是兩個層級 | **屬實**,協定含 `turn/start`、`turn/started`、`item/started`、`item/completed`、`turn/completed`、`turn/interrupt` |
+| App Server 預設 stdio;WebSocket 是實驗性、不建議上生產 | ⭐ **官方文件原文證實**:websocket 傳輸標註 **experimental / unsupported**,並明寫 **"Do not rely on it for production workloads."** |
+| 審批與沙箱由宿主應用決定 | **屬實**,`turn/start` 可覆寫 sandbox policy、approval policy、approvals reviewer |
+
+**⭐ 影片未提、但實務上重要的補充:** 除了 stdio 與 websocket,官方還提供 **unix socket**
+(`--listen unix://`,走標準 HTTP Upgrade 握手)以及 **`--listen off`**(完全不開本地傳輸)。
+**要跨行程但不想碰網路時,unix socket 是比裸 `ws://` 安全得多的選項** —— 影片沒提到這個中間選擇。
+
+⚠️ 影片提到「非回環位址的監聽可能預設放行無認證連線」,**本文未在官方文件中找到對應敘述**,
+以影片轉述看待;若要對外監聽,請自行查閱該版本文件確認。
+
+---
+
 ## 應用案例
 
 ### 案例 1|⭐⭐ 用「開源邊界劃在哪」判斷一家公司的策略
@@ -213,6 +355,8 @@ app-server 把 approval request 列為四個原語之一,這個決定可以借�
 
 ## 來源
 
+- ⭐ [Codex 開源 Harness | Codex CLI 快了 25 倍 — Why QQ](https://www.youtube.com/watch?v=XOpYP4ZTbQA)(2026-08-28,約 11 分鐘,官方 zh-Hans 字幕)—— 第六節的工程落地實務、導入階梯與可觀測性要求皆來自此片
+- [openai/codex — `codex-rs/app-server/README.md`](https://github.com/openai/codex/blob/main/codex-rs/app-server/README.md) —— 已核實傳輸選項(stdio 預設、websocket 標註 experimental/unsupported、另有 unix socket 與 off)與 Thread/Turn 協定方法
 - ⭐ [Codex as a platform: build on the open agent harness — OpenAI Developers](https://developers.openai.com/blog/codex-as-a-platform) —— **本文主要依據**
 - ⚠️ **以下兩篇 OpenAI 官方文章本文嘗試抓取時均回 HTTP 403(站方 bot 防護),未能取得內容,列此供日後補讀**:
   - [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/)
