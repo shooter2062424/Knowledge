@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-222_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-223_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -143,7 +143,7 @@ flowchart LR
 | **Andrej Karpathy(本人著作/repo)** | 3 | [microGPT 200 行](./knowledge/technology/llm-internals/architecture/microgpt-karpathy.md) · [autoresearch 最小 harness](./knowledge/technology/ai-agents/autonomy/karpathy-autoresearch.md) · [LLM Wiki 知識庫模式](./knowledge/technology/ai-agents/memory-retrieval/llm-wiki-karpathy.md) |
 | **blog.aihao.tw(ihower)** — agent 工程 | 2 | [Agent Streaming 格式設計](./knowledge/technology/ai-agents/applications/agent-streaming-format-design.md) · [用 AI 分析 Agent Traces](./knowledge/technology/ai-agents/applications/agent-trace-analysis-with-ai.md) |
 | **Prime Intellect(官方部落格)** | 1 | [Prime Agent:RLM 與 Continual Harness](./knowledge/technology/ai-agents/foundations/prime-agent-rlm-continual-harness.md) |
-| **Anthropic(官方研究/頻道)** | 3 | [五大 Agent 模式](./knowledge/technology/ai-agents/foundations/five-agent-patterns.md) · [Man Group 用 Claude Skills 治理](./knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md) · [J-Space 全域工作空間](./knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md) |
+| **Anthropic(官方研究/頻道)** | 4 | [五大 Agent 模式](./knowledge/technology/ai-agents/foundations/five-agent-patterns.md) · [Man Group 用 Claude Skills 治理](./knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md) · [J-Space 全域工作空間](./knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md) · [Claude Code 團隊自己怎麼用 Claude Code](./knowledge/technology/claude-code/claude-code-team-how-they-work.md) |
 | **OpenAI(官方部落格/文件)** | 1 | [Codex 平台化與 open agent harness](./knowledge/technology/ai-agents/applications/codex-as-a-platform-open-agent-harness.md) |
 | **三颗门牙X** — AI 工具實戰全流程教學 | 1 | [新版 Codex 全流程實戰](./knowledge/technology/ai-agents/applications/codex-desktop-full-workflow-guide.md) |
 | **Claude Code 官方文件** | 1 | [Claude Code 2026 功能演進時間軸](./knowledge/technology/claude-code/claude-code-2026-feature-timeline.md) |
@@ -444,6 +444,7 @@ flowchart LR
 |---|---|
 | [Claude 不是變笨,是講話方式跟你對不上:用 output style 治囉嗦](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) | 先分清「做錯了」還是「說不清」——那些降智抱怨測試都過了;**⭐ 內建五套(比對官方文件修正,新增 `Concise`——最貼近治囉嗦卻沒人提)**;⚠️ Explanatory 只該用在不熟的專案;`/branch` 叫它重寫五種風格;ASD-STE100;**光說「講簡單一點」沒用,只會把長廢話換成短廢話**;**⚠️⚠️ 三個坑:`keep-coding-instructions` 預設 false 會把工程規範整個扔掉、改設定檔要 `/clear` 才生效、`/output-style` 已移除**;**⭐ subagent 不套用(fork 例外)** |
 | [Claude Code Hooks 完全指南:CLAUDE.md 是提醒紙條,Hook 才是自動門](./knowledge/technology/claude-code/claude-code-hooks-complete-guide.md) | **CLAUDE.md 靠模型自覺、Hook 由軟體強制**;三層架構 Event/Matcher/Handler;五個真實案例(Superpowers 用 SessionStart 對付 Skill 載入隨機性、Claude-Mem 注入長期記憶、**Impeccable 把快檢查放 PostToolUse、深度檢查放 Stop**);prompt 只能看給的資料、agent 可先讀檔跑測試;⚠️ **Stop Hook 一定要有結束條件**(以內容版本記錄已通過 + 三輪上限)|
+| [Claude Code 團隊自己怎麼用 Claude Code:從盯 tool call 到只給目標](./knowledge/technology/claude-code/claude-code-team-how-they-work.md) | Anthropic 團隊訪談;**70–80% 工作在 Slack 的 Claude Tag、不看 transcript**;⭐ **harness 功能是替模型失敗模式打的補丁,模型變強就該刪**(to-do list / AskUserQuestion 兩個案例);⭐⭐ **fan-out 不難,filter-back 才難 —— 是個 MapReduce 問題**;workflows 讓人敢信任是因為「for 迴圈不會漏掉一項」;**UI 與 transcript 解耦是逼自己承認模型夠好的強制函數**;⚠️ 保留了自述門檻(容器權限設定很痛、驗證仍自己 clone 一次) |
 | [Claude Code 2026 功能演進:從「權限提示」到「agent 艦隊」的半年軌跡](./knowledge/technology/claude-code/claude-code-2026-feature-timeline.md) | 涵蓋 **Week 13(3月)~ Week 34(8月)、v2.1.83–v2.1.239**,按主題重新歸類;⭐ **權限線:auto mode 從 research preview 走到 8/14 成為預設**,每條防護都對應具體破壞面;**艦隊線:agent view → dynamic workflows → subagent 再生 subagent → 跨 session 訊息**;⭐ **最新 `/design` 把 artboard 工作流帶進 CLI**;**Windows 不再需要 Git Bash(改用 PowerShell)**;⭐ **兩個刻意不自動的設計:安全外掛產生修補但要你自己套用、`/design` 是它畫你挑** |
 | [CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題與一個減號的坑](./knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) | `/context` 量化佔用(798→143);Anthropic 優化 Opus5/Fable5 時系統提示詞也砍逾八成且**評測無可測量退步**;三問(自己找得到嗎/都用得到嗎/會過期嗎);⚠️ **YAML frontmatter 少一個減號 → 規則默默變全局常駐**;`/insights` 掃對話找該加什麼、`/doctor` 砍該刪的(**只檢查已 commit 的檔案**);⭐ 留存判準:**跟預設行為相異才值得寫**;⭐⭐ **新增 §9(Boris Cherny @ YC Startup School)**:**提示詞負債** —— 為舊模型寫的補丁會變成新模型的阻力;**先分三類**(必要 Context 留、Workflow Control 優先測、**安全邊界絕不能為精簡而關**);**Ablation 三步驟**,關鍵是兩版各跑多次比平均與失敗率、**不是各挑最好一次**;⭐⭐⭐ **Boris 最重的一句:大家花最多時間調 prompt,真正做錯的是驗證** —— 模型驗證不了的標準就是空話;⭐⭐ **Eval 只能活 1–3 個模型世代**,考滿分就該整份重出,連 Anthropic 的都是消耗品;作者實錄刪 2,500 行、加回 300 行、花兩個工作天;核實補上:**Opus 5 的系統提示詞被移除逾 80% 且測試無退步** |
 | [15 分鐘學完 CLAUDE.md:從入門到精通](./knowledge/technology/claude-code/claude-md-from-zero-to-mastery.md) | User/Project/Nested 三層疊加;`/init` 太完整反而吃 Instruction Budget;減法三問+加法五問;長流程→Skill、紅線→Hook;`/insights` 新增、對照 Prompting Guide 修剪;CLAUDE.md 第一行 reference AGENTS.md 只維護一份 |
