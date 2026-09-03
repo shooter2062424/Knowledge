@@ -1,8 +1,10 @@
 # Jalapeño 首批跑分:推理晶片的評判標準換了,以及怎麼讀廠商自己給的數字
 
 **主題分類:** LLM 內部機制 / 推論 —— 推理晶片評測與跑分方法論
-**來源影片:** YouTube〈OpenAI Jalapeño 首測拆解:AI 推理晶片的勝負,開始寫在每瓦 Token〉(Why QQ / 為什麼叫 QQ,2026-08-29,約 9.7 分鐘,**官方 zh-Hans 字幕**)
-**整理日期:** 2026-09-01
+**來源影片:**
+1. YouTube〈OpenAI Jalapeño 首測拆解:AI 推理晶片的勝負,開始寫在每瓦 Token〉(Why QQ / 為什麼叫 QQ,2026-08-29,約 9.7 分鐘,**官方 zh-Hans 字幕**)
+2. YouTube〈OpenAI Jalapeño explained in 11min..〉(Caleb Writes Code,2026-08-27,約 11.4 分鐘,**自動英文字幕**)—— 見 §10,補上機架拓撲與 ASIC 賭注
+**整理日期:** 2026-09-01(2026-09-04 增補 §10)
 
 > 這篇的價值有兩層:**一層是 Jalapeño 這顆晶片做了什麼**,另一層——也是更耐用的一層——
 > 是**怎麼讀一份由廠商提供數據、第三方到場核驗的跑分**。後者的方法論適用於所有 AI 硬體發布。
@@ -230,15 +232,105 @@ AI 生成一堆候選之後仍要過極嚴格的回歸測試。**閉環能不能
 
 ---
 
+## 10. ⭐ 機架拓撲與「ASIC 這個賭注」(2026-09-04 增補,來源:Caleb Writes Code)
+
+§1–§9 談的是**單顆晶片的跑分怎麼讀**。這一節補的是另一半:
+**單顆晶片根本裝不下一個模型,所以真正在比的是「一整櫃怎麼連」**,
+以及 ASIC 這條路相對通用 GPU 到底賭了什麼。
+
+### 10.1 為什麼要看機架而不是看晶片
+
+DeepSeek-R1、Kimi K2.5 這種規模的模型**放不進單顆晶片**,
+必然要靠 scale-up(櫃內晶片彼此講話多快)與 scale-out(多櫃串成叢集)撐起來。
+所以「每瓦 Token」是入場券,**互連才是決勝點**。
+
+| | scale-up(櫃內) | scale-out(跨櫃) |
+|---|---|---|
+| **NVIDIA NVL72** | 2 顆 Blackwell + 1 顆 Grace 走 NVLink-C2C 成一模組,72 GPU 靠 NVLink / NVSwitch 縫成一台機器,**900 GB/s per GPU** | 走 InfiniBand,外部交換機串櫃 |
+| **OpenAI Jalapeño** | 每張 **Vindaloo** 板 8 顆 ASIC × 16 張 = **單櫃 128 顆**,走 **Ethernet 600 GB/s per chip**;CPU 拆到獨立的 **Katsu** 板,由 **Chana** 交換板連起來 | 官方稱 **global scale-up**,**16 櫃 = 2,048 顆**,**200 GB/s per chip** |
+
+```mermaid
+flowchart TB
+    subgraph Rack["單櫃 = 128 顆 Jalapeño"]
+        V["Vindaloo 板 x16<br/>每板 8 顆 ASIC"]
+        K["Katsu 板 x16<br/>host CPU,與 Vindaloo 一一對應"]
+        C["Chana 交換板 x8<br/>6 張本地 + 2 張全域"]
+        V ---|"本地 600 GB/s"| C
+        K --- C
+    end
+    Rack ---|"全域 200 GB/s"| Pod["16 櫃 Pod<br/>2048 顆"]
+```
+
+> ⭐ **兩個設計取捨值得記下來:**
+> ① **櫃內頻寬 600 vs 900 GB/s ——Jalapeño 比 NVL72 低約三分之一**,
+>    但它換來的是**單櫃塞進 128 顆**(NVL72 是 72 顆)與更低的單顆功耗。
+> ② **CPU 與加速器實體分離**(Katsu / Vindaloo 兩張板),
+>    與 NVIDIA 把 Grace CPU 和 Blackwell GPU 封在同一模組的思路相反 ——
+>    推理工作對 CPU 的需求比訓練低,拆開可以各自獨立擴充。
+> ③ 這種「可堆疊的立方體」形狀,**更接近 Google TPU 的 3D torus 而不是 NVIDIA 的機架**。
+
+### 10.2 ⚠️ ASIC 的賭注:對「上層」下了更強的假設
+
+通用 GPU 賣的是**適應性**,ASIC 賣的是**在既定假設下的效率**。代價很直接:
+
+> **ASIC 必須對上層(模型架構、Agent 使用方式)做出比通用晶片更大膽的假設。**
+> 若模型層冒出全新架構、或應用層的 agent harness 用法整個變了,
+> **底層晶片是最難跟著改的一層。**
+
+這正是 §5「跑分邊界」的另一種說法:8K/1K 這個測試點,
+本質上是**OpenAI 對「典型推理負載長什麼樣」的一次押注**。
+Caleb 的推論很合理 —— **只放 8K/1K、不放 AgentX**,
+比較可能是**其他配置還沒調到能見人的程度**,而不是刻意藏。
+
+### 10.3 反向的證據:kernel 支援面比想像中寬
+
+常見的質疑是「OpenAI 的 kernel 只會伺候 GPT 模型」。
+但官方跑分表裡同時有 **GPT-OSS 120B、DeepSeek-R1、Kimi K2.5** ——
+這三者的 MoE 設計、注意力機制、模型架構**彼此差異不小**。
+
+> ⭐ 這暗示 Jalapeño 的 kernel 覆蓋面不像外界假設的那麼窄。
+> OpenAI 自己也說「最新模型正在加速 Jalapeño 的開發與 kernel 最佳化」——
+> ⚠️ 但這句與 §8 附帶提到的「AI 輔助造晶片」一樣,**是自我宣稱,沒有可核驗的方法學**。
+
+### 10.4 ⚠️ 這支影片與官方口徑不一致的兩處
+
+| 影片說法 | 核實結果 | 判讀 |
+|---|---|---|
+| 「13 個月從架構設計送進台積電」 | 官方說設計到 tape-out **9 個月**;SemiAnalysis 算上組隊約 **16 個月** | 13 個月是**另一種起訖點**的算法。三個數字都不是行業審計標準,**引用時要講清楚算的是哪一段** |
+| 「FP8 算力約 3.4 PFLOPS」 | SemiAnalysis 列的是 **13.4 PFLOP/s(mxfp4 × mxfp4)** | **精度口徑不同**,不能直接對比。⚠️ 影片這個數字未能對上任何官方欄位,引用前請自行回查 |
+
+> 另註:影片把交換板名稱唸成 "China switch",實際是 **Chana**(鷹嘴豆)——
+> OpenAI 晶片團隊的命名全是食物(Jalapeño / Katsu / Vindaloo / Chana)。
+> **自動字幕的專有名詞要當心。**
+
+### 10.5 應用案例:把 §9 的四問擴成五問
+
+原本的四問(分母 / 指標 / 邊界 / 第三方)是**針對單顆晶片的跑分**。
+看整櫃方案時再加第五問:
+
+> **⑤ 這個效率是「單顆」還是「整櫃」量出來的?櫃內與跨櫃頻寬各是多少?**
+
+實例:Jalapeño 單顆 700W 很漂亮,但**櫃內頻寬比 NVL72 低約 33%**。
+對**單一請求延遲敏感**的工作(長上下文、多輪 agent),
+跨晶片通訊次數多,這 33% 會被放大;
+對**高併發吞吐**的工作(大量短請求),單櫃 128 顆的密度反而更划算。
+**「哪顆晶片比較強」這問題,離開負載形狀就沒有答案。**
+
+---
+
 ## 來源
 
 - [OpenAI Jalapeño 首測拆解:AI 推理晶片的勝負,開始寫在每瓦 Token — Why QQ](https://www.youtube.com/watch?v=j2I2TIvhs0c)(2026-08-29,約 9.7 分鐘,官方 zh-Hans 字幕)
+- [OpenAI Jalapeño explained in 11min.. — Caleb Writes Code](https://www.youtube.com/watch?v=yHNp_rT6uEo)(2026-08-27,約 11.4 分鐘,自動英文字幕;§10 來源)
 - 核實用官方與外電:
   - [Jalapeño's first results show industry-leading speed and efficiency in AI inference — OpenAI](https://openai.com/index/jalapeno-first-results/)
   - [InferenceX by SemiAnalysis — Open-Source Agentic Inference Benchmark](https://inferencex.semianalysis.com/)
   - [OpenAI's 700W Jalapeño ASIC outpaces 1,400W Nvidia flagship GPU — Tom's Hardware](https://www.tomshardware.com/tech-industry/semiconductors/openai-says-its-jalapeno-chip-beats-nvidias-gb300-in-first-published-benchmarks)
   - [OpenAI details Jalapeño AI chip, with 700W TDP — DataCenterDynamics](https://www.datacenterdynamics.com/en/news/openai-details-jalape%C3%B1o-ai-chip-with-700w-tdp/)
   - [OpenAI's Jalapeño chip is built for fast inference at scale — TechCrunch](https://techcrunch.com/2026/08/25/openais-jalapeno-chip-is-built-for-fast-inference-at-scale-benchmarks-show/)
+  - [OpenAI Jalapeño: Better Than Nvidia Blackwell — SemiAnalysis](https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia)(§10 機架拓撲、Vindaloo/Katsu/Chana 命名、600/200 GB/s、13.4 PFLOP/s mxfp4 的核實來源)
+  - [Hot Chips 2026: OpenAI's Jalapeño AI ASIC unpacked — Tom's Hardware](https://www.tomshardware.com/tech-industry/artificial-intelligence/hot-chips-2026-openais-jalapeno-ai-asic-unpacked-accelerator-developed-using-ai-achieves-efficiency-and-throughput-gains-against-power-hungry-blackwell)
+  - [OpenAI Jalapeno Custom AI ASIC at Hot Chips 2026 — ServeTheHome](https://www.servethehome.com/openai-jalapeno-asic-at-hot-chips-2026/)
   - [OpenAI and Broadcom announce strategic collaboration to deploy 10 gigawatts of OpenAI-designed AI accelerators — OpenAI](https://openai.com/index/openai-and-broadcom-announce-strategic-collaboration/)
 
 > ⚠️ 本文為對一支公開影片的整理與查證。§8 已標示核實狀態;

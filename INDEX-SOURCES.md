@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**184 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **187 篇**筆記。
+> 統計:**186 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **188 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(184 部,依 video id 排序)
+## YouTube(186 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -117,6 +117,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `IRNWXRFri2A` | 青安 3.0 上路:為什麼「最高 1500 萬」多半貸不滿?以及財政部繼承數據透露的性別轉變 | [knowledge/investing/personal-finance/qingan-3-0-and-inheritance-gender-gap.md](./knowledge/investing/personal-finance/qingan-3-0-and-inheritance-gender-gap.md) |
 | `iw1VF8HOCrk` | Attention Residuals:把注意力「轉 90 度」用在網路深度上 | [knowledge/technology/llm-internals/architecture/attention-residuals.md](./knowledge/technology/llm-internals/architecture/attention-residuals.md) |
 | `j2I2TIvhs0c` | Jalapeño 首批跑分:推理晶片的評判標準換了,以及怎麼讀廠商自己給的數字 | [knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) |
+| `jgy1A0Mrx7g` | Omarchy 4「Quattro」:當 Agent 從外掛升格成作業系統的一等公民 | [knowledge/technology/ai-agents/applications/omarchy-4-agent-as-os-citizen.md](./knowledge/technology/ai-agents/applications/omarchy-4-agent-as-os-citizen.md) |
 | `JPGo_5fczaA` | 模型越強,Superpowers 和 Matt Skills 該刪掉誰?兩套 AI 編程工作流的選擇框架 | [knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md](./knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) |
 | `KeRBNTOITEo` | 十大恐怖主管特質:從竹科裸辭看「只做向上管理」如何逼走一個好員工 | [knowledge/career/workplace/ten-toxic-manager-traits.md](./knowledge/career/workplace/ten-toxic-manager-traits.md) |
 | `kGYFSDd-ZVY` | Loop Engineering 實務:怎麼設計、什麼任務值得、失控的三個坑(Gary Chen) | [knowledge/technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md](./knowledge/technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md) |
@@ -202,6 +203,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `xzrvAERmvRk` | Cross-Model Review:用 stop hook + skill + marker 讓 Claude 跟 Codex 自動互審(自建 harness) | [knowledge/technology/ai-agents/applications/cross-model-review-claude-codex-harness.md](./knowledge/technology/ai-agents/applications/cross-model-review-claude-codex-harness.md) |
 | `yDGpqBKJBpc` | 英偉達 FY27Q2:三十年來第一次提前給全年指引,以及「循環融資」如何改寫它的估值結構 | [knowledge/investing/equity-research/nvda-fy27q2-guidance-and-circular-financing.md](./knowledge/investing/equity-research/nvda-fy27q2-guidance-and-circular-financing.md) |
 | `yF2BY8kQfyo` | HBM 高頻寬記憶體原理:矽中介層、TSV、堆疊鍵合一次看懂 | [knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md](./knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md) |
+| `yHNp_rT6uEo` | Jalapeño 首批跑分:推理晶片的評判標準換了,以及怎麼讀廠商自己給的數字 | [knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) |
 | `yLOtgJwjhZ8` | 打造「0 人 AI 公司」:用 Hermes Agent + Paperclip 讓 AI 互相協作 | [knowledge/technology/ai-agents/applications/zero-person-ai-company.md](./knowledge/technology/ai-agents/applications/zero-person-ai-company.md) |
 | `Ynv_WYO_slw` | Understand-Anything vs Graphify:把 codebase 變成知識圖譜給 AI 查,實測對比 | [knowledge/technology/dev-tools/understand-anything-vs-graphify.md](./knowledge/technology/dev-tools/understand-anything-vs-graphify.md) |
 | `yVvW0NaWe40` | 現在正在主導的 5 個程式設計概念 | [knowledge/technology/system-design/dominating-programming-concepts.md](./knowledge/technology/system-design/dominating-programming-concepts.md) |
