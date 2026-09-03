@@ -19,7 +19,8 @@
 | 3 | gooaye 記憶更新 | `33 7 * * *`(每日 07:33) | 更新 ai-grocery 的股癌 agent 記憶層 |
 | 4 | 美投君 頻道 | `50 7 * * *`(每日 07:50) | @MeiTouJun 新影片(無字幕→Whisper) |
 
-**最近一次重建:2026-08-26**。本 session job id:①`1b469bda` ②`b3478479` ③`e88151b9` ④`07b52878`(約 **09-02** 到期)。
+**最近一次重建:2026-09-04**(使用者要求「恢復 cron task」時順手做的全刪重建)。本 session job id:①`f9a9b1f3` ②`5cb4b8b4` ③`cc2882c1` ④`de16b6ea` ⑤`4446ffdd`(巡檢,約 **09-11** 到期)。
+**本輪重點:把 2026-09-03 發現的「去重範圍必須限定 `knowledge/`」修正寫進全部五個 prompt**(先前只有巡檢排程修掉,四個固定排程仍留著 `.` 的潛在誤報),並在全部 prompt 加上 commit 訊息的 Co-Authored-By / Claude-Session trailer 要求。
 (歷輪 job id:2026-07-26 建立的 `a2860f8e` / `c4193a54` / `0c987c21` / `803bb28d` → 08-02 重建為 `5d1c5a23` / `2a785098` / `cae3ee4f` / `ed2ef6c8` → 08-08 重建為 `c5b7e3de` / `bc3e9033` / `ee2f5bc3` / `912caf5c` → 08-12 重建為 `527ace5c` / `33f00fe0` / `695ccbb1` / `b82f9725` → 同日再重建為 `7bedd63f` / `0b7c8c41` / `932d52c3` / `3c3670ba` → 08-15 重建為 `7200afbe` / `32e17b91` / `d1ff4626` / `bff7377f`(**該輪把 CRLF、403 重試、pipe 遮蔽退出碼三個踩坑,以及重建來源索引的步驟寫進 prompt**)→ 08-21 重建為 `80eb1cba` / `200075b5` / `6de64cf1` / `7682556f`(**該輪把 yt_dlp js_runtimes 需為 dict、gooaye pack 改根路徑兩個踩坑寫進 prompt,並補上 lint_mermaid 與「比對官方文件核實」的步驟**)→ 08-26 重建為現行的四組(**本輪把 yt-dlp 版本落後的持續性 403、`grep | head` 遮蔽退出碼、來源只寫標題會漏收索引三個新踩坑,以及「同主題優先增補既有筆記而非新開」的慣例寫進 prompt**)。每次都是**全刪後統一重建**,讓四個到期日同步。)
 
 ---
@@ -45,7 +46,7 @@
 用 video id 去重時**一律用**:
 
 ```bash
-grep -rlF --include=*.md -- "<id>" .
+grep -rlF --include=*.md -- "<id>" knowledge/
 ```
 
 - `-F` fixed-string、`--` 終止選項解析(**video id 可能以連字號開頭**,如 `-ih9NBMHiU8`,否則被當參數)。
@@ -172,7 +173,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 1. 用 yt-dlp --no-update --js-runtimes node --flat-playlist --playlist-end 12 --print "%(id)s" "https://www.youtube.com/@garytalksstuff/videos" 列最新 12 部(標題在終端機會 cp950 亂碼,改用 yt_dlp Python API 取 info 再以 utf-8 寫檔)。
    ⚠️ yt_dlp Python API 的 js_runtimes 參數要用 **dict** 形式 {'node': {}},寫成 list ['node'] 會 ValueError: Invalid js_runtimes format(2026-08-20 踩過)。
 2. 去重:用 Grep 在 C:\Users\shoot\project\Knowledge 搜每個 video id(youtu.be/<id> 或 watch?v=<id>),已在既有筆記來源 = 跳過。也可先查 INDEX-SOURCES.md(grep -F -- "<id>" INDEX-SOURCES.md)。
-   ⚠️ video id 可能以連字號開頭(如 -ih9NBMHiU8),grep 會把它當參數而誤報 NEW → 一律用 `grep -rlF --include=*.md -- "<id>" .`(-F fixed-string、-- 終止選項解析)。
+   ⚠️ video id 可能以連字號開頭(如 -ih9NBMHiU8),grep 會把它當參數而誤報 NEW → 一律用 `grep -rlF --include=*.md -- "<id>" knowledge/`(-F fixed-string、-- 終止選項解析)。⚠️⚠️⚠️ **範圍必須是 `knowledge/` 不可用 `.`**(2026-09-03 踩過,靜默全誤報 SEEN)。
    ⚠️⚠️ `--include=*.md` 必須放在 `--` 之前!寫成 `grep -rF -- "<id>" . --include=*.md` 會被當成檔名 → exit 2 → 每支都誤報 NEW、白跑整篇(2026-07-11 踩過)。
    ⚠️⚠️⚠️ 若把 id 先寫進暫存檔再迴圈讀,**寫檔務必用 newline='\n'**(Python 在 Windows 預設寫 CRLF,行尾多一個 \r 會讓 grep 全部找不到 → 22 支全誤報 NEW,2026-08-15 踩過)。判斷用 exit code:0=SEEN、非0=NEW。
    ⚠️ 驗證索引時**不要用 `grep … | head -1`** —— pipe 的退出碼是 head 的,grep 找不到也會被當成成功(2026-08-23 自己踩過)。
@@ -215,7 +216,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 1. 用 yt-dlp --no-update --js-runtimes node --flat-playlist --playlist-end 10 --print "%(id)s" "https://www.youtube.com/@MeiTouJun/videos" 列最新 10 部。
    ⚠️ 若改用 yt_dlp Python API,js_runtimes 參數要用 **dict** 形式 {'node': {}},寫成 list 會 ValueError(2026-08-20 踩過)。
 2. 去重:用 Grep 在 C:\Users\shoot\project\Knowledge 搜每個 video id(youtu.be/<id> 或 watch?v=<id>),已整理過就跳過。也可先查 INDEX-SOURCES.md(grep -F -- "<id>" INDEX-SOURCES.md)。
-   ⚠️ video id 可能以連字號開頭(如 -ih9NBMHiU8),grep 會把它當參數而誤報 NEW → 一律用 `grep -rlF --include=*.md -- "<id>" .`(-F fixed-string、-- 終止選項解析)。
+   ⚠️ video id 可能以連字號開頭(如 -ih9NBMHiU8),grep 會把它當參數而誤報 NEW → 一律用 `grep -rlF --include=*.md -- "<id>" knowledge/`(-F fixed-string、-- 終止選項解析)。⚠️⚠️⚠️ **範圍必須是 `knowledge/` 不可用 `.`**(2026-09-03 踩過,靜默全誤報 SEEN)。
    ⚠️⚠️ `--include=*.md` 必須放在 `--` 之前!寫成 `grep -rF -- "<id>" . --include=*.md` 會被當成檔名 → exit 2 → 每支都誤報 NEW、白跑 10 支 Whisper(2026-07-11 踩過)。
    ⚠️⚠️⚠️ 若把 id 先寫進暫存檔再迴圈讀,**寫檔務必用 newline='\n'**(Python 在 Windows 預設寫 CRLF,行尾多一個 \r 會讓 grep 全部找不到 → 全部誤報 NEW,2026-08-15 踩過)。判斷用 exit code:0=SEEN、非0=NEW。
    ⚠️ 驗證索引時**不要用 `grep … | head -1`** —— pipe 的退出碼是 head 的,grep 找不到也會被當成成功(2026-08-23 自己踩過)。
@@ -292,6 +293,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 | 2026-08-21 | 到期前主動全刪重建為 `80eb1cba`/`200075b5`/`6de64cf1`/`7682556f`(約 **08-28** 到期)。**本輪把上述兩個新踩坑寫進 prompt,並補上 `lint_mermaid.py` 檢查與「影片提到可查證的官方規格/價格時要比對官方文件核實並標出補正」的步驟。** 當日四個排程都已跑過且皆無新內容,無需補檢 |
 | 2026-08-22 | 踩到 **yt-dlp 版本落後導致「持續性 403」** —— 三支影片 6 次嘗試全掛,log 顯示 `n challenge solving failed`;本機版本停在 2026.02.04(約半年前),更新到 2026.08.19 後第 1 次就成功。**與偶發性 403 的區分準則已寫入共通踩坑** |
 | 2026-08-23 | 自己踩到 **`grep … | head -1` 遮蔽退出碼**(找不到也回 0),連帶暴露另一個問題:**筆記檔頭只寫影片標題、沒放網址,導致 `build_source_index.py` 漏收該來源**。兩者都已寫進 prompt |
+| 2026-09-04 | 使用者要求「恢復 cron task」。`CronList` 顯示五個都還在(未到期),但**四個固定排程的 prompt 仍寫著 `.` 去重範圍**——就是 09-03 那個靜默誤報 bug 的殘留。故全刪重建為 `f9a9b1f3`/`5cb4b8b4`/`cc2882c1`/`de16b6ea`/`4446ffdd`(約 **09-11** 到期),五個 prompt 一律改為 `knowledge/`,並加上 commit 訊息的 Co-Authored-By / Claude-Session trailer 要求 |
 | 2026-09-03 | ⚠️ **修掉一個自己造成的靜默 bug**:昨天把存量清單(含所有待處理 video id)寫進本檔後,去重指令對整個 repo 搜尋會匹配到該清單,**使每一支存量都誤報 SEEN 且完全不報錯**。已將去重範圍限定 `knowledge/`,排程重建為 `f115eb43`,並把這條寫進共通踩坑 |
 | 2026-09-02 | 第 5 排程加入 **小Lin说 `@xiao_lin_shuo`**(282 萬訂閱、財經商業解說、**官方中文字幕不需 Whisper**、約兩週一支),重建為 `c579118a`。該頻道 8 支全未整理,存量由 31 增至約 39;其中 AI 資本混戰與 SpaceX 上市兩支可增補既有筆記 |
 | 2026-09-01 | **第 5 排程首次執行後修訂為 `28e85f8c`** —— 實測發現五個頻道有 **32 支存量**,原本「有字幕者數量不限」會一次寫 15 篇,改為**每次上限 2–3 篇(Whisper 至多 1 支)**、並加入「優先增補既有筆記」的挑選序;**移除 `@TheStormMedia`**(半數會員限定、題材偏離)。當日完成 Why QQ 的 Jalapeño 拆解一篇 |
