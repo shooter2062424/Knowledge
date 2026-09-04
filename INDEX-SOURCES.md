@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**187 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **189 篇**筆記。
+> 統計:**189 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **189 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(187 部,依 video id 排序)
+## YouTube(189 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -71,6 +71,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `d4329xvSDK4` | AI 額度老是不夠用?三招省 Token:丟掉、縮減、打折 | [knowledge/technology/ai-productivity/token-saving-three-moves-context-control.md](./knowledge/technology/ai-productivity/token-saving-three-moves-context-control.md) |
 | `DcibeCh1aZ4` | 美股連漲 13 天還能追嗎?「真實通脹」數據、AI 情緒三大轉向信號,與「踏空風險 > 回調風險」 | [knowledge/investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md](./knowledge/investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md) |
 | `dECosPI6SUc` | 「Loop 已死,Graph 當立」?從工程視角看透這場名詞之爭 | [knowledge/technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md](./knowledge/technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) |
+| `dGHLg9NfvEo` | Fable 5.1:榜單全線第一,官方卻叫你先用 Opus 5 —— 旗艦模型開始為「可用性」讓路 | [knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md](./knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md) |
 | `diU-Nbb1P_c` | 4 組頂級 Agent Skill:從「自我進化」到「工程／設計／內容」生產力套件 | [knowledge/technology/ai-agents/applications/top-skills-for-agents.md](./knowledge/technology/ai-agents/applications/top-skills-for-agents.md) |
 | `dJc-h7ui8wc` | LeetCode 怎麼刷最有效(上):從 0 刷到 200 題的真實心路歷程與方法 | [knowledge/career/interview-prep/leetcode-0-to-200-grinding-experience.md](./knowledge/career/interview-prep/leetcode-0-to-200-grinding-experience.md) |
 | `doc0NQas32U` | 雙底雙頂:看的不是形態像不像,而是動能有沒有衰減 | [knowledge/investing/technical-analysis/double-top-bottom-momentum.md](./knowledge/investing/technical-analysis/double-top-bottom-momentum.md) |
@@ -127,6 +128,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `ll-OBB-iswM` | 「Loop Engineering」是名詞詐騙嗎?一個反方吐槽視角 | [knowledge/technology/ai-agents/foundations/loop-engineering-buzzword-critique.md](./knowledge/technology/ai-agents/foundations/loop-engineering-buzzword-critique.md) |
 | `LPv1KfUXLCo` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `LPZh9BOjkQs` | 大型語言模型,簡單講(3Blue1Brown) | [knowledge/technology/llm-internals/architecture/llm-explained-3blue1brown.md](./knowledge/technology/llm-internals/architecture/llm-explained-3blue1brown.md) |
+| `LRJV5lcsnfA` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
 | `luN-yydHpYY` | Graphify 實戰壓測:10 萬 Star 的程式碼知識圖譜,打不贏 grep?「找」與「看」的分水嶺 | [knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md](./knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) |
 | `m6U_TGf9Z_M` | 新版 Codex 全流程實戰:從資料夾、辦公文件、生圖,到 Skill / Hook / Worktree / 一鍵部署 | [knowledge/technology/ai-agents/applications/codex-desktop-full-workflow-guide.md](./knowledge/technology/ai-agents/applications/codex-desktop-full-workflow-guide.md) |
 | `mBePcvqLX88` | Graph Engineering 八分鐘講清楚:從 1736 年的柯尼斯堡七橋,到 108 個 agent 的 DAG | [knowledge/technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md](./knowledge/technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) |

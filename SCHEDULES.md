@@ -264,10 +264,10 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 
 - ✅ 已完成:Why QQ `j2I2TIvhs0c`(Jalapeño 首測拆解)→ `knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md`
 - ✅ 已完成:Why QQ `bNMBbrplILM`(Fable 5.1)、Why QQ `jgy1A0Mrx7g`(Omarchy 4)、Caleb `yHNp_rT6uEo`(Jalapeño,增補跑分邊界筆記 §10)
-- **Why QQ 剩 4**:`EhcRX53sUJk`、`nScMXSWz9aE` vgpu、`0K4JBcnO4eA` AI 原生 SDLC、`LRJV5lcsnfA` Herdr(⭐可增補 herdr-terminal-runtime-agent-to-agent)
-- **Caleb 剩 5**:`3WbXyUolFA0`、`ZxBRtRjMU88` HBF、`Cx-pVoBR7C0`、`8ji5vURIllM` Why harness is SO expensive、`O1JMZvgFxKE`
+- **Why QQ 剩 3**:`EhcRX53sUJk`、`nScMXSWz9aE` vgpu、`0K4JBcnO4eA` AI 原生 SDLC
+- **Caleb 剩 5**:`3WbXyUolFA0`、`ZxBRtRjMU88` HBF、`Cx-pVoBR7C0`、`8ji5vURIllM` Why harness is SO expensive、`O1JMZvgFxKE`(09-04 完成 `dGHLg9NfvEo` Fable 5.1 質疑,增補 Fable 筆記 §12)
 - **白白说大模型 剩 6**(全需 Whisper):`acvK103404s` Agent Skills、`x-s1Dbp4BE4` Agent 架構十連問、`whdEwyY9A78` 單體 Loop→分散式 Graph(⭐可增補 graph-engineering-node-edge-state)、`wiQgPk8BnhM`、`3nv7ucCoTLs`、`XQXMSc0L5DA` 向量庫+RAG
-- **YAHA學堂 剩 4**:`H4zIuJ4G1QY`、`ahb8kfsZmIk`、`yrnGrdPZx_U`(以上無字幕)、`Wq1icAZYr4E` Claude 隱藏設定(官方字幕)
+- **YAHA學堂 剩 6**:`rq4EHbqaaAk` diagram-design skill(09-03 新片,無字幕)、`9leHSMk-9nY`、`H4zIuJ4G1QY`、`ahb8kfsZmIk`、`yrnGrdPZx_U`(以上無字幕)、`Wq1icAZYr4E` Claude 隱藏設定(官方字幕)
 - **小Lin说 剩 8**(2026-09-02 加入,全有官方字幕):`8BN8p5xDkzw` 日圓創 40 年新低、`l38ceFOWOAE` 萬達、`fKoWrF49Qo8` 川普收入、`OcKl98ZQbMQ` AI 巨頭資本混戰(⭐可增補 nvda-fy27q2-guidance-and-circular-financing)、`wpb-DrbhEiY` SpaceX 上市(⭐可增補 spacex-ipo-musk-jpmorgan / spacex-rise-history)、`7oF-JqEtWDU`、`mcTAHffEkIw`、`7qWH7e_AEDs`
 - **Redknot 剩 3**:`eOcyZqtw0Fg` 玄戒 O100 堆疊、`BUHHheaKlDY` 光刻機光源(無字幕)、`rQR_0WZzjV4` SSD 原理(官方字幕)
 

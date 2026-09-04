@@ -1,6 +1,8 @@
 # herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行
 
-> 整理自 YouTube 頻道 **AI隨風**〈AI超强终端herdr,让Agent互相通信,新手入门教程〉(2026-08-11,約 11.4 分鐘)。
+> 整理自兩支影片:
+> 1. YouTube 頻道 **AI隨風**〈AI超强终端herdr,让Agent互相通信,新手入门教程〉(2026-08-11,約 11.4 分鐘)
+> 2. YouTube 頻道 **Why QQ**〈多Agent瓶颈是人类注意力,是时候使用 Herdr了〉(2026-08-26,約 9.4 分鐘,官方 zh-Hans 字幕)—— 見 **§八**,補上完整物件模型、持久化的三種語意與選型判準
 >
 > 依 CLAUDE.md 慣例,本文另**實地 clone 了 `herdrdev/herdr` 讀原始碼與官方文件核實**,並標出**三處與影片說法不同或影片沒講到的關鍵設計**。
 
@@ -289,6 +291,167 @@ herdr 有一個 plugin 市集,而官方文件對安全講得毫不含糊:
 
 ---
 
+## 八、⭐ 完整物件模型、持久化的三種語意與選型判準(2026-09-04 增補,來源:Why QQ)
+
+前七節從**原始碼**切入,講的是 herdr「怎麼做到」。
+這一節補的是**使用者視角的心智模型與選型判準** —— 什麼時候該用、什麼時候別折騰。
+
+### 8.1 問題的重新表述:被爆掉的不是機器,是人的注意力
+
+> 「寫程式最廉價的擴容資源就是 Agent。開一個 Codex 改頁面、再起一個做 Code Review,
+> 旁邊還掛著開發和測試服務。**帳面吞吐量確實拉滿,但人的注意力先『爆了顯存』。**」
+
+具體的痛點很好認:你得切著終端輪流查崗 —— 誰還在跑?誰卡了授權?誰早就跑完了?
+**視窗一過十個,看名字全成了擺設。**
+
+> ⭐ 真正被摧毀的不是時間,是**思路的連續性**。
+> 單次切過去掃一眼只要幾秒,但**累加起來極度消耗心智**。
+> **herdr 要砍掉的就是這筆隱形的調度開銷。**
+
+### 8.2 ⭐⭐ 五層物件模型(§四只講了三個原語,這裡補齊)
+
+| 層 | 對應什麼 | 實務建議 |
+|---|---|---|
+| **Session** | 持久化的 server 命名空間,管整套 runtime | 日常一個預設 Session 就夠;**要做硬隔離才建具名的** |
+| **Workspace** | 一個程式碼倉庫 / 一個任務 | 一個活躍倉庫配一個獨立 Workspace |
+| **Tab** | 專案裡的特定視圖(像瀏覽器分頁) | 按職責切:`agents` / `dev` / `checks` / `deploy` |
+| **Pane** | 真實的偽終端(PTY),可跑任意命令 | 測試腳本、開發伺服器都只是 Pane |
+| **Agent** | Pane 中**被辨識出來**的編碼進程 | Codex **既是 Pane 也是 Agent** —— 前者管字元流,後者管生命週期 |
+
+```mermaid
+flowchart TB
+    S["Session<br/>持久化 server 命名空間"] --> W["Workspace<br/>= 一個 repo"]
+    W --> T1["Tab: agents"]
+    W --> T2["Tab: dev"]
+    W --> T3["Tab: checks"]
+    T1 --> P1["Pane<br/>Codex 進程"]
+    T1 --> P2["Pane<br/>Reviewer 進程"]
+    T2 --> P3["Pane<br/>熱更新 dev server"]
+    P1 -.->|"被偵測為"| A1["Agent"]
+    P2 -.->|"被偵測為"| A2["Agent"]
+    P3 -.->|"只是 Pane<br/>不是 Agent"| X["—"]
+    A1 & A2 -->|"狀態向上冒泡"| T1
+    T1 -->|"再往上聚合"| W
+```
+
+> ⭐⭐ **狀態會一路向上冒泡到 Tab 與 Workspace。**
+> 就算你把某個 Workspace 藏在後台,只要裡面有 Agent 阻塞,**Workspace 層級也會亮紅燈**。
+> 這才是設計重點:**讓人的注意力跟著事件走,而不是每隔幾分鐘去當一次賽博保安。**
+
+### 8.3 ⚠️⚠️ 「持續運行」這四個字最容易誤導人
+
+C/S 架構下,**server 才是狀態的唯一真神**。必須分清三種完全不同的持久化:
+
+| 你以為會留下的 | 客戶端 Detach(正常關閉) | **Server 停止** |
+|---|---|---|
+| **進程**(Agent / 測試 / dev server) | ✅ 照跑不誤 | ❌ **全部陪葬,回不來** |
+| **佈局**(目錄、Pane 配置、焦點) | ✅ | ✅ 下次啟動會恢復 |
+| **對話**(Agent 的 session) | ✅ | ⭐ 官方整合能存**原生 Session ID** 幫你接回對話 |
+
+> ⚠️ **關鍵的不對稱:原生 Session ID 能「接回對話」,但它沒辦法把你的建置進程「穢土轉生」。**
+> 實驗性的 Pane History 也只是**存螢幕文字的緩衝**,不是進程快照。
+>
+> 工程上要清醒:**進程、佈局、對話 —— 這三種持久化是三件不同的事。**
+
+另外,Detach 時關掉的只是客戶端;**多個客戶端可以同時連進同一個 Session**。
+
+### 8.4 ⚠️ Workspace 只管邏輯組織,不管檔案隔離
+
+這是最容易踩的一條(§六的安全債之外,再補一條**正確性**的坑):
+
+> **兩個 Pane 只要指著同一個目錄,照樣會讀寫衝突。**
+> Workspace 給你的是側邊欄上的分組,**不是檔案系統的隔離**。
+
+**做法:** 遇到大需求就切分支或上 **Git Worktree**;
+Agent 之間的交接**老老實實走 commit 與 patch**。
+
+> ⭐ 一句話定位:**herdr 提供的是容器,Git 管的是紀錄,而最終驗收的是你。**
+
+### 8.5 ⭐⭐ CLI 才是真正的控制面(三條硬性紀律)
+
+影片這段的工程價值最高。自動化**必須**走 Unix socket 的 JSON API:
+
+| ❌ 錯誤做法 | ✅ 正確做法 |
+|---|---|
+| 猜新開的 Pane 是編號幾 | **從 JSON 回應讀出 `pane_id` / `workspace_id` 等公開 ID 再操作** |
+| 拿「當前焦點」盲發命令 | 明確指定目標 ID |
+| 腳本裡硬寫 `sleep 30` | **等語義狀態**:Agent 用 `agent wait`;普通腳本用 `pane wait-output` 抓關鍵字 |
+
+> ⚠️ 為什麼不能用 `sleep`:**機器負載稍微一抖,靠時間猜狀態的流水線分分鐘崩盤。**
+> 這也是 herdr 相對 tmux 的核心增益 —— tmux 只有「有沒有輸出」,herdr 有**生命週期語義**。
+
+有了這個,你就能寫外部協調器:動態拉一個 reviewer、分發限定任務,
+然後**等 `idle` / `done` / `blocked` 這種明確信號**。
+
+📌 補充(核實自官方 CLI 文件,影片提到但沒展開):
+- `herdr agent explain <target> [--json|--verbose]` —— **查它是靠哪條偵測規則命中的**,遇到誤判時很有用。
+- `pane wait-output`、`agent wait`、`agent prompt --wait` —— **省略 `--timeout` 會無限等待**,腳本裡務必自己設上限。
+
+### 8.6 邊界感:它刻意不做的事
+
+> 「整個程式就一個 **Rust 二進位檔**,不搞強制帳號、沒有雲端面板、更沒有遙測。
+> 這種邊界感克制得恰到好處 —— **它沒妄想一口吞下你的整套開發工作流。**」
+
+生態位很清楚:
+
+| 工具 | 管什麼 |
+|---|---|
+| tmux / Zellij | 會話與佈局 |
+| 圖形化平台 | 審批流與環境隔離 |
+| **herdr** | **中間這層:給終端補上 Agent 狀態感知、CLI 控制與本地 API** |
+
+**它給不了你的**(影片誠實列出):
+- ❌ 全域共享記憶 —— 多 Agent 之間還是得靠檔案與 Git 傳上下文
+- ❌ 產品級的任務依賴圖、組織級審批流、完整事件追蹤
+- ❌ 併發一上去,你的 CI 與發布佇列照樣塞車
+- ⚠️ **狀態偵測該誤判還是會誤判** —— 面板能降噪,替不了你劃定任務邊界
+
+### 8.7 遠端與窄螢幕
+
+- **遠端開發直接走原生 SSH**:程式碼與 herdr server 待在遠端。**SSH 斷了後台照跑**,連回去 Pane 還在原位。
+- **窄螢幕有適配**:手機終端連上去應急沒問題。
+  > 講者自己也說「沒人會瞎到在手機上 review 大段 diff」,但**點個確認、看眼部署結果是真香**。
+- 本地跑一個 herdr 當瘦客戶端連過去也行,**本地剪貼簿的圖片能直接傳進遠端會話**。
+
+### 8.8 ⭐⭐⭐ 選型判準:什麼時候「別折騰」
+
+這段值得單獨記,因為它敢說「不要用」:
+
+| 你的情況 | 建議 |
+|---|---|
+| 日常就開**一個 Shell** 單打獨鬥 | ❌ **別折騰,現有終端絕對夠用** |
+| 活在伺服器上、早就掛好 tmux,只為斷線重連 | ❌ **用不上換工具** |
+| 開始跑**兩隻 Agent + 一個長耗時任務** | ⚠️ **狀態管理的陣痛已經開始** |
+| 要同時拉多隻 Agent、還得留 Pane 看測試盯服務保遠端,並且想寫腳本把它們全盤控死 | ✅ **值得試** |
+
+> ⭐ 影片的收尾判斷,與本筆記 §一的問題意識完全一致:
+> **「多 Agent 時代,程式設計的瓶頸必然從『生成能力』轉移到『調度品質』。」**
+
+### 8.9 應用案例:一個會場陣型(可直接照抄)
+
+```text
+Workspace: my-repo
+├── Tab: agents
+│   ├── Pane: Builder   (Codex,可寫)
+│   └── Pane: Reviewer  (Claude Code,鎖成唯讀)
+├── Tab: dev      → Pane: 熱更新開發伺服器
+├── Tab: checks   → Pane: 編譯 + 單元測試
+└── Tab: deploy   → Pane: 盯發布流
+```
+
+運作方式:Builder 改完 → Reviewer 直接接手看 diff →
+**Reviewer 拋出 `blocked` 就代表碰到系統邊界,這時人再介入拍板**。乾等純屬浪費算力。
+
+⚠️ **兩條紀律:**
+1. **審核任務必須嚴格限制檔案範圍、測試腳本與寫入權限** —— 否則出事鍋算誰的?
+2. **別強迫症發作把什麼進程都塞給 Agent 管。**
+   基礎服務、測試、日誌最好獨立運行 ——
+   **Agent 跑完關掉了,開發環境還得留著除錯。**
+
+> ⭐ 一句實務心得:**一套穩固的基礎目錄結構,比你背幾十個花俏的快捷鍵管用得多。**
+
+---
+
 ## 應用案例
 
 ### 案例 1|最小可用的三段式流水線
@@ -377,6 +540,10 @@ herdr 自己的 skill description 就寫得很保守:「**不要僅僅因為某�
 ## 來源
 
 - [AI超强终端herdr,让Agent互相通信,新手入门教程 — AI隨風](https://www.youtube.com/watch?v=3ZVWhFI5bpw)(2026-08-11,約 11.4 分鐘)
+- [多Agent瓶颈是人类注意力,是时候使用 Herdr了 — Why QQ](https://www.youtube.com/watch?v=LRJV5lcsnfA)(2026-08-26,約 9.4 分鐘,官方 zh-Hans 字幕;§八 來源)
+- [CLI reference — herdr 官方文件](https://herdr.dev/docs/cli-reference/)(§8.5 的 `agent explain` / `pane wait-output` 核實來源)
+- [Concepts — herdr 官方文件](https://herdr.dev/docs/concepts/)(§8.2 五層物件模型與狀態聚合的核實來源)
+- [Agent automation — herdr 官方文件](https://herdr.dev/docs/agent-automation/)、[Socket API — herdr 官方文件](https://herdr.dev/docs/socket-api/)
 - [herdrdev/herdr](https://github.com/herdrdev/herdr) —— 已 clone 核實:`README.md` / `README.zh-CN.md`、`skills/herdr/SKILL.md`、`src/detect/manifests/`(19 份偵測清單)、`docs/next/website/src/content/docs/` 下的 `agent-automation.mdx` / `concepts.mdx` / `plugins.mdx` / `how-to-work.mdx`
 - [herdr 官方文件](https://herdr.dev/docs/)
 - 本倉庫相關筆記:[[qm-yc-multiplayer-agent-harness]]、[[model-routing-compute-allocation]]、[[agent-skill-three-layer-run-do-verify]]

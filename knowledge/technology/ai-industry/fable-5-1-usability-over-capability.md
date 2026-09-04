@@ -1,8 +1,10 @@
 # Fable 5.1:榜單全線第一,官方卻叫你先用 Opus 5 —— 旗艦模型開始為「可用性」讓路
 
 **主題分類:** AI 產業 —— 模型發布與選型
-**來源影片:** YouTube〈Fable 5.1 發布!榜單第一!官方勸你別用它 | 10 分鐘掌握 Fable 5.1 的玩法〉(Why QQ / 為什麼叫 QQ,2026-09-02,約 9.8 分鐘,**官方 zh-Hans 字幕**)
-**整理日期:** 2026-09-03
+**來源影片:**
+1. YouTube〈Fable 5.1 發布!榜單第一!官方勸你別用它 | 10 分鐘掌握 Fable 5.1 的玩法〉(Why QQ / 為什麼叫 QQ,2026-09-02,約 9.8 分鐘,**官方 zh-Hans 字幕**)
+2. YouTube〈Fable 5.1, is it that good..?〉(Caleb Writes Code,2026-09-03,約 10.3 分鐘,**自動英文字幕**)—— 見 **§12**,從跑分方法論與訂閱層提出反面看法
+**整理日期:** 2026-09-03(2026-09-04 增補 §12)
 
 > 📎 相關筆記:[[claude-fable-72-hours-model-dependency]](Fable 5 在 2026-06 被政府勒令下線的事件)、
 > [[model-routing-compute-allocation]](模型分工與算力配置)、
@@ -284,9 +286,177 @@ Devin 的決策就是這樣做出來的 —— 不是因為 Fable 更強,是因�
 
 ---
 
+## 12. ⭐⭐⭐ 反面視角:榜單第一怎麼讀,以及訂閱層的真相(2026-09-04 增補,來源:Caleb Writes Code)
+
+§1–§11 是從**功能與價格**看這次發布。這一節換一個角度:
+**「榜單第一」這句話到底在說什麼,以及你到底買不買得到這個模型。**
+
+> ⚠️ 本節有一段與 §0「榜單全線第一」的措辭衝突,**衝突是真實的、不是筆誤** ——
+> 見 §12.1。原標題保留(檔名慣例不改名),但讀的時候請以本節的拆解為準。
+
+### 12.1 ⚠️ 「Artificial Analysis 第一」是一個複合分,拆開來不是全項第一
+
+Anthropic 目前包辦 Artificial Analysis 前三名,Fable 5.1 居首。但:
+
+> **那個「智能」分數是九個不同基準加權出來的複合分。**
+> 拆開來看,Fable 5.1 **並非每一項都第一** —— 有第二名、第六名,也有第七名。
+
+它之所以「看起來像最強的編程模型」,是因為在 **SciCode** 與 **Terminal-Bench** 上排第一。
+但開發者最在意的 **SWE-bench**?
+
+> ⭐⭐ **Anthropic 的發布文與部落格都沒提 SWE-bench 分數。**
+> 要翻到 **212 頁的 system card** 才找得到軟體工程的數字。
+
+📌 **核實狀態(重要):**
+- ✅ **「發布文沒公布 SWE-bench Verified」屬實** —— 外界流傳的 Verified 分數來自第三方榜單,
+  **Anthropic 對 Fable 5 與 Fable 5.1 都沒有公布過官方 SWE-bench Verified 分數**。
+  它公布的軟體工程數字放在 system card 而非發布文裡。
+- ⚠️ **影片說的「67.4%」未能核實。** 搜尋到的公開整理是 **SWE-bench Pro 81.2**,與 67.4 對不上。
+  兩者可能指不同的 SWE-bench 變體或不同設定。**這個具體數字請自行回查 system card,不要引用本文。**
+- ✅ 但**結構性的批評成立**:最受開發者關注的那個數字,確實沒有出現在對外的發布素材裡。
+
+### 12.2 ⭐⭐ 為什麼同一個基準會有兩個數字:harness 被釘住了
+
+這是本節最有價值的方法論。基準可以分成兩類:
+
+| 類型 | 代表 | 測的是什麼 |
+|---|---|---|
+| **不含 harness** | SciCode | 給題目 + docstring + 依賴,模型產出程式碼,環境跑 pass/fail。**測的是模型本身** |
+| **含 harness** | Terminal-Bench、SWE-bench | 把模型**放進一個 harness 裡**跑。測的是「模型 + harness」這整套系統 |
+
+含 harness 的基準有一個必然的取捨:
+
+> 官方榜為了做**受控實驗**,會把 harness 這一層**釘死成同一個**,只抽換模型 ——
+> 這樣模型才是唯一的變因。
+> Terminal-Bench 釘 **Terminus 2**;SWE-bench 榜釘 **mini-SWE-agent**。
+
+⚠️ **問題就在這裡:**
+
+> **我們幾乎從不單獨使用模型,而是用「模型 + harness」這整套編程系統。**
+> 一個模型在**被釘住的 harness** 上分數比較高,**說不出完整的故事。**
+
+```mermaid
+flowchart TB
+    subgraph Official["官方榜(受控實驗)"]
+        O1["harness 釘死<br/>Terminus 2 / mini-SWE-agent"]
+        O2["只換模型"]
+        O1 --- O2
+    end
+    subgraph Real["你的真實情境"]
+        R1["Claude Code / Cursor / Codex<br/>各自的 harness"]
+        R2["搭配你選的模型"]
+        R1 --- R2
+    end
+    Official -->|"⚠️ 結論無法直接搬過來"| Real
+```
+
+**更麻煩的是:同名基準、同一模型、同一 harness,還是會給出不同數字。**
+
+影片舉的例子是 Fable 5 跑 Terminal-Bench + Terminus 2:
+官方榜與 Artificial Analysis 的複現實驗,數字**差了好幾個百分點**。原因是**預算不同**:
+
+| 差異來源 | 說明 |
+|---|---|
+| **重複次數** | Artificial Analysis 取 **pass@1 平均 3 次重複**;官方榜跑更多次 |
+| **時間預算** | 每題允許的解題時間不同 |
+| **沙箱環境** | AA 用 **e2b sandbox**;其他榜可能不同 |
+
+📌 核實:**Artificial Analysis 的 Terminal-Bench v2.1 確實是「Terminus 2 + e2b sandbox + pass@1 取 3 次平均」**,
+且由 AA 獨立執行。⚠️ 影片提到的 80.5% vs 84% 這組具體數字未能核實,**視為示意**。
+
+> ⭐⭐ **可帶走的判準:看到「模型 X 在基準 Y 上第一」,先問三件事 ——**
+> ① 這個基準**含不含 harness**?
+> ② 如果含,**harness 被釘成哪一個**?那是不是你在用的?
+> ③ 這個數字來自**哪個執行方**?重複幾次、時間預算多少?
+
+### 12.3 ⭐⭐⭐ 訂閱層的真相(本筆記原本完全沒寫的一塊)
+
+§2 講的是 **API 價格**($10 / $50 per M、快取讀取砍 75%)。
+但**訂閱制用戶拿到的東西完全是另一回事**,而且這才是多數人真正會碰到的:
+
+| 方案 | Fable 模型怎麼算 |
+|---|---|
+| **Free** | ❌ **用不到**,Fable 需要付費方案 |
+| **Pro($20/月)** | ⚠️ **不含在方案用量內** —— 走 **pay-as-you-go 的 usage credits**,**沒有 50% 週額度的待遇** |
+| **Max(5x / 20x)** | ✅ 含在方案內,**最多可用掉週額度的 50%** 在 Fable 上而不額外付費 |
+| **Team 標準席次** | 與 Pro 相同 —— 不含,要用 credits |
+| **Team 進階席次 / 席次制企業版進階席次** | 與 Max 相同,有 50% 週額度待遇 |
+
+⚠️⚠️ **兩個最容易誤解的地方(以官方說明頁為準):**
+
+1. **那個 50% 不是「額外多給你 50%」** ——
+   Fable 的額度**就是從其他模型共用的同一份週額度裡扣**。用完可以續買 credits,或換模型。
+2. **一次性補助只給過 Fable 5** —— 2026-07 Fable 5 轉為 usage credits 時發過一次性額度,
+   **Fable 5.1 沒有對應的補助。**(影片提到「$100 一次性額度」,
+   ⚠️ 那是 Fable 5 那次的事,**別預期 5.1 也有**。)
+
+> ⭐ 影片的產業判讀值得記:
+> **OpenAI 把最強的模型放進同價位的 Plus 訂閱裡,Anthropic 卻把旗艦鎖在 Max 之上。**
+> 「把最先進的模型設門檻,正是 OpenAI / xAI / Google 可以攻擊的地方。」
+
+⚠️ **未能核實:** 影片說「Max 20x 實際約是 Pro 週額度的 6 倍,不是 20 倍,
+因為 20 倍只作用在滾動的 5 小時視窗上」—— 這是**外界估算**,影片自己也說是 estimation。
+**當成待驗證的假說,不要當數據引用。**
+
+### 12.4 ⭐ Token 效率 ≠ 成本效率(兩件不同的事)
+
+| 維度 | 意思 | 怎麼看 |
+|---|---|---|
+| **成本效率** | **每完成一個任務花多少錢** | 看基準表的 cost-per-task 欄 |
+| **Token 效率** | **完成任務生成了多少 output token** | 看基準表的 output tokens 欄 |
+
+影片的觀察:**Anthropic 的模型「話很多」** ——
+同一個基準上,Fable 5 用約 **119K output token** 拿到約 70%;
+而某些競品用約 **60K** 拿到更高的分數。
+
+> ⚠️ 這組數字未獨立核實,但**方向與 §9.2「智能體負載的成本結構變了」是一致的** ——
+> 而且它直接解釋了訂閱端的體感:**Fable 5.1 吃額度特別快。**
+
+> ⭐⭐ **兩個效率要分開看的原因:**
+> 你若走 **API**,成本效率是你的帳單;
+> 你若走 **訂閱**,**token 效率才是你的額度消耗速度** —— 便宜的模型話一多,額度照樣燒光。
+
+### 12.5 「好模型」的定義變了(與 §7、§8 互為表裡)
+
+> 「以前大家願意為更好的模型多付錢,因為**當時定義『好模型』就只有智能一件事**。
+> OpenAI 的 o1 剛出來時明顯強過所有人,自然能收高溢價 ——
+> **但那時候我們還沒有今天這麼多 harness,模型『好不好用』沒人在想。**」
+
+現在的三個現實:
+1. 業界追上來的速度**非常快**;
+2. 同時存在大量 harness,**模型與 harness 的搭配**才決定實際體驗;
+3. **貴 2–4 倍、話又多**的模型,在生產環境「不太實際」。
+
+> ⭐ 這與本筆記 §7「主線不在分數,在用起來煩不煩」是同一個結論的兩面:
+> §7 說的是**體驗面**(脾氣、誤報),§12.5 說的是**經濟面**(溢價還撐不撐得住)。
+> **兩支影片一個看好、一個存疑,但對「分數不再是唯一維度」這件事完全同意。**
+
+### 12.6 應用案例:把 §8 的兩維選型框架擴成三維
+
+§8 原本的兩個維度是「能力」與「可用性」。加上第三維:
+
+> **③ 存取成本 —— 你是走 API 還是訂閱?你的方案含不含這個模型?**
+
+實際會長這樣:
+
+| 你的情況 | 建議 |
+|---|---|
+| Pro $20 訂閱、日常寫程式 | ⚠️ **Fable 不含在方案內**,每次用都在燒 credits ——<br/>除非有明確理由,**預設用 Opus 5 就好**(這也是官方的建議,見 §0) |
+| Max 方案、偶爾要衝難題 | ✅ 可以用,但記得 **50% 週額度是共用的**,燒完會影響其他模型的可用量 |
+| 走 API、重度快取的智能體負載 | ✅ 快取讀取砍 75% 是真紅利(§2),**但先量一下 output token 量**(§12.4) |
+| 只是想「用榜單第一的模型」 | ⚠️ **先回去看 §12.1 與 §12.2** —— 第一名是九項複合分,而且 harness 被釘住了 |
+
+---
+
 ## 來源
 
 - [Fable 5.1 發布!榜單第一!官方勸你別用它 | 10 分鐘掌握 Fable 5.1 的玩法 — Why QQ](https://www.youtube.com/watch?v=bNMBbrplILM)(2026-09-02,約 9.8 分鐘,官方 zh-Hans 字幕)
+- [Fable 5.1, is it that good..? — Caleb Writes Code](https://www.youtube.com/watch?v=dGHLg9NfvEo)(2026-09-03,約 10.3 分鐘,自動英文字幕;§12 來源。⚠️ 該片含 VPN 業配,與 Fable 內容無關)
+- §12 的核實來源:
+  - [Claude Fable models on your plan — Anthropic 官方說明](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)(**訂閱層規則的權威來源**:Pro 不含、Max 50% 共用週額度、一次性補助只給過 Fable 5)
+  - [Claude Fable 5.1 & Claude Mythos 5.1 System Card](https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20&%20Claude%20Mythos%205.1%20System%20Card.pdf)(軟體工程分數所在處;⚠️ 影片的 67.4% 未能核實)
+  - [Terminal-Bench v2.1 Benchmark Leaderboard — Artificial Analysis](https://artificialanalysis.ai/evaluations/terminalbench-v2-1)(Terminus 2 + e2b sandbox + pass@1 取 3 次平均)
+  - [Claude Fable 5.1 is not included in your Pro subscription — Notebookcheck](https://www.notebookcheck.net/Claude-Fable-5-1-is-not-included-in-your-Pro-subscription.1385320.0.html)
 - 核實用報導:
   - [Anthropic's new Fable release is cheaper, less restrictive — TechCrunch](https://techcrunch.com/2026/09/01/anthropics-new-fable-release-is-cheaper-less-restrictive/)
   - [Anthropic's Claude Fable 5.1 and Mythos 5.1 arrive with a 75% cost reduction for Fable cache reads — VentureBeat](https://venturebeat.com/technology/anthropics-claude-fable-5-1-and-mythos-5-1-arrive-with-a-75-cost-reduction-for-fable-cache-reads)
