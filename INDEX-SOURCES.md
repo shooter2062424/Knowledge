@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**189 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **189 篇**筆記。
+> 統計:**193 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **191 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(189 部,依 video id 排序)
+## YouTube(193 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -79,6 +79,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `E8Bx9OlpmdM` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [knowledge/technology/claude-code/output-style-communication-not-intelligence.md](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) |
 | `E8Mju53VB00` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `Ec1jRVQ_YZU` | 別再相信目標價:前外資分析師拆解法人到底在看什麼 | [knowledge/investing/strategy/target-prices-institutional-secrets.md](./knowledge/investing/strategy/target-prices-institutional-secrets.md) |
+| `EhcRX53sUJk` | DHH 的 16 條並行 Agent:當寫程式幾乎免費,瓶頸遷移到哪裡去了 | [knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md](./knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md) |
 | `eiisw5N2U6w` | 用需求逼出 Agent 的五臟六腑:工作流 vs 智能體的分界,與 LangGraph 只做的三件事 | [knowledge/technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md](./knowledge/technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md) |
 | `eKW9ITaltWw` | 一支影片看完 Stanford「Beyond LLM」:從 LLM 到 Multi-Agent 的技術地圖 | [knowledge/technology/ai-agents/resources/stanford-beyond-llm-course.md](./knowledge/technology/ai-agents/resources/stanford-beyond-llm-course.md) |
 | `EmwW59QMadY` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
@@ -139,6 +140,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `msHyYioAyNE` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `nlNDzop6tBw` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [knowledge/technology/claude-code/output-style-communication-not-intelligence.md](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) |
 | `nLZ-C7bbZzs` | PLTR 財報後大漲 30%:市場真正在交易的不是業績,是「增速見頂」風險的釋放 | [knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md](./knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md) |
+| `NYFGCESmikA` | DHH 的 16 條並行 Agent:當寫程式幾乎免費,瓶頸遷移到哪裡去了 | [knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md](./knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md) |
 | `oBy94l_48CQ` | 2026 年 Agent 開發工程師要什麼能力:從 Demo 到生產系統的四塊拼圖(附面試題與標準答案) | [knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md](./knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) |
 | `OcKl98ZQbMQ` | AI 資本圈的派系與捆綁:同級競爭、不同級綁在一起,以及「融了 1,100 億卻立刻欠出 1 兆」 | [knowledge/investing/equity-research/ai-capital-web-factions-and-mutual-binding.md](./knowledge/investing/equity-research/ai-capital-web-factions-and-mutual-binding.md) |
 | `oW4hgB1vIoY` | 用 Python 做強化學習交易機器人:在 EUR/USD 外匯訓練 AI Agent | [knowledge/investing/ai-assisted/rl-trading-bot-forex.md](./knowledge/investing/ai-assisted/rl-trading-bot-forex.md) |
@@ -179,6 +181,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `tGp6Ns9GtSU` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
 | `thIPYsSsuIs` | 推理成本腰斬的背後:GPT-5.6 Sol 讓模型自己重寫核心,與 Luna 降價 80% 的算盤 | [knowledge/technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md](./knowledge/technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) |
 | `TN3ZrSQ4DTc` | AI 旅遊規劃組合技:NotebookLM + Gemini + Google My Maps 從 0 到 100 | [knowledge/technology/ai-productivity/ai-travel-planning-notebooklm-gemini.md](./knowledge/technology/ai-productivity/ai-travel-planning-notebooklm-gemini.md) |
+| `tU_1u8YyVLI` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
 | `tUI3ITjo2Bw` | AI 是威脅還是機遇?軟體股多點開花的選股邏輯 | [knowledge/investing/equity-research/ai-software-stocks-usage-based.md](./knowledge/investing/equity-research/ai-software-stocks-usage-based.md) |
 | `U9jFYSaalIc` | 7 種主流 Agent 架構選型:從單槍匹馬到工業流水線,以及「多加一層」的真實代價 | [knowledge/technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md](./knowledge/technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md) |
 | `UPF9Ogid4N0` | 黃仁勳談生死與接班:不做「接班計畫」,而是不停傳遞知識 | [knowledge/technology/ai-industry/jensen-huang-succession-and-vision.md](./knowledge/technology/ai-industry/jensen-huang-succession-and-vision.md) |
@@ -203,6 +206,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `XOpYP4ZTbQA` | Codex 平台化:OpenAI 把 harness 開源、模型留著 —— 以及一個「同模型換 harness 就 13.3% → 38.3%」的數字 | [knowledge/technology/ai-agents/applications/codex-as-a-platform-open-agent-harness.md](./knowledge/technology/ai-agents/applications/codex-as-a-platform-open-agent-harness.md) |
 | `XOyG9mE-6KY` | 特斯拉財報深挖:FSD 拐點、馬斯克造芯片、四象限投資邏輯與 SpaceX 合併的隱藏風險 | [knowledge/investing/equity-research/tesla-earnings-fsd-chip-spacex-four-quadrant.md](./knowledge/investing/equity-research/tesla-earnings-fsd-chip-spacex-four-quadrant.md) |
 | `XTCP1qoa3cc` | Google Agentic Engineering 課程 Day 2+3:MCP、A2A、AP2 三協定,與 Skill 上線的四地雷四防線 | [knowledge/technology/ai-agents/foundations/google-agentic-engineering-day2-3.md](./knowledge/technology/ai-agents/foundations/google-agentic-engineering-day2-3.md) |
+| `XvmixEXPT3Q` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
 | `xzrvAERmvRk` | Cross-Model Review:用 stop hook + skill + marker 讓 Claude 跟 Codex 自動互審(自建 harness) | [knowledge/technology/ai-agents/applications/cross-model-review-claude-codex-harness.md](./knowledge/technology/ai-agents/applications/cross-model-review-claude-codex-harness.md) |
 | `yDGpqBKJBpc` | 英偉達 FY27Q2:三十年來第一次提前給全年指引,以及「循環融資」如何改寫它的估值結構 | [knowledge/investing/equity-research/nvda-fy27q2-guidance-and-circular-financing.md](./knowledge/investing/equity-research/nvda-fy27q2-guidance-and-circular-financing.md) |
 | `yF2BY8kQfyo` | HBM 高頻寬記憶體原理:矽中介層、TSV、堆疊鍵合一次看懂 | [knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md](./knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md) |
