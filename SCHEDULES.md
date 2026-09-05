@@ -15,9 +15,11 @@
 | # | 排程 | cron | 說明 |
 |---|---|---|---|
 | 1 | GitHub Weekly 週報 | `33 6 * * *`(每日 06:33) | 撈 itcoffee66/githubweekly 最新一期 |
-| 2 | Gary Chen 頻道 | `10 7 * * *`(每日 07:10) | @garytalksstuff 新影片 |
+| 2 | Gary Chen 頻道 | `10 7 * * *`(每日 07:10) | Gary Chen 新影片(**用 channel ID,不用 handle**) |
 | 3 | gooaye 記憶更新 | `33 7 * * *`(每日 07:33) | 更新 ai-grocery 的股癌 agent 記憶層 |
 | 4 | 美投君 頻道 | `50 7 * * *`(每日 07:50) | @MeiTouJun 新影片(無字幕→Whisper) |
+
+**Gary Chen 排程於 2026-09-06 因 handle 改名單獨重建為 `121696df`(改用 channel ID)。**
 
 **最近一次重建:2026-09-04**(使用者要求「恢復 cron task」時順手做的全刪重建)。本 session job id:①`f9a9b1f3` ②`5cb4b8b4` ③`cc2882c1` ④`de16b6ea` ⑤`4446ffdd`(巡檢,約 **09-11** 到期)。
 **本輪重點:把 2026-09-03 發現的「去重範圍必須限定 `knowledge/`」修正寫進全部五個 prompt**(先前只有巡檢排程修掉,四個固定排程仍留著 `.` 的潛在誤報),並在全部 prompt 加上 commit 訊息的 Co-Authored-By / Claude-Session trailer 要求。
@@ -57,6 +59,36 @@ grep -rlF --include=*.md -- "<id>" knowledge/
   open(path, 'w', newline='\n').write('\n'.join(ids) + '\n')
   ```
   最穩的做法還是**逐支直接 grep**,不要繞暫存檔。
+
+### ⚠️⚠️ 頻道 handle 會改,列表一律用 channel ID(2026-09-06 踩到)
+
+**症狀:**`yt-dlp … "https://www.youtube.com/@garytalksstuff/videos"` 突然全數 404:
+
+```
+WARNING: [youtube:tab] YouTube said: ERROR - Requested entity was not found.
+ERROR: [youtube:tab] @garytalksstuff/videos: Unable to download API page: HTTP Error 404
+```
+
+**根因:作者把 handle 從 `@garytalksstuff` 改成了 `@garychenai`。** 頻道本身沒消失,channel ID 也沒變。
+
+**怎麼查出新 handle:**拿任何一支既有筆記裡的 video id 反查 —— 
+
+```python
+i = y.extract_info('https://www.youtube.com/watch?v=<既有影片id>', download=False)
+print(i['uploader'], i['uploader_id'], i['channel_id'], i['channel_url'])
+```
+
+⭐ **修法(治本):列表一律改用 channel ID,不要用 handle** ——
+`https://www.youtube.com/channel/<UC…>/videos`。**channel ID 不會因改名而變。**
+
+| 頻道 | channel ID |
+|---|---|
+| Gary Chen | `UC9C3t-3ocL0LiwGRD0gBJ8A` |
+
+> ⚠️ 這個坑的嚴重性在於:**404 會讓排程當天直接失敗,而如果沒人看回報,之後每天都失敗** ——
+> 與 09-03 那個「靜默誤報 SEEN」不同,這個至少會報錯,但一樣會讓該頻道永遠停更。
+
+---
 
 ### ⚠️ git commit / push
 
@@ -168,9 +200,12 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 
 ## 2. Gary Chen 頻道(每日 07:10 / `10 7 * * *`)
 
+> ⚠️⚠️ **2026-09-06:handle 從 `@garytalksstuff` 改成 `@garychenai`,舊 handle 直接 404。**
+> **本排程已改用 channel ID `UC9C3t-3ocL0LiwGRD0gBJ8A`**,不受日後再改名影響。詳見共通踩坑。
+
 ```text
 每日整理 Gary Chen YouTube 頻道(@garytalksstuff)新影片到 Knowledge。步驟:
-1. 用 yt-dlp --no-update --js-runtimes node --flat-playlist --playlist-end 12 --print "%(id)s" "https://www.youtube.com/@garytalksstuff/videos" 列最新 12 部(標題在終端機會 cp950 亂碼,改用 yt_dlp Python API 取 info 再以 utf-8 寫檔)。
+1. 用 yt-dlp --no-update --js-runtimes node --flat-playlist --playlist-end 12 --print "%(id)s" "https://www.youtube.com/channel/UC9C3t-3ocL0LiwGRD0gBJ8A/videos" 列最新 12 部(標題在終端機會 cp950 亂碼,改用 yt_dlp Python API 取 info 再以 utf-8 寫檔)。
    ⚠️ yt_dlp Python API 的 js_runtimes 參數要用 **dict** 形式 {'node': {}},寫成 list ['node'] 會 ValueError: Invalid js_runtimes format(2026-08-20 踩過)。
 2. 去重:用 Grep 在 C:\Users\shoot\project\Knowledge 搜每個 video id(youtu.be/<id> 或 watch?v=<id>),已在既有筆記來源 = 跳過。也可先查 INDEX-SOURCES.md(grep -F -- "<id>" INDEX-SOURCES.md)。
    ⚠️ video id 可能以連字號開頭(如 -ih9NBMHiU8),grep 會把它當參數而誤報 NEW → 一律用 `grep -rlF --include=*.md -- "<id>" knowledge/`(-F fixed-string、-- 終止選項解析)。⚠️⚠️⚠️ **範圍必須是 `knowledge/` 不可用 `.`**(2026-09-03 踩過,靜默全誤報 SEEN)。
@@ -294,6 +329,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 | 2026-08-21 | 到期前主動全刪重建為 `80eb1cba`/`200075b5`/`6de64cf1`/`7682556f`(約 **08-28** 到期)。**本輪把上述兩個新踩坑寫進 prompt,並補上 `lint_mermaid.py` 檢查與「影片提到可查證的官方規格/價格時要比對官方文件核實並標出補正」的步驟。** 當日四個排程都已跑過且皆無新內容,無需補檢 |
 | 2026-08-22 | 踩到 **yt-dlp 版本落後導致「持續性 403」** —— 三支影片 6 次嘗試全掛,log 顯示 `n challenge solving failed`;本機版本停在 2026.02.04(約半年前),更新到 2026.08.19 後第 1 次就成功。**與偶發性 403 的區分準則已寫入共通踩坑** |
 | 2026-08-23 | 自己踩到 **`grep … | head -1` 遮蔽退出碼**(找不到也回 0),連帶暴露另一個問題:**筆記檔頭只寫影片標題、沒放網址,導致 `build_source_index.py` 漏收該來源**。兩者都已寫進 prompt |
+| 2026-09-06 | ⚠️⚠️ **Gary Chen 的 handle 從 `@garytalksstuff` 改成 `@garychenai`,舊 handle 回 404**,排程當天列表整個失敗。用既有筆記的 video id 反查出新 handle 與 channel ID(`UC9C3t-3ocL0LiwGRD0gBJ8A`),**全部改用 channel ID URL(不受日後改名影響)**,並把這個坑寫進共通踩坑。當日補上新片 1 篇 |
 | 2026-09-04 | 使用者要求「恢復 cron task」。`CronList` 顯示五個都還在(未到期),但**四個固定排程的 prompt 仍寫著 `.` 去重範圍**——就是 09-03 那個靜默誤報 bug 的殘留。故全刪重建為 `f9a9b1f3`/`5cb4b8b4`/`cc2882c1`/`de16b6ea`/`4446ffdd`(約 **09-11** 到期),五個 prompt 一律改為 `knowledge/`,並加上 commit 訊息的 Co-Authored-By / Claude-Session trailer 要求 |
 | 2026-09-03 | ⚠️ **修掉一個自己造成的靜默 bug**:昨天把存量清單(含所有待處理 video id)寫進本檔後,去重指令對整個 repo 搜尋會匹配到該清單,**使每一支存量都誤報 SEEN 且完全不報錯**。已將去重範圍限定 `knowledge/`,排程重建為 `f115eb43`,並把這條寫進共通踩坑 |
 | 2026-09-02 | 第 5 排程加入 **小Lin说 `@xiao_lin_shuo`**(282 萬訂閱、財經商業解說、**官方中文字幕不需 Whisper**、約兩週一支),重建為 `c579118a`。該頻道 8 支全未整理,存量由 31 增至約 39;其中 AI 資本混戰與 SpaceX 上市兩支可增補既有筆記 |
