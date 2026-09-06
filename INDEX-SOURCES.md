@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**195 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **192 篇**筆記。
+> 統計:**197 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **194 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(195 部,依 video id 排序)
+## YouTube(197 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -34,6 +34,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `-XLTrE5bjko` | 收入高卻存不住錢?7 個正在掏空你的隱形習慣 | [knowledge/investing/strategy/hidden-money-draining-habits.md](./knowledge/investing/strategy/hidden-money-draining-habits.md) |
 | `0-Rr2iho6CI` | 未來一年的 6 個 AI Agent 趨勢:從「背提示詞」到「當 AI 管理者」 | [knowledge/technology/ai-agents/foundations/six-ai-agent-trends-next-year.md](./knowledge/technology/ai-agents/foundations/six-ai-agent-trends-next-year.md) |
 | `0ANjSvoFq0g` | 用高階函式降低程式碼閱讀負擔:重點不是變短,是讀者的注意力放在哪 | [knowledge/technology/software-engineering/higher-order-functions-readable-code.md](./knowledge/technology/software-engineering/higher-order-functions-readable-code.md) |
+| `0K4JBcnO4eA` | AI 原生 SDLC 怎麼落地:程式碼變快之後,真正塞住的是驗證與評審 | [knowledge/technology/software-engineering/ai-native-sdlc-landing-checklist.md](./knowledge/technology/software-engineering/ai-native-sdlc-landing-checklist.md) |
 | `0kvj3lbJqoY` | AI 像 100 年前的電力革命:真正的商機不在「AI 應用」,而在「AI 採納」(美投君) | [knowledge/investing/equity-research/ai-adoption-electricity-revolution-analogy.md](./knowledge/investing/equity-research/ai-adoption-electricity-revolution-analogy.md) |
 | `18QEjrwaNVM` | Opus 5 系統提示詞公開之後:五條可直接抄的工程模式,與「提示詞債務」 | [knowledge/technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md](./knowledge/technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) |
 | `1a1VXDdIyrk` | Harness Engineering 的演進:從 Prompt → Context → Harness(與 loop 架構) | [knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md](./knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md) |
@@ -153,6 +154,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `pmWgyZM7mB8` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
 | `PpeCur6fEXc` | 讓 AI agent 連續跑 27 小時:/goal 功能與「Evaluation 才是關鍵」 | [knowledge/technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md](./knowledge/technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md) |
 | `pR7teM31_wI` | AI 學會了裝傻和欺騙:為什麼現有 Safety Evaluation 跟不上大模型 | [knowledge/technology/ai-safety/safety-evaluation-crisis.md](./knowledge/technology/ai-safety/safety-evaluation-crisis.md) |
+| `pS_P2P0bO48` | RSA-260 被分解:一條推文、一次除法,全世界同時確認 —— 以及「可驗證性是一種設計」 | [knowledge/technology/system-design/rsa-260-factored-verifiability-as-design.md](./knowledge/technology/system-design/rsa-260-factored-verifiability-as-design.md) |
 | `ptFiH_bHnJw` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `PuqX3Kv2ino` | Skill 實戰:從製作到維護一份「agent 會自動觸發、產出穩定、人類維護得了」的 skill | [knowledge/technology/ai-agents/applications/building-claude-skills.md](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
 | `px5M4ry8IO4` | 下半年美股前瞻:宏觀四變數 + AI 的「存量邏輯 vs 增量邏輯」 | [knowledge/investing/strategy/us-stocks-h2-2026-outlook-stock-vs-flow-ai.md](./knowledge/investing/strategy/us-stocks-h2-2026-outlook-stock-vs-flow-ai.md) |
