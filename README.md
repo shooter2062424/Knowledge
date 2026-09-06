@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-229_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-230_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -543,6 +543,7 @@ flowchart LR
 ### 🧩 interview-prep(工程師面試與刷題)
 | 主題 | 一句話 |
 |---|---|
+| [「同事會怎麼形容你?」—— 用 Trait → Behaviour → Evidence 把形容詞換成畫面](./knowledge/career/interview-prep/personality-question-trait-behaviour-evidence.md) | ⭐⭐ **面試官想聽的不是幾個正面形容詞,而是「跟你工作是怎樣的體驗」**;hardworking / team player 下十位應徵者也會這樣答;⭐ **選詞判準是「這個特質有沒有代價」**——沒代價的詞誰都能說;**Behaviour 要從狀態(我不會慌)轉成動作(把人聚起來→把問題結構化→定出下一步)**;⭐ **不要先挑形容詞,要問「同事在什麼情況下會來找你」從事件回推**;同組特質面不同職位只改順序;⚠️ 附追問缺點的接法與文化差異提醒 |
 | [LeetCode 怎麼刷最有效(上):從 0 刷到 200 題](./knowledge/career/interview-prep/leetcode-0-to-200-grinding-experience.md) | 轉職仔七年 222 題;盲刷無效→認命學 DSA;關鍵是建立「演算法思維」(先定主軸再實作) |
 
 ---
