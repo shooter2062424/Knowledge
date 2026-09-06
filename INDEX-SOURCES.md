@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**197 個 YouTube video id**、**22 個 arXiv 編號**,涵蓋 **194 篇**筆記。
+> 統計:**198 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **194 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(197 部,依 video id 排序)
+## YouTube(198 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -86,6 +86,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `eKW9ITaltWw` | 一支影片看完 Stanford「Beyond LLM」:從 LLM 到 Multi-Agent 的技術地圖 | [knowledge/technology/ai-agents/resources/stanford-beyond-llm-course.md](./knowledge/technology/ai-agents/resources/stanford-beyond-llm-course.md) |
 | `EmwW59QMadY` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | `EOg4gY0Yln0` | 讓訊號自己交易:Man Group 用 Claude Skills 治理打通系統化交易 | [knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md](./knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md) |
+| `eorQWlYarJY` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
 | `eWkZlS5JMD4` | 駭客怎麼騙 AI:5.5 種 Prompt Injection 技巧與防禦實戰 | [knowledge/technology/ai-safety/prompt-injection-5-techniques-defenses.md](./knowledge/technology/ai-safety/prompt-injection-5-techniques-defenses.md) |
 | `ExWlrAQrfdc` | 非技術者的資安入門:用五個問題做威脅建模,再交給 Codex Security 掃描 | [knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md](./knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md) |
 | `EyZEJPP2JNQ` | AI Operating System(AIOS):一套讓 AI 長期懂你、替你工作的系統 | [knowledge/technology/ai-agents/applications/ai-operating-system-aios.md](./knowledge/technology/ai-agents/applications/ai-operating-system-aios.md) |
@@ -228,7 +229,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(22 篇,依編號排序)
+## arXiv(24 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -240,6 +241,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2509.03505` | LimiX:用「遮罩聯合分布」打造的結構化資料(表格)基礎模型 | [knowledge/technology/machine-learning/limix-tabular-foundation-model.md](./knowledge/technology/machine-learning/limix-tabular-foundation-model.md) |
 | `2509.13351` | PDDL-Instruct:用「邏輯式 CoT + 外部驗證」教 LLM 做真正的符號規劃 | [knowledge/technology/ai-agents/foundations/pddl-instruct-llm-planning.md](./knowledge/technology/ai-agents/foundations/pddl-instruct-llm-planning.md) |
 | `2511.00592` | COMPILOT:讓現成 LLM 當「優化 agent」,在與編譯器的閉環對話中把迴圈優化到 3.5 倍 | [knowledge/technology/ai-agents/applications/compilot-llm-guided-loop-optimization.md](./knowledge/technology/ai-agents/applications/compilot-llm-guided-loop-optimization.md) |
+| `2512.02556` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
 | `2512.13564` | Agent Memory 綜述:用「形式 / 功能 / 動態」三個切面收拾一個亂掉的領域 | [knowledge/technology/ai-agents/memory-retrieval/agent-memory-survey-forms-functions-dynamics.md](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-survey-forms-functions-dynamics.md) |
 | `2601.01554` | MOSS-Transcribe-Diarize 0.9B 評估:端到端「轉錄+分辨說話者」開源模型,對我們的管線是否值得換? | [knowledge/technology/dev-tools/moss-transcribe-diarize-evaluation.md](./knowledge/technology/dev-tools/moss-transcribe-diarize-evaluation.md) |
 | `2603.24621` | ARC-AGI-3:人類 100%、前沿 AI 不到 1% —— 一個用「行動效率」而不是「對不對」計分的 agentic 基準 | [knowledge/technology/ai-safety/arc-agi-3-agentic-benchmark.md](./knowledge/technology/ai-safety/arc-agi-3-agentic-benchmark.md) |
@@ -248,6 +250,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2605.15155` | SDAR:用「逐 token 門控」穩住多輪 Agent 的強化學習後訓練 | [knowledge/technology/llm-internals/training/sdar-agentic-rl.md](./knowledge/technology/llm-internals/training/sdar-agentic-rl.md) |
 | `2605.15184` | Grep 就夠了嗎?Agent Harness 如何左右「代理式檢索」 | [knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md](./knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md) |
 | `2606.09498` | Self-Harness:讓 Agent 自己改進「操作自己的那層 harness」 | [knowledge/technology/ai-agents/foundations/self-harness.md](./knowledge/technology/ai-agents/foundations/self-harness.md) |
+| `2606.13392` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
 | `2606.13643` | Recursive Agent Harness:遞迴的單位該是「一次模型呼叫」還是「一整個 harness」? | [knowledge/technology/ai-agents/foundations/recursive-agent-harness-harness-recursion.md](./knowledge/technology/ai-agents/foundations/recursive-agent-harness-harness-recursion.md) |
 | `2606.25656` | 到底需不需要 GraphRAG?9 種 RAG 方案實測對照 + 脈絡優化省 19–53% token | [knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md](./knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md) |
 | `2607.01232` | 一層就夠了?RL 後訓練的收益高度集中在單一「中間層」transformer | [knowledge/technology/llm-internals/architecture/rl-gains-concentrate-single-middle-layer.md](./knowledge/technology/llm-internals/architecture/rl-gains-concentrate-single-middle-layer.md) |
