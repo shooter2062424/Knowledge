@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-228_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-229_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -104,6 +104,7 @@ flowchart LR
 | **EZ.Encoder Academy** — 大模型面試題與論文精讀 | 1 | [Pre-norm vs Post-norm](./knowledge/technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md) |
 | **Ellen 李** — 社交心理與對話魅力 | 1 | [聊天有趣的四個特質](./knowledge/life/communication/four-traits-interesting-conversation.md) |
 | **程序員老王** — LLM 架構原理動畫解說 | 1 | [1M 上下文的秘密:GQA / Sparse Attention(併入 KV Cache 筆記)](./knowledge/technology/llm-internals/inference/kv-cache.md) |
+| **Deno(Denoise AI)** — AI 影片製作工作流(韓文) | 1 | [Blender 預覽當 AI 影片參考(MCP)](./knowledge/technology/applied-ai/design/blender-previz-mcp-ai-video.md) |
 | **ExplainThis 軟體工程白話聊** — 軟體工程白話解說 | 1 | [高階函式與閱讀負擔](./knowledge/technology/software-engineering/higher-order-functions-readable-code.md) |
 | **TVBS NEWS(十點不一樣)** — 台灣政策與財經新聞 | 1 | [青安 3.0 與繼承性別數據](./knowledge/investing/personal-finance/qingan-3-0-and-inheritance-gender-gap.md) |
 | **JohnLu 談股(John Lu Talk Stock)** — K 線與技術分析短片 | 1 | [高位陰後陽/低位陽後陰口訣](./knowledge/investing/technical-analysis/high-yin-then-yang-low-yang-then-yin.md) |
@@ -408,6 +409,7 @@ flowchart LR
 ### 🎨 applied-ai(應用)
 | 主題 | 一句話 |
 |---|---|
+| [用 Agent 五分鐘上手 Blender:把 3D 預覽當成 AI 影片的「參考影片」](./knowledge/technology/applied-ai/design/blender-previz-mcp-ai-video.md) | ⭐⭐ **把「昂貴的隨機重試」換成「免費的確定性迭代」** —— 本機 Blender 無限次排鏡頭,滿意了再餵給影片生成模型;不必學 Blender 的 UI,由 Agent 走 MCP 操作;⭐ **提示詞做不出攝影機角度急劇變化的鏡頭;要精準維持構圖與透視就必須靠 3D 預覽**;⚠️ **正文說「100% 免費」但說明欄自己補正:免費的只有本機那段,Agent 與影片生成另計費**;⚠️ 該片為產品推廣、連結帶推薦參數 |
 | [Claude Design 使用評測:AI 設計工具與設計師的品味](./knowledge/technology/applied-ai/design/claude-design-review.md) | 執行被接管,人往「什麼該存在」的決策層移動 |
 | [用 Claude Code 零程式碼做網站:風格突破/捲動動畫/設計策略](./knowledge/technology/applied-ai/design/ai-website-building-claude-code.md) | 避免 AI 2014 風、逐幀捲動動畫、同品牌三種設計策略 |
 | [Nexus:四代理分工的時間序列預測](./knowledge/technology/applied-ai/forecasting/nexus-time-series.md) | 把「事件」帶進預測,而非只外推曲線 |

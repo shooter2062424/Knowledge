@@ -81,9 +81,21 @@ print(i['uploader'], i['uploader_id'], i['channel_id'], i['channel_url'])
 ⭐ **修法(治本):列表一律改用 channel ID,不要用 handle** ——
 `https://www.youtube.com/channel/<UC…>/videos`。**channel ID 不會因改名而變。**
 
-| 頻道 | channel ID |
-|---|---|
-| Gary Chen | `UC9C3t-3ocL0LiwGRD0gBJ8A` |
+**全部排程頻道的 channel ID(2026-09-06 逐一實際解析驗證):**
+
+| 頻道(中文名) | channel ID | 當時 handle | 用在哪個排程 |
+|---|---|---|---|
+| **Gary Chen** | `UC9C3t-3ocL0LiwGRD0gBJ8A` | @garychenai(原 @garytalksstuff) | 排程 2 |
+| **美投君 / 美投讲美股** | `UCBUH38E0ngqvmTqdchWunwQ` | @MeiTouJun | 排程 4 |
+| **Why QQ** | `UClkMmnf9yOKbYRMfOv1HvwA` | @whycallqq | 排程 5(巡檢) |
+| **Caleb Writes Code** | `UCuU9jE4MHHEIyYMbDfUPSew` | @CalebWritesCode | 排程 5 |
+| **YAHA學堂** | `UC7ynDhvkWzAxctvxKrkwtsg` | @YAHAClass | 排程 5 |
+| **白白说大模型** | `UCHrUrG5wJR1rjKkINFxm8yQ` | @白白说大模型 | 排程 5 |
+| **小Lin说** | `UCilwQlk62k1z7aUEZPOB6yw` | @xiao_lin_shuo | 排程 5 |
+| **Redknot-乔红** | `UCAf2Y9FGJlE_ByXYF7BXv5g` | @redknot-miaomiao | 排程 5 |
+
+> ⭐ **handle 欄只是給人看的備忘,排程一律用 channel ID。**
+> ⭐ **回報時請寫頻道中文名稱,不要只寫 channel ID。**
 
 > ⚠️ 這個坑的嚴重性在於:**404 會讓排程當天直接失敗,而如果沒人看回報,之後每天都失敗** ——
 > 與 09-03 那個「靜默誤報 SEEN」不同,這個至少會報錯,但一樣會讓該頻道永遠停更。
@@ -271,16 +283,18 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 > 2026-09-01 新增,同日首次執行後依實測結果修訂。緣由:盤點發現 README 作者索引共 **49 位,
 > 先前僅 3 位有排程涵蓋**,pi agent / MCP / Codex / CS336 等內容都得靠手動丟連結補。
 
-### 頻道清單(handle 均已實際解析驗證,不要憑印象改寫)
+### 頻道清單(⚠️ 2026-09-06 起一律用 channel ID,handle 只是給人看的備忘)
 
-| 頻道 | handle | 字幕 | 片長 |
-|---|---|---|---|
-| Why QQ | `@whycallqq` | 官方 zh-Hans | 10–18 分 |
-| Caleb Writes Code | `@CalebWritesCode` | 自動(英文) | 8–11 分 |
-| YAHA學堂 | `@YAHAClass` | 時有時無 | 8–14 分 |
-| 白白说大模型 | `@白白说大模型` | **無** | 8–19 分 |
-| 小Lin说 | `@xiao_lin_shuo` | **官方中文** | 15–29 分 |
-| Redknot-乔红 | `@redknot-miaomiao` | 多數**無** | 14–19 分 |
+| 頻道(中文名) | channel ID | 當時 handle | 字幕 | 片長 |
+|---|---|---|---|---|
+| **Why QQ** | `UClkMmnf9yOKbYRMfOv1HvwA` | @whycallqq | 官方 zh-Hans | 10–18 分 |
+| **Caleb Writes Code** | `UCuU9jE4MHHEIyYMbDfUPSew` | @CalebWritesCode | 自動(英文) | 8–11 分 |
+| **YAHA學堂** | `UC7ynDhvkWzAxctvxKrkwtsg` | @YAHAClass | 時有時無 | 8–14 分 |
+| **白白说大模型** | `UCHrUrG5wJR1rjKkINFxm8yQ` | @白白说大模型 | **無** | 8–19 分 |
+| **小Lin说** | `UCilwQlk62k1z7aUEZPOB6yw` | @xiao_lin_shuo | **官方中文** | 15–29 分 |
+| **Redknot-乔红** | `UCAf2Y9FGJlE_ByXYF7BXv5g` | @redknot-miaomiao | 多數**無** | 14–19 分 |
+
+> ⭐ 列表網址一律寫成 `https://www.youtube.com/channel/<channel ID>/videos`。
 
 **已移除:`@TheStormMedia`(風傳媒 下班經濟學)** —— 首次巡檢實測六支裡**三支會員限定抓不到**,
 免費部分偏健康與政論(還有一支 56 分鐘政論),與本倉庫主題距離遠、成本效益不佳。
@@ -329,6 +343,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 | 2026-08-21 | 到期前主動全刪重建為 `80eb1cba`/`200075b5`/`6de64cf1`/`7682556f`(約 **08-28** 到期)。**本輪把上述兩個新踩坑寫進 prompt,並補上 `lint_mermaid.py` 檢查與「影片提到可查證的官方規格/價格時要比對官方文件核實並標出補正」的步驟。** 當日四個排程都已跑過且皆無新內容,無需補檢 |
 | 2026-08-22 | 踩到 **yt-dlp 版本落後導致「持續性 403」** —— 三支影片 6 次嘗試全掛,log 顯示 `n challenge solving failed`;本機版本停在 2026.02.04(約半年前),更新到 2026.08.19 後第 1 次就成功。**與偶發性 403 的區分準則已寫入共通踩坑** |
 | 2026-08-23 | 自己踩到 **`grep … | head -1` 遮蔽退出碼**(找不到也回 0),連帶暴露另一個問題:**筆記檔頭只寫影片標題、沒放網址,導致 `build_source_index.py` 漏收該來源**。兩者都已寫進 prompt |
+| 2026-09-06(當日第二次) | 依使用者指示,**把巡檢(排程 5)與美投君(排程 4)也全部改用 channel ID**,八個頻道的 ID 已逐一解析驗證並列表於共通踩坑;兩支排程重建為 `004b3a7a`(巡檢 08:12)與 `bdb6be2c`(美投君 07:50)。**並在 prompt 中要求回報時使用頻道中文名稱**(先前只寫 handle / ID 不好讀)。另加入「字幕下載遇 HTTP 429 要重試」與「作者若有業配或推薦連結須標明立場」兩條 |
 | 2026-09-06 | ⚠️⚠️ **Gary Chen 的 handle 從 `@garytalksstuff` 改成 `@garychenai`,舊 handle 回 404**,排程當天列表整個失敗。用既有筆記的 video id 反查出新 handle 與 channel ID(`UC9C3t-3ocL0LiwGRD0gBJ8A`),**全部改用 channel ID URL(不受日後改名影響)**,並把這個坑寫進共通踩坑。當日補上新片 1 篇 |
 | 2026-09-04 | 使用者要求「恢復 cron task」。`CronList` 顯示五個都還在(未到期),但**四個固定排程的 prompt 仍寫著 `.` 去重範圍**——就是 09-03 那個靜默誤報 bug 的殘留。故全刪重建為 `f9a9b1f3`/`5cb4b8b4`/`cc2882c1`/`de16b6ea`/`4446ffdd`(約 **09-11** 到期),五個 prompt 一律改為 `knowledge/`,並加上 commit 訊息的 Co-Authored-By / Claude-Session trailer 要求 |
 | 2026-09-03 | ⚠️ **修掉一個自己造成的靜默 bug**:昨天把存量清單(含所有待處理 video id)寫進本檔後,去重指令對整個 repo 搜尋會匹配到該清單,**使每一支存量都誤報 SEEN 且完全不報錯**。已將去重範圍限定 `knowledge/`,排程重建為 `f115eb43`,並把這條寫進共通踩坑 |
