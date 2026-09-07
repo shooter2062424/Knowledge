@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**200 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **195 篇**筆記。
+> 統計:**201 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **195 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(200 部,依 video id 排序)
+## YouTube(201 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -202,6 +202,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `WOMdoiy9Qas` | Opus 4.7 不是更強的 4.6,是另一種模型:四個該跟著升級的工作流 | [knowledge/technology/ai-productivity/opus-4-7-workflow-upgrades.md](./knowledge/technology/ai-productivity/opus-4-7-workflow-upgrades.md) |
 | `wpb-DrbhEiY` | SpaceX 為什麼這時間點上市?Musk 在 JP Morgan 投資人訪談說了什麼 | [knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md](./knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md) |
 | `WuMlsfKeWHc` | Loop Engineering(循環工程):從「寫提示詞驅動 agent」到「設計驅動 agent 的循環」 | [knowledge/technology/ai-agents/foundations/loop-engineering.md](./knowledge/technology/ai-agents/foundations/loop-engineering.md) |
+| `X2A6fANij9Q` | 為什麼 Anthropic 工程師棄 Markdown 改用 HTML:當「理解」變成真正的瓶頸 | [knowledge/technology/ai-productivity/anthropic-html-work-pages.md](./knowledge/technology/ai-productivity/anthropic-html-work-pages.md) |
 | `x2meJPOn9ws` | SpaceX 崛起史:從被嘲笑的新創到航天巨頭,一套已跑起來的商業飛輪 | [knowledge/investing/equity-research/spacex-rise-history.md](./knowledge/investing/equity-research/spacex-rise-history.md) |
 | `x3QOpcGit4Q` | 當 PR 變成 Prompt Request:Peter Steinberger 用 Agent 自製工具維護開源項目 | [knowledge/technology/ai-agents/applications/agent-native-tooling-steinberger.md](./knowledge/technology/ai-agents/applications/agent-native-tooling-steinberger.md) |
 | `XDy8topNXcc` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
