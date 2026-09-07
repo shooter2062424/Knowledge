@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**201 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **195 篇**筆記。
+> 統計:**202 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **196 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(201 部,依 video id 排序)
+## YouTube(202 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -33,6 +33,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `-ih9NBMHiU8` | AI 應用層 4 大前瞻趨勢:從財報季挖出的下一輪機會(流量、Agent 管理、ROI、AI 原生) | [knowledge/investing/equity-research/ai-application-layer-4-trends-earnings.md](./knowledge/investing/equity-research/ai-application-layer-4-trends-earnings.md) |
 | `-XLTrE5bjko` | 收入高卻存不住錢?7 個正在掏空你的隱形習慣 | [knowledge/investing/strategy/hidden-money-draining-habits.md](./knowledge/investing/strategy/hidden-money-draining-habits.md) |
 | `0-Rr2iho6CI` | 未來一年的 6 個 AI Agent 趨勢:從「背提示詞」到「當 AI 管理者」 | [knowledge/technology/ai-agents/foundations/six-ai-agent-trends-next-year.md](./knowledge/technology/ai-agents/foundations/six-ai-agent-trends-next-year.md) |
+| `01s3YdYUCcU` | 軟體股為何集體大漲:從「被 AI 顛覆」到「幫 AI 省 Token」與「當 Agent 的基礎設施」 | [knowledge/investing/equity-research/software-stocks-ai-token-cost-and-agent-infrastructure.md](./knowledge/investing/equity-research/software-stocks-ai-token-cost-and-agent-infrastructure.md) |
 | `0ANjSvoFq0g` | 用高階函式降低程式碼閱讀負擔:重點不是變短,是讀者的注意力放在哪 | [knowledge/technology/software-engineering/higher-order-functions-readable-code.md](./knowledge/technology/software-engineering/higher-order-functions-readable-code.md) |
 | `0K4JBcnO4eA` | AI 原生 SDLC 怎麼落地:程式碼變快之後,真正塞住的是驗證與評審 | [knowledge/technology/software-engineering/ai-native-sdlc-landing-checklist.md](./knowledge/technology/software-engineering/ai-native-sdlc-landing-checklist.md) |
 | `0kvj3lbJqoY` | AI 像 100 年前的電力革命:真正的商機不在「AI 應用」,而在「AI 採納」(美投君) | [knowledge/investing/equity-research/ai-adoption-electricity-revolution-analogy.md](./knowledge/investing/equity-research/ai-adoption-electricity-revolution-analogy.md) |
