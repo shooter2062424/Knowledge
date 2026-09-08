@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**204 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **198 篇**筆記。
+> 統計:**205 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **198 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(204 部,依 video id 排序)
+## YouTube(205 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -45,6 +45,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `3e_YTF3id_8` | Claude「降智」其實是算力危機:Opus 4.7 試玩與升級注意 | [knowledge/technology/ai-productivity/claude-throttling-opus-4-7.md](./knowledge/technology/ai-productivity/claude-throttling-opus-4-7.md) |
 | `3ZVWhFI5bpw` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
 | `41LR-NhwHfI` | 為什麼你該開始做產品給 AI 用:UX → AX → AXO 三層框架(從瑞幸開放 MCP 談起) | [knowledge/technology/ai-agents/applications/products-for-ai-ax-axo-luckin-mcp.md](./knowledge/technology/ai-agents/applications/products-for-ai-ax-axo-luckin-mcp.md) |
+| `4FJs4nd2uDA` | 交易的「贏家數學」:四個核心概念,以及一份完整的數學學習路線圖 | [knowledge/investing/strategy/trading-math-expectancy-variance-risk.md](./knowledge/investing/strategy/trading-math-expectancy-variance-risk.md) |
 | `4fpZhuJuIls` | Claude Dynamic Workflows 解析:什麼時候該用、什麼時候別用? | [knowledge/technology/ai-agents/foundations/claude-dynamic-workflows.md](./knowledge/technology/ai-agents/foundations/claude-dynamic-workflows.md) |
 | `4j1omjaRu0A` | 在瘋狂股市裡,你還該「持續買入」嗎?——Nick Maggiulli 訪談筆記 | [knowledge/investing/strategy/just-keep-buying-nick-maggiulli.md](./knowledge/investing/strategy/just-keep-buying-nick-maggiulli.md) |
 | `4t8QcDdrL6Y` | AI 時代怎麼「讀」程式碼:6 個技巧(KodeKloud) | [knowledge/technology/ai-productivity/reading-code-ai-era-6-techniques.md](./knowledge/technology/ai-productivity/reading-code-ai-era-6-techniques.md) |
@@ -62,7 +63,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `aYfZN8t6AQs` | Mem0 記憶架構拆解:三個儲存、抽取管線,與那個「加起來再除以 2.5」的混合排序 | [knowledge/technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md](./knowledge/technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md) |
 | `aZEmxJ9ivzg` | 學了那麼多 AI,為什麼還是沒加薪?——省下的時間 85% 被雜事吃掉,以及納許議價怎麼算你該開多少 | [knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md](./knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md) |
 | `B91bZL8wcAI` | 什麼是 AI Harness?兩種「harness」的差別 | [knowledge/technology/ai-agents/foundations/ai-harness-explained.md](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) |
-| `BAfRVpKIxZ4` | 交易的「贏家數學」:期望值、系統設計、變異數、風險,與一個改變交易的問題 | [knowledge/investing/strategy/trading-math-expectancy-variance-risk.md](./knowledge/investing/strategy/trading-math-expectancy-variance-risk.md) |
+| `BAfRVpKIxZ4` | 交易的「贏家數學」:四個核心概念,以及一份完整的數學學習路線圖 | [knowledge/investing/strategy/trading-math-expectancy-variance-risk.md](./knowledge/investing/strategy/trading-math-expectancy-variance-risk.md) |
 | `BhHMGRcbPkQ` | 為什麼 Anthropic 工程師棄 Markdown 改用 HTML:當「理解」變成真正的瓶頸 | [knowledge/technology/ai-productivity/anthropic-html-work-pages.md](./knowledge/technology/ai-productivity/anthropic-html-work-pages.md) |
 | `bNMBbrplILM` | Fable 5.1:榜單全線第一,官方卻叫你先用 Opus 5 —— 旗艦模型開始為「可用性」讓路 | [knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md](./knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md) |
 | `bPWcSxkD6Uo` | WiFi 是怎麼傳遞資訊的?把資訊裝進電磁波的硬核原理 | [knowledge/technology/telecom/wifi-how-it-works.md](./knowledge/technology/telecom/wifi-how-it-works.md) |
