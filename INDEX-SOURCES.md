@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**205 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **198 篇**筆記。
+> 統計:**206 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **198 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(205 部,依 video id 排序)
+## YouTube(206 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -197,6 +197,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `UPF9Ogid4N0` | 黃仁勳談生死與接班:不做「接班計畫」,而是不停傳遞知識 | [knowledge/technology/ai-industry/jensen-huang-succession-and-vision.md](./knowledge/technology/ai-industry/jensen-huang-succession-and-vision.md) |
 | `UQDSftGndms` | Make 與 n8n 還值得學嗎:當維護的人從你換成 Agent,視覺化就從資產變成阻礙 | [knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md](./knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md) |
 | `us_rw9gZRYI` | 什麼樣的 Agent 專案才能給履歷加分:玩具 Demo 與企業級應用的分水嶺 | [knowledge/technology/ai-agents/applications/agent-project-resume-enterprise-grade.md](./knowledge/technology/ai-agents/applications/agent-project-resume-enterprise-grade.md) |
+| `UWdn0w-fbzQ` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
 | `VD9zEKQEJxo` | Sutton 的「行動認知 AI(enactive AI)」:一張自相矛盾的反大模型藍圖 | [knowledge/technology/llm-internals/world-models/sutton-enactive-ai.md](./knowledge/technology/llm-internals/world-models/sutton-enactive-ai.md) |
 | `vkpS7WztTMc` | 蘇姿丰 MIT 2026 畢業演講:如何創造自己的運氣,以及 AI 時代人類無可取代的價值 | [knowledge/career/mindset/lisa-su-mit-commencement.md](./knowledge/career/mindset/lisa-su-mit-commencement.md) |
 | `W973FsTECa8` | to-tickets 深入實操:把 spec 拆成 agent「能穩定開工、單獨驗收、可並行」的工單 | [knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) |
