@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**206 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **198 篇**筆記。
+> 統計:**207 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **198 篇**筆記。
 
 ---
 
@@ -24,13 +24,14 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(206 部,依 video id 排序)
+## YouTube(207 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
 | `-_U4YHElE2k` | 特斯拉暴跌 20% 拆解:資本開支才是恐慌根源,以及「大跌後持有半年 9 成賺」的歷史規律(美投君) | [knowledge/investing/equity-research/tesla-q2-2026-capex-shock-vs-narrative.md](./knowledge/investing/equity-research/tesla-q2-2026-capex-shock-vs-narrative.md) |
 | `-C6K3wtjjoI` | 照新標準手寫第一個 MCP Server:四個坑,其中兩個不會報錯 | [knowledge/technology/ai-agents/foundations/mcp-server-first-build-four-pitfalls.md](./knowledge/technology/ai-agents/foundations/mcp-server-first-build-four-pitfalls.md) |
 | `-ih9NBMHiU8` | AI 應用層 4 大前瞻趨勢:從財報季挖出的下一輪機會(流量、Agent 管理、ROI、AI 原生) | [knowledge/investing/equity-research/ai-application-layer-4-trends-earnings.md](./knowledge/investing/equity-research/ai-application-layer-4-trends-earnings.md) |
+| `-XBnFO6FweQ` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
 | `-XLTrE5bjko` | 收入高卻存不住錢?7 個正在掏空你的隱形習慣 | [knowledge/investing/strategy/hidden-money-draining-habits.md](./knowledge/investing/strategy/hidden-money-draining-habits.md) |
 | `0-Rr2iho6CI` | 未來一年的 6 個 AI Agent 趨勢:從「背提示詞」到「當 AI 管理者」 | [knowledge/technology/ai-agents/foundations/six-ai-agent-trends-next-year.md](./knowledge/technology/ai-agents/foundations/six-ai-agent-trends-next-year.md) |
 | `01s3YdYUCcU` | 軟體股為何集體大漲:從「被 AI 顛覆」到「幫 AI 省 Token」與「當 Agent 的基礎設施」 | [knowledge/investing/equity-research/software-stocks-ai-token-cost-and-agent-infrastructure.md](./knowledge/investing/equity-research/software-stocks-ai-token-cost-and-agent-infrastructure.md) |

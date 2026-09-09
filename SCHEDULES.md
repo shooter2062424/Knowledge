@@ -317,10 +317,11 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 
 - ✅ 已完成:Why QQ `j2I2TIvhs0c`(Jalapeño 首測拆解)→ `knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md`
 - ✅ 已完成:Why QQ `bNMBbrplILM`(Fable 5.1)、Why QQ `jgy1A0Mrx7g`(Omarchy 4)、Caleb `yHNp_rT6uEo`(Jalapeño,增補跑分邊界筆記 §10)
-- **Why QQ 剩 1**:`nScMXSWz9aE` vgpu(09-05 完成 GPT-6 Astra、DHH 16 條並行;09-06 完成 RSA-260、AI 原生 SDLC;09-07 完成可塑軟體;09-08 完成 `7eMuxmijN6I` Skill Doctor、`d3EvaR3FKnY` HN 熱帖)
+- **Why QQ 剩 1**:`nScMXSWz9aE` vgpu(09-05~09-09 已完成 GPT-6 Astra、DHH 16 條並行、RSA-260、AI 原生 SDLC、可塑軟體、Skill Doctor、HN 熱帖、`-XBnFO6FweQ` 刪提示詞)
 - **Caleb 剩 5**:`3WbXyUolFA0`、`ZxBRtRjMU88` HBF、`Cx-pVoBR7C0`、`8ji5vURIllM` Why harness is SO expensive、`O1JMZvgFxKE`(09-04 完成 `dGHLg9NfvEo` Fable 5.1 質疑;09-05 完成 `XvmixEXPT3Q` GPT-6 Astra,與 Why QQ 版合併為同一篇)
 - **白白说大模型 剩 9**(全需 Whisper):`Uz7K757psEU` 高階 RAG 架構(09-07 新片)、`Wf2PZN-Ep2M` AI 應用開發學習路線(09-04 新片)、`4CZiE0Y0FFQ`、`Pio4SrsPHCY`、`acvK103404s` Agent Skills、`x-s1Dbp4BE4` Agent 架構十連問、`whdEwyY9A78` 單體 Loop→分散式 Graph(⭐可增補 graph-engineering-node-edge-state)、`wiQgPk8BnhM`、`XQXMSc0L5DA` 向量庫+RAG
-- **YAHA學堂 剩 6**:`rq4EHbqaaAk` diagram-design skill(09-03 新片,無字幕)、`9leHSMk-9nY`、`H4zIuJ4G1QY`、`ahb8kfsZmIk`、`yrnGrdPZx_U`(以上無字幕)、`Wq1icAZYr4E` Claude 隱藏設定(官方字幕)。09-07 完成 `X2A6fANij9Q` workload creep(Whisper,增補 HTML 工作頁筆記 §6)
+- **YAHA學堂 剩 6**:`rq4EHbqaaAk` diagram-design skill(09-03 新片,無字幕)、`9leHSMk-9nY`、`H4zIuJ4G1QY`、`ahb8kfsZmIk`、`yrnGrdPZx_U`(以上無字幕)、`Wq1icAZYr4E` Claude 隱藏設定(官方字幕)。09-07 完成 `X2A6fANij9Q` workload creep。
+  ⚠️ **`9O4IueW_n1k`(09-08「60 秒開好 AI agent」)判定為不整理** —— 該片說明欄第一行即 Hostinger 聯盟連結與優惠碼,通篇是特定託管商的 UI 操作導覽,可轉移的知識薄;唯一有價值的「一次任務燒多少額度」也綁定該平台的積分制。**若日後想收,建議只擷取成本量測那一段併入既有 agent 筆記,不要單獨開篇。**
 - **小Lin说 剩 8**(2026-09-02 加入,全有官方字幕):`8BN8p5xDkzw` 日圓創 40 年新低、`l38ceFOWOAE` 萬達、`fKoWrF49Qo8` 川普收入、`OcKl98ZQbMQ` AI 巨頭資本混戰(⭐可增補 nvda-fy27q2-guidance-and-circular-financing)、`wpb-DrbhEiY` SpaceX 上市(⭐可增補 spacex-ipo-musk-jpmorgan / spacex-rise-history)、`7oF-JqEtWDU`、`mcTAHffEkIw`、`7qWH7e_AEDs`
 - **Redknot 剩 3**:`eOcyZqtw0Fg` 玄戒 O100 堆疊、`BUHHheaKlDY` 光刻機光源(無字幕)、`rQR_0WZzjV4` SSD 原理(官方字幕)
 
