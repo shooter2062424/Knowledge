@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**210 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **199 篇**筆記。
+> 統計:**212 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **201 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(210 部,依 video id 排序)
+## YouTube(212 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -57,6 +57,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `7DyjFEzgVZ4` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | `7eMuxmijN6I` | Skill Doctor:讓 Agent 自己改自己的說明書 —— 但改動要走 PR、過 CI、有人審 | [knowledge/technology/ai-agents/applications/skill-doctor-self-improving-agent-loop.md](./knowledge/technology/ai-agents/applications/skill-doctor-self-improving-agent-loop.md) |
 | `7pSZx9-VT3k` | 「Token 省 120 倍」該怎麼讀?Codebase-Memory-MCP vs CodeGraph:同一個痛點的兩條路線 | [knowledge/technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md](./knowledge/technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) |
+| `8BN8p5xDkzw` | 日圓創 40 年新低:主導因素從「利差」換成「財政風險」,以及美日 15 年來首次聯手干預 | [knowledge/investing/strategy/yen-40-year-low-takaichi-trade-and-us-japan-intervention.md](./knowledge/investing/strategy/yen-40-year-low-takaichi-trade-and-us-japan-intervention.md) |
 | `91yRxsdc0gA` | 這次半導體狂歡是 2000 泡沫重演嗎?五個相同、四個不同、兩個要盯的信號 | [knowledge/investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md](./knowledge/investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md) |
 | `9tREtYASGbs` | 微軟財報大漲 15% 的真正原因:三大質疑逐一拆解,以及 AI 價值鏈的位移 | [knowledge/investing/equity-research/microsoft-fy26q1-three-doubts-resolved.md](./knowledge/investing/equity-research/microsoft-fy26q1-three-doubts-resolved.md) |
 | `_oDISo3B3xw` | 美債史詩級拋售:真正的變量不是 40 兆債務,是新任聯準會主席的「溝通方式」 | [knowledge/investing/strategy/us-treasury-selloff-warsh-communication-shift.md](./knowledge/investing/strategy/us-treasury-selloff-warsh-communication-shift.md) |
@@ -136,6 +137,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `kGYFSDd-ZVY` | Loop Engineering 實務:怎麼設計、什麼任務值得、失控的三個坑(Gary Chen) | [knowledge/technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md](./knowledge/technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md) |
 | `KNP9Mr1rUQY` | 你不是不會寫 Prompt,是不會「定義任務」:五個欄位把需求寫成 AI 接得住的 brief | [knowledge/technology/ai-productivity/defining-tasks-not-prompts.md](./knowledge/technology/ai-productivity/defining-tasks-not-prompts.md) |
 | `kYkIdXwW2AE` | Yann LeCun 押 10 億美元賭 LLM 的另一條路:JEPA 與世界模型(上) | [knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md](./knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md) |
+| `l38ceFOWOAE` | 萬達怎麼一步步賣掉自己:兩份對賭、四次遞表失敗,與「名字還在、公司換人」 | [knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md](./knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md) |
 | `L5LLzXrKFIY` | 史上最強 AI 模型只活了 72 小時:Claude Fable 事件與「別把流程綁死在單一模型」 | [knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md](./knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md) |
 | `ll-OBB-iswM` | 「Loop Engineering」是名詞詐騙嗎?一個反方吐槽視角 | [knowledge/technology/ai-agents/foundations/loop-engineering-buzzword-critique.md](./knowledge/technology/ai-agents/foundations/loop-engineering-buzzword-critique.md) |
 | `LPv1KfUXLCo` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
