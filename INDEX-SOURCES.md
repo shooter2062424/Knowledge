@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**212 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **201 篇**筆記。
+> 統計:**213 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **202 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(212 部,依 video id 排序)
+## YouTube(213 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -238,6 +238,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `z0IvtUIF65Y` | 股癌選股心法:籌碼/技術都是工具,本質是「選對題材的好股」 | [knowledge/investing/strategy/gooaye-stock-picking-philosophy.md](./knowledge/investing/strategy/gooaye-stock-picking-philosophy.md) |
 | `z2GFDO4HrZY` | AI 編程的三個致命錯覺(OpenCode 創辦人 Dax Raad) | [knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md](./knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md) |
 | `Z613KdxJpKg` | Claude Design 使用評測:AI 設計工具,以及設計師的核心競爭力往哪移動 | [knowledge/technology/applied-ai/design/claude-design-review.md](./knowledge/technology/applied-ai/design/claude-design-review.md) |
+| `zFSWbN7VKB8` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `ZLM6Qy7pAHk` | Model Routing:同一份任務,Token 成本從 $21.7 降到 $9.15 —— 重點是「算力分配」不是「挑模型」 | [knowledge/technology/ai-productivity/model-routing-compute-allocation.md](./knowledge/technology/ai-productivity/model-routing-compute-allocation.md) |
 | `ZWsZwX6nsV0` | 社交套利(Social Arbitrage):Chris Camillo 從日常生活挖出暴利機會的方法 | [knowledge/investing/strategy/social-arbitrage-chris-camillo.md](./knowledge/investing/strategy/social-arbitrage-chris-camillo.md) |
 
