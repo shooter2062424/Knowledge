@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**213 個 YouTube video id**、**24 個 arXiv 編號**,涵蓋 **202 篇**筆記。
+> 統計:**215 個 YouTube video id**、**25 個 arXiv 編號**,涵蓋 **204 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(213 部,依 video id 排序)
+## YouTube(215 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -48,6 +48,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `3e_YTF3id_8` | Claude「降智」其實是算力危機:Opus 4.7 試玩與升級注意 | [knowledge/technology/ai-productivity/claude-throttling-opus-4-7.md](./knowledge/technology/ai-productivity/claude-throttling-opus-4-7.md) |
 | `3ZVWhFI5bpw` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
 | `41LR-NhwHfI` | 為什麼你該開始做產品給 AI 用:UX → AX → AXO 三層框架(從瑞幸開放 MCP 談起) | [knowledge/technology/ai-agents/applications/products-for-ai-ax-axo-luckin-mcp.md](./knowledge/technology/ai-agents/applications/products-for-ai-ax-axo-luckin-mcp.md) |
+| `479-FVtko2c` | 29 個邏輯閘玩通馬里奧:沒有浮點數、沒有矩陣乘法的「AI」是什麼 | [knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md](./knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md) |
 | `4FJs4nd2uDA` | 交易的「贏家數學」:四個核心概念,以及一份完整的數學學習路線圖 | [knowledge/investing/strategy/trading-math-expectancy-variance-risk.md](./knowledge/investing/strategy/trading-math-expectancy-variance-risk.md) |
 | `4fpZhuJuIls` | Claude Dynamic Workflows 解析:什麼時候該用、什麼時候別用? | [knowledge/technology/ai-agents/foundations/claude-dynamic-workflows.md](./knowledge/technology/ai-agents/foundations/claude-dynamic-workflows.md) |
 | `4j1omjaRu0A` | 在瘋狂股市裡,你還該「持續買入」嗎?——Nick Maggiulli 訪談筆記 | [knowledge/investing/strategy/just-keep-buying-nick-maggiulli.md](./knowledge/investing/strategy/just-keep-buying-nick-maggiulli.md) |
@@ -239,17 +240,19 @@ grep -rlF --include=*.md -- "<id>" .
 | `z2GFDO4HrZY` | AI 編程的三個致命錯覺(OpenCode 創辦人 Dax Raad) | [knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md](./knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md) |
 | `Z613KdxJpKg` | Claude Design 使用評測:AI 設計工具,以及設計師的核心競爭力往哪移動 | [knowledge/technology/applied-ai/design/claude-design-review.md](./knowledge/technology/applied-ai/design/claude-design-review.md) |
 | `zFSWbN7VKB8` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
+| `zK2TjT17b8U` | 一段提示詞、五個工具、3 分鐘抓出加班費算法裡的三個漏洞:Claude Cowork 實戰拆解 | [knowledge/technology/ai-productivity/claude-cowork-overtime-pay-audit-prompt.md](./knowledge/technology/ai-productivity/claude-cowork-overtime-pay-audit-prompt.md) |
 | `ZLM6Qy7pAHk` | Model Routing:同一份任務,Token 成本從 $21.7 降到 $9.15 —— 重點是「算力分配」不是「挑模型」 | [knowledge/technology/ai-productivity/model-routing-compute-allocation.md](./knowledge/technology/ai-productivity/model-routing-compute-allocation.md) |
 | `ZWsZwX6nsV0` | 社交套利(Social Arbitrage):Chris Camillo 從日常生活挖出暴利機會的方法 | [knowledge/investing/strategy/social-arbitrage-chris-camillo.md](./knowledge/investing/strategy/social-arbitrage-chris-camillo.md) |
 
 ---
 
-## arXiv(24 篇,依編號排序)
+## arXiv(25 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
 | `2002.05202` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `2007.00072` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
+| `2210.08277` | 29 個邏輯閘玩通馬里奧:沒有浮點數、沒有矩陣乘法的「AI」是什麼 | [knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md](./knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md) |
 | `2402.03300` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md](./knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md) |
 | `2406.04692` | Mixture-of-Agents(MoA):用「分層提議 + 聚合」讓多個 LLM 互相加成,純開源打贏 GPT-4o | [knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md](./knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md) |
 | `2507.19457` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md](./knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md) |
