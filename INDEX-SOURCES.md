@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**215 個 YouTube video id**、**25 個 arXiv 編號**,涵蓋 **204 篇**筆記。
+> 統計:**216 個 YouTube video id**、**25 個 arXiv 編號**,涵蓋 **205 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(215 部,依 video id 排序)
+## YouTube(216 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -87,6 +87,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `dJc-h7ui8wc` | LeetCode 怎麼刷最有效(上):從 0 刷到 200 題的真實心路歷程與方法 | [knowledge/career/interview-prep/leetcode-0-to-200-grinding-experience.md](./knowledge/career/interview-prep/leetcode-0-to-200-grinding-experience.md) |
 | `doc0NQas32U` | 雙底雙頂:看的不是形態像不像,而是動能有沒有衰減 | [knowledge/investing/technical-analysis/double-top-bottom-momentum.md](./knowledge/investing/technical-analysis/double-top-bottom-momentum.md) |
 | `dVRFSzbLR7M` | C++ 演進史:複雜性詛咒、記憶體危機,與 AI 時代的絕地反擊 | [knowledge/technology/dev-tools/cpp-evolution-complexity-ai-era.md](./knowledge/technology/dev-tools/cpp-evolution-complexity-ai-era.md) |
+| `dwGn39M5oX8` | Claude Code 2026 功能演進:從「權限提示」到「agent 艦隊」的半年軌跡 | [knowledge/technology/claude-code/claude-code-2026-feature-timeline.md](./knowledge/technology/claude-code/claude-code-2026-feature-timeline.md) |
 | `E8Bx9OlpmdM` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [knowledge/technology/claude-code/output-style-communication-not-intelligence.md](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) |
 | `E8Mju53VB00` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `Ec1jRVQ_YZU` | 別再相信目標價:前外資分析師拆解法人到底在看什麼 | [knowledge/investing/strategy/target-prices-institutional-secrets.md](./knowledge/investing/strategy/target-prices-institutional-secrets.md) |
