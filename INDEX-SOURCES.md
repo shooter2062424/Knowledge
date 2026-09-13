@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**216 個 YouTube video id**、**25 個 arXiv 編號**,涵蓋 **205 篇**筆記。
+> 統計:**218 個 YouTube video id**、**27 個 arXiv 編號**,涵蓋 **205 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(216 部,依 video id 排序)
+## YouTube(218 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -60,6 +60,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `7pSZx9-VT3k` | 「Token 省 120 倍」該怎麼讀?Codebase-Memory-MCP vs CodeGraph:同一個痛點的兩條路線 | [knowledge/technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md](./knowledge/technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) |
 | `8BN8p5xDkzw` | 日圓創 40 年新低:主導因素從「利差」換成「財政風險」,以及美日 15 年來首次聯手干預 | [knowledge/investing/strategy/yen-40-year-low-takaichi-trade-and-us-japan-intervention.md](./knowledge/investing/strategy/yen-40-year-low-takaichi-trade-and-us-japan-intervention.md) |
 | `91yRxsdc0gA` | 這次半導體狂歡是 2000 泡沫重演嗎?五個相同、四個不同、兩個要盯的信號 | [knowledge/investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md](./knowledge/investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md) |
+| `98Mz0a1wJag` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |
 | `9tREtYASGbs` | 微軟財報大漲 15% 的真正原因:三大質疑逐一拆解,以及 AI 價值鏈的位移 | [knowledge/investing/equity-research/microsoft-fy26q1-three-doubts-resolved.md](./knowledge/investing/equity-research/microsoft-fy26q1-three-doubts-resolved.md) |
 | `_oDISo3B3xw` | 美債史詩級拋售:真正的變量不是 40 兆債務,是新任聯準會主席的「溝通方式」 | [knowledge/investing/strategy/us-treasury-selloff-warsh-communication-shift.md](./knowledge/investing/strategy/us-treasury-selloff-warsh-communication-shift.md) |
 | `_RD3iFDhuzs` | Karpathy 訪談:Software 3.0、Jagged Intelligence 與 Agentic Engineering | [knowledge/technology/ai-agents/foundations/karpathy-software-3-0.md](./knowledge/technology/ai-agents/foundations/karpathy-software-3-0.md) |
@@ -90,6 +91,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `dwGn39M5oX8` | Claude Code 2026 功能演進:從「權限提示」到「agent 艦隊」的半年軌跡 | [knowledge/technology/claude-code/claude-code-2026-feature-timeline.md](./knowledge/technology/claude-code/claude-code-2026-feature-timeline.md) |
 | `E8Bx9OlpmdM` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [knowledge/technology/claude-code/output-style-communication-not-intelligence.md](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) |
 | `E8Mju53VB00` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
+| `Ea1XvVD7GTY` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
 | `Ec1jRVQ_YZU` | 別再相信目標價:前外資分析師拆解法人到底在看什麼 | [knowledge/investing/strategy/target-prices-institutional-secrets.md](./knowledge/investing/strategy/target-prices-institutional-secrets.md) |
 | `EhcRX53sUJk` | DHH 的 16 條並行 Agent:當寫程式幾乎免費,瓶頸遷移到哪裡去了 | [knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md](./knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md) |
 | `eiisw5N2U6w` | 用需求逼出 Agent 的五臟六腑:工作流 vs 智能體的分界,與 LangGraph 只做的三件事 | [knowledge/technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md](./knowledge/technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md) |
@@ -247,7 +249,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(25 篇,依編號排序)
+## arXiv(27 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -255,6 +257,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2007.00072` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `2210.08277` | 29 個邏輯閘玩通馬里奧:沒有浮點數、沒有矩陣乘法的「AI」是什麼 | [knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md](./knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md) |
 | `2402.03300` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md](./knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md) |
+| `2405.05254` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
 | `2406.04692` | Mixture-of-Agents(MoA):用「分層提議 + 聚合」讓多個 LLM 互相加成,純開源打贏 GPT-4o | [knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md](./knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md) |
 | `2507.19457` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md](./knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md) |
 | `2509.03505` | LimiX:用「遮罩聯合分布」打造的結構化資料(表格)基礎模型 | [knowledge/technology/machine-learning/limix-tabular-foundation-model.md](./knowledge/technology/machine-learning/limix-tabular-foundation-model.md) |
@@ -274,6 +277,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2606.25656` | 到底需不需要 GraphRAG?9 種 RAG 方案實測對照 + 脈絡優化省 19–53% token | [knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md](./knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md) |
 | `2607.01232` | 一層就夠了?RL 後訓練的收益高度集中在單一「中間層」transformer | [knowledge/technology/llm-internals/architecture/rl-gains-concentrate-single-middle-layer.md](./knowledge/technology/llm-internals/architecture/rl-gains-concentrate-single-middle-layer.md) |
 | `2607.28272` | MemHarness:記憶是「重建」出來的,不是「重播」——用 RL 讓 agent 學會批判自己的經驗 | [knowledge/technology/ai-agents/memory-retrieval/memharness-memory-reconstructed-not-replayed.md](./knowledge/technology/ai-agents/memory-retrieval/memharness-memory-reconstructed-not-replayed.md) |
+| `2608.03970` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |
 | `2608.09867` | 加密的推理過程為什麼保不住:一個「全域金鑰 + 可攜載體」的架構教訓 | [knowledge/technology/ai-safety/encrypted-reasoning-traces-portable-key-flaw.md](./knowledge/technology/ai-safety/encrypted-reasoning-traces-portable-key-flaw.md) |
 | `2608.17528` | Harnessed Agentic RL:當 harness 而不是訓練器擁有互動迴圈,RL 會壞在哪四個地方 | [knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md](./knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md) |
 
