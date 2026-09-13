@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-238_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-239_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -150,6 +150,7 @@ flowchart LR
 | **OpenAI(官方部落格/文件)** | 1 | [Codex 平台化與 open agent harness](./knowledge/technology/ai-agents/applications/codex-as-a-platform-open-agent-harness.md) |
 | **三颗门牙X** — AI 工具實戰全流程教學 | 1 | [新版 Codex 全流程實戰](./knowledge/technology/ai-agents/applications/codex-desktop-full-workflow-guide.md) |
 | **Claude Code 官方文件 + Anthropic 官方部落格** | 1 | [Claude Code 2026 功能演進時間軸](./knowledge/technology/claude-code/claude-code-2026-feature-timeline.md) |
+| **程序员老王** — 電腦科學基礎概念白話拆解 | 1 | [哈夫曼編碼與前綴碼](./knowledge/technology/system-design/huffman-coding-prefix-free-tree.md) |
 | **ARC Prize Foundation(論文)** | 1 | [ARC-AGI-3 agentic 基準](./knowledge/technology/ai-safety/arc-agi-3-agentic-benchmark.md) |
 | **復旦大學 / 北京大學 / 上海啟迪智風(論文)** | 1 | [Agentic Harness Engineering](./knowledge/technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md) |
 | **PricewaterhouseCoopers(論文)** | 1 | [Recursive Agent Harness](./knowledge/technology/ai-agents/foundations/recursive-agent-harness-harness-recursion.md) |
@@ -452,6 +453,7 @@ flowchart LR
 | [現在正在主導的 5 個程式設計概念](./knowledge/technology/system-design/dominating-programming-concepts.md) | 反應式/邊緣運算/資料導向設計/LLM 應用架構/本地優先;都是心智模型的轉變 |
 | [一兆筆紀錄的即時搜尋:從 36 小時延遲砍到 5 分鐘的去重管線](./knowledge/technology/system-design/trillion-record-realtime-search-kafka-dedup.md) | ReversingLabs 實戰:ScyllaDB 真相來源 + Kafka 觸發 + Solr 索引;dict 當 FIFO buffer、**逐出時才處理**(加入時處理會 stale)、只 ack 觸發那則 offset;backlog 讓服務不 poll 觸發 Kafka health check 死亡迴圈 → 每輪處理設上限;10 萬/秒壓到 2 千/秒 |
 | [RSA-260 被分解:一條推文、一次除法,全世界同時確認](./knowledge/technology/system-design/rsa-260-factored-verifiability-as-design.md) | ⭐⭐⭐ **證明短到能塞進一條推文、驗證短到三行 ⇒ 「可驗證性是一種設計」**(Merkle tree / CT 日誌 / 可重現建置同一思路);找答案幾千核心年 vs 檢查答案毫秒級的**單向函數不對稱**;⭐ **算法比晶片值錢**:RSA-240 比 RSA-768 更大卻只花一半,演算法貢獻 3–4× 而硬體僅 1.25–1.67×;⚠️ **該焦慮的不是 2048(約 900 億倍),是還在跑 1024 的老系統**;⚠️ **一則同事的玩笑推文被 Scientific American 當成事實寫進報導** |
+| [哈夫曼編碼:為什麼檔案能越壓越小,以及「前綴碼」這個關鍵限制](./knowledge/technology/system-design/huffman-coding-prefix-free-tree.md) | ⭐⭐⭐ **把「編碼設計的約束」變成「資料結構的性質」** —— 字母全放葉節點,任何編碼的前綴都停在半路,天然無衝突;⚠️ 亂分配的短編碼只要 21 位卻**根本還原不回來**,哈夫曼 27 位(ASCII 的 33.75%)換來的是「可以解壓」的保證;⭐ **建樹原則:被合併越多次編碼越長 ⇒ 出現次數少的越早合併**;⭐ **心算技巧:壓縮後總位元數 = 所有內部節點權重的總和**;**WPL 最小與壓縮後最小是同一件事**;樹不唯一但長度唯一(所以編碼表要一起存);⚠️⚠️ **本文補正:PNG/ZIP/GZIP 用的是 DEFLATE = LZ77 + 哈夫曼** —— 哈夫曼吃頻率不均、LZ77 吃重複片段;⚠️ 哈夫曼硬傷是**每符號至少 1 位元**,算術編碼/ANS 才能逼近夏農熵;⭐ 附 20 行 Python 可自行驗算 |
 | [硬碟陣列 RAID 一次看懂:RAID 0/1/5/6 與 RAID 5 為什麼「不安全」](./knowledge/technology/system-design/raid-explained-why-raid5-unsafe.md) | RAID 5 校驗=XOR 半加;「重建失敗率 99%」真相是 URE(每 12.5TB 一次)+ RAID 層看不見文件系統;ZFS RAID-Z 能感知文件;RAID 6 能壞兩塊 |
 
 ### 🖥️ claude-code(Claude Code 維運)

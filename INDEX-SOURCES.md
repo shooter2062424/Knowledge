@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**218 個 YouTube video id**、**27 個 arXiv 編號**,涵蓋 **205 篇**筆記。
+> 統計:**219 個 YouTube video id**、**27 個 arXiv 編號**,涵蓋 **206 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(218 部,依 video id 排序)
+## YouTube(219 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -140,6 +140,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `KeRBNTOITEo` | 十大恐怖主管特質:從竹科裸辭看「只做向上管理」如何逼走一個好員工 | [knowledge/career/workplace/ten-toxic-manager-traits.md](./knowledge/career/workplace/ten-toxic-manager-traits.md) |
 | `kGYFSDd-ZVY` | Loop Engineering 實務:怎麼設計、什麼任務值得、失控的三個坑(Gary Chen) | [knowledge/technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md](./knowledge/technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md) |
 | `KNP9Mr1rUQY` | 你不是不會寫 Prompt,是不會「定義任務」:五個欄位把需求寫成 AI 接得住的 brief | [knowledge/technology/ai-productivity/defining-tasks-not-prompts.md](./knowledge/technology/ai-productivity/defining-tasks-not-prompts.md) |
+| `KY4dBSlTvwU` | 哈夫曼編碼:為什麼檔案能越壓越小,以及「前綴碼」這個關鍵限制 | [knowledge/technology/system-design/huffman-coding-prefix-free-tree.md](./knowledge/technology/system-design/huffman-coding-prefix-free-tree.md) |
 | `kYkIdXwW2AE` | Yann LeCun 押 10 億美元賭 LLM 的另一條路:JEPA 與世界模型(上) | [knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md](./knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md) |
 | `l38ceFOWOAE` | 萬達怎麼一步步賣掉自己:兩份對賭、四次遞表失敗,與「名字還在、公司換人」 | [knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md](./knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md) |
 | `L5LLzXrKFIY` | 史上最強 AI 模型只活了 72 小時:Claude Fable 事件與「別把流程綁死在單一模型」 | [knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md](./knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md) |
