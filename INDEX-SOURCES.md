@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**219 個 YouTube video id**、**27 個 arXiv 編號**,涵蓋 **206 篇**筆記。
+> 統計:**220 個 YouTube video id**、**27 個 arXiv 編號**,涵蓋 **207 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(219 部,依 video id 排序)
+## YouTube(220 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -138,6 +138,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `jJ5WAKs0eGE` | Make 與 n8n 還值得學嗎:當維護的人從你換成 Agent,視覺化就從資產變成阻礙 | [knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md](./knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md) |
 | `JPGo_5fczaA` | 模型越強,Superpowers 和 Matt Skills 該刪掉誰?兩套 AI 編程工作流的選擇框架 | [knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md](./knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) |
 | `KeRBNTOITEo` | 十大恐怖主管特質:從竹科裸辭看「只做向上管理」如何逼走一個好員工 | [knowledge/career/workplace/ten-toxic-manager-traits.md](./knowledge/career/workplace/ten-toxic-manager-traits.md) |
+| `KG9M-8mvq7Q` | 五大風險集中爆發?把「真風險」和「導火線」分開:加息、美債、資料中心、中美談判、Anthropic 上市 | [knowledge/investing/strategy/us-stocks-five-risks-2026q4-hike-treasury-midterm.md](./knowledge/investing/strategy/us-stocks-five-risks-2026q4-hike-treasury-midterm.md) |
 | `kGYFSDd-ZVY` | Loop Engineering 實務:怎麼設計、什麼任務值得、失控的三個坑(Gary Chen) | [knowledge/technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md](./knowledge/technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md) |
 | `KNP9Mr1rUQY` | 你不是不會寫 Prompt,是不會「定義任務」:五個欄位把需求寫成 AI 接得住的 brief | [knowledge/technology/ai-productivity/defining-tasks-not-prompts.md](./knowledge/technology/ai-productivity/defining-tasks-not-prompts.md) |
 | `KY4dBSlTvwU` | 哈夫曼編碼:為什麼檔案能越壓越小,以及「前綴碼」這個關鍵限制 | [knowledge/technology/system-design/huffman-coding-prefix-free-tree.md](./knowledge/technology/system-design/huffman-coding-prefix-free-tree.md) |
