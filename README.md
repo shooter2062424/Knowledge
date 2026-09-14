@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-240_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-242_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -109,7 +109,7 @@ flowchart LR
 | **TVBS NEWS(十點不一樣)** — 台灣政策與財經新聞 | 1 | [青安 3.0 與繼承性別數據](./knowledge/investing/personal-finance/qingan-3-0-and-inheritance-gender-gap.md) |
 | **JohnLu 談股(John Lu Talk Stock)** — K 線與技術分析短片 | 1 | [高位陰後陽/低位陽後陰口訣](./knowledge/investing/technical-analysis/high-yin-then-yang-low-yang-then-yin.md) |
 | **風傳媒 下班經濟學 / The Storm Media** — 台股/投資 | 3 | [別再相信目標價(721)](./knowledge/investing/strategy/target-prices-institutional-secrets.md) · [孫慶龍 PE 五檔價(735)](./knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md) · [股癌選股心法](./knowledge/investing/strategy/gooaye-stock-picking-philosophy.md) |
-| **Caleb Writes Code** — agent harness | 6 | [Harness 演進史](./knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md) · [Pi Agent 極簡 harness](./knowledge/technology/ai-agents/foundations/pi-agent-minimal-harness.md) · [Graph Engineering 八分鐘](./knowledge/technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) · [Jalapeño 機架拓撲與 ASIC 賭注(併入跑分邊界筆記)](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) · [Fable 5.1 跑分方法論與訂閱層反面視角(併入 Fable 筆記)](./knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md) · [GPT-6 Astra 全面分析(合併整理)](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
+| **Caleb Writes Code** — agent harness | 7 | [Harness 演進史](./knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md) · [Pi Agent 極簡 harness](./knowledge/technology/ai-agents/foundations/pi-agent-minimal-harness.md) · [Graph Engineering 八分鐘](./knowledge/technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) · [Jalapeño 機架拓撲與 ASIC 賭注(併入跑分邊界筆記)](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) · [Fable 5.1 跑分方法論與訂閱層反面視角(併入 Fable 筆記)](./knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md) · [GPT-6 Astra 全面分析(合併整理)](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) · [Navier-Stokes 與一萬個 agent 的署名爭議](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
 | **基地** — 半導體/AI 趨勢拆解 | 2 | [NVIDIA N1X vs x86](./knowledge/technology/ai-industry/nvidia-n1x-vs-x86.md) · [Sutton 行動認知 AI](./knowledge/technology/llm-internals/world-models/sutton-enactive-ai.md) |
 | **Redknot-乔红** — 動畫講硬核硬體/半導體原理 | 3 | [HBM 原理](./knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md) · [先進封裝](./knowledge/technology/ai-industry/advanced-packaging-explained.md) · [RAID 陣列/RAID 5 安全性](./knowledge/technology/system-design/raid-explained-why-raid5-unsafe.md) |
 | **硅谷101(陳茜)** — 矽谷深度科技/商業訪談 | 2 | [SpaceX 崛起史](./knowledge/investing/equity-research/spacex-rise-history.md) · [田淵棟 RSI 與 AI 自進化](./knowledge/technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) |
@@ -122,7 +122,7 @@ flowchart LR
 | **Jerry's Productivity Tech Channel(簡睿學堂)** — 跨平台工具與生產力 | 1 | [dbx 資料庫客戶端 + MCP](./knowledge/technology/dev-tools/dbx-rust-database-client-mcp.md) |
 | **Blink 的 AI 筆記** — AI × 知識管理實踐 | 1 | [Project Cairn:經驗知識化 Skill](./knowledge/technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) |
 | **智用 AI** — AI 底層技術與成本拆解 | 1 | [GPT-5.6 Sol 自優化 kernel 與 Luna 定價](./knowledge/technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) |
-| **YAHA學堂** — Claude Code 實測與工程最佳實踐 | 5 | [CLAUDE.md 砍 82% 與維護兩步法](./knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) · [output style 三個坑(與 Gary Chen 版合併)](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) · [手寫第一個 MCP Server 的四個坑](./knowledge/technology/ai-agents/foundations/mcp-server-first-build-four-pitfalls.md) · [workload creep 與 junior 斷層(併入 HTML 工作頁筆記)](./knowledge/technology/ai-productivity/anthropic-html-work-pages.md) · [Claude Cowork 加班費對帳實戰拆解](./knowledge/technology/ai-productivity/claude-cowork-overtime-pay-audit-prompt.md) |
+| **YAHA學堂** — Claude Code 實測與工程最佳實踐 | 6 | [CLAUDE.md 砍 82% 與維護兩步法](./knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) · [output style 三個坑(與 Gary Chen 版合併)](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) · [手寫第一個 MCP Server 的四個坑](./knowledge/technology/ai-agents/foundations/mcp-server-first-build-four-pitfalls.md) · [workload creep 與 junior 斷層(併入 HTML 工作頁筆記)](./knowledge/technology/ai-productivity/anthropic-html-work-pages.md) · [Claude Cowork 加班費對帳實戰拆解](./knowledge/technology/ai-productivity/claude-cowork-overtime-pay-audit-prompt.md) · [Agent 付費 API 的成本護欄](./knowledge/technology/ai-agents/applications/agent-paid-api-cost-guardrails-mcp.md) |
 | **可樂 AI 實驗室** — AI 編程落地與量化系統架構 | 1 | [Agent 五大核心與 LangGraph](./knowledge/technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md) |
 | **畅的科技工坊** — AI Coding Agent 上手實戰 | 1 | [Pi Agent 完整上手指南(與技術爬爬蝦版合併)](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | **暮闲** — Agent 定制開發實戰 | 1 | [Pi 擴充開發全流程(併入 Pi 拆解筆記)](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
@@ -327,6 +327,7 @@ flowchart LR
 |---|---|
 | [Omarchy 4「Quattro」:Agent 從外掛升格成 OS 一等公民](./knowledge/technology/ai-agents/applications/omarchy-4-agent-as-os-citizen.md) | 預設 Agent 快捷鍵、頂欄用量面板、coredump 交給 Agent;判斷 AI 原生產品的啟動/上下文/約束三問 |
 | [Skill Doctor:讓 Agent 自己改自己的說明書 —— 但改動要走 PR、過 CI、有人審](./knowledge/technology/ai-agents/applications/skill-doctor-self-improving-agent-loop.md) | ⭐⭐⭐ **病根不是模型記性差,是「反饋的壽命」——糾正只活在當前會話裡**;基礎 Skill 幹活 + 改進 Skill 當觀察者,**改的是檔案本身所以能進 git、有 diff、可回滾**;⭐ **不重新訓練任何東西,三人團隊沒 GPU 也照抄得動**;⚠️ **假設反饋一定會出錯**——一條資深工程師的具體反饋勝過一百個點讚;⭐ 已讀 Warp 開源 SKILL.md 核實:**只從分數低於 0.5 的失敗會話取證、建議必須追溯到觀察到的缺陷而非泛泛最佳實踐、一切在本地不上傳逐字稿**;**四個動作:diff 化/可審/可回滾/有證據** |
+| [讓 Agent 自己花錢:硬上限、先查價、停下來問(YAHA學堂)](./knowledge/technology/ai-agents/applications/agent-paid-api-cost-guardrails-mcp.md) | ⭐⭐⭐ **全片最重要的一句:「超價的調用在扣費前就被擋掉,餘額一分沒動」** —— **失敗是免費的**,才是 Agent 自主使用付費工具的前提;它做對六件事(先用免費接口查價 → 查不到改查餘額 → 停下來問 → 超價被擋 → **沒調高上限去試探** → 超預算再停並給選項);⚠️ 但它**算錯了價**,人貼官方價目表才對上 —— 事實核實仍歸人;⭐ 兩個誠實細節:主動說「這篇我讀不到」(改用 WebFetch)、**只填報導明確給的數字不拿自己的湊**;⭐⭐⭐ **原則:護欄要放在 Agent 改不動的那一層,靠提示詞請它自律是最後一道防線不是第一道**;⚠️ 該片為第三方服務推廣 |
 | [Skill 實戰:從製作到維護的完整指南](./knowledge/technology/ai-agents/applications/building-claude-skills.md) | 給心法不給死步驟;references / scripts / subagent |
 | [Man Group:用 Claude Skills 治理打通系統化交易](./knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md) | 組織 context 是 IP;skill 治理解鎖企業級 |
 | [落地競賽:OpenAI 與 Anthropic 同日進軍企業導入](./knowledge/technology/ai-agents/applications/enterprise-ai-adoption-race.md) | 企業買的不是模型,是落地能力 |
@@ -429,6 +430,7 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [推理成本腰斬背後:GPT-5.6 Sol 自己重寫 kernel 與 Luna 降價 80%](./knowledge/technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) | Sol 自主重寫 Triton/Gluon kernel、消除冗餘記憶體同步 → 服務成本 -20%;Luna 輸入 $0.20/M(Haiku 4.5 的 1/5);Model-as-Optimizer 新範式;隱憂=效能過擬合 |
+| [一萬個 agent 破解千禧年難題:Navier-Stokes、抄襲指控與「誰該被署名」(Caleb Writes Code)](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) | OpenAI 用約 **10,000 個 agent、88 小時、1,300 億 token** 宣稱找到 Navier-Stokes 爆破反例(先用 100 個 agent、50 小時做出 Euler 的**無外力**版本);人類方 Buckmaster(NYU)與 Alpöge(Anthropic)花一年做出**有外力**版本、早一天發表;⚠️⚠️ 爭議:要求**拿掉 Alpöge 的名字**(因其 Anthropic 背景)、指控窺看 Codex 訊息記錄(OpenAI 否認);⚠️⚠️ **本文補正:Clay 研究所並未認定已解,仍列未解決、評估「刻意不趕時間」**;⭐⭐⭐ **陶哲軒:「在得到答案與得到理解之間出現前所未有的脫鉤」**;⭐ 千禧年獎規章寫的是授予「個人或一群人」,沒為 AI 預留位置;該週衝刺共 3,000 億輸出 token、約 2,250 萬美元 |
 | [AI 算力與 Token 經濟學:省錢神話撞上天價帳單](./knowledge/technology/ai-industry/ai-compute-token-economics.md) | 降本悖論、token maxing、從比智商到比划算、應用層替硬體打工 |
 | [Google Cloud:AI Agent 趨勢 2026(五大轉變)](./knowledge/technology/ai-industry/google-cloud-ai-agent-trends-2026.md) | 員工/工作流/客服/資安/規模五趨勢;A2A·MCP·AP2 三協定 |
 | [黃仁勳談生死與接班:不做接班計畫,而是不停傳遞知識](./knowledge/technology/ai-industry/jensen-huang-succession-and-vision.md) | 每場會議都是推理會議;組織韌性來自知識擴散非繼任者 |
