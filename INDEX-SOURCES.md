@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**223 個 YouTube video id**、**27 個 arXiv 編號**,涵蓋 **210 篇**筆記。
+> 統計:**225 個 YouTube video id**、**27 個 arXiv 編號**,涵蓋 **211 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(223 部,依 video id 排序)
+## YouTube(225 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -64,6 +64,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `91yRxsdc0gA` | 這次半導體狂歡是 2000 泡沫重演嗎?五個相同、四個不同、兩個要盯的信號 | [knowledge/investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md](./knowledge/investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md) |
 | `98Mz0a1wJag` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |
 | `9tREtYASGbs` | 微軟財報大漲 15% 的真正原因:三大質疑逐一拆解,以及 AI 價值鏈的位移 | [knowledge/investing/equity-research/microsoft-fy26q1-three-doubts-resolved.md](./knowledge/investing/equity-research/microsoft-fy26q1-three-doubts-resolved.md) |
+| `9uq4FRJ0oEE` | 一萬個 agent 破解千禧年難題:Navier-Stokes、抄襲指控,與「誰該被署名」 | [knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
 | `_oDISo3B3xw` | 美債史詩級拋售:真正的變量不是 40 兆債務,是新任聯準會主席的「溝通方式」 | [knowledge/investing/strategy/us-treasury-selloff-warsh-communication-shift.md](./knowledge/investing/strategy/us-treasury-selloff-warsh-communication-shift.md) |
 | `_RD3iFDhuzs` | Karpathy 訪談:Software 3.0、Jagged Intelligence 與 Agentic Engineering | [knowledge/technology/ai-agents/foundations/karpathy-software-3-0.md](./knowledge/technology/ai-agents/foundations/karpathy-software-3-0.md) |
 | `aR97E7aKEgg` | Matt Pocock 的 AI 開發 skills 全拆解:最紅的 skill 只有五行字,強在哪? | [knowledge/technology/ai-agents/applications/matt-pocock-skills-teardown.md](./knowledge/technology/ai-agents/applications/matt-pocock-skills-teardown.md) |
@@ -159,6 +160,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `MlhsoWmyEKE` | 落地競賽:OpenAI 與 Anthropic 同日進軍企業導入,承認「只有模型沒用」 | [knowledge/technology/ai-agents/applications/enterprise-ai-adoption-race.md](./knowledge/technology/ai-agents/applications/enterprise-ai-adoption-race.md) |
 | `mnuk1GkJxDU` | 股癌選股心法:籌碼/技術都是工具,本質是「選對題材的好股」 | [knowledge/investing/strategy/gooaye-stock-picking-philosophy.md](./knowledge/investing/strategy/gooaye-stock-picking-philosophy.md) |
 | `msHyYioAyNE` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
+| `MWNuu9m93dk` | 多 Agent 系統的資料一致性:為什麼數字越傳越亂,以及四層工程解法 | [knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md](./knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md) |
 | `nlNDzop6tBw` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [knowledge/technology/claude-code/output-style-communication-not-intelligence.md](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) |
 | `nLZ-C7bbZzs` | PLTR 財報後大漲 30%:市場真正在交易的不是業績,是「增速見頂」風險的釋放 | [knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md](./knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md) |
 | `NYFGCESmikA` | DHH 的 16 條並行 Agent:當寫程式幾乎免費,瓶頸遷移到哪裡去了 | [knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md](./knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md) |
