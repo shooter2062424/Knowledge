@@ -2,6 +2,8 @@
 
 > 整理自 YouTube 頻道 **Gary Chen**〈Mastering Claude Code Hooks: A Complete Guide to Essential Settings〉(2026-08,約 20 分鐘,官方繁中字幕)。
 > 文中另**對照 Claude Code 官方 hooks 文件核實**事件與 handler 清單,標出與影片說法的差異。
+>
+> ⭐ **2026-09-16 增補 YAHA學堂**〈[官方隐藏的31个高阶玩法:Claude Code Hooks 自动化实战](https://www.youtube.com/watch?v=Y2yElMkwH_A)〉(2026-09-15,約 23.1 分鐘,無字幕以 faster-whisper 轉錄),成為 **§10** —— **嘮叨成本、Stop Hook 的官方保險、以及「讓不會判斷的腳本指揮 Agent」**。⭐⭐ **本節已 clone Superpowers 原始碼實測,抓到影片一處近一倍的數字誤差。**
 
 > 📎 這是 [[claude-md-from-zero-to-mastery]] 與 [[claude-md-cut-82-percent-and-maintain-it]] 的**下一步**:那兩篇教你怎麼寫好 CLAUDE.md,**這篇教你什麼時候不該再靠 CLAUDE.md**。
 > 其他相關:[[output-style-communication-not-intelligence]]、[[agent-skill-three-layer-run-do-verify]]、[[cross-model-review-claude-codex-harness]]
@@ -297,6 +299,259 @@ flowchart TB
 
 ---
 
+---
+
+## 十、⭐⭐⭐ 第二份實測:嘮叨成本、Stop Hook 的官方保險,與「讓不會判斷的腳本指揮 Agent」(2026-09-16 增補,來源:YAHA學堂)
+
+> 📌 **來源:** YAHA學堂〈[官方隐藏的31个高阶玩法:Claude Code Hooks 自动化实战,少走90%弯路](https://www.youtube.com/watch?v=Y2yElMkwH_A)〉(2026-09-15,約 23.1 分鐘,無字幕、以 CPU faster-whisper 轉錄)。
+> ⭐ **本節已 clone Superpowers 原始碼、讀官方 hooks 文件核實**,並抓到一個影片的數字誤差(見 §10.7)。
+
+**§一–§九 已經把三層架構與 Event 清單講完。這一節補三樣新東西:
+一個少有人講的成本、一個官方機制、一個很妙的用法。**
+
+### 10.1 ⭐⭐⭐ 嘮叨成本:念太多次,模型會變得畏手畏腳
+
+**這是全片最有價值、也最容易被忽略的一段 —— 而且跟 Hook 無關也用得上。**
+
+> **前端設計 skill「Impeccable」在兩個時機各設了一道關:快的放前面(PostToolUse),慢的放後面(Stop)。**
+> ⚠️ **多數人猜「深度檢查留到最後」是為了不拖慢速度。但它原始碼註釋裡寫的理由完全不是這個:**
+>
+> ⭐⭐⭐ **「如果每改一行就念他一次,這種持續不斷的嘮叨,會讓模型變得畏手畏腳、越來越保守。」**
+
+**影片把它命名為「嘮叨成本」,並給了一個立刻能用的推論:**
+
+> ⭐⭐ **下次 Claude 給你一版你不滿意的東西,別一條一條念它 —— 把問題一次講完。**
+> **念太多次,它會開始只做你明確要求的,不敢多想。**
+
+📌 **而且他們實測發現:等整個工作做完再把改過的檔案一次全查,效果一樣可靠。**
+**所以「深度檢查留到最後」不是偷懶,是刻意的設計。**
+
+```mermaid
+flowchart LR
+    A["<b>PostToolUse</b><br/>快的檢查<br/>(空連結、對比度不足)"] --> A1["⭐ 算得出來的東西<br/>改完立刻查"]
+    B["<b>Stop</b><br/>慢的檢查<br/>(排版節奏、配色協調)"] --> B1["⭐⭐ 需要整體判斷的<br/>留到最後一次做"]
+    C["⚠️⚠️ 若全部都即時念"] --> C1["模型變保守<br/><b>只做你明確要求的<br/>不敢多想</b>"]
+```
+
+📎 **這與本庫 [[claude-md-cut-82-percent-and-maintain-it]] §11 的「別把八模組整份抄進每個提示詞」是同一種紀律:
+⭐ 約束不是越多越好 —— 約束本身有代價,而這個代價落在「模型願不願意多想一步」上。**
+
+### 10.2 ⭐⭐ Stop Hook 無限迴圈:影片講了症狀,官方有配套機制
+
+**影片描述的踩坑很真實:**
+
+> **Stop Hook 每次擋住 Claude 結束,都會要求它繼續工作;等 Claude 改完再次準備結束,同一支 Hook 又啟動一次。**
+> ⚠️ **「我第一次做這支 Hook 就踩到了 —— 它在那裡改了又被擋、被擋又改,來回轉了七八輪我才發現。
+> 而它永遠不會自己停下來,因為我根本沒告訴它什麼叫過關。」**
+
+**影片給的兩道保險:① 記錄通過狀態(過了就別再擋)② 次數上限(連續幾輪還是不過就交給人)。**
+
+#### ⭐⭐⭐ 但官方其實已經內建了一層保險,影片沒提
+
+**核實官方 hooks 文件後補上:**
+
+| 機制 | 內容 |
+|---|---|
+| ⭐⭐ **自動覆蓋** | **Claude Code 在 Stop hook 連續阻止 8 次而沒有進展後,會自己覆蓋它** |
+| ⭐⭐⭐ **`stop_hook_active` 欄位** | **你的 hook 腳本應該從 JSON 輸入解析這個欄位,為 `true` 就提前退出** |
+| **可調上限** | 若你的 hook 合理地需要超過八次迭代才收斂,用環境變數 `CLAUDE_CODE_STOP_HOOK_BLOCK_CAP` 提高上限 |
+
+**官方給的標準寫法:**
+
+```bash
+#!/bin/bash
+INPUT=$(cat)
+if [ "$(echo "$INPUT" | jq -r '.stop_hook_active')" = "true" ]; then
+  exit 0  # 允許 Claude 停止
+fi
+# ... 你的 hook 邏輯的其餘部分
+```
+
+> ⭐⭐ **所以正確的做法是三道保險:官方的 `stop_hook_active`(必做)+ 影片的通過狀態記錄 + 次數上限。**
+> ⚠️ **只做影片那兩道,你仍然會在「腳本自己觸發的繼續」上重複跑。**
+
+### 10.3 ⭐⭐⭐ 最妙的用法:一支不會判斷的腳本,怎麼指揮 Agent
+
+**前面的例子(擋 `.env`、擋 `git reset --hard`)都有明確規則,用 `command` 就夠。
+⚠️ 但如果這件事根本沒有明確規則、只能靠感覺判斷呢?**
+
+**影片的實際需求:Claude 寫出來的文章資訊都對,讀起來卻有一股很重的「AI 腔」。**
+
+```mermaid
+flowchart TB
+    A["<b>Stop Hook 觸發</b><br/>Claude 準備結束工作"] --> B["<b>command 腳本啟動</b><br/>⭐ 但它<b>完全不判斷</b>文章有沒有 AI 腔"]
+    B --> C["它只做兩件事:<br/>① 找出這次改過、且還沒通過檢查的文章<br/>② <b>輸出一句話</b>"]
+    C --> D["⭐⭐⭐ 那句話要求 Claude<br/><b>開一個 Agent 來審</b><br/>(調用 Humanizer 技能)"]
+    D --> E["Agent 讀文章<br/>把有 AI 痕跡的段落與原因<br/>一條條交回"]
+    E --> F["Claude 修改"]
+    F --> G["Hook 再檢查一次"]
+    G -->|"未過"| D
+    G -->|"通過"| H["✅ 本輪工作才結束"]
+```
+
+> ⭐⭐⭐ **關鍵原理在 §四已經出現過,但這裡才被用到極致:
+> **腳本輸出什麼,Claude 就看到什麼**。**
+>
+> **所以一支普通的、不具備任何判斷力的 shell 腳本,
+> 靠一句輸出就能指揮 Claude 去做一件「需要判斷力」的事。**
+
+⭐ **可複用的一般化判準:**
+
+> **只要你能用一句話講清楚「什麼樣叫合格」—— 哪怕這句話很主觀 ——
+> 你就能把它變成一道門。**
+
+#### ⚠️ 但作者誠實地標了一個邊界
+
+> ⚠️⚠️ **「Hook 保證的是『這道檢測一定會發生』,它不保證『檢測的結果一定對』。
+> 判斷 AI 腔的還是模型,模型還是可能看走眼。」**
+>
+> ⭐ **「但這已經是很大的進步了:以前是**你得記得去檢查**,現在是**它一定會被檢查**。」**
+
+📎 **這個區分非常重要,也是整篇筆記的核心命題在另一個層次的重述:
+§一講的是「CLAUDE.md 是提醒紙條、Hook 才是自動門」——
+⭐⭐ 自動門保證的是「門會開」,不是「進來的人一定是好人」。**
+
+### 10.4 ⭐⭐ 一件事值不值得做成 Hook:三個條件
+
+> **三條都對得上,Hook 才跟你有關係;對不上,就別跟風。**
+
+| # | 條件 |
+|---|---|
+| **1** | ⭐ **你會重複做** |
+| **2** | ⭐ **它發生在固定時機** |
+| **3** | ⭐⭐ **漏掉了你會有實際損失** |
+
+📎 **這與 §八「建立完之後必須再檢查的兩件事」互補 ——
+那節管「建完怎麼驗」,這三條管「該不該建」。**
+
+### 10.5 ⭐⭐⭐ 就算你不打算自己建,也該帶走的兩件事
+
+#### ① 看別人的工作流時,去看一眼他掛了什麼 Hook
+
+> ⚠️ **「你裝過的 skill,可能就有幾個正在每次對話開頭偷偷往你的上下文塞東西,而你從來沒察覺。」**
+
+#### ② ⭐⭐⭐ 學會分辨「它忘了」還是「它做不到」
+
+| 症狀 | 性質 | 解法 |
+|---|---|---|
+| **交代它改完要跑測試,它沒跑** | ⭐ **忘了**(它明明做得到) | **掛 Hook 就解決** |
+| **叫它去讀一個權限根本碰不到的檔案** | ⚠️⚠️ **做不到** | **掛十個 Hook 也沒用**,只會一直被擋在那裡 |
+
+> ⭐⭐ **「以前你只能乾瞪眼猜它為什麼不聽話,現在你至少知道該往哪邊使勁。
+> 光是這個分辨力,就能省掉很多瞎折騰的時間。」**
+
+### 10.6 ⭐ 五分鐘起手式
+
+> **打開你的 `CLAUDE.md`,找出那條你寫過、但 Claude 最常忘的規則 —— 那條就是你的第一個 Hook。**
+
+**只要跟 Claude 說:**
+
+> **「每次你改完 `.ts` 檔案之後,自動幫我跑一次測試,沒過就告訴我哪裡錯了。」**
+
+⭐ **一句話、五分鐘,它會把設定跟腳本都建好。
+不想要了就把 `settings.json` 裡那段刪掉 —— 不會留下任何東西,也不會影響現有專案。**
+
+📌 **⭐ 而且 Hook 不是只有寫程式的人能用** —— 影片第二個例子就是拿來檢查文章的。
+**用 Claude 寫文案、做研究、整理資料一樣能掛。⚠️ 但別掛太多,不然就會碰到 §10.1 的嘮叨成本。**
+
+### 10.7 ⚠️⚠️ 一處需要修正,與兩處官方補正
+
+#### ⚠️⚠️ Superpowers 的注入量不是 1,300 token
+
+**影片說:「我去量了一下它注入的那份說明,大概 1,300 個 token,差不多是 2,000 字中文的量。」**
+
+📌 **本文 clone 了 [obra/superpowers](https://github.com/obra/superpowers) 實際量測:**
+
+| 項目 | 實測值 |
+|---|---|
+| 注入來源 | `skills/using-superpowers/SKILL.md` |
+| 檔案大小 | **3,108 bytes** |
+| 字元數 | **3,096** |
+| ⭐ **tiktoken(cl100k_base)** | ⭐⭐ **718 token** |
+
+> ⚠️⚠️ **實測約 718 token,不到影片所說 1,300 的六成。**
+> ⭐ **可能原因:影片量測時的版本較舊,或計入了其他內容。
+> 但就當前版本而言,1,300 這個數字偏高了近一倍。**
+>
+> 📌 **不過影片的「機制」描述完全正確** —— 已核實原始碼:
+> 它確實把整份 `SKILL.md` 直接灌進去,並包在 **`<EXTREMELY_IMPORTANT>`** 標籤裡。
+
+#### ⭐ 補正一:Superpowers 的 matcher 不含 `resume`
+
+**影片說 SessionStart「不管你是開新對話、接續之前的記錄,還是輸入 clear 清空畫面」都會觸發。**
+
+📌 **實際讀 `hooks/hooks.json`,Superpowers 的 matcher 是:**
+
+```json
+"SessionStart": [
+  { "matcher": "startup|clear|compact", ... }
+]
+```
+
+> ⚠️ **是 `startup` / `clear` / `compact` 三種,**不包含 `resume`** ——
+> 也就是「接續之前的記錄」實際上不會觸發它的注入。**
+
+⭐ **這是 matcher 精準度的好例子:同一個 Event 下,不同 matcher 的成本差很多。**
+
+#### ⭐⭐ 補正二:Handler 五種已核實,且官方對 prompt / agent 的定位與影片一致
+
+**官方文件確認的 handler `type` 共五種:**
+
+| type | 說明 |
+|---|---|
+| **`command`** | 跑你電腦上的命令或腳本(最常用) |
+| **`prompt`** | ⭐ 用 Claude 模型評估條件 —— **拿著你給它的資料直接回答** |
+| **`agent`** | ⭐⭐ 同樣用模型,**但可以先自己去查清楚再回答** |
+| `http` | — |
+| `mcp_tool` | — |
+
+> ⭐ **影片對 prompt / agent 差別的比喻很準確,官方也是同一個定位:**
+> **「問 prompt『這個功能做完沒』,它只能看你丟給它的那幾行程式碼猜;
+> 同樣一句話問 agent,它會自己把測試跑一遍,跑過了才說做完了。」**
+>
+> 📌 **官方原文:「對於需要判斷而不是確定性規則的決策,你也可以使用基於提示的 hooks 或基於代理的 hooks,它們使用 Claude 模型來評估條件。」**
+
+#### ⭐ 補正三:官方另有 PreCompact / PostCompact / SessionEnd
+
+**影片提到「對話壓縮前存決策」這個補充時機,官方確實有對應 Event:**
+
+| Event | 觸發時機 | matcher 可用值 |
+|---|---|---|
+| **`PreCompact`** | **上下文壓縮之前** | `manual` / `auto` |
+| **`PostCompact`** | 壓縮之後 | `manual` / `auto` |
+| ⭐ **`SessionEnd`** | 會話終止時 | `clear` / `resume` / `logout` / `prompt_input_exit` / `other` |
+
+> ⭐ **`SessionEnd` 的 matcher 值得記:它可以只在 `/clear` 時觸發,而不在正常退出時觸發。**
+
+### 10.8 核實狀態
+
+#### ✅ 已核實(clone 原始碼 + 讀官方文件)
+
+| 影片說法 | 核實結果 |
+|---|---|
+| **Superpowers 用 SessionStart 把整份 skill 說明直接灌進上下文** | **屬實**,已讀 `hooks/session-start` 原始碼 |
+| ⭐ **包在 `<EXTREMELY_IMPORTANT>` 標籤裡** | **屬實**,原始碼中確為此標籤名 |
+| **Handler 官方五種:command / http / mcp_tool / prompt / agent** | **屬實** |
+| ⭐ **prompt 直接回答、agent 可先查證再回答** | **屬實**,與官方「使用 Claude 模型評估條件」的定位一致 |
+| **Stop Hook 會無限迴圈、需要通過狀態與次數上限** | ⭐ **症狀屬實**;**官方另有內建保險**(見 §10.2,影片未提) |
+| **官方有「對話壓縮前」的時機** | **屬實**,即 `PreCompact`(另有 `PostCompact`) |
+| **Codex 的 Event 數量較少、handler 基本只有 command** | ⚠️ **未獨立核實**(本文未查 Codex 文件),以影片說法看待 |
+
+#### ⚠️ 需要修正
+
+- ⚠️⚠️ **Superpowers 注入量「約 1,300 token」** ⇒ **實測(tiktoken cl100k_base)為 718 token**,約為所述的 55%。
+- ⚠️ **SessionStart「接續之前的記錄也會觸發」** ⇒ **Superpowers 的 matcher 為 `startup|clear|compact`,不含 `resume`。**
+
+#### ⚠️ 未能獨立查證(以影片轉述看待)
+
+- **官方 hooks 事件「共 31 種」、常用速查表「只有 10 個」** —— ⚠️ **官方中文 hooks 指南並未以「31」這個數字呈現,本文未能定位到該計數的出處**;⭐ **但影片的核心主張(真正會用到的只有四個)與四個開源專案的實際用法一致,這部分成立。**
+- **Impeccable 原始碼註釋中「持續嘮叨會讓模型變保守」的原句** —— ⚠️ **該 skill 本文未取得原始碼,無法核對註釋原文。⭐ 但這個主張與 §10.1 的設計(快檢查放 PostToolUse、慢檢查放 Stop)自洽。**
+- **claude-mem 掛了 6 個 hook** —— **未核對其 settings.json。**
+- **Matt Pocock 那套 skills 用 PreToolUse 擋危險 git 命令** —— 📎 **與本庫 [[matt-pocock-skills-teardown]] 的記錄方向一致,但本節未重新核對。**
+- **作者自己兩個實戰的執行畫面**(擋 `.env`、擋 AI 腔)—— **屬影片演示,無法外部驗證。**
+
+---
+
 ## 應用案例
 
 ### 案例 1|⭐ 找出你的第一個 Hook:三個篩選條件
@@ -403,6 +658,12 @@ Impeccable 的 PostToolUse / Stop 分工是可推廣的模式:
 ---
 
 ## 來源
+
+- ⭐ [官方隐藏的31个高阶玩法:Claude Code Hooks 自动化实战,少走90%弯路 — YAHA學堂](https://www.youtube.com/watch?v=Y2yElMkwH_A)(2026-09-15,約 23.1 分鐘,無字幕以 CPU faster-whisper 轉錄;**§10 來源**)
+- §10 的一手素材與核實來源:
+  - ⭐⭐ [使用 hooks 自动化操作 — Claude Code 官方文件](https://code.claude.com/docs/zh-CN/hooks-guide)(**§10.2 的 `stop_hook_active` 與 8 次上限、§10.7 的 handler 五種與 PreCompact/SessionEnd 皆出自此**)
+  - ⭐⭐ [obra/superpowers — GitHub](https://github.com/obra/superpowers)(**§10.7 的 718 token 實測與 matcher 修正,係 clone 原始碼後直接量測 `skills/using-superpowers/SKILL.md` 與 `hooks/hooks.json`**)
+  - [thedotmack/claude-mem — GitHub](https://github.com/thedotmack/claude-mem)
 
 - [Mastering Claude Code Hooks: A Complete Guide to Essential Settings — Gary Chen](https://www.youtube.com/watch?v=rLNGSDYkK-w)(2026-08,約 20 分鐘,官方繁中字幕)
 - [Claude Code Hooks 官方文件](https://code.claude.com/docs/en/hooks) —— 已核實 handler 五種類型、逾時預設值、matcher 正規表達式支援、`agent` 為 experimental、事件清單
