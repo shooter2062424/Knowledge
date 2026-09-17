@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**227 個 YouTube video id**、**27 個 arXiv 編號**,涵蓋 **212 篇**筆記。
+> 統計:**229 個 YouTube video id**、**27 個 arXiv 編號**,涵蓋 **212 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(227 部,依 video id 排序)
+## YouTube(229 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -75,6 +75,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `B91bZL8wcAI` | 什麼是 AI Harness?兩種「harness」的差別 | [knowledge/technology/ai-agents/foundations/ai-harness-explained.md](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) |
 | `BAfRVpKIxZ4` | 交易的「贏家數學」:四個核心概念,以及一份完整的數學學習路線圖 | [knowledge/investing/strategy/trading-math-expectancy-variance-risk.md](./knowledge/investing/strategy/trading-math-expectancy-variance-risk.md) |
 | `BhHMGRcbPkQ` | 為什麼 Anthropic 工程師棄 Markdown 改用 HTML:當「理解」變成真正的瓶頸 | [knowledge/technology/ai-productivity/anthropic-html-work-pages.md](./knowledge/technology/ai-productivity/anthropic-html-work-pages.md) |
+| `BkoCVZJcRHY` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `bNMBbrplILM` | Fable 5.1:榜單全線第一,官方卻叫你先用 Opus 5 —— 旗艦模型開始為「可用性」讓路 | [knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md](./knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md) |
 | `bPWcSxkD6Uo` | WiFi 是怎麼傳遞資訊的?把資訊裝進電磁波的硬核原理 | [knowledge/technology/telecom/wifi-how-it-works.md](./knowledge/technology/telecom/wifi-how-it-works.md) |
 | `BQveePDWavA` | Token 與 Embedding 的分工:為什麼 LLM 的 embedding 和 RAG 的 embedding 不是同一回事 | [knowledge/technology/llm-internals/architecture/token-vs-embedding-llm-and-rag.md](./knowledge/technology/llm-internals/architecture/token-vs-embedding-llm-and-rag.md) |
@@ -178,6 +179,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `pR7teM31_wI` | AI 學會了裝傻和欺騙:為什麼現有 Safety Evaluation 跟不上大模型 | [knowledge/technology/ai-safety/safety-evaluation-crisis.md](./knowledge/technology/ai-safety/safety-evaluation-crisis.md) |
 | `pS_P2P0bO48` | RSA-260 被分解:一條推文、一次除法,全世界同時確認 —— 以及「可驗證性是一種設計」 | [knowledge/technology/system-design/rsa-260-factored-verifiability-as-design.md](./knowledge/technology/system-design/rsa-260-factored-verifiability-as-design.md) |
 | `ptFiH_bHnJw` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
+| `PTubnGrHdmM` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
 | `PuqX3Kv2ino` | Skill 實戰:從製作到維護一份「agent 會自動觸發、產出穩定、人類維護得了」的 skill | [knowledge/technology/ai-agents/applications/building-claude-skills.md](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
 | `px5M4ry8IO4` | 下半年美股前瞻:宏觀四變數 + AI 的「存量邏輯 vs 增量邏輯」 | [knowledge/investing/strategy/us-stocks-h2-2026-outlook-stock-vs-flow-ai.md](./knowledge/investing/strategy/us-stocks-h2-2026-outlook-stock-vs-flow-ai.md) |
 | `PxPWaP7mXFM` | AI 時代怎麼創業?Anthropic 新創 Playbook 的四階段 workflow | [knowledge/technology/ai-agents/applications/anthropic-startup-playbook.md](./knowledge/technology/ai-agents/applications/anthropic-startup-playbook.md) |
