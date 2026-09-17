@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-246_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-247_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -108,6 +108,7 @@ flowchart LR
 | **ExplainThis 軟體工程白話聊** — 軟體工程白話解說 | 1 | [高階函式與閱讀負擔](./knowledge/technology/software-engineering/higher-order-functions-readable-code.md) |
 | **TVBS NEWS(十點不一樣)** — 台灣政策與財經新聞 | 1 | [青安 3.0 與繼承性別數據](./knowledge/investing/personal-finance/qingan-3-0-and-inheritance-gender-gap.md) |
 | **JohnLu 談股(John Lu Talk Stock)** — K 線與技術分析短片 | 1 | [高位陰後陽/低位陽後陰口訣](./knowledge/investing/technical-analysis/high-yin-then-yang-low-yang-then-yin.md) |
+| **簡一聊交易** — 技術分析與形態交易 | 2 | [雙底雙頂:動能衰減](./knowledge/investing/technical-analysis/double-top-bottom-momentum.md) · [真假突破的四層證據](./knowledge/investing/technical-analysis/breakout-four-layers-of-evidence.md) |
 | **【CMoney理財寶】理財資優生** — 投資高手訪談 | 1 | [正期望值、手割分析與規則漏洞(ft. 馬克羊)](./knowledge/investing/strategy/positive-expectancy-rule-hunting-mark-yang.md) |
 | **風傳媒 下班經濟學 / The Storm Media** — 台股/投資 | 3 | [別再相信目標價(721)](./knowledge/investing/strategy/target-prices-institutional-secrets.md) · [孫慶龍 PE 五檔價(735)](./knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md) · [股癌選股心法](./knowledge/investing/strategy/gooaye-stock-picking-philosophy.md) |
 | **Caleb Writes Code** — agent harness | 8 | [Harness 演進史](./knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md) · [Pi Agent 極簡 harness](./knowledge/technology/ai-agents/foundations/pi-agent-minimal-harness.md) · [Graph Engineering 八分鐘](./knowledge/technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) · [Jalapeño 機架拓撲與 ASIC 賭注(併入跑分邊界筆記)](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) · [Fable 5.1 跑分方法論與訂閱層反面視角(併入 Fable 筆記)](./knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md) · [GPT-6 Astra 全面分析(合併整理)](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) · [Navier-Stokes 與一萬個 agent 的署名爭議](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) · [V4.1-Flash 架構深潛:Engram/CED/mHC(併入 DeepSeek 筆記)](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
@@ -213,6 +214,7 @@ flowchart LR
 |---|---|
 | [「高位陰後陽、低位陽後陰」口訣的邏輯與限制](./knowledge/investing/technical-analysis/high-yin-then-yang-low-yang-then-yin.md) | 兩邊共用同一機制=**量能確認**(反抽縮量=動能耗盡;回踩縮量=賣壓退場);⚠️ 無量化定義、無回測、**完全沒講停損**,要用得先寫成有數字的條件 |
 | [雙底雙頂:看的不是形態,而是動能衰減](./knowledge/investing/technical-analysis/double-top-bottom-momentum.md) | 真假反轉的關鍵是第二隻腳/頭的動能有沒有衰減 |
+| [放量突破前高為什麼一追就被套:四層證據判斷真假突破與破底翻(簡一聊交易)](./knowledge/investing/technical-analysis/breakout-four-layers-of-evidence.md) | ⭐⭐⭐ **「成交量代表投入,價格位移才代表結果」**;突破不是單一 K 棒事件而是**市場重新定價的過程**;**① 遮住突破 K 拉遠看**是趨勢中段還是末端(末端的突破可能是情緒最後高潮)**② ⭐⭐⭐ 靠近方式最關鍵**:勻速 > 加速 > 縮量減速 > **放量減速(量價背離,假突破風險最高)**;⚠️ **「縮量減速靠近」≠「貼近壓力後的縮量整理」**(前者還沒到壓力就衰減,後者在壓力下方消化賣壓);**③「突破一定要放量」只說對一半** —— 假突破同樣會放大量,該問的是**大量換來多少推進**;**④ 權重最高:站得住/走得開/回測守得住**;⭐⭐⭐ **最危險是「突破已走遠、回測卻還沒發生」的中間價位** —— **很多人虧損不是方向看錯,是買在風險報酬極差的位置**;停損放結構失效位置、前方空間需 ≥ 1R;破底翻三型(縮量減速等小週期突破、**放量減速可直接評估**、加速型要等二次回測不破新低);⚠️ **全片無任何回測或統計驗證,屬判讀框架非已驗證策略**;⚠️非投資建議 |
 | [短線交易七條核心法則(熊貓有財)](./knowledge/investing/technical-analysis/short-term-trading-7-rules.md) | 順勢/強勢股/別被洗盤嚇走/追新;但通篇沒講停損,風控要自己補 |
 | [當沖有技巧嗎?NYSE 傳奇交易員 Peter Tuchman 的 40 年心法](./knowledge/investing/technical-analysis/peter-tuchman-day-trading.md) | 別靠財報/FOMO 當沖;最大敵人是恐懼;移動平均+RSI;自我重塑與感恩心態 |
 

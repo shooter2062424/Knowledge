@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**230 個 YouTube video id**、**27 個 arXiv 編號**,涵蓋 **213 篇**筆記。
+> 統計:**231 個 YouTube video id**、**27 個 arXiv 編號**,涵蓋 **214 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(230 部,依 video id 排序)
+## YouTube(231 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -57,6 +57,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `6bvEcpm72W0` | 給非技術人員的部署:為什麼 localhost 傳給朋友打不開,以及三個問題選平台 | [knowledge/technology/ai-productivity/deployment-for-vibe-coders-platform-selection.md](./knowledge/technology/ai-productivity/deployment-for-vibe-coders-platform-selection.md) |
 | `6Ly6wZUsESA` | Anthropic 第四份威脅情報報告:自我改寫的惡意軟體、vibe hacking、API key 成為攻擊目標,與非法蒸餾 | [knowledge/technology/ai-safety/anthropic-threat-intelligence-2026-09.md](./knowledge/technology/ai-safety/anthropic-threat-intelligence-2026-09.md) |
 | `6OBtO9niT00` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
+| `7_UKPsakszU` | 放量突破前高為什麼一追就被套:四層證據判斷真假突破與破底翻 | [knowledge/investing/technical-analysis/breakout-four-layers-of-evidence.md](./knowledge/investing/technical-analysis/breakout-four-layers-of-evidence.md) |
 | `7DncQnIjZmA` | 一萬個 agent 破解千禧年難題:Navier-Stokes、抄襲指控,與「誰該被署名」 | [knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
 | `7DyjFEzgVZ4` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | `7eMuxmijN6I` | Skill Doctor:讓 Agent 自己改自己的說明書 —— 但改動要走 PR、過 CI、有人審 | [knowledge/technology/ai-agents/applications/skill-doctor-self-improving-agent-loop.md](./knowledge/technology/ai-agents/applications/skill-doctor-self-improving-agent-loop.md) |
