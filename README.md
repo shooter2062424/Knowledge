@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-245_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-246_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -108,6 +108,7 @@ flowchart LR
 | **ExplainThis 軟體工程白話聊** — 軟體工程白話解說 | 1 | [高階函式與閱讀負擔](./knowledge/technology/software-engineering/higher-order-functions-readable-code.md) |
 | **TVBS NEWS(十點不一樣)** — 台灣政策與財經新聞 | 1 | [青安 3.0 與繼承性別數據](./knowledge/investing/personal-finance/qingan-3-0-and-inheritance-gender-gap.md) |
 | **JohnLu 談股(John Lu Talk Stock)** — K 線與技術分析短片 | 1 | [高位陰後陽/低位陽後陰口訣](./knowledge/investing/technical-analysis/high-yin-then-yang-low-yang-then-yin.md) |
+| **【CMoney理財寶】理財資優生** — 投資高手訪談 | 1 | [正期望值、手割分析與規則漏洞(ft. 馬克羊)](./knowledge/investing/strategy/positive-expectancy-rule-hunting-mark-yang.md) |
 | **風傳媒 下班經濟學 / The Storm Media** — 台股/投資 | 3 | [別再相信目標價(721)](./knowledge/investing/strategy/target-prices-institutional-secrets.md) · [孫慶龍 PE 五檔價(735)](./knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md) · [股癌選股心法](./knowledge/investing/strategy/gooaye-stock-picking-philosophy.md) |
 | **Caleb Writes Code** — agent harness | 8 | [Harness 演進史](./knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md) · [Pi Agent 極簡 harness](./knowledge/technology/ai-agents/foundations/pi-agent-minimal-harness.md) · [Graph Engineering 八分鐘](./knowledge/technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) · [Jalapeño 機架拓撲與 ASIC 賭注(併入跑分邊界筆記)](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) · [Fable 5.1 跑分方法論與訂閱層反面視角(併入 Fable 筆記)](./knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md) · [GPT-6 Astra 全面分析(合併整理)](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) · [Navier-Stokes 與一萬個 agent 的署名爭議](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) · [V4.1-Flash 架構深潛:Engram/CED/mHC(併入 DeepSeek 筆記)](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
 | **基地** — 半導體/AI 趨勢拆解 | 2 | [NVIDIA N1X vs x86](./knowledge/technology/ai-industry/nvidia-n1x-vs-x86.md) · [Sutton 行動認知 AI](./knowledge/technology/llm-internals/world-models/sutton-enactive-ai.md) |
@@ -184,6 +185,7 @@ flowchart LR
 | [美債史詩級拋售:真正的變量不是 40 兆債務,是新任聯準會主席的「溝通方式」(美投君)](./knowledge/investing/strategy/us-treasury-selloff-warsh-communication-shift.md) | 30 年期收益率破 5.3%、20 年新高,政府兩度干預失效;**⚠️ 直接否定「40 兆債務」論——沒有變化的因素不能解釋剛發生的變化**;三因:**沃什「少跟市場溝通」的改革(唯一重要變量)**、AI 發債擠壓國債(企業債供給 1.6→2.3 兆)、地緣政治的長期通脹威脅;**⭐ 從動機結構推論沃什不會在 Jackson Hole 妥協**;**結論:會帶來回調但不需要應對——一次性重定價而非持續惡化(類比特斯拉取消補助)**;⭐ **「真正重要的變量就那麼幾個」** |
 | [社交套利(Chris Camillo):從日常生活挖暴利機會](./knowledge/investing/strategy/social-arbitrage-chris-camillo.md) | 交易資訊差不是股價;生活觀察當另類數據;資金分桶+倉位紀律;誠實談倖存者偏差 |
 | [交易的贏家數學:四個核心概念,以及一份完整的數學學習路線圖](./knowledge/investing/strategy/trading-math-expectancy-variance-risk.md) | 期望值=勝率×賺−敗率×賠;甜蜜點與 breakeven;賭徒謬誤;部位大小+破產風險+復原數學。⭐⭐ **第二部增補完整路線圖**(統計機率/線性代數/時間序列/風險管理四大領域):⭐ **入門其實只要七項**(平均數、中位數、標準差、相關性、基本機率、夏普、最大回撤);⚠️ **10 筆交易全勝一點也不厲害**;**離群值多時中位數才是典型值**;⭐⭐ **三個動能策略跑在相關資產上 = 三倍部位而非三倍分散**(相關 0.9 等於只有一個策略);⚠️ **市場不是定態的,這正是策略衰退的主因**;**蒙地卡羅打亂交易順序看最糟回撤可能還沒發生**;共整合與配對交易;附書單。⚠️ 作者推廣三個自家付費產品 |
+| [先找規則,再判斷哪個選擇更有利:正期望值、手割分析,與「技術問題被講成心態問題」(馬克羊 ft. CMoney)](./knowledge/investing/strategy/positive-expectancy-rule-hunting-mark-yang.md) | ⭐⭐⭐ **「散戶賠錢是因為恐懼貪婪」是誤診** —— 大部分是**策略本身沒有正期望值**的技術問題,只是說成心態比較好受;⭐⭐ **誤診機制:高手的技術問題早解決了所以只剩心態可講,散戶跟著學就對錯了症**;⭐⭐⭐ **期望值不需偏離零很多就會被重複次數放大** —— 百家樂 −1% 是賭場裡負最少卻最容易破產、21 點算牌只正一點點卻讓賭場必須趕人;⚠️ **「當沖期望值多少」問錯了**,必須指定特定策略+特定期間,確認方式只有「它是漏洞/套利」或「統計回測」;⭐⭐ **手割分析**(圍棋):比較選項時把完全相同的部分消掉只比不同的;⚠️ 快速學習有前提 —— **原本就會很多領域**,底層是數學邏輯;翻轉階級難度 投資<嫁娶<創業,**還需要考慮要不要創業通常就是不要**;⭐⭐ **找漏洞法則:規則特別定義一個判例時容易有漏洞**;⭐⭐⭐ **任何策略 2–4 年必失效**(regime 會變),他每年更新 3–4 次;⭐⭐ **指數投資難的不是策略是尺度**(部位超過能執行的尺度就會想加創意,而數學遊戲創意越少越好);⭐⭐⭐ **資產分散看相關係數不是波動大小**;⚠️ 本文補正兩處(21 點優勢上緣偏高、五分盤已於 2026-08-10 改制為約 2 分鐘);⚠️非投資建議 |
 | [存量邏輯下的四條投資原則:把握價值而非趨勢(美投君)](./knowledge/investing/strategy/ai-investing-four-principles-stock-logic.md) | **單點替換做不到生產力爆發,組織架構創新才是關鍵**;兩道坎(組織難改 + 大模型能力像「小電機」);增量→存量的蹺蹺板;**四原則:把握價值不追趨勢、左側交易、穿越週期看增量、做看得懂的交易**;⚠️ 火雞經濟學家 —— **猜準了比猜錯更危險**;**AI Adoption > AI Application**,該盯的訊號是**組織架構的改變**(Shopify River、FDE);⚠️非投資建議 |
 | [下半年美股前瞻:宏觀四變數 + AI 存量 vs 增量邏輯(美投君)](./knowledge/investing/strategy/us-stocks-h2-2026-outlook-stock-vs-flow-ai.md) | 通脹下行/中期選舉/K型消費;存量(零和搶資源)vs 增量(正和一起賺);標普 8200 |
 | [這次半導體狂歡是 2000 泡沫重演嗎?(美投君)](./knowledge/investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md) | 五個相同、四個不同;客戶從泡沫公司變大科技;情緒扭轉時基本面救不了股價;盯 Token/ARR |

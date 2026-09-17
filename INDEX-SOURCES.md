@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**229 個 YouTube video id**、**27 個 arXiv 編號**,涵蓋 **212 篇**筆記。
+> 統計:**230 個 YouTube video id**、**27 個 arXiv 編號**,涵蓋 **213 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(229 部,依 video id 排序)
+## YouTube(230 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -199,6 +199,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `s3yiXTxueoI` | Harness / Loop / Graph 三層排障地圖:把「Agent 又抽風了」翻譯成可執行的排查工單 | [knowledge/technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md](./knowledge/technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) |
 | `SPyXyB7lgWU` | 加息會引發美股大跌嗎?用 2000 泡沫「三階段」對照 AI 這輪革命(美投君) | [knowledge/investing/strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md](./knowledge/investing/strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md) |
 | `SQ3fZ1sAqXI` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
+| `SQMbCZH_5YY` | 先找規則,再判斷哪個選擇更有利:正期望值、手割分析,與「技術問題被講成心態問題」 | [knowledge/investing/strategy/positive-expectancy-rule-hunting-mark-yang.md](./knowledge/investing/strategy/positive-expectancy-rule-hunting-mark-yang.md) |
 | `t0ZWNh-UXDs` | 一兆筆紀錄的即時搜尋:從 36 小時延遲砍到 5 分鐘的去重管線 | [knowledge/technology/system-design/trillion-record-realtime-search-kafka-dedup.md](./knowledge/technology/system-design/trillion-record-realtime-search-kafka-dedup.md) |
 | `T1k0MCmO-SA` | 《會想的人,先有錢》(Jonathan Clements):一整天看盤的人,沒有賺比較多 | [knowledge/investing/strategy/thinkers-get-rich-jonathan-clements.md](./knowledge/investing/strategy/thinkers-get-rich-jonathan-clements.md) |
 | `T3R3CFtYUww` | 什麼是先進封裝?從有機基板到矽中介層、TSV、矽橋、玻璃基板一次看懂 | [knowledge/technology/ai-industry/advanced-packaging-explained.md](./knowledge/technology/ai-industry/advanced-packaging-explained.md) |
