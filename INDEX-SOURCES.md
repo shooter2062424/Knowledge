@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**231 個 YouTube video id**、**27 個 arXiv 編號**,涵蓋 **214 篇**筆記。
+> 統計:**233 個 YouTube video id**、**28 個 arXiv 編號**,涵蓋 **215 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(231 部,依 video id 排序)
+## YouTube(233 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -52,6 +52,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `4FJs4nd2uDA` | 交易的「贏家數學」:四個核心概念,以及一份完整的數學學習路線圖 | [knowledge/investing/strategy/trading-math-expectancy-variance-risk.md](./knowledge/investing/strategy/trading-math-expectancy-variance-risk.md) |
 | `4fpZhuJuIls` | Claude Dynamic Workflows 解析:什麼時候該用、什麼時候別用? | [knowledge/technology/ai-agents/foundations/claude-dynamic-workflows.md](./knowledge/technology/ai-agents/foundations/claude-dynamic-workflows.md) |
 | `4j1omjaRu0A` | 在瘋狂股市裡,你還該「持續買入」嗎?——Nick Maggiulli 訪談筆記 | [knowledge/investing/strategy/just-keep-buying-nick-maggiulli.md](./knowledge/investing/strategy/just-keep-buying-nick-maggiulli.md) |
+| `4s-r0UA2iUM` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `4t8QcDdrL6Y` | AI 時代怎麼「讀」程式碼:6 個技巧(KodeKloud) | [knowledge/technology/ai-productivity/reading-code-ai-era-6-techniques.md](./knowledge/technology/ai-productivity/reading-code-ai-era-6-techniques.md) |
 | `5XeVLt9WejM` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |
 | `6bvEcpm72W0` | 給非技術人員的部署:為什麼 localhost 傳給朋友打不開,以及三個問題選平台 | [knowledge/technology/ai-productivity/deployment-for-vibe-coders-platform-selection.md](./knowledge/technology/ai-productivity/deployment-for-vibe-coders-platform-selection.md) |
@@ -173,6 +174,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `oW6MHjzxHpU` | 賣財報波動率:把 $1 萬變 $100 萬的選擇權策略(以及它真正的風險) | [knowledge/investing/derivatives/selling-earnings-volatility.md](./knowledge/investing/derivatives/selling-earnings-volatility.md) |
 | `oZC00ImTJt8` | 存量邏輯下的四條投資原則:把握價值而非趨勢,以及該盯的那個訊號 | [knowledge/investing/strategy/ai-investing-four-principles-stock-logic.md](./knowledge/investing/strategy/ai-investing-four-principles-stock-logic.md) |
 | `P6UWIA_bvt8` | 大模型 API「中轉站」起底:0.5 折的 GPT/Claude 到底摻了多少水? | [knowledge/technology/ai-industry/llm-api-relay-stations.md](./knowledge/technology/ai-industry/llm-api-relay-stations.md) |
+| `pEMIF2Cu1mA` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `pGYrWsNQ8A0` | Attention Residuals:把注意力「轉 90 度」用在網路深度上 | [knowledge/technology/llm-internals/architecture/attention-residuals.md](./knowledge/technology/llm-internals/architecture/attention-residuals.md) |
 | `pJR6I9_06e4` | Codex 2.0 新功能實戰:懸停導航 + Fork、側邊對話/引導、Record & Replay、手機遠端操控 | [knowledge/technology/ai-productivity/codex-2-record-replay-mobile-remote.md](./knowledge/technology/ai-productivity/codex-2-record-replay-mobile-remote.md) |
 | `pmWgyZM7mB8` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
@@ -262,7 +264,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(27 篇,依編號排序)
+## arXiv(28 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -272,6 +274,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2402.03300` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md](./knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md) |
 | `2405.05254` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
 | `2406.04692` | Mixture-of-Agents(MoA):用「分層提議 + 聚合」讓多個 LLM 互相加成,純開源打贏 GPT-4o | [knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md](./knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md) |
+| `2406.04692` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `2507.19457` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md](./knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md) |
 | `2509.03505` | LimiX:用「遮罩聯合分布」打造的結構化資料(表格)基礎模型 | [knowledge/technology/machine-learning/limix-tabular-foundation-model.md](./knowledge/technology/machine-learning/limix-tabular-foundation-model.md) |
 | `2509.13351` | PDDL-Instruct:用「邏輯式 CoT + 外部驗證」教 LLM 做真正的符號規劃 | [knowledge/technology/ai-agents/foundations/pddl-instruct-llm-planning.md](./knowledge/technology/ai-agents/foundations/pddl-instruct-llm-planning.md) |
