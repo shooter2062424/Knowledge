@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**236 個 YouTube video id**、**29 個 arXiv 編號**,涵蓋 **217 篇**筆記。
+> 統計:**237 個 YouTube video id**、**29 個 arXiv 編號**,涵蓋 **217 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(236 部,依 video id 排序)
+## YouTube(237 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -142,6 +142,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `IRNWXRFri2A` | 青安 3.0 上路:為什麼「最高 1500 萬」多半貸不滿?以及財政部繼承數據透露的性別轉變 | [knowledge/investing/personal-finance/qingan-3-0-and-inheritance-gender-gap.md](./knowledge/investing/personal-finance/qingan-3-0-and-inheritance-gender-gap.md) |
 | `iw1VF8HOCrk` | Attention Residuals:把注意力「轉 90 度」用在網路深度上 | [knowledge/technology/llm-internals/architecture/attention-residuals.md](./knowledge/technology/llm-internals/architecture/attention-residuals.md) |
 | `j2I2TIvhs0c` | Jalapeño 首批跑分:推理晶片的評判標準換了,以及怎麼讀廠商自己給的數字 | [knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) |
+| `j7nu_6cprMI` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `jgy1A0Mrx7g` | Omarchy 4「Quattro」:當 Agent 從外掛升格成作業系統的一等公民 | [knowledge/technology/ai-agents/applications/omarchy-4-agent-as-os-citizen.md](./knowledge/technology/ai-agents/applications/omarchy-4-agent-as-os-citizen.md) |
 | `jJ5WAKs0eGE` | Make 與 n8n 還值得學嗎:當維護的人從你換成 Agent,視覺化就從資產變成阻礙 | [knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md](./knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md) |
 | `JPGo_5fczaA` | 模型越強,Superpowers 和 Matt Skills 該刪掉誰?兩套 AI 編程工作流的選擇框架 | [knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md](./knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) |
