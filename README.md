@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-249_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-250_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -141,6 +141,7 @@ flowchart LR
 | **wow** — AI agent 真實系統壓測 | 2 | [Graphify 知識圖譜實戰壓測](./knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) · [本體論護欄與神經符號 AI(Frank Coyle)](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
 | **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
 | **人蔘 Try Catch** — AI 工程落地短講 | 1 | [Jev 落地場景與終端機守門員(併入 Jev 筆記)](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
+| **仕宇JavaPub** — GitHub 開源專案推薦 | 1 | [五個開源英語學習專案(已讀原始碼)](./knowledge/technology/applied-ai/language-learning/five-open-source-english-learning-tools.md) |
 
 ### ✍️ 個人/部落格/官方
 
@@ -435,6 +436,7 @@ flowchart LR
 | [Nexus:四代理分工的時間序列預測](./knowledge/technology/applied-ai/forecasting/nexus-time-series.md) | 把「事件」帶進預測,而非只外推曲線 |
 | [VoxCPM:無分詞器的開源 TTS](./knowledge/technology/applied-ai/speech-synthesis/voxcpm-report.md) | 直接生成連續語音表示、可用文字描述設計聲音 |
 | [edge-tts:免金鑰白嫖 Microsoft Edge 線上 TTS](./knowledge/technology/applied-ai/speech-synthesis/edge-tts-microsoft-edge-tts.md) | 逆向 Edge 朗讀的 WebSocket 端點;Sec-MS-GEC 時間雜湊權杖 + 時鐘校正;產 MP3 兼 SRT |
+| [五個開源英語學習專案:從聽力訓練流程到「把每天看的英文網頁變成教材」(仕宇JavaPub)](./knowledge/technology/applied-ai/language-learning/five-open-source-english-learning-tools.md) | ⭐⭐⭐ **五個專案解決的問題完全不重疊**:Echo Loop 管怎麼練、Enjoy 管方法論、Anki 管不忘、Read Frog 管把英文網頁變教材、LLPlayer 管把影片變學習材料;⭐⭐ **三個 repo 已 clone 讀過原始碼,抓到四處補正** —— ⚠️ **Echo Loop 首次學習順序已從「盲聽優先」改成「精聽→跟讀→盲聽(可跳過)→複述」**(理由寫在程式碼註解:讓使用者更早感受逐句精聽的價值);⭐⭐⭐ **七輪間隔存的是「距上一輪完成後的等待時長」而非絕對里程碑,所以拖延只會把時程往後推**;⚠️ **Read Frog「把上下文交給 AI」預設只注入標題+摘要**,`webContent` token 存在但沒用;⚠️⚠️ **LLPlayer 只跑 Windows,缺 MSVC Redistributable 時一開 ASR/OCR 就當掉**;⭐⭐⭐ **可抄走的技巧:`{{NO_TRANSLATION_NEEDED}}` 這種「假 token 哨兵」,因模板只替換已知 token 而能原封不動存活過提示詞組裝** |
 
 ### 📊 ai-industry(AI 產業與算力經濟)
 | 主題 | 一句話 |
