@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**233 個 YouTube video id**、**28 個 arXiv 編號**,涵蓋 **215 篇**筆記。
+> 統計:**236 個 YouTube video id**、**29 個 arXiv 編號**,涵蓋 **217 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(233 部,依 video id 排序)
+## YouTube(236 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -128,6 +128,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `h0lDdWYreSw` | dbx:單一執行檔的跨平台資料庫客戶端(Rust 寫)+ 內建 MCP Server 讓 Agent 直接操作資料庫 | [knowledge/technology/dev-tools/dbx-rust-database-client-mcp.md](./knowledge/technology/dev-tools/dbx-rust-database-client-mcp.md) |
 | `h7abDtqN9gs` | Google AI 課程 Day 4+5:怎麼放心讓 AI 上正式環境?三個動作 —— 講清楚、設邊界、做驗收 | [knowledge/technology/ai-agents/foundations/google-agentic-engineering-day4-5.md](./knowledge/technology/ai-agents/foundations/google-agentic-engineering-day4-5.md) |
 | `h7RA7yyMBYY` | 量子計算:量子效應如何突破計算的邊界 | [knowledge/technology/quantum-computing/quantum-computing-explained.md](./knowledge/technology/quantum-computing/quantum-computing-explained.md) |
+| `h9fLB0aS2AM` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `HcbjFO1mRIw` | Project Cairn:把「做過的事」沉澱成可複用知識的開源 Skill(高體感 × 低阻力) | [knowledge/technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md](./knowledge/technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) |
 | `hfgeEa-rg0A` | 怎麼確保結構化 JSON 輸出真的可靠:提示詞 → Tool Use → 校驗器 → 帶錯誤的重試 | [knowledge/technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md](./knowledge/technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md) |
 | `HhZcnM9tR7s` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
@@ -158,6 +159,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `LRJV5lcsnfA` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
 | `luN-yydHpYY` | Graphify 實戰壓測:10 萬 Star 的程式碼知識圖譜,打不贏 grep?「找」與「看」的分水嶺 | [knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md](./knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) |
 | `m6U_TGf9Z_M` | 新版 Codex 全流程實戰:從資料夾、辦公文件、生圖,到 Skill / Hook / Worktree / 一鍵部署 | [knowledge/technology/ai-agents/applications/codex-desktop-full-workflow-guide.md](./knowledge/technology/ai-agents/applications/codex-desktop-full-workflow-guide.md) |
+| `mAoXktiOhWY` | 找 Bug 第一名的模型,修 Bug 卻墊底:GPT-6 Astra 與 Claude Fable 5.1 的分工式選型 | [knowledge/technology/ai-productivity/astra-vs-fable-find-bugs-vs-fix-bugs.md](./knowledge/technology/ai-productivity/astra-vs-fable-find-bugs-vs-fix-bugs.md) |
 | `mBePcvqLX88` | Graph Engineering 八分鐘講清楚:從 1736 年的柯尼斯堡七橋,到 108 個 agent 的 DAG | [knowledge/technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md](./knowledge/technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) |
 | `MdZWB8eC83Q` | Bitter Lesson:模型變強後,你的舊 prompt 正在拖垮新模型 | [knowledge/technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md](./knowledge/technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md) |
 | `Mhq6IS2vSQM` | ChatGPT 瀏覽器擴充功能:借用你「已經登入」的瀏覽器,在背景跨分頁做事 | [knowledge/technology/ai-productivity/chatgpt-browser-extension-agent.md](./knowledge/technology/ai-productivity/chatgpt-browser-extension-agent.md) |
@@ -251,6 +253,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `yHNp_rT6uEo` | Jalapeño 首批跑分:推理晶片的評判標準換了,以及怎麼讀廠商自己給的數字 | [knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) |
 | `yLOtgJwjhZ8` | 打造「0 人 AI 公司」:用 Hermes Agent + Paperclip 讓 AI 互相協作 | [knowledge/technology/ai-agents/applications/zero-person-ai-company.md](./knowledge/technology/ai-agents/applications/zero-person-ai-company.md) |
 | `Ynv_WYO_slw` | Understand-Anything vs Graphify:把 codebase 變成知識圖譜給 AI 查,實測對比 | [knowledge/technology/dev-tools/understand-anything-vs-graphify.md](./knowledge/technology/dev-tools/understand-anything-vs-graphify.md) |
+| `yOExQX0j19g` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
 | `yVvW0NaWe40` | 現在正在主導的 5 個程式設計概念 | [knowledge/technology/system-design/dominating-programming-concepts.md](./knowledge/technology/system-design/dominating-programming-concepts.md) |
 | `Yzpx4Xaigms` | Task Decomposition:把「給人看的 SOP」拆成「agent 跑得動的工作流」 | [knowledge/technology/ai-agents/foundations/task-decomposition-agentic-workflow.md](./knowledge/technology/ai-agents/foundations/task-decomposition-agentic-workflow.md) |
 | `Z-4AsgTYv2c` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
@@ -264,7 +267,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(28 篇,依編號排序)
+## arXiv(29 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -296,6 +299,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2608.03970` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |
 | `2608.09867` | 加密的推理過程為什麼保不住:一個「全域金鑰 + 可攜載體」的架構教訓 | [knowledge/technology/ai-safety/encrypted-reasoning-traces-portable-key-flaw.md](./knowledge/technology/ai-safety/encrypted-reasoning-traces-portable-key-flaw.md) |
 | `2608.17528` | Harnessed Agentic RL:當 harness 而不是訓練器擁有互動迴圈,RL 會壞在哪四個地方 | [knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md](./knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md) |
+| `2609.11873` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 
 ---
 
