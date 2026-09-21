@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**242 個 YouTube video id**、**29 個 arXiv 編號**,涵蓋 **220 篇**筆記。
+> 統計:**244 個 YouTube video id**、**29 個 arXiv 編號**,涵蓋 **221 篇**筆記。
 
 ---
 
@@ -24,12 +24,13 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(242 部,依 video id 排序)
+## YouTube(244 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
 | `-_U4YHElE2k` | 特斯拉暴跌 20% 拆解:資本開支才是恐慌根源,以及「大跌後持有半年 9 成賺」的歷史規律(美投君) | [knowledge/investing/equity-research/tesla-q2-2026-capex-shock-vs-narrative.md](./knowledge/investing/equity-research/tesla-q2-2026-capex-shock-vs-narrative.md) |
 | `-C6K3wtjjoI` | 照新標準手寫第一個 MCP Server:四個坑,其中兩個不會報錯 | [knowledge/technology/ai-agents/foundations/mcp-server-first-build-four-pitfalls.md](./knowledge/technology/ai-agents/foundations/mcp-server-first-build-four-pitfalls.md) |
+| `-hKHbHA0KKI` | Milvus 架構拆解:從「Segment 不可變」到存算分離,以及 2.6 版已經改掉的三件事 | [knowledge/technology/system-design/milvus-architecture-vector-database.md](./knowledge/technology/system-design/milvus-architecture-vector-database.md) |
 | `-ih9NBMHiU8` | AI 應用層 4 大前瞻趨勢:從財報季挖出的下一輪機會(流量、Agent 管理、ROI、AI 原生) | [knowledge/investing/equity-research/ai-application-layer-4-trends-earnings.md](./knowledge/investing/equity-research/ai-application-layer-4-trends-earnings.md) |
 | `-XBnFO6FweQ` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
 | `-XLTrE5bjko` | 收入高卻存不住錢?7 個正在掏空你的隱形習慣 | [knowledge/investing/strategy/hidden-money-draining-habits.md](./knowledge/investing/strategy/hidden-money-draining-habits.md) |
@@ -253,6 +254,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `XvmixEXPT3Q` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
 | `xzrvAERmvRk` | Cross-Model Review:用 stop hook + skill + marker 讓 Claude 跟 Codex 自動互審(自建 harness) | [knowledge/technology/ai-agents/applications/cross-model-review-claude-codex-harness.md](./knowledge/technology/ai-agents/applications/cross-model-review-claude-codex-harness.md) |
 | `Y2yElMkwH_A` | Claude Code Hooks 完全指南:CLAUDE.md 是提醒紙條,Hook 才是自動門 | [knowledge/technology/claude-code/claude-code-hooks-complete-guide.md](./knowledge/technology/claude-code/claude-code-hooks-complete-guide.md) |
+| `Y31OgSV-S8k` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `yDGpqBKJBpc` | 英偉達 FY27Q2:三十年來第一次提前給全年指引,以及「循環融資」如何改寫它的估值結構 | [knowledge/investing/equity-research/nvda-fy27q2-guidance-and-circular-financing.md](./knowledge/investing/equity-research/nvda-fy27q2-guidance-and-circular-financing.md) |
 | `yF2BY8kQfyo` | HBM 高頻寬記憶體原理:矽中介層、TSV、堆疊鍵合一次看懂 | [knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md](./knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md) |
 | `yHNp_rT6uEo` | Jalapeño 首批跑分:推理晶片的評判標準換了,以及怎麼讀廠商自己給的數字 | [knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) |
