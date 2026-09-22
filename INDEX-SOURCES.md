@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**247 個 YouTube video id**、**29 個 arXiv 編號**,涵蓋 **222 篇**筆記。
+> 統計:**249 個 YouTube video id**、**30 個 arXiv 編號**,涵蓋 **223 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(247 部,依 video id 排序)
+## YouTube(249 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -201,6 +201,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `QHHTcYBEIEo` | 別追「最強 AI」:用一張分工地圖建立你的多工具工作流 | [knowledge/technology/ai-productivity/multi-tool-ai-workflow.md](./knowledge/technology/ai-productivity/multi-tool-ai-workflow.md) |
 | `qnIlKvW00Sk` | AI Agent 最大的缺陷:它沒有「世界地圖」——用本體論給大模型套上邏輯護欄 | [knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
 | `QwOUDPiBzfU` | 孫慶龍的「EPS × 本益比五檔價」估值法 + 護國群山、成長股複利 | [knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md](./knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md) |
+| `R1-j8TFlqCo` | 俄烏戰爭打了四年,到底誰在買單:兩國經濟的「內傷」與「外懸」 | [knowledge/investing/strategy/russia-ukraine-war-economy-who-pays.md](./knowledge/investing/strategy/russia-ukraine-war-economy-who-pays.md) |
 | `R549oFP9uN8` | Pre-norm vs Post-norm:為什麼現在的大模型全都把 LayerNorm 搬到前面 | [knowledge/technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md](./knowledge/technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md) |
 | `RAFQc6zHdXE` | Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生 subagent | [knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md](./knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) |
 | `rKV5JcALQoQ` | J-Space:Claude 內心那層「說得出口的思考」——用全域工作空間理論解讀模型意識 | [knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md](./knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md) |
@@ -218,6 +219,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `t4QF0t_Y2Bs` | Python 3.15 幾個值得關注的新特性:frozendict、Sentinel、lazy import | [knowledge/technology/dev-tools/python-3-15-new-features.md](./knowledge/technology/dev-tools/python-3-15-new-features.md) |
 | `t5CtfUWJjm4` | 為什麼 AI 寫的網站一上線就掛?用手搖飲店看懂網站架構擴展 | [knowledge/technology/system-design/scaling-web-architecture-bubble-tea.md](./knowledge/technology/system-design/scaling-web-architecture-bubble-tea.md) |
 | `T7z71yENz94` | 川普關稅被判違法之後:1,660 億美元退稅、150 天的過渡條款,與無縫接上的 301 條款 | [knowledge/investing/strategy/us-tariff-ieepa-struck-down-refunds-and-section-301.md](./knowledge/investing/strategy/us-tariff-ieepa-struck-down-refunds-and-section-301.md) |
+| `t96q8onLu90` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `t9WA-BkLUps` | 非技術者的資安入門:用五個問題做威脅建模,再交給 Codex Security 掃描 | [knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md](./knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md) |
 | `tBnpspp4IH8` | 用 Agent 五分鐘上手 Blender:把 3D 預覽當成 AI 影片的「參考影片」 | [knowledge/technology/applied-ai/design/blender-previz-mcp-ai-video.md](./knowledge/technology/applied-ai/design/blender-previz-mcp-ai-video.md) |
 | `TBVjqvueeCo` | qm(YC 開源):把個人 Agent 變成「多人可用」的 Agent Harness —— scope 隔離、權限審批與可換 harness | [knowledge/technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md](./knowledge/technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md) |
@@ -278,7 +280,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(29 篇,依編號排序)
+## arXiv(30 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -311,6 +313,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2608.09867` | 加密的推理過程為什麼保不住:一個「全域金鑰 + 可攜載體」的架構教訓 | [knowledge/technology/ai-safety/encrypted-reasoning-traces-portable-key-flaw.md](./knowledge/technology/ai-safety/encrypted-reasoning-traces-portable-key-flaw.md) |
 | `2608.17528` | Harnessed Agentic RL:當 harness 而不是訓練器擁有互動迴圈,RL 會壞在哪四個地方 | [knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md](./knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md) |
 | `2609.11873` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
+| `2609.14858` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 
 ---
 
