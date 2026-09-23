@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**249 個 YouTube video id**、**30 個 arXiv 編號**,涵蓋 **223 篇**筆記。
+> 統計:**250 個 YouTube video id**、**30 個 arXiv 編號**,涵蓋 **224 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(249 部,依 video id 排序)
+## YouTube(250 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -142,6 +142,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `HyHKizkVuVM` | Skill 不是能力,是能力的施工圖:Agent 交不出活的三層工程棧「跑 / 做 / 驗」 | [knowledge/technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md](./knowledge/technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md) |
 | `I-PMiyYZkrs` | 你以為健康,其實天天慢性發炎:四個敵人與四個對策 | [knowledge/health/wellness/chronic-inflammation-four-enemies.md](./knowledge/health/wellness/chronic-inflammation-four-enemies.md) |
 | `ib74sLgjIBM` | 用 Claude 蓋一個「會自我改進」的知識庫:三個資料夾 + 一個 CLAUDE.md + 五步驟 | [knowledge/technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md](./knowledge/technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md) |
+| `iHVpk9IM1Uk` | Windows 原生安裝 Claude Code:一行指令,與五個報錯的官方修法 | [knowledge/technology/claude-code/claude-code-windows-native-install-troubleshooting.md](./knowledge/technology/claude-code/claude-code-windows-native-install-troubleshooting.md) |
 | `ipvuIOaN5wA` | 用 Claude Code 零程式碼做網站:突破 AI 預設風格、捲動動畫、設計策略 | [knowledge/technology/applied-ai/design/ai-website-building-claude-code.md](./knowledge/technology/applied-ai/design/ai-website-building-claude-code.md) |
 | `IqvnryFzZD4` | 用 Claude Code + TradingView 蓋一條「盤前交易計畫」流水線(Humbled Trader 實作) | [knowledge/investing/ai-assisted/humbled-trader-claude-tradingview-pipeline.md](./knowledge/investing/ai-assisted/humbled-trader-claude-tradingview-pipeline.md) |
 | `IRNWXRFri2A` | 青安 3.0 上路:為什麼「最高 1500 萬」多半貸不滿?以及財政部繼承數據透露的性別轉變 | [knowledge/investing/personal-finance/qingan-3-0-and-inheritance-gender-gap.md](./knowledge/investing/personal-finance/qingan-3-0-and-inheritance-gender-gap.md) |
