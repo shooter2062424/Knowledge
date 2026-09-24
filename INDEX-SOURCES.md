@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**250 個 YouTube video id**、**30 個 arXiv 編號**,涵蓋 **224 篇**筆記。
+> 統計:**251 個 YouTube video id**、**30 個 arXiv 編號**,涵蓋 **224 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(250 部,依 video id 排序)
+## YouTube(251 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -114,6 +114,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `eWkZlS5JMD4` | 駭客怎麼騙 AI:5.5 種 Prompt Injection 技巧與防禦實戰 | [knowledge/technology/ai-safety/prompt-injection-5-techniques-defenses.md](./knowledge/technology/ai-safety/prompt-injection-5-techniques-defenses.md) |
 | `ExWlrAQrfdc` | 非技術者的資安入門:用五個問題做威脅建模,再交給 Codex Security 掃描 | [knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md](./knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md) |
 | `EyZEJPP2JNQ` | AI Operating System(AIOS):一套讓 AI 長期懂你、替你工作的系統 | [knowledge/technology/ai-agents/applications/ai-operating-system-aios.md](./knowledge/technology/ai-agents/applications/ai-operating-system-aios.md) |
+| `F22wTQzVkI8` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `f4mI3d-nTrI` | MCP 無狀態化的維運視角:砍掉 Redis、恢復 round robin、伺服器能縮到零 | [knowledge/technology/ai-agents/foundations/mcp-stateless-deployment-ops-view.md](./knowledge/technology/ai-agents/foundations/mcp-stateless-deployment-ops-view.md) |
 | `F7oNfszczVc` | 再訪田淵棟:46.5 億美金估值的 RSI,押注「AI 自進化」與前沿實驗室的組織架構之爭 | [knowledge/technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md](./knowledge/technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) |
 | `FJxgz5pN4wU` | Pi Agent:用「留白」的極簡 harness,對沖 agent 框架的易變 | [knowledge/technology/ai-agents/foundations/pi-agent-minimal-harness.md](./knowledge/technology/ai-agents/foundations/pi-agent-minimal-harness.md) |
