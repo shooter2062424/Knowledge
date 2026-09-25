@@ -183,7 +183,7 @@ flowchart TB
 
 | 原本是規則 | 改成關卡 |
 |---|---|
-| **「寫完要跑測試」** | ⭐ **Stop hook:測試沒全過就擋下(記得檢查 `stop_hook_active`)** |
+| **「寫完要跑測試」** | ⭐ **Stop hook:測試沒全過就擋下(以「測試真的過了」與「擋下次數上限」終止,見 §4.2)** |
 | **「不要改 migration 檔」** | **PreToolUse hook:寫入該路徑直接拒絕** |
 | **「commit 前要 lint」** | **pre-commit hook** |
 
