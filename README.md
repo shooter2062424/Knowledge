@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-257_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-258_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -142,6 +142,7 @@ flowchart LR
 | **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
 | **人蔘 Try Catch** — AI 工程落地短講 | 1 | [Jev 落地場景與終端機守門員(併入 Jev 筆記)](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | **仕宇JavaPub** — GitHub 開源專案推薦 | 1 | [五個開源英語學習專案(已讀原始碼)](./knowledge/technology/applied-ai/language-learning/five-open-source-english-learning-tools.md) |
+| **AI LABS** — Claude Code 工作流實作(⚠️ 含業配與付費社群) | 1 | [Shopify Helix 檢查點與四道關卡](./knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md) |
 
 ### ✍️ 個人/部落格/官方
 
@@ -339,6 +340,7 @@ flowchart LR
 | [Skill Doctor:讓 Agent 自己改自己的說明書 —— 但改動要走 PR、過 CI、有人審](./knowledge/technology/ai-agents/applications/skill-doctor-self-improving-agent-loop.md) | ⭐⭐⭐ **病根不是模型記性差,是「反饋的壽命」——糾正只活在當前會話裡**;基礎 Skill 幹活 + 改進 Skill 當觀察者,**改的是檔案本身所以能進 git、有 diff、可回滾**;⭐ **不重新訓練任何東西,三人團隊沒 GPU 也照抄得動**;⚠️ **假設反饋一定會出錯**——一條資深工程師的具體反饋勝過一百個點讚;⭐ 已讀 Warp 開源 SKILL.md 核實:**只從分數低於 0.5 的失敗會話取證、建議必須追溯到觀察到的缺陷而非泛泛最佳實踐、一切在本地不上傳逐字稿**;**四個動作:diff 化/可審/可回滾/有證據** |
 | [讓 Agent 自己花錢:硬上限、先查價、停下來問(YAHA學堂)](./knowledge/technology/ai-agents/applications/agent-paid-api-cost-guardrails-mcp.md) | ⭐⭐⭐ **全片最重要的一句:「超價的調用在扣費前就被擋掉,餘額一分沒動」** —— **失敗是免費的**,才是 Agent 自主使用付費工具的前提;它做對六件事(先用免費接口查價 → 查不到改查餘額 → 停下來問 → 超價被擋 → **沒調高上限去試探** → 超預算再停並給選項);⚠️ 但它**算錯了價**,人貼官方價目表才對上 —— 事實核實仍歸人;⭐ 兩個誠實細節:主動說「這篇我讀不到」(改用 WebFetch)、**只填報導明確給的數字不拿自己的湊**;⭐⭐⭐ **原則:護欄要放在 Agent 改不動的那一層,靠提示詞請它自律是最後一道防線不是第一道**;⚠️ 該片為第三方服務推廣 |
 | [把安全審計當流程工程做:Cloudflare 開源的 security-audit skill(Why QQ)](./knowledge/technology/ai-agents/applications/cloudflare-security-audit-skill-pipeline.md) | ⭐⭐⭐ **「找漏洞靠的不是模型聰不聰明,是記帳」** —— 覆蓋率帳本以「入口×信任邊界×子系統×攻擊類別」組成確定性編號,**每種狀態允許填什麼欄位一張表釘死**,「帳本就是覆蓋率聲明」;⭐⭐⭐ **驗證者永遠不是發現者**(agent 會偷改源碼讓自己的 exploit 跑通),**復現必須跑在未改動的程式碼上**;⭐⭐ **兩個最聰明的攻擊類別:Wildcard(專讀沒人碰的程式碼)與 Obvious things(查硬編碼密鑰,因為人人都以為別人查過了)**;💧 **漏斗 20,799 → 7,245 全部已核實**,駁回率 40%→11%、高完整度 35%→58%;⭐⭐⭐ **零發現被標為 `shallow` 重新排隊**、**單次只找到累計的一半**、**`needs_validation` 在 Schema 裡沒有 severity 欄位**;⭐⭐ **Semgrep 一個月零調用、wishlist 許願池被寫 25,472 次**;⚠️⚠️ **三處補正**:「700 個 agent 協同攻擊」與 HF 官方時間軸不符、開源版 6 階段 vs 官方部落格的 7 階段、「上下文超過 1/4 就幻覺」倉庫裡查無此句 |
+| [Shopify Helix:用「檢查點 + 四道關卡」讓 AI 寫完的東西過得了關(AI LABS)](./knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md) | ⭐⭐⭐ **「嘗試可以是錯的;在它變對之前,不准交付」**(Shopify 原文);⭐⭐ 檢查點**由簡到難**(先骨架),小到放得進小 context;⭐⭐⭐ **四道關卡**:CLI 行為測試 → Gemini 比對截圖 → **兩個獨立審查者都核准** → 工程師核准;⭐⭐ **「規則是建議,關卡是強制」** —— 用 Stop hook exit code 2 讓 agent 不能提早收工(⚠️ 本文補:要檢查 `stop_hook_active` 防無限迴圈);⚠️⚠️ **補正:300 畫面的主 App 仍在遷移中,12 週完成的是較小的 Shop App;方向是從 React Native 回到原生**;⚠️ **重建版把「兩個獨立審查者」改成「一審一修」,少了第二個獨立判斷** |
 | [Skill 實戰:從製作到維護的完整指南](./knowledge/technology/ai-agents/applications/building-claude-skills.md) | 給心法不給死步驟;references / scripts / subagent |
 | [Man Group:用 Claude Skills 治理打通系統化交易](./knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md) | 組織 context 是 IP;skill 治理解鎖企業級 |
 | [落地競賽:OpenAI 與 Anthropic 同日進軍企業導入](./knowledge/technology/ai-agents/applications/enterprise-ai-adoption-race.md) | 企業買的不是模型,是落地能力 |

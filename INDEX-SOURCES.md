@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**252 個 YouTube video id**、**30 個 arXiv 編號**,涵蓋 **225 篇**筆記。
+> 統計:**253 個 YouTube video id**、**30 個 arXiv 編號**,涵蓋 **226 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(252 部,依 video id 排序)
+## YouTube(253 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -80,6 +80,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `aZEmxJ9ivzg` | 學了那麼多 AI,為什麼還是沒加薪?——省下的時間 85% 被雜事吃掉,以及納許議價怎麼算你該開多少 | [knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md](./knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md) |
 | `B91bZL8wcAI` | 什麼是 AI Harness?兩種「harness」的差別 | [knowledge/technology/ai-agents/foundations/ai-harness-explained.md](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) |
 | `BAfRVpKIxZ4` | 交易的「贏家數學」:四個核心概念,以及一份完整的數學學習路線圖 | [knowledge/investing/strategy/trading-math-expectancy-variance-risk.md](./knowledge/investing/strategy/trading-math-expectancy-variance-risk.md) |
+| `bBMp5tLxShQ` | Shopify Helix:用「檢查點 + 四道關卡」讓 AI 寫完的東西過得了關,以及怎麼在 Claude Code 裡自己搭一套 | [knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md](./knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md) |
 | `bhfBWHPYC-I` | 把安全審計當流程工程做:Cloudflare 開源的 security-audit skill,與「記帳比聰明重要」 | [knowledge/technology/ai-agents/applications/cloudflare-security-audit-skill-pipeline.md](./knowledge/technology/ai-agents/applications/cloudflare-security-audit-skill-pipeline.md) |
 | `BhHMGRcbPkQ` | 為什麼 Anthropic 工程師棄 Markdown 改用 HTML:當「理解」變成真正的瓶頸 | [knowledge/technology/ai-productivity/anthropic-html-work-pages.md](./knowledge/technology/ai-productivity/anthropic-html-work-pages.md) |
 | `BkoCVZJcRHY` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
