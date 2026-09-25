@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**253 個 YouTube video id**、**30 個 arXiv 編號**,涵蓋 **226 篇**筆記。
+> 統計:**254 個 YouTube video id**、**30 個 arXiv 編號**,涵蓋 **227 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(253 部,依 video id 排序)
+## YouTube(254 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -90,6 +90,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `ByBLjNA3MvY` | 海鷗策略(Seagull):牛市中「不踏空又不怕跌」的三腿期權對沖 | [knowledge/investing/derivatives/seagull-options-hedge.md](./knowledge/investing/derivatives/seagull-options-hedge.md) |
 | `CGd5zDUrWnw` | Agent 為什麼會長成 Runtime:DeepSeek Harness 的插件樹與事件日誌,以及底下那篇 Cordis 論文 | [knowledge/technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md](./knowledge/technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) |
 | `cgKUgAJE3cs` | AI 產業秘密轉向:大模型集體從 C 端轉 B 端、訂閱轉用量,而「算力」成了現階段的勝負手 | [knowledge/investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md](./knowledge/investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md) |
+| `CHHEjuNBxoQ` | Agit:把 Git 那套用在「和 agent 的對話」上,以及影片沒講的兩個坑 | [knowledge/technology/ai-agents/applications/agit-version-control-for-agent-sessions.md](./knowledge/technology/ai-agents/applications/agit-version-control-for-agent-sessions.md) |
 | `CKKJuFVMvXQ` | Graph Engineering:把腦袋裡的分工、路由與驗收畫出來,別再當人肉 routing system | [knowledge/technology/ai-agents/foundations/graph-engineering-node-edge-state.md](./knowledge/technology/ai-agents/foundations/graph-engineering-node-edge-state.md) |
 | `CMs8YMU6_RM` | AI 改 code 一直「改 A 壞 B」?讓 AI 安全接手舊專案(Brownfield)的五個步驟 | [knowledge/technology/ai-productivity/ai-brownfield-codebase-five-steps.md](./knowledge/technology/ai-productivity/ai-brownfield-codebase-five-steps.md) |
 | `d3EvaR3FKnY` | 「一切都沒有意義了」:一則 HN 熱帖與 175 則回覆裡的程式設計師價值重排 | [knowledge/career/mindset/programmer-meaning-crisis-hn-thread.md](./knowledge/career/mindset/programmer-meaning-crisis-hn-thread.md) |
