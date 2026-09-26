@@ -346,6 +346,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 - ⚠️ **2026-09-23 判定不整理**:白白说 `ITniwzQy9uc`(Jev 3 分鐘入門,需 Whisper)—— **Jev 已累積 5 個來源、筆記 64 KB,3 分鐘入門片不可能有新內容,依「先判斷撞題」規則直接跳過,不花 Whisper**。
 - ⭐ **2026-09-22 巡檢新發現(尚未處理)**:白白说 `Ru_YVdveirY`(30+ 程式設計師轉行的四個 AI 方向,約 13.6 分鐘,需 Whisper)。
 - ⭐ **2026-09-19 巡檢新發現(尚未處理)**:白白说 `JNVK-fd2pH4`(09-18 新片,從 Token 到 Agent 底層技術全拆解,約 19 分鐘,需 Whisper)、小Lin说 `fKoWrF49Qo8`(⚠️ **2026-07-23 舊片**,川普收入曝光,有官方繁中字幕)、Redknot `N3o8AcflmO4`(⚠️ **2026-05-12 舊片**,磁軸鍵盤原理,無字幕需 Whisper)。
+- ⚠️⚠️ **Gary Chen `roUfF8nUYNo` 同為會員限定(2026-09-27 發現,level: Gary AI 實戰營),永久跳過**;該頻道新片常搭配一支會員專屬片,遇到 members-only 一律跳過。
 - ⚠️⚠️ **Gary Chen `BbofEyeE2Ek` 判定為不可處理** —— 該片為**頻道會員限定**(level: Gary AI 實戰營),`extract_info` 直接報 members-only,**無法取得 metadata 或字幕,永久跳過**。
 - **Redknot 剩 4**:⚠️ `EsJKkDbHsec`(09-16 新片,ASML 控光藝術/衍射極限,**片中明確標示「本期視頻與 ASML 合作出品」= 業配**,無字幕需 Whisper;技術內容看來紮實,若要收務必於檔頭標明業配立場)
 - **Redknot 原有 3**:`eOcyZqtw0Fg` 玄戒 O100 堆疊、`BUHHheaKlDY` 光刻機光源(無字幕)、`rQR_0WZzjV4` SSD 原理(⚠️ 09-10 實測**無官方字幕**,只有自動英文 ASR,先前記錄有誤;要收得走 Whisper)
