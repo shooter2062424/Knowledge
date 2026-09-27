@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**257 個 YouTube video id**、**30 個 arXiv 編號**,涵蓋 **228 篇**筆記。
+> 統計:**258 個 YouTube video id**、**31 個 arXiv 編號**,涵蓋 **229 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(257 部,依 video id 排序)
+## YouTube(258 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -85,6 +85,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `bhfBWHPYC-I` | 把安全審計當流程工程做:Cloudflare 開源的 security-audit skill,與「記帳比聰明重要」 | [knowledge/technology/ai-agents/applications/cloudflare-security-audit-skill-pipeline.md](./knowledge/technology/ai-agents/applications/cloudflare-security-audit-skill-pipeline.md) |
 | `BhHMGRcbPkQ` | 為什麼 Anthropic 工程師棄 Markdown 改用 HTML:當「理解」變成真正的瓶頸 | [knowledge/technology/ai-productivity/anthropic-html-work-pages.md](./knowledge/technology/ai-productivity/anthropic-html-work-pages.md) |
 | `BkoCVZJcRHY` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
+| `bLWJmz_uAco` | Anthropic 用 949 個 agent session 找到新酶系統 ART:科研 harness 怎麼分工,以及「模型會 ≠ Agent 會」 | [knowledge/technology/ai-agents/applications/anthropic-art-enzyme-discovery-research-harness.md](./knowledge/technology/ai-agents/applications/anthropic-art-enzyme-discovery-research-harness.md) |
 | `bNMBbrplILM` | Fable 5.1:榜單全線第一,官方卻叫你先用 Opus 5 —— 旗艦模型開始為「可用性」讓路 | [knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md](./knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md) |
 | `bPWcSxkD6Uo` | WiFi 是怎麼傳遞資訊的?把資訊裝進電磁波的硬核原理 | [knowledge/technology/telecom/wifi-how-it-works.md](./knowledge/technology/telecom/wifi-how-it-works.md) |
 | `BQveePDWavA` | Token 與 Embedding 的分工:為什麼 LLM 的 embedding 和 RAG 的 embedding 不是同一回事 | [knowledge/technology/llm-internals/architecture/token-vs-embedding-llm-and-rag.md](./knowledge/technology/llm-internals/architecture/token-vs-embedding-llm-and-rag.md) |
@@ -288,7 +289,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(30 篇,依編號排序)
+## arXiv(31 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -311,6 +312,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2604.25850` | Agentic Harness Engineering:讓 harness 自己演化自己,而瓶頸不是能力是「可觀測性」 | [knowledge/technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md](./knowledge/technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md) |
 | `2605.15155` | SDAR:用「逐 token 門控」穩住多輪 Agent 的強化學習後訓練 | [knowledge/technology/llm-internals/training/sdar-agentic-rl.md](./knowledge/technology/llm-internals/training/sdar-agentic-rl.md) |
 | `2605.15184` | Grep 就夠了嗎?Agent Harness 如何左右「代理式檢索」 | [knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md](./knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md) |
+| `2606.06749` | Anthropic 用 949 個 agent session 找到新酶系統 ART:科研 harness 怎麼分工,以及「模型會 ≠ Agent 會」 | [knowledge/technology/ai-agents/applications/anthropic-art-enzyme-discovery-research-harness.md](./knowledge/technology/ai-agents/applications/anthropic-art-enzyme-discovery-research-harness.md) |
 | `2606.09498` | Self-Harness:讓 Agent 自己改進「操作自己的那層 harness」 | [knowledge/technology/ai-agents/foundations/self-harness.md](./knowledge/technology/ai-agents/foundations/self-harness.md) |
 | `2606.13392` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
 | `2606.13643` | Recursive Agent Harness:遞迴的單位該是「一次模型呼叫」還是「一整個 harness」? | [knowledge/technology/ai-agents/foundations/recursive-agent-harness-harness-recursion.md](./knowledge/technology/ai-agents/foundations/recursive-agent-harness-harness-recursion.md) |
