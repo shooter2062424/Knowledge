@@ -19,7 +19,11 @@
 | 3 | gooaye 記憶更新 | `33 7 * * *`(每日 07:33) | 更新 ai-grocery 的股癌 agent 記憶層 |
 | 4 | 美投君 頻道 | `50 7 * * *`(每日 07:50) | @MeiTouJun 新影片(無字幕→Whisper) |
 
-**最近一次重建:2026-09-24(使用者要求「延伸一下排程」,五個全刪重建、到期日對齊至約 10-01)。**
+**最近一次重建:2026-09-28(使用者要求「續排」,五個全刪重建、到期日對齊至約 10-05)。**
+本 session job id:①`ce8e9c59`(GitHub Weekly 06:33) ②`a4206b99`(Gary Chen 07:10) ③`59bd5619`(gooaye 07:33) ④`c8f16d37`(美投君 07:50) ⑤`f8529c0d`(巡檢 08:12)。
+⚠️ **本輪發現各節 prompt 備份落後於實際運作版本**(部分停在 08-26 版),已用對話中實際觸發的 prompt 全文覆蓋第 1–4 節,並在第 5 節補上巡檢 prompt 原文;同時更新 GitHub Weekly 空轉天數(56 天)、gooaye 上游停更天數(23 天)、Gary Chen 會員限定 `roUfF8nUYNo`。
+
+**前一次重建:2026-09-24(使用者要求「延伸一下排程」,五個全刪重建、到期日對齊至約 10-01)。**
 本 session job id:①`96b0538a`(GitHub Weekly 06:33) ②`4324537b`(Gary Chen 07:10) ③`9f269651`(gooaye 07:33) ④`d2e99ecd`(美投君 07:50) ⑤`3437e688`(巡檢 08:12)。
 本輪寫進 prompt 的新經驗:**① 巡檢只評估存量清單外新冒出的 id**(已知存量不必每天重查 metadata);**② 頭條數字要檢查兩邊條件是否相同**(09-23 Dream-RSI「差 162 倍」實為換模型 + 換策略混算、同模型約 1.7 倍;09-24 各家都挑對自己有利的基準);**③ 說明欄常附指令與官方文件連結,Whisper 聽錯的指令直接取說明欄原文**;**④ RSI / Pace the Frontier 後續一律併入 RSI 筆記(已到 §11)**;**⑤「智能體群攻擊 HF」說法 09-19/20/24 三度出現,遇到直接引用 §8.6 補正**。
 
@@ -220,14 +224,20 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 ## 1. GitHub Weekly 週報整理(每日 06:33 / `33 6 * * *`)
 
 ```text
-每日 GitHub Weekly 週報整理任務。步驟:
-1. 用 WebFetch 撈 https://github.com/itcoffee66/githubweekly/tree/main/_weekly 找期數最大的 NNN.md,取 https://raw.githubusercontent.com/itcoffee66/githubweekly/main/_weekly/NNN.md 全文。(WebFetch 有快取,可另用 curl -s -o /dev/null -w "%{http_code}" 直接驗證下一期是否已發布。)
+每日 GitHub Weekly 週報整理任務。⚠️ Knowledge repo 已於 2026-08-30 重整:筆記在 knowledge/、腳本在 scripts/。步驟:
+1. 用 curl -s -o /dev/null -w "%{http_code}" https://raw.githubusercontent.com/itcoffee66/githubweekly/main/_weekly/NNN.md 驗證下一期是否已發布(WebFetch 有快取,用 curl 較準)。找到最大期數後取全文。
 2. 去重:若 C:\Users\shoot\project\Knowledge\knowledge\technology\github-weekly\issue-NNN.md 已存在就跳過、只回報、不 commit。
-3. 未整理的:依 CLAUDE.md 規範(繁中、必要時 Mermaid、結尾附來源)整理成 knowledge/technology/github-weekly/issue-NNN.md,逐一列出收錄專案的名稱/用途/亮點/連結。
+3. 未整理的:依 CLAUDE.md 規範(繁中、必要時 Mermaid、結尾附完整網址來源)整理成 knowledge/technology/github-weekly/issue-NNN.md,逐一列出收錄專案的名稱/用途/亮點/連結。產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案>。
 4. 更新 README.md 的 github-weekly 索引與筆記數 badge,並跑 python scripts/knowledge/build_source_index.py 重建來源索引。
-5. 用無 BOM UTF-8 暫存檔(.git/COMMIT_MSG_TMP,printf '%s')git commit -q -F 提交(繁中訊息、[feat] 前綴)並 git push -q origin main。清暫存。⚠️ 用精準 git add <檔案> 而非 git add -A(避免誤入 grep.exe.stackdump 等垃圾檔)。push 若遇到 git-lfs locksverify 錯誤,改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push -q origin main 重試。
+5. 用無 BOM UTF-8 暫存檔(.git/COMMIT_MSG_TMP,printf '%s')git commit -q -F 提交(繁中訊息、[type] 前綴)並 git push -q origin main。清暫存。
+⚠️ 用精準 git add <檔案> 而非 git add -A(避免誤入 grep.exe.stackdump 等垃圾檔)。
+⚠️ push 遇 git-lfs locksverify 錯誤,改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push -q origin main 重試。
+⚠️ 不要用 `git push … | grep …; echo $?` 判斷成敗(拿到的是 grep 的退出碼),改用 git rev-parse HEAD 與 origin/main 比對。
+⚠️ commit 訊息結尾要加:
+Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 沒有新一期就只回報、不空 commit。完成後回報期數與結果。
-⚠️ 上游自 2026-08-03(第 124 期)起已長期無新期(截至 2026-08-26 已 23 天),連續空轉多日屬正常,不必特別排查。
+⚠️ 上游自 2026-08-03(第 124 期)起已長期無新期(截至 2026-09-28 已 56 天),連續空轉多日屬正常,不必特別排查。
 (此為 session-only 每日排程,7 天後會自動到期,若仍需要請在到期前用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
@@ -239,20 +249,31 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 > **本排程已改用 channel ID `UC9C3t-3ocL0LiwGRD0gBJ8A`**,不受日後再改名影響。詳見共通踩坑。
 
 ```text
-每日整理 Gary Chen YouTube 頻道(@garytalksstuff)新影片到 Knowledge。步驟:
-1. 用 yt-dlp --no-update --js-runtimes node --flat-playlist --playlist-end 12 --print "%(id)s" "https://www.youtube.com/channel/UC9C3t-3ocL0LiwGRD0gBJ8A/videos" 列最新 12 部(標題在終端機會 cp950 亂碼,改用 yt_dlp Python API 取 info 再以 utf-8 寫檔)。
-   ⚠️ yt_dlp Python API 的 js_runtimes 參數要用 **dict** 形式 {'node': {}},寫成 list ['node'] 會 ValueError: Invalid js_runtimes format(2026-08-20 踩過)。
-2. 去重:用 Grep 在 C:\Users\shoot\project\Knowledge 搜每個 video id(youtu.be/<id> 或 watch?v=<id>),已在既有筆記來源 = 跳過。也可先查 INDEX-SOURCES.md(grep -F -- "<id>" INDEX-SOURCES.md)。
-   ⚠️ video id 可能以連字號開頭(如 -ih9NBMHiU8),grep 會把它當參數而誤報 NEW → 一律用 `grep -rlF --include=*.md -- "<id>" knowledge/`(-F fixed-string、-- 終止選項解析)。⚠️⚠️⚠️ **範圍必須是 `knowledge/` 不可用 `.`**(2026-09-03 踩過,靜默全誤報 SEEN)。
-   ⚠️⚠️ `--include=*.md` 必須放在 `--` 之前!寫成 `grep -rF -- "<id>" . --include=*.md` 會被當成檔名 → exit 2 → 每支都誤報 NEW、白跑整篇(2026-07-11 踩過)。
-   ⚠️⚠️⚠️ 若把 id 先寫進暫存檔再迴圈讀,**寫檔務必用 newline='\n'**(Python 在 Windows 預設寫 CRLF,行尾多一個 \r 會讓 grep 全部找不到 → 22 支全誤報 NEW,2026-08-15 踩過)。判斷用 exit code:0=SEEN、非0=NEW。
-   ⚠️ 驗證索引時**不要用 `grep … | head -1`** —— pipe 的退出碼是 head 的,grep 找不到也會被當成成功(2026-08-23 自己踩過)。
-3. 未整理的:優先抓官方字幕(yt-dlp --write-subs --sub-langs zh-Hant/zh-TW/zh/zh-Hans/en),無官方字幕再抓自動字幕,都無則走 Whisper(下載音訊 --remote-components ejs:github + faster-whisper small/int8 zh,vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3)。⚠️ yt-dlp 遇 HTTP 403 就用同參數重試(最多 3 次),不要改 player_client;⚠️ **連續 3 次全 403 且 log 出現 `n challenge solving failed` ⇒ 是 yt-dlp 版本落後,重試無用,先 `python -m pip install -U yt-dlp`**(2026-08-22 踩過)。⚠️ 不要用 `yt-dlp … | tail -1`,pipe 會遮蔽退出碼讓失敗被吞掉。逐字稿寫暫存檔再用 Read 讀,避免終端機中文亂碼;轉完掃結尾有無同句重複數十行(幻覺迴圈)。
-4. 依 CLAUDE.md 寫作規範整理繁中筆記(含應用案例、Mermaid、來源),歸到三層結構最貼切中類(多為 knowledge/technology/ai-agents/{foundations,autonomy,memory-retrieval,applications,resources}、knowledge/technology/claude-code 或 knowledge/technology/ai-productivity;LLM 架構→knowledge/technology/llm-internals;軟體工程/程式碼品質→knowledge/technology/software-engineering;設計工具→knowledge/technology/applied-ai/design;AI 安全→knowledge/technology/ai-safety)。
-   ⭐ 影片若提到可查證的官方規格/價格/機制(如 Anthropic 文件、API 定價),務必比對官方來源核實,並在筆記中標出補正處——這是本倉庫的核心價值。
-   ⭐ **若該主題已有既有筆記(同一工具/同一篇論文),優先「增補既有筆記」而非新開重複主題**;檔名依慣例不動,並在檔頭與來源區塊同時列出兩支影片(⚠️ **來源要放完整網址,只寫標題會讓 build_source_index.py 漏收**,2026-08-23 踩過)。
-   ⭐ 產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案> 檢查語法。
-5. 更新 README 對應表格、筆記數 badge、Gary Chen 作者索引篇數(主題表格與作者索引兩處都要),並跑 python scripts/knowledge/build_source_index.py 重建來源索引。無 BOM UTF-8 檔 commit([feat] 前綴)、git push -q origin main。⚠️ 用精準 git add <檔案> 而非 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試。清暫存。
+每日整理 Gary Chen YouTube 頻道新影片到 Knowledge。⚠️ Knowledge repo 已於 2026-08-30 重整:筆記在 knowledge/、腳本在 scripts/。步驟:
+1. 列最新 12 部:
+   yt-dlp --no-update --js-runtimes node --flat-playlist --playlist-end 12 --print "%(id)s" "https://www.youtube.com/channel/UC9C3t-3ocL0LiwGRD0gBJ8A/videos"
+   ⚠️⚠️ **一定要用 channel ID,不要用 handle** —— 2026-09-06 該頻道把 handle 從 `@garytalksstuff` 改成 `@garychenai`,舊 handle 直接回 404 讓排程整個失敗。**channel ID `UC9C3t-3ocL0LiwGRD0gBJ8A` 不會因改名而變。**
+   ⚠️ 若哪天 channel ID 也拉不到,用既有筆記裡任一 video id 反查:extract_info 後看 `uploader`/`uploader_id`/`channel_id`。
+   ⚠️ 標題在終端機會 cp950 亂碼,改用 yt_dlp Python API 取 info 再以 utf-8 寫檔;js_runtimes 要用 **dict** {'node': {}},list 會 ValueError。
+   ⚠️ Python 印中文/emoji 前先 sys.stdout.reconfigure(encoding='utf-8', errors='replace')。
+2. 去重:一律用
+   grep -rlF --include=*.md -- "<id>" knowledge/
+   ⚠️⚠️⚠️ **範圍必須是 knowledge/,不可用 `.`** —— SCHEDULES.md 存有待處理 video id 清單,對整個 repo 搜尋會讓每一支都誤報 SEEN 且完全不報錯(2026-09-03 踩過,18 支全誤報)。
+   ⚠️ -F fixed-string、-- 終止選項解析;--include 必須放在 -- 之前。判斷用 exit code:0=SEEN、非0=NEW。不要用 `grep … | head -1`。逐支直接 grep,不要繞暫存檔。
+   ⚠️⚠️ **`BbofEyeE2Ek` 是頻道會員限定影片**(level: Gary AI 實戰營),`extract_info` 直接報 members-only、拿不到 metadata 或字幕,**永久跳過不要重試**。⚠️ `roUfF8nUYNo` 同為會員限定(2026-09-27 發現),永久跳過;該頻道新片常搭配一支會員專屬片。日後若再遇到 members-only 就同樣跳過並記錄。
+3. 未整理的:優先抓官方字幕(yt-dlp --write-subs --sub-langs zh-Hant/zh-TW/zh/zh-Hans/en),無官方字幕再抓自動字幕,都無則走 Whisper(下載音訊 --remote-components ejs:github + faster-whisper small/int8 zh,vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3、beam_size=5)。⚠️ 遇 HTTP 403 用同參數重試(最多 3 次),不要改 player_client;連續 3 次全 403 且 log 有 `n challenge solving failed` ⇒ 先 python -m pip install -U yt-dlp。⚠️ 字幕下載遇 HTTP 429 就重試(通常第 2–3 次會過)。⚠️ 不要用 `yt-dlp … | tail -1`。逐字稿寫暫存 .txt 再 Read;轉完掃結尾有無同句重複數十行(幻覺迴圈)。
+   ⚠️⚠️ **Whisper 一律用「前景」跑,不要用 `nohup ... &` 背景跑** —— 2026-09-13/14 連續兩天踩到:背景 shell 環境變數不完整,torch/numpy import 會失敗(`_ARRAY_API not found` 後直接 Traceback)。前景執行若超過 600s 會自動轉背景,再用 TaskOutput 等它完成即可。
+   ⭐ **前景跑時 stderr 仍會印 `Failed to initialize NumPy: _ARRAY_API not found` 的 UserWarning,那只是警告、轉錄會正常完成**(2026-09-19 確認)。看到它不要以為失敗,看最後有沒有印出 segment 行數為準。
+4. 依 CLAUDE.md 寫作規範整理繁中筆記(含應用案例、Mermaid、結尾**完整網址**來源),歸三層結構最貼切中類(ai-agents/{foundations,autonomy,memory-retrieval,applications,resources}、claude-code、ai-productivity;LLM 架構→llm-internals;軟體工程→software-engineering;系統設計→system-design;設計工具→applied-ai/design;AI 安全→ai-safety;產業動態→ai-industry;職涯心態→knowledge/career/*)。
+   ⭐ 影片若提到可查證的官方規格/價格/機制,務必比對官方來源核實並在筆記標出補正處。⭐ 實測很有效:2026-09-20 查 OpenAI 官方文件補出該片沒提的三個門檻;2026-09-21 查官方 API 文件發現影片把 `score` 的級距上限講錯。
+   ⭐⭐ **同主題已有既有筆記時,優先「增補既有筆記」而非新開**;檔名不動,檔頭與來源區塊同時列出兩支影片。⭐ 此頻道與 Why QQ、YAHA學堂 常撞題(Jev 已累積五個來源全部併入同一篇;部署教學 YAHA 也出了一支高度重疊的),**動筆前先 `grep -rl "<關鍵字>" knowledge/` 確認**。
+   ⭐ **作者常推廣自家 Patreon / Skool 社群與付費內容,務必在檔頭標明立場,且不要轉述付費素材。**
+   ⭐ 產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案>。⚠️ Mermaid 節點避免用圓形語法 `(("文字"))`,lint 會報 UNQUOTED-SPECIAL;一律用方括號 `["文字"]`。
+   ⭐ 寫 `[[wikilink]]` 前先 `find knowledge -name "<slug>.md"` 確認目標存在。
+5. 更新 README 主題表格、筆記數 badge、Gary Chen 作者索引篇數(兩處都要;⚠️ 索引標題已於 09-06 改為 `@garychenai`),跑 python scripts/knowledge/build_source_index.py。無 BOM UTF-8 檔 commit([feat] 前綴)、git push -q origin main。⚠️ 精準 git add <檔案>,不要 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試;不要用 pipe 判斷 push 成敗,改用 git rev-parse 比對。清暫存。
+⚠️ commit 訊息結尾要加:
+Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 無新片只回報、不空 commit。回報新增/略過哪些影片。(session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
@@ -263,15 +284,21 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 > ⚠️ 這個排程動的是 **ai-grocery** repo(不是 Knowledge)。教育用途、非投資建議。
 
 ```text
-每日更新 ai-grocery 的 gooaye(股癌模擬)agent 記憶層。位置:C:\Users\shoot\project\ai-grocery\plugins\investing-like-pro\gooaye\(build_memory.py 在 gooaye/scripts/、記憶檔在 gooaye/references/)。步驟:
+每日更新 ai-grocery 的 gooaye(股癌模擬)agent 記憶層。⚠️ 這個排程動的是 ai-grocery repo(不是 Knowledge)。教育用途、非投資建議。位置:C:\Users\shoot\project\ai-grocery\plugins\investing-like-pro\gooaye\(build_memory.py 在 gooaye/scripts/、記憶檔在 gooaye/references/)。步驟:
 1. cd C:\Users\shoot\project\ai-grocery 先 git pull。
 2. 記憶來源 whatmkreallysaid.com 的 transcripts.json.br(brotli,需 pip install brotli);用 pack_manifest.json 的 episode_count 比對 references/mention-timeline.json 的 meta.built_at_ep,沒新集就只回報、不 commit。
+   ⭐ 順手看一下 manifest 的 `built_at` 欄位:若它也停在舊日期,代表**上游抓取站本身停止重建**(而非股癌沒更新)——截至 2026-09-27 查證,`built_at` 仍停在 `2026-09-04T06:33:28Z`,episode_count 已連續 23 天停在 693,連 `version` 雜湊 `79bd90a9ca0b` 都沒變。回報時可一併說明。
+   ⚠️ 讀 mention-timeline.json 要用 io.open(..., encoding='utf-8'),直接 open 會 cp950 UnicodeDecodeError。
    ⚠️ manifest 網址是**根路徑** https://whatmkreallysaid.com/pack_manifest.json,不是 /data/ 底下。
    ⚠️⚠️ pack 本身也在**根路徑**:https://whatmkreallysaid.com/transcripts.json.br —— /data/ 底下的舊網址已 404(2026-08-20 踩過)。下載要帶 User-Agent header(參考 build_memory.py 的 PACK_URL 常數,那裡是對的)。
-3. 有新集:跑 gooaye/scripts/build_memory.py(會自動下載最新 pack)重算機器檔(mention-timeline.json、ranking.json、recency-ranking.md)→ 由 AI 依最近約 60 集逐字稿重寫 references/recent-stance.md(質化摘要,標非投資建議、集數越大越新)。取最新集逐字稿的方式:用 urllib 下載 transcripts.json.br → brotli.decompress → json.loads 得到 list,每筆有 n/t/d/dt/desc/tx 欄位;把 tx 寫暫存 .txt 再用 Read 讀(避免終端機中文亂碼;檔案大時可先切半再讀)。
-   ⭐ recent-stance.md 的維護方式:把舊的「🟢 最新進展」降級為「🟡 上一期進展」、再往前的降為「⚪ 更早」,新集數插在最前面;並同步更新第 1–6 節(近期熱度、族群傾向表、退燒項、操作心態、生活、一句話總結)與檔頭的涵蓋範圍與基準集數。
+3. 有新集:跑 gooaye/scripts/build_memory.py(會自動下載最新 pack)重算機器檔(mention-timeline.json、ranking.json、recency-ranking.md)→ 由 AI 依最近約 60 集逐字稿重寫 references/recent-stance.md(質化摘要,標非投資建議、集數越大越新)。取最新集逐字稿:urllib 下載 transcripts.json.br → brotli.decompress → json.loads 得到 list,每筆有 n/t/d/dt/desc/tx 欄位;把 tx 寫暫存 .txt 再用 Read 讀(避免終端機中文亂碼;檔案大時先切半)。
+   ⚠️ Python 印中文/emoji 前先 sys.stdout.reconfigure(encoding='utf-8', errors='replace'),否則 cp950 UnicodeEncodeError 會殺掉腳本。
+   ⭐ recent-stance.md 的維護方式:把舊的「🟢 最新進展」降級為「🟡 上一期進展」、再往前降為「⚪ 更早」,新集數插在最前面;並同步更新第 1–6 節(近期熱度、族群傾向表、退燒項、操作心態、生活、一句話總結)與檔頭的涵蓋範圍與基準集數。
    ⭐ 實作建議:用 Python 腳本做「精準字串替換 + 插入」(每次 replace 都 assert count==1),比整檔重寫安全;寫檔一律 encoding='utf-8', newline=''。
-4. 無 BOM UTF-8 暫存檔 commit(繁中訊息)、git push(SSH origin main)。清暫存下載的 pack。
+4. 無 BOM UTF-8 暫存檔 commit(繁中訊息)、git push(SSH origin main)。清暫存下載的 pack。⚠️ 不要用 pipe 判斷 push 成敗,改用 git rev-parse 比對。
+⚠️ commit 訊息結尾要加:
+Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 回報更新到第幾集。沒新集不空 commit。⚠️ 教育用途、非投資建議。(session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
@@ -282,29 +309,98 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 > ⚠️ 該頻道影片**幾乎都無字幕**、多為 20+ 分鐘,基本上每支都要走 Whisper。
 
 ```text
-每日整理美投君/美投讲美股(@MeiTouJun)YouTube 新影片到 Knowledge。⚠️ 此頻道影片幾乎都無字幕,多為 20+ 分鐘,需走 Whisper。步驟:
-1. 用 yt-dlp --no-update --js-runtimes node --flat-playlist --playlist-end 10 --print "%(id)s" "https://www.youtube.com/@MeiTouJun/videos" 列最新 10 部。
-   ⚠️ 若改用 yt_dlp Python API,js_runtimes 參數要用 **dict** 形式 {'node': {}},寫成 list 會 ValueError(2026-08-20 踩過)。
-2. 去重:用 Grep 在 C:\Users\shoot\project\Knowledge 搜每個 video id(youtu.be/<id> 或 watch?v=<id>),已整理過就跳過。也可先查 INDEX-SOURCES.md(grep -F -- "<id>" INDEX-SOURCES.md)。
-   ⚠️ video id 可能以連字號開頭(如 -ih9NBMHiU8),grep 會把它當參數而誤報 NEW → 一律用 `grep -rlF --include=*.md -- "<id>" knowledge/`(-F fixed-string、-- 終止選項解析)。⚠️⚠️⚠️ **範圍必須是 `knowledge/` 不可用 `.`**(2026-09-03 踩過,靜默全誤報 SEEN)。
-   ⚠️⚠️ `--include=*.md` 必須放在 `--` 之前!寫成 `grep -rF -- "<id>" . --include=*.md` 會被當成檔名 → exit 2 → 每支都誤報 NEW、白跑 10 支 Whisper(2026-07-11 踩過)。
-   ⚠️⚠️⚠️ 若把 id 先寫進暫存檔再迴圈讀,**寫檔務必用 newline='\n'**(Python 在 Windows 預設寫 CRLF,行尾多一個 \r 會讓 grep 全部找不到 → 全部誤報 NEW,2026-08-15 踩過)。判斷用 exit code:0=SEEN、非0=NEW。
-   ⚠️ 驗證索引時**不要用 `grep … | head -1`** —— pipe 的退出碼是 head 的,grep 找不到也會被當成成功(2026-08-23 自己踩過)。
-3. 未整理的:先試官方/自動字幕;無則走 Whisper——下載音訊 yt-dlp --no-update --js-runtimes node --remote-components ejs:github -f "bestaudio/best"(--remote-components 解 403),再用 faster-whisper(WhisperModel small, device=cpu, compute_type=int8, cpu_threads=6, transcribe language=zh, vad_filter=True, condition_on_previous_text=False, no_repeat_ngram_size=3)。⚠️ 遇 HTTP 403 就用同參數重試(最多 3 次,間隔 20 秒),不要改 player_client(改了會誤報 DRM protected);⚠️ **連續 3 次全 403 且 log 出現 `n challenge solving failed` ⇒ 是 yt-dlp 版本落後,重試無用,先 `python -m pip install -U yt-dlp`**(2026-08-22 踩過)。⚠️ 不要用 `yt-dlp … | tail -1`,pipe 會遮蔽退出碼;要判斷成敗用 ${PIPESTATUS[0]} 或乾脆不接 pipe。segment 寫暫存 .txt 再 Read(檔案大時先切半)。轉完掃有無同句重複數十行(幻覺迴圈)。多支影片時用單一背景進程串跑,避免多進程 CPU 競爭。
+每日整理**美投君 / 美投讲美股**(頻道中文名,回報時請用它)YouTube 新影片到 Knowledge。⚠️ 此頻道影片幾乎都無字幕、多為 20+ 分鐘,基本上每支都要走 Whisper。⚠️ Knowledge repo 已於 2026-08-30 重整:筆記在 knowledge/、腳本在 scripts/。步驟:
+1. 列最新 10 部:
+   yt-dlp --no-update --js-runtimes node --flat-playlist --playlist-end 10 --print "%(id)s" "https://www.youtube.com/channel/UCBUH38E0ngqvmTqdchWunwQ/videos"
+   ⚠️⚠️ **一定要用 channel ID `UCBUH38E0ngqvmTqdchWunwQ`(頻道:美投讲美股,當時 handle 為 @MeiTouJun),不要用 handle** —— 2026-09-06 Gary Chen 把 handle 改掉導致排程整個 404 失敗,**channel ID 不會因改名而變**。
+   ⚠️ 若哪天連 channel ID 也拉不到,用既有筆記裡任一該頻道的 video id 反查:extract_info 後看 `uploader`/`uploader_id`/`channel_id`。
+   ⚠️ yt_dlp Python API 的 js_runtimes 要用 **dict** {'node': {}},list 會 ValueError。
+   ⚠️ Python 印中文/emoji 前先 sys.stdout.reconfigure(encoding='utf-8', errors='replace')。
+2. 去重:一律用
+   grep -rlF --include=*.md -- "<id>" knowledge/
+   ⚠️⚠️⚠️ **範圍必須是 knowledge/,不可用 `.`** —— SCHEDULES.md 存有待處理 video id 清單,對整個 repo 搜尋會讓每一支都誤報 SEEN 且完全不報錯(2026-09-03 踩過,18 支全誤報)。
+   ⚠️ -F fixed-string、-- 終止選項解析(id 可能以連字號開頭如 -ih9NBMHiU8);--include 必須放在 -- 之前。判斷用 exit code:0=SEEN、非0=NEW。不要用 `grep … | head -1`。逐支直接 grep,不要繞暫存檔。
+3. 未整理的:先試官方/自動字幕;無則走 Whisper——下載音訊 yt-dlp --no-update --js-runtimes node --remote-components ejs:github -f "bestaudio/best"(--remote-components 解 403),再用 faster-whisper(WhisperModel small, device=cpu, compute_type=int8, cpu_threads=6, transcribe language=zh, vad_filter=True, condition_on_previous_text=False, no_repeat_ngram_size=3, beam_size=5)。⚠️ 遇 HTTP 403 用同參數重試(最多 3 次,間隔 20 秒),不要改 player_client(會誤報 DRM protected);連續 3 次全 403 且 log 有 `n challenge solving failed` ⇒ 先 python -m pip install -U yt-dlp。⚠️ 字幕下載遇 HTTP 429 就重試。⚠️ 不要用 `yt-dlp … | tail -1`;要判斷成敗用 ${PIPESTATUS[0]} 或不接 pipe。
+   ⚠️⚠️ **Whisper 一律用「前景」跑,不要用 `nohup ... &` 背景跑** —— 2026-09-13/14 連續兩天踩到:背景 shell 環境變數不完整,torch/numpy import 會失敗(`_ARRAY_API not found` 後直接 Traceback)。20+ 分鐘的影片約需 8–12 分鐘,前景超過 600s 會自動轉背景,再用 TaskOutput 等它完成即可。segment 寫暫存 .txt 再 Read(大檔先切半)。轉完掃有無同句重複數十行(幻覺迴圈)。多支影片串著跑,避免 CPU 競爭。
+   ⭐ **前景跑時 stderr 仍會印 `Failed to initialize NumPy: _ARRAY_API not found` 的 UserWarning,那只是警告、轉錄會正常完成**(2026-09-19 確認)。看到它不要以為失敗,看最後有沒有印出 segment 行數為準。
 4. 依 CLAUDE.md 整理繁中筆記(含應用案例、Mermaid、來源註明「該片無字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕」、⚠️非投資建議)。歸 knowledge/investing/ 中類:個股/產業→equity-research、心法/ETF/被動/宏觀市場研判→strategy、AI 輔助→ai-assisted、選擇權→derivatives、技術分析→technical-analysis、房貸稅務繼承→personal-finance。
-   ⭐ Whisper 對人名與數字容易出錯,**在來源區塊列出已還原的專有名詞對照**(如「卧石」→沃什)。
-   ⭐ **數字均為影片轉述、未獨立查證時要明講**;文末重申非投資建議。
-   ⭐ 產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案> 檢查語法。
-5. 更新 README 表格、筆記數 badge、美投君作者索引篇數,並跑 python scripts/knowledge/build_source_index.py 重建來源索引(⚠️ **來源要放完整網址,只寫標題會漏收**)。無 BOM UTF-8 commit([feat] 前綴)、git push -q origin main。⚠️ 用精準 git add <檔案> 而非 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試。清暫存(音訊數十 MB)。
-無新片只回報、不空 commit。回報新增/略過哪些影片。(session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
+   ⭐ Whisper 對人名與數字容易出錯,在來源區塊列出已還原的專有名詞對照(如「卧石」→沃什)。此頻道常見誤轉:「美肤/美肱/美肯」→美股、「美戛/美倔/美借」→美債、「美職儲/美聀儲」→聯準會、「風陷/風陰」→風險、「導火鎖」→導火線。
+   ⭐ **數字務必逐項核實**:財報類比對 SEC/官方 IR、股價與漲跌幅比對公開資料,並在筆記中列出「已核實 / 需修正 / 未能核實」三類。未獨立查證的要明講。文末重申非投資建議。
+   ⭐⭐ **新聞稿不會寫的風險細節通常在法說會 Q&A 裡**(2026-09-21 Viking 那篇實測:枯水規模完全不在財報新聞稿,是查法說會與分析師報導才挖到的,而影片把它講小了)。個股類務必同時查法說會與分析師報導。
+   ⭐⭐ **核心 CPI 與核心 PCE 不可混用**(2026-09-14 踩過):核心 CPI 與聯準會偏好的核心 PCE 是兩個指標、數字差距明顯,引用時要講清楚是哪一個。
+   ⭐ 此頻道常為「美投 Pro」付費訂閱做推廣,**務必在檔頭標明立場,不轉述付費素材**。
+   ⭐ 產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案>。⚠️ Mermaid 節點避免用圓形語法 `(("文字"))`,lint 會報 UNQUOTED-SPECIAL;一律用方括號 `["文字"]`。
+5. 更新 README 表格、筆記數 badge、美投君作者索引篇數,跑 python scripts/knowledge/build_source_index.py(⚠️ 來源要放**完整網址**,只寫標題會漏收)。無 BOM UTF-8 commit([feat] 前綴)、git push -q origin main。⚠️ 精準 git add <檔案>,不要 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試;不要用 pipe 判斷 push 成敗,改用 git rev-parse 比對。清暫存(音訊數十 MB)。
+⚠️ commit 訊息結尾要加:
+Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
+無新片只回報、不空 commit。**回報時用頻道中文名稱「美投君 / 美投讲美股」**,列出新增/略過哪些影片。(session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
 ---
 
-## 5. 未涵蓋頻道每日巡檢(每日 08:12 / `12 8 * * *`,job `f115eb43`)
+## 5. 未涵蓋頻道每日巡檢(每日 08:12 / `12 8 * * *`)
 
 > 2026-09-01 新增,同日首次執行後依實測結果修訂。緣由:盤點發現 README 作者索引共 **49 位,
 > 先前僅 3 位有排程涵蓋**,pi agent / MCP / Codex / CS336 等內容都得靠手動丟連結補。
+
+### prompt 原文(2026-09-28 同步自實際運作版本)
+
+```text
+每日巡檢六個「有累積但沒有專屬排程」的頻道,把新影片整理進 Knowledge。⚠️ Knowledge repo 已於 2026-08-30 重整:筆記在 knowledge/、腳本在 scripts/。
+
+⚠️⚠️ **頻道一律用 channel ID,不要用 handle** —— 2026-09-06 Gary Chen 把 handle 從 `@garytalksstuff` 改成 `@garychenai`,舊 handle 直接 404 讓當天排程整個失敗。**channel ID 不會因改名而變。**
+若哪天連 channel ID 也拉不到,用既有筆記裡任一該頻道的 video id 反查:extract_info 後看 `uploader`/`uploader_id`/`channel_id`。
+
+頻道清單(channel ID 均已於 2026-09-06 實際解析驗證):
+
+| 頻道 | channel ID | 當時 handle | 字幕 |
+|---|---|---|---|
+| Why QQ | `UClkMmnf9yOKbYRMfOv1HvwA` | @whycallqq | 官方 zh-Hans |
+| Caleb Writes Code | `UCuU9jE4MHHEIyYMbDfUPSew` | @CalebWritesCode | 自動(英文) |
+| YAHA學堂 | `UC7ynDhvkWzAxctvxKrkwtsg` | @YAHAClass | 時有時無 |
+| 白白说大模型 | `UCHrUrG5wJR1rjKkINFxm8yQ` | @白白说大模型 | 無(需 Whisper) |
+| 小Lin说 | `UCilwQlk62k1z7aUEZPOB6yw` | @xiao_lin_shuo | 官方中文 |
+| Redknot-乔红 | `UCAf2Y9FGJlE_ByXYF7BXv5g` | @redknot-miaomiao | 多數無(⚠️ `rQR_0WZzjV4` 實測無官方字幕,只有自動英文 ASR) |
+
+步驟:
+1. 逐個頻道列最新 6 部:
+   yt-dlp --no-update --js-runtimes node --flat-playlist --playlist-end 6 --print "%(id)s" "https://www.youtube.com/channel/<channel ID>/videos"
+   ⚠️ 回報時請寫出**頻道中文名稱**(如「Why QQ」「小Lin说」),不要只寫 channel ID,方便使用者閱讀。
+2. 去重:一律用
+   grep -rlF --include=*.md -- "<id>" knowledge/
+   ⚠️⚠️⚠️ **範圍必須是 knowledge/,不可用 `.`** —— SCHEDULES.md 第 5 節存有本排程的存量清單(裡面就是一堆待處理 video id),對整個 repo 搜尋會讓**每一支存量都誤報 SEEN**,而且**完全不報錯**(2026-09-03 踩過,18 支全誤報)。
+   ⚠️ -F fixed-string、-- 終止選項解析;--include 放在 -- 之前。exit code:0=SEEN、非0=NEW。不要用 `grep … | head -1`。逐支直接 grep,不要繞暫存檔。
+   ⭐ **區分「真正的新片」與「已知存量」**:SCHEDULES.md 第 5 節已列的存量不必每天重新評估,只看清單外新冒出的 id(2026-09-23/24 實測可省下大量 metadata 查詢)。
+3. ⚠️⚠️ **產出上限:每次執行最多產出 2–3 篇,其中需 Whisper 者最多 1 支。**(本倉庫每篇都要比對一手來源核實,一次灌一堆等於灌水。)
+   ⭐ 挑選優先序:① **能增補既有筆記的優先**(同一工具/同一論文/同一事件的後續)→ ② 有官方或自動字幕的(成本低)→ ③ 其餘依新到舊。
+   ⭐⭐ **動筆前先用 `grep -rl "<主題關鍵字>" knowledge/` 確認有無同主題筆記** —— 2026-09-22 實測:YAHA學堂一支 localhost 教學轉錄完才發現與既有部署筆記內容高度重疊,白花一支 Whisper。**能先看標題判斷撞題就先查**。
+4. 取逐字稿:優先官方字幕(--write-subs --sub-langs zh-Hant/zh-TW/zh/zh-Hans/en),次之自動字幕(--write-auto-subs),都無才走 Whisper(下載音訊 --remote-components ejs:github + faster-whisper small/int8,vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3、beam_size=5)。⚠️ 403 用同參數重試最多 3 次,不要改 player_client;連續 3 次全 403 且 log 有 `n challenge solving failed` ⇒ 先 python -m pip install -U yt-dlp。⚠️ 字幕下載遇 **HTTP 429 Too Many Requests** 就重試(通常第 2–3 次會過;⚠️ 但 `--write-auto-subs` 被限流較兇,曾連續 7 次全 429,遇到就順延別死磕)。⚠️ 不要用 `yt-dlp … | tail -1`。
+   ⚠️⚠️ **Whisper 一律用「前景」跑,不要用 `nohup ... &` 背景跑** —— 2026-09-13/14 連續兩天踩到:背景 shell 環境變數不完整,torch/numpy import 會失敗(`_ARRAY_API not found` 後直接 Traceback)。前景超過 600s 會自動轉背景,再用 TaskOutput 等它完成即可。逐字稿寫暫存 .txt 再 Read。轉完掃結尾有無同句重複數十行(幻覺迴圈)。
+   ⭐ **前景跑時 stderr 仍會印 `Failed to initialize NumPy: _ARRAY_API not found` 的 UserWarning,那只是警告、轉錄會正常完成**(2026-09-19 確認)。看到它不要以為失敗,看最後有沒有印出 segment 行數為準。
+   ⭐ **影片說明欄常附指令與官方文件連結**(2026-09-23 YAHA 那支 Windows 安裝教學就是),Whisper 容易聽錯的指令直接從說明欄取原文。
+   ⚠️ 遇影片被設為私人/會員限定就跳過並記錄,不要重試到底。
+   ⚠️ Python 印中文/emoji 前先 sys.stdout.reconfigure(encoding='utf-8', errors='replace')。
+5. 依 CLAUDE.md 寫作規範整理繁中筆記(含應用案例、Mermaid、結尾**完整網址**來源),歸三層結構最貼切中類(AI agent→knowledge/technology/ai-agents/*;LLM 架構/推論→knowledge/technology/llm-internals/*;Claude Code→knowledge/technology/claude-code;產業動態→knowledge/technology/ai-industry;AI 安全→knowledge/technology/ai-safety;軟體工程→knowledge/technology/software-engineering;系統設計/密碼學/資料庫→knowledge/technology/system-design;影像/設計工具→knowledge/technology/applied-ai/design;語言學習工具→knowledge/technology/applied-ai/language-learning;職涯與心態→knowledge/career/*;財經/個股→knowledge/investing/* 並標⚠️非投資建議)。
+   ⭐⭐ **可查證的官方規格/價格/機制務必比對官方來源核實並標出補正處。影片若提到某個開源專案、官方報告或部落格原文,盡量直接讀那份一手素材** —— 實測這一步經常挖到影片沒講、但更重要的內容(例:讀 Anthropic 威脅情報報告原文才發現有預載台灣 12 個軍事目標的案例;讀 arXiv 2609.11873 才發現影片把 HCI 的高低方向講反了;讀 Milvus 2.6 官方說明才發現影片講的是舊架構,IndexNode 已移除;讀 Dream-RSI 論文才發現「差 162 倍」混了換模型與換策略兩個效果,同模型下約 1.7 倍)。
+   ⭐⭐ **頭條數字要檢查「兩邊條件是否相同」** —— 2026-09-23 Dream-RSI 與 09-24 Opus 5.5 vs Sol 兩次實測,影片的對比常把不同模型、不同基準、不同廠商自報的數字放在一起比。
+   ⭐⭐ **技術架構類影片要特別確認「版本時效性」** —— 2026-09-21 Milvus 那支講的是 2.5 及更早的元件拆法,照做會白架一套已不需要的 Kafka。
+   ⭐⭐⭐ **影片若在講某個開源 repo,務必依 CLAUDE.md 先 `git clone --depth 1` 到暫存讀原始碼再整理,整理完刪除 clone(別 commit 進 repo)** —— 2026-09-19/20/22/23 四次實測,讀 repo 各抓到 2–4 處影片講錯或漏掉的關鍵資訊(09-23 Dream-RSI 影片說「直接給出代碼」,clone 後發現程式碼都還是「準備中」)。
+   ⭐ **本庫自己也會寫錯**:2026-09-21 發現 Jev 筆記 §12.7 的「勘誤」本身是錯的(型態名稱確實是 `noul`)。**寫「更正」之前先對官方來源核實,別只憑直覺。**
+   ⚠️⚠️ **「700 個 agent / 智能體群協同攻破 Hugging Face」這個說法在多支影片裡反覆出現(09-19、09-20、09-24 都有),但與 Hugging Face 官方技術時間軸不符**(官方:「單一自主 agent 編排整場行動,作為整合系統而非協同蜂群」)。本庫 `rsi-recursive-self-improvement-anthropic.md` §8.6 已查證,**遇到就直接引用該節補正,不要照抄影片說法**。
+   ⭐ 同主題已有筆記優先增補、檔名不動,檔頭與來源區塊同時列出兩支影片。⭐ RSI / Pace the Frontier 相關的後續一律併入 `rsi-recursive-self-improvement-anthropic.md`(已到 §11)。
+   ⭐ **作者若推廣自家產品、業配或聯盟連結,務必在檔頭標明立場。**(⚠️ YAHA學堂 `CV7HX6qFglc` 說明欄含 `?via=yahaclass` 聯盟連結;Redknot `EsJKkDbHsec` 片中明示「與 ASML 合作出品」= 業配;Caleb 近期影片常夾 JetBrains 等業配段落;小Lin说 常夾 eSIM 等業配。)
+   ⭐ **社群討論串、論壇熱帖這類材料要標明性質**(是自述不是研究、無樣本代表性)。
+   ⭐ **涉及對特定公司/個人的指控時,務必標明是誰的單方陳述、對方是否回應,並並陳質疑動機的聲音,不做真偽判斷。**(⭐ 兩支影片內容高度重疊時也一樣:只記錄可觀察的重疊事實,不對成因做判斷。)
+   ⭐ 產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案>。⚠️ Mermaid 節點避免用圓形語法 `(("文字"))`,lint 會報 UNQUOTED-SPECIAL;一律用方括號 `["文字"]`。
+   ⭐ 寫 `[[wikilink]]` 前先 `find knowledge -name "<slug>.md"` 確認目標存在,避免留下死連結。
+6. 更新 README 主題表格、筆記數 badge、對應作者索引篇數(兩處都要),跑 python scripts/knowledge/build_source_index.py。無 BOM UTF-8 commit([feat] 前綴,訊息標作者名)、git push -q origin main。⚠️ 精準 git add <檔案>,不要 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試;不要用 pipe 判斷 push 成敗,改用 git rev-parse 比對。清暫存(含 clone 與音訊)。
+7. 完成後把 SCHEDULES.md 第 5 節的存量清單更新(移除已完成者、加入新片),並在「變更歷程」表最上方插入當日一列。
+⚠️ commit 訊息結尾要加:
+Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
+無新片只回報、不空 commit。**回報時請用頻道中文名稱**,並列出本次新增哪幾篇、各頻道剩餘存量。(session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
+```
 
 ### 頻道清單(⚠️ 2026-09-06 起一律用 channel ID,handle 只是給人看的備忘)
 
@@ -360,6 +456,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 
 | 日期 | 事件 |
 |---|---|
+| 2026-09-28 | **使用者要求「續排」,五個排程全刪重建**(`ce8e9c59` / `a4206b99` / `59bd5619` / `c8f16d37` / `f8529c0d`,約 **10-05** 到期)。補檢確認:09-27 五個排程全數有跑(GitHub Weekly 125 仍 404、Gary Chen 新增 Impeccable、gooaye 仍 EP693、美投君無新片、巡檢新增 ART),**無漏跑**;09-28 各排程觸發時間未到。⚠️ **SCHEDULES.md 各節 prompt 備份已落後實際版本,本輪以實際運作 prompt 全文覆蓋同步** |
 | 2026-09-27 | 巡檢產出 1 篇(官方字幕,零 Whisper):**Why QQ** `bLWJmz_uAco` → 新篇 anthropic-art-enzyme-discovery-research-harness.md。⭐⭐⭐ **已讀 [Anthropic 公告](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system) 與 40 頁技術報告預印本全文**,影片的規模、漏斗、10 次重跑、3,500 次對照數字**全部核實一致**;⭐ **補上影片沒講的三件事**:①跑這場的是 **Claude Mythos 5**;②**2.156 億 token 裡 1.895 億是寫入快取、輸出只有 1,490 萬**;③摘要明寫模型內部有**對重複 DNA 反應的可解釋訊號**(與 Evo 2、gLM2 對照)。⚠️ 影片的「339 萬候選序列」報告中未找到;VirBench 加檢索層後官方是「超過 92%」而非 90%。同日 Gary Chen 排程另新增 Impeccable 筆記、`roUfF8nUYNo` 會員限定跳過。其餘五頻道無新片(存量不變) |
 | 2026-09-26 | 巡檢產出 2 篇增補(Whisper 1 支):**Why QQ** `ou9SC0Z_CtI` → Jev 筆記 §16(64→76 KB);**YAHA學堂** `9Be7ALZBv0Q` → 程式碼圖譜筆記 §七。⭐⭐⭐ **兩篇都靠 clone repo 挖到比影片更重要的內容**:① [hermes-jev-skills](https://github.com/kerpopule/hermes-jev-skills) 的 CHANGELOG 記錄了**影子模式中 89% 回合被送往最貴檔**的失敗(**不確定的 score 平均值會落在門檻上**,改讀各級機率後降到 4.5%),以及交接實驗完整數據(**「留原文 + 能搜一次」勝過任何摘要**);② [Graft](https://github.com/trailhq/Graft) README 頂端表格**混了兩組不同測試**、**按需查詢(pull)準確率最高達 98%**、SWE-bench 33 對 27 是**廠商自跑**而非說明欄說的第三方口徑。⚠️ Why QQ 影片把 hermes 的 0.00006 美元誤掛在 LangChain 名下。其餘四頻道無新片 |
 | 2026-09-25 | 巡檢產出 1 篇(官方字幕,零 Whisper):**Why QQ** `I3bnBM4vNnY` → 新篇 llmentalist-effect-cold-reading-and-verifiers.md。⭐ **已讀 [Bjarnason 原文](https://softwarecrisis.dev/letters/llmentalist/) 核實**六步驟、RLHF 論點、占星師故事;⚠️ **補正:影片說「心理學研究發現自認聰明的人更易上當」,原文沒有引用任何研究,屬作者論點**。⚠️ **Caleb `gQmPD4I62rU` 自動字幕連續 3 次 HTTP 429,依規則順延**(含 Hyperagent 業配,主題同 RSI §11)。其餘四頻道無新片 |
