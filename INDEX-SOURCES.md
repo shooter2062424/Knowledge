@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**262 個 YouTube video id**、**31 個 arXiv 編號**,涵蓋 **233 篇**筆記。
+> 統計:**264 個 YouTube video id**、**32 個 arXiv 編號**,涵蓋 **234 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(262 部,依 video id 排序)
+## YouTube(264 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -47,6 +47,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `1VqKUrxR2C8` | AI 編程的三個致命錯覺(OpenCode 創辦人 Dax Raad) | [knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md](./knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md) |
 | `2mtn-Qp59y4` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `2UYRqQvagrk` | MCP 史上最大改版(2026-07-28):從「打電話」變成「寄信」,以及三個功能的退場公告 | [knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md](./knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) |
+| `3CRtS3bY_D4` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
 | `3e_YTF3id_8` | Claude「降智」其實是算力危機:Opus 4.7 試玩與升級注意 | [knowledge/technology/ai-productivity/claude-throttling-opus-4-7.md](./knowledge/technology/ai-productivity/claude-throttling-opus-4-7.md) |
 | `3ZVWhFI5bpw` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
 | `41LR-NhwHfI` | 為什麼你該開始做產品給 AI 用:UX → AX → AXO 三層框架(從瑞幸開放 MCP 談起) | [knowledge/technology/ai-agents/applications/products-for-ai-ax-axo-luckin-mcp.md](./knowledge/technology/ai-agents/applications/products-for-ai-ax-axo-luckin-mcp.md) |
@@ -116,6 +117,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `EOg4gY0Yln0` | 讓訊號自己交易:Man Group 用 Claude Skills 治理打通系統化交易 | [knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md](./knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md) |
 | `eorQWlYarJY` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
 | `eWkZlS5JMD4` | 駭客怎麼騙 AI:5.5 種 Prompt Injection 技巧與防禦實戰 | [knowledge/technology/ai-safety/prompt-injection-5-techniques-defenses.md](./knowledge/technology/ai-safety/prompt-injection-5-techniques-defenses.md) |
+| `EWvNQjAaOHw` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
 | `ExWlrAQrfdc` | 非技術者的資安入門:用五個問題做威脅建模,再交給 Codex Security 掃描 | [knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md](./knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md) |
 | `EyZEJPP2JNQ` | AI Operating System(AIOS):一套讓 AI 長期懂你、替你工作的系統 | [knowledge/technology/ai-agents/applications/ai-operating-system-aios.md](./knowledge/technology/ai-agents/applications/ai-operating-system-aios.md) |
 | `F22wTQzVkI8` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
@@ -293,7 +295,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(31 篇,依編號排序)
+## arXiv(32 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -304,6 +306,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2405.05254` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
 | `2406.04692` | Mixture-of-Agents(MoA):用「分層提議 + 聚合」讓多個 LLM 互相加成,純開源打贏 GPT-4o | [knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md](./knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md) |
 | `2406.04692` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
+| `2501.12948` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
 | `2507.19457` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md](./knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md) |
 | `2509.03505` | LimiX:用「遮罩聯合分布」打造的結構化資料(表格)基礎模型 | [knowledge/technology/machine-learning/limix-tabular-foundation-model.md](./knowledge/technology/machine-learning/limix-tabular-foundation-model.md) |
 | `2509.13351` | PDDL-Instruct:用「邏輯式 CoT + 外部驗證」教 LLM 做真正的符號規劃 | [knowledge/technology/ai-agents/foundations/pddl-instruct-llm-planning.md](./knowledge/technology/ai-agents/foundations/pddl-instruct-llm-planning.md) |

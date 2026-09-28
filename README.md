@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-265_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-266_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -150,7 +150,7 @@ flowchart LR
 
 | 來源 | 篇數 | 筆記 |
 |---|---|---|
-| **Andrej Karpathy(本人著作/repo)** | 3 | [microGPT 200 行](./knowledge/technology/llm-internals/architecture/microgpt-karpathy.md) · [autoresearch 最小 harness](./knowledge/technology/ai-agents/autonomy/karpathy-autoresearch.md) · [LLM Wiki 知識庫模式](./knowledge/technology/ai-agents/memory-retrieval/llm-wiki-karpathy.md) |
+| **Andrej Karpathy(本人著作/repo)** | 4 | [microGPT 200 行](./knowledge/technology/llm-internals/architecture/microgpt-karpathy.md) · [autoresearch 最小 harness](./knowledge/technology/ai-agents/autonomy/karpathy-autoresearch.md) · [LLM Wiki 知識庫模式](./knowledge/technology/ai-agents/memory-retrieval/llm-wiki-karpathy.md) · [How I use LLMs(一般人用 LLM 心智模型)](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
 | **blog.aihao.tw(ihower)** — agent 工程 | 2 | [Agent Streaming 格式設計](./knowledge/technology/ai-agents/applications/agent-streaming-format-design.md) · [用 AI 分析 Agent Traces](./knowledge/technology/ai-agents/applications/agent-trace-analysis-with-ai.md) |
 | **Prime Intellect(官方部落格)** | 1 | [Prime Agent:RLM 與 Continual Harness](./knowledge/technology/ai-agents/foundations/prime-agent-rlm-continual-harness.md) |
 | **Anthropic(官方研究/頻道)** | 4 | [五大 Agent 模式](./knowledge/technology/ai-agents/foundations/five-agent-patterns.md) · [Man Group 用 Claude Skills 治理](./knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md) · [J-Space 全域工作空間](./knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md) · [Claude Code 團隊自己怎麼用 Claude Code](./knowledge/technology/claude-code/claude-code-team-how-they-work.md) |
@@ -433,6 +433,7 @@ flowchart LR
 | [AI 時代怎麼「讀」程式碼:6 個技巧](./knowledge/technology/ai-productivity/reading-code-ai-era-6-techniques.md) | 從進入點/先讀測試/跟著資料走/跳雜訊/讀一條失敗路徑/壓成一句話 |
 | [AI 旅遊規劃組合技:NotebookLM + Gemini + My Maps](./knowledge/technology/ai-productivity/ai-travel-planning-notebooklm-gemini.md) | 蒐集即時資料→整合零散素材→Canvas排程當裁判→CSV匯地圖→Live現場助理;分工是關鍵 |
 | [Codex 新手指南:駕馭「會動你檔案的 AI Agent」四基本功](./knowledge/technology/ai-productivity/codex-beginner-guide-four-basics.md) | 專案/權限/上下文/AGENTS.md;非技術者也能上手;它是助理也是家教;Memory vs AGENTS.md |
+| [Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) | ⭐⭐⭐ 預訓練=有損 zip 檔(知識模糊、有截止日)、後訓練=助理人格、預設沒工具;換話題開新對話;先不思考、不行再開思考模型;搜尋/Deep Research 當初稿、Python 防幻覺算數、資料分析要讀程式碼;圖片先轉錄再提問;few-shot 做 Custom GPT;⚠️ **X 爆紅貼文說「上週發布、講 Agents→Loops→Graphs」是錯的**——這是 2025-02 的使用導覽;⏳ 已標出過時處(來源:`new/` 收件匣) |
 | [AI 時代最被低估的技能:語音輸入 + 「context 轉換遊戲」視角](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) | 說話快 3 倍、且不壓縮細節=你的品味;brain dump→Ask 精修→給 agent;走路捕捉靈感;人=賦予意義者;⭐⭐⭐ **§4 增補 Voice Spec Loop 六步(Why QQ)**:傾倒→整理→預檢→追問→確認→執行;**問題不是 Agent 不幹活,是它幹得太快而你把知道的事省掉了**;⭐⭐ **「幫我驗證一個可能原因」和「修復 X 問題」是完全不同的任務** —— 整理時把「我懷疑」磨成「結論」就毀了;⭐ **HIVE 研究(55 萬次評分)**:語音掉 9.7 分 vs 鍵盤 3.0 分,**但主因不是「嗯啊」而是原問題 token 的存活率(r=+0.79)**,且**延伸推理救得了打字錯誤、救不了語音**;**鍵盤管每個字元要對、語音管來龍去脈別漏** ；⭐⭐ **2026-09-20 增補 §5(Gary Chen)**:桌面版 ChatGPT Voice Mode 會**真的動手做事**(背景開獨立對話串讀檔、執行,可隨時打斷改指令);⭐⭐⭐ **分工判準:Typeless 管 Brain Dump、Voice Mode 管零碎雜事** ——「把一堆混亂的想法直接對語音助理碎碎念還叫它動手,只會把混亂放大好幾倍」;⚠️⚠️ **已比對 OpenAI 官方補上三個門檻**:限 Plus/Pro/Business/Edu/Enterprise、**Remote 遠端配對僅 iOS**、同時只能有一個語音對話(但可指揮多個 agent) |
 | [Codex 2.0 新功能實戰:懸停導航/Fork、側邊對話/引導、Record & Replay、手機遠端(Gary Chen)](./knowledge/technology/ai-productivity/codex-2-record-replay-mobile-remote.md) | Fork 開平行宇宙重試;side chat vs steering 分流插手;錄螢幕變 Skill(跨 AI 接力);手機當遠端指揮台;工作從親手做變掌舵 |
 | [Make 與 n8n 還值得學嗎:當維護的人從你換成 Agent,視覺化就從資產變成阻礙(Gary Chen)](./knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md) | ⭐⭐ **低程式碼的價值建立在「維護的人是你自己」這個前提上,前提換人後那層包裝就變成阻礙**;low-code 底層本來就是程式碼,Agent 卻得先解讀平台專屬的節點規則(像解讀別人家的密碼本);⭐ **舊流程只有兩種情況該搬**(常出錯且缺測試與版本紀錄、未來會頻繁迭代)——跑得順的別動;⚠️ **換過去要自己承擔部署**(GitHub Actions / Netlify / Vercel);⭐ 查證補充:**n8n 可自架則部署代價不存在、n8n 按 execution 計費而 Make 按 operation ⇒ 搬走誘因不同**;⭐⭐ **§12 增補另一半(Fibery 創辦人 Dubakov):離開低程式碼之後要建在什麼上面** —— **可塑軟體 = 80% 堅實底座 + 20% 定制代碼**;技術底座/應用底座/工作底座是三種不同的東西;定制代碼要成立的兩個條件(繼承底座、有邊界);**加擴充點按季算、造底座按年算**;⭐⭐⭐ **「選底座,別選介面」——資料歷史權限會累積,介面 AI 幾分鐘生成一個**;⚠️ **與 §1–§6 有張力,判準是「這東西有沒有第二個使用者」**;⚠️ 兩位作者都有推廣自家產品 |
