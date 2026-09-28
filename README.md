@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-263_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-264_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -116,6 +116,7 @@ flowchart LR
 | **Redknot-乔红** — 動畫講硬核硬體/半導體原理 | 3 | [HBM 原理](./knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md) · [先進封裝](./knowledge/technology/ai-industry/advanced-packaging-explained.md) · [RAID 陣列/RAID 5 安全性](./knowledge/technology/system-design/raid-explained-why-raid5-unsafe.md) |
 | **硅谷101(陳茜)** — 矽谷深度科技/商業訪談 | 2 | [SpaceX 崛起史](./knowledge/investing/equity-research/spacex-rise-history.md) · [田淵棟 RSI 與 AI 自進化](./knowledge/technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) |
 | **Debug Tuboshu** — AI 寫網站/前端 | 2 | [零程式碼做網站](./knowledge/technology/applied-ai/design/ai-website-building-claude-code.md) · [手搖飲看網站架構擴展](./knowledge/technology/system-design/scaling-web-architecture-bubble-tea.md) |
+| **小白debug(Little white debug)** — AI 前沿玩法與工程視角 | 1 | [AI 沙箱新基建:microVM 與快照](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
 | **白白说大模型** — 大模型/Agent 原理 | 7 | [Agent 最該具備的 Skill](./knowledge/technology/ai-agents/applications/top-skills-for-agents.md) · [工具調用:FC→MCP→CLI](./knowledge/technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) · [2026 Agent 工程師能力與面試題](./knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) · [什麼樣的 Agent 專案能給履歷加分](./knowledge/technology/ai-agents/applications/agent-project-resume-enterprise-grade.md) · [7 種 Agent 架構選型](./knowledge/technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md) · [多 Agent 資料一致性與可靠性工程](./knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md) · [Milvus 架構拆解與 2.6 的三處改動](./knowledge/technology/system-design/milvus-architecture-vector-database.md) |
 | **AI随风** — AI 工具實測與工作流拆解 | 2 | [Superpowers vs Matt Skills 該刪誰](./knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) · [herdr:讓 Agent 互相指揮的終端 runtime](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
 | **AI超元域** — Agent 專案實測與部署 | 2 | [Codex Multi-agent V2 與 Graph Engineering](./knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) · [qm:YC 開源的多人 Agent Harness](./knowledge/technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md) |
@@ -483,6 +484,7 @@ flowchart LR
 | [哈夫曼編碼:為什麼檔案能越壓越小,以及「前綴碼」這個關鍵限制](./knowledge/technology/system-design/huffman-coding-prefix-free-tree.md) | ⭐⭐⭐ **把「編碼設計的約束」變成「資料結構的性質」** —— 字母全放葉節點,任何編碼的前綴都停在半路,天然無衝突;⚠️ 亂分配的短編碼只要 21 位卻**根本還原不回來**,哈夫曼 27 位(ASCII 的 33.75%)換來的是「可以解壓」的保證;⭐ **建樹原則:被合併越多次編碼越長 ⇒ 出現次數少的越早合併**;⭐ **心算技巧:壓縮後總位元數 = 所有內部節點權重的總和**;**WPL 最小與壓縮後最小是同一件事**;樹不唯一但長度唯一(所以編碼表要一起存);⚠️⚠️ **本文補正:PNG/ZIP/GZIP 用的是 DEFLATE = LZ77 + 哈夫曼** —— 哈夫曼吃頻率不均、LZ77 吃重複片段;⚠️ 哈夫曼硬傷是**每符號至少 1 位元**,算術編碼/ANS 才能逼近夏農熵;⭐ 附 20 行 Python 可自行驗算 |
 | [硬碟陣列 RAID 一次看懂:RAID 0/1/5/6 與 RAID 5 為什麼「不安全」](./knowledge/technology/system-design/raid-explained-why-raid5-unsafe.md) | RAID 5 校驗=XOR 半加;「重建失敗率 99%」真相是 URE(每 12.5TB 一次)+ RAID 層看不見文件系統;ZFS RAID-Z 能感知文件;RAID 6 能壞兩塊 |
 | [荷蘭政府為什麼選 NixOS:DAWO 把 GitOps 推到每張辦公桌(Why QQ)](./knowledge/technology/system-design/dawo-nixos-laptop-as-code-dutch-government.md) | ⚠️ 是**試點**不是全面換掉 Windows;⭐⭐ 宣告式設定 + Flake lock ⇒ 稽核讀 Git、重建跑建置;三層(核心 → 機關 → 裝置);⭐⭐⭐ **Sextant 只拉不推**、Nix 關卡 + 分批 ring;⭐ nixpkgs 核心團隊解散與「one is none」;✅ clone 三個 repo:**影片把強制基線講多了**——usbguard 刻意改選配、auditd 因上游 bug 延後,強制層實際只有 ssh/sysctl/chrony/PAM;已到 0.1.3 |
+| [為什麼沙箱成了 AI 圈最捲的新基建:microVM、快照,與「快照要多快」這道題(小白debug)](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) | ⭐⭐ VM 慢、容器共用核心 ⇒ microVM;⭐⭐⭐ RL 訓練讓沙箱暴增(✅ Kimi K3 開了 5,121 萬個、150 萬種映像);快照分叉像打 Boss 前存檔;✅ OSDI 2024 Sabre:IAA 壓縮 4.5 倍、恢復快 55%;⚠️ Intel「降 38–42%」找不到出處;⭐ **clone AgentENV 發現 Kimi K3 實際用軟體 LZ4/zstd,靠增量快照與按需載入做到 50 ms 內**——先少搬、再搬快;⚠️ 影片為三段拼接,含 Intel 與豆包推廣色彩 |
 
 ### 🖥️ claude-code(Claude Code 維運)
 | 主題 | 一句話 |

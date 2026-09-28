@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**260 個 YouTube video id**、**31 個 arXiv 編號**,涵蓋 **231 篇**筆記。
+> 統計:**261 個 YouTube video id**、**31 個 arXiv 編號**,涵蓋 **232 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(260 部,依 video id 排序)
+## YouTube(261 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -149,6 +149,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `I-PMiyYZkrs` | 你以為健康,其實天天慢性發炎:四個敵人與四個對策 | [knowledge/health/wellness/chronic-inflammation-four-enemies.md](./knowledge/health/wellness/chronic-inflammation-four-enemies.md) |
 | `I3bnBM4vNnY` | LLMentalist 效應:AI 像通靈師一樣「冷讀」你,以及驗證器能管到哪裡為止 | [knowledge/technology/ai-productivity/llmentalist-effect-cold-reading-and-verifiers.md](./knowledge/technology/ai-productivity/llmentalist-effect-cold-reading-and-verifiers.md) |
 | `ib74sLgjIBM` | 用 Claude 蓋一個「會自我改進」的知識庫:三個資料夾 + 一個 CLAUDE.md + 五步驟 | [knowledge/technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md](./knowledge/technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md) |
+| `iD_2QFur7Q4` | 為什麼沙箱成了 AI 圈最捲的新基建:microVM、快照,與「快照要多快」這道題 | [knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
 | `iHVpk9IM1Uk` | Windows 原生安裝 Claude Code:一行指令,與五個報錯的官方修法 | [knowledge/technology/claude-code/claude-code-windows-native-install-troubleshooting.md](./knowledge/technology/claude-code/claude-code-windows-native-install-troubleshooting.md) |
 | `ipvuIOaN5wA` | 用 Claude Code 零程式碼做網站:突破 AI 預設風格、捲動動畫、設計策略 | [knowledge/technology/applied-ai/design/ai-website-building-claude-code.md](./knowledge/technology/applied-ai/design/ai-website-building-claude-code.md) |
 | `IqvnryFzZD4` | 用 Claude Code + TradingView 蓋一條「盤前交易計畫」流水線(Humbled Trader 實作) | [knowledge/investing/ai-assisted/humbled-trader-claude-tradingview-pipeline.md](./knowledge/investing/ai-assisted/humbled-trader-claude-tradingview-pipeline.md) |
