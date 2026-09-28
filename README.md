@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-264_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-265_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -116,6 +116,7 @@ flowchart LR
 | **Redknot-乔红** — 動畫講硬核硬體/半導體原理 | 3 | [HBM 原理](./knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md) · [先進封裝](./knowledge/technology/ai-industry/advanced-packaging-explained.md) · [RAID 陣列/RAID 5 安全性](./knowledge/technology/system-design/raid-explained-why-raid5-unsafe.md) |
 | **硅谷101(陳茜)** — 矽谷深度科技/商業訪談 | 2 | [SpaceX 崛起史](./knowledge/investing/equity-research/spacex-rise-history.md) · [田淵棟 RSI 與 AI 自進化](./knowledge/technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) |
 | **Debug Tuboshu** — AI 寫網站/前端 | 2 | [零程式碼做網站](./knowledge/technology/applied-ai/design/ai-website-building-claude-code.md) · [手搖飲看網站架構擴展](./knowledge/technology/system-design/scaling-web-architecture-bubble-tea.md) |
+| **邦妮區塊鏈 Bonnie Blockchain** — 加密與金融人物訪談 | 1 | [John D'Agostino:退休數學與散戶打不贏機構](./knowledge/investing/strategy/retirement-risk-math-john-dagostino-coinbase.md) |
 | **小白debug(Little white debug)** — AI 前沿玩法與工程視角 | 1 | [AI 沙箱新基建:microVM 與快照](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
 | **白白说大模型** — 大模型/Agent 原理 | 7 | [Agent 最該具備的 Skill](./knowledge/technology/ai-agents/applications/top-skills-for-agents.md) · [工具調用:FC→MCP→CLI](./knowledge/technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) · [2026 Agent 工程師能力與面試題](./knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) · [什麼樣的 Agent 專案能給履歷加分](./knowledge/technology/ai-agents/applications/agent-project-resume-enterprise-grade.md) · [7 種 Agent 架構選型](./knowledge/technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md) · [多 Agent 資料一致性與可靠性工程](./knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md) · [Milvus 架構拆解與 2.6 的三處改動](./knowledge/technology/system-design/milvus-architecture-vector-database.md) |
 | **AI随风** — AI 工具實測與工作流拆解 | 2 | [Superpowers vs Matt Skills 該刪誰](./knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) · [herdr:讓 Agent 互相指揮的終端 runtime](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
@@ -177,6 +178,7 @@ flowchart LR
 ### 📈 strategy(心法與策略)
 | 主題 | 一句話 |
 |---|---|
+| [「不冒險才是最大的風險」?華爾街老將的退休數學、穩定幣收益,與「散戶打不贏機構」的事實(邦妮區塊鏈 / John D'Agostino)](./knowledge/investing/strategy/retirement-risk-math-john-dagostino-coinbase.md) | ⭐⭐⭐ 100% 確定存不夠 vs 有想過的風險;⭐⭐⭐ **個人 AI 打不贏 Citadel / Jane Street**——「你家有的他們都有加強版」⇒ 買入持有 ETF(✅ SPIVA 15 年 89.5% 主動基金落後、台灣當沖不到 1% 穩定獲利);穩定幣收益爭議(✅ CLARITY Act 9/15 未過);預測市場=資訊市場(✅ 聯準會 Kalshi 論文);6% 終值教孩子;⚠️ 受訪者為 Coinbase 策略長、說明欄含推薦連結;⚠️ 修正「37% 沒 500 美元」為 SHED 400 美元題;⚠️ 非投資建議 |
 | [《持續買進》(Nick Maggiulli)](./knowledge/investing/strategy/just-keep-buying-nick-maggiulli.md) | 把「買不買、何時買」變成不需意志力的自動規則 |
 | [別再相信目標價:前外資分析師拆解法人在看什麼](./knowledge/investing/strategy/target-prices-institutional-secrets.md) | 法人不看目標價,看的是想法的改變與預期差 |
 | [萬達怎麼一步步賣掉自己:兩份對賭、四次遞表失敗,與「名字還在、公司換人」(小Lin说)](./knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md) | ⭐⭐⭐ **對賭最危險的是把「不可控風險」寫成你的責任** —— 兩份對賭都押在「某年前完成上市」(監管審批,經營者不可控);港股不給估值→退市回 A 股→「房住不炒」與三條紅線擋死→棄 A 赴港→把輕資產切成珠海萬達→四次遞表全無下文(關聯交易過重、2020 年淨利 11 億卻分紅 51 億);對賭到期需回購 700 億而帳上只有 134 億,太盟以**危機套利**給 600 億換 60% 控制權;⭐ 2017 年的正解是**降槓桿而非融資**(缺的是信心不是錢),賣的是佔資本最多、回報最低的文旅城與 4% 投報率酒店;2025-05 再賣 48 座萬達廣場(約 500 億),負債率 90%→65%;⭐ **萬達 ≠ 恒大**,問題是缺現金不是資不抵債;⚠️非投資建議 |
