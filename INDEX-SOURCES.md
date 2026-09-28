@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**258 個 YouTube video id**、**31 個 arXiv 編號**,涵蓋 **229 篇**筆記。
+> 統計:**259 個 YouTube video id**、**31 個 arXiv 編號**,涵蓋 **230 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(258 部,依 video id 排序)
+## YouTube(259 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -244,6 +244,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `us_rw9gZRYI` | 什麼樣的 Agent 專案才能給履歷加分:玩具 Demo 與企業級應用的分水嶺 | [knowledge/technology/ai-agents/applications/agent-project-resume-enterprise-grade.md](./knowledge/technology/ai-agents/applications/agent-project-resume-enterprise-grade.md) |
 | `UWdn0w-fbzQ` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
 | `VD9zEKQEJxo` | Sutton 的「行動認知 AI(enactive AI)」:一張自相矛盾的反大模型藍圖 | [knowledge/technology/llm-internals/world-models/sutton-enactive-ai.md](./knowledge/technology/llm-internals/world-models/sutton-enactive-ai.md) |
+| `viQjQ3mgeOc` | 存儲還能漲嗎?用 1995、2018 兩輪暴漲對照 AI 這一輪的記憶體週期 | [knowledge/investing/equity-research/memory-cycle-history-1995-2018-vs-ai.md](./knowledge/investing/equity-research/memory-cycle-history-1995-2018-vs-ai.md) |
 | `vj7hysh0mOI` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `vkpS7WztTMc` | 蘇姿丰 MIT 2026 畢業演講:如何創造自己的運氣,以及 AI 時代人類無可取代的價值 | [knowledge/career/mindset/lisa-su-mit-commencement.md](./knowledge/career/mindset/lisa-su-mit-commencement.md) |
 | `W973FsTECa8` | to-tickets 深入實操:把 spec 拆成 agent「能穩定開工、單獨驗收、可並行」的工單 | [knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) |
