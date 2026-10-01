@@ -21,7 +21,11 @@
 | 5 | 未涵蓋頻道巡檢 | `12 8 * * *`(每日 08:12) | Why QQ / Caleb / YAHA學堂 / 白白说大模型 / 小Lin说 / Redknot-乔红 |
 | 6 | ⭐ `new/` 收件匣 | `37 8 * * *`(每日 08:37) | 使用者丟進 `new/` 的大檔素材,整理完改名 `done-`(2026-09-29 新增) |
 
-**最近一次重建:2026-09-28(使用者要求「續排」,五個全刪重建、到期日對齊至約 10-05)。**
+**最近一次重建:2026-10-02(使用者要求「全部延長、到期日同一天」,六個全刪重建、到期日統一對齊至約 10-09)。**
+本 session job id:①`4ee4ced7`(GitHub Weekly 06:33) ②`4f4a2f35`(Gary Chen 07:10) ③`ca7366bc`(gooaye 07:33) ④`2a5d3305`(美投君 07:50) ⑤`b4cd8f36`(巡檢 08:12) ⑥`05ebf1da`(`new/` 收件匣 08:37)。
+本輪同步更新 prompt 內的過期數字:GitHub Weekly 空轉 60 天、gooaye 上游停更 27 天;Gary Chen 會員限定清單已含 `JctGH-SOYBA`。**各節 prompt 原文即為本輪實際使用的版本。**
+
+**前一次重建:2026-09-28(使用者要求「續排」,五個全刪重建、到期日對齊至約 10-05;`new/` 收件匣 09-29 另建,約 10-06 到期)。**
 本 session job id:①`ce8e9c59`(GitHub Weekly 06:33) ②`a4206b99`(Gary Chen 07:10) ③`59bd5619`(gooaye 07:33) ④`c8f16d37`(美投君 07:50) ⑤`f8529c0d`(巡檢 08:12)。
 ⚠️ **本輪發現各節 prompt 備份落後於實際運作版本**(部分停在 08-26 版),已用對話中實際觸發的 prompt 全文覆蓋第 1–4 節,並在第 5 節補上巡檢 prompt 原文;同時更新 GitHub Weekly 空轉天數(56 天)、gooaye 上游停更天數(23 天)、Gary Chen 會員限定 `roUfF8nUYNo`。
 
@@ -239,7 +243,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 沒有新一期就只回報、不空 commit。完成後回報期數與結果。
-⚠️ 上游自 2026-08-03(第 124 期)起已長期無新期(截至 2026-09-28 已 56 天),連續空轉多日屬正常,不必特別排查。
+⚠️ 上游自 2026-08-03(第 124 期)起已長期無新期(截至 2026-10-02 已 60 天),連續空轉多日屬正常,不必特別排查。
 (此為 session-only 每日排程,7 天後會自動到期,若仍需要請在到期前用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
@@ -289,7 +293,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 每日更新 ai-grocery 的 gooaye(股癌模擬)agent 記憶層。⚠️ 這個排程動的是 ai-grocery repo(不是 Knowledge)。教育用途、非投資建議。位置:C:\Users\shoot\project\ai-grocery\plugins\investing-like-pro\gooaye\(build_memory.py 在 gooaye/scripts/、記憶檔在 gooaye/references/)。步驟:
 1. cd C:\Users\shoot\project\ai-grocery 先 git pull。
 2. 記憶來源 whatmkreallysaid.com 的 transcripts.json.br(brotli,需 pip install brotli);用 pack_manifest.json 的 episode_count 比對 references/mention-timeline.json 的 meta.built_at_ep,沒新集就只回報、不 commit。
-   ⭐ 順手看一下 manifest 的 `built_at` 欄位:若它也停在舊日期,代表**上游抓取站本身停止重建**(而非股癌沒更新)——截至 2026-09-27 查證,`built_at` 仍停在 `2026-09-04T06:33:28Z`,episode_count 已連續 23 天停在 693,連 `version` 雜湊 `79bd90a9ca0b` 都沒變。回報時可一併說明。
+   ⭐ 順手看一下 manifest 的 `built_at` 欄位:若它也停在舊日期,代表**上游抓取站本身停止重建**(而非股癌沒更新)——截至 2026-10-01 查證,`built_at` 仍停在 `2026-09-04T06:33:28Z`,episode_count 已連續 27 天停在 693,連 `version` 雜湊 `79bd90a9ca0b` 都沒變。回報時可一併說明。
    ⚠️ 讀 mention-timeline.json 要用 io.open(..., encoding='utf-8'),直接 open 會 cp950 UnicodeDecodeError。
    ⚠️ manifest 網址是**根路徑** https://whatmkreallysaid.com/pack_manifest.json,不是 /data/ 底下。
    ⚠️⚠️ pack 本身也在**根路徑**:https://whatmkreallysaid.com/transcripts.json.br —— /data/ 底下的舊網址已 404(2026-08-20 踩過)。下載要帶 User-Agent header(參考 build_memory.py 的 PACK_URL 常數,那裡是對的)。
@@ -489,6 +493,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-10-02 | **使用者要求「全部延長、到期日同一天」,六個排程全刪重建**(`4ee4ced7` / `4f4a2f35` / `ca7366bc` / `2a5d3305` / `b4cd8f36` / `05ebf1da`,**統一約 10-09 到期**;先前五個約 10-05、收件匣約 10-06,已對齊)。prompt 以本檔各節原文為準,並更新 GitHub Weekly 空轉天數(60 天)與 gooaye 上游停更天數(27 天) |
 | 2026-10-01 | 巡檢產出 2 篇(Whisper 1 支):**Why QQ** `KOAKRtBHecs` + **YAHA學堂** `imvTUmRoqK8`(無字幕,faster-whisper)→ 合併為新篇 ai-industry/openai-devday-2026-dots-sol-codex.md(同一事件,YAHA 的 dots 教學併為 §8);**Caleb Writes Code** `_xM8scs4_x4` → 新篇 llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md(英文自動字幕一次成功)。✅ DevDay 對照 Simon Willison 現場紀錄核實:12 億週活、Sol $2/$10/快取 $0.10、Ultrafast 8 倍/6 倍價、Pro 500 為 Plus 25 倍、8–16 小時任務零介入 35%;📌 補充 **Codex CLI 早在 2025 年已開源**,這次重點是官方確認 dots 跑在同一套 harness。✅ Caleb 那篇對照 vLLM 論文(浪費 60–80%、分頁後 <4%)與 SGLang 論文(最多 6.4 倍)。⚠️ Caleb 該片含 Zapier 業配,已標註。其餘頻道無新片 |
 | 2026-09-30 | 巡檢產出 1 篇(官方字幕,零 Whisper):**Why QQ** `s87lkkWk9rQ` → 新篇 ai-industry/claude-sonnet-5-5-release-effort-migration.md。✅ **已讀 Anthropic 官方公告、遷移指南與 Simon Willison 原文核實**:價格、速度、Terminal-Bench/OSWorld/Chartography/GDPval/FrontierCode/CursorBench、五個 400 破壞性變更、2026-08-31 帳號規則、圖片 token 2.5 倍、快取門檻 512 全部屬實。📌 **兩處補正**:①鵜鶘 max 檔失敗是**輸出 token 用完**(`max_tokens` 含思考),不是「超時」;②`between_tools` 模式下 per-message effort 與現行檔位不同會回 400,**逐輪換檔要用 adaptive thinking**。❓ SWE-Bench Pro、AutomationBench、HealthBench 數字未在官方頁找到。⚠️ **順延 2 支**:YAHA學堂 `o1EQ5wezMyA`(自動字幕 429)、白白说 `0gtzVKkg3L0`(通用路線圖、導流)。同日 Gary Chen 新增 Opus 5.5 做宣傳片筆記。其餘頻道無新片 |
 | 2026-09-29 | 巡檢產出 1 篇增補(官方字幕,零 Whisper):**Why QQ** `zxxAl7Wc2g0` DHH Rails World 2026 開幕演講 → 併入 dhh-16-threads-bottleneck-migration.md §13。⭐⭐ **抓 DHH 官方演講英文字幕逐句核實**:退休宣告、現場約 5 人舉手、每年 3 萬行 vs 8 月 15 萬行、HEY Rust 後端 CPU −99%/記憶體 −95%/樹莓派、CLI 下週五、Omarchy 3:33→35 秒→實驗室 9 秒皆屬實;⚠️⚠️ **DHH 自己引用的 ATM 數字是錯的**——他說 1950 年代 3 萬櫃員→2010 年 4 萬,Bessen 研究是 1980 年代起約 50 萬→近 60 萬,且 ATM 大規模部署在 1970 年代後。⭐ 同意 Why QQ 的補充:HEY 省下的資源**主要來自架構改變(算繪移到客戶端)而非換成 Rust**。同日 Gary Chen 新增會員限定 `JctGH-SOYBA`(跳過)。其餘五頻道無新片 |
