@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-273_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-274_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -117,6 +117,7 @@ flowchart LR
 | **硅谷101(陳茜)** — 矽谷深度科技/商業訪談 | 2 | [SpaceX 崛起史](./knowledge/investing/equity-research/spacex-rise-history.md) · [田淵棟 RSI 與 AI 自進化](./knowledge/technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) |
 | **Debug Tuboshu** — AI 寫網站/前端 | 2 | [零程式碼做網站](./knowledge/technology/applied-ai/design/ai-website-building-claude-code.md) · [手搖飲看網站架構擴展](./knowledge/technology/system-design/scaling-web-architecture-bubble-tea.md) |
 | **邦妮區塊鏈 Bonnie Blockchain** — 加密與金融人物訪談 | 1 | [John D'Agostino:退休數學與散戶打不贏機構](./knowledge/investing/strategy/retirement-risk-math-john-dagostino-coinbase.md) |
+| **Tina Huang** — 資料科學與本地 AI 實作 | 1 | [每種尺寸硬體能跑的本地 AI](./knowledge/technology/llm-internals/inference/local-ai-every-hardware-size.md) |
 | **小白debug(Little white debug)** — AI 前沿玩法與工程視角 | 1 | [AI 沙箱新基建:microVM 與快照](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
 | **白白说大模型** — 大模型/Agent 原理 | 7 | [Agent 最該具備的 Skill](./knowledge/technology/ai-agents/applications/top-skills-for-agents.md) · [工具調用:FC→MCP→CLI](./knowledge/technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) · [2026 Agent 工程師能力與面試題](./knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) · [什麼樣的 Agent 專案能給履歷加分](./knowledge/technology/ai-agents/applications/agent-project-resume-enterprise-grade.md) · [7 種 Agent 架構選型](./knowledge/technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md) · [多 Agent 資料一致性與可靠性工程](./knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md) · [Milvus 架構拆解與 2.6 的三處改動](./knowledge/technology/system-design/milvus-architecture-vector-database.md) |
 | **AI随风** — AI 工具實測與工作流拆解 | 2 | [Superpowers vs Matt Skills 該刪誰](./knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) · [herdr:讓 Agent 互相指揮的終端 runtime](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
@@ -399,6 +400,7 @@ flowchart LR
 | [一層就夠了?RL 後訓練的收益集中在單一「中間層」](./knowledge/technology/llm-internals/architecture/rl-gains-concentrate-single-middle-layer.md) | 只訓練 1 個中間層即可追平/超過全參數 RL;層貢獻是預訓練內在屬性(跨資料/任務穩定);只訓中間層就贏全參數 |
 | [KV Cache:每個 LLM 背後那個看不見的把戲](./knowledge/technology/llm-internals/inference/kv-cache.md) | 穩定前綴 + 尾載查詢,推論便宜 10 倍;⭐⭐ **§10 增補「1M 上下文怎麼做出來」** —— 先分開算力與記憶體兩種成本,**GQA 砍記憶體(K/V 是 token 的穩定屬性、Q 才是這次的視角 ⇒ 64 頭分 4 組共享,降到 1/16,但算力一點沒少)**,**Sparse Attention 砍算力(GPT-2 第一層 softmax 絕大多數接近 0%)**;**DSA 逐 token 選 K=2048 vs MSA 逐 128-token 區塊、每 GQA 組 top-16、max-pool 給分、強制納入本地區塊、KL 對齊主分支真實注意力**;⚠️ **問題只是搬家:評分層仍要看過每一個 token ⇒ 塞垃圾進 1M 不會免費,還會稀釋 top-k 品質** |
 | [為什麼 temperature=0 還是每次答案不一樣:兇手是 batch size,不是浮點數](./knowledge/technology/llm-internals/inference/defeating-nondeterminism-batch-invariance.md) | ⭐ **推翻「併發+atomic add」的常見解釋**(前向傳播裡通常一個 atomic add 都沒有);真因是伺服器負載讓 batch size 浮動、kernel 換歸約策略;要改 RMSNorm/matmul/attention 三種 kernel(**attention 要固定 split-size 而非 split-count**);**temp=0 取樣 1000 次得 80 種答案、全在第 103 個 token 分歧**,修正後全一致,代價 1.6×;**on-policy RL 的 KL 從 0.001 降到精確為 0** |
+| [每一種尺寸的硬體能跑什麼本地 AI:從 32 KB 的 Arduino 到 8 張 H100(Tina Huang)](./knowledge/technology/llm-internals/inference/local-ai-every-hardware-size.md) | ⭐⭐⭐ **容量 ≠ 速度**:樹莓派與 iPhone 同為 8 GB,差在頻寬與 GPU/NPU;廚房比喻(RAM=備料台、匯流排=輸送帶、GPU=幫廚);LLM 卡頻寬、生成類卡算力;⭐ 粗估公式 可用 RAM×0.75÷0.6≈可跑參數(📌 隱含約 4-bit 量化);AMD 128GB 容量大頻寬小、4090 相反、8×H100 兩者兼得;⚠️ 含 Crusoe 業配 |
 | [推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題(Caleb Writes Code)](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) | ⭐ 2023 年需求轉向自迴歸 LLM;llama.cpp 用 mmap 與記憶體階層跑在消費級硬體、vLLM 用 PagedAttention 管 KV cache(✅ 論文:舊系統浪費 60–80%)、SGLang 用 RadixAttention 共用前綴(✅ 最多 6.4 倍,看負載)、TensorRT-LLM 榨乾 NVIDIA 硬體;⭐⭐ 後來功能趨同;含選型表與 KV cache 估算;⚠️ 含 Zapier 業配 |
 | [Jalapeño 首批跑分:推理晶片的評判標準換了,以及怎麼讀廠商自己給的數字](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) | 評判座標由 TFLOPS 換成**既定功耗與延遲下的 Token 交付率**;三組每瓦吞吐 1.5–1.9×、端到端延遲降 43–72.5%;⭐⭐ **跑分邊界才是重點**:圖表按 **700W 額定歸一化但實測只跑到 550W**、`mixed` 混算輸入輸出**不等於體感速度**、限定 8K/1K 且未開推測解碼、**未含 Vera Rubin**;⭐⭐⭐ 定性精準——**「第三方現場核驗過的廠商成績」,不具備外部獨立復現條件**(到場核驗 ≠ 獨立測試 ≠ 可復現);Prefill 算力密集 → Decode 記憶體密集,解法是 KV Cache 留本地;⚠️ **能效變高不等於機房省電(傑文斯效應)**;核實補正:官方延遲區間 1.7–3.6×、高互動負載達 2.1–4.1×、對手為 1,200/1,400W 級 |
 | [RTK(Rust Token Killer)深入研究](./knowledge/technology/llm-internals/inference/rtk-rust-token-killer-report.md) | 在 I/O 邊界確定性壓縮工具輸出,省 60–90% token |

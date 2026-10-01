@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**274 個 YouTube video id**、**42 個 arXiv 編號**,涵蓋 **241 篇**筆記。
+> 統計:**275 個 YouTube video id**、**43 個 arXiv 編號**,涵蓋 **242 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(274 部,依 video id 排序)
+## YouTube(275 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -224,6 +224,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `RAFQc6zHdXE` | Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生 subagent | [knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md](./knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) |
 | `rKV5JcALQoQ` | J-Space:Claude 內心那層「說得出口的思考」——用全域工作空間理論解讀模型意識 | [knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md](./knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md) |
 | `rLNGSDYkK-w` | Claude Code Hooks 完全指南:CLAUDE.md 是提醒紙條,Hook 才是自動門 | [knowledge/technology/claude-code/claude-code-hooks-complete-guide.md](./knowledge/technology/claude-code/claude-code-hooks-complete-guide.md) |
+| `rPGJhrunbxo` | 每一種尺寸的硬體能跑什麼本地 AI:從 32 KB 的 Arduino 到 8 張 H100 | [knowledge/technology/llm-internals/inference/local-ai-every-hardware-size.md](./knowledge/technology/llm-internals/inference/local-ai-every-hardware-size.md) |
 | `rv9aZRdtxsU` | MCP 無狀態化怎麼遷移:十分鐘自查、三個真正危險的點,與「狀態在哪裡,責任就在哪裡」 | [knowledge/technology/ai-agents/foundations/mcp-stateless-migration-guide.md](./knowledge/technology/ai-agents/foundations/mcp-stateless-migration-guide.md) |
 | `S-sYlFiGFv8` | Claude Code 團隊自己怎麼用 Claude Code:從盯 tool call 到只給目標 | [knowledge/technology/claude-code/claude-code-team-how-they-work.md](./knowledge/technology/claude-code/claude-code-team-how-they-work.md) |
 | `s3yiXTxueoI` | Harness / Loop / Graph 三層排障地圖:把「Agent 又抽風了」翻譯成可執行的排查工單 | [knowledge/technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md](./knowledge/technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) |
@@ -305,7 +306,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(42 篇,依編號排序)
+## arXiv(43 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -317,6 +318,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2112.10752` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
 | `2207.12598` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
 | `2210.08277` | 29 個邏輯閘玩通馬里奧:沒有浮點數、沒有矩陣乘法的「AI」是什麼 | [knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md](./knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md) |
+| `2305.07759` | 每一種尺寸的硬體能跑什麼本地 AI:從 32 KB 的 Arduino 到 8 張 H100 | [knowledge/technology/llm-internals/inference/local-ai-every-hardware-size.md](./knowledge/technology/llm-internals/inference/local-ai-every-hardware-size.md) |
 | `2307.03172` | 一段提示詞把 Gemini CLI 變成自動化 Agent:拆成輸入/輸出/過程,再讓 AI 記「工作筆記」 | [knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md](./knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md) |
 | `2309.06180` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
 | `2310.06824` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
