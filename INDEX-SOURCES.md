@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**282 個 YouTube video id**、**53 個 arXiv 編號**,涵蓋 **246 篇**筆記。
+> 統計:**289 個 YouTube video id**、**55 個 arXiv 編號**,涵蓋 **248 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(282 部,依 video id 排序)
+## YouTube(289 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -121,6 +121,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `EmwW59QMadY` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | `EOg4gY0Yln0` | 讓訊號自己交易:Man Group 用 Claude Skills 治理打通系統化交易 | [knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md](./knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md) |
 | `eorQWlYarJY` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
+| `EUYt0Q-hPeo` | Vibe Coding 全解:模型、Agent、工作流三層,以及「需求 → 設計 → 任務 → 子 Agent」實戰流程(程序员老王) | [knowledge/technology/ai-productivity/vibe-coding-stack-model-agent-workflow.md](./knowledge/technology/ai-productivity/vibe-coding-stack-model-agent-workflow.md) |
 | `eWkZlS5JMD4` | 駭客怎麼騙 AI:5.5 種 Prompt Injection 技巧與防禦實戰 | [knowledge/technology/ai-safety/prompt-injection-5-techniques-defenses.md](./knowledge/technology/ai-safety/prompt-injection-5-techniques-defenses.md) |
 | `EWvNQjAaOHw` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
 | `ExWlrAQrfdc` | 非技術者的資安入門:用五個問題做威脅建模,再交給 Codex Security 掃描 | [knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md](./knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md) |
@@ -131,6 +132,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `FJxgz5pN4wU` | Pi Agent:用「留白」的極簡 harness,對沖 agent 框架的易變 | [knowledge/technology/ai-agents/foundations/pi-agent-minimal-harness.md](./knowledge/technology/ai-agents/foundations/pi-agent-minimal-harness.md) |
 | `FmIUUT-TXHs` | 別跟單一模型「結婚」:Model Agnostic 才是槓桿位置 | [knowledge/technology/ai-productivity/model-agnostic-ai-workflow.md](./knowledge/technology/ai-productivity/model-agnostic-ai-workflow.md) |
 | `FmzFqM-kf0A` | AI 算力與 Token 經濟學:當「省錢神話」撞上天價帳單 | [knowledge/technology/ai-industry/ai-compute-token-economics.md](./knowledge/technology/ai-industry/ai-compute-token-economics.md) |
+| `FOHyospzUd4` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `FQ81w5UO9u8` | 你可能用錯 AI 了:Processing vs Thinking 與三層 token 效率陷阱 | [knowledge/technology/ai-productivity/context-engineering-processing-vs-thinking.md](./knowledge/technology/ai-productivity/context-engineering-processing-vs-thinking.md) |
 | `FrAAxWbxSyE` | Claude 5 時代的 Context Engineering 新規則:Claude Code 刪掉 80% 系統提示詞,評測卻沒掉 | [knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md](./knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
 | `FvWfAgNyEWc` | 硬碟陣列 RAID 一次看懂:RAID 0/1/5/6 原理,以及 RAID 5 為什麼「不安全」的真相 | [knowledge/technology/system-design/raid-explained-why-raid5-unsafe.md](./knowledge/technology/system-design/raid-explained-why-raid5-unsafe.md) |
@@ -190,12 +192,14 @@ grep -rlF --include=*.md -- "<id>" .
 | `Mhq6IS2vSQM` | ChatGPT 瀏覽器擴充功能:借用你「已經登入」的瀏覽器,在背景跨分頁做事 | [knowledge/technology/ai-productivity/chatgpt-browser-extension-agent.md](./knowledge/technology/ai-productivity/chatgpt-browser-extension-agent.md) |
 | `MlhsoWmyEKE` | 落地競賽:OpenAI 與 Anthropic 同日進軍企業導入,承認「只有模型沒用」 | [knowledge/technology/ai-agents/applications/enterprise-ai-adoption-race.md](./knowledge/technology/ai-agents/applications/enterprise-ai-adoption-race.md) |
 | `mnuk1GkJxDU` | 股癌選股心法:籌碼/技術都是工具,本質是「選對題材的好股」 | [knowledge/investing/strategy/gooaye-stock-picking-philosophy.md](./knowledge/investing/strategy/gooaye-stock-picking-philosophy.md) |
+| `mpGiFuRYrDk` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `msHyYioAyNE` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `MWNuu9m93dk` | 多 Agent 系統的資料一致性:為什麼數字越傳越亂,以及四層工程解法 | [knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md](./knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md) |
 | `nlNDzop6tBw` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [knowledge/technology/claude-code/output-style-communication-not-intelligence.md](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) |
 | `nLZ-C7bbZzs` | PLTR 財報後大漲 30%:市場真正在交易的不是業績,是「增速見頂」風險的釋放 | [knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md](./knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md) |
 | `NYFGCESmikA` | DHH 的 16 條並行 Agent:當寫程式幾乎免費,瓶頸遷移到哪裡去了 | [knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md](./knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md) |
 | `oBy94l_48CQ` | 2026 年 Agent 開發工程師要什麼能力:從 Demo 到生產系統的四塊拼圖(附面試題與標準答案) | [knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md](./knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) |
+| `OCcHTUiNnGI` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `OcKl98ZQbMQ` | AI 資本圈的派系與捆綁:同級競爭、不同級綁在一起,以及「融了 1,100 億卻立刻欠出 1 兆」 | [knowledge/investing/equity-research/ai-capital-web-factions-and-mutual-binding.md](./knowledge/investing/equity-research/ai-capital-web-factions-and-mutual-binding.md) |
 | `ou9SC0Z_CtI` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `oW4hgB1vIoY` | 用 Python 做強化學習交易機器人:在 EUR/USD 外匯訓練 AI Agent | [knowledge/investing/ai-assisted/rl-trading-bot-forex.md](./knowledge/investing/ai-assisted/rl-trading-bot-forex.md) |
@@ -206,6 +210,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `pGYrWsNQ8A0` | Attention Residuals:把注意力「轉 90 度」用在網路深度上 | [knowledge/technology/llm-internals/architecture/attention-residuals.md](./knowledge/technology/llm-internals/architecture/attention-residuals.md) |
 | `pJR6I9_06e4` | Codex 2.0 新功能實戰:懸停導航 + Fork、側邊對話/引導、Record & Replay、手機遠端操控 | [knowledge/technology/ai-productivity/codex-2-record-replay-mobile-remote.md](./knowledge/technology/ai-productivity/codex-2-record-replay-mobile-remote.md) |
 | `pmWgyZM7mB8` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
+| `PoQLjK2hlZk` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `PpeCur6fEXc` | 讓 AI agent 連續跑 27 小時:/goal 功能與「Evaluation 才是關鍵」 | [knowledge/technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md](./knowledge/technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md) |
 | `pR7teM31_wI` | AI 學會了裝傻和欺騙:為什麼現有 Safety Evaluation 跟不上大模型 | [knowledge/technology/ai-safety/safety-evaluation-crisis.md](./knowledge/technology/ai-safety/safety-evaluation-crisis.md) |
 | `pS_P2P0bO48` | RSA-260 被分解:一條推文、一次除法,全世界同時確認 —— 以及「可驗證性是一種設計」 | [knowledge/technology/system-design/rsa-260-factored-verifiability-as-design.md](./knowledge/technology/system-design/rsa-260-factored-verifiability-as-design.md) |
@@ -220,6 +225,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `QAhJRYua62k` | 把 Hermes 爆改成「主 Agent 中樞」:統一調度 SubAgent 與 Claude / Gemini / Codex | [knowledge/technology/ai-agents/applications/hermes-main-agent-orchestration.md](./knowledge/technology/ai-agents/applications/hermes-main-agent-orchestration.md) |
 | `qbReD1cGykQ` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
 | `QHHTcYBEIEo` | 別追「最強 AI」:用一張分工地圖建立你的多工具工作流 | [knowledge/technology/ai-productivity/multi-tool-ai-workflow.md](./knowledge/technology/ai-productivity/multi-tool-ai-workflow.md) |
+| `qL6ca-mIeMI` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `qnIlKvW00Sk` | AI Agent 最大的缺陷:它沒有「世界地圖」——用本體論給大模型套上邏輯護欄 | [knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
 | `QuQ2FOznK18` | Impeccable 深度解析:AI 做的網站為什麼有「AI 味」,以及一個 skill 怎麼把設計師流程教給 AI | [knowledge/technology/applied-ai/design/impeccable-frontend-design-skill-ai-slop.md](./knowledge/technology/applied-ai/design/impeccable-frontend-design-skill-ai-slop.md) |
 | `QwOUDPiBzfU` | 孫慶龍的「EPS × 本益比五檔價」估值法 + 護國群山、成長股複利 | [knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md](./knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md) |
@@ -298,6 +304,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `yOExQX0j19g` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
 | `YRZnUoGrsh0` | 五個開源英語學習專案:從聽力訓練流程到「把每天看的英文網頁變成教材」 | [knowledge/technology/applied-ai/language-learning/five-open-source-english-learning-tools.md](./knowledge/technology/applied-ai/language-learning/five-open-source-english-learning-tools.md) |
 | `Ysn-gNHi5o8` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
+| `ytT4-lGEf6A` | Vibe Coding 全解:模型、Agent、工作流三層,以及「需求 → 設計 → 任務 → 子 Agent」實戰流程(程序员老王) | [knowledge/technology/ai-productivity/vibe-coding-stack-model-agent-workflow.md](./knowledge/technology/ai-productivity/vibe-coding-stack-model-agent-workflow.md) |
 | `yVvW0NaWe40` | 現在正在主導的 5 個程式設計概念 | [knowledge/technology/system-design/dominating-programming-concepts.md](./knowledge/technology/system-design/dominating-programming-concepts.md) |
 | `Yzpx4Xaigms` | Task Decomposition:把「給人看的 SOP」拆成「agent 跑得動的工作流」 | [knowledge/technology/ai-agents/foundations/task-decomposition-agentic-workflow.md](./knowledge/technology/ai-agents/foundations/task-decomposition-agentic-workflow.md) |
 | `Z-4AsgTYv2c` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
@@ -313,11 +320,13 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(53 篇,依編號排序)
+## arXiv(55 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
 | `1301.3781` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
+| `1706.03762` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
+| `1810.04805` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `2002.05202` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `2006.11239` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
 | `2007.00072` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
