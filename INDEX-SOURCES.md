@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**280 個 YouTube video id**、**53 個 arXiv 編號**,涵蓋 **244 篇**筆記。
+> 統計:**282 個 YouTube video id**、**53 個 arXiv 編號**,涵蓋 **246 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(280 部,依 video id 排序)
+## YouTube(282 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -110,6 +110,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `doc0NQas32U` | 雙底雙頂:看的不是形態像不像,而是動能有沒有衰減 | [knowledge/investing/technical-analysis/double-top-bottom-momentum.md](./knowledge/investing/technical-analysis/double-top-bottom-momentum.md) |
 | `dVRFSzbLR7M` | C++ 演進史:複雜性詛咒、記憶體危機,與 AI 時代的絕地反擊 | [knowledge/technology/dev-tools/cpp-evolution-complexity-ai-era.md](./knowledge/technology/dev-tools/cpp-evolution-complexity-ai-era.md) |
 | `dwGn39M5oX8` | Claude Code 2026 功能演進:從「權限提示」到「agent 艦隊」的半年軌跡 | [knowledge/technology/claude-code/claude-code-2026-feature-timeline.md](./knowledge/technology/claude-code/claude-code-2026-feature-timeline.md) |
+| `E7qG6LvyEnc` | 英偉達的護城河究竟是什麼?從「CPU 為什麼跑不動大模型」一路算到 CUDA 軟體生態 | [knowledge/technology/ai-industry/nvidia-moat-memory-bandwidth-cuda-software.md](./knowledge/technology/ai-industry/nvidia-moat-memory-bandwidth-cuda-software.md) |
 | `E8Bx9OlpmdM` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [knowledge/technology/claude-code/output-style-communication-not-intelligence.md](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) |
 | `E8Mju53VB00` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `Ea1XvVD7GTY` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
@@ -249,6 +250,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `tGp6Ns9GtSU` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
 | `thIPYsSsuIs` | 推理成本腰斬的背後:GPT-5.6 Sol 讓模型自己重寫核心,與 Luna 降價 80% 的算盤 | [knowledge/technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md](./knowledge/technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) |
 | `TN3ZrSQ4DTc` | AI 旅遊規劃組合技:NotebookLM + Gemini + Google My Maps 從 0 到 100 | [knowledge/technology/ai-productivity/ai-travel-planning-notebooklm-gemini.md](./knowledge/technology/ai-productivity/ai-travel-planning-notebooklm-gemini.md) |
+| `TtZ0WM-91GM` | DLSS 與 FSR 到底做了什麼:從「猜細節」到「用時間換細節」的遊戲畫面 AI 放大 | [knowledge/technology/machine-learning/dlss-fsr-ai-upscaling-explained.md](./knowledge/technology/machine-learning/dlss-fsr-ai-upscaling-explained.md) |
 | `tU_1u8YyVLI` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
 | `tUI3ITjo2Bw` | AI 是威脅還是機遇?軟體股多點開花的選股邏輯 | [knowledge/investing/equity-research/ai-software-stocks-usage-based.md](./knowledge/investing/equity-research/ai-software-stocks-usage-based.md) |
 | `U9jFYSaalIc` | 7 種主流 Agent 架構選型:從單槍匹馬到工業流水線,以及「多加一層」的真實代價 | [knowledge/technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md](./knowledge/technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md) |
