@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**289 個 YouTube video id**、**55 個 arXiv 編號**,涵蓋 **248 篇**筆記。
+> 統計:**292 個 YouTube video id**、**60 個 arXiv 編號**,涵蓋 **250 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(289 部,依 video id 排序)
+## YouTube(292 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -61,6 +61,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `4t8QcDdrL6Y` | AI 時代怎麼「讀」程式碼:6 個技巧(KodeKloud) | [knowledge/technology/ai-productivity/reading-code-ai-era-6-techniques.md](./knowledge/technology/ai-productivity/reading-code-ai-era-6-techniques.md) |
 | `5XeVLt9WejM` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |
 | `6bvEcpm72W0` | 給非技術人員的部署:為什麼 localhost 傳給朋友打不開,以及三個問題選平台 | [knowledge/technology/ai-productivity/deployment-for-vibe-coders-platform-selection.md](./knowledge/technology/ai-productivity/deployment-for-vibe-coders-platform-selection.md) |
+| `6LLVoqhNfHc` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
 | `6Ly6wZUsESA` | Anthropic 第四份威脅情報報告:自我改寫的惡意軟體、vibe hacking、API key 成為攻擊目標,與非法蒸餾 | [knowledge/technology/ai-safety/anthropic-threat-intelligence-2026-09.md](./knowledge/technology/ai-safety/anthropic-threat-intelligence-2026-09.md) |
 | `6OBtO9niT00` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `7_UKPsakszU` | 放量突破前高為什麼一追就被套:四層證據判斷真假突破與破底翻 | [knowledge/investing/technical-analysis/breakout-four-layers-of-evidence.md](./knowledge/investing/technical-analysis/breakout-four-layers-of-evidence.md) |
@@ -181,6 +182,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `l38ceFOWOAE` | 萬達怎麼一步步賣掉自己:兩份對賭、四次遞表失敗,與「名字還在、公司換人」 | [knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md](./knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md) |
 | `L5LLzXrKFIY` | 史上最強 AI 模型只活了 72 小時:Claude Fable 事件與「別把流程綁死在單一模型」 | [knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md](./knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md) |
 | `ll-OBB-iswM` | 「Loop Engineering」是名詞詐騙嗎?一個反方吐槽視角 | [knowledge/technology/ai-agents/foundations/loop-engineering-buzzword-critique.md](./knowledge/technology/ai-agents/foundations/loop-engineering-buzzword-critique.md) |
+| `lnneAfJqd9M` | Skill 實戰:從製作到維護一份「agent 會自動觸發、產出穩定、人類維護得了」的 skill | [knowledge/technology/ai-agents/applications/building-claude-skills.md](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
 | `LPv1KfUXLCo` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `LPZh9BOjkQs` | 大型語言模型,簡單講(3Blue1Brown) | [knowledge/technology/llm-internals/architecture/llm-explained-3blue1brown.md](./knowledge/technology/llm-internals/architecture/llm-explained-3blue1brown.md) |
 | `LRJV5lcsnfA` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
@@ -273,6 +275,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `W973FsTECa8` | to-tickets 深入實操:把 spec 拆成 agent「能穩定開工、單獨驗收、可並行」的工單 | [knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) |
 | `Wah1vdFE92k` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | `wexH7AueOeA` | NVIDIA RTX Spark(GB10 超級晶片)技術解析:最適合本地 AI 推理的 SoC 之一? | [knowledge/technology/ai-industry/rtx-spark-gb10-soc.md](./knowledge/technology/ai-industry/rtx-spark-gb10-soc.md) |
+| `whe268MthvE` | 多頭注意力(Multi-Head Attention)用人話講:「語法表、需求表、內容表」就是 K、Q、V(程序员老王) | [knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md](./knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md) |
 | `wj7mHCviMvs` | 15 分鐘學完 CLAUDE.md:三個位置、做減法的三問、做加法的五問、以及怎麼「修剪」 | [knowledge/technology/claude-code/claude-md-from-zero-to-mastery.md](./knowledge/technology/claude-code/claude-md-from-zero-to-mastery.md) |
 | `WOMdoiy9Qas` | Opus 4.7 不是更強的 4.6,是另一種模型:四個該跟著升級的工作流 | [knowledge/technology/ai-productivity/opus-4-7-workflow-upgrades.md](./knowledge/technology/ai-productivity/opus-4-7-workflow-upgrades.md) |
 | `wpb-DrbhEiY` | SpaceX 為什麼這時間點上市?Musk 在 JP Morgan 投資人訪談說了什麼 | [knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md](./knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md) |
@@ -320,16 +323,19 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(55 篇,依編號排序)
+## arXiv(60 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
 | `1301.3781` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
+| `1706.03762` | 多頭注意力(Multi-Head Attention)用人話講:「語法表、需求表、內容表」就是 K、Q、V(程序员老王) | [knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md](./knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md) |
 | `1706.03762` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `1810.04805` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `2002.05202` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `2006.11239` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
 | `2007.00072` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
+| `2010.11929` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
+| `2103.00020` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
 | `2103.00020` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
 | `2110.14168` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2112.00114` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
@@ -341,6 +347,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2207.12598` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
 | `2210.03629` | 用 Skywork 從查資料到做簡報:AI 研究助理該看的三個能力(溯源、自訂信源、單頁重生) | [knowledge/technology/ai-productivity/skywork-research-report-to-slides.md](./knowledge/technology/ai-productivity/skywork-research-report-to-slides.md) |
 | `2210.08277` | 29 個邏輯閘玩通馬里奧:沒有浮點數、沒有矩陣乘法的「AI」是什麼 | [knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md](./knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md) |
+| `2304.08485` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
 | `2305.07759` | 每一種尺寸的硬體能跑什麼本地 AI:從 32 KB 的 Arduino 到 8 張 H100 | [knowledge/technology/llm-internals/inference/local-ai-every-hardware-size.md](./knowledge/technology/llm-internals/inference/local-ai-every-hardware-size.md) |
 | `2305.20050` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2307.03172` | 一段提示詞把 Gemini CLI 變成自動化 Agent:拆成輸入/輸出/過程,再讓 AI 記「工作筆記」 | [knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md](./knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md) |
@@ -353,6 +360,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2406.04692` | Mixture-of-Agents(MoA):用「分層提議 + 聚合」讓多個 LLM 互相加成,純開源打贏 GPT-4o | [knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md](./knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md) |
 | `2406.04692` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `2406.11717` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
+| `2412.19437` | 多頭注意力(Multi-Head Attention)用人話講:「語法表、需求表、內容表」就是 K、Q、V(程序员老王) | [knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md](./knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md) |
 | `2501.12948` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
 | `2507.19457` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md](./knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md) |
 | `2508.01191` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
