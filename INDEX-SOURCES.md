@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**295 個 YouTube video id**、**64 個 arXiv 編號**,涵蓋 **252 篇**筆記。
+> 統計:**297 個 YouTube video id**、**67 個 arXiv 編號**,涵蓋 **254 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(295 部,依 video id 排序)
+## YouTube(297 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -80,6 +80,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `_oDISo3B3xw` | 美債史詩級拋售:真正的變量不是 40 兆債務,是新任聯準會主席的「溝通方式」 | [knowledge/investing/strategy/us-treasury-selloff-warsh-communication-shift.md](./knowledge/investing/strategy/us-treasury-selloff-warsh-communication-shift.md) |
 | `_RD3iFDhuzs` | Karpathy 訪談:Software 3.0、Jagged Intelligence 與 Agentic Engineering | [knowledge/technology/ai-agents/foundations/karpathy-software-3-0.md](./knowledge/technology/ai-agents/foundations/karpathy-software-3-0.md) |
 | `_xM8scs4_x4` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
+| `aHAmg_1q41M` | 用 Hugging Face Transformers 在本機跑 DeepSeek-R1 蒸餾模型:載入、tokenizer、padding、chat template 一次講清(程序员老王) | [knowledge/technology/llm-internals/inference/transformers-local-deepseek-r1-distill.md](./knowledge/technology/llm-internals/inference/transformers-local-deepseek-r1-distill.md) |
 | `ajtCT6jl1Nw` | Viking Holdings(VIK):碼頭權 × 高齡高淨值客群的雙層護城河,與那場被低估的歐洲枯水 | [knowledge/investing/equity-research/viking-holdings-river-cruise-moat.md](./knowledge/investing/equity-research/viking-holdings-river-cruise-moat.md) |
 | `aR97E7aKEgg` | Matt Pocock 的 AI 開發 skills 全拆解:最紅的 skill 只有五行字,強在哪? | [knowledge/technology/ai-agents/applications/matt-pocock-skills-teardown.md](./knowledge/technology/ai-agents/applications/matt-pocock-skills-teardown.md) |
 | `atqcAb7MFAM` | 給非技術人員的 Git / GitHub:Vibe Coding 必學的基礎技能 | [knowledge/technology/ai-productivity/git-github-for-vibe-coders.md](./knowledge/technology/ai-productivity/git-github-for-vibe-coders.md) |
@@ -159,6 +160,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `Hnf1ExYg3M8` | SpaceX 為什麼這時間點上市?Musk 在 JP Morgan 投資人訪談說了什麼 | [knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md](./knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md) |
 | `hR5ephowvLM` | AI Agent 工具調用一次講清:從 ReAct → Function Calling → MCP → CLI | [knowledge/technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md](./knowledge/technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) |
 | `HyHKizkVuVM` | Skill 不是能力,是能力的施工圖:Agent 交不出活的三層工程棧「跑 / 做 / 驗」 | [knowledge/technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md](./knowledge/technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md) |
+| `hZ6fSjPGQWM` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
 | `I-PMiyYZkrs` | 你以為健康,其實天天慢性發炎:四個敵人與四個對策 | [knowledge/health/wellness/chronic-inflammation-four-enemies.md](./knowledge/health/wellness/chronic-inflammation-four-enemies.md) |
 | `I3bnBM4vNnY` | LLMentalist 效應:AI 像通靈師一樣「冷讀」你,以及驗證器能管到哪裡為止 | [knowledge/technology/ai-productivity/llmentalist-effect-cold-reading-and-verifiers.md](./knowledge/technology/ai-productivity/llmentalist-effect-cold-reading-and-verifiers.md) |
 | `ib74sLgjIBM` | 用 Claude 蓋一個「會自我改進」的知識庫:三個資料夾 + 一個 CLAUDE.md + 五步驟 | [knowledge/technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md](./knowledge/technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md) |
@@ -326,7 +328,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(64 篇,依編號排序)
+## arXiv(67 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -341,6 +343,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2010.11929` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
 | `2103.00020` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
 | `2103.00020` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
+| `2106.09685` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
 | `2110.14168` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2112.00114` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2112.10752` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
@@ -353,6 +356,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2210.08277` | 29 個邏輯閘玩通馬里奧:沒有浮點數、沒有矩陣乘法的「AI」是什麼 | [knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md](./knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md) |
 | `2304.08485` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
 | `2305.07759` | 每一種尺寸的硬體能跑什麼本地 AI:從 32 KB 的 Arduino 到 8 張 H100 | [knowledge/technology/llm-internals/inference/local-ai-every-hardware-size.md](./knowledge/technology/llm-internals/inference/local-ai-every-hardware-size.md) |
+| `2305.14314` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
 | `2305.20050` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2307.03172` | 一段提示詞把 Gemini CLI 變成自動化 Agent:拆成輸入/輸出/過程,再讓 AI 記「工作筆記」 | [knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md](./knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md) |
 | `2309.06180` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
@@ -368,6 +372,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2412.19437` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
 | `2412.19437` | 多頭注意力(Multi-Head Attention)用人話講:「語法表、需求表、內容表」就是 K、Q、V(程序员老王) | [knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md](./knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md) |
 | `2501.12948` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
+| `2505.09388` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
 | `2507.19457` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md](./knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md) |
 | `2508.01191` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2509.03505` | LimiX:用「遮罩聯合分布」打造的結構化資料(表格)基礎模型 | [knowledge/technology/machine-learning/limix-tabular-foundation-model.md](./knowledge/technology/machine-learning/limix-tabular-foundation-model.md) |
