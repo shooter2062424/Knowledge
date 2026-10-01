@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**278 個 YouTube video id**、**53 個 arXiv 編號**,涵蓋 **244 篇**筆記。
+> 統計:**280 個 YouTube video id**、**53 個 arXiv 編號**,涵蓋 **244 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(278 部,依 video id 排序)
+## YouTube(280 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -86,6 +86,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `B91bZL8wcAI` | 什麼是 AI Harness?兩種「harness」的差別 | [knowledge/technology/ai-agents/foundations/ai-harness-explained.md](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) |
 | `BAfRVpKIxZ4` | 交易的「贏家數學」:四個核心概念,以及一份完整的數學學習路線圖 | [knowledge/investing/strategy/trading-math-expectancy-variance-risk.md](./knowledge/investing/strategy/trading-math-expectancy-variance-risk.md) |
 | `bBMp5tLxShQ` | Shopify Helix:用「檢查點 + 四道關卡」讓 AI 寫完的東西過得了關,以及怎麼在 Claude Code 裡自己搭一套 | [knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md](./knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md) |
+| `Bhe3uhfEK6E` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
 | `bhfBWHPYC-I` | 把安全審計當流程工程做:Cloudflare 開源的 security-audit skill,與「記帳比聰明重要」 | [knowledge/technology/ai-agents/applications/cloudflare-security-audit-skill-pipeline.md](./knowledge/technology/ai-agents/applications/cloudflare-security-audit-skill-pipeline.md) |
 | `BhHMGRcbPkQ` | 為什麼 Anthropic 工程師棄 Markdown 改用 HTML:當「理解」變成真正的瓶頸 | [knowledge/technology/ai-productivity/anthropic-html-work-pages.md](./knowledge/technology/ai-productivity/anthropic-html-work-pages.md) |
 | `BkoCVZJcRHY` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
@@ -137,6 +138,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `gC76aeibdFA` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
 | `gcCTxeLA6Mg` | NVIDIA N1X 能撞開 x86 四十年的城牆嗎?三個變量決定成敗 | [knowledge/technology/ai-industry/nvidia-n1x-vs-x86.md](./knowledge/technology/ai-industry/nvidia-n1x-vs-x86.md) |
 | `gD_so3Nc7Y0` | 當沖有技巧嗎?紐約證交所傳奇交易員 Peter Tuchman 的 40 年心法 | [knowledge/investing/technical-analysis/peter-tuchman-day-trading.md](./knowledge/investing/technical-analysis/peter-tuchman-day-trading.md) |
+| `gfhoJY2D4Jc` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | `gM5wm2x7fi8` | 美股狂熱會終結嗎?三大短期風險與「市場需要一個觸發點來解毒」 | [knowledge/investing/strategy/us-stocks-three-risks-detox-trigger.md](./knowledge/investing/strategy/us-stocks-three-risks-detox-trigger.md) |
 | `GrNbuWWJYiI` | 19 分鐘搞懂四個 AI Agent 熱詞:Harness、Loop、LLM Ops、Eval(一張圖串起記憶/RAG/Tracing) | [knowledge/technology/ai-agents/foundations/agent-harness-loop-llmops-eval-explained.md](./knowledge/technology/ai-agents/foundations/agent-harness-loop-llmops-eval-explained.md) |
 | `GzHfE50N8x4` | Google 五天 AI 開發課程 Day 1:從 Vibe Coding 到 Agentic Engineering 的完整心智模型 | [knowledge/technology/ai-agents/foundations/google-agentic-engineering-day1.md](./knowledge/technology/ai-agents/foundations/google-agentic-engineering-day1.md) |

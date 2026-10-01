@@ -3,6 +3,7 @@
 > 整理自兩支影片:
 > 1. YouTube 頻道 **AI隨風**〈AI超强终端herdr,让Agent互相通信,新手入门教程〉(2026-08-11,約 11.4 分鐘)
 > 2. YouTube 頻道 **Why QQ**〈多Agent瓶颈是人类注意力,是时候使用 Herdr了〉(2026-08-26,約 9.4 分鐘,官方 zh-Hans 字幕)—— 見 **§八**,補上完整物件模型、持久化的三種語意與選型判準
+> 3. YouTube 頻道 **程序员老王**〈Herdr VibeCoding最好的伴侣〉(2026-08-20,約 7 分鐘,無字幕以 faster-whisper 轉錄)—— 見 **§九**,一般使用者的上手體驗
 >
 > 依 CLAUDE.md 慣例,本文另**實地 clone 了 `herdrdev/herdr` 讀原始碼與官方文件核實**,並標出**三處與影片說法不同或影片沒講到的關鍵設計**。
 
@@ -452,6 +453,35 @@ Workspace: my-repo
 
 ---
 
+## 九、⭐ 給一般使用者的上手體驗:不用背快捷鍵的 tmux(2026-10-02 增補,來源:程序员老王)
+
+> **程序员老王**〈[Herdr VibeCoding最好的伴侣](https://www.youtube.com/watch?v=Bhe3uhfEK6E)〉(2026-08-20,約 7 分鐘;**無字幕,逐字稿以 CPU faster-whisper 轉錄**)。前幾節偏原理與原始碼,這支是**純操作體驗**,適合第一次接觸的人。
+
+### 9.1 它解決的痛點
+
+> 「開發時開了三個 Claude Code 視窗、四個後台伺服器、兩個在不同目錄執行命令的視窗……一大堆視窗堆滿桌面。有人推薦 tmux,結果得背十幾個快捷鍵,再折騰設定和外掛兩天。」
+
+### 9.2 操作重點(✅ 已對官方文件核對)
+
+| 功能 | 影片示範 | 核實 |
+|---|---|---|
+| **滑鼠操作** | 點加號新增 tab、右鍵選左右/上下分割、拖曳調整大小——「**不需要記任何快捷鍵組合**」 | ✅ 官方:「herdr is **mouse-first**:點 pane、拖邊框、右鍵選單分割與切換」 |
+| **快捷鍵也有** | 前綴 **Ctrl+B**,再按 `?` 看清單;例如 Ctrl+B → V 左右分割 | ✅ 官方明寫前綴為 Ctrl+B |
+| **Space(工作區)** | 想做無關的任務又不想讓畫面更亂 → 點 Space 區的 **New** 開全新工作區,切回原 Space 所有視窗都回來 | 📌 即本篇 §8 物件模型中的 workspace 層 |
+| **離開與恢復** | 選單的 Detach 或直接關掉視窗;**下次再執行 herdr,一切都回來** | ✅ 官方:detach / reattach 如預期運作 |
+| **SSH** | 連到遠端機器也能正常使用 | — |
+| ⭐ **Agent 清單** | 右下角列出正在跑的 agent(示範 Claude Code 與 pi);**綠色 = 閒置**,開始工作變「執行中」,**需要權限時變紅並發出提示音**,點一下直接跳過去 | ✅ 官方有 agent 清單與狀態;提示音本文在文件中未找到描述 |
+| **Skill** | 安裝官方 skill 後,可以叫 Claude Code「**用 herdr 左右分割,在右邊執行剛寫好的遊戲**」,而且 **Claude Code 能讀到那個分割視窗的輸出** | 📌 機制見本篇 §五 |
+| **外掛** | 影片說「才發布三個多月,已有 500 多個外掛」 | ⚠️ 官方文件只說明可以撰寫本機可執行的工作流外掛,**本文未找到 500 這個數字** |
+
+### 9.3 ⭐ 最實用的一個場景
+
+> 開發 FastAPI 這類伺服器程式時,**讓 Claude Code 用一個獨立分割視窗執行並測試服務**——你看得清楚,**Claude 也能讀那個視窗的內容,拿到測試時拋出的例外**。
+
+> 老王的結語:「它其實沒有什麼神奇的功能,但**許多小細節加起來**,確實給 AI 編程帶來不錯的體驗。」
+
+---
+
 ## 應用案例
 
 ### 案例 1|最小可用的三段式流水線
@@ -541,6 +571,7 @@ herdr 自己的 skill description 就寫得很保守:「**不要僅僅因為某�
 
 - [AI超强终端herdr,让Agent互相通信,新手入门教程 — AI隨風](https://www.youtube.com/watch?v=3ZVWhFI5bpw)(2026-08-11,約 11.4 分鐘)
 - [多Agent瓶颈是人类注意力,是时候使用 Herdr了 — Why QQ](https://www.youtube.com/watch?v=LRJV5lcsnfA)(2026-08-26,約 9.4 分鐘,官方 zh-Hans 字幕;§八 來源)
+- [Herdr VibeCoding最好的伴侣 — 程序员老王](https://www.youtube.com/watch?v=Bhe3uhfEK6E)(2026-08-20,約 7 分鐘,無字幕以 faster-whisper 轉錄;§九 來源)
 - [CLI reference — herdr 官方文件](https://herdr.dev/docs/cli-reference/)(§8.5 的 `agent explain` / `pane wait-output` 核實來源)
 - [Concepts — herdr 官方文件](https://herdr.dev/docs/concepts/)(§8.2 五層物件模型與狀態聚合的核實來源)
 - [Agent automation — herdr 官方文件](https://herdr.dev/docs/agent-automation/)、[Socket API — herdr 官方文件](https://herdr.dev/docs/socket-api/)

@@ -4,6 +4,7 @@
 > - **技術爬爬蝦 TechShrimp**〈[Pi 大道至簡,超越 Codex 和 Claude Code 的極簡 Agent,保姆級全攻略](https://www.youtube.com/watch?v=HhZcnM9tR7s)〉(2026-08-16,約 44.6 分鐘)
 > - ⭐ **畅的科技工坊**〈[Pi Agent 完整上手指南:輕量 AI Coding Agent、Extension、Package、Session Tree 實戰](https://www.youtube.com/watch?v=Wah1vdFE92k)〉(2026-08-20,約 32.5 分鐘,官方 zh-CN 字幕)—— **第六、六之二、七之二節的操作細節與第八節的沙箱更新來自此片**
 > - ⭐ **暮闲**〈[pi agent 最佳实践 | Harness Agent 定制全流程实战](https://www.youtube.com/watch?v=EmwW59QMadY)〉(2026-06-06,約 32 分鐘,無字幕)—— **第六之三節的擴充開發全流程來自此片**
+> - **程序员老王**〈[VibeCoding极简神器 Pi](https://www.youtube.com/watch?v=gfhoJY2D4Jc)〉(2026-08-13,約 2.3 分鐘,無字幕)—— **第十三節的「你好」字元數實測來自此片**
 > - Kelly Tsai(https://www.youtube.com/watch?v=7DyjFEzgVZ4)〈把AI Agent的功能全砍掉,反而表現更強?其實你只需要留這4個工具就夠!〉(2026-09-05,約 11.9 分鐘,無字幕) —— **第十二節的 Databricks 基準拆解、Terminal-Bench 反例與 OMP 對照來自此片**
 >
 > 依 CLAUDE.md 慣例,另**實地 clone `earendil-works/pi`(91.3K stars)讀原始碼與官方文件核實**,文中標出核實結果。
@@ -1014,6 +1015,23 @@ Pi 對「多」的警戒不只在自己的功能上,**也在專案治理上**:
 
 ---
 
+## 十三、⭐ 一句「你好」送出多少字?——程序员老王的實測對照(2026-10-02 增補)
+
+> **程序员老王**〈[VibeCoding极简神器 Pi](https://www.youtube.com/watch?v=gfhoJY2D4Jc)〉(2026-08-13,約 2.3 分鐘;**無字幕,逐字稿以 CPU faster-whisper 轉錄**)。很短的推薦片,但給了一組直觀的數字。
+
+| 項目 | 老王的實測(影片口述) |
+|---|---|
+| 在 **Claude Code** 輸入「你好」實際送給模型的內容 | ⚠️ **89,775 個字元、約 90 KB**——包含程式碼注意事項、記憶與上下文管理、skill 用法、執行環境資訊、**6 個子 agent 的用途、27 個工具的詳細描述** |
+| 其中一個他**從沒用過**的 Workflow 工具 | 說明就佔了**兩萬多字** |
+| **Pi** 預設送出的內容 | 約 **7,000 多個字元**(只有讀、寫、改檔、執行命令 4 個工具) |
+| Pi 的外掛市場 | 影片說已有 **5,000 多款**(⚠️ 本文未核實此數字) |
+
+> ⭐ 老王:「有時候真佩服 AI,居然能在**這麼一堆垃圾裡**精確定位到使用者的訊息……但這麼多資訊混在一起,**不僅提高產生幻覺的機率,花的可都是我的錢**。」
+
+📌 **對照本篇既有數據:** §一 依原始碼記錄 Pi 系統提示詞約 **1,000 token**,與老王的「7,000 多字元」量級一致(英文約 4 字元 = 1 token)。Claude Code 的 89,775 字元是**作者當時版本、當時啟用的工具與 skill 下的實測**,會隨版本與設定變動;要看自己的實際負擔,可參考 §十二 Kelly Tsai 那組 Databricks 基準的拆解方式。
+
+---
+
 ## 應用案例
 
 ### 案例 1|⭐ Steering vs Follow-up 的選擇時機
@@ -1129,6 +1147,8 @@ git add -A && git commit -m "before: <要嘗試的事>"
 ---
 
 ## 來源
+
+- [VibeCoding极简神器 Pi — 程序员老王](https://www.youtube.com/watch?v=gfhoJY2D4Jc)(2026-08-13,無字幕,逐字稿以 CPU faster-whisper 轉錄;§十三 來源)
 
 - [Pi 大道至簡,超越 Codex 和 Claude Code 的極簡 Agent,保姆級全攻略 — 技術爬爬蝦 TechShrimp](https://www.youtube.com/watch?v=HhZcnM9tR7s)(2026-08-16,約 44.6 分鐘)
 - ⭐ [Pi Agent 完整上手指南:輕量 AI Coding Agent、Extension、Package、Session Tree 實戰 — 畅的科技工坊](https://www.youtube.com/watch?v=Wah1vdFE92k)(2026-08-20,約 32.5 分鐘,**官方 zh-CN 字幕**) —— 第六節的 Extension/Package 之分、第六之二節的配置檔與工作模式、第七節的 AGENTS.md 層級與 trust 澄清、第八節的社群 sandbox extension 更新皆來自此片
