@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**294 個 YouTube video id**、**64 個 arXiv 編號**,涵蓋 **252 篇**筆記。
+> 統計:**295 個 YouTube video id**、**64 個 arXiv 編號**,涵蓋 **252 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(294 部,依 video id 排序)
+## YouTube(295 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -46,6 +46,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `1a1VXDdIyrk` | Harness Engineering 的演進:從 Prompt → Context → Harness(與 loop 架構) | [knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md](./knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md) |
 | `1SLbe0k6x4I` | 用 Claude Code + Jesse 做 AI 演算法交易:重點是「驗證流程」,不是那支策略 | [knowledge/investing/ai-assisted/ai-algo-trading-claude-jesse.md](./knowledge/investing/ai-assisted/ai-algo-trading-claude-jesse.md) |
 | `1VqKUrxR2C8` | AI 編程的三個致命錯覺(OpenCode 創辦人 Dax Raad) | [knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md](./knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md) |
+| `2eq-8GM2bhg` | 什麼是 AI Harness?兩種「harness」的差別 | [knowledge/technology/ai-agents/foundations/ai-harness-explained.md](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) |
 | `2mtn-Qp59y4` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `2UYRqQvagrk` | MCP 史上最大改版(2026-07-28):從「打電話」變成「寄信」,以及三個功能的退場公告 | [knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md](./knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) |
 | `3CRtS3bY_D4` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
