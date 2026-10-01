@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**292 個 YouTube video id**、**60 個 arXiv 編號**,涵蓋 **250 篇**筆記。
+> 統計:**294 個 YouTube video id**、**64 個 arXiv 編號**,涵蓋 **252 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(292 部,依 video id 排序)
+## YouTube(294 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -149,6 +149,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `h0lDdWYreSw` | dbx:單一執行檔的跨平台資料庫客戶端(Rust 寫)+ 內建 MCP Server 讓 Agent 直接操作資料庫 | [knowledge/technology/dev-tools/dbx-rust-database-client-mcp.md](./knowledge/technology/dev-tools/dbx-rust-database-client-mcp.md) |
 | `h7abDtqN9gs` | Google AI 課程 Day 4+5:怎麼放心讓 AI 上正式環境?三個動作 —— 講清楚、設邊界、做驗收 | [knowledge/technology/ai-agents/foundations/google-agentic-engineering-day4-5.md](./knowledge/technology/ai-agents/foundations/google-agentic-engineering-day4-5.md) |
 | `h7RA7yyMBYY` | 量子計算:量子效應如何突破計算的邊界 | [knowledge/technology/quantum-computing/quantum-computing-explained.md](./knowledge/technology/quantum-computing/quantum-computing-explained.md) |
+| `H86iSlPPW34` | AI 的安全對齊可能是個幻覺:AutoControl Arena 用「壓力 + 誘惑」測出的三個發現(程序员老王) | [knowledge/technology/ai-safety/alignment-illusion-safety-shallow.md](./knowledge/technology/ai-safety/alignment-illusion-safety-shallow.md) |
 | `h9fLB0aS2AM` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `HcbjFO1mRIw` | Project Cairn:把「做過的事」沉澱成可複用知識的開源 Skill(高體感 × 低阻力) | [knowledge/technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md](./knowledge/technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) |
 | `hfgeEa-rg0A` | 怎麼確保結構化 JSON 輸出真的可靠:提示詞 → Tool Use → 校驗器 → 帶錯誤的重試 | [knowledge/technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md](./knowledge/technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md) |
@@ -200,6 +201,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `nlNDzop6tBw` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [knowledge/technology/claude-code/output-style-communication-not-intelligence.md](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) |
 | `nLZ-C7bbZzs` | PLTR 財報後大漲 30%:市場真正在交易的不是業績,是「增速見頂」風險的釋放 | [knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md](./knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md) |
 | `NYFGCESmikA` | DHH 的 16 條並行 Agent:當寫程式幾乎免費,瓶頸遷移到哪裡去了 | [knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md](./knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md) |
+| `nySTPhneEjw` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
 | `oBy94l_48CQ` | 2026 年 Agent 開發工程師要什麼能力:從 Demo 到生產系統的四塊拼圖(附面試題與標準答案) | [knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md](./knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) |
 | `OCcHTUiNnGI` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `OcKl98ZQbMQ` | AI 資本圈的派系與捆綁:同級競爭、不同級綁在一起,以及「融了 1,100 億卻立刻欠出 1 兆」 | [knowledge/investing/equity-research/ai-capital-web-factions-and-mutual-binding.md](./knowledge/investing/equity-research/ai-capital-web-factions-and-mutual-binding.md) |
@@ -323,11 +325,12 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(60 篇,依編號排序)
+## arXiv(64 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
 | `1301.3781` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
+| `1701.06538` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
 | `1706.03762` | 多頭注意力(Multi-Head Attention)用人話講:「語法表、需求表、內容表」就是 K、Q、V(程序员老王) | [knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md](./knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md) |
 | `1706.03762` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `1810.04805` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
@@ -354,12 +357,14 @@ grep -rlF --include=*.md -- "<id>" .
 | `2309.06180` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
 | `2310.06824` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
 | `2312.07104` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
+| `2401.06066` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
 | `2402.03300` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md](./knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md) |
 | `2402.03300` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2405.05254` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
 | `2406.04692` | Mixture-of-Agents(MoA):用「分層提議 + 聚合」讓多個 LLM 互相加成,純開源打贏 GPT-4o | [knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md](./knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md) |
 | `2406.04692` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `2406.11717` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
+| `2412.19437` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
 | `2412.19437` | 多頭注意力(Multi-Head Attention)用人話講:「語法表、需求表、內容表」就是 K、Q、V(程序员老王) | [knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md](./knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md) |
 | `2501.12948` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
 | `2507.19457` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md](./knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md) |
@@ -370,6 +375,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2512.02556` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
 | `2512.13564` | Agent Memory 綜述:用「形式 / 功能 / 動態」三個切面收拾一個亂掉的領域 | [knowledge/technology/ai-agents/memory-retrieval/agent-memory-survey-forms-functions-dynamics.md](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-survey-forms-functions-dynamics.md) |
 | `2601.01554` | MOSS-Transcribe-Diarize 0.9B 評估:端到端「轉錄+分辨說話者」開源模型,對我們的管線是否值得換? | [knowledge/technology/dev-tools/moss-transcribe-diarize-evaluation.md](./knowledge/technology/dev-tools/moss-transcribe-diarize-evaluation.md) |
+| `2603.07427` | AI 的安全對齊可能是個幻覺:AutoControl Arena 用「壓力 + 誘惑」測出的三個發現(程序员老王) | [knowledge/technology/ai-safety/alignment-illusion-safety-shallow.md](./knowledge/technology/ai-safety/alignment-illusion-safety-shallow.md) |
 | `2603.24621` | ARC-AGI-3:人類 100%、前沿 AI 不到 1% —— 一個用「行動效率」而不是「對不對」計分的 agentic 基準 | [knowledge/technology/ai-safety/arc-agi-3-agentic-benchmark.md](./knowledge/technology/ai-safety/arc-agi-3-agentic-benchmark.md) |
 | `2603.27277` | Codebase-Memory:把程式碼變成「可查詢的知識圖譜」,讓 LLM 探索程式碼省 10 倍 token | [knowledge/technology/ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md](./knowledge/technology/ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md) |
 | `2604.25850` | Agentic Harness Engineering:讓 harness 自己演化自己,而瓶頸不是能力是「可觀測性」 | [knowledge/technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md](./knowledge/technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md) |

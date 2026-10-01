@@ -96,7 +96,7 @@ flowchart TB
 | **與越獄的關係** | ✅ 論文也分析了**對抗性後綴**如何壓制這個拒絕方向的傳播——提供了越獄機制的解釋 |
 | **防禦的方向** | 需要**縱深防禦**:輸入/輸出分類器、部署層的監控、能力層面的限制,而不是只靠「模型會說不」 |
 
-📎 本庫 [[alignment-illusion-safety-shallow]](同作者的安全對齊系列,若已整理)、[[rsi-recursive-self-improvement-anthropic]](前沿模型安全)可對照閱讀。
+📎 本庫 [[alignment-illusion-safety-shallow]](同作者的安全對齊系列)、[[rsi-recursive-self-improvement-anthropic]](前沿模型安全)可對照閱讀。
 
 ---
 
