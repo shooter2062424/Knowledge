@@ -2,6 +2,7 @@
 
 **主題分類:** AI / 代理工程 — 應用與實作
 **來源:** YouTube〈Skill 實戰教學,從製作到維護的完整指南〉(Gary Chen,2026-04-25,約 20 分;講者自述替各公司做過上百個 skill,依繁中逐字稿整理)
+**增補來源:** §7 程序员老王〈10分钟弄懂 什么是大模型Skill〉;§8 Simon Scrapes〈Everything You Know About Skills IS OUTDATED〉(2026-10-01)對照 Anthropic 官方〈Skill authoring best practices〉
 **整理日期:** 2026-05-30
 
 > 📌 本筆記的方法已用在使用者自己的 [claude_marketplace](https://github.com/shooter2062424/claude_marketplace) 上(`knowledge-tools` plugin 的 `rapid-learning` skill 即按此寫法)。
@@ -129,7 +130,67 @@ sequenceDiagram
 
 ---
 
+## 8. 補充:Anthropic 官方 skill 撰寫最佳實踐七條——以及影片講過頭的地方(Simon Scrapes,2026-10-01)
+
+> 來源:〈Everything You Know About Skills IS OUTDATED〉(Simon Scrapes,約 13 分;英文自動字幕)。⚠️ 立場:作者推廣自家 Skool 付費社群(影片中的「skill 稽核提示詞」放在社群裡)與 RankSpot 連結;本節不轉述付費內容,**七條規則全部對照官方〈[Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)〉逐條核實**。
+
+### 8.1 七條規則對照表
+
+| # | 影片說法 | 官方原文 | 核實 |
+|---|---|---|---|
+| 1 | 超過 100 行的 reference 檔,開頭放**目錄** | 「For reference files longer than 100 lines, include a table of contents at the top」,讓 Claude 即使只部分讀取也看得到全貌 | ✅ |
+| 2 | **自由度分三級**:高=純文字指示(code review)、中=範本加參數(報告)、低=照跑指定腳本(資料庫遷移) | 同一組例子;官方比喻:**兩側是懸崖的窄橋**給低自由度,**沒有危險的開闊草地**給高自由度 | ✅ |
+| 3 | **每個要用的模型都要測**:Haiku 夠不夠引導?Sonnet 清楚有效嗎?Opus 有沒有過度解釋? | 三個問題逐字相符 | ✅ |
+| 4 | SKILL.md 本體 **< 500 行**、當目錄用;**reference 只能從 SKILL.md 一層連出** | 「Keep SKILL.md body under 500 lines」「Keep references one level deep from SKILL.md」 | ✅ |
+| 5 | 複雜流程給 **checklist**,讓 Claude 複製到回覆裡逐項打勾 | 研究綜整範例逐字相符,含「引用不完整就回到第 3 步」 | ✅ |
+| 6 | **回饋迴圈**:檢查 → 修 → 再檢查,直到通過 | 「Run validator → fix errors → repeat」「greatly improves output quality」;validator 可以只是一份 STYLE_GUIDE.md | ✅ |
+| 7 | **不要假設套件已安裝**,把安裝指令寫在腳本旁 | 「Avoid assuming tools are installed」,好範例是先寫 `pip install pypdf` | ✅(📌 但有限制,見 8.2) |
+
+### 8.2 影片講過頭或漏掉的地方
+
+| 影片說法 | 實際 |
+|---|---|
+| 「規則完全變了」「官方又新增了六條規則」 | 📌 這些都是官方指南**既有內容**,不是近期改版新增;影片標題的「OUTDATED」屬吸睛說法 |
+| 「Claude 開啟長 reference 檔時**會跑 `head -100`**,只讀前 100 行」 | 📌 官方的說法是**巢狀引用時「可能」**用 `head -100` 之類的指令預覽(「may partially read files when they're referenced from other referenced files」)。不是每次都只讀前 100 行;**目錄 + 一層引用**兩條規則是針對這個風險 |
+| 「把目標模型寫進 YAML frontmatter」 | 📌 這是**作者自己的建議**,官方 frontmatter 只要求 `name`(≤64 字元、小寫/數字/連字號、不可含「anthropic」「claude」)與 `description`(≤1,024 字元、第三人稱) |
+| 「以前大家都把總行數壓在 200 行以下」 | 📌 官方建議一直是 **500 行** |
+| 「Fable 5 指南說為舊模型寫的 skill 太死板,會讓輸出變差」 | ⚠️ 未在本頁找到,未能核實;但方向與「Opus 有沒有過度解釋?」一致 |
+| 依賴:「寫安裝指令,已裝過 Claude 會自己跳過」 | ⭐ 官方補充了影片沒講的限制:**claude.ai** 可從 npm/PyPI/GitHub 安裝;**Claude API 的執行環境沒有網路、不能在執行時安裝套件**——在 API 上跑的 skill 寫安裝指令也沒用,只能用環境內建的套件 |
+
+**影片沒提、但官方同樣強調的幾條:**
+- **先寫評測再寫文件**:先讓 Claude 不帶 skill 做代表性任務、記錄失敗 → 建 3 個評測情境 → 量基線 → 只寫剛好補洞的指示。
+- **Claude A / Claude B 迭代法**:一個實例幫你寫 skill,另一個全新實例載入 skill 實際做事,觀察它哪裡卡住再回頭改。
+- **腳本「執行」不「讀入」**:腳本只有輸出佔 token(影片有提);指示裡要寫清楚是「執行 X」還是「參考 X 的演算法」。
+- **MCP 工具用完整名稱** `ServerName:tool_name`;路徑一律用正斜線;不要放有時效性的資訊(舊做法收進「Old patterns」)。
+
+### 8.3 自由度怎麼判斷:問「如果 Claude 做得不一樣會怎樣」
+
+```mermaid
+flowchart TB
+    Q["這一步如果 Claude 做法不同,會怎樣?"] -->|"幾乎沒差"| H["高自由度<br/>給目標與準則,純文字"]
+    Q -->|"格式要一致、內容可變"| M["中自由度<br/>範本或帶參數的腳本"]
+    Q -->|"牽涉金錢、刪除、不可逆"| L["低自由度<br/>照跑指定腳本,不得改指令"]
+    L --> V["配回饋迴圈:驗證失敗就回上一步"]
+```
+
+作者的三個心得:**同一個 skill 可以混用不同自由度**(開發票 skill 的「寫說明」高自由度、「建立發票」低自由度);**低自由度通常代表寫成腳本**,而不是寫更多文字;腳本在每個模型上表現一致,所以**Haiku 漏步驟的地方,要嘛寫清楚、要嘛改成腳本**。
+
+### 8.4 應用案例:用七條規則稽核一個既有 skill
+
+以本筆記 §5 的週報 skill 為例,逐項檢查:
+1. `references/` 裡超過 100 行的檔案 ⇒ 開頭補目錄(標題與章節對應)。
+2. 每一步標自由度:「彙整本週重點」高、「套用週報模板」中、「寄送給客戶名單」低(改成腳本,只接受固定參數)。
+3. 用 Haiku、Sonnet、Opus 各跑一次同一任務:Haiku 漏步 ⇒ 補清楚或改腳本;Opus 帶 skill 反而比不帶差 ⇒ 刪指示直到變好。
+4. 列出 SKILL.md 引用的所有檔案,找出「只能從別的 reference 間接連到」的檔案,全部改成從 SKILL.md 直接連。
+5. 「資料檢查 → 產出報告」這種**順序重要**的流程才加 checklist;順序不重要就不加。
+6. 加回饋迴圈:草稿對照品牌語氣文件檢查,不合格就修;遇到語氣文件沒涵蓋的新問題,讓 Claude 在結尾**建議一條新規則**,人工核准後寫回文件。
+7. 每個腳本旁寫明 `pip install ...`;若 skill 會在 Claude API 上跑,改為只用執行環境內建的套件。
+
+---
+
 ## 來源
 
 - [YouTube:Skill 實戰教學,從製作到維護的完整指南(Gary Chen)](https://youtu.be/PuqX3Kv2ino)
 - [YouTube:10分钟弄懂 什么是大模型Skill(程序员老王,2026-01-22)](https://www.youtube.com/watch?v=lnneAfJqd9M)(無字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕)
+- [YouTube:Everything You Know About Skills IS OUTDATED(Simon Scrapes,2026-10-01)](https://www.youtube.com/watch?v=e7TY56-yIvM)(英文自動字幕)
+- [Anthropic:Skill authoring best practices(官方文件)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
