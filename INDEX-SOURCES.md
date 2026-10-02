@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**297 個 YouTube video id**、**67 個 arXiv 編號**,涵蓋 **254 篇**筆記。
+> 統計:**298 個 YouTube video id**、**67 個 arXiv 編號**,涵蓋 **255 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(297 部,依 video id 排序)
+## YouTube(298 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -196,6 +196,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `mBePcvqLX88` | Graph Engineering 八分鐘講清楚:從 1736 年的柯尼斯堡七橋,到 108 個 agent 的 DAG | [knowledge/technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md](./knowledge/technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) |
 | `MdZWB8eC83Q` | Bitter Lesson:模型變強後,你的舊 prompt 正在拖垮新模型 | [knowledge/technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md](./knowledge/technology/ai-agents/foundations/bitter-lesson-cut-old-patterns.md) |
 | `Mhq6IS2vSQM` | ChatGPT 瀏覽器擴充功能:借用你「已經登入」的瀏覽器,在背景跨分頁做事 | [knowledge/technology/ai-productivity/chatgpt-browser-extension-agent.md](./knowledge/technology/ai-productivity/chatgpt-browser-extension-agent.md) |
+| `mhqz6MkQpWY` | Gemini 4 Argon:跑分領先但分布不均、定價是「首發優惠」、先給網安防禦者(Why QQ) | [knowledge/technology/ai-industry/gemini-4-argon-release-benchmarks-pricing.md](./knowledge/technology/ai-industry/gemini-4-argon-release-benchmarks-pricing.md) |
 | `MlhsoWmyEKE` | 落地競賽:OpenAI 與 Anthropic 同日進軍企業導入,承認「只有模型沒用」 | [knowledge/technology/ai-agents/applications/enterprise-ai-adoption-race.md](./knowledge/technology/ai-agents/applications/enterprise-ai-adoption-race.md) |
 | `mnuk1GkJxDU` | 股癌選股心法:籌碼/技術都是工具,本質是「選對題材的好股」 | [knowledge/investing/strategy/gooaye-stock-picking-philosophy.md](./knowledge/investing/strategy/gooaye-stock-picking-philosophy.md) |
 | `mpGiFuRYrDk` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
