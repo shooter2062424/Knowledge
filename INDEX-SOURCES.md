@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**299 個 YouTube video id**、**67 個 arXiv 編號**,涵蓋 **255 篇**筆記。
+> 統計:**300 個 YouTube video id**、**67 個 arXiv 編號**,涵蓋 **256 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(299 部,依 video id 排序)
+## YouTube(300 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -103,6 +103,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `CHHEjuNBxoQ` | Agit:把 Git 那套用在「和 agent 的對話」上,以及影片沒講的兩個坑 | [knowledge/technology/ai-agents/applications/agit-version-control-for-agent-sessions.md](./knowledge/technology/ai-agents/applications/agit-version-control-for-agent-sessions.md) |
 | `CKKJuFVMvXQ` | Graph Engineering:把腦袋裡的分工、路由與驗收畫出來,別再當人肉 routing system | [knowledge/technology/ai-agents/foundations/graph-engineering-node-edge-state.md](./knowledge/technology/ai-agents/foundations/graph-engineering-node-edge-state.md) |
 | `CMs8YMU6_RM` | AI 改 code 一直「改 A 壞 B」?讓 AI 安全接手舊專案(Brownfield)的五個步驟 | [knowledge/technology/ai-productivity/ai-brownfield-codebase-five-steps.md](./knowledge/technology/ai-productivity/ai-brownfield-codebase-five-steps.md) |
+| `CSfhmC_tUh8` | Claude Code Mods:從「調旋鈕」到「改程式本身」——事件關卡、三種動作、會畫介面(howie和小能熊 + 官方文件 + 範例原始碼) | [knowledge/technology/claude-code/claude-code-mods-explained.md](./knowledge/technology/claude-code/claude-code-mods-explained.md) |
 | `d3EvaR3FKnY` | 「一切都沒有意義了」:一則 HN 熱帖與 175 則回覆裡的程式設計師價值重排 | [knowledge/career/mindset/programmer-meaning-crisis-hn-thread.md](./knowledge/career/mindset/programmer-meaning-crisis-hn-thread.md) |
 | `d4329xvSDK4` | AI 額度老是不夠用?三招省 Token:丟掉、縮減、打折 | [knowledge/technology/ai-productivity/token-saving-three-moves-context-control.md](./knowledge/technology/ai-productivity/token-saving-three-moves-context-control.md) |
 | `DcibeCh1aZ4` | 美股連漲 13 天還能追嗎?「真實通脹」數據、AI 情緒三大轉向信號,與「踏空風險 > 回調風險」 | [knowledge/investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md](./knowledge/investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md) |
