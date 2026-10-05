@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**301 個 YouTube video id**、**67 個 arXiv 編號**,涵蓋 **257 篇**筆記。
+> 統計:**302 個 YouTube video id**、**67 個 arXiv 編號**,涵蓋 **258 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(301 部,依 video id 排序)
+## YouTube(302 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -155,6 +155,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `h7RA7yyMBYY` | 量子計算:量子效應如何突破計算的邊界 | [knowledge/technology/quantum-computing/quantum-computing-explained.md](./knowledge/technology/quantum-computing/quantum-computing-explained.md) |
 | `H86iSlPPW34` | AI 的安全對齊可能是個幻覺:AutoControl Arena 用「壓力 + 誘惑」測出的三個發現(程序员老王) | [knowledge/technology/ai-safety/alignment-illusion-safety-shallow.md](./knowledge/technology/ai-safety/alignment-illusion-safety-shallow.md) |
 | `h9fLB0aS2AM` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
+| `hC-rt4_F3mQ` | 債市比股市聰明?美債殖利率創高、美股創高的「背離」:估值已先跌,真正要看盈利(美投君) | [knowledge/investing/strategy/us-bond-stock-divergence-valuation-vs-earnings-1994.md](./knowledge/investing/strategy/us-bond-stock-divergence-valuation-vs-earnings-1994.md) |
 | `HcbjFO1mRIw` | Project Cairn:把「做過的事」沉澱成可複用知識的開源 Skill(高體感 × 低阻力) | [knowledge/technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md](./knowledge/technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) |
 | `hfgeEa-rg0A` | 怎麼確保結構化 JSON 輸出真的可靠:提示詞 → Tool Use → 校驗器 → 帶錯誤的重試 | [knowledge/technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md](./knowledge/technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md) |
 | `HhZcnM9tR7s` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
