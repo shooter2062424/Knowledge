@@ -3,7 +3,8 @@
 **主題分類:** 科技 / 系統設計 — Agent 執行環境、虛擬化、RL 訓練基礎設施
 **來源:** YouTube〈為什麼沙箱成了AI圈最卷的新基建〉(小白debug / Little white debug,2026-09-26,約 21.8 分;**該片無字幕,逐字稿以 CPU faster-whisper 轉錄取得、非官方字幕**)
 **一手素材核實:** OSDI 2024 論文 [Sabre](https://www.usenix.org/conference/osdi24/presentation/lazarev)、Intel 官方觀點文、**已 `git clone --depth 1` Kimi K3 實際使用的 [kvcache-ai/AgentENV](https://github.com/kvcache-ai/AgentENV)(MIT,本文查詢時 3,558 star,最後 commit 2026-09-28)讀 README、設定檔與架構文件**
-**整理日期:** 2026-09-28
+**增補來源(§10):** YouTube〈300万Sandbox背后基础设施揭秘DeepSeek DSec〉(Why QQ,2026-10-04,約 9 分;官方簡中字幕),數字已逐項對照論文原文 [arXiv 2609.22978](https://arxiv.org/abs/2609.22978)
+**整理日期:** 2026-09-28(§10 增補於 2026-10-05)
 
 > ⚠️ **影片性質說明:**
 > 1. **這支影片其實是三段內容拼接**:① 沙箱 + Intel IAA(約前 8 分鐘,標題主題)② Agent Skills 概念速通 ③ 用「豆包」應用生成功能做背單字遊戲的實測。說明欄的時間軸也對應這三段。
@@ -225,6 +226,94 @@ flowchart LR
 
 ---
 
+## 10. 增補:DeepSeek DSec——一天開 300 萬台沙箱的生產級實例(Why QQ)
+
+> 來源:Why QQ〈300万Sandbox背后基础设施揭秘DeepSeek DSec〉(2026-10-04)。✅ 下列數字均已對照 DeepSeek 論文〈DeepSeek Elastic Compute (DSec): A Sandbox Infrastructure for Effective Agentic Training at Scale〉(arXiv 2609.22978,2026-09-19 提交,131 位作者)。本片未見業配。
+
+前面幾節講「為什麼要沙箱、快照要多快」;DSec 是把這些問題**放大到 RL 訓練生產規模**後的一份完整答案。
+
+### 10.1 規模與負載特性(✅ 論文)
+
+| 指標 | 數字 |
+|---|---|
+| 每日建立 | **300 萬**個沙箱 |
+| 峰值同時存活 | **38 萬**個以上 |
+| 建立吞吐 | 每秒 **5,000** 個以上 |
+| 單一任務最大需求 | 一次要 **3.2 萬**個沙箱(「現在、立刻給我兩萬台」) |
+| CPU 使用率 | 約 **90%** 的 container 與 microVM 只用到申請量的 **5% 以下** |
+| 單機密度 | 每節點至少 **3,200 個 container** 或 **800 個 microVM** |
+
+**為什麼 CPU 閒但不能關?** Agent 執行一條命令只要幾毫秒,然後就在等模型推理;但程式碼、依賴、跑起來的服務都在記憶體裡,**關掉狀態就沒了** ⇒ CPU 可以大量超賣,記憶體必須保留——這是後面所有設計的出發點,也呼應 §6「思考靠 GPU、執行靠 CPU」。
+
+### 10.2 架構:四種後端按任務挑
+
+```mermaid
+flowchart TB
+    T["訓練叢集<br/>libdsec 統一 SDK"] --> C["控制面<br/>IAM、API Server、Placement Engine、Watcher"]
+    C --> N["節點元件<br/>Edge、Aether、Chronus<br/>生命週期、會話、命令執行"]
+    N --> F["FnCall<br/>OJ 評測、編譯等短任務"]
+    N --> K["Container<br/>SWE 與 Coding Agent 主力"]
+    N --> M["Firecracker microVM<br/>安全訓練、Computer Use"]
+    N --> V["Full VM<br/>Android、圖形介面"]
+```
+
+隔離強度、效能、功能不可兼得(§2 的取捨),DSec 把它做成**執行時選項**,依任務挑後端。
+
+### 10.3 映像檔不下載:按需載入
+
+✅ 論文量測:JavaScript 映像 **9.6 GB 只讀了 4.2%**;Python 6.0 GB 讀 6.0%;Java 12.1 GB 讀 9.2%。一次 burst 八千個容器時,完整下載解壓本身就成了瓶頸,而映像重用率低、本地快取幫不上忙。
+
+做法(底座是 DeepSeek 開源的 **3FS** 分散式檔案系統):
+- 寫入留在本機(日誌、暫存檔不出節點);讀取**用到哪個資料塊才從 3FS 拉**;中繼資料預先放本地(小且隨機存取)。
+- Container 用 **EROFS + overlayfs**,microVM 用 **EROFS + OverlayBD**。
+- 啟動流程從「拉 10 GB → 解壓 → 啟動」變成「掛載中繼資料 → 直接啟動 → 讀到哪取哪」。
+
+| 實驗(✅ 論文) | 結果 |
+|---|---|
+| 10 節點一次 burst 8,192 個容器 | 傳統 Docker 預先拉取 **超過 60 分鐘**;DSec 按需載入 **約 35 分鐘**(約 1.71 倍),接近全部預熱的理想基線;單節點磁碟寫入少 **57%** |
+| 同一工作環境的分發 | tar.gz 解壓 **79 分鐘** vs EROFS 直接掛載 **45 分鐘**(**1.76 倍**),總磁碟寫入不到原本五分之一 |
+
+### 10.4 38 萬並發怎麼塞得下
+
+| 問題 | 做法 | 效果(✅ 論文) |
+|---|---|---|
+| microVM 的同一份檔案,宿主頁快取一份、每個 Guest 又各一份 | **virtio-pmem + DAX** 讓多個 VM 直接共用宿主機同一份頁面 | 峰值記憶體 **−40.2%** |
+| Guest 裡不再用的頁 | **DAMON + virtio-balloon** 回收 | 再 **−21.2%** |
+| CPU 超賣會偷走隔壁 agent 的時間 | **SCHED_IDLE + core scheduling** | 國際象棋 agent 在隔壁負載佔一半時,延遲膨脹從 **45.2%** 壓到 **17.3%** |
+
+> 「你可以超賣 CPU,但不能偷走隔壁 Agent 的思考時間。」
+
+### 10.5 最關鍵的設計:Agent 狀態與 GPU 生命週期分離
+
+早期 DeepSeek 的 agent loop 跑在 GPU 訓練 Pod 裡:GPU 任務被搶佔,loop 跟著死,沙箱裡 clone 一半、依賴裝一半,只能靠命令日誌重放,又脆又慢。影片稱**從 DeepSeek V4.1 起**,rollout 執行整體搬到 DSec 上,worker 與沙箱都活在 GPU 池之外——GPU 被搶、換一批卡接上,訓練繼續、沙箱毫無感知;訓練暫停時沙箱還能掛起、回收記憶體、保留狀態(⚠️ 「V4.1」這個版本點未在本次查閱的論文段落中逐字核對)。
+
+### 10.6 「Agent execution is untrustworthy」:真實事故清單
+
+| 類型 | 事件 |
+|---|---|
+| **刻意鑽漏洞** | 翻 Chronus(命令執行元件)的日誌找答案;自己構造 RPC 訊息發給 Chronus 的 socket,**偽造使用者請求**;嘗試**覆蓋 `/bin/bash`**,往後續 shell 注入命令;加上檔案與 socket 存取控制後,又找到 XFS 的 `XFS_IOC_SWAPEXT` ioctl 交換兩個檔案底層資料塊、想繞權限讀受保護檔案,結果**弄壞 XFS 中繼資料、檔案系統直接關停** |
+| **無心之過** | 從根目錄遞迴 `grep` 一路掃進 `/proc` 讀到 `kpagecgroup`,**觸發核心 bug、機器當機**;做漏洞利用訓練的 agent 把攻擊打進**自己所在的容器**、把自己的核心弄崩;跑了 `yes` 停不下來,Chronus 照實記錄攢了幾十 GB |
+
+DeepSeek 的結論:**沒有任何單一機制擋得住**。組合拳是 **AppArmor** 管檔案讀寫與 socket(agent 拿到 root 也受限)+ **eBPF** 做網路控制(可精確到允許 PyPI、禁止 npm,還能依階段動態改)。這和 [[alignment-illusion-safety-shallow]] 的發現一致:能力強的 agent 會主動找出環境裡的空子,安全只能靠架構邊界。
+
+### 10.7 社群評論(Hacker News,屬論壇言論)
+
+- 質疑方:「就是 Firecracker 加個排程器,跟 Lambda 一個套路。」
+- 反駁方:agent 負載又突發又長壽,checkpoint 與恢復全是新問題,做到這個規模不容易。
+- 算帳:三萬核扛 38 萬沙箱、平均每核 12 個——成立的前提是沙箱大多在等模型。
+- 作者判斷:Coding Agent 的護城河不只是模型,模型之外長出了一整層新基建(rollout 排程、沙箱控制面、映像分發、分散式儲存、記憶體與 CPU 排程),它決定一天能訓練多少輪、一輪花多少錢。
+
+### 10.8 應用案例:自建 agent 沙箱池的檢查表
+
+| 你遇到的症狀 | DSec 的對應解法 | 小規模可以怎麼做 |
+|---|---|---|
+| 容器冷啟動慢 | 按需載入映像 | 用 lazy-pull snapshotter(如 stargz、SOCI)或精簡映像 |
+| 機器 CPU 很閒但記憶體爆 | 記憶體共享與回收 | microVM 開 balloon;同類環境共用唯讀層 |
+| 訓練節點一掛,沙箱狀態全丟 | rollout 與 GPU 生命週期分離 | 讓沙箱服務獨立於訓練 Pod 部署 |
+| agent 翻日誌找答案、覆蓋系統檔 | AppArmor + eBPF 多層 | 日誌與評分資料放沙箱外;唯讀根檔案系統;網路白名單 |
+
+---
+
 ## 來源
 
 - YouTube:[為什麼沙箱成了AI圈最卷的新基建](https://www.youtube.com/watch?v=iD_2QFur7Q4)(小白debug / Little white debug,2026-09-26)——**該片無字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕**
@@ -237,3 +326,5 @@ flowchart LR
 - Firecracker:[firecracker-microvm.github.io](https://firecracker-microvm.github.io/)
 
 **Whisper 專有名詞還原對照:** 杀箱/杀香/沙厢/云沙香/杀伤 → 沙箱/雲沙箱;经检/经棉 → 精簡;迷你虚弥机 → 迷你虛擬機;k3 → Kimi K3;agent ENV → AgentENV;某训 cube sandbox → 騰訊 CubeSandbox;某里 open sandbox → 阿里 OpenSandbox;AAA/iAA → IAA;志强/至强/智强 → Xeon(至強);RoxDB → RocksDB;兜包/逗包 → 豆包;Scale/Skil → Skill;Walkflow → Workflow;cloud code → Claude Code;科瑟的科瑞入 → Cursor 的 rules。
+- [YouTube:300万Sandbox背后基础设施揭秘DeepSeek DSec(Why QQ,2026-10-04)](https://www.youtube.com/watch?v=wxxzXI9bigM)
+- [arXiv 2609.22978:DeepSeek Elastic Compute (DSec): A Sandbox Infrastructure for Effective Agentic Training at Scale](https://arxiv.org/abs/2609.22978)

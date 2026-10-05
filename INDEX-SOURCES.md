@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**302 個 YouTube video id**、**67 個 arXiv 編號**,涵蓋 **258 篇**筆記。
+> 統計:**305 個 YouTube video id**、**68 個 arXiv 編號**,涵蓋 **258 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(302 部,依 video id 排序)
+## YouTube(305 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -42,10 +42,12 @@ grep -rlF --include=*.md -- "<id>" .
 | `0AvqP_WRVVM` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
 | `0K4JBcnO4eA` | AI 原生 SDLC 怎麼落地:程式碼變快之後,真正塞住的是驗證與評審 | [knowledge/technology/software-engineering/ai-native-sdlc-landing-checklist.md](./knowledge/technology/software-engineering/ai-native-sdlc-landing-checklist.md) |
 | `0kvj3lbJqoY` | AI 像 100 年前的電力革命:真正的商機不在「AI 應用」,而在「AI 採納」(美投君) | [knowledge/investing/equity-research/ai-adoption-electricity-revolution-analogy.md](./knowledge/investing/equity-research/ai-adoption-electricity-revolution-analogy.md) |
+| `0RTUj16alAU` | Claude Code Mods:從「調旋鈕」到「改程式本身」——事件關卡、三種動作、會畫介面(howie和小能熊 + 官方文件 + 範例原始碼) | [knowledge/technology/claude-code/claude-code-mods-explained.md](./knowledge/technology/claude-code/claude-code-mods-explained.md) |
 | `18QEjrwaNVM` | Opus 5 系統提示詞公開之後:五條可直接抄的工程模式,與「提示詞債務」 | [knowledge/technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md](./knowledge/technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) |
 | `1a1VXDdIyrk` | Harness Engineering 的演進:從 Prompt → Context → Harness(與 loop 架構) | [knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md](./knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md) |
 | `1SLbe0k6x4I` | 用 Claude Code + Jesse 做 AI 演算法交易:重點是「驗證流程」,不是那支策略 | [knowledge/investing/ai-assisted/ai-algo-trading-claude-jesse.md](./knowledge/investing/ai-assisted/ai-algo-trading-claude-jesse.md) |
 | `1VqKUrxR2C8` | AI 編程的三個致命錯覺(OpenCode 創辦人 Dax Raad) | [knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md](./knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md) |
+| `1ZbNgx6Gscw` | Gemini 4 Argon:跑分領先但分布不均、定價是「首發優惠」、先給網安防禦者(Why QQ) | [knowledge/technology/ai-industry/gemini-4-argon-release-benchmarks-pricing.md](./knowledge/technology/ai-industry/gemini-4-argon-release-benchmarks-pricing.md) |
 | `2eq-8GM2bhg` | 什麼是 AI Harness?兩種「harness」的差別 | [knowledge/technology/ai-agents/foundations/ai-harness-explained.md](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) |
 | `2mtn-Qp59y4` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `2UYRqQvagrk` | MCP 史上最大改版(2026-07-28):從「打電話」變成「寄信」,以及三個功能的退場公告 | [knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md](./knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) |
@@ -289,6 +291,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `WOMdoiy9Qas` | Opus 4.7 不是更強的 4.6,是另一種模型:四個該跟著升級的工作流 | [knowledge/technology/ai-productivity/opus-4-7-workflow-upgrades.md](./knowledge/technology/ai-productivity/opus-4-7-workflow-upgrades.md) |
 | `wpb-DrbhEiY` | SpaceX 為什麼這時間點上市?Musk 在 JP Morgan 投資人訪談說了什麼 | [knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md](./knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md) |
 | `WuMlsfKeWHc` | Loop Engineering(循環工程):從「寫提示詞驅動 agent」到「設計驅動 agent 的循環」 | [knowledge/technology/ai-agents/foundations/loop-engineering.md](./knowledge/technology/ai-agents/foundations/loop-engineering.md) |
+| `wxxzXI9bigM` | 為什麼沙箱成了 AI 圈最捲的新基建:microVM、快照,與「快照要多快」這道題 | [knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
 | `X2A6fANij9Q` | 為什麼 Anthropic 工程師棄 Markdown 改用 HTML:當「理解」變成真正的瓶頸 | [knowledge/technology/ai-productivity/anthropic-html-work-pages.md](./knowledge/technology/ai-productivity/anthropic-html-work-pages.md) |
 | `x2meJPOn9ws` | SpaceX 崛起史:從被嘲笑的新創到航天巨頭,一套已跑起來的商業飛輪 | [knowledge/investing/equity-research/spacex-rise-history.md](./knowledge/investing/equity-research/spacex-rise-history.md) |
 | `x3QOpcGit4Q` | 當 PR 變成 Prompt Request:Peter Steinberger 用 Agent 自製工具維護開源項目 | [knowledge/technology/ai-agents/applications/agent-native-tooling-steinberger.md](./knowledge/technology/ai-agents/applications/agent-native-tooling-steinberger.md) |
@@ -333,7 +336,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(67 篇,依編號排序)
+## arXiv(68 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -404,6 +407,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2608.17528` | Harnessed Agentic RL:當 harness 而不是訓練器擁有互動迴圈,RL 會壞在哪四個地方 | [knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md](./knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md) |
 | `2609.11873` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `2609.14858` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
+| `2609.22978` | 為什麼沙箱成了 AI 圈最捲的新基建:microVM、快照,與「快照要多快」這道題 | [knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
 
 ---
 

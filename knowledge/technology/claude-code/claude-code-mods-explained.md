@@ -2,6 +2,7 @@
 
 **主題分類:** 科技 / Claude Code 維運 — 擴充機制
 **來源:** YouTube〈100 秒搞懂(今天刚发布的)claude code mods〉(howie和小能熊,2026-10-02,約 3 分 19 秒;英文旁白、無官方字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕),細節已對照 Claude Code 官方文件,並 clone `anthropics/claude-code-playground` 讀了範例 mod 原始碼
+**增補來源(§8):** YouTube〈Claude Code 的界面原来能自己改?ClaudeCode Mod 完整教程(2026)〉(YAHA學堂,2026-10-05,約 8 分;自動字幕被限流,逐字稿以 CPU faster-whisper 轉錄、非官方字幕)
 **整理日期:** 2026-10-05
 
 > 📌 立場:本片未見業配或付費推廣。影片只有 100 秒,本筆記大部分細節(檔案結構、事件名稱、安全範圍、內建 mods)來自官方文件與原始碼。
@@ -88,7 +89,7 @@ export function register(on) {
 |---|---|---|
 | **Observe** | **token-weather**:每輪結束看 context 用了多少,在 prompt 上方畫天氣預報 | `turn.complete` 後呼叫 `$.session.usage()` 取 context 佔比,保留最近 12 次;`ui.render`(`AbovePrompt`)畫一行:☀ Clear(<25%)、☁ Cloudy(<50%)、☂ Showers(<75%)、☇ Storm(<90%)、↯ **Compact soon**(≥90%),加上 ▁▂▃ 長條趨勢圖。會略過 subagent 的回合(`e.agentId`) |
 | **Rewrite** | Claude 讀工具輸出前,把 secret 塗黑,金鑰永遠到不了模型 | 📌 官方三個範例 mod **沒有**這一支;這是 mod 能做到的事(改寫工具呼叫/結果),不是現成範例 |
-| **Answer** | **blast-radius**:Claude 要跑 `git reset --hard` 時攔下來,算出會丟掉什麼,等你決定 | `tool.call`(只看 Bash)先分類風險:`rm`、`git reset --hard`、`git clean`、`git push --force`(含 `--force-with-lease`、`+ref`)、`git checkout -- .`、alembic/rails/prisma/Django 等 migration;會追蹤同一行裡的 `cd`、`pushd`、`git -C` 算出實際目錄。開一個 pane 顯示影響範圍與 **Proceed / Cancel** 按鈕(窄終端機改畫在 band);按 Cancel、逾時 10 分鐘、被中斷或出錯都會**回傳 `deny`**,並告訴 Claude「不要重試,除非使用者要求」 |
+| **Answer** | **blast-radius**:Claude 要跑 `git reset --hard` 時攔下來,算出會丟掉什麼,等你決定 | `tool.call`(只看 Bash)先分類風險:`rm`、`git reset --hard`、`git clean`、`git push --force`(含 `--force-with-lease`、`+ref`)、`git checkout -- .`、alembic/rails/prisma/Django 等 migration;會追蹤同一行裡的 `cd`、`pushd`、`git -C` 算出實際目錄。開一個 pane 顯示影響範圍與 **Proceed(快捷鍵 1)/ Cancel(快捷鍵 2,預設焦點)** 按鈕,底下寫「Claude is waiting on your answer」(窄終端機改畫在 band);按 Cancel、逾時 10 分鐘、被中斷或出錯都會**回傳 `deny`**,並告訴 Claude「不要重試,除非使用者要求」 |
 
 > 🔎 原始碼裡的工程細節:hook 自己只有 **10 秒**的執行時間,但花在 `$` 呼叫裡的時間不算,所以 blast-radius 用 `$.process.run(["sleep", "0.25"])` 輪詢等待按鈕。同時只 hold 一個呼叫,避免兩個 subagent 的危險指令同時穿過。
 
@@ -167,8 +168,49 @@ claude plugin validate ./some-mod
 |---|---|
 | ✅ 已核實 | 10-01 起提供、JS/TS 函式、Observe/Rewrite/Answer 三種動作、pane/band/按鈕/toast/重畫內建畫面、`/diff` 是內建 mod 且可關閉替換、叫 Claude 寫 mod 並詢問一次熱重載、mods 不在沙箱且以你的權限執行、`claude plugin validate` 列出它碰什麼、token-weather 與 blast-radius 為官方範例 |
 | 📌 補充 | 需 v2.1.287 以上;Claude 寫的 mod 只在原 session 載入且會被清掉;mod 能在你被詢問前核准工具呼叫;唯一不能改的是權限確認提示;hook 單次 10 秒限制;內建 mod 不受 `disableAllHooks` 影響 |
-| 📌 需修正 | 影片把「塗黑 secret」與兩個範例並列,但它**不是官方範例 mod**;blast-radius 的確認是 Proceed/Cancel 按鈕(影片說「按 1 繼續、按 2 取消」,可能是演示版本差異) |
+| 📌 需修正 | 影片把「塗黑 secret」與兩個範例並列,但它**不是官方範例 mod** |
+| 🔁 本庫自我更正(10-05 增補時) | 初版此處寫「blast-radius 是 Proceed/Cancel 按鈕,影片說按 1/按 2 可能是版本差異」——**錯誤**。原始碼中兩個按鈕就綁了 `hotkey: "1"` 與 `hotkey: "2"`(預設焦點在 Cancel),影片說法正確 |
 | ⚠️ 版本提醒 | 官方文件註明事件與方法會隨版本改變,以 mod 資料夾中自動產生的 `.claude-plugin/types/*.d.ts` 為準 |
+
+---
+
+## 8. 增補:實作教學與踩坑(YAHA學堂)
+
+> 來源:YAHA學堂〈Claude Code 的界面原来能自己改?ClaudeCode Mod 完整教程(2026)〉(2026-10-05)。說明欄只附官方範例 repo 與作者的程式碼連結,本支未見聯盟連結。下列行為已對照官方範例原始碼。
+
+### 8.1 跑官方範例:三步裝起來
+
+1. clone [`claude-code-playground`](https://github.com/anthropics/claude-code-playground);
+2. 把 `claude-code/mods` 加成**本地 plugin marketplace**(帶 `marketplace.json` 的資料夾或 GitHub repo 都算);
+3. 安裝後在 Claude Code 裡 `/reload-plugins`,`/plugin` 會顯示「幾個 mod 在跑、叫什麼」。
+
+⚠️ 本地 marketplace 指向的是你 clone 的資料夾——**clone 刪了或搬了,mod 就不載入**。只想試一次就用 `claude --plugin-dir <資料夾>`,關掉 session 就沒了。
+
+### 8.2 blast-radius 實測
+
+- 在測試 repo 叫 Claude 刪檔:**命令還沒跑,pane 先跳出**——上面是完整命令,下面是「放行會刪掉 3 個檔案、約 588 KB」,再往下逐一列出檔案,最底下「Claude is waiting on your answer」。
+- **按 2 取消**:Claude 收到 `deny` 訊息,知道是你取消的、也知道原因,所以不會再刪一次;檔案都還在。
+- **按 1 放行**:命令照原樣執行。「它就是在 Claude 決定要跑、和真的跑下去之間,加了一道門。」
+
+### 8.3 replay-theater 的坑:只看得到 Edit 工具
+
+作者叫 Claude 把一個函式改名、改了 5 個地方,打 `/replay` 卻顯示「這一輪沒有修改」——因為 Claude 用 **Bash 跑 `sed`/`perl`** 一次改完。加一句「每一處都用 Edit 工具改」重跑,`/replay` 才逐步列出第幾步改了哪個檔、哪一行。
+
+✅ 原始碼印證:replay-theater 只記錄 `EDIT_TOOLS = new Set(["Edit", "Write", "MultiEdit"])` 的 `tool.call`,**透過 Bash 改的檔案完全看不到**。這也提醒:任何「觀察 Claude 改了什麼」的 mod,只掛在特定工具上都會有盲點。
+
+### 8.4 從空資料夾寫 token-weather
+
+- 三個檔:`plugin.json`(和一般 plugin 一樣)、`hooks.json`(一行指向程式檔)、程式本身(`.mjs` = 用 import/export 的 JS)。
+- 啟動後黃色粗體的天氣列就出現在提示框上方;**在編輯器把 `Clear skies` 改成「晴,適合寫程式」存檔,畫面立刻改變**——以前改 plugin 要退出重開,現在接近所見即所得。
+- 換成完整版後掛三個 hook:`session.start` 先讀一次、`turn.complete` 每輪結束讀一次(兩者都先讓事件照常發生再讀,屬於 Observe),`ui.render` 畫出百分比、token 數與「這一輪長了多少」。
+- ⚠️ **坑:重新載入會讓模組變數歸零**——`register` 與 `session.start` 重跑,你一存檔,歷史紀錄就沒了(官方文件也這麼說;要跨重載保留請用 `$.state`)。
+- **分享前跑 `claude plugin validate`**:作者的版本報錯「token weather readings 沒有宣告」,在自己建的 `types` 資料夾加宣告檔、並在 plugin 設定加一行後才通過(⚠️ 這個「自建 types」做法依影片描述,與 Claude Code 自動產生的 `.claude-plugin/types/` 不同,官方文件中對應段落本次未逐字核對)。通過後的輸出逐行列出掛了哪些事件、呼叫哪些 API、讀寫哪些狀態。
+
+### 8.5 應用案例:把 replay-theater 的盲點變成團隊規範
+
+若團隊想用「回放」做 code review,有兩個選擇:
+1. 在 CLAUDE.md 規定「修改檔案一律用 Edit/Write 工具,不要用 `sed -i` 或 `perl -pi`」;
+2. 或自己寫 mod:在 `turn.complete` 時跑一次 `git diff --stat` 補抓 Bash 造成的變更——不管 Claude 用哪個工具改,都看得到。
 
 ---
 
@@ -180,5 +222,6 @@ claude plugin validate ./some-mod
 - 範例原始碼:[anthropics/claude-code-playground — claude-code/mods](https://github.com/anthropics/claude-code-playground/tree/main/claude-code/mods)(token-weather、blast-radius、replay-theater)
 - 內建 mod 原始碼:[anthropics/claude-code — mods](https://github.com/anthropics/claude-code/tree/main/mods)
 - 型別定義:[mods/types/claude-code.d.ts](https://github.com/anthropics/claude-code/blob/main/mods/types/claude-code.d.ts)
+- [YouTube:Claude Code 的界面原来能自己改?ClaudeCode Mod 完整教程(2026)(YAHA學堂,2026-10-05)](https://www.youtube.com/watch?v=0RTUj16alAU)(自動字幕被限流,逐字稿以 CPU faster-whisper 轉錄、非官方字幕)
 
 📎 相關筆記:[[claude-code-hooks-complete-guide]]、[[building-claude-skills]]、[[claude-code-2026-feature-timeline]]、[[claude-code-architecture-deep-dive]]

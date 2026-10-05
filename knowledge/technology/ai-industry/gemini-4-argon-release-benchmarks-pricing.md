@@ -2,7 +2,8 @@
 
 **主題分類:** 科技 / AI 產業動態 — 前沿模型發布
 **來源:** YouTube〈Gemini 4 Argon 终于发布跻身第一梯队但真实水平怎么样?〉(Why QQ,2026-10-01,約 11 分;官方簡中字幕),數字已對照 VentureBeat、MarkTechPost、Artificial Analysis 報導
-**整理日期:** 2026-10-02
+**增補來源(§8):** YouTube〈Gemini 4 Argon explained in 5min..〉(Caleb Writes Code,2026-10-02,約 5 分;英文自動字幕)
+**整理日期:** 2026-10-02(§8 增補於 2026-10-05)
 
 > 📌 立場:本片未見業配或付費社群推廣。影片引用的基準分數**多為 Google 自報**,第三方尚未能獨立重跑(模型未公開)。
 
@@ -151,6 +152,41 @@ flowchart LR
 
 ---
 
+## 8. 增補:另一個視角——基準污染、市占與「Google 為什麼不打訂閱戰」(Caleb Writes Code)
+
+> 來源:Caleb Writes Code〈Gemini 4 Argon explained in 5min..〉(2026-10-02,英文自動字幕)。本片未見業配段落。
+
+### 8.1 對 DeepSWE 77.9% 要保持懷疑
+
+- ✅ **Epoch AI 審查 DeepSWE v1.1,在 113 題中至少找出 23 題有瑕疵(超過 20%)**,並把該基準標為「Flawed」;其中 18 例是可能影響任何一題的錯誤。
+- 影片:DeepSWE 的全部題目與解答都已公開 ⇒ 實驗室可以在後訓練時「研究」它們;Google 表格裡的基準**大多是公開的**,越晚發布的模型越有機會把它們納入後訓練。
+- 結論:公開基準污染得很快、飽和得也快,**使用者追蹤真實進展的負擔越來越重**。這和 §2 的「基準自帶地心引力」同一方向。
+
+### 8.2 模型強,但 harness 沒跟上
+
+- 寫程式的人仍主要用 Claude Code、Codex 或開源 harness;Google 的 **Antigravity** 還不是有競爭力的選項。
+- 影片:Codex 週活約 **500 萬**,Antigravity 約 **240 萬**(✅ Codex 500 萬以上週活有 OpenAI 公告;⚠️ Antigravity 240 萬未能核實)。
+- 首發價下 Argon 單位智能成本低於 Anthropic 與 OpenAI,但**這個成本優勢沒有轉化到帕累托前沿上**——Argon 落在前沿下方(與 §3 的每任務成本結論一致)。
+
+### 8.3 為什麼分段開放:Google 不需要用訂閱補貼搶用戶
+
+- Anthropic 與 OpenAI 面臨 IPO,有強烈誘因用訂閱大幅補貼來衝用戶數;Google 本身已是上市公司、坐擁既有營收,會更謹慎地把算力配置到**能直接創造營收的地方**。
+- 所以 Argon 先開給 **Ultra 訂閱者與付費 API**——已經在付大錢的客群——而不是加入訂閱戰。
+- ✅ Alphabet 2026 Q2 法說會:模型 API 每分鐘處理 **220 億 token**,上一季為 160 億。換算一年約 **1.16 京(11.6 quadrillion)token**,光 API 一條通路就如此,說明 Google 說的「供給受限」。
+- 作者預期 OpenAI 與 Anthropic 遲早也要在維持健康毛利的前提下解決擴展問題,不能只靠補貼。
+
+### 8.4 一百萬輸出 token 為什麼是大事
+
+自迴歸模型一個 token 接一個 token 生成,錯誤會沿著長軌跡累積——這正是 Yann LeCun 對自迴歸模型的批評。粗算:若每一步 99% 可靠、且彼此獨立,**連續 100 步全對的機率只有 0.99¹⁰⁰ ≈ 36.6%**。現實中錯誤並不獨立,這只是理論示意;但 Google 敢把商業產品的輸出上限開到 100 萬,代表它對長軌跡一致性有相當信心,也為程式碼遷移、長時間研究這類任務打開空間(呼應 §1 的 Rust 遷移案例)。
+
+### 8.5 應用案例:讀一份新模型發布表時的三個問題
+
+1. **這些基準公開多久了?** 公開越久、越晚發布的模型越可能「見過」;優先看第三方或私有基準(如 §2 的 Artificial Analysis)。
+2. **基準本身有沒有被審查過?** DeepSWE 被 Epoch 標為 Flawed 後,77.9% 的參考價值就該打折。
+3. **它在你用的 harness 裡表現如何?** 模型再強,接在不成熟的工具鏈裡也發揮不出來(§5、§6 案例二)。
+
+---
+
 ## 來源
 
 - [YouTube:Gemini 4 Argon 终于发布跻身第一梯队但真实水平怎么样?(Why QQ,2026-10-01)](https://www.youtube.com/watch?v=mhqz6MkQpWY)
@@ -159,5 +195,9 @@ flowchart LR
 - [Trending Topics:Google Gemini 4 Matches GPT-6 Astra but Trails Anthropic's Opus 5.5(Artificial Analysis 數據)](https://www.trendingtopics.eu/gemini-4-artificial-analysis-en/)
 - [Yahoo Finance:Google's Gemini 4 Argon Closes the Pricing Triangle](https://finance.yahoo.com/technology/ai/articles/google-gemini-4-argon-closes-235954585.html)
 - [tbreak:Gemini 4 Argon release starts with cyber defenders](https://tbreak.com/gemini-4-argon-fairwind-release/)
+- [YouTube:Gemini 4 Argon explained in 5min..(Caleb Writes Code,2026-10-02)](https://www.youtube.com/watch?v=1ZbNgx6Gscw)
+- [Epoch AI:DeepSWE v1.1 benchmark review](https://epoch.ai/benchmarks/deepswe/review)
+- [Alphabet:Q2 2026 earnings call remarks(Sundar Pichai)](https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/)
+- [Constellation Research:OpenAI touts Codex 5 million weekly active users](https://www.constellationr.com/insights/news/openai-touts-broadening-codex-usage-5-million-weekly-active-users)
 
 📎 相關筆記:[[gpt-6-astra-token-efficiency-and-harness]]、[[astra-vs-fable-find-bugs-vs-fix-bugs]]、[[claude-sonnet-5-5-release-effort-migration]]、[[ai-harness-explained]]、[[prompt-injection-5-techniques-defenses]]
