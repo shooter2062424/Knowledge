@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**305 個 YouTube video id**、**68 個 arXiv 編號**,涵蓋 **258 篇**筆記。
+> 統計:**307 個 YouTube video id**、**68 個 arXiv 編號**,涵蓋 **259 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(305 部,依 video id 排序)
+## YouTube(307 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -124,6 +124,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `Ec1jRVQ_YZU` | 別再相信目標價:前外資分析師拆解法人到底在看什麼 | [knowledge/investing/strategy/target-prices-institutional-secrets.md](./knowledge/investing/strategy/target-prices-institutional-secrets.md) |
 | `EhcRX53sUJk` | DHH 的 16 條並行 Agent:當寫程式幾乎免費,瓶頸遷移到哪裡去了 | [knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md](./knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md) |
 | `eiisw5N2U6w` | 用需求逼出 Agent 的五臟六腑:工作流 vs 智能體的分界,與 LangGraph 只做的三件事 | [knowledge/technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md](./knowledge/technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md) |
+| `ejThzPk85K0` | GPT-6 Astra 解開 217 年的拿破崙密信:從一張模糊掃描圖到可重現的解法包(Why QQ) | [knowledge/technology/ai-agents/applications/gpt-6-astra-napoleon-marmont-cipher.md](./knowledge/technology/ai-agents/applications/gpt-6-astra-napoleon-marmont-cipher.md) |
 | `eKW9ITaltWw` | 一支影片看完 Stanford「Beyond LLM」:從 LLM 到 Multi-Agent 的技術地圖 | [knowledge/technology/ai-agents/resources/stanford-beyond-llm-course.md](./knowledge/technology/ai-agents/resources/stanford-beyond-llm-course.md) |
 | `EmwW59QMadY` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | `EOg4gY0Yln0` | 讓訊號自己交易:Man Group 用 Claude Skills 治理打通系統化交易 | [knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md](./knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md) |
@@ -136,6 +137,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `F22wTQzVkI8` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `f4mI3d-nTrI` | MCP 無狀態化的維運視角:砍掉 Redis、恢復 round robin、伺服器能縮到零 | [knowledge/technology/ai-agents/foundations/mcp-stateless-deployment-ops-view.md](./knowledge/technology/ai-agents/foundations/mcp-stateless-deployment-ops-view.md) |
 | `F7oNfszczVc` | 再訪田淵棟:46.5 億美金估值的 RSI,押注「AI 自進化」與前沿實驗室的組織架構之爭 | [knowledge/technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md](./knowledge/technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) |
+| `FESIfabbzy8` | 為什麼 Anthropic 工程師棄 Markdown 改用 HTML:當「理解」變成真正的瓶頸 | [knowledge/technology/ai-productivity/anthropic-html-work-pages.md](./knowledge/technology/ai-productivity/anthropic-html-work-pages.md) |
 | `FJxgz5pN4wU` | Pi Agent:用「留白」的極簡 harness,對沖 agent 框架的易變 | [knowledge/technology/ai-agents/foundations/pi-agent-minimal-harness.md](./knowledge/technology/ai-agents/foundations/pi-agent-minimal-harness.md) |
 | `FmIUUT-TXHs` | 別跟單一模型「結婚」:Model Agnostic 才是槓桿位置 | [knowledge/technology/ai-productivity/model-agnostic-ai-workflow.md](./knowledge/technology/ai-productivity/model-agnostic-ai-workflow.md) |
 | `FmzFqM-kf0A` | AI 算力與 Token 經濟學:當「省錢神話」撞上天價帳單 | [knowledge/technology/ai-industry/ai-compute-token-economics.md](./knowledge/technology/ai-industry/ai-compute-token-economics.md) |

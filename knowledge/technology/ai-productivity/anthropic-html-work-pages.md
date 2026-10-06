@@ -4,7 +4,8 @@
 **來源影片:**
 1. YouTube〈Anthropic 工程師為什麼拋棄 Markdown 改用 HTML 跟 AI 工作?〉(Gary Chen,2026-05-21,約 13 分鐘;依繁中逐字稿整理)
 2. YouTube〈开三个AI同时跑,结果自己累成狗?真正的瓶颈不是AI不够快〉(YAHA學堂,2026-09-06,約 14.4 分鐘,**無字幕、Whisper 轉錄**)—— 見 **§6**,補上 workload creep 的三種形式、「逼自己讀完每行從來不是答案」,以及 junior/senior 斷層的推論
-**整理日期:** 2026-05-30(2026-09-07 增補 §6)
+3. YouTube〈Karpathy:LLM四层输出阶梯,400万加浏览5.7万加收藏的方法〉(Why QQ,2026-10-05,約 9.8 分鐘;官方簡中字幕)—— 見 **§7**,把「格式」從 HTML 一層擴成 Karpathy 的四層輸出階梯
+**整理日期:** 2026-05-30(2026-09-07 增補 §6、2026-10-06 增補 §7)
 
 ---
 
@@ -244,11 +245,67 @@ flowchart TB
 
 ---
 
+## 7. ⭐⭐ 增補:Karpathy 的「LLM 輸出四層階梯」(2026-10-06 增補,來源:Why QQ)
+
+> 來源:Why QQ〈Karpathy:LLM四层输出阶梯〉(2026-10-05,官方簡中字幕)。✅ 推文內容已對照 [Karpathy 原推](https://x.com/karpathy/status/2105819303471976479);ASD-STE100 規格對照 [max.nardit.com 的逐條查證](https://max.nardit.com/articles/karpathy-understanding-llm-outputs)。本片未見業配。
+
+2026-10-02,Karpathy 發推:「**我們接下來會花越來越多時間,去理解語言模型的輸出。**」這正是本篇 §2 的論點(瓶頸從產出換成理解),只是 Karpathy 把解法從「改用 HTML」擴成四層,一層比一層好讀。
+
+```mermaid
+flowchart LR
+    A["第一層 文字<br/>用 ASD-STE100 受控語言寫"] --> B["第二層 圖<br/>Mermaid 或 SVG"]
+    B --> C["第三層 網頁<br/>單檔互動 HTML"]
+    C --> D["第四層 影片<br/>3b1b 風格講解"]
+    A -.->|"越往上越好懂<br/>但越難逐字核對"| D
+```
+
+| 層 | 做法 | 重點 |
+|---|---|---|
+| **1 寫作** | 叫模型用 **ASD-STE100** 解釋 | ✅ 歐洲航空業的受控語言規範(1979 年起源、1986 年第一版指南,現行 Issue 9,2025-01-15):約 **900 個核准詞**、一詞一義;程序性句子最多 **20 字**、描述性最多 **25 字**;必須主動語態。Karpathy 承認規範太硬,建議「**做到 ASD-STE100 的八成**」——保留短句、主動語態、一詞一義,放寬詞彙表 |
+| **2 圖** | 問題結尾加「畫一張圖說明」 | 架構、狀態流轉、呼叫關係用圖吸收快得多 |
+| **3 網頁** | 「把回答寫成 HTML,用瀏覽器打開」 | 就是本篇 §3–§4 的 Thariq 論點;Karpathy 5 月就在那篇文章底下附議 |
+| **4 影片** | 「做一個 3b1b 風格的影片講解 X,用我的 ElevenLabs API key 配音」 | 背後是開源動畫引擎 Manim;沒有付費 key 就叫模型找能在本機跑的免費替代 |
+
+**推文的收尾判斷:** 智慧和程式碼越來越便宜,便宜到可以要求以前不合理的東西——**大型、客製、用完就丟的軟體製品**。為你一個人的一個問題現場寫網頁、渲染影片,看完就刪;軟體從「要維護的資產」變成「一次性餐具」。
+
+### 7.1 🔁 查證:清晰不等於正確
+
+📌 影片沒提、但很重要:Karpathy 推文附的 ASD-STE100 速查圖**本身有三處詞典錯誤**——把核准副詞 *approximately* 標成未核准、把只核准為名詞的 *TEST* 標成核准動詞、列出詞典裡根本沒有的 *in order to*。查證文章的結論正好是:**寫得清楚不保證寫得正確**。這也呼應影片自己的提醒——**層越高越漂亮、越難逐字核對**,影片裡一個錯的公式比文件裡的難發現十倍。
+
+### 7.2 社群怎麼接招(論壇言論,無代表性)
+
+- 中文圈有人把四層稱為「降維輸出」,每上一層理解成本降一個量級。
+- 英文圈有人把規則寫成一段可貼進全域 CLAUDE.md / AGENTS.md 的設定:每句一個指令、最多 20 字、主動語態、先給答案再給細節、超過三步的流程附 ASCII 圖。
+- Hacker News 的反對聲音:只靠提示詞約束,模型寫著寫著會**漂移**,除非做成 git hook 等級的強制檢查;HTML 的 token 開銷是 Markdown 的 2–4 倍、git diff 全是屬性雜訊;以及最尖銳的一句——「**格式治不了廢話**」。作者的回應:格式不能減少廢話,但能讓廢話現形。
+
+### 7.3 選層框架:這份輸出給誰看?
+
+| 讀者 | 用哪層 |
+|---|---|
+| 下一個 agent、git | Markdown、JSON——結構乾淨、diff 可讀 |
+| 要快速判斷的人 | 第二層圖、第三層網頁——犧牲一點 token 換閱讀率 |
+| 要真正學會一個概念的人 | 第四層影片 |
+
+**隱藏維度是驗證成本**:高層製品要可拋棄,**錨點永遠留在底層那份可驗證的文字**。
+
+### 7.4 應用案例:三條今天就能用的提示詞
+
+1. 解釋複雜概念時,結尾加「**按 ASD-STE100 八成的嚴格度回答:短句、主動語態、一個概念一個名字**」。
+2. 接手舊 repo、審 AI 的大改動、查看不懂的錯誤 ⇒ **先叫它畫圖,先圖後文**。
+3. 超過一百行的方案或報告 ⇒ **輸出成單檔 HTML,瀏覽器打開再看**。
+
+> ⚠️ 影片中的推文數據(400 萬瀏覽、3.9 萬讚、5.4 萬收藏)與「Karpathy 於 2026-05-19 加入 Anthropic 預訓練團隊」本次未獨立核實。
+
+---
+
 ## 來源
 
 - [YouTube:Anthropic 工程師為什麼拋棄 Markdown 改用 HTML 跟 AI 工作?(Gary Chen)](https://youtu.be/BhHMGRcbPkQ)(§1–§5)
 - ⭐ [开三个AI同时跑,结果自己累成狗?真正的瓶颈不是AI不够快 — YAHA學堂](https://www.youtube.com/watch?v=X2A6fANij9Q)(2026-09-06,約 14.4 分鐘;§6 來源)
+- ⭐ [Karpathy:LLM四层输出阶梯 — Why QQ](https://www.youtube.com/watch?v=FESIfabbzy8)(2026-10-05;§7 來源)
 - 一手來源與核實:
+  - ⭐ [Andrej Karpathy 原推(2026-10-02):We'll be spending a lot more time trying to understand the outputs of language models](https://x.com/karpathy/status/2105819303471976479)(§7)
+  - [Karpathy on understanding LLM outputs: ASD-STE100, diagrams, HTML and explainer videos, fact-checked — max.nardit.com](https://max.nardit.com/articles/karpathy-understanding-llm-outputs)(§7.1 速查圖錯誤)
   - ⭐⭐ [AI Doesn't Reduce Work—It Intensifies It — Harvard Business Review](https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it)(2026-02,Aruna Ranganathan 與 Xingqi Maggie Ye;**§6 的一手來源**)
   - [AI promised to free up workers' time. UC Berkeley Haas researchers found the opposite — Haas Newsroom](https://newsroom.haas.berkeley.edu/ai-promised-to-free-up-workers-time-uc-berkeley-haas-researchers-found-the-opposite/)(2026-02-18,三種強化形式的核實來源)
   - [Does AI Actually Free Up Workers' Time? — UC Berkeley Research](https://vcresearch.berkeley.edu/news/does-ai-actually-free-workers-time)
