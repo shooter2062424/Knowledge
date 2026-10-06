@@ -3,6 +3,7 @@
 **主題分類:** 科技 / Claude Code 維運 — 擴充機制
 **來源:** YouTube〈100 秒搞懂(今天刚发布的)claude code mods〉(howie和小能熊,2026-10-02,約 3 分 19 秒;英文旁白、無官方字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕),細節已對照 Claude Code 官方文件,並 clone `anthropics/claude-code-playground` 讀了範例 mod 原始碼
 **增補來源(§8):** YouTube〈Claude Code 的界面原来能自己改?ClaudeCode Mod 完整教程(2026)〉(YAHA學堂,2026-10-05,約 8 分;自動字幕被限流,逐字稿以 CPU faster-whisper 轉錄、非官方字幕)
+**增補來源(§9):** YouTube〈Claude 近期最重要的更新:Mods 教學〉(Gary Chen,2026-10-06,約 11 分;官方繁中字幕)。⚠️ 該片作者推廣自家 Skool 付費社群(完整提示詞與延伸文章放在那裡),本筆記不轉述付費內容
 **整理日期:** 2026-10-05
 
 > 📌 立場:本片未見業配或付費推廣。影片只有 100 秒,本筆記大部分細節(檔案結構、事件名稱、安全範圍、內建 mods)來自官方文件與原始碼。
@@ -214,6 +215,68 @@ claude plugin validate ./some-mod
 
 ---
 
+## 9. 增補:給非工程師的心智模型、管理指令與兩個自製 mod(Gary Chen)
+
+> 來源:Gary Chen〈Claude 近期最重要的更新:Mods 教學〉(2026-10-06,官方繁中字幕)。⚠️ 作者推廣 Skool 付費社群「Gary AI 實戰營」,兩個自製 mod 的完整提示詞放在付費區,本節只整理影片公開內容。
+
+### 9.1 心智模型:大腦與 App
+
+| | 大腦(模型) | App(Claude Code 這個 harness) |
+|---|---|---|
+| 是什麼 | Opus 5.5、Fable 等,負責思考 | 模型的**窗口**(畫面、按鈕)與**手腳**(真的去讀寫檔、執行指令) |
+| 以前能控制的 | prompt、CLAUDE.md、skill——都是「請大腦照你的意思做」 | Anthropic 寫死,沒做的功能只能等 |
+| mod 改的 | — | **App 這一層**:窗口(多放儀表板、改掉不喜歡的畫面)與手腳(動手前插一步,例如刪除前先列出檔案給你確認) |
+
+作者的比喻:Claude Code 像交屋時已裝潢好的房子,skill 和 hook 是往裡搬家具,**mod 是直接改格局**。
+
+### 9.2 Hook 是外包,mod 是正式員工
+
+| | 設定檔 hook | mod |
+|---|---|---|
+| 身分 | 外部腳本,跑完就結案(✅ 官方:也可以是 HTTP 請求或 prompt) | 跑在 App 行程內的程式碼 |
+| 改畫面 | 不能 | 能加按鈕、面板,甚至拔掉內建畫面換成自己的 |
+| 記住狀態 | 每次跑完就消失 | 與 App 共用記憶體,整段對話的 token 用量、被糾正幾次都能累積 |
+| 互動 | 只能放行或擋下 | 可跳出按鈕問「直接刪除,還是移到垃圾桶?」 |
+| 自訂指令 | — | 例如自製 `/cost`,由 mod 直接計算,**不必喚醒模型,也不花 token** |
+
+選擇原則:只是在某個時間點跑一支腳本 ⇒ hook 就夠;要長出新畫面、記住數據、跟你互動 ⇒ mod。(與 §1 官方比較表一致。)
+
+### 9.3 安裝與管理(✅ 已對照官方指令參考)
+
+- 更新 Claude Code 到最新版,終端機與 Desktop App 都**預設開啟**,不必另外設定。
+- 裝別人的 mod 兩種方法:終端機輸入安裝指令;或**把 marketplace 連結直接貼給 Claude Code**,請它幫你裝。
+- 自己做:跟 Claude 說「幫我做一個 mod」並講清楚功能,寫好立即載入、改了不用重開;⚠️ **剛做好的 mod 只是暫存,換個對話就不見**,滿意後要請 Claude 把它保存起來(與 §2 官方說明一致)。
+- ✅ 管理指令:`claude plugin list` 查看已安裝、`claude plugin uninstall <plugin>` 移除;安裝的 plugin 位於 `~/.claude/plugins/` 底下。
+- 📌 補正:影片說也可以「直接到資料夾把檔案刪掉」——官方的 `uninstall` 會一併清除該 plugin 的設定、密鑰與 `~/.claude/plugins/data/<id>/` 資料目錄,**建議用指令移除**,手動刪檔可能留下殘餘設定。
+
+### 9.4 推薦與社群 mod
+
+| mod | 內容 | 備註 |
+|---|---|---|
+| **Next Steps** | Claude 處理完任務後,在輸入框上方跳出幾個「下一步」建議,並提示適合用哪個 skill 或指令——工作流程固定時可少打很多 prompt | 作者介紹為 Claude Code 團隊工程師 Thariq 原本自用的工具,原始碼在 `anthropics/claude-plugins-community` 的 PR;影片說目前只支援 CLI,可請 Claude 改成 Desktop 也能用的版本(⚠️ 未逐項核對) |
+| **awesome-claude-code-mods** | 社群整理的 mod 清單 | ✅ 實際收錄 **70 個**(50 個一般 + 20 個 Desktop 專用),另列 14 個社群專案;明確標示**與 Anthropic 無關**;分類有 Session、Git、Repository、Workspace、Utilities、Workflow、Desktop。影片說「五十幾個」為較早的數字 |
+| 社群趣味用法 | 有人把 LINE 接進 Claude 自動擬回覆;有人把 Minecraft 寫進 mod,等程式跑時可以玩 | 社群貼文,未核實 |
+
+⚠️ 作者同樣提醒:mod 在你的電腦上執行,能讀檔、執行程式、連網——**裝別人的 mod 就像下載不知名軟體**,先確認它會做什麼(見 §5 的 `claude plugin validate`)。awesome 清單本身也註明其中的「唯讀模式」「範圍監看」類 mod 只是便利護欄,**不是安全邊界**。
+
+### 9.5 作者的兩個自製 mod
+
+| mod | 解決的問題 | 做法 |
+|---|---|---|
+| **任務進度條** | 同時開好幾個 Claude Code session,不知道哪個快好了 | 輸入框上方列出所有進行中的任務:每個一條進度條、百分比與預估剩餘分鐘;完成變綠色打勾;點任務名稱跳回該對話 |
+| **復盤** | 教過 Claude 的判斷,希望講一次就固定下來;用 skill 做復盤「觸發不夠精準」 | 偵測到你正在糾正 Claude 時,主動問要不要復盤;同意後在右側面板列出建議修改的 skill 或 md 檔,**逐項審查、預覽改動**後才套用 |
+
+> 作者對「復盤」的評價:改成 mod 後觸發時機更準、更主動,而且有逐項審查機制,不會「突然炸出一堆看不懂的修改」。這正是 mod 相對 skill 的優勢——**由程式判斷何時觸發**,而不是靠模型自己決定要不要讀 skill。
+
+### 9.6 應用案例:把「每週都在重複講的話」做成 mod
+
+假設你每次請 Claude 寫完程式都要補一句「記得跑測試、更新 CHANGELOG」:
+1. 用 skill 寫進去 ⇒ 模型有時不讀、有時忘。
+2. 改用 mod:`turn.complete` 時檢查本輪有沒有改到 `src/`,有的話在 prompt 上方畫一條提醒並附「跑測試」按鈕;按下去由 mod 直接執行測試指令,結果畫在面板上。
+3. 滿意後請 Claude 把 mod 存到固定資料夾,用 `--plugin-dir` 或私有 marketplace 讓每個 session 都載入。
+
+---
+
 ## 來源
 
 - [YouTube:100 秒搞懂(今天刚发布的)claude code mods(howie和小能熊,2026-10-02)](https://www.youtube.com/watch?v=CSfhmC_tUh8)(無官方字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕)
@@ -223,5 +286,9 @@ claude plugin validate ./some-mod
 - 內建 mod 原始碼:[anthropics/claude-code — mods](https://github.com/anthropics/claude-code/tree/main/mods)
 - 型別定義:[mods/types/claude-code.d.ts](https://github.com/anthropics/claude-code/blob/main/mods/types/claude-code.d.ts)
 - [YouTube:Claude Code 的界面原来能自己改?ClaudeCode Mod 完整教程(2026)(YAHA學堂,2026-10-05)](https://www.youtube.com/watch?v=0RTUj16alAU)(自動字幕被限流,逐字稿以 CPU faster-whisper 轉錄、非官方字幕)
+- [YouTube:Claude 近期最重要的更新:Mods 教學(Gary Chen,2026-10-06)](https://www.youtube.com/watch?v=2i3FT1vfcrA)
+- [Claude Code Docs:Plugin commands reference](https://code.claude.com/docs/en/plugins/cli-reference)
+- [whyashthakker/awesome-claude-code-mods(社群 mod 清單)](https://github.com/whyashthakker/awesome-claude-code-mods)
+- [Next Steps 原始碼(anthropics/claude-plugins-community PR #2397)](https://github.com/anthropics/claude-plugins-community/pull/2397)
 
 📎 相關筆記:[[claude-code-hooks-complete-guide]]、[[building-claude-skills]]、[[claude-code-2026-feature-timeline]]、[[claude-code-architecture-deep-dive]]
