@@ -165,7 +165,7 @@ flowchart LR
 | **PricewaterhouseCoopers(論文)** | 1 | [Recursive Agent Harness](./knowledge/technology/ai-agents/foundations/recursive-agent-harness-harness-recursion.md) |
 | **Microsoft / 復旦 / 浙大 / 愛丁堡(論文)** | 1 | [Harnessed Agentic RL(Agent Lightning v1.0)](./knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md) |
 | **howie和小能熊** — Claude Code 新功能速解 | 1 | [Claude Code Mods](./knowledge/technology/claude-code/claude-code-mods-explained.md) |
-| **黃培碩(運達證券投顧,運通財經台)** — 進化波浪理論(⚠️ 推廣 LINE 粉絲團與投顧服務) | 1 | [進化波浪分析方式](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
+| **黃培碩(運達證券投顧)** — 進化波浪理論(⚠️ 推廣 LINE 粉絲團與投顧服務) | 1 | [進化波浪分析方式](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 
 ### 🗞️ 週報
 
@@ -229,7 +229,7 @@ flowchart LR
 | [放量突破前高為什麼一追就被套:四層證據判斷真假突破與破底翻(簡一聊交易)](./knowledge/investing/technical-analysis/breakout-four-layers-of-evidence.md) | ⭐⭐⭐ **「成交量代表投入,價格位移才代表結果」**;突破不是單一 K 棒事件而是**市場重新定價的過程**;**① 遮住突破 K 拉遠看**是趨勢中段還是末端(末端的突破可能是情緒最後高潮)**② ⭐⭐⭐ 靠近方式最關鍵**:勻速 > 加速 > 縮量減速 > **放量減速(量價背離,假突破風險最高)**;⚠️ **「縮量減速靠近」≠「貼近壓力後的縮量整理」**(前者還沒到壓力就衰減,後者在壓力下方消化賣壓);**③「突破一定要放量」只說對一半** —— 假突破同樣會放大量,該問的是**大量換來多少推進**;**④ 權重最高:站得住/走得開/回測守得住**;⭐⭐⭐ **最危險是「突破已走遠、回測卻還沒發生」的中間價位** —— **很多人虧損不是方向看錯,是買在風險報酬極差的位置**;停損放結構失效位置、前方空間需 ≥ 1R;破底翻三型(縮量減速等小週期突破、**放量減速可直接評估**、加速型要等二次回測不破新低);⚠️ **全片無任何回測或統計驗證,屬判讀框架非已驗證策略**;⚠️非投資建議 |
 | [短線交易七條核心法則(熊貓有財)](./knowledge/investing/technical-analysis/short-term-trading-7-rules.md) | 順勢/強勢股/別被洗盤嚇走/追新;但通篇沒講停損,風控要自己補 |
 | [當沖有技巧嗎?NYSE 傳奇交易員 Peter Tuchman 的 40 年心法](./knowledge/investing/technical-analysis/peter-tuchman-day-trading.md) | 別靠財報/FOMO 當沖;最大敵人是恐懼;移動平均+RSI;自我重塑與感恩心態 |
-| [進化波浪理論:一套可照做的波浪分析方式(黃培碩,運達投顧)](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) | ⚠️非投資建議。⭐⭐⭐ 波浪非連續性:只看到週線、一組 12345+ABC 走完就斷開;兩大鐵律(一四不重疊 ⇒ 臨界買點、第三浪不最短 ⇒ 兩長夾一短送分題);回測次級四浪買點;附 10 步 SOP 與情境演練;📌 補標準第三條規則與斜三角例外 |
+| [進化波浪理論:一套可照做的波浪分析方式(黃培碩,運達投顧,全 8 集)](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) | ⚠️非投資建議。⭐⭐⭐ 波浪非連續性:只看到週線、一組 12345+ABC 走完就斷開;兩大鐵律(臨界買點、兩長夾一短送分題)+ 兩條指引(回測次級四浪、交替原則);各浪特性含 ABC、量是因價是果;附 12 步 SOP 與情境演練;📌 補標準第三條規則與斜三角例外 |
 
 ### 🤝 ai-assisted(AI 輔助投資)
 | 主題 | 一句話 |

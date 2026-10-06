@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**313 個 YouTube video id**、**68 個 arXiv 編號**,涵蓋 **260 篇**筆記。
+> 統計:**315 個 YouTube video id**、**68 個 arXiv 編號**,涵蓋 **260 篇**筆記。
 
 ---
 
@@ -24,11 +24,10 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(313 部,依 video id 排序)
+## YouTube(315 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
-| `-5xsDJCAzmE` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `-_U4YHElE2k` | 特斯拉暴跌 20% 拆解:資本開支才是恐慌根源,以及「大跌後持有半年 9 成賺」的歷史規律(美投君) | [knowledge/investing/equity-research/tesla-q2-2026-capex-shock-vs-narrative.md](./knowledge/investing/equity-research/tesla-q2-2026-capex-shock-vs-narrative.md) |
 | `-C6K3wtjjoI` | 照新標準手寫第一個 MCP Server:四個坑,其中兩個不會報錯 | [knowledge/technology/ai-agents/foundations/mcp-server-first-build-four-pitfalls.md](./knowledge/technology/ai-agents/foundations/mcp-server-first-build-four-pitfalls.md) |
 | `-hKHbHA0KKI` | Milvus 架構拆解:從「Segment 不可變」到存算分離,以及 2.6 版已經改掉的三件事 | [knowledge/technology/system-design/milvus-architecture-vector-database.md](./knowledge/technology/system-design/milvus-architecture-vector-database.md) |
@@ -49,6 +48,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `1SLbe0k6x4I` | 用 Claude Code + Jesse 做 AI 演算法交易:重點是「驗證流程」,不是那支策略 | [knowledge/investing/ai-assisted/ai-algo-trading-claude-jesse.md](./knowledge/investing/ai-assisted/ai-algo-trading-claude-jesse.md) |
 | `1VqKUrxR2C8` | AI 編程的三個致命錯覺(OpenCode 創辦人 Dax Raad) | [knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md](./knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md) |
 | `1ZbNgx6Gscw` | Gemini 4 Argon:跑分領先但分布不均、定價是「首發優惠」、先給網安防禦者(Why QQ) | [knowledge/technology/ai-industry/gemini-4-argon-release-benchmarks-pricing.md](./knowledge/technology/ai-industry/gemini-4-argon-release-benchmarks-pricing.md) |
+| `25s5sR_rUu0` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `2eq-8GM2bhg` | 什麼是 AI Harness?兩種「harness」的差別 | [knowledge/technology/ai-agents/foundations/ai-harness-explained.md](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) |
 | `2mtn-Qp59y4` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `2UYRqQvagrk` | MCP 史上最大改版(2026-07-28):從「打電話」變成「寄信」,以及三個功能的退場公告 | [knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md](./knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) |
@@ -109,6 +109,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `CSfhmC_tUh8` | Claude Code Mods:從「調旋鈕」到「改程式本身」——事件關卡、三種動作、會畫介面(howie和小能熊 + 官方文件 + 範例原始碼) | [knowledge/technology/claude-code/claude-code-mods-explained.md](./knowledge/technology/claude-code/claude-code-mods-explained.md) |
 | `d3EvaR3FKnY` | 「一切都沒有意義了」:一則 HN 熱帖與 175 則回覆裡的程式設計師價值重排 | [knowledge/career/mindset/programmer-meaning-crisis-hn-thread.md](./knowledge/career/mindset/programmer-meaning-crisis-hn-thread.md) |
 | `d4329xvSDK4` | AI 額度老是不夠用?三招省 Token:丟掉、縮減、打折 | [knowledge/technology/ai-productivity/token-saving-three-moves-context-control.md](./knowledge/technology/ai-productivity/token-saving-three-moves-context-control.md) |
+| `D8199KH0vhs` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `DcibeCh1aZ4` | 美股連漲 13 天還能追嗎?「真實通脹」數據、AI 情緒三大轉向信號,與「踏空風險 > 回調風險」 | [knowledge/investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md](./knowledge/investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md) |
 | `dECosPI6SUc` | 「Loop 已死,Graph 當立」?從工程視角看透這場名詞之爭 | [knowledge/technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md](./knowledge/technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) |
 | `dGHLg9NfvEo` | Fable 5.1:榜單全線第一,官方卻叫你先用 Opus 5 —— 旗艦模型開始為「可用性」讓路 | [knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md](./knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md) |
@@ -166,12 +167,12 @@ grep -rlF --include=*.md -- "<id>" .
 | `HhZcnM9tR7s` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | `hmrXnBvaFaI` | 荷蘭政府為什麼選 NixOS:DAWO 把 GitOps 推到每張辦公桌(Laptop as Code) | [knowledge/technology/system-design/dawo-nixos-laptop-as-code-dutch-government.md](./knowledge/technology/system-design/dawo-nixos-laptop-as-code-dutch-government.md) |
 | `Hnf1ExYg3M8` | SpaceX 為什麼這時間點上市?Musk 在 JP Morgan 投資人訪談說了什麼 | [knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md](./knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md) |
+| `Hng-GqRfO1I` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `hR5ephowvLM` | AI Agent 工具調用一次講清:從 ReAct → Function Calling → MCP → CLI | [knowledge/technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md](./knowledge/technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) |
 | `HyHKizkVuVM` | Skill 不是能力,是能力的施工圖:Agent 交不出活的三層工程棧「跑 / 做 / 驗」 | [knowledge/technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md](./knowledge/technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md) |
 | `hZ6fSjPGQWM` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
 | `I-PMiyYZkrs` | 你以為健康,其實天天慢性發炎:四個敵人與四個對策 | [knowledge/health/wellness/chronic-inflammation-four-enemies.md](./knowledge/health/wellness/chronic-inflammation-four-enemies.md) |
 | `I3bnBM4vNnY` | LLMentalist 效應:AI 像通靈師一樣「冷讀」你,以及驗證器能管到哪裡為止 | [knowledge/technology/ai-productivity/llmentalist-effect-cold-reading-and-verifiers.md](./knowledge/technology/ai-productivity/llmentalist-effect-cold-reading-and-verifiers.md) |
-| `I4Y9HyHRdQc` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `ib74sLgjIBM` | 用 Claude 蓋一個「會自我改進」的知識庫:三個資料夾 + 一個 CLAUDE.md + 五步驟 | [knowledge/technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md](./knowledge/technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md) |
 | `iD_2QFur7Q4` | 為什麼沙箱成了 AI 圈最捲的新基建:microVM、快照,與「快照要多快」這道題 | [knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
 | `iHVpk9IM1Uk` | Windows 原生安裝 Claude Code:一行指令,與五個報錯的官方修法 | [knowledge/technology/claude-code/claude-code-windows-native-install-troubleshooting.md](./knowledge/technology/claude-code/claude-code-windows-native-install-troubleshooting.md) |
@@ -184,6 +185,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `j7nu_6cprMI` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `jgy1A0Mrx7g` | Omarchy 4「Quattro」:當 Agent 從外掛升格成作業系統的一等公民 | [knowledge/technology/ai-agents/applications/omarchy-4-agent-as-os-citizen.md](./knowledge/technology/ai-agents/applications/omarchy-4-agent-as-os-citizen.md) |
 | `jJ5WAKs0eGE` | Make 與 n8n 還值得學嗎:當維護的人從你換成 Agent,視覺化就從資產變成阻礙 | [knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md](./knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md) |
+| `jNOQ4yQRn3M` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `JPGo_5fczaA` | 模型越強,Superpowers 和 Matt Skills 該刪掉誰?兩套 AI 編程工作流的選擇框架 | [knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md](./knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) |
 | `KeRBNTOITEo` | 十大恐怖主管特質:從竹科裸辭看「只做向上管理」如何逼走一個好員工 | [knowledge/career/workplace/ten-toxic-manager-traits.md](./knowledge/career/workplace/ten-toxic-manager-traits.md) |
 | `KG9M-8mvq7Q` | 五大風險集中爆發?把「真風險」和「導火線」分開:加息、美債、資料中心、中美談判、Anthropic 上市 | [knowledge/investing/strategy/us-stocks-five-risks-2026q4-hike-treasury-midterm.md](./knowledge/investing/strategy/us-stocks-five-risks-2026q4-hike-treasury-midterm.md) |
@@ -238,6 +240,8 @@ grep -rlF --include=*.md -- "<id>" .
 | `PxPWaP7mXFM` | AI 時代怎麼創業?Anthropic 新創 Playbook 的四階段 workflow | [knowledge/technology/ai-agents/applications/anthropic-startup-playbook.md](./knowledge/technology/ai-agents/applications/anthropic-startup-playbook.md) |
 | `PyctX9GQjXs` | AI Agent 三大核心技:Function Calling、MCP、A2A | [knowledge/technology/ai-agents/foundations/function-calling-mcp-a2a.md](./knowledge/technology/ai-agents/foundations/function-calling-mcp-a2a.md) |
 | `pyqUiHyz_-c` | AI 時代真正拉開差距的三種能力 | [knowledge/technology/ai-productivity/three-valuable-ai-skills.md](./knowledge/technology/ai-productivity/three-valuable-ai-skills.md) |
+| `q-f2sD4FhJE` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
+| `q15jcI0T5wQ` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `Q4hTr67ECLg` | 讓 Agent 自己花錢:硬上限、先查價、停下來問 —— 一次付費 API 調用的成本護欄實錄 | [knowledge/technology/ai-agents/applications/agent-paid-api-cost-guardrails-mcp.md](./knowledge/technology/ai-agents/applications/agent-paid-api-cost-guardrails-mcp.md) |
 | `QAhJRYua62k` | 把 Hermes 爆改成「主 Agent 中樞」:統一調度 SubAgent 與 Claude / Gemini / Codex | [knowledge/technology/ai-agents/applications/hermes-main-agent-orchestration.md](./knowledge/technology/ai-agents/applications/hermes-main-agent-orchestration.md) |
 | `qbReD1cGykQ` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
@@ -256,12 +260,10 @@ grep -rlF --include=*.md -- "<id>" .
 | `S-sYlFiGFv8` | Claude Code 團隊自己怎麼用 Claude Code:從盯 tool call 到只給目標 | [knowledge/technology/claude-code/claude-code-team-how-they-work.md](./knowledge/technology/claude-code/claude-code-team-how-they-work.md) |
 | `s3yiXTxueoI` | Harness / Loop / Graph 三層排障地圖:把「Agent 又抽風了」翻譯成可執行的排查工單 | [knowledge/technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md](./knowledge/technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) |
 | `s87lkkWk9rQ` | Claude Sonnet 5.5:價格不變、效率拉高,以及「檔位開最高反而更差」與五個會報 400 的遷移變更 | [knowledge/technology/ai-industry/claude-sonnet-5-5-release-effort-migration.md](./knowledge/technology/ai-industry/claude-sonnet-5-5-release-effort-migration.md) |
-| `sdY6GEg6e2o` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `SHRkOI0yO4Q` | 好的記憶系統贏在「會忘記」:Supermemory 拆解,與評估任何記憶方案的三個問題 | [knowledge/technology/ai-agents/memory-retrieval/supermemory-memory-layer.md](./knowledge/technology/ai-agents/memory-retrieval/supermemory-memory-layer.md) |
 | `SPyXyB7lgWU` | 加息會引發美股大跌嗎?用 2000 泡沫「三階段」對照 AI 這輪革命(美投君) | [knowledge/investing/strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md](./knowledge/investing/strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md) |
 | `SQ3fZ1sAqXI` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `SQMbCZH_5YY` | 先找規則,再判斷哪個選擇更有利:正期望值、手割分析,與「技術問題被講成心態問題」 | [knowledge/investing/strategy/positive-expectancy-rule-hunting-mark-yang.md](./knowledge/investing/strategy/positive-expectancy-rule-hunting-mark-yang.md) |
-| `SzBjkooGt78` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `t0ZWNh-UXDs` | 一兆筆紀錄的即時搜尋:從 36 小時延遲砍到 5 分鐘的去重管線 | [knowledge/technology/system-design/trillion-record-realtime-search-kafka-dedup.md](./knowledge/technology/system-design/trillion-record-realtime-search-kafka-dedup.md) |
 | `T1k0MCmO-SA` | 《會想的人,先有錢》(Jonathan Clements):一整天看盤的人,沒有賺比較多 | [knowledge/investing/strategy/thinkers-get-rich-jonathan-clements.md](./knowledge/investing/strategy/thinkers-get-rich-jonathan-clements.md) |
 | `T3R3CFtYUww` | 什麼是先進封裝?從有機基板到矽中介層、TSV、矽橋、玻璃基板一次看懂 | [knowledge/technology/ai-industry/advanced-packaging-explained.md](./knowledge/technology/ai-industry/advanced-packaging-explained.md) |
@@ -274,16 +276,15 @@ grep -rlF --include=*.md -- "<id>" .
 | `TBVjqvueeCo` | qm(YC 開源):把個人 Agent 變成「多人可用」的 Agent Harness —— scope 隔離、權限審批與可換 harness | [knowledge/technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md](./knowledge/technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md) |
 | `tGp6Ns9GtSU` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
 | `thIPYsSsuIs` | 推理成本腰斬的背後:GPT-5.6 Sol 讓模型自己重寫核心,與 Luna 降價 80% 的算盤 | [knowledge/technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md](./knowledge/technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) |
-| `tLWn9XpRNPA` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `TN3ZrSQ4DTc` | AI 旅遊規劃組合技:NotebookLM + Gemini + Google My Maps 從 0 到 100 | [knowledge/technology/ai-productivity/ai-travel-planning-notebooklm-gemini.md](./knowledge/technology/ai-productivity/ai-travel-planning-notebooklm-gemini.md) |
 | `TtZ0WM-91GM` | DLSS 與 FSR 到底做了什麼:從「猜細節」到「用時間換細節」的遊戲畫面 AI 放大 | [knowledge/technology/machine-learning/dlss-fsr-ai-upscaling-explained.md](./knowledge/technology/machine-learning/dlss-fsr-ai-upscaling-explained.md) |
 | `tU_1u8YyVLI` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
 | `tUI3ITjo2Bw` | AI 是威脅還是機遇?軟體股多點開花的選股邏輯 | [knowledge/investing/equity-research/ai-software-stocks-usage-based.md](./knowledge/investing/equity-research/ai-software-stocks-usage-based.md) |
 | `U9jFYSaalIc` | 7 種主流 Agent 架構選型:從單槍匹馬到工業流水線,以及「多加一層」的真實代價 | [knowledge/technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md](./knowledge/technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md) |
 | `uflbrOB9ujQ` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |
-| `uIyz20KNW20` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `UPF9Ogid4N0` | 黃仁勳談生死與接班:不做「接班計畫」,而是不停傳遞知識 | [knowledge/technology/ai-industry/jensen-huang-succession-and-vision.md](./knowledge/technology/ai-industry/jensen-huang-succession-and-vision.md) |
 | `UQDSftGndms` | Make 與 n8n 還值得學嗎:當維護的人從你換成 Agent,視覺化就從資產變成阻礙 | [knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md](./knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md) |
+| `UQtgJ2RWx64` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `us_rw9gZRYI` | 什麼樣的 Agent 專案才能給履歷加分:玩具 Demo 與企業級應用的分水嶺 | [knowledge/technology/ai-agents/applications/agent-project-resume-enterprise-grade.md](./knowledge/technology/ai-agents/applications/agent-project-resume-enterprise-grade.md) |
 | `UWdn0w-fbzQ` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
 | `VD9zEKQEJxo` | Sutton 的「行動認知 AI(enactive AI)」:一張自相矛盾的反大模型藍圖 | [knowledge/technology/llm-internals/world-models/sutton-enactive-ai.md](./knowledge/technology/llm-internals/world-models/sutton-enactive-ai.md) |
@@ -339,6 +340,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `zK2TjT17b8U` | 一段提示詞、五個工具、3 分鐘抓出加班費算法裡的三個漏洞:Claude Cowork 實戰拆解 | [knowledge/technology/ai-productivity/claude-cowork-overtime-pay-audit-prompt.md](./knowledge/technology/ai-productivity/claude-cowork-overtime-pay-audit-prompt.md) |
 | `ZLDfTwHm56A` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `ZLM6Qy7pAHk` | Model Routing:同一份任務,Token 成本從 $21.7 降到 $9.15 —— 重點是「算力分配」不是「挑模型」 | [knowledge/technology/ai-productivity/model-routing-compute-allocation.md](./knowledge/technology/ai-productivity/model-routing-compute-allocation.md) |
+| `zPlrFloJZy4` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `ZWsZwX6nsV0` | 社交套利(Social Arbitrage):Chris Camillo 從日常生活挖出暴利機會的方法 | [knowledge/investing/strategy/social-arbitrage-chris-camillo.md](./knowledge/investing/strategy/social-arbitrage-chris-camillo.md) |
 | `zxxAl7Wc2g0` | DHH 的 16 條並行 Agent:當寫程式幾乎免費,瓶頸遷移到哪裡去了 | [knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md](./knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md) |
 
