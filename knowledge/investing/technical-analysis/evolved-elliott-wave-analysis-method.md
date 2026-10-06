@@ -2,7 +2,7 @@
 
 **主題分類:** 投資 / 技術分析 — 艾略特波浪理論的實戰改良
 **來源:** YouTube 播放清單〈進化波浪棒棒堂〉(頻道:黃培碩分析師-運達證券投顧,2024-03-26 ~ 2024-04-19,**完整 8 集**;講者在第 8 集表示第一階段教學到此告一段落)。**各集皆無字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕。** 標準艾略特波浪規則已對照公開教材核實。
-**整理日期:** 2026-10-06(同日以完整版播放清單重製,取代先前只含 6 集的版本)
+**整理日期:** 2026-10-06
 
 > ⚠️ **非投資建議。** 立場:講者為投顧分析師,每集推廣 LINE 粉絲團「@v168」與投顧專線,並提到配套的書與 DVD。本筆記只整理影片公開教學的方法,不涉及其付費服務或個股推薦。影片中的個股多為**事後回顧**的範例,講者強調部分是「當天節目就預告」,但本筆記未能逐一核對,也不代表方法的勝率。
 
@@ -245,8 +245,6 @@ flowchart LR
   - [第 7 集:波浪理論的靈魂 回測次級 4 浪買點(2024-04-16)](https://www.youtube.com/watch?v=Hng-GqRfO1I)
   - [第 8 集:回測次級 4 浪買點續 指引 交替原則(2024-04-19)](https://www.youtube.com/watch?v=D8199KH0vhs)
 - 標準艾略特波浪規則對照(三條規則、斜三角例外、「較低一級的前一個第四浪」指引):[StockCharts ChartSchool — Identifying Elliott Wave Patterns](https://chartschool.stockcharts.com/table-of-contents/market-analysis/elliott-wave-analysis-articles/identifying-elliott-wave-patterns)、[LuxAlgo — Elliott Wave Theory](https://www.luxalgo.com/library/concept/elliott-wave-theory/)
-
-> 📌 第 1、2、4、5、7 集與運通財經台另一份播放清單中同名影片片長逐秒相同,轉錄沿用該批結果;第 3 集(新版本)、第 6、8 集為本次新轉錄。
 
 📎 相關筆記:[[breakout-four-layers-of-evidence]]、[[double-top-bottom-momentum]]、[[short-term-trading-7-rules]]
 
