@@ -243,7 +243,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 沒有新一期就只回報、不空 commit。完成後回報期數與結果。
-⚠️ 上游自 2026-08-03(第 124 期)起已長期無新期(截至 2026-10-02 已 60 天),連續空轉多日屬正常,不必特別排查。
+⚠️ 上游自 2026-08-03(第 124 期)起已長期無新期(截至 2026-10-06 已 64 天),連續空轉多日屬正常,不必特別排查。
 (此為 session-only 每日排程,7 天後會自動到期,若仍需要請在到期前用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
@@ -293,7 +293,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 每日更新 ai-grocery 的 gooaye(股癌模擬)agent 記憶層。⚠️ 這個排程動的是 ai-grocery repo(不是 Knowledge)。教育用途、非投資建議。位置:C:\Users\shoot\project\ai-grocery\plugins\investing-like-pro\gooaye\(build_memory.py 在 gooaye/scripts/、記憶檔在 gooaye/references/)。步驟:
 1. cd C:\Users\shoot\project\ai-grocery 先 git pull。
 2. 記憶來源 whatmkreallysaid.com 的 transcripts.json.br(brotli,需 pip install brotli);用 pack_manifest.json 的 episode_count 比對 references/mention-timeline.json 的 meta.built_at_ep,沒新集就只回報、不 commit。
-   ⭐ 順手看一下 manifest 的 `built_at` 欄位:若它也停在舊日期,代表**上游抓取站本身停止重建**(而非股癌沒更新)——截至 2026-10-01 查證,`built_at` 仍停在 `2026-09-04T06:33:28Z`,episode_count 已連續 27 天停在 693,連 `version` 雜湊 `79bd90a9ca0b` 都沒變。回報時可一併說明。
+   ⭐ 順手看一下 manifest 的 `built_at` 欄位:若它也停在舊日期,代表**上游抓取站本身停止重建**(而非股癌沒更新)——截至 2026-10-06 查證,`built_at` 仍停在 `2026-09-04T06:33:28Z`,episode_count 已連續 32 天停在 693,連 `version` 雜湊 `79bd90a9ca0b` 都沒變。回報時可一併說明。
    ⚠️ 讀 mention-timeline.json 要用 io.open(..., encoding='utf-8'),直接 open 會 cp950 UnicodeDecodeError。
    ⚠️ manifest 網址是**根路徑** https://whatmkreallysaid.com/pack_manifest.json,不是 /data/ 底下。
    ⚠️⚠️ pack 本身也在**根路徑**:https://whatmkreallysaid.com/transcripts.json.br —— /data/ 底下的舊網址已 404(2026-08-20 踩過)。下載要帶 User-Agent header(參考 build_memory.py 的 PACK_URL 常數,那裡是對的)。
@@ -494,6 +494,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-10-06 | **使用者要求「統一續排」,六個排程全刪重建**(`fb33d0dd` / `1f301baa` / `790b0d17` / `8ca69031` / `09aae84b` / `f2bb9321`,**統一約 10-13 到期**;先前約 10-09)。prompt 以本檔各節原文為準,同步更新 GitHub Weekly 空轉天數(64 天)與 gooaye 上游停更天數(32 天)。另依使用者交辦整理播放清單〈進化波浪棒棒堂〉6 集(無字幕,faster-whisper)→ 新篇 investing/technical-analysis/evolved-elliott-wave-analysis-method.md |
 | 2026-10-06 | 巡檢 1 支清單外新片 + 消化 1 支存量,產出 2 篇(皆官方字幕):**Why QQ** `FESIfabbzy8`(Karpathy LLM 輸出四層階梯)→ **增補** anthropic-html-work-pages.md §7,✅ 對照 Karpathy 原推與 ASD-STE100 規範(約 900 核准詞、程序句 20 字、描述句 25 字),📌 補出影片沒講的:Karpathy 附的速查圖本身有三處詞典錯誤;**Why QQ** `ejThzPk85K0`(存量,GPT-6 解拿破崙密信)→ 新篇 ai-agents/applications/gpt-6-astra-napoleon-marmont-cipher.md,數字全部對照 Carter Church 復盤原文(1,300 單元 / 155 符號、29 整詞符號、消融重跑、解法包)。其餘頻道無清單外新片 |
 | 2026-10-05 | 巡檢 7 支清單外新片,依上限產出 3 篇**增補**(皆併入既有筆記、無新開):**Why QQ** `wxxzXI9bigM`(DSec,官方字幕)→ agent-sandbox-microvm-snapshot-iaa.md §10,數字逐項對照 arXiv 2609.22978 全部一致;**Caleb Writes Code** `1ZbNgx6Gscw`(英文自動字幕)→ gemini-4-argon-release-benchmarks-pricing.md §8,✅ Epoch 標 DeepSWE 為 Flawed(113 題中 23 題)、Alphabet Q2 每分鐘 220 億 token;⚠️ Antigravity 240 萬週活未能核實;**YAHA學堂** `0RTUj16alAU`(自動字幕連 3 次 429,改 Whisper)→ claude-code-mods-explained.md §8,讀範例原始碼證實 replay-theater 只記 Edit/Write/MultiEdit。🔁 **本庫自我更正**:Mods 筆記初版說「blast-radius 按 1/2 可能是版本差異」為錯,原始碼確有 `hotkey: "1"`/`"2"`。其餘 4 支順延(見第 5 節) |
 | 2026-10-02 | **使用者交辦(非排程)**:Simon Scrapes `e7TY56-yIvM`(英文自動字幕)→ 增補 ai-agents/applications/building-claude-skills.md §8,七條規則逐條對照 Anthropic 官方 Skill authoring best practices。📌 補正:「head -100」只在巢狀引用時「可能」發生、非每次;「把目標模型寫進 frontmatter」是作者建議非官方;官方一直是 500 行非 200;⭐ 補上 Claude API 執行環境無網路、不能執行時裝套件。⚠️ 作者推廣 Skool 付費社群,已標註 |
