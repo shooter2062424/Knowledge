@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**316 個 YouTube video id**、**68 個 arXiv 編號**,涵蓋 **260 篇**筆記。
+> 統計:**317 個 YouTube video id**、**69 個 arXiv 編號**,涵蓋 **260 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(316 部,依 video id 排序)
+## YouTube(317 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -197,6 +197,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `kYkIdXwW2AE` | Yann LeCun 押 10 億美元賭 LLM 的另一條路:JEPA 與世界模型(上) | [knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md](./knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md) |
 | `l38ceFOWOAE` | 萬達怎麼一步步賣掉自己:兩份對賭、四次遞表失敗,與「名字還在、公司換人」 | [knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md](./knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md) |
 | `L5LLzXrKFIY` | 史上最強 AI 模型只活了 72 小時:Claude Fable 事件與「別把流程綁死在單一模型」 | [knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md](./knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md) |
+| `LdPT6S6fcvQ` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `ll-OBB-iswM` | 「Loop Engineering」是名詞詐騙嗎?一個反方吐槽視角 | [knowledge/technology/ai-agents/foundations/loop-engineering-buzzword-critique.md](./knowledge/technology/ai-agents/foundations/loop-engineering-buzzword-critique.md) |
 | `lnneAfJqd9M` | Skill 實戰:從製作到維護一份「agent 會自動觸發、產出穩定、人類維護得了」的 skill | [knowledge/technology/ai-agents/applications/building-claude-skills.md](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
 | `LPv1KfUXLCo` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
@@ -347,7 +348,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(68 篇,依編號排序)
+## arXiv(69 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -419,6 +420,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2609.11873` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `2609.14858` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `2609.22978` | 為什麼沙箱成了 AI 圈最捲的新基建:microVM、快照,與「快照要多快」這道題 | [knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
+| `2609.36054` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 
 ---
 
