@@ -231,8 +231,12 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 
 ```text
 每日 GitHub Weekly 週報整理任務。⚠️ Knowledge repo 已於 2026-08-30 重整:筆記在 knowledge/、腳本在 scripts/。步驟:
-1. 用 curl -s -o /dev/null -w "%{http_code}" https://raw.githubusercontent.com/itcoffee66/githubweekly/main/_weekly/NNN.md 驗證下一期是否已發布(WebFetch 有快取,用 curl 較準)。找到最大期數後取全文。
+1. ⚠️⚠️ **來源已改為 YouTube 頻道「IT咖啡馆」(channel ID `UCXLV-KfDQAFUJ_as9H1Lfbw`,handle @it-coffee)** —— 原本的 GitHub repo itcoffee66/githubweekly 自 2026-07-31 推完第 123–124 期後就**停止同步**(最後一個 commit 是「Remove Feishu sync script from repo」),但 YouTube 照常每週更新(2026-10-09 已到 133 期)。舊排程只看 repo,curl 一直 404 卻被當成「上游停更」,**白白漏了 126–133 共 8 期**。
+   列最新 6 部:yt-dlp --no-update --js-runtimes node --flat-playlist --playlist-end 6 --print "%(id)s|%(title)s" "https://www.youtube.com/channel/UCXLV-KfDQAFUJ_as9H1Lfbw/videos"
+   標題格式「「Github一周热点NNN期」…」,用正規表示式取 NNN。(⭐ YouTube 上沒有 123、125 期;123 期只在 repo 有,125 期兩邊都沒有。)
 2. 去重:若 C:\Users\shoot\project\Knowledge\knowledge\technology\github-weekly\issue-NNN.md 已存在就跳過、只回報、不 commit。
+   取內容:⭐ **說明欄就有完整專案清單(項目名稱 + GitHub 連結)**,用 yt_dlp Python API 取 description 寫 UTF-8 檔再 Read。影片**無字幕也無自動字幕**,講解內容要下載音訊跑 Whisper(--remote-components ejs:github + faster-whisper small/int8,vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3、beam_size=5,**前景跑**;每期約 7–8 分鐘)。專案名稱/指令以說明欄與 GitHub repo 為準(Whisper 常聽錯英文專名),⭐ 每個專案用 GitHub API(https://api.github.com/repos/<owner>/<repo>)核對描述、star、授權。
+   ⭐ 順手用 curl 看一下 https://raw.githubusercontent.com/itcoffee66/githubweekly/main/_weekly/NNN.md:若 repo 哪天恢復同步(200),可以拿它的文字稿對照 Whisper。
 3. 未整理的:依 CLAUDE.md 規範(繁中、必要時 Mermaid、結尾附完整網址來源)整理成 knowledge/technology/github-weekly/issue-NNN.md,逐一列出收錄專案的名稱/用途/亮點/連結。產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案>。
 4. 更新 README.md 的 github-weekly 索引與筆記數 badge,並跑 python scripts/knowledge/build_source_index.py 重建來源索引。
 5. 用無 BOM UTF-8 暫存檔(.git/COMMIT_MSG_TMP,printf '%s')git commit -q -F 提交(繁中訊息、[type] 前綴)並 git push -q origin main。清暫存。
@@ -243,7 +247,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 沒有新一期就只回報、不空 commit。完成後回報期數與結果。
-⚠️ 上游自 2026-08-03(第 124 期)起已長期無新期(截至 2026-10-09 已 67 天),連續空轉多日屬正常,不必特別排查。
+⚠️ 每週約一期(週末上傳),平日空轉屬正常。⚠️ 但若**連續 14 天以上沒新期**,要主動到 YouTube 頻道頁確認,不要假設上游停更(2026-08 到 10 月就是這樣漏掉 8 期)。
 (此為 session-only 每日排程,7 天後會自動到期,若仍需要請在到期前用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
@@ -294,6 +298,10 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 1. cd C:\Users\shoot\project\ai-grocery 先 git pull。
 2. 記憶來源 whatmkreallysaid.com 的 transcripts.json.br(brotli,需 pip install brotli);用 pack_manifest.json 的 episode_count 比對 references/mention-timeline.json 的 meta.built_at_ep,沒新集就只回報、不 commit。
    ⭐ 順手看一下 manifest 的 `built_at` 欄位:若它也停在舊日期,代表**上游抓取站本身停止重建**(而非股癌沒更新)——2026-09-04 至 2026-10-06 曾停更 32 天(episode_count 卡在 693、`version` 雜湊不變);**2026-10-06 21:32Z 上游恢復重建**,一次補到 EP702。若再出現長期停更,回報時一併說明。
+   ⭐⭐ **上游落後 fallback(2026-10-09 加入)**:上游站重建常落後股癌上傳數天(例:EP703 於 10-07 上傳,manifest 仍停在 10-06 21:32Z 的 EP702)。所以**每次都要再看 YouTube 頻道「Gooaye 股癌」最新集**:yt-dlp --no-update --js-runtimes node --flat-playlist --playlist-end 3 --print "%(id)s|%(title)s" "https://www.youtube.com/@Gooaye/videos"(標題以「EPNNN |」開頭)。若 YouTube 最新集數 > manifest episode_count:
+     ① 該集無字幕,下載音訊跑 faster-whisper(small/int8、vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3、beam_size=5,**前景跑**,約 50 分鐘的集數需十多分鐘);
+     ② **只更新 references/recent-stance.md**(照下方 🟢/🟡/⚪ 降級規則插入新集,檔頭標明「EPNNN 以 YouTube 音訊 Whisper 轉錄暫補,機器檔仍以 EP<manifest 集數> 為基準」);**機器檔不動**(build_memory.py 只吃上游 pack);
+     ③ 之後 manifest 追上時,照常跑 build_memory.py 重算機器檔,recent-stance.md **不要重複插入**已暫補的集數,只把檔頭的暫補註記拿掉。
    ⚠️ 讀 mention-timeline.json 要用 io.open(..., encoding='utf-8'),直接 open 會 cp950 UnicodeDecodeError。
    ⚠️ manifest 網址是**根路徑** https://whatmkreallysaid.com/pack_manifest.json,不是 /data/ 底下。
    ⚠️⚠️ pack 本身也在**根路徑**:https://whatmkreallysaid.com/transcripts.json.br —— /data/ 底下的舊網址已 404(2026-08-20 踩過)。下載要帶 User-Agent header(參考 build_memory.py 的 PACK_URL 常數,那裡是對的)。
@@ -497,6 +505,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-10-09(當日第二輪) | ⚠️⚠️ **使用者回報兩個排程漏抓,查出根因並修正:** **① GitHub Weekly**:原來源 repo itcoffee66/githubweekly 自 2026-07-31(最後 commit「Remove Feishu sync script from repo」)起停止同步,但 YouTube 頻道「IT咖啡馆」照常更新到 133 期;排程只看 repo,把 404 誤判成「上游停更」,漏了 126–133 共 8 期(YouTube 上沒有 125 期)。§1 prompt 改抓頻道 `UCXLV-KfDQAFUJ_as9H1Lfbw`(說明欄有專案清單、影片無字幕走 Whisper、專案以 GitHub API 核對),並加「連續 14 天沒新期要主動查頻道」。8 期已全部補齊(issue-126 至 issue-133,子 agent 平行撰寫,各期補正 repo 改名/404 連結/數字過時等)。**② gooaye**:上游站最後重建 2026-10-06T21:32Z(EP702),EP703 於 10-07 才上傳,上游尚未重建。§3 prompt 加入「YouTube 最新集數 > manifest 時,Whisper 轉錄暫補 recent-stance.md、機器檔等上游追上再重算」的 fallback,EP703 已依此補上(ai-grocery) |
 | 2026-10-09 | **使用者要求「恢復排程」(session 重啟後排程消失),六個排程依本檔 prompt 全數重建**(`e812047e` / `3fae7d6d` / `67329ce2` / `7eb2e2a3` / `2949a9c8` / `2f5dd63c`,**約 10-16 到期**),同步更新 GitHub Weekly 空轉天數(67 天)與 RSI 筆記節數(已到 §12)。立即補檢:GitHub Weekly 第 125/126 期仍 404;Gary Chen 僅會員限定片;gooaye 仍為 EP702 無新集;美投君無新片;`new/` 收件匣為空。巡檢 2 支清單外新片:**Why QQ** `auolAJmicpg`(官方字幕)→ **增補** openai-navier-stokes-agent-swarm-and-attribution.md §9,✅ 直接讀 openai/math 的 README、history.md、lean/README.md 核實(719 篇 / 372 族 / 約 4,000 題 / 平均 3 小時 Pro 算力 / 約 42% 形式化 / 10 份推理摘要 / Apache-2.0),AGMAI 成員與「不管推進節奏」對 OpenAI 公告與報導核實;📌 **補出影片沒講的:history.md 記錄 10-07 撤回 3 篇(一個符號錯誤牽連兩篇下游)、修訂 14 篇 —— 影片的 722 篇正是撤稿前數字**;⚠️ 影片「162 篇完整形式化」與倉庫「300/719」口徑不同,未逐筆核對。**白白说大模型** `nXs-PMjU7KY`(無字幕,faster-whisper)→ 新篇 ai-agents/foundations/agent-intent-recognition-three-layer-funnel.md(工程方法論,95/5 等數字標為作者經驗值;附示意路由程式碼) |
 | 2026-10-08 | 巡檢 1 支清單外新片:**Why QQ** `zN3-5rLblsQ`(官方字幕)→ 新篇 software-engineering/llm-evals-how-to-know-ai-works.md(既有 eval 筆記只是概念介紹,此篇為方法論,故新開並互相連結)。✅ 核對〈Ask, Don't Judge〉(arXiv 2606.27226)與 GAUGE(arXiv 2609.12191:25 agent、約 3,700 紀錄、實力接近時決策不一致 31%);原文 X 長文 403 無法直接讀,其餘引用數字標為未能核實。其餘頻道無清單外新片 |
 | 2026-10-07 | 巡檢 1 支清單外新片:**Why QQ** `LdPT6S6fcvQ`(官方字幕)→ **增補** rsi-recursive-self-improvement-anthropic.md §十二,數字逐項對照劍橋 CASP 論文原文(arXiv 2609.36054:Anthropic AI 程式碼 >80%、自主研發 1%→26%、r 1.2–1.9、約 1.5 年達 10 倍、數月到數年擴大 100 倍 vs 七十年)。⚠️⚠️ **重要補正**:讀論文時發現它與 **METR 獨立調查(2026-08-26)**都描述 Hugging Face 事件為約 700 個 agent 協同入侵,與本庫 §8.6 原本只採的 Hugging Face「單一 agent 編排」說法相反 ⇒ §8.6 改為並陳兩方並補上 Bulletin「人為決策」觀點;同步改寫本檔第 5 節巡檢 prompt 中的對應指引(執行中的排程仍是舊文字,下次續排時生效)。其餘頻道無清單外新片 |

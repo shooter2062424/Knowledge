@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-294_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-302_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -171,7 +171,7 @@ flowchart LR
 
 | 來源 | 篇數 | 筆記 |
 |---|---|---|
-| **GitHub Weekly(itcoffee66/githubweekly)** | 26 | [第 99–124 期(整個 github-weekly 資料夾)](./knowledge/technology/github-weekly/) |
+| **GitHub Weekly(IT咖啡馆「Github一周热点」)** | 34 | [第 99–133 期(整個 github-weekly 資料夾)](./knowledge/technology/github-weekly/) |
 
 ---
 
@@ -579,6 +579,14 @@ flowchart LR
 ### 🗞️ github-weekly(GitHub 週報)
 | 期數 | 主題 |
 |---|---|
+| [第 133 期:給 Agent 開家公司(Paperclip)、讓 Agent 剪影片(video-use)、騰訊開源 Octop、免費股票看板與 25MB 資料庫客戶端](./knowledge/technology/github-weekly/issue-133.md) | Paperclip / video-use / Octop / OpenStock / DBX |
+| [第 132 期:Jev 開源復刻 Laya、Cloudflare 安全審計 Skill、Univer Office SDK、Google 的 Agent 編排器 AX 與長期記憶 Hindsight](./knowledge/technology/github-weekly/issue-132.md) | Laya / security-audit-skill / Univer / AX / Hindsight |
+| [第 131 期:讓 Agent 少說廢話的 Skill、飛書官方 CLI、消費級硬體跑兆級 MoE、CAD Agent 技能庫與原生 macOS 啟動器](./knowledge/technology/github-weekly/issue-131.md) | i-have-adhd / lark-cli / colibri / text-to-cad / Tinycast |
+| [第 130 期:可驗證的架構圖 Skill、即時 3D 地球觀測台、多智能體 AI 課堂、科研 Agent 技能庫與本地語音工作台](./knowledge/technology/github-weekly/issue-130.md) | Archify / God's Eye View / OpenMAIC / Scientific Agent Skills / VoiceStudio |
+| [第 129 期:Agent 辦公室、GPT-Image-2 提示詞庫、Codex Harness、Apache Maka 與免費模型路由](./knowledge/technology/github-weekly/issue-129.md) | Munder Difflin / awesome-gpt-image-2 / openai/codex / Apache Maka / FreeLLMAPI |
+| [第 128 期:圖片生成 Three.js 3D 模型、Omarchy、Mac 本地推理 oMLX、NVIDIA Switchyard 模型路由與端側小模型 Needle](./knowledge/technology/github-weekly/issue-128.md) | img2threejs / Omarchy / oMLX / Switchyard / Needle |
+| [第 127 期:DeepSeek Harness、出版級圖表 Skill、自我進化的 RLM Agent、團隊工作台與可稽核語義圖譜](./knowledge/technology/github-weekly/issue-127.md) | DeepSeek Harness / diagram-design / Prime Agent / Macro / Semantica |
+| [第 126 期:MiniMax H3 全模態影音模型、PDF 解析分流、團隊級 Agent 記憶、低顯存跑大模型與逆向工程 Skill](./knowledge/technology/github-weekly/issue-126.md) | MiniMax H3 / pdf-inspector / TencentDB Agent Memory / AirLLM / reverse-skill |
 | [第 124 期:Kimi K3/Kimi Code、AI 網關、開源部署平台、反 AI 味設計 Skill](./knowledge/technology/github-weekly/issue-124.md) | Kimi Code / OmniRoute / Openship / Hallmark / Buzz |
 | [第 123 期:多說話人 ASR、並行 Agent 工作台、DESIGN.md 合集與 AI 交易 Agent](./knowledge/technology/github-weekly/issue-123.md) | MOSS-Transcribe-Diarize / Orca / awesome-design-md / Vibe-Trading / exercises-dataset |
 | [第 122 期:AI 求職助手、Photoshop 版 GIMP、Agent 省 Token 外掛與本地會議助手](./knowledge/technology/github-weekly/issue-122.md) | ai-job-search / PhotoGIMP / caveman / Meetily / OfficeCLI |

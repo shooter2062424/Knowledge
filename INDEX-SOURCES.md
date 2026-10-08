@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**320 個 YouTube video id**、**71 個 arXiv 編號**,涵蓋 **262 篇**筆記。
+> 統計:**328 個 YouTube video id**、**71 個 arXiv 編號**,涵蓋 **270 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(320 部,依 video id 排序)
+## YouTube(328 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -157,6 +157,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `gfhoJY2D4Jc` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | `gM5wm2x7fi8` | 美股狂熱會終結嗎?三大短期風險與「市場需要一個觸發點來解毒」 | [knowledge/investing/strategy/us-stocks-three-risks-detox-trigger.md](./knowledge/investing/strategy/us-stocks-three-risks-detox-trigger.md) |
 | `GrNbuWWJYiI` | 19 分鐘搞懂四個 AI Agent 熱詞:Harness、Loop、LLM Ops、Eval(一張圖串起記憶/RAG/Tracing) | [knowledge/technology/ai-agents/foundations/agent-harness-loop-llmops-eval-explained.md](./knowledge/technology/ai-agents/foundations/agent-harness-loop-llmops-eval-explained.md) |
+| `gv9IGo9qqZM` | 第 133 期:給 Agent 開家公司(Paperclip)、讓 Agent 剪影片(video-use)、騰訊開源 Octop、免費股票看板與 25MB 資料庫客戶端 | [knowledge/technology/github-weekly/issue-133.md](./knowledge/technology/github-weekly/issue-133.md) |
 | `GzHfE50N8x4` | Google 五天 AI 開發課程 Day 1:從 Vibe Coding 到 Agentic Engineering 的完整心智模型 | [knowledge/technology/ai-agents/foundations/google-agentic-engineering-day1.md](./knowledge/technology/ai-agents/foundations/google-agentic-engineering-day1.md) |
 | `h0lDdWYreSw` | dbx:單一執行檔的跨平台資料庫客戶端(Rust 寫)+ 內建 MCP Server 讓 Agent 直接操作資料庫 | [knowledge/technology/dev-tools/dbx-rust-database-client-mcp.md](./knowledge/technology/dev-tools/dbx-rust-database-client-mcp.md) |
 | `h7abDtqN9gs` | Google AI 課程 Day 4+5:怎麼放心讓 AI 上正式環境?三個動作 —— 講清楚、設邊界、做驗收 | [knowledge/technology/ai-agents/foundations/google-agentic-engineering-day4-5.md](./knowledge/technology/ai-agents/foundations/google-agentic-engineering-day4-5.md) |
@@ -189,6 +190,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `jJ5WAKs0eGE` | Make 與 n8n 還值得學嗎:當維護的人從你換成 Agent,視覺化就從資產變成阻礙 | [knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md](./knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md) |
 | `jNOQ4yQRn3M` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `JPGo_5fczaA` | 模型越強,Superpowers 和 Matt Skills 該刪掉誰?兩套 AI 編程工作流的選擇框架 | [knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md](./knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) |
+| `KDz1RpudZ1o` | 第 129 期:Agent 辦公室、GPT-Image-2 提示詞庫、Codex Harness、Apache Maka 與免費模型路由 | [knowledge/technology/github-weekly/issue-129.md](./knowledge/technology/github-weekly/issue-129.md) |
 | `KeRBNTOITEo` | 十大恐怖主管特質:從竹科裸辭看「只做向上管理」如何逼走一個好員工 | [knowledge/career/workplace/ten-toxic-manager-traits.md](./knowledge/career/workplace/ten-toxic-manager-traits.md) |
 | `KG9M-8mvq7Q` | 五大風險集中爆發?把「真風險」和「導火線」分開:加息、美債、資料中心、中美談判、Anthropic 上市 | [knowledge/investing/strategy/us-stocks-five-risks-2026q4-hike-treasury-midterm.md](./knowledge/investing/strategy/us-stocks-five-risks-2026q4-hike-treasury-midterm.md) |
 | `kGYFSDd-ZVY` | Loop Engineering 實務:怎麼設計、什麼任務值得、失控的三個坑(Gary Chen) | [knowledge/technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md](./knowledge/technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md) |
@@ -228,6 +230,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `oW4hgB1vIoY` | 用 Python 做強化學習交易機器人:在 EUR/USD 外匯訓練 AI Agent | [knowledge/investing/ai-assisted/rl-trading-bot-forex.md](./knowledge/investing/ai-assisted/rl-trading-bot-forex.md) |
 | `oW6MHjzxHpU` | 賣財報波動率:把 $1 萬變 $100 萬的選擇權策略(以及它真正的風險) | [knowledge/investing/derivatives/selling-earnings-volatility.md](./knowledge/investing/derivatives/selling-earnings-volatility.md) |
 | `oZC00ImTJt8` | 存量邏輯下的四條投資原則:把握價值而非趨勢,以及該盯的那個訊號 | [knowledge/investing/strategy/ai-investing-four-principles-stock-logic.md](./knowledge/investing/strategy/ai-investing-four-principles-stock-logic.md) |
+| `OzFszgfi5eI` | 第 131 期:讓 Agent 少說廢話的 Skill、飛書官方 CLI、消費級硬體跑兆級 MoE、CAD Agent 技能庫與原生 macOS 啟動器 | [knowledge/technology/github-weekly/issue-131.md](./knowledge/technology/github-weekly/issue-131.md) |
 | `P6UWIA_bvt8` | 大模型 API「中轉站」起底:0.5 折的 GPT/Claude 到底摻了多少水? | [knowledge/technology/ai-industry/llm-api-relay-stations.md](./knowledge/technology/ai-industry/llm-api-relay-stations.md) |
 | `pEMIF2Cu1mA` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `pGYrWsNQ8A0` | Attention Residuals:把注意力「轉 90 度」用在網路深度上 | [knowledge/technology/llm-internals/architecture/attention-residuals.md](./knowledge/technology/llm-internals/architecture/attention-residuals.md) |
@@ -247,6 +250,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `q-f2sD4FhJE` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `q15jcI0T5wQ` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `Q4hTr67ECLg` | 讓 Agent 自己花錢:硬上限、先查價、停下來問 —— 一次付費 API 調用的成本護欄實錄 | [knowledge/technology/ai-agents/applications/agent-paid-api-cost-guardrails-mcp.md](./knowledge/technology/ai-agents/applications/agent-paid-api-cost-guardrails-mcp.md) |
+| `q7HMQLM93qY` | 第 132 期:Jev 開源復刻 Laya、Cloudflare 安全審計 Skill、Univer Office SDK、Google 的 Agent 編排器 AX 與長期記憶 Hindsight | [knowledge/technology/github-weekly/issue-132.md](./knowledge/technology/github-weekly/issue-132.md) |
 | `QAhJRYua62k` | 把 Hermes 爆改成「主 Agent 中樞」:統一調度 SubAgent 與 Claude / Gemini / Codex | [knowledge/technology/ai-agents/applications/hermes-main-agent-orchestration.md](./knowledge/technology/ai-agents/applications/hermes-main-agent-orchestration.md) |
 | `qbReD1cGykQ` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
 | `QHHTcYBEIEo` | 別追「最強 AI」:用一張分工地圖建立你的多工具工作流 | [knowledge/technology/ai-productivity/multi-tool-ai-workflow.md](./knowledge/technology/ai-productivity/multi-tool-ai-workflow.md) |
@@ -259,6 +263,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `RAFQc6zHdXE` | Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生 subagent | [knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md](./knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) |
 | `rKV5JcALQoQ` | J-Space:Claude 內心那層「說得出口的思考」——用全域工作空間理論解讀模型意識 | [knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md](./knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md) |
 | `rLNGSDYkK-w` | Claude Code Hooks 完全指南:CLAUDE.md 是提醒紙條,Hook 才是自動門 | [knowledge/technology/claude-code/claude-code-hooks-complete-guide.md](./knowledge/technology/claude-code/claude-code-hooks-complete-guide.md) |
+| `rLymrqM9vCI` | 第 128 期:圖片生成 Three.js 3D 模型、Omarchy、Mac 本地推理 oMLX、NVIDIA Switchyard 模型路由與端側小模型 Needle | [knowledge/technology/github-weekly/issue-128.md](./knowledge/technology/github-weekly/issue-128.md) |
 | `rPGJhrunbxo` | 每一種尺寸的硬體能跑什麼本地 AI:從 32 KB 的 Arduino 到 8 張 H100 | [knowledge/technology/llm-internals/inference/local-ai-every-hardware-size.md](./knowledge/technology/llm-internals/inference/local-ai-every-hardware-size.md) |
 | `rv9aZRdtxsU` | MCP 無狀態化怎麼遷移:十分鐘自查、三個真正危險的點,與「狀態在哪裡,責任就在哪裡」 | [knowledge/technology/ai-agents/foundations/mcp-stateless-migration-guide.md](./knowledge/technology/ai-agents/foundations/mcp-stateless-migration-guide.md) |
 | `S-sYlFiGFv8` | Claude Code 團隊自己怎麼用 Claude Code:從盯 tool call 到只給目標 | [knowledge/technology/claude-code/claude-code-team-how-they-work.md](./knowledge/technology/claude-code/claude-code-team-how-they-work.md) |
@@ -284,7 +289,9 @@ grep -rlF --include=*.md -- "<id>" .
 | `TtZ0WM-91GM` | DLSS 與 FSR 到底做了什麼:從「猜細節」到「用時間換細節」的遊戲畫面 AI 放大 | [knowledge/technology/machine-learning/dlss-fsr-ai-upscaling-explained.md](./knowledge/technology/machine-learning/dlss-fsr-ai-upscaling-explained.md) |
 | `tU_1u8YyVLI` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
 | `tUI3ITjo2Bw` | AI 是威脅還是機遇?軟體股多點開花的選股邏輯 | [knowledge/investing/equity-research/ai-software-stocks-usage-based.md](./knowledge/investing/equity-research/ai-software-stocks-usage-based.md) |
+| `TY4JQhwEm1s` | 第 127 期:DeepSeek Harness、出版級圖表 Skill、自我進化的 RLM Agent、團隊工作台與可稽核語義圖譜 | [knowledge/technology/github-weekly/issue-127.md](./knowledge/technology/github-weekly/issue-127.md) |
 | `U9jFYSaalIc` | 7 種主流 Agent 架構選型:從單槍匹馬到工業流水線,以及「多加一層」的真實代價 | [knowledge/technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md](./knowledge/technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md) |
+| `uBuBebzHd-U` | 第 130 期:可驗證的架構圖 Skill、即時 3D 地球觀測台、多智能體 AI 課堂、科研 Agent 技能庫與本地語音工作台 | [knowledge/technology/github-weekly/issue-130.md](./knowledge/technology/github-weekly/issue-130.md) |
 | `uflbrOB9ujQ` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |
 | `UPF9Ogid4N0` | 黃仁勳談生死與接班:不做「接班計畫」,而是不停傳遞知識 | [knowledge/technology/ai-industry/jensen-huang-succession-and-vision.md](./knowledge/technology/ai-industry/jensen-huang-succession-and-vision.md) |
 | `UQDSftGndms` | Make 與 n8n 還值得學嗎:當維護的人從你換成 Agent,視覺化就從資產變成阻礙 | [knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md](./knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md) |
@@ -326,6 +333,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `YCswP_xmxu0` | 一段提示詞把 Gemini CLI 變成自動化 Agent:拆成輸入/輸出/過程,再讓 AI 記「工作筆記」 | [knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md](./knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md) |
 | `yDGpqBKJBpc` | 英偉達 FY27Q2:三十年來第一次提前給全年指引,以及「循環融資」如何改寫它的估值結構 | [knowledge/investing/equity-research/nvda-fy27q2-guidance-and-circular-financing.md](./knowledge/investing/equity-research/nvda-fy27q2-guidance-and-circular-financing.md) |
 | `yDR5EIvIni4` | 用 Skywork 從查資料到做簡報:AI 研究助理該看的三個能力(溯源、自訂信源、單頁重生) | [knowledge/technology/ai-productivity/skywork-research-report-to-slides.md](./knowledge/technology/ai-productivity/skywork-research-report-to-slides.md) |
+| `yEQfbuFT3B0` | 第 126 期:MiniMax H3 全模態影音模型、PDF 解析分流、團隊級 Agent 記憶、低顯存跑大模型與逆向工程 Skill | [knowledge/technology/github-weekly/issue-126.md](./knowledge/technology/github-weekly/issue-126.md) |
 | `yF2BY8kQfyo` | HBM 高頻寬記憶體原理:矽中介層、TSV、堆疊鍵合一次看懂 | [knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md](./knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md) |
 | `yHNp_rT6uEo` | Jalapeño 首批跑分:推理晶片的評判標準換了,以及怎麼讀廠商自己給的數字 | [knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) |
 | `yLOtgJwjhZ8` | 打造「0 人 AI 公司」:用 Hermes Agent + Paperclip 讓 AI 互相協作 | [knowledge/technology/ai-agents/applications/zero-person-ai-company.md](./knowledge/technology/ai-agents/applications/zero-person-ai-company.md) |
