@@ -298,10 +298,8 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 1. cd C:\Users\shoot\project\ai-grocery 先 git pull。
 2. 記憶來源 whatmkreallysaid.com 的 transcripts.json.br(brotli,需 pip install brotli);用 pack_manifest.json 的 episode_count 比對 references/mention-timeline.json 的 meta.built_at_ep,沒新集就只回報、不 commit。
    ⭐ 順手看一下 manifest 的 `built_at` 欄位:若它也停在舊日期,代表**上游抓取站本身停止重建**(而非股癌沒更新)——2026-09-04 至 2026-10-06 曾停更 32 天(episode_count 卡在 693、`version` 雜湊不變);**2026-10-06 21:32Z 上游恢復重建**,一次補到 EP702。若再出現長期停更,回報時一併說明。
-   ⭐⭐ **上游落後 fallback(2026-10-09 加入)**:上游站重建常落後股癌上傳數天(例:EP703 於 10-07 上傳,manifest 仍停在 10-06 21:32Z 的 EP702)。所以**每次都要再看 YouTube 頻道「Gooaye 股癌」最新集**:yt-dlp --no-update --js-runtimes node --flat-playlist --playlist-end 3 --print "%(id)s|%(title)s" "https://www.youtube.com/@Gooaye/videos"(標題以「EPNNN |」開頭)。若 YouTube 最新集數 > manifest episode_count:
-     ① 該集無字幕,下載音訊跑 faster-whisper(small/int8、vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3、beam_size=5,**前景跑**,約 50 分鐘的集數需十多分鐘);
-     ② **只更新 references/recent-stance.md**(照下方 🟢/🟡/⚪ 降級規則插入新集,檔頭標明「EPNNN 以 YouTube 音訊 Whisper 轉錄暫補,機器檔仍以 EP<manifest 集數> 為基準」);**機器檔不動**(build_memory.py 只吃上游 pack);
-     ③ 之後 manifest 追上時,照常跑 build_memory.py 重算機器檔,recent-stance.md **不要重複插入**已暫補的集數,只把檔頭的暫補註記拿掉。
+   ⭐ **只抓上游,不另外用 YouTube + Whisper 補集**(使用者 2026-10-09 決定):上游重建可能落後股癌上傳數天,manifest 沒新集就照常回報「無新集」,等上游追上再處理。
+   ⚠️ **一次性註記**:EP703 已於 2026-10-09 手動以 Whisper 暫補進 recent-stance.md(檔頭有暫補註記)。manifest 到 EP703 時照常跑 build_memory.py 重算機器檔,recent-stance.md **不要重複插入 EP703**,改以上游逐字稿校對該段內容並拿掉檔頭的暫補註記。
    ⚠️ 讀 mention-timeline.json 要用 io.open(..., encoding='utf-8'),直接 open 會 cp950 UnicodeDecodeError。
    ⚠️ manifest 網址是**根路徑** https://whatmkreallysaid.com/pack_manifest.json,不是 /data/ 底下。
    ⚠️⚠️ pack 本身也在**根路徑**:https://whatmkreallysaid.com/transcripts.json.br —— /data/ 底下的舊網址已 404(2026-08-20 踩過)。下載要帶 User-Agent header(參考 build_memory.py 的 PACK_URL 常數,那裡是對的)。
@@ -505,6 +503,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-10-09(當日第三輪) | **使用者決定 gooaye 維持只抓上游**:移除第 3 節的 YouTube + Whisper 補集 fallback,manifest 沒新集就回報無新集。保留一次性註記:EP703 已手動暫補,上游追上時不要重複插入、改以上游逐字稿校對並拿掉暫補註記。gooaye 排程依新 prompt 重建為 `32d0c504` |
 | 2026-10-09(當日第二輪) | ⚠️⚠️ **使用者回報兩個排程漏抓,查出根因並修正:** **① GitHub Weekly**:原來源 repo itcoffee66/githubweekly 自 2026-07-31(最後 commit「Remove Feishu sync script from repo」)起停止同步,但 YouTube 頻道「IT咖啡馆」照常更新到 133 期;排程只看 repo,把 404 誤判成「上游停更」,漏了 126–133 共 8 期(YouTube 上沒有 125 期)。§1 prompt 改抓頻道 `UCXLV-KfDQAFUJ_as9H1Lfbw`(說明欄有專案清單、影片無字幕走 Whisper、專案以 GitHub API 核對),並加「連續 14 天沒新期要主動查頻道」。8 期已全部補齊(issue-126 至 issue-133,子 agent 平行撰寫,各期補正 repo 改名/404 連結/數字過時等)。**② gooaye**:上游站最後重建 2026-10-06T21:32Z(EP702),EP703 於 10-07 才上傳,上游尚未重建。§3 prompt 加入「YouTube 最新集數 > manifest 時,Whisper 轉錄暫補 recent-stance.md、機器檔等上游追上再重算」的 fallback,EP703 已依此補上(ai-grocery) |
 | 2026-10-09 | **使用者要求「恢復排程」(session 重啟後排程消失),六個排程依本檔 prompt 全數重建**(`e812047e` / `3fae7d6d` / `67329ce2` / `7eb2e2a3` / `2949a9c8` / `2f5dd63c`,**約 10-16 到期**),同步更新 GitHub Weekly 空轉天數(67 天)與 RSI 筆記節數(已到 §12)。立即補檢:GitHub Weekly 第 125/126 期仍 404;Gary Chen 僅會員限定片;gooaye 仍為 EP702 無新集;美投君無新片;`new/` 收件匣為空。巡檢 2 支清單外新片:**Why QQ** `auolAJmicpg`(官方字幕)→ **增補** openai-navier-stokes-agent-swarm-and-attribution.md §9,✅ 直接讀 openai/math 的 README、history.md、lean/README.md 核實(719 篇 / 372 族 / 約 4,000 題 / 平均 3 小時 Pro 算力 / 約 42% 形式化 / 10 份推理摘要 / Apache-2.0),AGMAI 成員與「不管推進節奏」對 OpenAI 公告與報導核實;📌 **補出影片沒講的:history.md 記錄 10-07 撤回 3 篇(一個符號錯誤牽連兩篇下游)、修訂 14 篇 —— 影片的 722 篇正是撤稿前數字**;⚠️ 影片「162 篇完整形式化」與倉庫「300/719」口徑不同,未逐筆核對。**白白说大模型** `nXs-PMjU7KY`(無字幕,faster-whisper)→ 新篇 ai-agents/foundations/agent-intent-recognition-three-layer-funnel.md(工程方法論,95/5 等數字標為作者經驗值;附示意路由程式碼) |
 | 2026-10-08 | 巡檢 1 支清單外新片:**Why QQ** `zN3-5rLblsQ`(官方字幕)→ 新篇 software-engineering/llm-evals-how-to-know-ai-works.md(既有 eval 筆記只是概念介紹,此篇為方法論,故新開並互相連結)。✅ 核對〈Ask, Don't Judge〉(arXiv 2606.27226)與 GAUGE(arXiv 2609.12191:25 agent、約 3,700 紀錄、實力接近時決策不一致 31%);原文 X 長文 403 無法直接讀,其餘引用數字標為未能核實。其餘頻道無清單外新片 |
