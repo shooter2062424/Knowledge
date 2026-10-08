@@ -5,6 +5,8 @@
 > ⭐ **關鍵事實已比對 OpenAI 官方公告、Scientific American、Fortune、Tom's Hardware 與 Clay 數學研究所的表態**,並補上影片未提的三點(見 §7),以及事件三天後整個數學界的集體回應(見 §8)。
 >
 > ⭐⭐⭐ **2026-09-15 增補 Why QQ**〈[最挺AI的陶哲轩说:数学中AI的严重错位](https://www.youtube.com/watch?v=9uq4FRJ0oEE)〉(2026-09-15,約 10.4 分鐘,官方 zh-Hans 字幕),成為 **§8:25 位菲爾茲獎得主聯名聲明** —— 本事件三天後,整個數學共同體做出了集體回應。**該聲明全文已直接讀取原文逐句核實。**
+>
+> ⭐⭐⭐ **§9 來源 Why QQ**〈[OpenAI:722篇论文,数学研究变天了](https://www.youtube.com/watch?v=auolAJmicpg)〉(2026-10-08,約 13.4 分鐘,官方 zh-Hans 字幕):**OpenAI 於 2026-10-06 把 700 多篇 AI 數學手稿推上 GitHub**。⭐ **倉庫 README、history.md、lean/README.md 已直接讀取原文核實**,並補上影片未提的「上線隔天即撤稿 3 篇」(§9.6)。
 
 ---
 
@@ -493,6 +495,202 @@ flowchart TB
 > ⚠️ **本節整理一份公開聲明與相關討論。聲明本身的文字已逐句對原文核實;
 > 訪談與社群部分以影片轉述看待。**
 
+## 九、⭐⭐⭐ 一個月後:OpenAI 把 700 多篇數學手稿推上 GitHub(來源:Why QQ)
+
+**§8 的聲明要求「不要把數學當跑分廣告」。2026-10-06,OpenAI 給出的回應是一個 GitHub 倉庫 [`openai/math`](https://github.com/openai/math)
+—— 沒有發表會、沒有模型下載,只有一大批由**未命名內部模型**產出的數學手稿、LaTeX 原始碼與 Lean 形式化證明。**
+
+> ⭐⭐⭐ **影片的核心判斷:「這個倉庫最大的價值,大概率不在任何一條定理上 ——
+> 它逼著數學界把跑了兩百年的審稿、署名、發布流程,在幾個月內重新談一遍。」**
+
+### 9.1 時間線:火藥桶是怎麼一層層堆起來的
+
+```mermaid
+flowchart TD
+    A["2026-05<br/>內部模型反例推翻<br/>Erdős 單位距離猜想"] --> B["2026-08-28<br/>OpenAI 開始訓練新模型"]
+    B --> C["2026-09-08<br/>Navier-Stokes 宣布<br/>(本文 §1–7)"]
+    C --> D["2026-09-11<br/>25 位菲爾茲獎得主聲明<br/>(本文 §8)"]
+    D --> E["2026-09-21<br/>AGMAI 顧問組成立<br/>掛在普林斯頓高等研究院"]
+    E --> F["2026-09-29<br/>AGMAI 發布<br/>負責任發布建議"]
+    F --> G["2026-10-06<br/>openai/math 倉庫上線"]
+    G --> H["2026-10-07<br/>首次撤稿 3 篇<br/>修訂 14 篇"]
+```
+
+### 9.2 ⭐⭐ 官方數字(已對倉庫 README 與 history.md 核實)
+
+| 項目 | 倉庫原文 |
+|---|---|
+| 手稿數 / 成果族 | **719 篇手稿、372 個成果族**(一個族可含主結果、配套論證、推論、一題多證) |
+| 投入題目 | 評估過程中向模型提出**約 4,000 個問題** |
+| 算力 | **平均每個結果約 3 小時 ChatGPT Pro 思考算力**(只有平均值,沒有單項) |
+| 形式化比例 | **約 42% 的主結果已形式化(300 / 719)** |
+| 推理摘要 | **只有 10 個族**附刪節版推理摘要(007、017、087、102、159、197、221、271、287、362) |
+| 授權 | Apache-2.0 |
+| 例外 | ⭐ **黎曼 ζ 函數零點自由區域、CM 阿貝爾簇的 Hodge 猜想**這兩項**不是**用統一流程產出;**Re(s) > 11/12 那篇的寫作經人工潤稿** |
+
+> ⚠️⚠️ **影片與倉庫現況的差異(本文補正):**
+> - **影片說 722 篇,倉庫現在寫 719 篇** —— 差額正好是 **2026-10-07 撤下的 3 篇**(見 §9.6)。影片用的是上線當下的數字。
+> - **影片說「162 篇主定理有完整形式化」,倉庫 history.md 寫「300 / 719 ≈ 42% 的主結果已形式化」** —— 兩者可能是**不同口徑**(「整篇論文主定理完整機器驗證」vs「主結果有形式化」),本文未從 `formalization.yaml` 逐筆核對哪個口徑對應 162。**引用時以倉庫最新數字為準,並註明口徑。**
+> - 影片提到「235 個族掛有 Lean 頁面」「17 個數學分支」—— **未獨立核對**。
+
+⭐ **README 原文最值得記的一句**(影片也特別強調是原話):
+> 「Some of the unformalized results could have issues.」——**未形式化的結果可能有問題。**
+
+### 9.3 ⭐⭐⭐ 漏斗:從 4,000 題到機器可驗證
+
+```mermaid
+flowchart TD
+    A["約 4,000 個公開難題"] --> B["約 720 篇手稿"]
+    B --> C["372 個成果族<br/>(約 9.3%)"]
+    C --> D["已形式化主結果<br/>倉庫口徑約 42%"]
+    D --> E["人類真正理解<br/>(尚未開始計量)"]
+```
+
+> ⭐⭐ **影片的觀察:這個轉化率在科研上驚人 —— 沒有任何人類數學家有機會嘗試四千個難題;
+> 但它同時是個**工業指標**,像良率、像吞吐量。**
+>
+> ⭐ **另一個反直覺點(影片引述的分析估計,未核實):約兩成成果是**反例與證偽**。** 證偽要構造具體反例,不是暴力堆算力就能出來 —— 某種程度回應了「AI 只會大力出奇蹟」的批評。
+
+### 9.4 ⭐⭐⭐ 用 AGMAI 清單打分:一次「精確的部分合規」
+
+**AGMAI(Advisory Group on Mathematics and Artificial Intelligence)** 於 2026-09-21 成立,掛在普林斯頓高等研究院,9 位成員包括 **Gowers、Hairer、Witten、De Lellis、Vakil、Wood** 等;**成員不支薪**。
+⚠️ **OpenAI 公告裡有一行關鍵限制:顧問組「不負責就我們內部數學研究的推進節奏提供建議」** —— 影片的翻譯是「**你可以管我怎麼發,管不著我跑多快**」。
+
+影片依 AGMAI 9 月 29 日的負責任發布建議逐項對照:
+
+| AGMAI 要求 | openai/math 做到了嗎 |
+|---|---|
+| 版本歷史完整保留 | ✅ README 承諾「修正以新版本記錄,舊版保留可取用」 |
+| 每篇可引用 | ✅ 每篇附 BibTeX |
+| 證明盡可能形式化 | 🟡 約 42%,其餘明言「可能有問題」 |
+| 公開算力成本 | 🟡 只有平均值(約 3 小時 Pro 算力),沒有單項 |
+| 公開推理摘要 | 🟡 只有 10 個族(372 族中不到 3%) |
+| 公開模型名 | ❌ 「未發布的內部模型」 |
+| 公開提示詞 | ❌ 沒有 |
+| 存到不受 AI 公司控制的倉庫 | ❌ 掛在 OpenAI 自己帳號下(⭐ README 寫「也在研究社群託管的倉庫」) |
+
+> 📌 **影片轉述 AGMAI 當天的回應:「公開只是第一步,理解工作的完成權在數學共同體手裡」,並新增一條要求:強大工具的取得要公平。**(⚠️ 回應原文本文未取得。)
+
+### 9.5 ⭐⭐⭐ 給工程師看的細節:開源的殼,廣播的芯
+
+**倉庫結構**(影片逐層讀過,本文已對 README 核實主要部分):
+
+```
+openai/math/
+├── README.md
+├── CONTENTS.md         ← 手稿總地圖
+├── overview.pdf/.tex   ← 按學科給 372 個族分類
+├── history.md          ← 版本與撤稿紀錄
+├── preprints/          ← 每篇:PDF + LaTeX + 建置說明 + BibTeX
+├── reasoning_traces/   ← 10 份推理摘要
+└── lean/               ← 標準 Lake 工程
+    ├── formalization.yaml       ← 形式化總帳
+    └── ComparatorChallenges/    ← 驗證指令
+```
+
+⭐ **`lean/README.md` 的一段實務提醒(已核實原文):**
+
+```bash
+# 整個 library 太大,建議一次只編一小部分
+# Linux 上 vm.max_map_count 太低,整庫編譯會失敗。兩個 workaround:
+#   1) 用 CMake 選項 -DMMAP=OFF 重編 Lean
+#   2) 執行 Lean/Lake 時設定:
+export GLIBC_TUNABLES=glibc.malloc.mmap_max=0:glibc.malloc.arena_max=1
+```
+
+> 影片吐槽:「寫下這段話的人,顯然自己踩過坑。」
+
+⚠️⚠️ **最有態度的一個開關:Issues 關閉、沒有 Discussions、PR 僅限協作者**(影片說法;本文查看倉庫頁面時也未見 Issues 分頁)。
+
+> ⭐⭐⭐ **「你可以 fork、可以本地編譯驗證;但你沒法在原倉庫提 issue 說『第 47 篇的引理 3 好像有問題』。
+> 審計權在你手裡,反饋的門在對方手裡。」**
+
+### 9.6 ⭐⭐ 上線隔天就撤稿:倉庫的版本機制真的在運作(影片未提,本文補充)
+
+**倉庫 `history.md` 的 2026-10-07 紀錄**(已讀原文):
+
+- ⚠️ **撤回 3 篇**:〈Algebraicity of Weil classes on split abelian eightfolds〉因**符號錯誤**讓一個穩定化跡相消論證失效,連帶依賴它構造的兩篇(K3 曲面的 Kuga–Satake 對應、K3 曲面乘積的有理 Hodge 猜想)一起撤回;撤稿頁保留說明與存檔連結。
+- **修訂 14 篇**:證明修補、改正陳述、釐清假設與依賴(含 Kähler 極小模型綱領 6 篇、Lipschitz 高度 4 篇等)。
+- **另有 13 篇只更新引用**到修訂後的配套論文版本。
+- **新增 6 項形式化與 5 項支援結果**,總比例到 300 / 719 ≈ 42%。
+
+> ⭐⭐⭐ **影片在結尾說「接下來有沒有論文被撤回,是試金石」—— 倉庫紀錄顯示:上線第二天就有了。**
+> 📌 **這同時說明兩件事:①「未形式化的結果可能有問題」不是客套話;② 一個符號錯誤**牽連兩篇下游** —— 正是「依賴鏈」在數學裡的真實樣貌,和軟體裡一個底層函式出錯、所有呼叫者一起壞掉同構。**
+
+### 9.7 社群反應(⚠️ 以下皆為影片轉述,本文未逐一回溯原文)
+
+| 人物 | 立場(影片轉述) |
+|---|---|
+| **Alpöge**(本文 §3 的當事人) | 稱讚「準黎曼」與無 Siegel 零點的結果是數學史上最重要的時刻,但補一句**搶跑與利益衝突問題依然存在** |
+| **Sutherland**(MIT) | 模型不放出來,「單一 agent 一遍過」就只能算**未驗證聲明** —— 「我們要看收據」 |
+| **Litt**(多倫多大學) | 公開總比捂著強,沒理由要求公司對數學答案保密 |
+| **Will Depue**(OpenAI) | 預計有些結果活不過審查;另建 citedbyagi.com 追蹤這些論文引用了哪些人類工作 |
+| **陶哲軒** | 批評前沿實驗室的出成果節奏,用了 insane 一詞 |
+| **Chollet** | 數學與程式碼是 RLVR 友好領域(有驗證器就有獎勵訊號);**遷移到沒有驗證器的領域還剩多少?** |
+| **Gowers** | 拒簽 §8 聲明,主張「解題與理解是光譜」、真正風險在人才管道;之後**加入 AGMAI**(✅ 成員身分已核實) |
+
+> ⚠️ 本文搜尋時,Sutherland / Litt 的公開發言較多出自 2026 年 8 月一場閉門研討會的報導,**不一定是針對本倉庫的回應**;引用時請回溯原出處。
+
+### 9.8 ⭐⭐⭐ 影片的框架:數學成果的三層 —— 產出、驗證、理解
+
+```mermaid
+flowchart TD
+    A["產出<br/>AI 壓到約 3 小時算力"] --> B["驗證<br/>正交給 Lean 等證明助手"]
+    B --> C["理解<br/>講課、寫教材、傳承<br/>仍以人的速度發生"]
+    C --> D["瓶頸移到哪裡<br/>價值就流向哪裡"]
+```
+
+> ⭐⭐⭐ **「驗證權從審稿人手裡,挪到了編譯器手裡。」**
+> **真正已經發生的事不是這些論文對不對 —— 對不對,時間與 Lean 會回答 —— 而是數學成果的預設交付格式變了:
+> 從「期刊論文 + 審稿週期」變成「git 倉庫 + 形式化證明 + 版本歷史」。**
+
+**影片用程式設計師的話翻譯一遍:**
+
+> **OpenAI 朝人類知識庫提了一個 700 多個檔案的 PR。CI 只綠了一部分。
+> 作者匿名、不在線、不接受評論,commit message 只有一句「內部模型生成」。
+> 而 review 這個 PR 的人,是全世界數學家 —— 用他們自己的時間。**
+
+📎 **這正是 §8.8「證明消化不良」的放大版:產出端被加速到工業規模,理解端紋絲不動。**
+
+### 9.9 ⭐⭐ 應用案例:下次再有「AI 解了 N 個難題」的發布,先問三件事
+
+影片的建議很直接:**別問「又證了什麼」,先問:**
+
+1. **形式化了嗎?**—— 比例多少?口徑是「主定理整篇」還是「部分引理」?(本例:約 42%,而且被撤的正是未形式化的)
+2. **成本公開了嗎?**—— 平均值還是逐項?(本例:只有平均值)
+3. **能提 issue 嗎?**—— 社群有沒有正式的糾錯管道?(本例:沒有,只能等官方發版)
+
+**情境化例子:** 你的團隊在評估「某 AI 廠商宣稱 agent 自動修好了 700 個開源 bug」的新聞,要不要採購。照這三問改寫:
+① 有多少修正**通過上游專案的 CI 與維護者 review 並被合併**?(=形式化)
+② 每個修正的**實際 token 與工時成本**是多少,而不是平均?(=成本)
+③ 錯誤修正被發現時,**誰負責、怎麼回報**?(=issue)
+⭐ **三題答不出來,700 這個數字就只是行銷數字。**
+
+### 9.10 核實狀態
+
+#### ✅ 已核實(直接讀取 openai/math 的 README、history.md、lean/README.md,及 AGMAI 相關報導)
+
+| 說法 | 核實結果 |
+|---|---|
+| 2026-10-06 上線、出自未發布內部模型 | **屬實** |
+| 372 個成果族 | **屬實** |
+| 722 篇手稿 | 🟡 **上線時數字**;10-07 撤 3 篇後倉庫寫 **719** |
+| 約 4,000 題、平均約 3 小時 ChatGPT Pro 算力 | **屬實**(README 原文) |
+| 只有 10 份推理摘要 | **屬實**,族號已列於 §9.2 |
+| 「未形式化的結果可能有問題」是原話 | **屬實** |
+| Apache-2.0、Lean 為 Lake 工程、`vm.max_map_count` 與 `-DMMAP=OFF` 提醒 | **屬實** |
+| AGMAI 2026-09-21 成立、掛在 IAS、9 人含 Gowers/Hairer/Witten、不支薪、不管推進節奏 | **屬實** |
+
+#### ⚠️ 未能獨立查證(以影片轉述看待)
+
+- **162 篇主定理完整形式化、235 個族掛 Lean 頁面、17 個分支** —— 口徑與倉庫的「300/719」不同,**未逐筆核對 formalization.yaml**。
+- **star 一天接近八千** —— 本文查看時已約 1.18 萬,量級一致。
+- **約兩成成果是反例/證偽**、**族 003 的 Re(s) > 7/8 零點自由區域**、族 102/103/107/109 的具體結果 —— **未讀手稿核實**。(⭐ README 本身提到的是 **Re(s) > 11/12** 那篇有人工潤稿。)
+- **AGMAI 9-29 建議書措辭、600 多份問卷、10-06 當日回應** —— **未取得原文**。
+- **各方社群發言、Wired「mobster behavior」、Scientific American 引述的 OpenAI 發言人說法** —— **未回溯原文**。
+- **2024 年底專家預測 AI 約 2054 年解出千禧年難題的 50% 機率** —— **未核實**。
+
+
 ---
 
 ## 應用案例
@@ -555,6 +753,9 @@ flowchart LR
 15. ⭐⭐⭐ **陶哲軒直接點名寫程式:速度 5–100 倍,但手寫能力正在流失、看不懂 agent 吐出來的碼** —— **速度上去了,review 能力下來了**。
 16. ⭐⭐ **入口被堵死的問題**:給學生的訓練題正是 AI 最會刷的;軟體業同構 —— **初級職位的活最先被吃掉,十年後的資深工程師從哪來?目前沒人有答案**。
 17. ⭐⭐⭐ **可操作的判準:你的競爭力不在能生成多少程式碼,在於出事時能不能不看 AI 把它講明白** —— 能審查 AI 輸出的人,會比會用 AI 生成的人稀缺得多。
+18. ⭐⭐⭐ **§9:2026-10-06 OpenAI 推出 `openai/math` 倉庫** —— 約 4,000 題投入、372 個成果族、約 42% 主結果已形式化、只有 10 份推理摘要、模型名與提示詞未公開、Issues 關閉 ⇒ **對照 AGMAI 清單是「精確的部分合規」**。
+19. ⭐⭐ **上線隔天即撤回 3 篇**(一個符號錯誤牽連兩篇下游),印證 README「未形式化的結果可能有問題」不是客套話。
+20. ⭐⭐⭐ **下次看到「AI 解了 N 題」先問三件事:形式化了嗎?成本公開了嗎?能提 issue 嗎?**
 
 ---
 
@@ -598,9 +799,15 @@ flowchart LR
 
 ## 來源
 
+- ⭐ [OpenAI:722篇论文,数学研究变天了 — Why QQ](https://www.youtube.com/watch?v=auolAJmicpg)(2026-10-08,約 13.4 分鐘,官方 zh-Hans 字幕;**§9 來源**)
 - ⭐ [最挺AI的陶哲轩说:数学中AI的严重错位 程序员最该读 — Why QQ](https://www.youtube.com/watch?v=9uq4FRJ0oEE)(2026-09-15,約 10.4 分鐘,官方 zh-Hans 字幕;**§8 來源**)
 - [AI making breakthroughs explained.. — Caleb Writes Code](https://www.youtube.com/watch?v=7DncQnIjZmA)(2026-09-12,約 10.9 分鐘,自動英文字幕。⚠️ 含 Incogni 業配,與主題無關)
 - 核實用一手與權威來源:
+  - ⭐⭐⭐ [openai/math — GitHub](https://github.com/openai/math)(**§9 一手素材**;另讀 [history.md](https://github.com/openai/math/blob/main/history.md)、[lean/README.md](https://github.com/openai/math/blob/main/lean/README.md))
+  - [Sharing AI progress in mathematics — OpenAI 官方](https://openai.com/index/sharing-ai-progress-in-mathematics/)(影片說明欄所附;本文取用時 403,未讀全文)
+  - [Advisory Group on Mathematics and Artificial Intelligence — OpenAI 官方](https://openai.com/index/advisory-group-on-mathematics-and-ai/)
+  - [Top mathematicians will advise OpenAI on releasing its AI maths results — The Next Web](https://thenextweb.com/news/openai-maths-advisory-group-100-open-problems)
+  - [OpenAI releases 722 math manuscripts from an unreleased AI model — Unite.AI](https://www.unite.ai/openai-releases-722-math-manuscripts-from-an-unreleased-ai-model/)
   - ⭐⭐ [On the Navier–Stokes Millennium Prize Problem — OpenAI 官方](https://openai.com/index/navier-stokes-solution/)
   - ⭐⭐ [Clay Institute Won't Call Navier-Stokes Solved by OpenAI — Implicator.ai](https://www.implicator.ai/clay-institute-navier-stokes-openai-proof-claim/)(**§7.1 與陶哲軒評論的依據**)
   - ⭐⭐⭐ [A Severe Misalignment of AI in Mathematics — Terence Tao 部落格原文](https://terrytao.wordpress.com/2026/09/11/a-severe-misalignment-of-ai-in-mathematics/)(**§8 的一手素材,全文已逐句核實**)

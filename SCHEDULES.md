@@ -243,7 +243,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 沒有新一期就只回報、不空 commit。完成後回報期數與結果。
-⚠️ 上游自 2026-08-03(第 124 期)起已長期無新期(截至 2026-10-06 已 64 天),連續空轉多日屬正常,不必特別排查。
+⚠️ 上游自 2026-08-03(第 124 期)起已長期無新期(截至 2026-10-09 已 67 天),連續空轉多日屬正常,不必特別排查。
 (此為 session-only 每日排程,7 天後會自動到期,若仍需要請在到期前用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
@@ -394,7 +394,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
    ⭐⭐⭐ **影片若在講某個開源 repo,務必依 CLAUDE.md 先 `git clone --depth 1` 到暫存讀原始碼再整理,整理完刪除 clone(別 commit 進 repo)** —— 2026-09-19/20/22/23 四次實測,讀 repo 各抓到 2–4 處影片講錯或漏掉的關鍵資訊(09-23 Dream-RSI 影片說「直接給出代碼」,clone 後發現程式碼都還是「準備中」)。
    ⭐ **本庫自己也會寫錯**:2026-09-21 發現 Jev 筆記 §12.7 的「勘誤」本身是錯的(型態名稱確實是 `noul`)。**寫「更正」之前先對官方來源核實,別只憑直覺。**
    ⚠️⚠️ **「約 700 個 agent 協同攻破 Hugging Face」的說法有兩種正式出處互相矛盾**:Hugging Face 技術時間軸稱「單一自主 agent 編排,作為整合系統而非協同蜂群」;但 **METR 獨立調查(2026-08-26)與劍橋 CASP 論文(2026-09-28)都描述為約 700 個 agent 透過留言板協同入侵**。本庫 `rsi-recursive-self-improvement-anthropic.md` §8.6 已並陳兩方(2026-10-07 補正),**遇到就引用該節、註明出處,不要只採一方**。
-   ⭐ 同主題已有筆記優先增補、檔名不動,檔頭與來源區塊同時列出兩支影片。⭐ RSI / Pace the Frontier 相關的後續一律併入 `rsi-recursive-self-improvement-anthropic.md`(已到 §11)。
+   ⭐ 同主題已有筆記優先增補、檔名不動,檔頭與來源區塊同時列出兩支影片。⭐ RSI / Pace the Frontier 相關的後續一律併入 `rsi-recursive-self-improvement-anthropic.md`(已到 §12)。
    ⭐ **作者若推廣自家產品、業配或聯盟連結,務必在檔頭標明立場。**(⚠️ YAHA學堂 `CV7HX6qFglc` 說明欄含 `?via=yahaclass` 聯盟連結;Redknot `EsJKkDbHsec` 片中明示「與 ASML 合作出品」= 業配;Caleb 近期影片常夾 JetBrains 等業配段落;小Lin说 常夾 eSIM 等業配。)
    ⭐ **社群討論串、論壇熱帖這類材料要標明性質**(是自述不是研究、無樣本代表性)。
    ⭐ **涉及對特定公司/個人的指控時,務必標明是誰的單方陳述、對方是否回應,並並陳質疑動機的聲音,不做真偽判斷。**(⭐ 兩支影片內容高度重疊時也一樣:只記錄可觀察的重疊事實,不對成因做判斷。)
@@ -441,6 +441,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 - **Why QQ 剩 1**:`nScMXSWz9aE` vgpu(09-05~09-17 已完成 `BkoCVZJcRHY` Dario 降速長文、 `9uq4FRJ0oEE` 陶哲軒聯名聲明、`6Ly6wZUsESA` Anthropic 威脅情報報告、 `Ea1XvVD7GTY` DeepSeek V4.1-Flash、`98Mz0a1wJag` Voice Spec Loop、 GPT-6 Astra、DHH 16 條並行、RSA-260、AI 原生 SDLC、可塑軟體、Skill Doctor、HN 熱帖、`-XBnFO6FweQ` 刪提示詞、`0AvqP_WRVVM` 刪完之後寫什麼、`zFSWbN7VKB8` Coxon 辭職信、`479-FVtko2c` 29 個邏輯閘玩馬里奧、`pEMIF2Cu1mA` Jev/System One 決策模型、09-19 完成 `h9fLB0aS2AM` RSI 75 頁論文、`yOExQX0j19g` 小米 MiMo RL 儀表盤、09-20 完成 `bhfBWHPYC-I` Cloudflare 安全審計 Skill、09-21 完成 `Y31OgSV-S8k` Jev 實操指南、09-22 完成 `SHRkOI0yO4Q` Supermemory、09-23 完成 `t96q8onLu90` Dream-RSI、09-24 完成 `F22wTQzVkI8` 呼籲放緩後三家齊發新模型、09-25 完成 `I3bnBM4vNnY` LLMentalist 效應、09-26 完成 `ou9SC0Z_CtI` 給 Coding Agent 加決策層、09-27 完成 `bLWJmz_uAco` Anthropic ART 酶系統科研 harness、09-28 完成 `hmrXnBvaFaI` 荷蘭政府 DAWO / NixOS、09-29 完成 `zxxAl7Wc2g0` DHH Rails World 2026 → 併入 DHH 筆記 §13、09-30 完成 `s87lkkWk9rQ` Sonnet 5.5、10-01 完成 `KOAKRtBHecs` OpenAI DevDay 2026)
 - **Caleb 剩 7**(⚠️ 09-25 新增 `gQmPD4I62rU`〈Opus 5.5 vs GPT-6 is racing to the bottom〉:**自動字幕連續 3 次 HTTP 429 順延**;⚠️ 含 Hyperagent 業配(`hyperagent.com/caleb` 導購);主題與 RSI 筆記 §11 相同,只有新資訊才增補)(09-20 完成 `vj7hysh0mOI` Jev 七分鐘版 → 增補 Jev 筆記 §13)(09-14 完成 `7DncQnIjZmA` Navier-Stokes、09-17 完成 `PTubnGrHdmM` V4.1-Flash 架構深潛):`noPuRPDiY6k` AGI, are we there yet(09-09 新片,⚠️ 含 Micro Center 業配;09-10 三度嘗試抓自動字幕全數 **HTTP 429**,順延)、`3WbXyUolFA0`、`ZxBRtRjMU88` HBF、`Cx-pVoBR7C0`、`8ji5vURIllM` Why harness is SO expensive、`O1JMZvgFxKE`(09-04 完成 `dGHLg9NfvEo` Fable 5.1 質疑;09-05 完成 `XvmixEXPT3Q` GPT-6 Astra,與 Why QQ 版合併為同一篇)
 - **白白说大模型 剩 9**(全需 Whisper):`Uz7K757psEU` 高階 RAG 架構(09-07 新片)、`Wf2PZN-Ep2M` AI 應用開發學習路線(09-04 新片)、`4CZiE0Y0FFQ`、`Pio4SrsPHCY`、`acvK103404s` Agent Skills、`x-s1Dbp4BE4` Agent 架構十連問、`whdEwyY9A78` 單體 Loop→分散式 Graph(⭐可增補 graph-engineering-node-edge-state)、`wiQgPk8BnhM`、`XQXMSc0L5DA` 向量庫+RAG
+- ⭐ **2026-10-09 巡檢**:Why QQ `auolAJmicpg`(OpenAI 722 篇數學手稿)✅ 併入 openai-navier-stokes-agent-swarm-and-attribution.md §9;白白说大模型 `nXs-PMjU7KY`(Agent 意圖識別三層漏斗,Whisper)✅ 新篇 ai-agents/foundations/agent-intent-recognition-three-layer-funnel.md。
 - ⭐ **2026-10-08 巡檢**:Why QQ `zN3-5rLblsQ`(LLM 評估方法)✅ 當日完成,新篇 software-engineering/llm-evals-how-to-know-ai-works.md。
 - ⭐ **2026-10-07 巡檢**:Why QQ `LdPT6S6fcvQ`(Hinton 推薦的智能爆炸論文)✅ 當日完成,併入 RSI 筆記 §十二。
 - ⭐ **2026-10-05 巡檢新發現(順延 4 支)**:~~Why QQ `ejThzPk85K0`~~(✅ 10-06 完成)、Why QQ `nwI-Lg8Lk4w`(DeepSeek 昇騰 950 基建解讀,官方簡中字幕;⚠️ 宜先 clone 相關 repo 核實)、YAHA學堂 `bniFQlzWVbc`(Task budgets 任務預算實測,僅自動字幕;⭐ 可能增補 opus-5-5-prompting-guide-13-points 或 claude-sonnet-5-5 筆記)、YAHA學堂 `OCE-qMzzb_U`(Easy MCP AI 管 WordPress,有官方 zh 字幕)。同日已完成:Why QQ `wxxzXI9bigM`(DSec)、Caleb `1ZbNgx6Gscw`(Gemini 4 Argon)、YAHA學堂 `0RTUj16alAU`(Mod 教學)。
@@ -496,6 +497,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-10-09 | **使用者要求「恢復排程」(session 重啟後排程消失),六個排程依本檔 prompt 全數重建**(`e812047e` / `3fae7d6d` / `67329ce2` / `7eb2e2a3` / `2949a9c8` / `2f5dd63c`,**約 10-16 到期**),同步更新 GitHub Weekly 空轉天數(67 天)與 RSI 筆記節數(已到 §12)。立即補檢:GitHub Weekly 第 125/126 期仍 404;Gary Chen 僅會員限定片;gooaye 仍為 EP702 無新集;美投君無新片;`new/` 收件匣為空。巡檢 2 支清單外新片:**Why QQ** `auolAJmicpg`(官方字幕)→ **增補** openai-navier-stokes-agent-swarm-and-attribution.md §9,✅ 直接讀 openai/math 的 README、history.md、lean/README.md 核實(719 篇 / 372 族 / 約 4,000 題 / 平均 3 小時 Pro 算力 / 約 42% 形式化 / 10 份推理摘要 / Apache-2.0),AGMAI 成員與「不管推進節奏」對 OpenAI 公告與報導核實;📌 **補出影片沒講的:history.md 記錄 10-07 撤回 3 篇(一個符號錯誤牽連兩篇下游)、修訂 14 篇 —— 影片的 722 篇正是撤稿前數字**;⚠️ 影片「162 篇完整形式化」與倉庫「300/719」口徑不同,未逐筆核對。**白白说大模型** `nXs-PMjU7KY`(無字幕,faster-whisper)→ 新篇 ai-agents/foundations/agent-intent-recognition-three-layer-funnel.md(工程方法論,95/5 等數字標為作者經驗值;附示意路由程式碼) |
 | 2026-10-08 | 巡檢 1 支清單外新片:**Why QQ** `zN3-5rLblsQ`(官方字幕)→ 新篇 software-engineering/llm-evals-how-to-know-ai-works.md(既有 eval 筆記只是概念介紹,此篇為方法論,故新開並互相連結)。✅ 核對〈Ask, Don't Judge〉(arXiv 2606.27226)與 GAUGE(arXiv 2609.12191:25 agent、約 3,700 紀錄、實力接近時決策不一致 31%);原文 X 長文 403 無法直接讀,其餘引用數字標為未能核實。其餘頻道無清單外新片 |
 | 2026-10-07 | 巡檢 1 支清單外新片:**Why QQ** `LdPT6S6fcvQ`(官方字幕)→ **增補** rsi-recursive-self-improvement-anthropic.md §十二,數字逐項對照劍橋 CASP 論文原文(arXiv 2609.36054:Anthropic AI 程式碼 >80%、自主研發 1%→26%、r 1.2–1.9、約 1.5 年達 10 倍、數月到數年擴大 100 倍 vs 七十年)。⚠️⚠️ **重要補正**:讀論文時發現它與 **METR 獨立調查(2026-08-26)**都描述 Hugging Face 事件為約 700 個 agent 協同入侵,與本庫 §8.6 原本只採的 Hugging Face「單一 agent 編排」說法相反 ⇒ §8.6 改為並陳兩方並補上 Bulletin「人為決策」觀點;同步改寫本檔第 5 節巡檢 prompt 中的對應指引(執行中的排程仍是舊文字,下次續排時生效)。其餘頻道無清單外新片 |
 | 2026-10-07 | **gooaye 上游恢復重建**(manifest `built_at` 2026-10-06T21:32Z、`version` 013482795810),episode_count 693 → 702。跑 build_memory.py 重算機器檔;EP694–702 九集逐字稿由三個子 agent 平行摘要後,改寫 recent-stance.md(EP702 為 🟢、EP701 為 🟡、EP693/692 降為 ⚪,第 1–6 節改以 EP702 為基準),ai-grocery commit `31cbdcb`。同步更新本檔第 3 節的停更說明 |

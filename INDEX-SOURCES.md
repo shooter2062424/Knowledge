@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**318 個 YouTube video id**、**71 個 arXiv 編號**,涵蓋 **261 篇**筆記。
+> 統計:**320 個 YouTube video id**、**71 個 arXiv 編號**,涵蓋 **262 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(318 部,依 video id 排序)
+## YouTube(320 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -88,6 +88,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `ajtCT6jl1Nw` | Viking Holdings(VIK):碼頭權 × 高齡高淨值客群的雙層護城河,與那場被低估的歐洲枯水 | [knowledge/investing/equity-research/viking-holdings-river-cruise-moat.md](./knowledge/investing/equity-research/viking-holdings-river-cruise-moat.md) |
 | `aR97E7aKEgg` | Matt Pocock 的 AI 開發 skills 全拆解:最紅的 skill 只有五行字,強在哪? | [knowledge/technology/ai-agents/applications/matt-pocock-skills-teardown.md](./knowledge/technology/ai-agents/applications/matt-pocock-skills-teardown.md) |
 | `atqcAb7MFAM` | 給非技術人員的 Git / GitHub:Vibe Coding 必學的基礎技能 | [knowledge/technology/ai-productivity/git-github-for-vibe-coders.md](./knowledge/technology/ai-productivity/git-github-for-vibe-coders.md) |
+| `auolAJmicpg` | 一萬個 agent 破解千禧年難題:Navier-Stokes、抄襲指控,與「誰該被署名」 | [knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
 | `aYfZN8t6AQs` | Mem0 記憶架構拆解:三個儲存、抽取管線,與那個「加起來再除以 2.5」的混合排序 | [knowledge/technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md](./knowledge/technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md) |
 | `aZEmxJ9ivzg` | 學了那麼多 AI,為什麼還是沒加薪?——省下的時間 85% 被雜事吃掉,以及納許議價怎麼算你該開多少 | [knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md](./knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md) |
 | `B91bZL8wcAI` | 什麼是 AI Harness?兩種「harness」的差別 | [knowledge/technology/ai-agents/foundations/ai-harness-explained.md](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) |
@@ -217,6 +218,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `MWNuu9m93dk` | 多 Agent 系統的資料一致性:為什麼數字越傳越亂,以及四層工程解法 | [knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md](./knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md) |
 | `nlNDzop6tBw` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [knowledge/technology/claude-code/output-style-communication-not-intelligence.md](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) |
 | `nLZ-C7bbZzs` | PLTR 財報後大漲 30%:市場真正在交易的不是業績,是「增速見頂」風險的釋放 | [knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md](./knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md) |
+| `nXs-PMjU7KY` | 用最低成本做好 Agent 意圖識別:規則層、上下文層、工具層的三層漏斗 | [knowledge/technology/ai-agents/foundations/agent-intent-recognition-three-layer-funnel.md](./knowledge/technology/ai-agents/foundations/agent-intent-recognition-three-layer-funnel.md) |
 | `NYFGCESmikA` | DHH 的 16 條並行 Agent:當寫程式幾乎免費,瓶頸遷移到哪裡去了 | [knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md](./knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md) |
 | `nySTPhneEjw` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
 | `oBy94l_48CQ` | 2026 年 Agent 開發工程師要什麼能力:從 Demo 到生產系統的四塊拼圖(附面試題與標準答案) | [knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md](./knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) |
