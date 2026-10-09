@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**328 個 YouTube video id**、**71 個 arXiv 編號**,涵蓋 **270 篇**筆記。
+> 統計:**329 個 YouTube video id**、**71 個 arXiv 編號**,涵蓋 **271 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(328 部,依 video id 排序)
+## YouTube(329 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -243,6 +243,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `ptFiH_bHnJw` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `PTubnGrHdmM` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
 | `PuqX3Kv2ino` | Skill 實戰:從製作到維護一份「agent 會自動觸發、產出穩定、人類維護得了」的 skill | [knowledge/technology/ai-agents/applications/building-claude-skills.md](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
+| `PVe-ibLRLaw` | Claude Haiku 5.5:十分錢的小模型能做什麼——分段計價、電腦操作與「每次互動 0.1 美分」的個人 agent | [knowledge/technology/ai-industry/claude-haiku-5-5-cheap-model-computer-use.md](./knowledge/technology/ai-industry/claude-haiku-5-5-cheap-model-computer-use.md) |
 | `px5M4ry8IO4` | 下半年美股前瞻:宏觀四變數 + AI 的「存量邏輯 vs 增量邏輯」 | [knowledge/investing/strategy/us-stocks-h2-2026-outlook-stock-vs-flow-ai.md](./knowledge/investing/strategy/us-stocks-h2-2026-outlook-stock-vs-flow-ai.md) |
 | `PxPWaP7mXFM` | AI 時代怎麼創業?Anthropic 新創 Playbook 的四階段 workflow | [knowledge/technology/ai-agents/applications/anthropic-startup-playbook.md](./knowledge/technology/ai-agents/applications/anthropic-startup-playbook.md) |
 | `PyctX9GQjXs` | AI Agent 三大核心技:Function Calling、MCP、A2A | [knowledge/technology/ai-agents/foundations/function-calling-mcp-a2a.md](./knowledge/technology/ai-agents/foundations/function-calling-mcp-a2a.md) |
