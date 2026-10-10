@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**329 個 YouTube video id**、**71 個 arXiv 編號**,涵蓋 **271 篇**筆記。
+> 統計:**331 個 YouTube video id**、**71 個 arXiv 編號**,涵蓋 **273 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(329 部,依 video id 排序)
+## YouTube(331 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -256,6 +256,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `qbReD1cGykQ` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
 | `QHHTcYBEIEo` | 別追「最強 AI」:用一張分工地圖建立你的多工具工作流 | [knowledge/technology/ai-productivity/multi-tool-ai-workflow.md](./knowledge/technology/ai-productivity/multi-tool-ai-workflow.md) |
 | `qL6ca-mIeMI` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
+| `qMYLjyqJzDU` | 32 個 AI 編排器怎麼挑:星數第一的不是編排器,七個維度與四類場景選型清單(Why QQ) | [knowledge/technology/ai-agents/resources/ai-orchestrators-32-tools-seven-dimensions.md](./knowledge/technology/ai-agents/resources/ai-orchestrators-32-tools-seven-dimensions.md) |
 | `qnIlKvW00Sk` | AI Agent 最大的缺陷:它沒有「世界地圖」——用本體論給大模型套上邏輯護欄 | [knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
 | `QuQ2FOznK18` | Impeccable 深度解析:AI 做的網站為什麼有「AI 味」,以及一個 skill 怎麼把設計師流程教給 AI | [knowledge/technology/applied-ai/design/impeccable-frontend-design-skill-ai-slop.md](./knowledge/technology/applied-ai/design/impeccable-frontend-design-skill-ai-slop.md) |
 | `QwOUDPiBzfU` | 孫慶龍的「EPS × 本益比五檔價」估值法 + 護國群山、成長股複利 | [knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md](./knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md) |
@@ -311,6 +312,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `wj7mHCviMvs` | 15 分鐘學完 CLAUDE.md:三個位置、做減法的三問、做加法的五問、以及怎麼「修剪」 | [knowledge/technology/claude-code/claude-md-from-zero-to-mastery.md](./knowledge/technology/claude-code/claude-md-from-zero-to-mastery.md) |
 | `WOMdoiy9Qas` | Opus 4.7 不是更強的 4.6,是另一種模型:四個該跟著升級的工作流 | [knowledge/technology/ai-productivity/opus-4-7-workflow-upgrades.md](./knowledge/technology/ai-productivity/opus-4-7-workflow-upgrades.md) |
 | `wpb-DrbhEiY` | SpaceX 為什麼這時間點上市?Musk 在 JP Morgan 投資人訪談說了什麼 | [knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md](./knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md) |
+| `wu0zS1AuI_E` | 派拉蒙全現金收購華納兄弟:艾里森父子的「AB 股 + 上市殼」資本操作 | [knowledge/investing/equity-research/paramount-warner-bros-ellison-cash-acquisition.md](./knowledge/investing/equity-research/paramount-warner-bros-ellison-cash-acquisition.md) |
 | `WuMlsfKeWHc` | Loop Engineering(循環工程):從「寫提示詞驅動 agent」到「設計驅動 agent 的循環」 | [knowledge/technology/ai-agents/foundations/loop-engineering.md](./knowledge/technology/ai-agents/foundations/loop-engineering.md) |
 | `wxxzXI9bigM` | 為什麼沙箱成了 AI 圈最捲的新基建:microVM、快照,與「快照要多快」這道題 | [knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
 | `X2A6fANij9Q` | 為什麼 Anthropic 工程師棄 Markdown 改用 HTML:當「理解」變成真正的瓶頸 | [knowledge/technology/ai-productivity/anthropic-html-work-pages.md](./knowledge/technology/ai-productivity/anthropic-html-work-pages.md) |
