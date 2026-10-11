@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-307_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-308_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -171,7 +171,7 @@ flowchart LR
 
 | 來源 | 篇數 | 筆記 |
 |---|---|---|
-| **GitHub Weekly(IT咖啡馆「Github一周热点」)** | 34 | [第 99–133 期(整個 github-weekly 資料夾)](./knowledge/technology/github-weekly/) |
+| **GitHub Weekly(IT咖啡馆「Github一周热点」)** | 35 | [第 99–134 期(整個 github-weekly 資料夾)](./knowledge/technology/github-weekly/) |
 
 ---
 
@@ -584,6 +584,7 @@ flowchart LR
 ### 🗞️ github-weekly(GitHub 週報)
 | 期數 | 主題 |
 |---|---|
+| [第 134 期:WebGPU 特效元件庫(Shaders)、PS5 遊戲移植到電腦(AnyPS5)、讓 Agent 逆向一切(REA)、提升 AI 前端設計的 Skill(Impeccable)與自架健身紀錄(openGym)](./knowledge/technology/github-weekly/issue-134.md) | Shaders / AnyPS5 / REA / Impeccable / openGym |
 | [第 133 期:給 Agent 開家公司(Paperclip)、讓 Agent 剪影片(video-use)、騰訊開源 Octop、免費股票看板與 25MB 資料庫客戶端](./knowledge/technology/github-weekly/issue-133.md) | Paperclip / video-use / Octop / OpenStock / DBX |
 | [第 132 期:Jev 開源復刻 Laya、Cloudflare 安全審計 Skill、Univer Office SDK、Google 的 Agent 編排器 AX 與長期記憶 Hindsight](./knowledge/technology/github-weekly/issue-132.md) | Laya / security-audit-skill / Univer / AX / Hindsight |
 | [第 131 期:讓 Agent 少說廢話的 Skill、飛書官方 CLI、消費級硬體跑兆級 MoE、CAD Agent 技能庫與原生 macOS 啟動器](./knowledge/technology/github-weekly/issue-131.md) | i-have-adhd / lark-cli / colibri / text-to-cad / Tinycast |

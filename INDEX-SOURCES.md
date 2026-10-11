@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**335 個 YouTube video id**、**72 個 arXiv 編號**,涵蓋 **276 篇**筆記。
+> 統計:**336 個 YouTube video id**、**72 個 arXiv 編號**,涵蓋 **277 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(335 部,依 video id 排序)
+## YouTube(336 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -193,6 +193,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `jJ5WAKs0eGE` | Make 與 n8n 還值得學嗎:當維護的人從你換成 Agent,視覺化就從資產變成阻礙 | [knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md](./knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md) |
 | `jNOQ4yQRn3M` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `JPGo_5fczaA` | 模型越強,Superpowers 和 Matt Skills 該刪掉誰?兩套 AI 編程工作流的選擇框架 | [knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md](./knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) |
+| `K_2Lu41SEuw` | 第 134 期:WebGPU 特效元件庫(Shaders)、PS5 遊戲移植到電腦(AnyPS5)、讓 Agent 逆向一切(REA)、提升 AI 前端設計的 Skill(Impeccable)與自架健身紀錄(openGym) | [knowledge/technology/github-weekly/issue-134.md](./knowledge/technology/github-weekly/issue-134.md) |
 | `KDz1RpudZ1o` | 第 129 期:Agent 辦公室、GPT-Image-2 提示詞庫、Codex Harness、Apache Maka 與免費模型路由 | [knowledge/technology/github-weekly/issue-129.md](./knowledge/technology/github-weekly/issue-129.md) |
 | `KeRBNTOITEo` | 十大恐怖主管特質:從竹科裸辭看「只做向上管理」如何逼走一個好員工 | [knowledge/career/workplace/ten-toxic-manager-traits.md](./knowledge/career/workplace/ten-toxic-manager-traits.md) |
 | `KG9M-8mvq7Q` | 五大風險集中爆發?把「真風險」和「導火線」分開:加息、美債、資料中心、中美談判、Anthropic 上市 | [knowledge/investing/strategy/us-stocks-five-risks-2026q4-hike-treasury-midterm.md](./knowledge/investing/strategy/us-stocks-five-risks-2026q4-hike-treasury-midterm.md) |
