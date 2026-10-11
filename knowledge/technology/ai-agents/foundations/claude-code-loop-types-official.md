@@ -2,6 +2,8 @@
 
 > 整理自 Claude Code 團隊官方文章〈designing loops〉(作者 @delba_oliveira,發布於 @claudedevs,X:<https://x.com/claudedevs/status/2074208949205881033>)。近期 X 上一堆人在講「設計 loop 而不是寫 prompt」,但「loop 到底是什麼」各說各話。**這篇是 Claude Code 團隊的權威定義與分類**——正好替本庫既有的 loop 筆記([[loop-engineering]]、[[loop-engineering-when-and-how-gary-chen]]、[[loop-engineering-buzzword-critique]])定錨。
 >
+> **延伸來源**:YouTube「白白说大模型」〈别再让Loop多跑几轮了，未来是验证回路的！〉(2026-10-10,約 33 分鐘)以本文為主線,串起 Anthropic 的驗證回路、長程 agent harness、agent 評測三篇工程文章,以及 OpenAI 兩篇交叉驗證文章——整理在文末「延伸:從多跑幾輪到驗證回路」一節。
+>
 > **官方定義:loop = agent 反覆執行「工作循環」,直到滿足某個停止條件(stop condition)。** 不是所有任務都需要複雜 loop——**先從最簡單的解法開始,選擇性地用這些模式。**
 
 ---
@@ -192,7 +194,157 @@ When fixing a bug, use a workflow to explore three solutions in parallel worktre
 
 ---
 
+## 延伸:從「多跑幾輪」到驗證回路(白白说大模型 2026-10-10)
+
+> 整理自 YouTube「白白说大模型」〈别再让Loop多跑几轮了，未来是验证回路的！〉。該片無字幕,逐字稿以 CPU faster-whisper 轉錄,非官方字幕。
+>
+> ⚠️ **立場揭露**:作者在說明欄以「配套教程資料到主頁或公眾號回覆關鍵詞領取」導流,本筆記不轉述該資料。影片多處標為「官方」的說法,已逐一回查原文,差異處以「🔎」標出。
+
+### A. 核心論點:重複本身不產生可靠性
+
+官方定義裡真正吃重的是中間那個 **Until(直到)**——把「重複」和「停止」綁成一件事:
+
+- 少了停止條件:agent 在已經能用的功能上反覆打磨,或把額度燒光,你事後才發現。
+- 少了重複:退回一次性交付,複雜任務本來就要迭代,標準寫得再清楚也兌現不了。
+- 練琴比喻:不開節拍器、不回放錄音,同一段譜彈一百遍,很可能一百遍都錯在同一小節,而且越彈越順手,錯誤跟著固化。
+
+工程化的 loop 多出來的是**連接**:觸發、狀態、驗證、停止、恢復,以及人在哪一步介入。影片把穩定 loop 拆成九項,歸成三組問題:
+
+```mermaid
+flowchart LR
+    S["開始<br/>何時啟動<br/>這輪要改變什麼<br/>什麼算通過"] --> P["過程<br/>每輪做多大一塊 work unit<br/>跨輪必須記住什麼<br/>哪些證據支撐結論"]
+    P --> E["收尾<br/>怎麼判斷做對<br/>何時必須停<br/>中斷後從哪接上<br/>教訓明天會不會重演 learning"]
+```
+
+兩項最容易被忽略:
+- **Work unit 要小**:裝修不會說「這個月把房子做完」,而是「今天鋪哪一間地板,鋪完當場驗」。塊切得越大,出問題越難定位,返工越貴。
+- **Learning**:一次失敗只修眼前這一個,下次換個樣子再來;寫成一條 Finding、一個可重跑的評測樣本、一次 skill 或 guard 更新,系統才真的往前挪一格。
+
+**最常見的誤判是拿過程當結果**:稿子改十遍、每版改動都講得通,不代表最後那版能讀。模型自己說完成、JSON 合法、截圖好看、某位審閱者點頭——**任何單一信號都證明不了 loop 可靠**。
+
+### B. 驗證回路:檢查 → 修復 → 從頭再檢查
+
+Claude Code 團隊另一篇〈Building verification loops in Claude Code with skills〉(Delba de Oliveira,2026-07-22)把驗證回路定義為:agent 用測試、linter 或自訂檢查來檢查自己的工作,修掉失敗後才往下走,並可包成 skill 讓每個 session 自動套用。
+
+- **關鍵在「再檢查」**:修復本身就是一次改動,會帶進新問題。所以回路的形狀是環,不是直線——任何一步失敗,修完要**回到檢查起點重走一遍**,而不是從卡住那步接著往下(配鑰匙比喻:齒形磨得再像,也得回去插鎖轉得動才算)。
+- **信號分兩半**:型別檢查、linter、測試、runtime error 判準固定,交給工具;工具推斷不出來的,正是原本由人一遍遍手動做的驗收,也最該寫下來。
+
+**檢查放在哪:四個落點是一條線,不是四個並列選項**(原文核對屬實):
+
+| 落點 | 做法 | 適合 | 代價 |
+|---|---|---|---|
+| 手動呼叫 | 產出後自己跑檢查 skill | 跨工作流的檢查(資安掃描、無障礙稽核) | 要記得觸發 |
+| 嵌入 | 把檢查寫進產生結果的那個 skill | 綁定單一工作流的檢查 | 只能改自己控制得到的 skill |
+| 串接 | 一個 skill 收尾時呼叫下一個 | 端到端開發循環 | 彈性下降、token 可能變貴 |
+| 每個 PR | 每次 PR 自動觸發 | 全團隊的品質門 | 還沒穩定的檢查不該太早推上去 |
+
+**起步順序**(原文):挑本週手動做最多的那道後續檢查 → 先試內建 `/verify` skill → 用白話寫出理想檢查 → 用 skill-creator 或 SKILL.md 包成 skill → **拿新任務測試,確認真的會觸發** → 再實驗串接。
+
+影片強調中間那步最容易被跳過:寫完、存成檔案,狀態是「**已寫好**」不是「**已生效**」,兩者之間隔著真實樣本——驗證在新任務上站住了,觸發範圍才配往外擴。
+
+> 🔎 **補正**:影片說「官方」舉了「加一個按鈕,讓 agent 自己開瀏覽器點擊、確認狀態、檢查 console」的例子,並把「品味、互動意圖、不可逆改動仍由人判斷」歸為官方說法;這兩點在〈Building verification loops〉原文中**找不到**(原文只說把檢查編碼後,你的注意力可留給「沒有 skill 寫得下來的工作」)。按鈕例子可能出自〈designing loops〉或其他官方材料,這裡以影片說法記錄。
+
+### C. 跨 session 的狀態傳輸層:先讀再做
+
+長程 agent 在**離散的 session** 裡工作,窗口一關記憶就斷。Context compaction 壓的是長度、不是斷點——它把舊內容變短,卻沒變成可重新讀取的真相來源(遊戲比喻:腦中回想劇情 ≠ 存檔)。Anthropic 長程 agent harness 的做法是四樣外部記憶:
+
+| 檔案 | 回答的問題 |
+|---|---|
+| init 腳本 | 環境怎麼跑起來 |
+| 進度檔 | 做到哪了 |
+| 特性清單 | 總共要做多少、每項什麼狀態 |
+| git 歷史 | 已經動過什麼 |
+
+```mermaid
+flowchart TD
+    I["初始化 agent<br/>不急著寫功能<br/>先拆特性清單、架好環境"] --> C["coding agent<br/>每次只推進一小步"]
+    C --> W["離開前把狀態寫回磁碟"]
+    W --> N["新 session"]
+    N --> R["先讀:工作目錄、進度、git 歷史、特性狀態"]
+    R --> T["跑一遍基本端到端檢查<br/>確認環境真的能繼續"]
+    T --> C
+```
+
+- **交接前的恢復合約三條**:乾淨(不留垃圾)、可繼續(下一步接得上)、可回滾(走錯退得回來)。接力賽最容易掉名次的地方是交接區,不是直道。
+- **邊界**:狀態寫進磁碟保證你**接得上**,不保證你**接得對**;衝突處理和真實驗證省不掉。
+
+**三角色擴展**:Anthropic Labs 的 Prithvi Rajasekaran 在〈Harness design for long-running application development〉(2026-03)指出純 prompt 與單一 harness 都會碰到天花板,改拆成三個角色——**Planner** 把大任務切成可執行的小塊並定義交接方式、**Generator** 只在當前小塊內產出、**Evaluator** 用可評分標準獨立檢查並觸發修改。最關鍵的邊界:評估者不能只說「還行/不行」,**主觀品質要翻譯成可判分的維度**,失敗項才指得出來。
+
+> 🔎 **補正(人名)**:影片 Whisper 轉出「Chris P. Rogers-Sakaran」,原文作者為 **Prithvi Rajasekaran**。
+
+### D. 評測要先切兩刀
+
+Anthropic〈Demystifying evals for AI agents〉一上來就切開兩樣常被混用的東西:
+
+1. **切證據**:**Transcript / trajectory**(agent 怎麼想、調了哪些工具)解釋路徑;**Outcome**(環境是否變成正確狀態、產物能否用)才是拍板的依據。天氣預報推演再嚴密,也得推開窗看下沒下雨。
+2. **切系統**:**Agent harness** 是跑活的執行環境(組織模型、工具、權限、上下文);**Evaluation harness** 跑評測任務、保存軌跡、記錄產物、呼叫 grader 判分。**執行系統不能兼任唯一裁判**——判卷人不能是答題人,因為它用的是作題時同一套標準,哪步想錯就會在哪步判錯,還判得理直氣壯。
+
+**五層門禁**(每層都有天生的盲區,所以必須分層,而不是找一個更強的評分器打總分):
+
+```mermaid
+flowchart TD
+    G1["確定性的結構與狀態檢查"] --> G2["最終結果的功能驗收"]
+    G2 --> G3["品味或語意判斷時的獨立 grader"]
+    G3 --> G4["人類抽樣與高風險升級"]
+    G4 --> G5["失敗樣本回流到回歸集"]
+    G5 -.->|"下一輪"| G1
+```
+
+回到 Lighthouse 例子(「首頁 Lighthouse 分數做到 90 以上,最多 5 次」):每輪除了重測分數,也要檢查改動有沒有引入功能回歸——單一分數可被針對性優化(例如直接拿掉拖慢載入的邏輯,分數上去了,使用者要用的東西卻沒了)。讓 loop 退出的是**分數門 + 回歸門 + 撞到 5 次上限時把決定交回人**。
+
+### E. 失敗變成能力:OpenAI 的兩篇交叉驗證
+
+影片特別說明這兩篇不屬於 Anthropic 的四類 loop 分類,搬來是看與廠商無關的做法:
+
+- **〈Harness engineering〉(Ryan Lopopolo,2026-02)**:agent 接手大量實作後,工程師重心移到設計環境、說清意圖、搭反饋回路,並讓能力與規則對 agent **可見、可執行**。agent 搞砸時該問的不是「再試一次會不會更好」,而是「**缺了哪種能力?agent 看得到嗎?能不能用工具或機械規則強制?**」——像事故調查。做法:倉庫知識成為可版本化的真相來源;給 agent 一張地圖而非一本千頁手冊;用架構檢查、linter、結構測試、定期清理把人的品味與不變量編進環境。
+- **〈Building self-improving tax agents with Codex〉(2026-05-27,與 Thrive Holdings 合寫)**:三根柱子——①業務專家不離場(哪些錯重要、什麼算正確由他們決定);②讓生產系統自己長出證據(原文件、欄位來源、系統預測、專家最後改成什麼,整條 trace 留下);③把問題變成可做的工作(真實錯誤歸成 Finding → 編成定向 eval → 拆成範圍清楚的工程任務)。**候選修復要同時通過定向 eval 與回歸 eval,通過後仍由人決定是否上線。**
+
+> 🔎 **未能核實**:OpenAI 稅務 agent 原文對自動抓取回 403,上述流程依影片與第三方摘要整理;第三方部落格提到的「準確率 6 週從 25% 到 97%」本筆記未能對照原文,不採用。
+
+### F. 生產級 loop 的三類邊界
+
+| 邊界 | 做法 |
+|---|---|
+| 停止 | 先看任務複雜度選 primitive 與模型,不是每件事都值得多 agent 或長 loop;開跑前寫清完成條件與停止條件 |
+| 頻率 | 輪詢快慢跟著外部變化走;外面一天變一次,你五分鐘查一遍,九成查到同一個答案;能用 webhook / event 叫醒就別用鬧鐘 |
+| 資源 | 持續看 usage;大批量執行前先小樣本試跑;確定性工作寫成腳本,判斷力留給真正需要判斷的地方 |
+
+### G. 應用案例:把「每次都要手動點一下」變成驗證 skill
+
+情境:前端專案,每次 agent 改完 UI,你都要開瀏覽器點按鈕、看狀態、翻 console。
+
+1. **挑最常做的那道檢查**:本週手動做了 20 次「點新增按鈕 → 列表多一筆 → console 無 error」。
+2. **白話寫出理想檢查**,存成 `.claude/skills/verify-add-item/SKILL.md`:
+
+```markdown
+---
+name: verify-add-item
+description: 修改清單頁或新增按鈕相關程式後,驗證新增流程端到端可用
+---
+1. 啟動 dev server(npm run dev),等待 http://localhost:3000 回應 200。
+2. 開瀏覽器進清單頁,記下目前筆數 N。
+3. 點「新增」按鈕,填入測試資料並送出。
+4. 確認清單筆數變成 N+1,且新項目文字正確。
+5. 讀 console:不可有 error 等級訊息。
+6. 任何一步失敗:修正後從第 1 步重新走完整流程,不要只重跑失敗那步。
+7. 連續 3 輪仍失敗:停下,回報失敗步驟與 console 內容,交給人判斷。
+```
+
+3. **拿新任務測**:故意請 agent 改按鈕樣式,看 skill 會不會被觸發、能不能抓出你事先埋的一個 console error。
+4. **站住了才擴大**:先嵌入「改 UI」的 skill,穩定兩週後再考慮串接或掛到每個 PR。
+5. **失敗回流**:每次 skill 抓到的新型錯誤,補一條到回歸檢查清單——這就是 E 節「失敗變成能力」的最小版本。
+
+---
+
 ## 來源
 
 - Claude Code 團隊,〈designing loops〉,作者 @delba_oliveira,發布於 @claudedevs(X):<https://x.com/claudedevs/status/2074208949205881033>
 - 相關 Claude Code 官方文件:running agents in parallel、loop、schedule、goal、dynamic workflows。本文依使用者提供的文章全文整理;primitive 名稱(`/goal`、`/loop`、`/schedule`、auto mode、dynamic workflows〔research preview〕、`/usage`、`/workflows`、`/code-review`)與範例指令均取自原文。
+- YouTube「白白说大模型」〈别再让Loop多跑几轮了，未来是验证回路的！〉(2026-10-10;該片無字幕,逐字稿以 CPU faster-whisper 轉錄,非官方字幕):https://www.youtube.com/watch?v=eoDylD3NYXc
+- Claude Code 團隊〈Building verification loops in Claude Code with skills〉(Delba de Oliveira,2026-07-22):https://claude.com/blog/building-verification-loops-in-claude-code-with-skills
+- Anthropic Engineering〈Harness design for long-running application development〉(Prithvi Rajasekaran,2026-03):https://www.anthropic.com/engineering/harness-design-long-running-apps
+- Anthropic Engineering〈Effective harnesses for long-running agents〉:https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents
+- Anthropic Engineering〈Demystifying evals for AI agents〉:https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
+- OpenAI〈Harness engineering: leveraging Codex in an agent-first world〉(Ryan Lopopolo,2026-02):https://openai.com/index/harness-engineering/
+- OpenAI〈Building self-improving tax agents with Codex〉(2026-05-27):https://openai.com/index/building-self-improving-tax-agents-with-codex
+- Whisper 專有名詞還原:Lupin/Lupn 执念人→Loop Engineering;Graphin→Graph Engineering;安苏拉佩克/Ancelopec/AnsoPick→Anthropic;Cloud/Claw→Claude;TermVis/Trendbase/Cheron Bass→Turn-based;GoBest→Goal-based;TimeBest→Time-based;ProAxis→Proactive;Skidger→/schedule;路谱5M→/loop 5m;Virfication→Verification;Chris P. Rogers-Sakaran→Prithvi Rajasekaran;Ryan Lope Polo→Ryan Lopopolo;Demonstrifying Evoles→Demystifying Evals;长城→長程

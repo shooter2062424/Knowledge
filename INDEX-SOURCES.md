@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**332 個 YouTube video id**、**72 個 arXiv 編號**,涵蓋 **274 篇**筆記。
+> 統計:**335 個 YouTube video id**、**72 個 arXiv 編號**,涵蓋 **276 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(332 部,依 video id 排序)
+## YouTube(335 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -80,6 +80,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `91yRxsdc0gA` | 這次半導體狂歡是 2000 泡沫重演嗎?五個相同、四個不同、兩個要盯的信號 | [knowledge/investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md](./knowledge/investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md) |
 | `98Mz0a1wJag` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |
 | `9Be7ALZBv0Q` | 「Token 省 120 倍」該怎麼讀?Codebase-Memory-MCP vs CodeGraph:同一個痛點的兩條路線 | [knowledge/technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md](./knowledge/technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) |
+| `9BvovCrgmnI` | 同樣 200 美元，Claude 訂閱值 OpenAI 的五倍？SemiAnalysis 訂閱額度實測與「補貼算力」的生意 | [knowledge/technology/ai-industry/ai-subscription-api-equivalent-value-semianalysis.md](./knowledge/technology/ai-industry/ai-subscription-api-equivalent-value-semianalysis.md) |
 | `9tREtYASGbs` | 微軟財報大漲 15% 的真正原因:三大質疑逐一拆解,以及 AI 價值鏈的位移 | [knowledge/investing/equity-research/microsoft-fy26q1-three-doubts-resolved.md](./knowledge/investing/equity-research/microsoft-fy26q1-three-doubts-resolved.md) |
 | `9uq4FRJ0oEE` | 一萬個 agent 破解千禧年難題:Navier-Stokes、抄襲指控,與「誰該被署名」 | [knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
 | `_oDISo3B3xw` | 美債史詩級拋售:真正的變量不是 40 兆債務,是新任聯準會主席的「溝通方式」 | [knowledge/investing/strategy/us-treasury-selloff-warsh-communication-shift.md](./knowledge/investing/strategy/us-treasury-selloff-warsh-communication-shift.md) |
@@ -132,6 +133,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `ejThzPk85K0` | GPT-6 Astra 解開 217 年的拿破崙密信:從一張模糊掃描圖到可重現的解法包(Why QQ) | [knowledge/technology/ai-agents/applications/gpt-6-astra-napoleon-marmont-cipher.md](./knowledge/technology/ai-agents/applications/gpt-6-astra-napoleon-marmont-cipher.md) |
 | `eKW9ITaltWw` | 一支影片看完 Stanford「Beyond LLM」:從 LLM 到 Multi-Agent 的技術地圖 | [knowledge/technology/ai-agents/resources/stanford-beyond-llm-course.md](./knowledge/technology/ai-agents/resources/stanford-beyond-llm-course.md) |
 | `EmwW59QMadY` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
+| `eoDylD3NYXc` | Claude Code 官方定義的四種 Loop:Turn-based / Goal-based / Time-based / Proactive | [knowledge/technology/ai-agents/foundations/claude-code-loop-types-official.md](./knowledge/technology/ai-agents/foundations/claude-code-loop-types-official.md) |
 | `EOg4gY0Yln0` | 讓訊號自己交易:Man Group 用 Claude Skills 治理打通系統化交易 | [knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md](./knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md) |
 | `eorQWlYarJY` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
 | `EUYt0Q-hPeo` | Vibe Coding 全解:模型、Agent、工作流三層,以及「需求 → 設計 → 任務 → 子 Agent」實戰流程(程序员老王) | [knowledge/technology/ai-productivity/vibe-coding-stack-model-agent-workflow.md](./knowledge/technology/ai-productivity/vibe-coding-stack-model-agent-workflow.md) |
@@ -306,6 +308,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `viQjQ3mgeOc` | 存儲還能漲嗎?用 1995、2018 兩輪暴漲對照 AI 這一輪的記憶體週期 | [knowledge/investing/equity-research/memory-cycle-history-1995-2018-vs-ai.md](./knowledge/investing/equity-research/memory-cycle-history-1995-2018-vs-ai.md) |
 | `vj7hysh0mOI` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `vkpS7WztTMc` | 蘇姿丰 MIT 2026 畢業演講:如何創造自己的運氣,以及 AI 時代人類無可取代的價值 | [knowledge/career/mindset/lisa-su-mit-commencement.md](./knowledge/career/mindset/lisa-su-mit-commencement.md) |
+| `vZHaSwnJmSk` | 打造「0 人 AI 公司」:用 Hermes Agent + Paperclip 讓 AI 互相協作 | [knowledge/technology/ai-agents/applications/zero-person-ai-company.md](./knowledge/technology/ai-agents/applications/zero-person-ai-company.md) |
 | `W973FsTECa8` | to-tickets 深入實操:把 spec 拆成 agent「能穩定開工、單獨驗收、可並行」的工單 | [knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) |
 | `Wah1vdFE92k` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
 | `wexH7AueOeA` | NVIDIA RTX Spark(GB10 超級晶片)技術解析:最適合本地 AI 推理的 SoC 之一? | [knowledge/technology/ai-industry/rtx-spark-gb10-soc.md](./knowledge/technology/ai-industry/rtx-spark-gb10-soc.md) |
