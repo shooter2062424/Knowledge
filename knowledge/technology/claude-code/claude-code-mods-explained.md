@@ -4,6 +4,7 @@
 **來源:** YouTube〈100 秒搞懂(今天刚发布的)claude code mods〉(howie和小能熊,2026-10-02,約 3 分 19 秒;英文旁白、無官方字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕),細節已對照 Claude Code 官方文件,並 clone `anthropics/claude-code-playground` 讀了範例 mod 原始碼
 **增補來源(§8):** YouTube〈Claude Code 的界面原来能自己改?ClaudeCode Mod 完整教程(2026)〉(YAHA學堂,2026-10-05,約 8 分;自動字幕被限流,逐字稿以 CPU faster-whisper 轉錄、非官方字幕)
 **增補來源(§9):** YouTube〈Claude 近期最重要的更新:Mods 教學〉(Gary Chen,2026-10-06,約 11 分;官方繁中字幕)。⚠️ 該片作者推廣自家 Skool 付費社群(完整提示詞與延伸文章放在那裡),本筆記不轉述付費內容
+**增補來源(§10):** YouTube〈你的 Claude 你做主 | 10分钟看懂Claude Mods〉(Why QQ,2026-10-11,約 9.6 分;官方 zh-Hans 字幕),事件、三檔狀態與 `/clear` 坑已逐項對照官方 interface / events 文件
 **整理日期:** 2026-10-05
 
 > 📌 立場:本片未見業配或付費推廣。影片只有 100 秒,本筆記大部分細節(檔案結構、事件名稱、安全範圍、內建 mods)來自官方文件與原始碼。
@@ -277,6 +278,116 @@ claude plugin validate ./some-mod
 
 ---
 
+## 10. 增補:時間線、三檔狀態、事件全景與「瀏覽器擴充」類比(Why QQ)
+
+> 來源:Why QQ〈你的 Claude 你做主 | 10分钟看懂Claude Mods〉(2026-10-11,約 9.6 分;官方 zh-Hans 字幕)。作者自述依官方 Mods 文件全部九個章節、`claude-code` repo 內建 mod 原始碼與社群討論整理。📌 立場:本片未見業配或付費推廣。
+
+### 10.1 為什麼要再加一層?官方給的答案是三件事
+
+Claude Code 已經有 settings hook、skill、MCP、斜線指令、狀態列,再加 mods 圖什麼?影片引官方的定位:**settings hook 能拿到一部分控制權,但改寫不了事件、畫不了新介面、換不掉功能**——這三件事正好是 mods 能做的。補的是一塊明確的空白:**工具內部的介面與行為,以前只有 Anthropic 自己能動。**
+
+影片認為比新功能更有訊息量的是:**`/diff` 這個天天用的功能出現在插件清單裡**——官方把核心功能從引擎搬出來、用公開 API 重寫、原始碼公開(見 §4 內建 mods 表)。官方文件也說內建 mod 的原始碼連測試一起放在 `claude-code` repo 的 `mods/` 目錄。
+
+**時間線(影片說法):**
+
+```mermaid
+flowchart LR
+    A["9/3<br/>工程師在 GitHub 提出<br/>function hooks 提案"] --> B["9/9<br/>官方確認要做<br/>產品名定為 Claude Mods"]
+    B --> C["10/1<br/>隨 v2.1.287 正式上線<br/>預設開啟"]
+    C --> D["48 小時內<br/>社群做出俄羅斯方塊<br/>與大量 mod"]
+```
+
+> 📌 **查核:** 「function hooks 仍是底層機制的名稱」**屬實**——官方文件的事件說明、`claude-code` repo 的 issue 標題至今都用 function hooks,早期試用期的開關叫 `CLAUDE_CODE_ENABLE_FUNCTION_HOOKS`(v2.1.287 起已被忽略,設成 `0` 也關不掉 mods)。repo 裡 9/24 就有回報 function hooks 事件沒派送的 bug,可證上線前已有公開試用。**但「9/3 提案、9/9 確認、一週一百多樓」與「Reddit 公告帖 1,100 讚」本文未找到原帖,列為未能核實。**
+
+### 10.2 事件全景(✅ 已對照官方 events / reference)
+
+| 事件 | 能做什麼 | 本庫補充 |
+|---|---|---|
+| `tool.call` | 在工具真正執行前攔下、改參數、自己回答、重試、扣住結果 | 呼叫 `next(e)` 後才進入權限檢查與工具本身 |
+| `tool.check` | **改寫權限判定**:`next(e)` 回傳規則與 settings hook 的決定(`allow` / `ask` / `deny`),hook 可回傳不同決定 | 適合「要看當下狀態才知道」的判斷,例如目前在 `main` 就拒絕 `git push`;固定指令用 permission rule 就好 |
+| `prompt.submit` | 送出前改寫 prompt;或用 `context` 欄位**只給 Claude 追加一段你在 transcript 看不到的上下文**;或 `{ drop }` 擋下 | 改寫後 transcript 與 prompt 歷史都顯示新文字 |
+| `turn.step` | 每次要對模型送一個請求前觸發,可讀**每個請求的 token 用量**、用 `next({ ...e, model })` **改送另一個模型**、或不呼叫模型自己回答 | 要寫成 async generator(`yield* next(e)` 轉發串流);subagent 的請求也會觸發,看 `e.agentId` |
+| `command.run` | 處理自訂 `/command`,不開 Claude 回合就直接執行 | 註冊時加 `immediate: true`,Claude 工作中也能立刻跑 |
+| `ui.render` | 畫新地盤或重畫 Claude Code 自己的畫面 | 見 10.3 |
+| `classic.*` | 每個 settings hook 事件(`Stop`、`SessionStart`……)都有對應的 `classic.` 事件,`e` 就是 settings hook 從 stdin 收到的 JSON | 10.4 的 `/clear` 坑就靠它 |
+
+多個 mod 鉤同一事件時串成**一條 middleware 鏈**,前面的決定後面的看不看得到;影片的比喻是「寫過 Express 的人一眼就認得,這就是中介軟體」。官方的鏈順序:內建 `sec-default` 與組織的 `prependPlugins` → 你裝的 mod → 組織的 `appendPlugins` → 其他內建 mod。
+
+### 10.3 介面:兩類渲染點、元素樹與 Raster
+
+- **新地盤:** transcript 旁的 pane、prompt 上方的 band(另有 toast、log 行、狀態列)。
+- **重畫既有畫面:** 訊息列(`UserMessage` / `AssistantMessage`)、工具呼叫列(`ToolUse` / `ToolResult` / `ToolGroup`)、`Spinner`、提問對話框 `AskUserQuestion` 等。
+- **元素:** `Box` 管版面、`Text` 顯示文字、`Button` / `Input` 收輸入;終端機還有 **`Raster`** 畫彩色字元格(熱力圖、迷你折線、遊戲盤面——俄羅斯方塊和踩地雷就是靠它)。
+- **渲染週期:** callback 改狀態 → 呼叫 `$.ui.invalidate('ui.render')` → hook 重跑、畫新的樹。
+
+> 📌 **補充:** `Raster` 與 `Image` **只在終端機可用**,Desktop app 要改畫文字;`Svg` 則只在 Desktop。權限確認提示**不是**渲染點(影片說「這是硬邊界,防止偽造授權介面」,與官方一致),但 `AskUserQuestion` 是,mod 可以改它。
+
+### 10.4 寫 mod 的第一道設計題:狀態存哪(✅ 官方三檔)
+
+| 存在哪 | 活多久 | 適合放 |
+|---|---|---|
+| 模組層級變數 | 模組重新載入為止(開發時**每存一次檔就歸零**) | 可以丟的值,例如目前開哪個分頁 |
+| `$.state` | session 結束,或使用者執行 `/clear`、`/resume`、`/branch` | 畫面依賴、要撐過重新載入的值;**響應式**:讀過它的 `ui.render` 會在寫入時自動重畫,不用自己 `invalidate` |
+| `$.store` | mod 自己刪除,或連續 `cleanupPeriodDays` 沒有任何 session 讀寫;存成 `~/.claude/plugins/store/` 下的 JSON 檔 | 設定、歷史、使用者下次還想看到的東西 |
+
+**兩個務實的坑(影片點名,官方文件都有專節):**
+
+1. **`/clear` 會把 `$.state` 重設為預設值,但 `session.start` 不會再觸發。** 如果你在 `session.start` 把 `$.store` 的值複製進 `$.state`,`/clear` 後畫面就顯示預設值,下一次儲存還會**用預設值蓋掉你存的資料**。解法是再鉤 `classic.SessionStart`,用 matcher `{ source: ['clear', 'resume', 'fork'] }` 把值重新撈回來。
+   > 📌 **補正:** 影片只講 `/clear`;官方寫明 **`/resume` 與 `/branch`(回報為 `fork`)也會重設 `$.state`**,三個都要處理。
+2. **同一台機器上所有跑這個 mod 的 session 共用一個 `$.store`,`get` 再 `set` 不是原子操作**——兩個 session 同時讀、改、寫,後寫的會蓋掉先寫的。官方建議:每個項目用自己的 key;要改多個 session 都會動的值時,在 callback 裡**寫之前再讀一次**,不要用 `session.start` 載入的舊副本。
+
+### 10.5 四層機制怎麼選:影片的三問框架
+
+```mermaid
+flowchart TD
+    Q1["這是知識問題嗎?<br/>要讓模型知道什麼"] -->|"是"| S["寫 skill<br/>一行程式都不跑 風險最低"]
+    Q1 -->|"否"| Q2["這是連接問題嗎?<br/>要接外部系統"]
+    Q2 -->|"是"| M["上 MCP<br/>權限留在行程外"]
+    Q2 -->|"否"| Q3["這是流程卡點嗎?<br/>要擋 放行或記錄"]
+    Q3 -->|"是 且 settings hook 夠用"| H["寫 settings hook"]
+    Q3 -->|"要改的是工具本身<br/>介面或決策"| MOD["才寫 mod<br/>並接受在行程內跑程式的風險"]
+```
+
+### 10.6 主流認知的偏差:mods 不是「AI 工具的 App Store」
+
+影片最值得記的一段:看到「插件 + 市集」,很多人第一反應是應用商店來了——**這個類比會害了你**。
+
+| | App Store 應用 | Claude Code mod |
+|---|---|---|
+| 執行環境 | 沙箱 | **沒有沙箱**,用你的權限、在 Claude Code 行程內跑 |
+| 審核 | 上架審核 | 無統一審核,信任全看你裝誰的 |
+| 權限 | 最小化、逐項授權 | 能讀寫你帳號碰得到的任何檔案、開行程、連網、讀環境變數裡的 API key、看每一則 prompt、**在你被詢問前核准工具呼叫** |
+
+**更貼切的類比是瀏覽器擴充功能:能力給到頂,安全全看你裝誰的。** 結論很樸素:**裝一個 mod 等於執行一個陌生的二進位檔。**
+
+安全面也不是沒有設計:權限確認框 mod 畫不了(防偽造授權畫面);安裝前可跑 `claude plugin validate` 靜態列出 `hooks:` 與 `calls:`(例如一個只顯示 git branch 的 mod 卻出現網路請求,就該警覺);企業有內建守衛 `sec-default`,managed settings 可以只允許組織的 mod(`allowManagedModsOnly`)。
+
+> ❓ **未能核實(影片提到的社群數字):**
+> - 「安全機構測試發現,插件詳情頁對一個鉤住所有事件的 mod 可能顯示**零個 hook**,安裝時也**沒有任何權限提示**」——本文未找到原始報告。可確認的是官方文件本身就把「安裝前自己跑 `validate`」列為建議流程,並未提及安裝時的權限提示。
+> - 「社群 awesome 清單 10/3 就收錄超過一千個 mod,其中 **479 個能看到你的每一條 prompt 或工具呼叫**」——本庫 §9.4 列的 `whyashthakker/awesome-claude-code-mods` 建立於 10/3,但 README 收錄的是約 70 個自製 mod 加上社群連結,**對不上「一千個」**;影片可能指另一份清單,未能確認。數字本身未核實,但「生態熱度與攻擊面是同一件事的兩面」這個判斷不依賴它。
+
+### 10.7 社群在 48 小時內做了什麼(影片舉例)
+
+- 把憑證交給 Claude 用、**又不讓金鑰留在對話紀錄裡**的 mod;
+- 把對話壓縮成「穴居人語錄」來省 token 的 mod;
+- 在 prompt 上方加額度條與像素動畫;
+- 把 spec 評審做進面板。
+
+### 10.8 接下來要盯的兩件事
+
+1. 官方還會把哪些內建功能繼續搬成 mod(官方已說要讓核心越來越小;預設關閉的 `you-should-know` 側邊代理就是下一批的樣子)。
+2. **API 官方明說版本之間可能變**——影片提醒「生產環境記得鎖版本」;本庫 §7 也記錄了官方要你以自動產生的 `.claude-plugin/types/*.d.ts` 為準。
+
+### 10.9 應用案例:把「每次 PR 都要附分支名」做成看不見的 context
+
+團隊規定 Claude 開 PR 時要在描述裡寫來源分支,但大家常忘了在 prompt 提:
+1. **先過三問框架:** 這不是知識問題(分支名每次不同,寫進 skill 沒用)、不是連接問題、也不只是擋或放行——它要「在送出前**悄悄補一段上下文**」,只有 mod 的 `prompt.submit` 做得到。
+2. **實作:** `prompt.submit` 偵測到 prompt 提到 PR,就用 `$.process.run(['git','branch','--show-current'])` 取分支,回傳 `next({ ...e, context: [...(e.context ?? []), 'Current branch: ' + 分支] })`。transcript 裡你的訊息不變,Claude 卻讀得到分支名(官方 events 頁就有這個範例)。
+3. **狀態放哪:** 若要記錄「本週開過幾個 PR」顯示在 band 上,計數放 `$.state`(畫面自動更新),同時寫進 `$.store`;記得加 `classic.SessionStart` 的 `clear` / `resume` / `fork` 三種來源重新載入,否則 `/clear` 後計數會被歸零覆蓋。
+4. **上線前:** 跑 `claude plugin validate`,確認 `calls:` 只出現 `$.process.run` 與 `$.store`,沒有網路請求;放進團隊私有 marketplace,並在 marketplace 固定版本。
+
+---
+
 ## 來源
 
 - [YouTube:100 秒搞懂(今天刚发布的)claude code mods(howie和小能熊,2026-10-02)](https://www.youtube.com/watch?v=CSfhmC_tUh8)(無官方字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕)
@@ -288,6 +399,9 @@ claude plugin validate ./some-mod
 - [YouTube:Claude Code 的界面原来能自己改?ClaudeCode Mod 完整教程(2026)(YAHA學堂,2026-10-05)](https://www.youtube.com/watch?v=0RTUj16alAU)(自動字幕被限流,逐字稿以 CPU faster-whisper 轉錄、非官方字幕)
 - [YouTube:Claude 近期最重要的更新:Mods 教學(Gary Chen,2026-10-06)](https://www.youtube.com/watch?v=2i3FT1vfcrA)
 - [Claude Code Docs:Plugin commands reference](https://code.claude.com/docs/en/plugins/cli-reference)
+- [YouTube:你的 Claude 你做主 | 10分钟看懂Claude Mods(Why QQ,2026-10-11)](https://www.youtube.com/watch?v=DWgYcxnvpdQ)(官方 zh-Hans 字幕)
+- [Claude Code Docs:Draw in the interface with a mod(三檔狀態、`/clear` 後重新載入、共用 store 的競爭)](https://code.claude.com/docs/en/plugins/mods/interface)
+- [Claude Code Docs:React to events with a mod(`tool.check`、`prompt.submit`、`turn.step`、`classic.*`、鏈的順序)](https://code.claude.com/docs/en/plugins/mods/events)
 - [whyashthakker/awesome-claude-code-mods(社群 mod 清單)](https://github.com/whyashthakker/awesome-claude-code-mods)
 - [Next Steps 原始碼(anthropics/claude-plugins-community PR #2397)](https://github.com/anthropics/claude-plugins-community/pull/2397)
 

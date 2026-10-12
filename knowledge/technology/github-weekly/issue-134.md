@@ -97,6 +97,7 @@ flowchart LR
 
 - **連結:** <https://github.com/morluto/rea>(官網 <https://rea.tools>)
 - **Repo 現況:** ⭐ 約 102k、**MIT**、TypeScript;npm 套件 `rea-agents`。
+- **本庫實操筆記:** [[rea-ai-reverse-engineering-claude-code]](YAHA學堂教學 + 原始碼核實:分工、三類成品、四個案例與五個新手坑)。
 
 **場景:** 你看到某個軟體的搜尋或剪貼簿功能做得很好,想知道它怎麼實作。以前要自己找入口、看呼叫、讀反編譯結果;現在讓 Agent 透過 REA **在沒有原始碼的情況下**檢查應用、解釋功能怎麼運作、**附上證據**,再幫你的專案實作類似功能。
 

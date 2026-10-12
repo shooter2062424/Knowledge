@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**337 個 YouTube video id**、**72 個 arXiv 編號**,涵蓋 **278 篇**筆記。
+> 統計:**339 個 YouTube video id**、**72 個 arXiv 編號**,涵蓋 **279 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(337 部,依 video id 排序)
+## YouTube(339 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -122,6 +122,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `doc0NQas32U` | 雙底雙頂:看的不是形態像不像,而是動能有沒有衰減 | [knowledge/investing/technical-analysis/double-top-bottom-momentum.md](./knowledge/investing/technical-analysis/double-top-bottom-momentum.md) |
 | `dVRFSzbLR7M` | C++ 演進史:複雜性詛咒、記憶體危機,與 AI 時代的絕地反擊 | [knowledge/technology/dev-tools/cpp-evolution-complexity-ai-era.md](./knowledge/technology/dev-tools/cpp-evolution-complexity-ai-era.md) |
 | `dwGn39M5oX8` | Claude Code 2026 功能演進:從「權限提示」到「agent 艦隊」的半年軌跡 | [knowledge/technology/claude-code/claude-code-2026-feature-timeline.md](./knowledge/technology/claude-code/claude-code-2026-feature-timeline.md) |
+| `DWgYcxnvpdQ` | Claude Code Mods:從「調旋鈕」到「改程式本身」——事件關卡、三種動作、會畫介面(howie和小能熊 + 官方文件 + 範例原始碼) | [knowledge/technology/claude-code/claude-code-mods-explained.md](./knowledge/technology/claude-code/claude-code-mods-explained.md) |
 | `E7qG6LvyEnc` | 英偉達的護城河究竟是什麼?從「CPU 為什麼跑不動大模型」一路算到 CUDA 軟體生態 | [knowledge/technology/ai-industry/nvidia-moat-memory-bandwidth-cuda-software.md](./knowledge/technology/ai-industry/nvidia-moat-memory-bandwidth-cuda-software.md) |
 | `e7TY56-yIvM` | Skill 實戰:從製作到維護一份「agent 會自動觸發、產出穩定、人類維護得了」的 skill | [knowledge/technology/ai-agents/applications/building-claude-skills.md](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
 | `E8Bx9OlpmdM` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [knowledge/technology/claude-code/output-style-communication-not-intelligence.md](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) |
@@ -228,6 +229,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `nXs-PMjU7KY` | 用最低成本做好 Agent 意圖識別:規則層、上下文層、工具層的三層漏斗 | [knowledge/technology/ai-agents/foundations/agent-intent-recognition-three-layer-funnel.md](./knowledge/technology/ai-agents/foundations/agent-intent-recognition-three-layer-funnel.md) |
 | `NYFGCESmikA` | DHH 的 16 條並行 Agent:當寫程式幾乎免費,瓶頸遷移到哪裡去了 | [knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md](./knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md) |
 | `nySTPhneEjw` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
+| `o8Ca8Y9LG_0` | REA:讓 Claude Code 帶著證據做逆向工程——分工、三類成品、四個案例與五個新手坑(YAHA學堂 + 原始碼) | [knowledge/technology/software-engineering/rea-ai-reverse-engineering-claude-code.md](./knowledge/technology/software-engineering/rea-ai-reverse-engineering-claude-code.md) |
 | `oBy94l_48CQ` | 2026 年 Agent 開發工程師要什麼能力:從 Demo 到生產系統的四塊拼圖(附面試題與標準答案) | [knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md](./knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) |
 | `OCcHTUiNnGI` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `OcKl98ZQbMQ` | AI 資本圈的派系與捆綁:同級競爭、不同級綁在一起,以及「融了 1,100 億卻立刻欠出 1 兆」 | [knowledge/investing/equity-research/ai-capital-web-factions-and-mutual-binding.md](./knowledge/investing/equity-research/ai-capital-web-factions-and-mutual-binding.md) |
