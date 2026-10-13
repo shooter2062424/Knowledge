@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**339 個 YouTube video id**、**72 個 arXiv 編號**,涵蓋 **279 篇**筆記。
+> 統計:**341 個 YouTube video id**、**72 個 arXiv 編號**,涵蓋 **279 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(339 部,依 video id 排序)
+## YouTube(341 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -172,6 +172,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `HcbjFO1mRIw` | Project Cairn:把「做過的事」沉澱成可複用知識的開源 Skill(高體感 × 低阻力) | [knowledge/technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md](./knowledge/technology/ai-agents/memory-retrieval/project-cairn-experience-to-knowledge-skill.md) |
 | `hfgeEa-rg0A` | 怎麼確保結構化 JSON 輸出真的可靠:提示詞 → Tool Use → 校驗器 → 帶錯誤的重試 | [knowledge/technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md](./knowledge/technology/ai-agents/foundations/reliable-structured-json-output-tool-use.md) |
 | `HhZcnM9tR7s` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
+| `hLIX_1AyL_Q` | REA:讓 Claude Code 帶著證據做逆向工程——分工、三類成品、四個案例與五個新手坑(YAHA學堂 + 原始碼) | [knowledge/technology/software-engineering/rea-ai-reverse-engineering-claude-code.md](./knowledge/technology/software-engineering/rea-ai-reverse-engineering-claude-code.md) |
 | `hmrXnBvaFaI` | 荷蘭政府為什麼選 NixOS:DAWO 把 GitOps 推到每張辦公桌(Laptop as Code) | [knowledge/technology/system-design/dawo-nixos-laptop-as-code-dutch-government.md](./knowledge/technology/system-design/dawo-nixos-laptop-as-code-dutch-government.md) |
 | `Hnf1ExYg3M8` | SpaceX 為什麼這時間點上市?Musk 在 JP Morgan 投資人訪談說了什麼 | [knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md](./knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md) |
 | `Hng-GqRfO1I` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
@@ -204,6 +205,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `KOfeTp-9PI8` | 網路安全憑什麼成為 AI 新王?Agent 時代的兩大需求與兩大趨勢(美投君) | [knowledge/investing/equity-research/cybersecurity-ai-agent-identity-platformization.md](./knowledge/investing/equity-research/cybersecurity-ai-agent-identity-platformization.md) |
 | `KY4dBSlTvwU` | 哈夫曼編碼:為什麼檔案能越壓越小,以及「前綴碼」這個關鍵限制 | [knowledge/technology/system-design/huffman-coding-prefix-free-tree.md](./knowledge/technology/system-design/huffman-coding-prefix-free-tree.md) |
 | `kYkIdXwW2AE` | Yann LeCun 押 10 億美元賭 LLM 的另一條路:JEPA 與世界模型(上) | [knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md](./knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md) |
+| `KyXr6wdgkyE` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
 | `l38ceFOWOAE` | 萬達怎麼一步步賣掉自己:兩份對賭、四次遞表失敗,與「名字還在、公司換人」 | [knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md](./knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md) |
 | `L5LLzXrKFIY` | 史上最強 AI 模型只活了 72 小時:Claude Fable 事件與「別把流程綁死在單一模型」 | [knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md](./knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md) |
 | `LdPT6S6fcvQ` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
