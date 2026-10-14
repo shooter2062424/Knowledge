@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**342 個 YouTube video id**、**72 個 arXiv 編號**,涵蓋 **279 篇**筆記。
+> 統計:**344 個 YouTube video id**、**74 個 arXiv 編號**,涵蓋 **280 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(342 部,依 video id 排序)
+## YouTube(344 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -273,6 +273,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `R1-j8TFlqCo` | 俄烏戰爭打了四年,到底誰在買單:兩國經濟的「內傷」與「外懸」 | [knowledge/investing/strategy/russia-ukraine-war-economy-who-pays.md](./knowledge/investing/strategy/russia-ukraine-war-economy-who-pays.md) |
 | `R549oFP9uN8` | Pre-norm vs Post-norm:為什麼現在的大模型全都把 LayerNorm 搬到前面 | [knowledge/technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md](./knowledge/technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md) |
 | `RAFQc6zHdXE` | Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生 subagent | [knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md](./knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) |
+| `RhmzLKU9xvY` | Harness Learning:訓練一個「專門改 harness 的模型」,4B 學生贏過 35B 老師 | [knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md](./knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md) |
 | `rKV5JcALQoQ` | J-Space:Claude 內心那層「說得出口的思考」——用全域工作空間理論解讀模型意識 | [knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md](./knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md) |
 | `rLNGSDYkK-w` | Claude Code Hooks 完全指南:CLAUDE.md 是提醒紙條,Hook 才是自動門 | [knowledge/technology/claude-code/claude-code-hooks-complete-guide.md](./knowledge/technology/claude-code/claude-code-hooks-complete-guide.md) |
 | `rLymrqM9vCI` | 第 128 期:圖片生成 Three.js 3D 模型、Omarchy、Mac 本地推理 oMLX、NVIDIA Switchyard 模型路由與端側小模型 Needle | [knowledge/technology/github-weekly/issue-128.md](./knowledge/technology/github-weekly/issue-128.md) |
@@ -362,6 +363,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `z0IvtUIF65Y` | 股癌選股心法:籌碼/技術都是工具,本質是「選對題材的好股」 | [knowledge/investing/strategy/gooaye-stock-picking-philosophy.md](./knowledge/investing/strategy/gooaye-stock-picking-philosophy.md) |
 | `z2GFDO4HrZY` | AI 編程的三個致命錯覺(OpenCode 創辦人 Dax Raad) | [knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md](./knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md) |
 | `Z613KdxJpKg` | Claude Design 使用評測:AI 設計工具,以及設計師的核心競爭力往哪移動 | [knowledge/technology/applied-ai/design/claude-design-review.md](./knowledge/technology/applied-ai/design/claude-design-review.md) |
+| `Z6AxbfCXeX8` | 一萬個 agent 破解千禧年難題:Navier-Stokes、抄襲指控,與「誰該被署名」 | [knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
 | `zFSWbN7VKB8` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `zK2TjT17b8U` | 一段提示詞、五個工具、3 分鐘抓出加班費算法裡的三個漏洞:Claude Cowork 實戰拆解 | [knowledge/technology/ai-productivity/claude-cowork-overtime-pay-audit-prompt.md](./knowledge/technology/ai-productivity/claude-cowork-overtime-pay-audit-prompt.md) |
 | `ZLDfTwHm56A` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
@@ -373,7 +375,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(72 篇,依編號排序)
+## arXiv(74 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -444,10 +446,12 @@ grep -rlF --include=*.md -- "<id>" .
 | `2608.03970` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |
 | `2608.09867` | 加密的推理過程為什麼保不住:一個「全域金鑰 + 可攜載體」的架構教訓 | [knowledge/technology/ai-safety/encrypted-reasoning-traces-portable-key-flaw.md](./knowledge/technology/ai-safety/encrypted-reasoning-traces-portable-key-flaw.md) |
 | `2608.17528` | Harnessed Agentic RL:當 harness 而不是訓練器擁有互動迴圈,RL 會壞在哪四個地方 | [knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md](./knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md) |
+| `2609.11873` | Harness Learning:訓練一個「專門改 harness 的模型」,4B 學生贏過 35B 老師 | [knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md](./knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md) |
 | `2609.11873` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `2609.12191` | 你的 AI 變好了?你可能根本測不出來:一套可落地的 LLM 評估(eval)方法(Why QQ) | [knowledge/technology/software-engineering/llm-evals-how-to-know-ai-works.md](./knowledge/technology/software-engineering/llm-evals-how-to-know-ai-works.md) |
 | `2609.14858` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `2609.22978` | 為什麼沙箱成了 AI 圈最捲的新基建:microVM、快照,與「快照要多快」這道題 | [knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
+| `2609.35738` | Harness Learning:訓練一個「專門改 harness 的模型」,4B 學生贏過 35B 老師 | [knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md](./knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md) |
 | `2609.36054` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 
 ---

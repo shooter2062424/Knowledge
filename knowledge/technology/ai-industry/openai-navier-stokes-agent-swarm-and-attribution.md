@@ -7,6 +7,8 @@
 > ⭐⭐⭐ **2026-09-15 增補 Why QQ**〈[最挺AI的陶哲轩说:数学中AI的严重错位](https://www.youtube.com/watch?v=9uq4FRJ0oEE)〉(2026-09-15,約 10.4 分鐘,官方 zh-Hans 字幕),成為 **§8:25 位菲爾茲獎得主聯名聲明** —— 本事件三天後,整個數學共同體做出了集體回應。**該聲明全文已直接讀取原文逐句核實。**
 >
 > ⭐⭐⭐ **§9 來源 Why QQ**〈[OpenAI:722篇论文,数学研究变天了](https://www.youtube.com/watch?v=auolAJmicpg)〉(2026-10-08,約 13.4 分鐘,官方 zh-Hans 字幕):**OpenAI 於 2026-10-06 把 700 多篇 AI 數學手稿推上 GitHub**。⭐ **倉庫 README、history.md、lean/README.md 已直接讀取原文核實**,並補上影片未提的「上線隔天即撤稿 3 篇」(§9.6)。
+>
+> ⭐⭐ **§10 來源 Caleb Writes Code**〈[AI is solving math faster than human verification..](https://www.youtube.com/watch?v=Z6AxbfCXeX8)〉(2026-10-13,約 8.7 分鐘,自動英文字幕):**產出快過驗證** —— arXiv 月投稿破 4 萬並設每人每月 2 篇上限、四色定理與 Kepler 猜想的歷史對照、AHM「權力展示」聲明。⚠️ 影片「因上限才改放 GitHub」屬作者詮釋;⚠️ 含 Verda 業配。
 
 ---
 
@@ -693,6 +695,106 @@ flowchart TD
 
 ---
 
+## 十、⭐⭐⭐ 產出快過驗證:投稿管道被淹沒之後(來源:Caleb Writes Code)
+
+> 來源:Caleb Writes Code〈[AI is solving math faster than human verification..](https://www.youtube.com/watch?v=Z6AxbfCXeX8)〉(2026-10-13,約 8.7 分鐘,自動英文字幕)。
+> ⚠️ **立場揭露:該片 04:08 起含 Verda(GPU 雲)業配與折扣碼**,與主題無關,本文不轉述。
+
+§九講 OpenAI 把手稿推上 GitHub 這件事本身;本節把鏡頭拉遠:**整個學術認證管道正在被 AI 產出淹沒,而 openai/math 只是其中最顯眼的一個案例。**
+
+### 10.1 ⭐⭐ 管道塞住了:arXiv 與期刊同時設上限
+
+| 現象 | 影片說法 | 核實 |
+|---|---|---|
+| arXiv 月投稿量 | 光 2026 年 9 月就超過 **4 萬篇** | 🟡 報導為 **40,363 篇**,約為兩年前(2024-09 約 20,569 篇)的兩倍;⚠️ 本文未取得 arXiv 官方統計頁原文 |
+| AI 類別 | **兩年內成長 6 倍以上** | 🟡 二手報導同此說法 |
+| 期刊 | 2026 年投稿急增,**單一作者投稿**明顯上升;許多期刊開始限制每位作者每月 / 每年的投稿數 | 🟡 部分屬實:查得 **arXiv 自 2026-10-01 起每位投稿者每月限 2 篇、同時審核中最多 3 篇**;期刊端查得的是 JPART(公共行政)的年度上限試行等非數學案例,**未查得數學期刊的作者投稿上限** |
+
+⭐ **本文補充(影片沒講):** arXiv 的上限是由志工審核員壓力推動的權宜措施,同時並**沒有禁止 AI 輔助** —— 作者可以用,但須揭露並符合品質標準。
+
+⚠️⚠️ **影片的因果敘述要打折:** 影片說「面對新的上限,OpenAI 把一天內發布的 722 篇手稿改放 GitHub」。時間上確實相鄰(arXiv 上限 10-01 生效,openai/math 10-06 上線),**但本文未查得 OpenAI 自己把「投稿上限」列為改走 GitHub 的理由**;這是影片作者的詮釋。
+
+### 10.2 ⭐⭐⭐ 歷史對照:電腦第一次進入證明時,人類也跟不上
+
+| 事件 | 當時的驗證困境 |
+|---|---|
+| **1976 四色定理**(Appel 與 Haken) | 用電腦檢查上千種構型,**約 1,200 小時運算**;當時的常規是人工逐步驗證,數學界沒有工具「讀」這種證明 |
+| **Kepler 猜想**(Thomas Hales,1998 年提出證明) | 審稿團隊約 **12 位數學家花了四年多**,結論只能說**「99% 確定正確」**;後來 Hales 改走形式化路線(Flyspeck 計畫)才完全落定 |
+| **今天** | 人力審稿的供給限制仍在,而產出端被 AI 放大了好幾個數量級 |
+
+> ⭐⭐⭐ **影片最清楚的一段對比:**
+> - 1976 那篇:**3 台電腦、合計 1,200 小時**,而且「問什麼、怎麼證」是人決定的,電腦只負責加速後段運算。
+> - OpenAI 這批:**平均每個結果約 3 小時 ChatGPT Pro 思考算力**(§9.2 已對倉庫核實),**人只挑題目,怎麼發現由 LLM 決定。**
+
+### 10.3 ⭐⭐⭐ 電腦在科學裡的角色,第三次翻轉
+
+```mermaid
+flowchart LR
+    A["第一階段<br/>電腦替人跑上千次計算<br/>(四色定理)"] --> B["第二階段<br/>電腦幫人檢查證明步驟<br/>(形式化、證明助手)"]
+    B --> C["第三階段<br/>AI 自己做發現<br/>瓶頸回到人類驗證"]
+```
+
+> **「電腦先幫我們算,再幫我們驗;現在 AI 負責發現,瓶頸又指回我們驗證不完的那一端。」**
+
+### 10.4 ⭐⭐ 預印本與期刊本來在做什麼(為什麼不能乾脆拆掉)
+
+影片提醒,限制投稿看起來像為了維持現狀而壓抑科學進度,**但把整套結構拆掉也解決不了根本問題**:
+
+| 管道 | 功能 |
+|---|---|
+| **預印本**(如 arXiv) | 把主張寫成文字、公開接受全世界檢視;留下公開紀錄、減少重複研究、讓人知道誰在做什麼、作為研究者的工作證明 |
+| **期刊** | 正式、仔細地審查,確保集體知識在被驗證過的基礎上累積 |
+| ⚠️ 但兩者 | **都是選擇性的,而且都不保證內容一定正確** |
+
+> 任何人都能在教室、研討會或私下宣稱自己有了突破;**寫成文字、公開上傳,才是讓全世界審視的那一步。**
+
+### 10.5 ⚠️⚠️ 反彈:「這是權力展示,不是學術」
+
+影片提到有組織把 OpenAI 一次釋出 700 篇稱為**「權力的展示,而非學術的展示」**,並呼籲數學家抵制 OpenAI。
+
+⭐ **本文查得出處:** 發聲者是 **Association for Human Mathematics(AHM)**,10-07 發表聲明,稱這次釋出是「a demonstration of power」,主張 OpenAI 無視 AGMAI(§9 提到的顧問組)「前沿公司不應在內部模型上測試進階數學問題」的建議,呼籲數學家停止與 OpenAI 合作。
+
+> ⚠️⚠️ **這是 AHM 單方面的陳述**;本文未查得 OpenAI 對此聲明的正式回應。
+> ⚠️ 報導對**陶哲軒在其中的角色說法不一**:有報導稱他「領銜」,也有報導指他只是以客座文章形式在部落格轉貼;**聲明署名是該會的傳播工作小組,沒有個人姓名**。本文採後者較具體的說法,不做定論。
+> ⭐ 也要並陳:數學界的反應並不一致(見 §9.7 Litt「公開總比捂著強」等不同立場)。
+
+### 10.6 ⭐⭐⭐ 作者的結論:兩個世界的分岔
+
+> **AI 繼續在既有管道之外探索、做出發現;人類盡力追趕,決定哪些發現值得花時間理解。**
+> ⭐⭐⭐ **「挑戰正在從『發現我們不知道的東西』,變成『判斷哪些發現有意義、值得追』。」**
+
+作者也承認兩套系統目前彼此不相容,**在找到銜接方法之前(可能也要靠 AI 來檢查 AI),我們得跟這個張力共存**。數學、資訊、物理是預印本文化最重的領域,所以先被衝擊;其他領域也遲早要回答「AI 讓發現變便宜之後,人扮演什麼角色」。
+
+📎 這與 §9.8 的三層框架互相印證:**產出被壓到幾小時算力,驗證交給 Lean,理解仍以人的速度發生 —— 瓶頸移到哪裡,價值就流向哪裡。**
+
+### 10.7 ⭐⭐ 應用案例:你的團隊也有自己的「arXiv 時刻」
+
+情境:團隊導入 coding agent 後,每週 PR 從 40 個漲到 400 個,review 的人還是那 3 位。
+
+| arXiv / 期刊的做法 | 團隊版本 |
+|---|---|
+| **每人每月投稿上限** | 每個 agent 工作流每天可開的 PR 數上限,避免把 reviewer 淹死 |
+| **要求揭露 AI 使用** | PR 模板強制標註「由哪個 agent、哪個 prompt 產生」 |
+| **形式化驗證(Lean)** | ⭐ 把能機器驗證的部分全部交給 CI:型別、測試、靜態分析;**人只看機器驗不了的那一層** |
+| **「判斷哪些值得追」** | ⭐⭐ reviewer 的工作從「逐行看」改成「決定哪些改動值得合併」—— 先用分類器或規則把 400 個 PR 排序 |
+
+⭐ **核心提醒:限流只是止血,真正的解法是把驗證盡可能機器化,讓稀缺的人類注意力只花在判斷上。**
+
+### 10.8 核實狀態
+
+| 說法 | 結果 |
+|---|---|
+| arXiv 2026-09 超過 4 萬篇 | 🟡 二手報導為 40,363 篇;**未取得 arXiv 官方統計原文** |
+| arXiv 限制投稿 | ✅ 多家報導一致:2026-10-01 起每人每月 2 篇、同時審核中 3 篇 |
+| 期刊限制每位作者投稿數 | 🟡 查得非數學期刊案例;**未查得數學期刊** |
+| 1976 四色定理約 1,200 小時電腦運算 | ✅ 與常見史料一致 |
+| Hales 的 Kepler 證明:約 12 位審稿人、四年、「99% 確定」 | ✅ 與常見史料一致 |
+| OpenAI 平均每結果約 3 小時 ChatGPT Pro 算力 | ✅ 見 §9.2 倉庫原文 |
+| 「因為投稿上限才改放 GitHub」 | ⚠️ **影片詮釋,查無 OpenAI 自述** |
+| 有組織稱之「權力展示」並呼籲抵制 | ✅ 出處為 AHM 10-07 聲明;⚠️ 單方陳述、陶哲軒角色報導不一 |
+
+---
+
 ## 應用案例
 
 ### 案例 1|⭐⭐⭐ 分辨「宣稱解決」與「被認定解決」
@@ -799,6 +901,11 @@ flowchart LR
 
 ## 來源
 
+- ⭐⭐ [AI is solving math faster than human verification.. — Caleb Writes Code](https://www.youtube.com/watch?v=Z6AxbfCXeX8)(2026-10-13,約 8.7 分鐘,自動英文字幕;**§10 來源**。⚠️ 含 Verda 業配與折扣碼,本文不轉述)
+- §10 的核實來源:
+  - [arXiv caps monthly submissions at two as AI floods its servers with 40,000 papers — zeli.app](https://zeli.app/story/49926512)、[arXiv limits researchers' submissions at two papers per month — AlternativeTo](https://alternativeto.net/news/2026/10/arxiv-limits-researchers-submissions-at-two-papers-per-month-amid-ai-powered-paper-flood/)(40,363 篇、10-01 起每人每月 2 篇)
+  - [JPART submission cap policy](https://www.gopmra.org/assets/Secretariat/Policies/jpart-submission-cap-policy.pdf)(非數學期刊的年度投稿上限試行)
+  - [AHM: OpenAI 釋出是權力展示 — Pasquale Pillitteri](https://pasqualepillitteri.it/en/news/21555/ahm-openai-demonstration-of-power)、[Mathematicians urge end to OpenAI collaboration — Mezha](https://mezha.ua/en/news/mathematicians-urge-end-to-openai-collaboration-315962/)(AHM 10-07 聲明;⚠️ 陶哲軒角色報導不一)
 - ⭐ [OpenAI:722篇论文,数学研究变天了 — Why QQ](https://www.youtube.com/watch?v=auolAJmicpg)(2026-10-08,約 13.4 分鐘,官方 zh-Hans 字幕;**§9 來源**)
 - ⭐ [最挺AI的陶哲轩说:数学中AI的严重错位 程序员最该读 — Why QQ](https://www.youtube.com/watch?v=9uq4FRJ0oEE)(2026-09-15,約 10.4 分鐘,官方 zh-Hans 字幕;**§8 來源**)
 - [AI making breakthroughs explained.. — Caleb Writes Code](https://www.youtube.com/watch?v=7DncQnIjZmA)(2026-09-12,約 10.9 分鐘,自動英文字幕。⚠️ 含 Incogni 業配,與主題無關)
