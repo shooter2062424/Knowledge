@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**346 個 YouTube video id**、**74 個 arXiv 編號**,涵蓋 **281 篇**筆記。
+> 統計:**347 個 YouTube video id**、**74 個 arXiv 編號**,涵蓋 **281 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(346 部,依 video id 排序)
+## YouTube(347 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -272,6 +272,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `QuQ2FOznK18` | Impeccable 深度解析:AI 做的網站為什麼有「AI 味」,以及一個 skill 怎麼把設計師流程教給 AI | [knowledge/technology/applied-ai/design/impeccable-frontend-design-skill-ai-slop.md](./knowledge/technology/applied-ai/design/impeccable-frontend-design-skill-ai-slop.md) |
 | `QwOUDPiBzfU` | 孫慶龍的「EPS × 本益比五檔價」估值法 + 護國群山、成長股複利 | [knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md](./knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md) |
 | `R1-j8TFlqCo` | 俄烏戰爭打了四年,到底誰在買單:兩國經濟的「內傷」與「外懸」 | [knowledge/investing/strategy/russia-ukraine-war-economy-who-pays.md](./knowledge/investing/strategy/russia-ukraine-war-economy-who-pays.md) |
+| `r1jHxwwg5tk` | REA:讓 Claude Code 帶著證據做逆向工程——分工、三類成品、四個案例與五個新手坑(YAHA學堂 + 原始碼) | [knowledge/technology/software-engineering/rea-ai-reverse-engineering-claude-code.md](./knowledge/technology/software-engineering/rea-ai-reverse-engineering-claude-code.md) |
 | `R549oFP9uN8` | Pre-norm vs Post-norm:為什麼現在的大模型全都把 LayerNorm 搬到前面 | [knowledge/technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md](./knowledge/technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md) |
 | `RAFQc6zHdXE` | Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生 subagent | [knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md](./knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) |
 | `RhmzLKU9xvY` | Harness Learning:訓練一個「專門改 harness 的模型」,4B 學生贏過 35B 老師 | [knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md](./knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md) |
