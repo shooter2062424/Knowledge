@@ -3,6 +3,7 @@
 **主題分類:** 科技 / Claude Code 維運 — 新模型的下指令方式
 **來源:** YouTube〈Opus 5.5 官方指南,Claude Code 該怎麼下指令?〉(Gary Chen,2026-10-03,約 11 分;官方繁中字幕),已逐點對照 Anthropic 官方〈Prompting Claude Opus 5.5〉文件
 **整理日期:** 2026-10-05
+**增補:** 2026-10-15 併入 YAHA學堂〈用好Opus 5 5的13条新规则:官方提示词指南逐条拆解〉(2026-10-14,約 14.6 分;自動 zh-Hans 字幕),同一份官方指南的第二個拆解版本,差異與新核實見 §10
 
 > ⚠️ 立場:作者在說明欄推廣自家 **Skool 付費社群**(完整文章與提示詞模板放在那裡)。本筆記只整理影片公開內容並對照官方文件,不轉述付費素材。
 
@@ -182,13 +183,37 @@ effort 從 medium 開始;同一個任務再用 low 跑一次比較。
 |---|---|
 | ✅ 已核實 | 預設 medium(Opus 5 為 high)、5.5 medium ≥ 5 high、low 接近、xhigh/max 需實測才值得開;刪「仔細思考」回覆更早開始且品質無明顯下降;`reasoning_extraction` 拒絕;設計黑名單五項;checklist 與「純文字結束只是回報」;時間預算效果與「和降 effort 不同」;Claude Code 透過內建 mod 載入 AGENTS.md |
 | 📌 需補正 | **改頂層 effort 仍會讓 API 快取失效**,需 per-message effort(beta);提早停的模式官方列 **四種**(影片三種);官方那段停止規則是給完全無人值守的 agent;「防蒸餾」是作者推測;預算不是硬上限 |
-| ⚠️ 未能核實 | Claude Code 切 effort 不再跳警告、Bedrock/Google Cloud 例外;subagent 查證據的具體寫法;AGENTS.md 與 CLAUDE.md 的優先順序;重置券與 10-23 期限;「OpenAI 暫停 200 美元方案新訂閱」 |
+| ⚠️ 未能核實 | Claude Code 切 effort 不再跳警告、Bedrock/Google Cloud 例外;subagent 查證據的具體寫法;~~AGENTS.md 與 CLAUDE.md 的優先順序~~(✅ 已於 §10 核實);重置券與 10-22/10-23 期限;「OpenAI 暫停 200 美元方案新訂閱」 |
+
+## 10. 第二個拆解版本:YAHA學堂的差異與新核實(2026-10-15 增補)
+
+YAHA學堂的版本同樣把官方指南拆成 13 條、順序幾乎相同,一句話記法是:**「想多想少交給 effort,做到哪算完寫進提示詞,什麼時候停寫進 CLAUDE.md。」** 以下只記和本文前面不同、或這次新核實的部分。
+
+| 項目 | YAHA學堂的說法 | 核實 |
+|---|---|---|
+| ⭐⭐ **AGENTS.md 的讀取順序**(第 9 條) | 專案裡沒有 CLAUDE.md 才自動讀 AGENTS.md;**只要有 CLAUDE.md,AGENTS.md 就被忽略** | ✅ **已核實**,更正本文 §9「未能核實」:Claude Code 文件的預設值 `claude-md-or-agents-md` 正是如此。⭐ 文件另外提醒兩點:①**`CLAUDE.local.md` 也算數** —— 在靠 AGENTS.md 的專案裡加一個自己的 `CLAUDE.local.md`,會讓 Claude 不再讀 AGENTS.md;②`~/.claude/CLAUDE.md`、組織管理的 CLAUDE.md 與 `.claude/rules/` **不算**,會和 AGENTS.md 一起載入。要兩者都讀,在 `/config` 把 **Project instructions** 設成 `claude-md-and-agents-md`(需 Claude Code v2.1.277 以上) |
+| ⭐⭐ **分類器誤判後換模型**(第 5 條) | 在 Claude App 或 Claude Code 被誤判時,通常會**改用較舊的模型**繼續回覆;**發現模型名稱變了,多半就是這個原因** | ✅ **已核實**(官方〈Getting the most out of Opus 5.5〉):Claude App 會出現以「Switched to」開頭、帶舊模型名稱的提示,**之後整段對話都留在該模型**;Claude Code 會顯示舊模型名稱的提示,session 在該模型上繼續。⭐ 官方補充:誤判可用 `/feedback` 回報;不想被自動換模型,可在 Claude App 的「設定 → 功能」或 Claude Code 的 `/config` 關閉「Switch models when a message is flagged」 |
+| 📌 **編輯訊息與快取**(第 3 條) | 「5.5 支援編輯單一訊息而不讓快取失效,但改整個檔案仍會重置;此功能為 beta」 | 📌 **需補正**:官方文件寫的是 **per-message effort(beta)** 讓你逐輪換檔而保住快取,不是「編輯舊訊息」。相反地,官方要求對話保持 **append-only**:Opus 5.5 的 thinking 區塊綁定前文,**改動之前的 system prompt、tools 或訊息後重送,2026-08-31 之後建立的帳號會直接回 400**;要改指示請用 mid-conversation system messages。影片的說法很可能是把 per-message effort 講混了 |
+| ⭐ **計畫與總結**(第 8 條) | 想讓它嚴謹地寫程式,就在 CLAUDE.md 寫「開始前先說計畫、做完後總結」,兩條它都會遵守 | ✅ 官方部落格:結對程式設計時可要求「開始前一行計畫、結束時簡短回顧」,寫進 CLAUDE.md,Opus 5.5 兩種都會照做。⭐ 官方也給了總結格式範例:「每次結束都用三個標題:Blocked on me、Changed、Found」 |
+| ⚠️ **重置券期限**(第 13 條) | Pro / Team 訂閱者每人一次可存起來的免費額度重置,**約 10-22 到期**,以設定頁為準 | ⚠️ 仍未能核實;Gary Chen 版說 10-23,**兩支影片相差一天**,以自己的設定頁「使用情況」為準 |
+
+### YAHA學堂歸納的三個坑
+
+1. **一升級就把 effort 拉回 high 甚至 max** —— 同樣的工作等更久,品質不一定更好;先從 medium 開始。
+2. ⭐⭐ **以為「放手」就是完全不管** —— 可以讓它少停下來,但**破壞性操作的確認要保留、任務清單要寫進檔案、subagent 回報的證據仍要查**。
+3. **把時間預算當成降 effort** —— 一個是讓它少想,一個是讓它平行處理多條路徑,用錯地方效果相反。
+
+> ⚠️ 字幕說明:該片自動字幕多處把「Opus 5.5」轉成「Opus 3.5」、把「CLAUDE.md」轉成「cloud.md / claudecoder.md」,本節已依說明欄與官方文件還原。
 
 ---
 
 ## 來源
 
 - [YouTube:Opus 5.5 官方指南,Claude Code 該怎麼下指令?(Gary Chen,2026-10-03)](https://www.youtube.com/watch?v=xs6-p7fFYH8)
+- [YouTube:用好Opus 5 5的13条新规则:官方提示词指南逐条拆解(YAHA學堂,2026-10-14)](https://www.youtube.com/watch?v=b84VdIprZXA)(自動 zh-Hans 字幕;§10 來源)
+- [Claude Code Docs:How Claude remembers your project(AGENTS.md 讀取規則)](https://code.claude.com/docs/en/memory)
+- [Anthropic:Getting the most out of Opus 5.5 in Claude and Claude Code](https://claude.dev/blog/getting-the-most-out-of-opus-5-5/)(分類器誤判換模型、計畫與總結)
+- [Anthropic:What's new in Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/whats-new-opus-5-5)(thinking 區塊綁定前文、保持 append-only)
 - [Anthropic:Prompting Claude Opus 5.5(Claude Platform Docs)](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5)
 - [Anthropic:Effort(含 per-message effort 與 Opus 5.5 建議檔位)](https://platform.claude.com/docs/en/build-with-claude/effort)
 - [Claude Code Docs:Mods overview(內建 mod `cc-plugin-agents-md`)](https://code.claude.com/docs/en/plugins/mods/overview)
