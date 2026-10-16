@@ -511,6 +511,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-10-16(到期重建) | **10-09 建的六個排程 7 天到期,依本檔 prompt 全數重建**:GitHub Weekly `809e26c5`、Gary Chen `bff147f8`、gooaye `456e3a76`、美投君 `36c4e252`、巡檢 `ed178581`、`new/` 收件匣 `edb2e64e`。各排程當日最後一次觸發都已跑完,不需補檢;下次到期約 10-23 |
 | 2026-10-16 | 巡檢產出 2 篇(1 新篇 + 1 增補,1 支 Whisper):**Why QQ** `fuppI9SkKrs` → 新篇 Anatomy「物體就是解釋」插圖 skill,⭐ clone repo 補正三處(Figure 已不報時間、「不問不開工」只限 Epic、互動是預設非開關);**白白说大模型** `a4IoNavG8jI` → 併入 Skill 實戰 §9,⚠️ 標明內容取材自 2025-11 Anthropic 演講非新動向。另:GitHub Weekly cron 到期,已重建為 `809e26c5` |
 | 2026-10-15 | 巡檢產出 2 篇(1 新篇 + 1 增補,0 支 Whisper):**Why QQ** `ta5HOdr_32E` → 新篇 Karpathy 能力漏斗,⭐ 微軟 18.8% / 阿聯酋 73.3% 已核實;⭐ 讀 METR 2026-02 官方部落格補出選擇偏差細節(30–50% 受試者刻意不提交無 AI 任務、估計值可能是下界);a16z 與 OpenAI 企業報告數字未取得原文;Hugging Face 事件引用 RSI §8.6 並陳。**YAHA學堂** `b84VdIprZXA` → Opus 5.5 十三點筆記 §10,⭐ 對 Claude Code memory 文件核實 AGENTS.md 讀取規則(並補 `CLAUDE.local.md` 也會擋掉 AGENTS.md 的坑),更正本筆記原「未能核實」;📌 「編輯舊訊息不失效快取」與官方 append-only 規則相反,已補正。 |
 | 2026-10-14 | 巡檢產出 2 篇(1 新篇 + 1 增補,0 支 Whisper):**Why QQ** `RhmzLKU9xvY` → 新篇 Harness Learning,⭐ 讀 arXiv 原文補出影片沒講的模型名:**「35B 老師」是 Qwen3.6-35B-A3B(MoE,每 token 約 3B 啟用)**,頭條對比兩邊條件不對等;26 族 0.528 對 0.501 已對表格核實;RL Proposer 連續改的結果勝過 oracle best-of-80。**Caleb Writes Code** `Z6AxbfCXeX8` → Navier-Stokes 筆記 §10,⭐ 查得 arXiv 9 月 40,363 篇、10-01 起每人每月 2 篇上限;「權力展示」出處為 AHM 10-07 聲明(陶哲軒角色報導不一);⚠️ 「因上限改走 GitHub」屬影片詮釋。白白说 `9qcN-YSezMY` 順延。 |
