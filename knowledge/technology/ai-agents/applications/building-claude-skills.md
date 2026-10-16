@@ -2,8 +2,8 @@
 
 **主題分類:** AI / 代理工程 — 應用與實作
 **來源:** YouTube〈Skill 實戰教學,從製作到維護的完整指南〉(Gary Chen,2026-04-25,約 20 分;講者自述替各公司做過上百個 skill,依繁中逐字稿整理)
-**增補來源:** §7 程序员老王〈10分钟弄懂 什么是大模型Skill〉;§8 Simon Scrapes〈Everything You Know About Skills IS OUTDATED〉(2026-10-01)對照 Anthropic 官方〈Skill authoring best practices〉
-**整理日期:** 2026-05-30
+**增補來源:** §7 程序员老王〈10分钟弄懂 什么是大模型Skill〉;§8 Simon Scrapes〈Everything You Know About Skills IS OUTDATED〉(2026-10-01)對照 Anthropic 官方〈Skill authoring best practices〉;§9 白白说大模型〈ANTHROPIC战略转向，从Agents转向Skills！〉(2026-10-15,Whisper 轉錄;取材自 2025-11 Anthropic 演講〈Don't Build Agents, Build Skills Instead〉)
+**整理日期:** 2026-05-30(2026-10-16 增補 §9)
 
 > 📌 本筆記的方法已用在使用者自己的 [claude_marketplace](https://github.com/shooter2062424/claude_marketplace) 上(`knowledge-tools` plugin 的 `rapid-learning` skill 即按此寫法)。
 
@@ -188,9 +188,110 @@ flowchart TB
 
 ---
 
+## 9. 補充:「別再造 agent,改造 skill」——從單一 agent 走向技能資產(白白说大模型,2026-10-15)
+
+> 來源:白白说大模型〈ANTHROPIC战略转向，从Agents转向Skills！〉(2026-10-15,約 18.6 分;無字幕,逐字稿以 CPU faster-whisper 轉錄)。
+> 📌 **立場:** 說明欄導流作者的公眾號領取「配套教程」,本節不轉述那份材料。
+> ⚠️⚠️ **時效性:影片標題說「戰略轉向」,但內容幾乎全部取材自 Anthropic 的 Barry Zhang 與 Mahesh Murag 在 2025 年 11 月 AI Engineer Code Summit 的演講〈Don't Build Agents, Build Skills Instead〉**;Agent Skills 成為開放標準則是 2025-12-18。**到本片上傳時已是約 10 個月前的舊事**,不是最近的新動向。片中「今年年底公開說」也應讀作 2025 年底。
+
+### 9.1 三個痛點:為什麼最後造出「智能體動物園」
+
+| 痛點 | 影片說法 |
+|---|---|
+| **管理成本轉移到人身上** | Agent 越像員工,越需要組織級的流程、規範與驗收標準;否則得到的是「更大規模的返工自動化」 |
+| **聰明但不專業** | 演講原話:agent 缺 expertise、常常 miss context。通用模型解的是通用推理,不懂你公司的口徑、規則與暗坑;⭐ 「IQ 越高,胡說八道的自信感也越強」。真實業務最值錢的是**一致性**,不是靈感 |
+| **維護爆炸** | 財務一個、法務一個、營運一個 agent,其實是**多了幾套軟體系統**:各自的 prompt、工具鏈、權限、評測集、失敗兜底。同一條業務規則在五個 agent 裡各寫一遍、版本還不一致 |
+
+> ⭐ **「當你用複製貼上去擴展能力,系統就會用維護地獄來還債。」**
+
+### 9.2 ⭐⭐ 解法:一個通用核心 + 可重用的技能
+
+```mermaid
+flowchart LR
+    subgraph OLD["舊做法:每個需求造一個 agent"]
+        O1["財務 agent"]
+        O2["法務 agent"]
+        O3["招募 agent"]
+    end
+    subgraph NEW["新做法:通用 agent 加技能庫"]
+        G["通用 agent<br/>理解、規劃、調用"] --> K1["財務 skill"]
+        G --> K2["法務 skill"]
+        G --> K3["招募 skill"]
+        G --> M["MCP<br/>連 CRM、雲端硬碟、資料庫"]
+    end
+    OLD -->|"能力解耦"| NEW
+```
+
+- 類比:你不會為每個業務需求重寫一個作業系統,而是做一個 OS,再用應用和外掛擴展。
+- **新員工比喻**(演講的經典段落):通用 agent 是智商很高、工具也會用,但**不了解你公司流程、口徑與禁區**的新人。不是每來一個職缺就重新造一個專職機器人,而是**給同一個新人發不同的入職手冊**——流程改了,改手冊,所有人同步更新。
+- ⭐⭐ **擴展能力的單位,從「新增一個 agent」變成「新增一個 skill 包」。**
+
+### 9.3 ⭐ Skill 的定義與三個工程點
+
+> **Skill 不是更長的提示詞,是一組為 agent 打包、可組合的流程性知識。** 三個關鍵字:**流程性**(講怎麼做,不講是什麼)、**可組合**(同一條鏈路疊加數據分析 skill、合規審查 skill、報表格式化 skill)、**可執行**(確定性的部分交給腳本)。
+
+| 工程點 | 重點 |
+|---|---|
+| **漸進式披露** | 啟動時只載入名稱與描述;觸發時才讀 SKILL.md;更細的參考檔與腳本需要時才打開(與本文 §1、§7 一致)。⭐ 影片的說法:**「上下文不是容量問題,是載入策略問題」** |
+| **可觀測的選擇與載入** | 選技能、載技能變成**顯式步驟**,出錯時能定位是「沒選對」「寫得不清楚」還是「執行跑偏」 |
+| **程式碼執行** | 計算、排序、抽取、格式化交給腳本:更便宜也更穩定;腳本本身不用塞進上下文,只有輸出回流給模型 |
+| **與 MCP 的分工** | ⭐⭐ **MCP 解決「能連什麼」,skill 解決「怎麼把事做對」**。例:客戶流失報告 = MCP 拉資料 → 分析 skill 定口徑與建模 → 報表 skill 套模板 → MCP 寫回或發到協作工具 |
+
+> ⭐ 架構體檢一句話:**連接能力歸 MCP,業務方法歸 skill,別把流程寫死在 agent 本體裡。**
+
+### 9.4 ⭐⭐ 對四種角色的影響
+
+| 角色 | 工作重心的改變 |
+|---|---|
+| **PM** | 從排功能清單,變成**規劃技能資產組合**;看三個指標:覆蓋了多少關鍵 SOP、跨部門重用率、可執行的驗收口徑(輸入、輸出、檢查點、失敗兜底) |
+| **架構師** | 補齊企業治理四件事:**skill registry**(目錄、版本、依賴、描述)、**權限模型**(按團隊、角色、環境分級)、**發布流水線**(評審、測試、灰度、回滾)、**可觀測性**(觸發率、失敗率、成本、風險事件) |
+| **開發者** | 除了調模型、調 prompt 之外的第三條路:寫可執行 SOP 式的 SKILL.md、寫腳本承接確定性工作、設計「常駐 vs 按需」的上下文分層 |
+| **業務專家** | 演講提到會計、法務、招募等非技術角色也在寫 skill;⚠️ 但沒有模板、規範與評審,就會得到「技能庫裡的野生 SOP」——正解是業務提供流程與規則、工程提供結構、工具、評測與治理 |
+
+> ⭐ 影片判斷:**「AI 產品的護城河,正從模型能力切換到技能資產密度。」**(作者觀點)
+
+### 9.5 ⚠️⚠️ 風險與邊界
+
+1. **標準化:** 格式沒統一,skill 就會變成新一代 prompt 方言、甚至平台鎖定。先問兩句:**別人的 agent 讀得懂嗎?下一代模型還能用嗎?** 📌 這正是 Agent Skills 在 2025-12-18 被推成開放標準([agentskills.io](https://agentskills.io/))的背景。
+2. **安全:** skill 一旦能帶腳本,就**從內容風險升級成執行風險**。官方提醒只從可信來源安裝;企業版三件套:**審核**(像 code review 一樣看依賴與外部資源引用)、**權限**(按環境分級,開發能跑的生產不一定能跑)、**稽核**(誰在何時觸發了哪個 skill、做了什麼)。
+3. **能力邊界:**
+   - 跨組織遷移難:流程高度情境化,一家公司的財務 skill 換到另一家,口徑、系統、審批鏈可能全變。
+   - **選錯技能比答錯一句話更嚴重**——它會把錯誤流程執行到底。
+   - 底座模型的推理能力仍是上限,skill 救不了模型不夠強的複雜任務。
+4. ⭐ **建議:** 設計階段就寫死適用範圍與**不適用場景**,評測不只測「能不能做」,**也測「會不會誤觸發」**;要追的是技能的**邊界清晰度**,不是數量。
+5. **生態:** Linux 基金會成立 **Agentic AI Foundation(AAIF)** 推動 agent 互操作標準(Whisper 轉為「AAF」;📌 實為 2025-12 成立,MCP 也已捐入,見 [[mcp-2026-07-28-stateless-rewrite]])。標準收斂後下一步是分發:技能目錄、市場、商店;企業內會分化出**通用 skill**(報表、文件處理)與**組織私有 skill**(內部 SOP 與合規規則)。
+
+### 9.6 應用案例:開會時把「要不要再做一個 agent」換成這張檢查表
+
+| 問題 | 若答案是 | 動作 |
+|---|---|---|
+| 這個需求需要的是**新的連接**(新系統、新資料源)嗎? | 是 | 做或接一個 MCP server |
+| 需要的是**新的做事方法**(流程、口徑、模板)嗎? | 是 | 寫一個 skill,掛在既有通用 agent 上 |
+| 同一條規則是否已經寫在別的 agent / prompt 裡? | 是 | 抽成共用 skill,刪掉重複版本 |
+| 這個 skill 帶腳本嗎? | 是 | 走 code review、按環境給權限、記錄觸發日誌 |
+| 會不會跟既有 skill 搶觸發? | 可能 | 在描述裡寫明不適用場景,加一組「不該觸發」的評測題 |
+
+### 9.7 核實狀態
+
+| 說法 | 結果 |
+|---|---|
+| 「Anthropic 戰略轉向」是新動向 | ⚠️ **需修正**:取材自 2025-11 AI Engineer Code Summit 演講,約 10 個月前 |
+| 「Barry Young / Barry Jones」「MURUK」 | 📌 Whisper 誤轉,應為 Barry Zhang 與 Mahesh Murag(Anthropic) |
+| Skill = 資料夾、SKILL.md 入口、漸進式披露、可帶腳本 | ✅ 與演講摘要及本文 §1 一致 |
+| MCP 管連接、skill 管流程知識 | ✅ 演講的 agent stack 分層 |
+| Agent Skills 被推成開放標準 | ✅ 2025-12-18(部分媒體因時區記為 12-19),規格在 agentskills.io |
+| Linux 基金會成立 AAIF | ✅ 2025-12(Whisper 轉為「AAF」) |
+| 「OpenAI 的 Sama 說像在帶一群初級員工」 | 🟡 Whisper 轉為「Sama Ultimate」,推測指 Sam Altman;本文未查得原話出處 |
+| 「AI 的 App Store 時刻」「護城河轉向技能資產密度」 | ⚠️ 作者觀點 |
+
+---
+
 ## 來源
 
 - [YouTube:Skill 實戰教學,從製作到維護的完整指南(Gary Chen)](https://youtu.be/PuqX3Kv2ino)
 - [YouTube:10分钟弄懂 什么是大模型Skill(程序员老王,2026-01-22)](https://www.youtube.com/watch?v=lnneAfJqd9M)(無字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕)
 - [YouTube:Everything You Know About Skills IS OUTDATED(Simon Scrapes,2026-10-01)](https://www.youtube.com/watch?v=e7TY56-yIvM)(英文自動字幕)
+- [YouTube:ANTHROPIC战略转向，从Agents转向Skills！(白白说大模型,2026-10-15)](https://www.youtube.com/watch?v=a4IoNavG8jI)(無字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕;已還原專有名詞:「Barry Young / Barry Jones」→ Barry Zhang、「MURUK」→ Mahesh Murag、「Anstropic / Anthropec」→ Anthropic、「Scale / Skew / SKIRL」→ skill、「AAF」→ AAIF、「風陷 / 風陰」→ 風險)
+- [AI Engineer:Don't Build Agents, Build Skills Instead – Barry Zhang & Mahesh Murag, Anthropic(2025-11)](https://www.ai.engineer/talks/CEvIs9y1uog-agent-skills)
+- [Simon Willison:Agent Skills 成為開放標準(2025-12-19)](https://simonwillison.net/2025/dec/19/agent-skills) · [agentskills.io](https://agentskills.io/)
 - [Anthropic:Skill authoring best practices(官方文件)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)

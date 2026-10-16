@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**347 個 YouTube video id**、**74 個 arXiv 編號**,涵蓋 **281 篇**筆記。
+> 統計:**349 個 YouTube video id**、**74 個 arXiv 編號**,涵蓋 **282 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(347 部,依 video id 排序)
+## YouTube(349 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -87,6 +87,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `_RD3iFDhuzs` | Karpathy 訪談:Software 3.0、Jagged Intelligence 與 Agentic Engineering | [knowledge/technology/ai-agents/foundations/karpathy-software-3-0.md](./knowledge/technology/ai-agents/foundations/karpathy-software-3-0.md) |
 | `_xM8scs4_x4` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
 | `_yFen1B8hdU` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
+| `a4IoNavG8jI` | Skill 實戰:從製作到維護一份「agent 會自動觸發、產出穩定、人類維護得了」的 skill | [knowledge/technology/ai-agents/applications/building-claude-skills.md](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
 | `aHAmg_1q41M` | 用 Hugging Face Transformers 在本機跑 DeepSeek-R1 蒸餾模型:載入、tokenizer、padding、chat template 一次講清(程序员老王) | [knowledge/technology/llm-internals/inference/transformers-local-deepseek-r1-distill.md](./knowledge/technology/llm-internals/inference/transformers-local-deepseek-r1-distill.md) |
 | `ajtCT6jl1Nw` | Viking Holdings(VIK):碼頭權 × 高齡高淨值客群的雙層護城河,與那場被低估的歐洲枯水 | [knowledge/investing/equity-research/viking-holdings-river-cruise-moat.md](./knowledge/investing/equity-research/viking-holdings-river-cruise-moat.md) |
 | `aR97E7aKEgg` | Matt Pocock 的 AI 開發 skills 全拆解:最紅的 skill 只有五行字,強在哪? | [knowledge/technology/ai-agents/applications/matt-pocock-skills-teardown.md](./knowledge/technology/ai-agents/applications/matt-pocock-skills-teardown.md) |
@@ -154,6 +155,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `FOHyospzUd4` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `FQ81w5UO9u8` | 你可能用錯 AI 了:Processing vs Thinking 與三層 token 效率陷阱 | [knowledge/technology/ai-productivity/context-engineering-processing-vs-thinking.md](./knowledge/technology/ai-productivity/context-engineering-processing-vs-thinking.md) |
 | `FrAAxWbxSyE` | Claude 5 時代的 Context Engineering 新規則:Claude Code 刪掉 80% 系統提示詞,評測卻沒掉 | [knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md](./knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
+| `fuppI9SkKrs` | Anatomy:一行字造出能上手玩的機器——「物體就是解釋」的 Claude Code 技能(Why QQ + 原始碼) | [knowledge/technology/applied-ai/design/anatomy-skill-object-is-the-explanation.md](./knowledge/technology/applied-ai/design/anatomy-skill-object-is-the-explanation.md) |
 | `FvWfAgNyEWc` | 硬碟陣列 RAID 一次看懂:RAID 0/1/5/6 原理,以及 RAID 5 為什麼「不安全」的真相 | [knowledge/technology/system-design/raid-explained-why-raid5-unsafe.md](./knowledge/technology/system-design/raid-explained-why-raid5-unsafe.md) |
 | `fX0Am0Rhnfg` | 4 隻「無論何時都能安心買入」的 ETF:靠機制賺錢,不靠預測 | [knowledge/investing/strategy/four-buy-anytime-etfs.md](./knowledge/investing/strategy/four-buy-anytime-etfs.md) |
 | `gAUvadRNFNE` | 為什麼跟有些人聊天特別有趣:四個特質,而且都不是話術 | [knowledge/life/communication/four-traits-interesting-conversation.md](./knowledge/life/communication/four-traits-interesting-conversation.md) |
