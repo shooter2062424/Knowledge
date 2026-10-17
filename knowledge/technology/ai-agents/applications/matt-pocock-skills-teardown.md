@@ -1,6 +1,8 @@
 # Matt Pocock 的 AI 開發 skills 全拆解:最紅的 skill 只有五行字,強在哪?
 
-> Gary Chen(@garytalksstuff)拆解 TypeScript 大神 **Matt Pocock** 開源的 AI 開發工作流(GitHub 16 萬+ 星、700 萬次下載)。核心洞察:**這套 skill 真正開源的不是幾個 prompt,而是「如何用你在專業領域積累的思維與語言,去駕馭 AI 這個黑盒子」。** 延伸自 [[building-claude-skills]]、[[top-skills-for-agents]]、[[ai-brownfield-codebase-five-steps]]。
+> Gary Chen(@garytalksstuff)拆解 TypeScript 大神 **Matt Pocock** 開源的 AI 開發工作流(GitHub 16 萬+ 星、700 萬次下載;2026-10 已約 29.5 萬星)。核心洞察:**這套 skill 真正開源的不是幾個 prompt,而是「如何用你在專業領域積累的思維與語言,去駕馭 AI 這個黑盒子」。** 延伸自 [[building-claude-skills]]、[[top-skills-for-agents]]、[[ai-brownfield-codebase-five-steps]]。
+>
+> **2026-10-18 增補 §九:** Gary 第二支影片拆解 v1.3 新增的 `implement-spec`、`pr`、`retro`。已 clone repo 對照 SKILL.md 與官方文件,補上影片沒講的 integration branch 機制、worktree 衝突與測試跳過的坑,以及 `CONTEXT.md` 改名 `GLOSSARY.md` 的破壞性變更。
 
 ---
 
@@ -159,7 +161,143 @@ Matt 靠深厚的軟體工程底子,把它用在兩個地方:
 
 ---
 
+## 九、2026-10 更新:v1.3 新增 implement-spec、pr、retro,把流水線接成閉環
+
+> **來源:** Gary Chen 第二支拆解〈28 萬星的 Matt Pocock skill 更新拆解!〉(2026-10-17,官方 zh-TW 字幕)。
+>
+> **核對方式:** 本節已 `git clone` [mattpocock/skills](https://github.com/mattpocock/skills) 讀三個 SKILL.md、`docs/engineering/*.md` 與 CHANGELOG。
+> - 2026-10-18 查核:⭐ 約 29.5 萬、MIT、目前版本 **1.3.1**。三個 skill 在 1.3.0 由 PR #1120「畢業」進 Engineering 類別。
+> - 本篇開頭寫的「16 萬星」是 2026-07 的數字。
+>
+> **立場揭露:** Gary 在說明欄推廣自家 Skool 社群;他改寫的「白話版 PR / Retro skill」放在付費的「Gary AI 實戰營」,本節不轉述。
+
+### 9.1 新流程全貌
+
+v1.3 之前,流程跑到 code-review 就結束。v1.3 在後面接上 pr 與 retro,讓下一輪開發可以變得更好。依 CHANGELOG,`ask-matt` 路由器把 retro 定為「主流程最後一步」。
+
+```mermaid
+flowchart LR
+    G["grill-me 或 grill-with-docs<br/>把事情想清楚"] --> S["to-spec<br/>寫規格書"]
+    S --> T["to-tickets<br/>拆成任務圖"]
+    T --> D{"規模"}
+    D -->|"單一小變更"| I["implement<br/>TDD 實作"]
+    D -->|"多張 ticket"| IS["implement-spec<br/>依 frontier 並行"]
+    I --> CR["code-review"]
+    IS --> CR
+    CR --> PR["pr<br/>摘要圖、證據、合併風險"]
+    PR --> R["retro<br/>改環境而不是改程式碼"]
+    R -.下一輪.-> G
+```
+
+### 9.2 `implement-spec`:把整份 spec 一次並行做完
+
+**痛點:** 一份 spec 常拆出七、八張甚至十幾張 ticket。用 `implement` 時你得一張一張叫 Agent 做、等它跑完、檢查、清空 context、再下一張。Gary 說這等於「人肉版的 loop」;他更新前就自己寫過一個 `implement-tickets` skill 來解決。
+
+**用法:** 清空 context 後輸入 `/implement-spec #87`(issue 編號或檔案路徑)。假設 #87 下面有 #88–#97 十張 ticket,Agent 會全部處理完。
+
+**SKILL.md 原文的關鍵設計(40 行):**
+
+- **ticket 不是步驟清單,是任務圖。** 依阻塞關係,永遠有一個「現在就能做」的 **frontier**。這個詞與 [[to-tickets-spec-to-agent-workunits]] 產出的並行調度信號是同一套。
+- **每張 ticket 交給一個 implementer 子 agent**,各自在自己的 worktree、自己的 branch 上做。每個子 agent:
+  1. 先確認 worktree 是從 integration branch 長出來的
+  2. 用 `tdd` skill 實作
+  3. 回報完成前,先把 integration branch 最新進度併進自己的 branch,讓之後的合併都是 fast-forward
+- **由 merger 子 agent 負責合併**到 integration branch。合併後 frontier 有變,就再派新的 implementer。
+- **全部完成後**,對 integration branch 跑 `code-review`,所有問題交給**單一** implementer 一次修完,最後清掉所有 worktree。
+- **溝通要精簡:** 子 agent 之間主要傳 **context pointer**(指向 spec、ticket、研究筆記、先前的 commit),不重複貼已經查得到的資訊。
+- **可選的探索子 agent:** 先把要讀的程式碼與外部文件整理成筆記,存在 **repo 以外**的目錄給後續子 agent 共用。
+
+**影片沒講、但官方文件有的重點:**
+
+| 重點 | 官方說法 |
+|---|---|
+| 目標是 integration branch,不是 PR | 只有 issue tracker 靠 PR 關單、或你要求時,才在**第一次合併後**開 draft PR(沒有任何 commit 的 branch 開不了 PR) |
+| 需要支援背景子 agent 的 harness | 子 agent 只能一個一個跑的 harness 上,它「只是比較慢的 `implement`」 |
+| worktree 只是把衝突延後 | 兩張 ticket 看似改不同地方,仍可能共用訊息字典、設定註冊表或型別。官方實例:web 與 mobile 兩張 ticket 對同一字串各自取名 `blockedSince` 與 `blockedOn`。解法是加阻塞邊讓它們依序跑,或在探索筆記裡先定好名稱 |
+| 測試在 worktree 裡可能悄悄跳過 | worktree 只有 git 追蹤的檔案。依賴 gitignore 的 fixture、本機資料庫、憑證的測試會靜默 skip 卻回報綠燈,這類 ticket 要在主 checkout 跑 |
+| 不取代 Sandcastle | 真正 AFK 的工作,用確定性迴圈(Sandcastle、shell script、CI job)更快、更便宜、更可靠,因為不需要 agent 做調度決策。`implement-spec` 的優點是在單一 session 內、不需基礎設施、可以邊看邊調整 |
+
+> 影片提到 Gary 私訊 Matt 問「會不會開 worktree 多線並行」,Matt 回覆用 Claude Code 或 Sandcastle。官方 FAQ 的「Does this replace Sandcastle?」正好回答了這個關係。
+
+**沒用 Matt 的 skill 也能套用:** 在 prompt 裡要求先把任務拆成細項、標出每項的依賴關係,再交給不同的 subagent 並行。
+
+### 9.3 `pr`:讓人能在幾十秒內審完 AI 的產出
+
+**Matt 的判斷:** 有了 AI,幾分鐘就能吐出一大包改動,**開發瓶頸變成人類審 PR 的速度**。瓶頸在哪,AI 就該在哪施力。Claude Code 這類工具內建的 PR 範本很陽春:一段說明加一份 Test Plan,而 Test Plan 常常只是還沒打勾的待辦清單。
+
+**範本三段(SKILL.md 原文):**
+
+| 段落 | 要求 |
+|---|---|
+| **Summary** | 用**最小的圖**講清楚改了什麼:演算法用虛擬碼、執行流程用呼叫樹、UI 用元件樹、大範圍重構用淺層檔案樹、互動與資料流用 Mermaid,改動點用 `diff` 標示。不要前言、少寫散文,並沿用 `GLOSSARY.md` 的領域用語 |
+| **Evidence** | 前後對比的證據。**截圖是 S 級**(畫面類改動、環境支援時);**測試結果、console 輸出是 A 級**,要寫出那個「之前失敗、現在通過」的測試 |
+| **Merge Danger** | **Door:** 單向門(破壞性遷移、移除公開 API 等難回頭的決定)或雙向門(可以低成本退回)。**Blast Radius:** 用一個詞描述出事時的影響範圍,例如版面跑位、API 使用者壞掉、手機版跑版 |
+
+- **怎麼用風險評估:** 官方文件的核心句是把「這能合併嗎?」從直覺變成**審查者可以反駁的明確主張**。雙向門加上小影響範圍就快速瀏覽;單向門才放慢細看。
+- **補正:** 影片說要「用一張最小的圖」,SKILL.md 實際上提供六種視覺形式,並明說「你可以用一種或幾種,不太可能全用到」。
+- **出處:** Summary 的視覺化做法改編自 HumanLayer 的 Dex Horthy 的 `show-me` skill,在 `CREDITS.md` 標注。
+- **觸發方式:** `pr` 是 **model-invoked**,寫 PR 內文時 Agent 會自己套用。另外兩個(`implement-spec`、`retro`)都設了 `disable-model-invocation: true`,只能由使用者手動呼叫。
+
+**Gary 的客製化:** 他幫團隊改了一個「給技術小白的白話版」,要求用生活化的比喻寫 PR,讓只懂一點架構的讀者看得懂,也能慢慢累積 know-how。
+
+### 9.4 `retro`:找出 Agent 沒告訴你的 token 殺手
+
+**問題:** AI 很擅長默默把長任務做完,但過程中它可能一直硬撐重試、浪費大量 token、踩到沒人知道的坑。不挖出來,下次開新對話會再犯一次。這是 Matt 這次最喜歡的 skill。
+
+**做法:** 翻閱指定 session 的日誌與對話(預設是當前 session),依嚴重度提出「**改環境,不改程式碼**」的建議。SKILL.md 列了七類:
+
+| 類別 | 什麼時候提 |
+|---|---|
+| **Navigation** 導航 | Agent 花很久才找到檔案 ⇒ 加一條 **navigation pointer**(指向關鍵檔案的路徑提示) |
+| **Automated checks** 自動檢查 | Agent 犯了工具抓得到的錯。⭐ 先讀 repo 既有的 lint/check 指令與 CI,「有檢查但沒接上或悄悄壞了」本身就是發現;**完全沒有 pre-commit hook 也沒有 CI 跑 lint/型別/測試**,也算一項發現 |
+| **Coding standards** 程式碼規範 | 審查 agent 漏抓錯誤時。先分類:**機械性**違規(禁用的 API、import 形狀、檔案位置)一律做成確定性檢查(自訂 lint 規則、pre-commit hook、CI job);只有**需要判斷**的(跨檔一致性、「跟周圍風格一致」)才寫進 `CODING_STANDARDS.md` |
+| **Global AGENTS.md** | AGENTS.md 特別大時,把裡面的指令移到 coding standards 或自動檢查 |
+| **Tool economy** 工具經濟 | Agent 做了昂貴的工具呼叫,或某個自製 CLI / MCP 特別吃 token |
+| **No-ops** 無效指令 | steering 檔裡寫了、但根本沒改變 Agent 行為的指令 |
+| **Information access** 資訊取得 | 關鍵資訊 Agent 拿不到 ⇒ 例如把 dev server log 導出來、給第三方服務唯讀權限 |
+
+**背後的設計原則:** 規範歸**審查者**,不歸實作者。
+
+- 實作 agent 要探索、寫程式、除錯,**context 壓力最大**;審查 agent 只收到 diff,壓力最小。所以規則放在審查那一關才有空間執行。
+- 官方文件也說,規則**絕不要放進 AGENTS.md**。它每個 session 都會載入、會稀釋檔案裡其他內容,還會隨程式碼過時。AGENTS.md 和 CLAUDE.md 只放 navigation pointer。
+- `CODING_STANDARDS.md` 在審查時才讀;超過 1,000 行就改用 pointer 指向 docs。
+
+**不要全自動化(影片與官方文件一致):**
+
+- `retro` **只提案,不動手**:不手改檔案、不自動裝 hook,要你挑了才改。
+- 官方 FAQ 引用一位使用者「被會擋掉好改動的自動 hook 燒過」的經驗。
+- 順利的 session 沒什麼可學,每次都跑大多只會產生沒人需要的規則。
+- 它**沒有 dry-run 模式**;提出的檢查也是程式碼,讓它擋合併前先對 repo 實測。
+- Gary 的提醒:讓 AI 天天自己反思容易**吹毛求疵**,把專案帶歪。每一份提案都要自己審,確認它改哪個檔案、會怎麼影響 Agent 行為。
+
+> `retro` **也不是記憶系統**:它不儲存發生過什麼,而是改變環境讓錯誤不會再發生。這和本庫 [[claude-code-loop-types-official]] 的驗證回路、[[agent-skill-three-layer-run-do-verify]] 的「驗證層」是同一種思路:把一次性的教訓變成永久的檢查。
+
+### 9.5 升級前要知道的兩個破壞性變更(影片沒提)
+
+1. **`CONTEXT.md` / `CONTEXT-MAP.md` 全面改名為 `GLOSSARY.md` / `GLOSSARY-MAP.md`。** 舊專案要自己 `git mv`,否則 skill 從此**找不到**你的領域詞彙檔。受影響的有 `domain-modeling`、`grill-with-docs`、`tdd`、`pr` 等 11 個 skill。
+2. **移除 `resolving-merge-conflicts`**,沒有替代品。Agent 直接處理合併或 rebase 衝突,舊文件頁標為封存。
+
+### 9.6 應用案例
+
+1. **一個「設定頁改版」spec 拆出 6 張 ticket:** 跑 `/implement-spec #120`。
+   - 開跑前先檢查 ticket 間的阻塞邊:「新增設定欄位」和「設定頁 i18n」都會動到同一份語系檔,就加一條阻塞邊讓它們依序跑,避免兩個子 agent 各取一個 key 名。
+   - 依賴本機資料庫的整合測試 ticket,指定在主 checkout 跑。
+2. **讓 AI 開的 PR 一眼能審:** 在 repo 的 skill 目錄放入 `pr`。之後 Agent 開 PR 會附一段 `diff` 形式的元件樹、修 bug 前後的測試輸出,以及「Door: two-way / Blast Radius: settings-page」。審查者先看 Door:雙向門快速放行;碰到「Door: one-way」(例如刪資料表欄位的 migration)才約人一起看。
+3. **每週一次 retro 健檢,而不是每個 session:** 挑一個這週明顯卡很久的 session 跑 `/retro`。假設發現 Agent 三次把元件放錯資料夾:
+   - 依規則這是**機械性**錯誤,所以做成一條自訂 lint 規則,而不是在 CLAUDE.md 加一句「元件請放 src/components」。
+   - 同時刪掉 CLAUDE.md 裡兩條從沒影響行為的 no-op 指令。
+4. **不用 Matt 的 skill,也能借用這三招:**
+   - 在 prompt 裡要求先畫任務依賴圖再並行。
+   - PR 模板加一欄「單向門 / 雙向門」。
+   - 每週固定花十分鐘看一次最卡的 session 日誌。
+
+---
+
 ## 來源
 
 - 影片:[17 萬星的 Matt Pocock skills,到底強在哪?skills 全拆解(Gary Chen @garytalksstuff,2026-07-22,官方 zh-TW 字幕)](https://www.youtube.com/watch?v=aR97E7aKEgg)
+- 影片:[28 萬星的 Matt Pocock skill 更新拆解!(Gary Chen @garychenai,2026-10-17,官方 zh-TW 字幕)](https://www.youtube.com/watch?v=QqhyqMvdx5Q)——§九來源
+- Repo:<https://github.com/mattpocock/skills>(2026-10-18 clone,v1.3.1):[implement-spec SKILL.md](https://github.com/mattpocock/skills/blob/main/skills/engineering/implement-spec/SKILL.md)、[pr SKILL.md](https://github.com/mattpocock/skills/blob/main/skills/engineering/pr/SKILL.md)、[retro SKILL.md](https://github.com/mattpocock/skills/blob/main/skills/engineering/retro/SKILL.md)、[CHANGELOG](https://github.com/mattpocock/skills/blob/main/CHANGELOG.md)、[docs/engineering/implement-spec.md](https://github.com/mattpocock/skills/blob/main/docs/engineering/implement-spec.md)、[docs/engineering/pr.md](https://github.com/mattpocock/skills/blob/main/docs/engineering/pr.md)、[docs/engineering/retro.md](https://github.com/mattpocock/skills/blob/main/docs/engineering/retro.md)
+- Dex Horthy `show-me` skill(pr 的視覺化出處):<https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md>
+- Gary 的 Skool 社群(付費內容未轉述):<https://www.skool.com/gary-chen>
 - 延伸(本庫):[模型越強,Superpowers vs Matt Skills 該刪誰(專講「寫計畫」勝負手)](./superpowers-vs-matt-skills-strong-model.md)、[Skill 實戰:從製作到維護](./building-claude-skills.md)、[4 組頂級 Agent Skill(含 Matt Pocock/Superpowers)](./top-skills-for-agents.md)、[AI 安全接手舊專案五步驟](../../ai-productivity/ai-brownfield-codebase-five-steps.md)、[OpenAI GPT-5.6 官方提示指南(先做減法)](../foundations/gpt-5-6-prompting-guide-openai.md)、[Bitter Lesson:模型變強後砍舊 prompt](../foundations/bitter-lesson-cut-old-patterns.md)

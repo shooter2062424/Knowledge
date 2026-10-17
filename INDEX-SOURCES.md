@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**353 個 YouTube video id**、**74 個 arXiv 編號**,涵蓋 **285 篇**筆記。
+> 統計:**354 個 YouTube video id**、**74 個 arXiv 編號**,涵蓋 **285 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(353 部,依 video id 排序)
+## YouTube(354 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -274,6 +274,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `qL6ca-mIeMI` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `qMYLjyqJzDU` | 32 個 AI 編排器怎麼挑:星數第一的不是編排器,七個維度與四類場景選型清單(Why QQ) | [knowledge/technology/ai-agents/resources/ai-orchestrators-32-tools-seven-dimensions.md](./knowledge/technology/ai-agents/resources/ai-orchestrators-32-tools-seven-dimensions.md) |
 | `qnIlKvW00Sk` | AI Agent 最大的缺陷:它沒有「世界地圖」——用本體論給大模型套上邏輯護欄 | [knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
+| `QqhyqMvdx5Q` | Matt Pocock 的 AI 開發 skills 全拆解:最紅的 skill 只有五行字,強在哪? | [knowledge/technology/ai-agents/applications/matt-pocock-skills-teardown.md](./knowledge/technology/ai-agents/applications/matt-pocock-skills-teardown.md) |
 | `QuQ2FOznK18` | Impeccable 深度解析:AI 做的網站為什麼有「AI 味」,以及一個 skill 怎麼把設計師流程教給 AI | [knowledge/technology/applied-ai/design/impeccable-frontend-design-skill-ai-slop.md](./knowledge/technology/applied-ai/design/impeccable-frontend-design-skill-ai-slop.md) |
 | `QwOUDPiBzfU` | 孫慶龍的「EPS × 本益比五檔價」估值法 + 護國群山、成長股複利 | [knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md](./knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md) |
 | `R1-j8TFlqCo` | 俄烏戰爭打了四年,到底誰在買單:兩國經濟的「內傷」與「外懸」 | [knowledge/investing/strategy/russia-ukraine-war-economy-who-pays.md](./knowledge/investing/strategy/russia-ukraine-war-economy-who-pays.md) |
