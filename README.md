@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-315_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-316_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -591,6 +591,7 @@ flowchart LR
 ### 🗞️ github-weekly(GitHub 週報)
 | 期數 | 主題 |
 |---|---|
+| [第 135 期:藝術家的 AI IDE(ArtCraft)、互動式技術圖解 Skill(Anatomy)、組織多個 Agent 的工具(OpenRig)、生成原生 PPT 的工作流(PPT Master)與復刻 QQ 寵物(QQPet)](./knowledge/technology/github-weekly/issue-135.md) | ArtCraft / Anatomy / OpenRig / PPT Master / QQPet |
 | [第 134 期:WebGPU 特效元件庫(Shaders)、PS5 遊戲移植到電腦(AnyPS5)、讓 Agent 逆向一切(REA)、提升 AI 前端設計的 Skill(Impeccable)與自架健身紀錄(openGym)](./knowledge/technology/github-weekly/issue-134.md) | Shaders / AnyPS5 / REA / Impeccable / openGym |
 | [第 133 期:給 Agent 開家公司(Paperclip)、讓 Agent 剪影片(video-use)、騰訊開源 Octop、免費股票看板與 25MB 資料庫客戶端](./knowledge/technology/github-weekly/issue-133.md) | Paperclip / video-use / Octop / OpenStock / DBX |
 | [第 132 期:Jev 開源復刻 Laya、Cloudflare 安全審計 Skill、Univer Office SDK、Google 的 Agent 編排器 AX 與長期記憶 Hindsight](./knowledge/technology/github-weekly/issue-132.md) | Laya / security-audit-skill / Univer / AX / Hindsight |
