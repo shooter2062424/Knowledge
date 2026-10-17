@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**349 個 YouTube video id**、**74 個 arXiv 編號**,涵蓋 **282 篇**筆記。
+> 統計:**351 個 YouTube video id**、**74 個 arXiv 編號**,涵蓋 **283 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(349 部,依 video id 排序)
+## YouTube(351 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -187,6 +187,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `I3bnBM4vNnY` | LLMentalist 效應:AI 像通靈師一樣「冷讀」你,以及驗證器能管到哪裡為止 | [knowledge/technology/ai-productivity/llmentalist-effect-cold-reading-and-verifiers.md](./knowledge/technology/ai-productivity/llmentalist-effect-cold-reading-and-verifiers.md) |
 | `ib74sLgjIBM` | 用 Claude 蓋一個「會自我改進」的知識庫:三個資料夾 + 一個 CLAUDE.md + 五步驟 | [knowledge/technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md](./knowledge/technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md) |
 | `iD_2QFur7Q4` | 為什麼沙箱成了 AI 圈最捲的新基建:microVM、快照,與「快照要多快」這道題 | [knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
+| `IDGXr9VFyQw` | 編譯通過 ≠ 記憶體安全:Rust issue #164250——借用檢查器裡住了約 11 年的 soundness 洞(Why QQ + issue 原文) | [knowledge/technology/software-engineering/rust-issue-164250-borrow-checker-soundness-hole.md](./knowledge/technology/software-engineering/rust-issue-164250-borrow-checker-soundness-hole.md) |
 | `iHVpk9IM1Uk` | Windows 原生安裝 Claude Code:一行指令,與五個報錯的官方修法 | [knowledge/technology/claude-code/claude-code-windows-native-install-troubleshooting.md](./knowledge/technology/claude-code/claude-code-windows-native-install-troubleshooting.md) |
 | `imvTUmRoqK8` | OpenAI DevDay 2026:主角不是模型,是常駐 agent「dots」——以及 Sol、Ultrafast、Decisions API 與 Codex 上雲 | [knowledge/technology/ai-industry/openai-devday-2026-dots-sol-codex.md](./knowledge/technology/ai-industry/openai-devday-2026-dots-sol-codex.md) |
 | `ipvuIOaN5wA` | 用 Claude Code 零程式碼做網站:突破 AI 預設風格、捲動動畫、設計策略 | [knowledge/technology/applied-ai/design/ai-website-building-claude-code.md](./knowledge/technology/applied-ai/design/ai-website-building-claude-code.md) |
@@ -286,6 +287,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `S-sYlFiGFv8` | Claude Code 團隊自己怎麼用 Claude Code:從盯 tool call 到只給目標 | [knowledge/technology/claude-code/claude-code-team-how-they-work.md](./knowledge/technology/claude-code/claude-code-team-how-they-work.md) |
 | `s3yiXTxueoI` | Harness / Loop / Graph 三層排障地圖:把「Agent 又抽風了」翻譯成可執行的排查工單 | [knowledge/technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md](./knowledge/technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) |
 | `s87lkkWk9rQ` | Claude Sonnet 5.5:價格不變、效率拉高,以及「檔位開最高反而更差」與五個會報 400 的遷移變更 | [knowledge/technology/ai-industry/claude-sonnet-5-5-release-effort-migration.md](./knowledge/technology/ai-industry/claude-sonnet-5-5-release-effort-migration.md) |
+| `se-dLUtIrIo` | 什麼是先進封裝?從有機基板到矽中介層、TSV、矽橋、玻璃基板一次看懂 | [knowledge/technology/ai-industry/advanced-packaging-explained.md](./knowledge/technology/ai-industry/advanced-packaging-explained.md) |
 | `SHRkOI0yO4Q` | 好的記憶系統贏在「會忘記」:Supermemory 拆解,與評估任何記憶方案的三個問題 | [knowledge/technology/ai-agents/memory-retrieval/supermemory-memory-layer.md](./knowledge/technology/ai-agents/memory-retrieval/supermemory-memory-layer.md) |
 | `SPyXyB7lgWU` | 加息會引發美股大跌嗎?用 2000 泡沫「三階段」對照 AI 這輪革命(美投君) | [knowledge/investing/strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md](./knowledge/investing/strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md) |
 | `SQ3fZ1sAqXI` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
