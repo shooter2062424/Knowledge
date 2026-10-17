@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**351 個 YouTube video id**、**74 個 arXiv 編號**,涵蓋 **283 篇**筆記。
+> 統計:**352 個 YouTube video id**、**74 個 arXiv 編號**,涵蓋 **284 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(351 部,依 video id 排序)
+## YouTube(352 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -267,6 +267,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `Q4hTr67ECLg` | 讓 Agent 自己花錢:硬上限、先查價、停下來問 —— 一次付費 API 調用的成本護欄實錄 | [knowledge/technology/ai-agents/applications/agent-paid-api-cost-guardrails-mcp.md](./knowledge/technology/ai-agents/applications/agent-paid-api-cost-guardrails-mcp.md) |
 | `q7HMQLM93qY` | 第 132 期:Jev 開源復刻 Laya、Cloudflare 安全審計 Skill、Univer Office SDK、Google 的 Agent 編排器 AX 與長期記憶 Hindsight | [knowledge/technology/github-weekly/issue-132.md](./knowledge/technology/github-weekly/issue-132.md) |
 | `QAhJRYua62k` | 把 Hermes 爆改成「主 Agent 中樞」:統一調度 SubAgent 與 Claude / Gemini / Codex | [knowledge/technology/ai-agents/applications/hermes-main-agent-orchestration.md](./knowledge/technology/ai-agents/applications/hermes-main-agent-orchestration.md) |
+| `qANyQLdYC9E` | 記憶體五十年週期覆盤:四次科技革命都沒消滅週期,AI 這輪該盯哪三個信號? | [knowledge/investing/equity-research/memory-50-year-cycle-three-signals.md](./knowledge/investing/equity-research/memory-50-year-cycle-three-signals.md) |
 | `qbReD1cGykQ` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
 | `QHHTcYBEIEo` | 別追「最強 AI」:用一張分工地圖建立你的多工具工作流 | [knowledge/technology/ai-productivity/multi-tool-ai-workflow.md](./knowledge/technology/ai-productivity/multi-tool-ai-workflow.md) |
 | `qL6ca-mIeMI` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
