@@ -126,6 +126,7 @@ print(i['uploader'], i['uploader_id'], i['channel_id'], i['channel_url'])
 | **白白说大模型** | `UCHrUrG5wJR1rjKkINFxm8yQ` | @白白说大模型 | 排程 5 |
 | **小Lin说** | `UCilwQlk62k1z7aUEZPOB6yw` | @xiao_lin_shuo | 排程 5 |
 | **Redknot-乔红** | `UCAf2Y9FGJlE_ByXYF7BXv5g` | @redknot-miaomiao | 排程 5 |
+| **Nick 美股咖啡館** | `UCjrP2TtSTifuRJ76hW2IW1A` | @nick_stockcafe | 排程 5(2026-10-17 加入) |
 
 > ⭐ **handle 欄只是給人看的備忘,排程一律用 channel ID。**
 > ⭐ **回報時請寫頻道中文名稱,不要只寫 channel ID。**
@@ -359,7 +360,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 ### prompt 原文(2026-09-28 同步自實際運作版本)
 
 ```text
-每日巡檢六個「有累積但沒有專屬排程」的頻道,把新影片整理進 Knowledge。⚠️ Knowledge repo 已於 2026-08-30 重整:筆記在 knowledge/、腳本在 scripts/。
+每日巡檢七個「有累積但沒有專屬排程」的頻道,把新影片整理進 Knowledge。⚠️ Knowledge repo 已於 2026-08-30 重整:筆記在 knowledge/、腳本在 scripts/。
 
 ⚠️⚠️ **頻道一律用 channel ID,不要用 handle** —— 2026-09-06 Gary Chen 把 handle 從 `@garytalksstuff` 改成 `@garychenai`,舊 handle 直接 404 讓當天排程整個失敗。**channel ID 不會因改名而變。**
 若哪天連 channel ID 也拉不到,用既有筆記裡任一該頻道的 video id 反查:extract_info 後看 `uploader`/`uploader_id`/`channel_id`。
@@ -374,6 +375,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 | 白白说大模型 | `UCHrUrG5wJR1rjKkINFxm8yQ` | @白白说大模型 | 無(需 Whisper) |
 | 小Lin说 | `UCilwQlk62k1z7aUEZPOB6yw` | @xiao_lin_shuo | 官方中文 |
 | Redknot-乔红 | `UCAf2Y9FGJlE_ByXYF7BXv5g` | @redknot-miaomiao | 多數無(⚠️ `rQR_0WZzjV4` 實測無官方字幕,只有自動英文 ASR) |
+| Nick 美股咖啡館 | `UCjrP2TtSTifuRJ76hW2IW1A` | @nick_stockcafe | 官方 zh-TW(2026-10-17 加入) |
 
 步驟:
 1. 逐個頻道列最新 6 部:
@@ -401,7 +403,8 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
    ⭐ **本庫自己也會寫錯**:2026-09-21 發現 Jev 筆記 §12.7 的「勘誤」本身是錯的(型態名稱確實是 `noul`)。**寫「更正」之前先對官方來源核實,別只憑直覺。**
    ⚠️⚠️ **「約 700 個 agent 協同攻破 Hugging Face」的說法有兩種正式出處互相矛盾**:Hugging Face 技術時間軸稱「單一自主 agent 編排,作為整合系統而非協同蜂群」;但 **METR 獨立調查(2026-08-26)與劍橋 CASP 論文(2026-09-28)都描述為約 700 個 agent 透過留言板協同入侵**。本庫 `rsi-recursive-self-improvement-anthropic.md` §8.6 已並陳兩方(2026-10-07 補正),**遇到就引用該節、註明出處,不要只採一方**。
    ⭐ 同主題已有筆記優先增補、檔名不動,檔頭與來源區塊同時列出兩支影片。⭐ RSI / Pace the Frontier 相關的後續一律併入 `rsi-recursive-self-improvement-anthropic.md`(已到 §12)。
-   ⭐ **作者若推廣自家產品、業配或聯盟連結,務必在檔頭標明立場。**(⚠️ YAHA學堂 `CV7HX6qFglc` 說明欄含 `?via=yahaclass` 聯盟連結;Redknot `EsJKkDbHsec` 片中明示「與 ASML 合作出品」= 業配;Caleb 近期影片常夾 JetBrains 等業配段落;小Lin说 常夾 eSIM 等業配。)
+   ⭐ **作者若推廣自家產品、業配或聯盟連結,務必在檔頭標明立場。**(⚠️ YAHA學堂 `CV7HX6qFglc` 說明欄含 `?via=yahaclass` 聯盟連結;Redknot `EsJKkDbHsec` 片中明示「與 ASML 合作出品」= 業配;Caleb 近期影片常夾 JetBrains 等業配段落;小Lin说 常夾 eSIM 等業配;Nick 美股咖啡館 說明欄固定附 IB 盈透證券與 Seeking Alpha 推薦連結,並販售 Excel 估值模型 / nickvischool 課程。)
+   ⭐ **Nick 美股咖啡館 是個股/選股頻道**:一律歸 knowledge/investing/*、標⚠️非投資建議;片中股價、財報、內部人買賣、機構持股等數字務必對照 SEC(10-K/10-Q/Form 4/13F)或財報新聞稿核實;作者自述持倉要標明「作者持有、有利益關係」。澳洲生活、出國現金流等生活/理財雜談片優先度低,只在有可轉移的知識時才收。
    ⭐ **社群討論串、論壇熱帖這類材料要標明性質**(是自述不是研究、無樣本代表性)。
    ⭐ **涉及對特定公司/個人的指控時,務必標明是誰的單方陳述、對方是否回應,並並陳質疑動機的聲音,不做真偽判斷。**(⭐ 兩支影片內容高度重疊時也一樣:只記錄可觀察的重疊事實,不對成因做判斷。)
    ⭐ 產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案>。⚠️ Mermaid 節點避免用圓形語法 `(("文字"))`,lint 會報 UNQUOTED-SPECIAL;一律用方括號 `["文字"]`。
@@ -424,6 +427,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 | **白白说大模型** | `UCHrUrG5wJR1rjKkINFxm8yQ` | @白白说大模型 | **無** | 8–19 分 |
 | **小Lin说** | `UCilwQlk62k1z7aUEZPOB6yw` | @xiao_lin_shuo | **官方中文** | 15–29 分 |
 | **Redknot-乔红** | `UCAf2Y9FGJlE_ByXYF7BXv5g` | @redknot-miaomiao | 多數**無** | 14–19 分 |
+| **Nick 美股咖啡館** | `UCjrP2TtSTifuRJ76hW2IW1A` | @nick_stockcafe | **官方 zh-TW** | 11–32 分 |
 
 > ⭐ 列表網址一律寫成 `https://www.youtube.com/channel/<channel ID>/videos`。
 
@@ -441,6 +445,8 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 挑選優先序:①**能增補既有筆記的優先**(不製造重複主題,價值最高)→ ②有字幕的(成本低)→ ③新到舊。
 
 ### 存量清單(2026-09-01 首次巡檢盤點,已完成 1 支)
+
+- ⭐ **Nick 美股咖啡館(2026-10-17 加入,約每週 2 支,全有官方 zh-TW 字幕,本庫尚無筆記)**:最新 6 部存量 `sr3y1-iQ1vI`(十倍潛力股暴跌 50%,10-16)、`tEjPWVEuu_8`(賺好賺滿反而害了你,10-13)、`9v_-p8Z3nC4`(澳洲第一次買股,生活向、優先度低)、`6Nyqv3XZ-ek`(內部人士炒底五家公司,10-06;⭐ 須以 Form 4 核實)、`7aWsuekAoqY`(跌幾 % 才加碼,10-03)、`XUQo8M5NnAE`(五家「無視 AI」的公司,09-30)。再往前的舊片不追,只消化這 6 支與之後的新片。
 
 - ✅ 已完成:Why QQ `j2I2TIvhs0c`(Jalapeño 首測拆解)→ `knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md`
 - ✅ 已完成:Why QQ `bNMBbrplILM`(Fable 5.1)、Why QQ `jgy1A0Mrx7g`(Omarchy 4)、Caleb `yHNp_rT6uEo`(Jalapeño,增補跑分邊界筆記 §10)
@@ -512,6 +518,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-10-17(加頻道) | **使用者要求把 Nick 美股咖啡館(@nick_stockcafe,channel ID `UCjrP2TtSTifuRJ76hW2IW1A`,約 15.6 萬訂閱)加入第 5 排程**:實測最新 5 支都有官方 zh-TW 字幕、不需 Whisper;說明欄固定附 IB / Seeking Alpha 推薦連結與 Excel 估值模型販售,已寫進立場揭露規則。巡檢頻道由 6 個增為 7 個,第 5 排程依新 prompt 重建為 `416002c3`(取代 `ed178581`,約 10-24 到期,比其他五個晚一天) |
 | 2026-10-17 | 巡檢產出 2 篇(1 新篇 + 1 增補,0 支 Whisper):**Why QQ** `IDGXr9VFyQw` → 新篇 Rust #164250,⭐ 讀 issue 原文補正「最先宣布 since 1.4 的是 lcnr」「rustbot 先標 P-critical 再改 P-high」,並查得 146 個 open 的 I-unsound;**Redknot-乔红** `se-dLUtIrIo` → 併入先進封裝第八節,🟡 Rubin Ultra 縮版屬 SemiAnalysis 等媒體報導、NVIDIA 未證實 |
 | 2026-10-16(到期重建) | **10-09 建的六個排程 7 天到期,依本檔 prompt 全數重建**:GitHub Weekly `809e26c5`、Gary Chen `bff147f8`、gooaye `456e3a76`、美投君 `36c4e252`、巡檢 `ed178581`、`new/` 收件匣 `edb2e64e`。各排程當日最後一次觸發都已跑完,不需補檢;下次到期約 10-23 |
 | 2026-10-16 | 巡檢產出 2 篇(1 新篇 + 1 增補,1 支 Whisper):**Why QQ** `fuppI9SkKrs` → 新篇 Anatomy「物體就是解釋」插圖 skill,⭐ clone repo 補正三處(Figure 已不報時間、「不問不開工」只限 Epic、互動是預設非開關);**白白说大模型** `a4IoNavG8jI` → 併入 Skill 實戰 §9,⚠️ 標明內容取材自 2025-11 Anthropic 演講非新動向。另:GitHub Weekly cron 到期,已重建為 `809e26c5` |
