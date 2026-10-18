@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-318_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-319_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -143,6 +143,7 @@ flowchart LR
 | **Jim AI Notebook** — AI 每日深度解析 | 2 | [MCP 2026-07-28 最大改版](./knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) · [Stanford CS336 訓練成本餐巾紙算法](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | **Simon Scrapes** — Claude skill/自動化實作(⚠️ 推廣 Skool 付費社群) | 1 | [官方 skill 最佳實踐七條(併入 Skill 實戰 §8)](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
 | **wow** — AI agent 真實系統壓測 | 2 | [Graphify 知識圖譜實戰壓測](./knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) · [本體論護欄與神經符號 AI(Frank Coyle)](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
+| **AI懶人報** — 名校課堂與 AI 工程講座的中文重述 | 1 | [Always-on Agent 怎麼運作:Lee Robinson 拆解 Grok Bot](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) |
 | **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
 | **人蔘 Try Catch** — AI 工程落地短講 | 1 | [Jev 落地場景與終端機守門員(併入 Jev 筆記)](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | **仕宇JavaPub** — GitHub 開源專案推薦 | 1 | [五個開源英語學習專案(已讀原始碼)](./knowledge/technology/applied-ai/language-learning/five-open-source-english-learning-tools.md) |
@@ -320,6 +321,7 @@ flowchart LR
 | [Google Agentic Engineering 課程 Day 1:從 vibe coding 到 agentic engineering](./knowledge/technology/ai-agents/foundations/google-agentic-engineering-day1.md) | 驗證是分水嶺(測試 vs evals);工廠模型「產出是產程式碼的系統」;Agent=Model+Harness(6 件);Generation is solved,驗證/判斷/方向才是新手藝 |
 | [Google 課程 Day 2+3:MCP、A2A、AP2 三協定與 Skill 上線的四地雷四防線](./knowledge/technology/ai-agents/foundations/google-agentic-engineering-day2-3.md) | MCP=通用插座(統一連接法非取代 API)、A2A=找同事(雙向有記憶) vs MCP=用工具;Skill 四地雷(觸發/Token/軌跡/迴歸)、四防線(Eval/Golden Dataset/Red Team/灰度) |
 | [OpenAI GPT-5.6 官方提示指南:從「規定步驟」轉向「描述終點+停止條件」](./knowledge/technology/ai-agents/foundations/gpt-5-6-prompting-guide-openai.md) | 先做減法、outcome-first、停止條件是靈魂;PTC/自主邊界/檢索預算;一次只動一個變數的遷移法;精簡 prompt 分數+10~15%、token−41~66% |
+| [Always-on Agent 怎麼運作:史丹佛 CS146S Lee Robinson 拆解 Grok Bot(AI懶人報)](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) | 狀態與運算分離(server 迴圈 + 可重建 VM + durable workflow);cache miss 就是 bug;記憶四層 |
 | [Claude 5 時代的 Context Engineering 新規則:Claude Code 刪掉 80% 系統提示詞(01Coder)](./knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) | unhobbling 給模型鬆綁;六組變化(給規則→給判斷力/堆示例→設計接口/全塞前面→漸進式披露…);CLAUDE.md 輕量、Skills 別寫太死但留真鐵律;/doctor 自動瘦身 |
 | [一段提示詞把 Gemini CLI 變成自動化 Agent:輸入/輸出/過程 + 工作筆記(程序员老王)](./knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md) | ⭐⭐ 一句話→輸入輸出→加上過程三次迭代;指定 Links、curl 消除工具差異;⭐⭐⭐ progress.md 工作筆記讓長任務不跑偏——上下文開頭是提示詞、結尾是筆記(✅ Lost in the Middle);✅ Gemini CLI 自訂指令 TOML + `{{args}}` |
 | [GPT-6 Astra 解開 217 年的拿破崙密信:從模糊掃描圖到可重現解法包(Why QQ)](./knowledge/technology/ai-agents/applications/gpt-6-astra-napoleon-marmont-cipher.md) | ⭐ 約 6 小時完成轉錄、同音替換破譯與史料校驗;⭐⭐⭐ 原圖在回路、刪史料消融重跑、verify/reproduce 解法包;門檻是跨學科人力成本而非難度;✅ 數字全部對照當事人復盤 |
