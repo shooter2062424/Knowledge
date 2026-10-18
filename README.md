@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-319_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-320_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -143,6 +143,7 @@ flowchart LR
 | **Jim AI Notebook** — AI 每日深度解析 | 2 | [MCP 2026-07-28 最大改版](./knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) · [Stanford CS336 訓練成本餐巾紙算法](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | **Simon Scrapes** — Claude skill/自動化實作(⚠️ 推廣 Skool 付費社群) | 1 | [官方 skill 最佳實踐七條(併入 Skill 實戰 §8)](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
 | **wow** — AI agent 真實系統壓測 | 2 | [Graphify 知識圖譜實戰壓測](./knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) · [本體論護欄與神經符號 AI(Frank Coyle)](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
+| **財女珍妮** — 美股投資與 AI 投資工具訪談 | 1 | [用 AI Agent + Skill 讀財報、做估值(課程推廣集)](./knowledge/investing/ai-assisted/ai-agent-skill-stock-research-workflow.md) |
 | **AI懶人報** — 名校課堂與 AI 工程講座的中文重述 | 1 | [Always-on Agent 怎麼運作:Lee Robinson 拆解 Grok Bot](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) |
 | **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
 | **人蔘 Try Catch** — AI 工程落地短講 | 1 | [Jev 落地場景與終端機守門員(併入 Jev 筆記)](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
@@ -236,6 +237,7 @@ flowchart LR
 ### 🤝 ai-assisted(AI 輔助投資)
 | 主題 | 一句話 |
 |---|---|
+| [用 AI Agent + Skill 讀財報、做估值:為什麼 AI 分析股票常出錯(財女珍妮 ft. Ryan)](./knowledge/investing/ai-assisted/ai-agent-skill-stock-research-workflow.md) | Skill 固定資料源、步驟與格式;同層比較;Playbook 追蹤管理層指引;NVDA 存貨細項已用 SEC XBRL 驗證 |
 | [用 AI 輔助股票分析:該怎麼問、有哪些工具](./knowledge/investing/ai-assisted/using-ai-for-stock-analysis.md) | 盤前問「情報與計畫」而非「今天買哪支」 |
 | [用 Claude Code + Jesse 做 AI 演算法交易](./knowledge/investing/ai-assisted/ai-algo-trading-claude-jesse.md) | 重點是驗證流程(顯著性檢定→回測→Monte Carlo→樣本外),不是那支策略 |
 | [用 Python 做強化學習交易機器人(EUR/USD 外匯)](./knowledge/investing/ai-assisted/rl-trading-bot-forex.md) | RL 五要素+Gym/PPO 四檔架構;訓練漂亮、樣本外打回原形;市場噪音難抓信號 |
