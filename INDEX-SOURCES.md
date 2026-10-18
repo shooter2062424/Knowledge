@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**354 個 YouTube video id**、**74 個 arXiv 編號**,涵蓋 **285 篇**筆記。
+> 統計:**357 個 YouTube video id**、**76 個 arXiv 編號**,涵蓋 **287 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(354 部,依 video id 排序)
+## YouTube(357 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -220,6 +220,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `LPZh9BOjkQs` | 大型語言模型,簡單講(3Blue1Brown) | [knowledge/technology/llm-internals/architecture/llm-explained-3blue1brown.md](./knowledge/technology/llm-internals/architecture/llm-explained-3blue1brown.md) |
 | `LRJV5lcsnfA` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
 | `luN-yydHpYY` | Graphify 實戰壓測:10 萬 Star 的程式碼知識圖譜,打不贏 grep?「找」與「看」的分水嶺 | [knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md](./knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) |
+| `Lx22N9R_0As` | Claude Code 30 個藏得最深的快捷鍵與功能:暫存、插隊、回退與 Agent 視圖 | [knowledge/technology/claude-code/claude-code-30-hidden-shortcuts.md](./knowledge/technology/claude-code/claude-code-30-hidden-shortcuts.md) |
 | `m6U_TGf9Z_M` | 新版 Codex 全流程實戰:從資料夾、辦公文件、生圖,到 Skill / Hook / Worktree / 一鍵部署 | [knowledge/technology/ai-agents/applications/codex-desktop-full-workflow-guide.md](./knowledge/technology/ai-agents/applications/codex-desktop-full-workflow-guide.md) |
 | `mAoXktiOhWY` | 找 Bug 第一名的模型,修 Bug 卻墊底:GPT-6 Astra 與 Claude Fable 5.1 的分工式選型 | [knowledge/technology/ai-productivity/astra-vs-fable-find-bugs-vs-fix-bugs.md](./knowledge/technology/ai-productivity/astra-vs-fable-find-bugs-vs-fix-bugs.md) |
 | `mBePcvqLX88` | Graph Engineering 八分鐘講清楚:從 1736 年的柯尼斯堡七橋,到 108 個 agent 的 DAG | [knowledge/technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md](./knowledge/technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) |
@@ -336,6 +337,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `wpb-DrbhEiY` | SpaceX 為什麼這時間點上市?Musk 在 JP Morgan 投資人訪談說了什麼 | [knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md](./knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md) |
 | `wu0zS1AuI_E` | 派拉蒙全現金收購華納兄弟:艾里森父子的「AB 股 + 上市殼」資本操作 | [knowledge/investing/equity-research/paramount-warner-bros-ellison-cash-acquisition.md](./knowledge/investing/equity-research/paramount-warner-bros-ellison-cash-acquisition.md) |
 | `WuMlsfKeWHc` | Loop Engineering(循環工程):從「寫提示詞驅動 agent」到「設計驅動 agent 的循環」 | [knowledge/technology/ai-agents/foundations/loop-engineering.md](./knowledge/technology/ai-agents/foundations/loop-engineering.md) |
+| `WvI90l7c5Zs` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
 | `wxxzXI9bigM` | 為什麼沙箱成了 AI 圈最捲的新基建:microVM、快照,與「快照要多快」這道題 | [knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
 | `X2A6fANij9Q` | 為什麼 Anthropic 工程師棄 Markdown 改用 HTML:當「理解」變成真正的瓶頸 | [knowledge/technology/ai-productivity/anthropic-html-work-pages.md](./knowledge/technology/ai-productivity/anthropic-html-work-pages.md) |
 | `x2meJPOn9ws` | SpaceX 崛起史:從被嘲笑的新創到航天巨頭,一套已跑起來的商業飛輪 | [knowledge/investing/equity-research/spacex-rise-history.md](./knowledge/investing/equity-research/spacex-rise-history.md) |
@@ -348,6 +350,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `XJUpuOBpT-4` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
 | `XOpYP4ZTbQA` | Codex 平台化:OpenAI 把 harness 開源、模型留著 —— 以及一個「同模型換 harness 就 13.3% → 38.3%」的數字 | [knowledge/technology/ai-agents/applications/codex-as-a-platform-open-agent-harness.md](./knowledge/technology/ai-agents/applications/codex-as-a-platform-open-agent-harness.md) |
 | `XOyG9mE-6KY` | 特斯拉財報深挖:FSD 拐點、馬斯克造芯片、四象限投資邏輯與 SpaceX 合併的隱藏風險 | [knowledge/investing/equity-research/tesla-earnings-fsd-chip-spacex-four-quadrant.md](./knowledge/investing/equity-research/tesla-earnings-fsd-chip-spacex-four-quadrant.md) |
+| `xqP_4umh55I` | Linus 用 Claude Code 寫內核補丁、GCC 劃下 15 行紅線:AI 寫的程式碼能不能進專案,看兩個維度 | [knowledge/technology/software-engineering/linus-llm-kernel-patch-vs-gcc-ai-policy.md](./knowledge/technology/software-engineering/linus-llm-kernel-patch-vs-gcc-ai-policy.md) |
 | `xs6-p7fFYH8` | Opus 5.5 官方 Prompting Guide 十三點:effort 用 medium、刪掉「仔細思考」、講清終點與何時停(Gary Chen) | [knowledge/technology/claude-code/opus-5-5-prompting-guide-13-points.md](./knowledge/technology/claude-code/opus-5-5-prompting-guide-13-points.md) |
 | `Xtc4JFO8jPA` | 「不冒險才是最大的風險」?華爾街老將的退休數學、穩定幣收益,與「散戶打不贏機構」的事實 | [knowledge/investing/strategy/retirement-risk-math-john-dagostino-coinbase.md](./knowledge/investing/strategy/retirement-risk-math-john-dagostino-coinbase.md) |
 | `XTCP1qoa3cc` | Google Agentic Engineering 課程 Day 2+3:MCP、A2A、AP2 三協定,與 Skill 上線的四地雷四防線 | [knowledge/technology/ai-agents/foundations/google-agentic-engineering-day2-3.md](./knowledge/technology/ai-agents/foundations/google-agentic-engineering-day2-3.md) |
@@ -385,7 +388,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(74 篇,依編號排序)
+## arXiv(76 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -428,6 +431,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2406.11717` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
 | `2412.19437` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
 | `2412.19437` | 多頭注意力(Multi-Head Attention)用人話講:「語法表、需求表、內容表」就是 K、Q、V(程序员老王) | [knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md](./knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md) |
+| `2501.12599` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
 | `2501.12948` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
 | `2505.09388` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
 | `2506.12605` | Bill Gates〈AI 動盪時代〉長文導讀：工作、機器人稅、雙面刃、陪伴與「Human Reserved」 | [knowledge/technology/ai-industry/bill-gates-turbulent-ai-era-human-reserved.md](./knowledge/technology/ai-industry/bill-gates-turbulent-ai-era-human-reserved.md) |
@@ -463,6 +467,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2609.22978` | 為什麼沙箱成了 AI 圈最捲的新基建:microVM、快照,與「快照要多快」這道題 | [knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
 | `2609.35738` | Harness Learning:訓練一個「專門改 harness 的模型」,4B 學生贏過 35B 老師 | [knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md](./knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md) |
 | `2609.36054` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
+| `2610.11959` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
 
 ---
 

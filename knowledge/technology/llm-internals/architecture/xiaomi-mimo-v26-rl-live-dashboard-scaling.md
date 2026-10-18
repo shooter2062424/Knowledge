@@ -6,6 +6,8 @@
 > **① Pro 的 65.97 分其實低於所有主要對手;② 儀表盤上有一欄是「hidden」,而且正好是蒸餾相關;③ 這是 1T 級別的模型。**
 >
 > ⚠️ **儀表盤是即時 WebSocket 頁面,本文無法直接抓取數值** —— 文中所有儀表盤數字都是**影片錄製當下的快照**,現在去看必然不同。
+>
+> **2026-10-18 增補 §十二:** 依 Caleb Writes Code〈[MiMo V2.6 explained in 12min..](https://www.youtube.com/watch?v=WvI90l7c5Zs)〉(英文自動字幕)與小米技術報告 arXiv 2610.11959,補上訓練結束後的最終帳本(Pro 約 262 萬、Flash 約 85 萬美元、各 30 步)、非同步 RL 的損失函數與裁切機制,並更正 Kimi k1.5 的時間與「萬卡」說法。
 
 ---
 
@@ -299,6 +301,127 @@ flowchart LR
 
 ---
 
+## 十二、2026-10 增補:訓練跑完、技術報告出爐後,非同步 RL 到底怎麼做
+
+> **來源:** Caleb Writes Code〈[MiMo V2.6 explained in 12min..](https://www.youtube.com/watch?v=WvI90l7c5Zs)〉(2026-10-17,約 12.5 分鐘,英文自動字幕)。片中沒有業配段落。
+>
+> **核對方式:** 本節逐項對照兩份一手資料:
+> - 小米技術報告 [arXiv 2610.11959](https://arxiv.org/html/2610.11959v1)(2026-10-08)
+> - [小米官方發布頁](https://mimo.mi.com/docs/en-US/news/latest/v2-6)
+>
+> **與前面各節的關係:** §三到 §九是訓練**進行中**的儀表盤快照;這一節是**訓練結束後**的最終數字與演算法細節。
+
+### 12.1 最終帳本:兩條線各 30 步,不到 6 天
+
+| 項目 | Caleb 的說法 | 一手資料 |
+|---|---|---|
+| Pro RL 成本 | 260 萬美元 | ✅ 官方頁約 **262 萬**,報告寫 $2.6M |
+| Flash RL 成本 | 85.4 萬美元 | ✅ 官方頁約 **85 萬**,報告四捨五入為 $0.9M |
+| 時間與步數 | 不到 6 天、30 步 | ✅ 官方:「不到 6 天,兩條線各完成 30 步,累計約 75 萬條軌跡」 |
+| 每步 token | 28–38 億(每條 rollout 11–15 萬 token) | 🟡 報告是 **27–37 億**、每條約 11–15 萬;官方頁另寫 35–37 億。Caleb 的數字略高,量級正確 |
+| 總 token | Pro 750 億、Flash 810 億 | ❓ 報告與官方頁都沒有這兩個總數,推測是儀表盤讀數 |
+| GPU 數 | 片中用「擴到 1 萬張 GPU」舉例,說明欄寫「10,000+ GPUs」 | ⚠️ 報告只寫「**單次運行數千張 GPU**」,沒有給「1 萬以上」 |
+
+**錢花在哪(報告 Figure 3,Pro):**
+
+| 環節 | 占比 |
+|---|---|
+| rollout 生成 | 43.8% |
+| 訓練 | 43.5% |
+| 評分 | 12.7% |
+
+這和 §五儀表盤上「生成與訓練幾乎對半開」一致,評分另占約八分之一。
+
+> **補正 §9.1 的分數快照:** 報告給的是 DeepSWE v1.1 的 average@3,**整個 RL 期間 Pro 從 58.4 升到 72.6,Flash 從 48.7 升到 65.7**。§9.1 的 65.97 是訓練中段的快照。
+> - 最終分數已高於 §9.1 表中的 Kimi K3(69%)與 Claude Fable 5(70%),仍低於 GPT-6 Astra(74%)。
+> - ⚠️ 但那張表是第三方報導的數字,與小米自報的 avg@3 **評測條件不一定相同**,不宜直接排名。
+>
+> **補正 §9.3 的規模:** 報告寫明 **Pro 是 1.02T 總參數、42B 啟用的 MoE**;Flash 是 310B 總參數、15B 啟用。
+
+### 12.2 為什麼 RL 比預訓練難擴展:rollout 長度不可預測
+
+```mermaid
+flowchart TD
+    A["預訓練<br/>每張卡要產生的 token 數事先已知"] --> A1["all-reduce 同步<br/>容易擴到大量 GPU"]
+    B["RL 後訓練<br/>要等模型推理、呼叫工具到結束才能評分"] --> B1["每條 rollout 長度差很多<br/>快的卡空等慢的卡"]
+    B1 --> C["partial rollout<br/>收批時中斷未完成的序列,下一輪續跑"]
+    C --> D["代價一:續跑前要用新權重<br/>重建 KV cache,也就是 re-prefill"]
+    C --> E["代價二:推理端可能還在舊策略<br/>產生 policy staleness"]
+    D --> F["用大 batch 攤提 re-prefill"]
+    E --> G["用重要性採樣比值與裁切遮罩<br/>在數學上校正"]
+```
+
+- **partial rollout 不是小米發明的。** 報告引用的是 Moonshot 的 [Kimi k1.5 論文(arXiv 2501.12599)](https://arxiv.org/abs/2501.12599)。
+  - ⚠️ **補正:** Caleb 說這是「2025 年 6 月」提出的;依 arXiv 編號,論文是 **2025 年 1 月** 發布的。
+- **兩套引擎:** 推理用 SGLang、訓練用 Megatron-LM,報告也是這樣寫。兩邊要對齊 MoE 路由與 top-p 候選集;RL 期間凍結 router,避免專家負載崩潰。
+- **staleness 上限:** 報告設定 GRPO 搭配非同步 partial rollout,**staleness 上限 4**,也就是一個 token 最多可以來自落後 4 次權重更新的策略。
+  - Caleb 讀儀表盤的觀察是 Flash 平均落後約 1 步、Pro 幾乎同步;這是儀表盤讀數,本文未獨立核實。
+- **精度差也會造成不一致:** rollout 時專家權重用 **MXFP4**,訓練保持較高精度。所以就算兩邊策略完全同步,產生的 token 也可能略有差異。報告也提到中訓練階段就用了 MXFP4 量化感知訓練(QAT),讓模型先適應低精度。
+
+### 12.3 損失函數:三個變數乘在一起
+
+報告的式 (1) 可以寫成白話:
+
+> **每個 token 的貢獻 = 重要性採樣比值 r × 裁切遮罩 M × 優勢 A × 該 token 的 log 機率**
+>
+> 先對同一 prompt 的 16 條 rollout 的所有 token 加總,**再除以這一組的總長度**,避免長 rollout 主導損失。報告稱這為 prompt-mean aggregation,也能抑制回答長度在 RL 中暴漲。
+
+| 變數 | 作用 | 報告細節 |
+|---|---|---|
+| **優勢 A** | 同一 prompt 的 16 條 rollout 互相比:比組平均好就往上推,比較差就往下壓 | 標準 GRPO 組內相對優勢。另有「批次層級優勢再平衡」,限制過度的負向壓力造成熵失控 |
+| **重要性採樣比值 r** | 新策略機率 ÷ rollout 當下舊策略的機率;同策略時 r = 1,等於直接用 A | 逐 token 計算。⭐ **partial rollout 的部分不重算推理端機率**,沿用生成當時的值 |
+| **裁切遮罩 M** | 0 或 1 的開關,r 落在範圍內才讓這個 token 參與訓練 | ⭐ 正、負優勢**各有獨立的上下界**,共四個,初始都設 [0.2, 5.0];執行時**依策略熵自動調整**:熵太低就放寬正向界、收緊負向界,熵太高則反過來 |
+
+> Caleb 把 M 講成「訓練中調整上下界的開關」,方向正確。報告補充了兩點:正負兩側是分開調的,調整依據是熵。
+
+### 12.4 資料面:動態採樣器與多 harness
+
+- **動態採樣器:** 濾掉 16 條全對或全錯的組,和 §六一致。報告註明這做法出自 DAPO(Yu et al., 2025)。另有 **Sample Mixer**,讓多任務混訓時每個資料來源的比例穩定。
+- **一步的規模:** 1,568 個 prompt × 16 條 = 每步約 2.5 萬個同時運行的 RL 環境。
+- **多 harness 訓練:**
+  - Caleb 說小米「混用 23 種 harness」。⚠️ 報告正文**沒有給出 23 這個數字**,列入未能核實。
+  - 報告的重點是另一件事:**不直接用 MiMo Code、Codex 這類正式產品的 harness 訓練**。原因有兩個:
+    1. 產品 harness 夾帶大量工程防護與指令提示,超出任務獎勵能衡量的範圍,讓信用分配不可靠。
+    2. 模組緊密耦合,沒辦法一次只改一個互動機制。
+  - 小米的做法是從同一個最小 agent loop(系統提示、工具、上下文管理)出發,組合出 Code、General、Visual、Cyber 各自的 **mini-harness**,讓模型學到**不綁定特定 harness** 的解題策略。
+- **行為正則化:** Caleb 片尾點到但沒展開,報告 §4.3.3 有兩條:
+  - **組內相對長度懲罰:** 只扣**成功**但明顯比組內參考長度更長的 rollout 的分數,抑制 token 暴增。
+  - **片段層級行為懲罰:** 格式錯誤、工具名稱無效、參數格式錯這些片段,即使整條 rollout 最後成功,也單獨扣分。理由是只看最終結果會強化錯誤的中間行為。
+
+### 12.5 成本效率的說法
+
+- **Caleb:** 依 Artificial Analysis 的測試,Pro 打破了成本效率的 Pareto 前緣。
+- **官方頁:** Pro 的 AA 綜合智慧指數 46 分,超越 Kimi K3 與 Qwen3.8 Max,是最強的開放權重模型,但仍落後 Claude Fable 5.1 與 GPT-6 Astra。V2.6 沿用 V2.5 的 API 價格,官方宣稱「同智慧水準下價格只有海外模型的 1/20 到 1/60」。
+- ⚠️ 這幾句都是**小米自述**,AA 原始排行本文沒有逐筆核對。
+
+### 12.6 應用案例
+
+1. **自建 agent RL 時,先決定 staleness 上限再談並行度。**
+   - 先照小米的設定把上限設成 4,監控每批樣本的平均落後步數和 token 裁切率。
+   - 落後經常頂到上限、裁切率又持續升高,代表推理端跟不上權重更新:要嘛降低並行 rollout 數,要嘛加大 batch 攤提 re-prefill。不要只靠放寬裁切界硬撐。
+2. **把裁切界和熵綁在一起調。** 小規模 GRPO 實驗也能照抄這個規則:
+   - 正、負優勢分開設上下界,初始 [0.2, 5.0]。
+   - 熵掉太快(模型不敢探索)時放寬正向界、收緊負向界;熵暴漲時反過來。比固定一組 ε 更不容易訓到崩。
+3. **訓練用的 harness 要「小而可拆」。** 想讓模型同時適應 Claude Code 風格與自家內部工具時,別直接拿正式產品的 harness 跑 RL。先做一個只有系統提示、工具、上下文管理三個模組的 mini-harness,再一次只換一個模組產生變體。這樣才知道是哪個互動機制影響了成績。
+4. **成功也要扣分的情況。** 評分時除了最終測試結果,也掃描軌跡裡的無效工具呼叫和格式錯誤,做片段層級扣分。對「最後有修好、但中間亂呼叫十次工具」的 rollout 特別有用,否則模型會學到亂試也沒關係。
+
+### 12.7 本節核實狀態
+
+| 類別 | 項目 |
+|---|---|
+| ✅ 已核實 | Pro 約 262 萬、Flash 約 85 萬美元;不到 6 天各 30 步、約 75 萬條軌跡;1,568 × 16;每條 11–15 萬 token;SGLang + Megatron-LM;rollout 專家用 MXFP4;動態採樣器;損失式的 r、M、A 與按組長度正規化;片段層級懲罰;Pro 成本三分(43.8 / 43.5 / 12.7%);1.02T / 42B 與 310B / 15B;DeepSWE avg@3 最終 72.6 / 65.7 |
+| ⚠️ 需修正 | Kimi k1.5 partial rollout 是 2025-01 非 2025-06;「10,000+ GPUs」在報告中只寫「數千張」;每步 token 報告為 27–37 億(Caleb 說 28–38 億) |
+| ❓ 未能核實 | 總 token(Pro 750 億、Flash 810 億);「23 種 harness」;儀表盤上 Flash 落後約 1 步、Pro 幾乎同步的 staleness 觀察;AA Pareto 前緣的原始排行 |
+
+> 📌 **累積 token 數三個來源都對不上:**
+> - §未能核實:影片快照 Pro 349 億 / Flash 619 億
+> - 第三方報導:32.5 億 / 49.4 億
+> - Caleb:750 億 / 810 億
+>
+> 三組都不是官方報告給的數字。本文仍不採信任何一方。
+
+---
+
 ## 應用案例:如果你在開發 Agent,這套思路可以直接借用
 
 ### 案例 1|⭐⭐⭐ 給任務設計**可驗證**的獎勵,測試案例優先
@@ -409,6 +532,10 @@ def is_informative(results, n=16):
 ## 來源
 
 - [小米直播训练每小时烧 21 万钱花哪了? — Why QQ](https://www.youtube.com/watch?v=yOExQX0j19g)(2026-09-18,約 9.4 分鐘,官方 zh-Hans 字幕)
+- [MiMo V2.6 explained in 12min.. — Caleb Writes Code](https://www.youtube.com/watch?v=WvI90l7c5Zs)(2026-10-17,約 12.5 分鐘,英文自動字幕;§十二來源)
+- ⭐⭐ **一手技術報告**:[MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement — arXiv 2610.11959](https://arxiv.org/html/2610.11959v1)(2026-10-08;§十二核實依據)
+- ⭐ **官方發布頁**:[Xiaomi MiMo-V2.6 Series: 3 New Models Officially Released](https://mimo.mi.com/docs/en-US/news/latest/v2-6)
+- [Kimi k1.5: Scaling Reinforcement Learning with LLMs — arXiv 2501.12599](https://arxiv.org/abs/2501.12599)(partial rollout 出處)
 - ⭐⭐ **一手頁面**:[mimo-v2.6 RL 即時儀表盤 — 小米官方](https://mimo.xiaomi.com/rl/)(⚠️ **WebSocket 即時頁面,HTTP 抓取只會得到 `reconnecting…` 外殼**)
 - ⭐⭐ **核實來源**:[Xiaomi MiMo-V2.6 Breaks Cover: A 1T-Class Chinese Lab Trains in Public — Forkast](https://forkast.news/xiaomi-mimo-v2-6-breaks-cover-a-1t-class-chinese-lab-trains-in-public/)(2026-09-17;**§9.1 / §9.2 / §9.3 三處補正的依據**)
 - [Xiaomi livestreams MiMo-V2.6 reinforcement-learning runs — TechNode](https://technode.com/2026/09/18/xiaomi-livestreams-mimo-v2-6-reinforcement-learning-runs/)(2026-09-18)
