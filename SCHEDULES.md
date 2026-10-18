@@ -18,11 +18,11 @@
 | 2 | Gary Chen 頻道 | `10 7 * * *`(每日 07:10) | Gary Chen 新影片(**用 channel ID,不用 handle**) |
 | 3 | gooaye 記憶更新 | `33 7 * * *`(每日 07:33) | 更新 ai-grocery 的股癌 agent 記憶層 |
 | 4 | 美投君 頻道 | `50 7 * * *`(每日 07:50) | @MeiTouJun 新影片(無字幕→Whisper) |
-| 5 | 未涵蓋頻道巡檢 | `12 8 * * *`(每日 08:12) | Why QQ / Caleb / YAHA學堂 / 白白说大模型 / 小Lin说 / Redknot-乔红 |
+| 5 | 未涵蓋頻道巡檢 | `12 8 * * *`(每日 08:12) | Why QQ / Caleb / YAHA學堂 / 白白说大模型 / 小Lin说 / Redknot-乔红 / Nick 美股咖啡館 |
 | 6 | ⭐ `new/` 收件匣 | `37 8 * * *`(每日 08:37) | 使用者丟進 `new/` 的大檔素材,整理完改名 `done-`(2026-09-29 新增) |
 
-**最近一次重建:2026-10-02(使用者要求「全部延長、到期日同一天」,六個全刪重建、到期日統一對齊至約 10-09)。**
-本 session job id:①`4ee4ced7`(GitHub Weekly 06:33) ②`4f4a2f35`(Gary Chen 07:10) ③`ca7366bc`(gooaye 07:33) ④`2a5d3305`(美投君 07:50) ⑤`b4cd8f36`(巡檢 08:12) ⑥`05ebf1da`(`new/` 收件匣 08:37)。
+**最近一次重建:2026-10-18(使用者要求重建,六個全刪重建、到期日統一對齊至約 10-25)。**
+本 session job id:①`bef164f2`(GitHub Weekly 06:33) ②`36b385a0`(Gary Chen 07:10) ③`38a9bdca`(gooaye 07:33) ④`7680d510`(美投君 07:50) ⑤`45fba139`(巡檢 08:12) ⑥`321c3c57`(`new/` 收件匣 08:37)。
 本輪同步更新 prompt 內的過期數字:GitHub Weekly 空轉 60 天、gooaye 上游停更 27 天;Gary Chen 會員限定清單已含 `JctGH-SOYBA`。**各節 prompt 原文即為本輪實際使用的版本。**
 
 **前一次重建:2026-09-28(使用者要求「續排」,五個全刪重建、到期日對齊至約 10-05;`new/` 收件匣 09-29 另建,約 10-06 到期)。**
@@ -519,6 +519,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-10-18(重建) | 使用者要求重建排程:六個舊 job(`809e26c5` `bff147f8` `456e3a76` `36c4e252` `416002c3` `edb2e64e`)全刪,依各節 prompt 原文重建為 `bef164f2` `36b385a0` `38a9bdca` `7680d510` `45fba139` `321c3c57`,到期日對齊約 10-25。另:使用者貼的美投君 `xu8g7ZhavUc` 已手動整理(該頻道本就在第 4 排程)。 |
 | 2026-10-18 | 巡檢產出 3 篇(2 新篇 + 1 增補,1 支 Whisper):**Why QQ** `xqP_4umh55I` → 新篇 Linus 內核補丁 vs GCC AI 政策,✅ 對 Phoronix、GCC 郵件列表公告核實(15 行門檻、測試案例例外、Assisted-by、2027 初復審;Codeberg 358:144、QGIS QEP428),❓ Threadripper 23 倍、Jeff Law 兩成、OpenJDK 零容忍未能核實;**Caleb Writes Code** `WvI90l7c5Zs` → MiMo 筆記 §十二,⚠️ 補正 Kimi k1.5 為 2025-01 非 06、技術報告只稱數千張 GPU 非 10,000+;**YAHA學堂** `Lx22N9R_0As` → 新篇 Claude Code 30 個快捷鍵,逐鍵對照官方文件(多項需全螢幕渲染、macOS Option 需設 Meta、Ctrl+Z 僅 Unix)。Caleb、YAHA 兩支由 fork 子 agent 並行撰寫 |
 | 2026-10-17(加頻道) | **使用者要求把 Nick 美股咖啡館(@nick_stockcafe,channel ID `UCjrP2TtSTifuRJ76hW2IW1A`,約 15.6 萬訂閱)加入第 5 排程**:實測最新 5 支都有官方 zh-TW 字幕、不需 Whisper;說明欄固定附 IB / Seeking Alpha 推薦連結與 Excel 估值模型販售,已寫進立場揭露規則。巡檢頻道由 6 個增為 7 個,第 5 排程依新 prompt 重建為 `416002c3`(取代 `ed178581`,約 10-24 到期,比其他五個晚一天) |
 | 2026-10-17 | 巡檢產出 2 篇(1 新篇 + 1 增補,0 支 Whisper):**Why QQ** `IDGXr9VFyQw` → 新篇 Rust #164250,⭐ 讀 issue 原文補正「最先宣布 since 1.4 的是 lcnr」「rustbot 先標 P-critical 再改 P-high」,並查得 146 個 open 的 I-unsound;**Redknot-乔红** `se-dLUtIrIo` → 併入先進封裝第八節,🟡 Rubin Ultra 縮版屬 SemiAnalysis 等媒體報導、NVIDIA 未證實 |
