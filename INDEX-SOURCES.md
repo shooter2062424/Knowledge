@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**357 個 YouTube video id**、**76 個 arXiv 編號**,涵蓋 **287 篇**筆記。
+> 統計:**364 個 YouTube video id**、**76 個 arXiv 編號**,涵蓋 **293 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(357 部,依 video id 排序)
+## YouTube(364 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -69,6 +69,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `6bvEcpm72W0` | 給非技術人員的部署:為什麼 localhost 傳給朋友打不開,以及三個問題選平台 | [knowledge/technology/ai-productivity/deployment-for-vibe-coders-platform-selection.md](./knowledge/technology/ai-productivity/deployment-for-vibe-coders-platform-selection.md) |
 | `6LLVoqhNfHc` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
 | `6Ly6wZUsESA` | Anthropic 第四份威脅情報報告:自我改寫的惡意軟體、vibe hacking、API key 成為攻擊目標,與非法蒸餾 | [knowledge/technology/ai-safety/anthropic-threat-intelligence-2026-09.md](./knowledge/technology/ai-safety/anthropic-threat-intelligence-2026-09.md) |
+| `6Nyqv3XZ-ek` | 內部人買股是訊號不是保證:五家公司的 Form 4 實查(2026-10) | [knowledge/investing/equity-research/insider-buying-signal-five-companies.md](./knowledge/investing/equity-research/insider-buying-signal-five-companies.md) |
 | `6OBtO9niT00` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `7_UKPsakszU` | 放量突破前高為什麼一追就被套:四層證據判斷真假突破與破底翻 | [knowledge/investing/technical-analysis/breakout-four-layers-of-evidence.md](./knowledge/investing/technical-analysis/breakout-four-layers-of-evidence.md) |
 | `7DncQnIjZmA` | 一萬個 agent 破解千禧年難題:Navier-Stokes、抄襲指控,與「誰該被署名」 | [knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
@@ -120,6 +121,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `DcibeCh1aZ4` | 美股連漲 13 天還能追嗎?「真實通脹」數據、AI 情緒三大轉向信號,與「踏空風險 > 回調風險」 | [knowledge/investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md](./knowledge/investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md) |
 | `dECosPI6SUc` | 「Loop 已死,Graph 當立」?從工程視角看透這場名詞之爭 | [knowledge/technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md](./knowledge/technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) |
 | `dGHLg9NfvEo` | Fable 5.1:榜單全線第一,官方卻叫你先用 Opus 5 —— 旗艦模型開始為「可用性」讓路 | [knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md](./knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md) |
+| `DhZ2F9DI7PY` | 用 AI Agent + Skill 讀財報、做估值:為什麼 AI 分析股票常出錯 | [knowledge/investing/ai-assisted/ai-agent-skill-stock-research-workflow.md](./knowledge/investing/ai-assisted/ai-agent-skill-stock-research-workflow.md) |
 | `diU-Nbb1P_c` | 4 組頂級 Agent Skill:從「自我進化」到「工程／設計／內容」生產力套件 | [knowledge/technology/ai-agents/applications/top-skills-for-agents.md](./knowledge/technology/ai-agents/applications/top-skills-for-agents.md) |
 | `dJc-h7ui8wc` | LeetCode 怎麼刷最有效(上):從 0 刷到 200 題的真實心路歷程與方法 | [knowledge/career/interview-prep/leetcode-0-to-200-grinding-experience.md](./knowledge/career/interview-prep/leetcode-0-to-200-grinding-experience.md) |
 | `doc0NQas32U` | 雙底雙頂:看的不是形態像不像,而是動能有沒有衰減 | [knowledge/investing/technical-analysis/double-top-bottom-momentum.md](./knowledge/investing/technical-analysis/double-top-bottom-momentum.md) |
@@ -211,6 +213,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `KY4dBSlTvwU` | 哈夫曼編碼:為什麼檔案能越壓越小,以及「前綴碼」這個關鍵限制 | [knowledge/technology/system-design/huffman-coding-prefix-free-tree.md](./knowledge/technology/system-design/huffman-coding-prefix-free-tree.md) |
 | `kYkIdXwW2AE` | Yann LeCun 押 10 億美元賭 LLM 的另一條路:JEPA 與世界模型(上) | [knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md](./knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md) |
 | `KyXr6wdgkyE` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
+| `L1OBRtfPS34` | Always-on Agent 怎麼運作:Lee Robinson 在史丹佛 CS146S 拆解 Grok Bot | [knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) |
 | `l38ceFOWOAE` | 萬達怎麼一步步賣掉自己:兩份對賭、四次遞表失敗,與「名字還在、公司換人」 | [knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md](./knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md) |
 | `L5LLzXrKFIY` | 史上最強 AI 模型只活了 72 小時:Claude Fable 事件與「別把流程綁死在單一模型」 | [knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md](./knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md) |
 | `LdPT6S6fcvQ` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
@@ -283,6 +286,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `R549oFP9uN8` | Pre-norm vs Post-norm:為什麼現在的大模型全都把 LayerNorm 搬到前面 | [knowledge/technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md](./knowledge/technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md) |
 | `RAFQc6zHdXE` | Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生 subagent | [knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md](./knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) |
 | `RhmzLKU9xvY` | Harness Learning:訓練一個「專門改 harness 的模型」,4B 學生贏過 35B 老師 | [knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md](./knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md) |
+| `RKT93ir62FA` | Always-on Agent 怎麼運作:Lee Robinson 在史丹佛 CS146S 拆解 Grok Bot | [knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) |
 | `rKV5JcALQoQ` | J-Space:Claude 內心那層「說得出口的思考」——用全域工作空間理論解讀模型意識 | [knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md](./knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md) |
 | `rLNGSDYkK-w` | Claude Code Hooks 完全指南:CLAUDE.md 是提醒紙條,Hook 才是自動門 | [knowledge/technology/claude-code/claude-code-hooks-complete-guide.md](./knowledge/technology/claude-code/claude-code-hooks-complete-guide.md) |
 | `rLymrqM9vCI` | 第 128 期:圖片生成 Three.js 3D 模型、Omarchy、Mac 本地推理 oMLX、NVIDIA Switchyard 模型路由與端側小模型 Needle | [knowledge/technology/github-weekly/issue-128.md](./knowledge/technology/github-weekly/issue-128.md) |
@@ -296,6 +300,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `SPyXyB7lgWU` | 加息會引發美股大跌嗎?用 2000 泡沫「三階段」對照 AI 這輪革命(美投君) | [knowledge/investing/strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md](./knowledge/investing/strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md) |
 | `SQ3fZ1sAqXI` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `SQMbCZH_5YY` | 先找規則,再判斷哪個選擇更有利:正期望值、手割分析,與「技術問題被講成心態問題」 | [knowledge/investing/strategy/positive-expectancy-rule-hunting-mark-yang.md](./knowledge/investing/strategy/positive-expectancy-rule-hunting-mark-yang.md) |
+| `sr3y1-iQ1vI` | CoreWeave 跌 50%:Neocloud「十倍股」的債務壓力測試(2026-10) | [knowledge/investing/equity-research/coreweave-neocloud-debt-stress.md](./knowledge/investing/equity-research/coreweave-neocloud-debt-stress.md) |
 | `t0ZWNh-UXDs` | 一兆筆紀錄的即時搜尋:從 36 小時延遲砍到 5 分鐘的去重管線 | [knowledge/technology/system-design/trillion-record-realtime-search-kafka-dedup.md](./knowledge/technology/system-design/trillion-record-realtime-search-kafka-dedup.md) |
 | `T1k0MCmO-SA` | 《會想的人,先有錢》(Jonathan Clements):一整天看盤的人,沒有賺比較多 | [knowledge/investing/strategy/thinkers-get-rich-jonathan-clements.md](./knowledge/investing/strategy/thinkers-get-rich-jonathan-clements.md) |
 | `T3R3CFtYUww` | 什麼是先進封裝?從有機基板到矽中介層、TSV、矽橋、玻璃基板一次看懂 | [knowledge/technology/ai-industry/advanced-packaging-explained.md](./knowledge/technology/ai-industry/advanced-packaging-explained.md) |
@@ -307,6 +312,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `ta5HOdr_32E` | Karpathy 的「能力漏斗」:為什麼你覺得 AI 很蠢,有人卻說已經看到另一個世界 | [knowledge/technology/ai-industry/karpathy-ai-capability-funnel-perception-gap.md](./knowledge/technology/ai-industry/karpathy-ai-capability-funnel-perception-gap.md) |
 | `tBnpspp4IH8` | 用 Agent 五分鐘上手 Blender:把 3D 預覽當成 AI 影片的「參考影片」 | [knowledge/technology/applied-ai/design/blender-previz-mcp-ai-video.md](./knowledge/technology/applied-ai/design/blender-previz-mcp-ai-video.md) |
 | `TBVjqvueeCo` | qm(YC 開源):把個人 Agent 變成「多人可用」的 Agent Harness —— scope 隔離、權限審批與可換 harness | [knowledge/technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md](./knowledge/technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md) |
+| `tEjPWVEuu_8` | 為什麼「賺好賺滿」反而會害了你:社會資產與「不最大化」的選擇 | [knowledge/investing/strategy/not-maximizing-income-social-assets-nick.md](./knowledge/investing/strategy/not-maximizing-income-social-assets-nick.md) |
 | `tGp6Ns9GtSU` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
 | `thIPYsSsuIs` | 推理成本腰斬的背後:GPT-5.6 Sol 讓模型自己重寫核心,與 Luna 降價 80% 的算盤 | [knowledge/technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md](./knowledge/technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) |
 | `TN3ZrSQ4DTc` | AI 旅遊規劃組合技:NotebookLM + Gemini + Google My Maps 從 0 到 100 | [knowledge/technology/ai-productivity/ai-travel-planning-notebooklm-gemini.md](./knowledge/technology/ai-productivity/ai-travel-planning-notebooklm-gemini.md) |
@@ -354,6 +360,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `xs6-p7fFYH8` | Opus 5.5 官方 Prompting Guide 十三點:effort 用 medium、刪掉「仔細思考」、講清終點與何時停(Gary Chen) | [knowledge/technology/claude-code/opus-5-5-prompting-guide-13-points.md](./knowledge/technology/claude-code/opus-5-5-prompting-guide-13-points.md) |
 | `Xtc4JFO8jPA` | 「不冒險才是最大的風險」?華爾街老將的退休數學、穩定幣收益,與「散戶打不贏機構」的事實 | [knowledge/investing/strategy/retirement-risk-math-john-dagostino-coinbase.md](./knowledge/investing/strategy/retirement-risk-math-john-dagostino-coinbase.md) |
 | `XTCP1qoa3cc` | Google Agentic Engineering 課程 Day 2+3:MCP、A2A、AP2 三協定,與 Skill 上線的四地雷四防線 | [knowledge/technology/ai-agents/foundations/google-agentic-engineering-day2-3.md](./knowledge/technology/ai-agents/foundations/google-agentic-engineering-day2-3.md) |
+| `xu8g7ZhavUc` | 高油價會不會讓通膨失控?油價傳導四步檢查法(2026-10 美股大跌) | [knowledge/investing/strategy/oil-price-pass-through-inflation-checklist.md](./knowledge/investing/strategy/oil-price-pass-through-inflation-checklist.md) |
 | `XvmixEXPT3Q` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
 | `xzrvAERmvRk` | Cross-Model Review:用 stop hook + skill + marker 讓 Claude 跟 Codex 自動互審(自建 harness) | [knowledge/technology/ai-agents/applications/cross-model-review-claude-codex-harness.md](./knowledge/technology/ai-agents/applications/cross-model-review-claude-codex-harness.md) |
 | `Y2yElMkwH_A` | Claude Code Hooks 完全指南:CLAUDE.md 是提醒紙條,Hook 才是自動門 | [knowledge/technology/claude-code/claude-code-hooks-complete-guide.md](./knowledge/technology/claude-code/claude-code-hooks-complete-guide.md) |

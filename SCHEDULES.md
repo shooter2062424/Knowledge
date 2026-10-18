@@ -446,7 +446,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 ### 存量清單(2026-09-01 首次巡檢盤點,已完成 1 支)
 
-- ⭐ **Nick 美股咖啡館(2026-10-17 加入,約每週 2 支,全有官方 zh-TW 字幕,本庫尚無筆記)**:最新 6 部存量 `sr3y1-iQ1vI`(十倍潛力股暴跌 50%,10-16)、`tEjPWVEuu_8`(賺好賺滿反而害了你,10-13)、`9v_-p8Z3nC4`(澳洲第一次買股,生活向、優先度低)、`6Nyqv3XZ-ek`(內部人士炒底五家公司,10-06;⭐ 須以 Form 4 核實)、`7aWsuekAoqY`(跌幾 % 才加碼,10-03)、`XUQo8M5NnAE`(五家「無視 AI」的公司,09-30)。再往前的舊片不追,只消化這 6 支與之後的新片。
+- ⭐ **Nick 美股咖啡館(2026-10-17 加入,約每週 2 支,全有官方 zh-TW 字幕)**:2026-10-19 已完成 `sr3y1-iQ1vI`、`tEjPWVEuu_8`、`6Nyqv3XZ-ek`。剩餘存量 `7aWsuekAoqY`(跌幾 % 才加碼,10-03)、`XUQo8M5NnAE`(五家「無視 AI」的公司,09-30)、`9v_-p8Z3nC4`(澳洲第一次買股,生活向、優先度低)。再往前的舊片不追。
 
 - ✅ 已完成:Why QQ `j2I2TIvhs0c`(Jalapeño 首測拆解)→ `knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md`
 - ✅ 已完成:Why QQ `bNMBbrplILM`(Fable 5.1)、Why QQ `jgy1A0Mrx7g`(Omarchy 4)、Caleb `yHNp_rT6uEo`(Jalapeño,增補跑分邊界筆記 §10)
@@ -519,6 +519,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-10-19 | 巡檢(手動,使用者要求「繼續工作」)產出 3 篇 Nick 美股咖啡館,皆官方 zh-TW 字幕、無 Whisper:`6Nyqv3XZ-ek` → equity-research/insider-buying-signal-five-companies.md(✅ 五家內部人買入全部以 SEC Form 4 核實,補出 CELH 多位董事同期買、SOFI Q1 另買 $1.5M、UBER/GRAB 其他高管同買);`sr3y1-iQ1vI` → equity-research/coreweave-neocloud-debt-stress.md(✅ 10-Q XBRL 核實流動資產/負債、本金到期表、現金、RPO;Gartner 報告與公司債 80 元未核實);`tEjPWVEuu_8` → strategy/not-maximizing-income-social-assets-nick.md(✅ AMD 現金與商譽 XBRL 核實)。Nick 剩 3 支。 |
 | 2026-10-18(重建) | 使用者要求重建排程:六個舊 job(`809e26c5` `bff147f8` `456e3a76` `36c4e252` `416002c3` `edb2e64e`)全刪,依各節 prompt 原文重建為 `bef164f2` `36b385a0` `38a9bdca` `7680d510` `45fba139` `321c3c57`,到期日對齊約 10-25。另:使用者貼的美投君 `xu8g7ZhavUc` 已手動整理(該頻道本就在第 4 排程)。 |
 | 2026-10-18 | 巡檢產出 3 篇(2 新篇 + 1 增補,1 支 Whisper):**Why QQ** `xqP_4umh55I` → 新篇 Linus 內核補丁 vs GCC AI 政策,✅ 對 Phoronix、GCC 郵件列表公告核實(15 行門檻、測試案例例外、Assisted-by、2027 初復審;Codeberg 358:144、QGIS QEP428),❓ Threadripper 23 倍、Jeff Law 兩成、OpenJDK 零容忍未能核實;**Caleb Writes Code** `WvI90l7c5Zs` → MiMo 筆記 §十二,⚠️ 補正 Kimi k1.5 為 2025-01 非 06、技術報告只稱數千張 GPU 非 10,000+;**YAHA學堂** `Lx22N9R_0As` → 新篇 Claude Code 30 個快捷鍵,逐鍵對照官方文件(多項需全螢幕渲染、macOS Option 需設 Meta、Ctrl+Z 僅 Unix)。Caleb、YAHA 兩支由 fork 子 agent 並行撰寫 |
 | 2026-10-17(加頻道) | **使用者要求把 Nick 美股咖啡館(@nick_stockcafe,channel ID `UCjrP2TtSTifuRJ76hW2IW1A`,約 15.6 萬訂閱)加入第 5 排程**:實測最新 5 支都有官方 zh-TW 字幕、不需 Whisper;說明欄固定附 IB / Seeking Alpha 推薦連結與 Excel 估值模型販售,已寫進立場揭露規則。巡檢頻道由 6 個增為 7 個,第 5 排程依新 prompt 重建為 `416002c3`(取代 `ed178581`,約 10-24 到期,比其他五個晚一天) |

@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-321_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-324_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -143,6 +143,7 @@ flowchart LR
 | **Jim AI Notebook** — AI 每日深度解析 | 2 | [MCP 2026-07-28 最大改版](./knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) · [Stanford CS336 訓練成本餐巾紙算法](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | **Simon Scrapes** — Claude skill/自動化實作(⚠️ 推廣 Skool 付費社群) | 1 | [官方 skill 最佳實踐七條(併入 Skill 實戰 §8)](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
 | **wow** — AI agent 真實系統壓測 | 2 | [Graphify 知識圖譜實戰壓測](./knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) · [本體論護欄與神經符號 AI(Frank Coyle)](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
+| **Nick 美股咖啡館(@nick_stockcafe)** — 美股個股與投資觀 | 3 | [內部人買股五家公司(Form 4 實查)](./knowledge/investing/equity-research/insider-buying-signal-five-companies.md) · [CoreWeave 債務壓力測試](./knowledge/investing/equity-research/coreweave-neocloud-debt-stress.md) · [不把錢賺好賺滿:社會資產](./knowledge/investing/strategy/not-maximizing-income-social-assets-nick.md) |
 | **財女珍妮** — 美股投資與 AI 投資工具訪談 | 1 | [用 AI Agent + Skill 讀財報、做估值(課程推廣集)](./knowledge/investing/ai-assisted/ai-agent-skill-stock-research-workflow.md) |
 | **AI懶人報** — 名校課堂與 AI 工程講座的中文重述 | 1 | [Always-on Agent 怎麼運作:Lee Robinson 拆解 Grok Bot](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) |
 | **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
@@ -184,6 +185,7 @@ flowchart LR
 ### 📈 strategy(心法與策略)
 | 主題 | 一句話 |
 |---|---|
+| [為什麼「賺好賺滿」反而會害了你:社會資產與不最大化(Nick 美股咖啡館)](./knowledge/investing/strategy/not-maximizing-income-social-assets-nick.md) | 最賺錢的策略不是最好的策略;金融資產 vs 社會資產 |
 | [「不冒險才是最大的風險」?華爾街老將的退休數學、穩定幣收益,與「散戶打不贏機構」的事實(邦妮區塊鏈 / John D'Agostino)](./knowledge/investing/strategy/retirement-risk-math-john-dagostino-coinbase.md) | ⭐⭐⭐ 100% 確定存不夠 vs 有想過的風險;⭐⭐⭐ **個人 AI 打不贏 Citadel / Jane Street**——「你家有的他們都有加強版」⇒ 買入持有 ETF(✅ SPIVA 15 年 89.5% 主動基金落後、台灣當沖不到 1% 穩定獲利);穩定幣收益爭議(✅ CLARITY Act 9/15 未過);預測市場=資訊市場(✅ 聯準會 Kalshi 論文);6% 終值教孩子;⚠️ 受訪者為 Coinbase 策略長、說明欄含推薦連結;⚠️ 修正「37% 沒 500 美元」為 SHED 400 美元題;⚠️ 非投資建議 |
 | [《持續買進》(Nick Maggiulli)](./knowledge/investing/strategy/just-keep-buying-nick-maggiulli.md) | 把「買不買、何時買」變成不需意志力的自動規則 |
 | [別再相信目標價:前外資分析師拆解法人在看什麼](./knowledge/investing/strategy/target-prices-institutional-secrets.md) | 法人不看目標價,看的是想法的改變與預期差 |
@@ -247,6 +249,8 @@ flowchart LR
 ### 📊 equity-research(個股與產業研究)
 | 主題 | 一句話 |
 |---|---|
+| [內部人買股是訊號不是保證:五家公司的 Form 4 實查(Nick 美股咖啡館)](./knowledge/investing/equity-research/insider-buying-signal-five-companies.md) | 看金額佔身家與人數;CELH/CEG/UBER/SOFI/GRAB 全部以 Form 4 核實,補出片中沒講的 cluster buying |
+| [CoreWeave 跌 50%:Neocloud「十倍股」的債務壓力測試(Nick 美股咖啡館)](./knowledge/investing/equity-research/coreweave-neocloud-debt-stress.md) | 流動負債 2.2 倍於流動資產、本金到期表對照現金;債市折價是壓力測試;SEC XBRL 核實 |
 | [存儲還能漲嗎?用 1995、2018 兩輪暴漲對照 AI 這一輪的記憶體週期(美投君)](./knowledge/investing/equity-research/memory-cycle-history-1995-2018-vs-ai.md) | ⭐⭐ 1995 頂點「什麼都沒發生」、20 多家一起擴產壓垮自己;2018 三巨頭克制仍崩,這次是需求端;⭐⭐⭐ 作者:需求像 1995、供給像 2018,但**大宗商品屬性、需求不會無限成長、非獨家壟斷**三本質不變 ⇒ 上行未完、下行注定;✅ 核實美光 FY1995 淨利 8.44 億、FY2018Q4 營收 84.4 億;⚠️ 修正 FY2023 虧損為 58.3 億、2018 股價頂點在 5 月非 9 月;⚠️ 非投資建議 |
 | [記憶體五十年週期覆盤:四次科技革命都沒消滅週期,AI 這輪該盯哪三個信號?(TradingKey 美股財經)](./knowledge/investing/equity-research/memory-50-year-cycle-three-signals.md) | ⭐⭐ 記憶體是標準品 ⇒ 五堂課:蓋廠時間差、使用≠採購、個體降本加總成供給海嘯、寡頭撐得過低谷但改不了週期、**客戶庫存放大器(採購=消耗+庫存變化)**;⭐ 美光股價比 DDR4 報價早一年多觸底;⭐⭐⭐ **AI 三信號:晶片有沒有被用掉/新產能何時變產量(2027H2)/雲端資本開支增速** ⇒ 作者判斷「分化擴張中後段」;⚠️ 修正 18.31 億存貨減值是前三季累計、Alphabet 指引 1,950–2,050 億;⭐⭐ **§8 台美股回測:只有過熱類跡象(乖離 60 日線 ≥30%、量能 3 倍、本益比 ≥40)穩定提高暴跌機率、但不壓低平均報酬 ⇒ 縮部位不是不買;好財報不漲、估值高檔、庫存上升都不能當排除條件;高週期產業回檔買沒優勢**;⚠️非投資建議 |
 | [網路安全憑什麼成為 AI 新王?Agent 時代的兩大需求與兩大趨勢(美投君)](./knowledge/investing/equity-research/cybersecurity-ai-agent-identity-platformization.md) | ⭐⭐ Agent 不擇手段、快且多 ⇒ **管自家 Agent + 監控外來 Agent** 兩大新需求;⭐⭐ 歷史上每換時代就換資安王(防毒→防火牆→雲),但作者認為**這次不換王**:解方是**身份安全**(本質未變、量與複雜度暴增)與**平台化**(Best of Suite 勝出);✅ 核實 Okta 50→1,500 個 Claude agent(單一示意案例)、CyberArk 已併入 Palo Alto、Project Glasswing;⚠️ 修正大摩 240→600 億是「未來兩年」非 2030;⚠️ Hugging Face 事件並陳兩說;❓ AIDR 三季 79 倍未能核實;⚠️ 非投資建議 |
