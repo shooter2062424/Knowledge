@@ -16,13 +16,15 @@
 |---|---|---|---|
 | 1 | GitHub Weekly 週報 | `33 6 * * *`(每日 06:33) | 撈 itcoffee66/githubweekly 最新一期 |
 | 2 | Gary Chen 頻道 | `10 7 * * *`(每日 07:10) | Gary Chen 新影片(**用 channel ID,不用 handle**) |
-| 3 | gooaye 記憶更新 | `33 7 * * *`(每日 07:33) | 更新 ai-grocery 的股癌 agent 記憶層 |
+| 3 | ~~gooaye 記憶更新~~ | ⛔ **2026-10-20 停用** | 使用者決定不再更新(上游停更且使用者已不再看);**重建時跳過,不要再建** |
 | 4 | 美投君 頻道 | `50 7 * * *`(每日 07:50) | @MeiTouJun 新影片(無字幕→Whisper) |
 | 5 | 未涵蓋頻道巡檢 | `12 8 * * *`(每日 08:12) | Why QQ / Caleb / YAHA學堂 / 白白说大模型 / 小Lin说 / Redknot-乔红 / Nick 美股咖啡館 |
 | 6 | ⭐ `new/` 收件匣 | `37 8 * * *`(每日 08:37) | 使用者丟進 `new/` 的大檔素材,整理完改名 `done-`(2026-09-29 新增) |
 
-**最近一次重建:2026-10-18(使用者要求重建,六個全刪重建、到期日統一對齊至約 10-25)。**
-本 session job id:①`bef164f2`(GitHub Weekly 06:33) ②`36b385a0`(Gary Chen 07:10) ③`38a9bdca`(gooaye 07:33) ④`7680d510`(美投君 07:50) ⑤`45fba139`(巡檢 08:12) ⑥`321c3c57`(`new/` 收件匣 08:37)。
+**最近一次重建:2026-10-20(使用者要求重建;gooaye 停用不再建,其餘五個全刪重建,到期日統一約 10-27)。**
+本 session job id:①`933e4954`(GitHub Weekly 06:33) ②`fc522f3e`(Gary Chen 07:10) ④`327cd9c9`(美投君 07:50) ⑤`0834d5c8`(巡檢 08:12) ⑥`8835b076`(`new/` 收件匣 08:37)。③ gooaye 已停用。
+
+上一輪(2026-10-18):①`bef164f2` ②`36b385a0` ③`38a9bdca` ④`7680d510` ⑤`45fba139` ⑥`321c3c57`(已全刪)。
 本輪同步更新 prompt 內的過期數字:GitHub Weekly 空轉 60 天、gooaye 上游停更 27 天;Gary Chen 會員限定清單已含 `JctGH-SOYBA`。**各節 prompt 原文即為本輪實際使用的版本。**
 
 **前一次重建:2026-09-28(使用者要求「續排」,五個全刪重建、到期日對齊至約 10-05;`new/` 收件匣 09-29 另建,約 10-06 到期)。**
@@ -290,7 +292,9 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 ---
 
-## 3. gooaye(股癌)agent 記憶更新(每日 07:33 / `33 7 * * *`)
+## 3. gooaye(股癌)agent 記憶更新(⛔ 2026-10-20 停用)
+
+> ⛔ **已停用,重建排程時跳過。** 使用者 2026-10-20 決定不再更新(上游 whatmkreallysaid.com 自 10-06 停止重建,且使用者已不再使用)。記憶層停在 EP702(EP703 為 Whisper 暫補)。以下 prompt 只保留作紀錄,日後若要恢復再用。
 
 > ⚠️ 這個排程動的是 **ai-grocery** repo(不是 Knowledge)。教育用途、非投資建議。
 
@@ -521,6 +525,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-10-20(重建) | **使用者要求重建,並決定 gooaye 不再更新**:六個舊 job(`bef164f2` `36b385a0` `38a9bdca` `7680d510` `45fba139` `321c3c57`)全刪,依各節 prompt 原文重建五個:GitHub Weekly `933e4954`、Gary Chen `fc522f3e`、美投君 `327cd9c9`、巡檢 `0834d5c8`、`new/` 收件匣 `8835b076`(約 10-27 到期)。⛔ **gooaye 排程停用**(第 3 節與總覽表已標註,重建時跳過);當日各排程皆已跑過,不需補檢 |
 | 2026-10-20 | 巡檢產出 1 新篇(無 Whisper):**Why QQ** `-snid-l-rOA` → Claude Code 團隊 code review 七層流水線(✅ 對照 Anthropic 2026-10-15 原文,數字全部吻合;補:原文無誤報率數字,二手報導的「低於 1%」來自 3 月產品上線)。其餘頻道只有已知存量。 |
 | 2026-10-19(排程) | 巡檢產出 2 新篇(1 支 Whisper):**Why QQ** `Z-Fy1DghUvI` → pstack(clone 核實:技能 31 個非影片說的二十多個;Claude Code 已有官方安裝方式,非僅社群移植);**YAHA學堂** `6d9s_hmXQX0` → llmfit(clone 核實 Fit 門檻 60/85/98%、效率係數 0.55;補 Mac GPU 可用量低於統一記憶體)。存量:Nick 3、Redknot 3、白白 3、Caleb 1、YAHA 1、小Lin 1。 |
 | 2026-10-19 | 巡檢(手動,使用者要求「繼續工作」)產出 3 篇 Nick 美股咖啡館,皆官方 zh-TW 字幕、無 Whisper:`6Nyqv3XZ-ek` → equity-research/insider-buying-signal-five-companies.md(✅ 五家內部人買入全部以 SEC Form 4 核實,補出 CELH 多位董事同期買、SOFI Q1 另買 $1.5M、UBER/GRAB 其他高管同買);`sr3y1-iQ1vI` → equity-research/coreweave-neocloud-debt-stress.md(✅ 10-Q XBRL 核實流動資產/負債、本金到期表、現金、RPO;Gartner 報告與公司債 80 元未核實);`tEjPWVEuu_8` → strategy/not-maximizing-income-social-assets-nick.md(✅ AMD 現金與商譽 XBRL 核實)。Nick 剩 3 支。 |
