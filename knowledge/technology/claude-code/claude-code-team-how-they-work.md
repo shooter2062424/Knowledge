@@ -7,7 +7,8 @@
 
 > 📎 相關筆記:[[claude-dynamic-workflows]](本文 §4 workflows 的專門拆解)、
 > [[claude-code-loop-types-official]]、[[long-running-agents-goal-evaluation]]、
-> [[defining-tasks-not-prompts]]、[[claude-code-2026-feature-timeline]]
+> [[defining-tasks-not-prompts]]、[[claude-code-2026-feature-timeline]]、
+> [[claude-code-team-code-review-seven-layers]](官方部落格 2026-10-15:code review 七層流水線)
 
 ---
 

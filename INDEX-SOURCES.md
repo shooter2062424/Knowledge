@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**366 個 YouTube video id**、**76 個 arXiv 編號**,涵蓋 **295 篇**筆記。
+> 統計:**367 個 YouTube video id**、**76 個 arXiv 編號**,涵蓋 **296 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(366 部,依 video id 排序)
+## YouTube(367 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -33,6 +33,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `-hKHbHA0KKI` | Milvus 架構拆解:從「Segment 不可變」到存算分離,以及 2.6 版已經改掉的三件事 | [knowledge/technology/system-design/milvus-architecture-vector-database.md](./knowledge/technology/system-design/milvus-architecture-vector-database.md) |
 | `-ih9NBMHiU8` | AI 應用層 4 大前瞻趨勢:從財報季挖出的下一輪機會(流量、Agent 管理、ROI、AI 原生) | [knowledge/investing/equity-research/ai-application-layer-4-trends-earnings.md](./knowledge/investing/equity-research/ai-application-layer-4-trends-earnings.md) |
 | `-IpmrE558Fs` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
+| `-snid-l-rOA` | Claude Code 團隊怎麼做 code review:七層流水線,PR 翻倍、回滾降四成 | [knowledge/technology/software-engineering/claude-code-team-code-review-seven-layers.md](./knowledge/technology/software-engineering/claude-code-team-code-review-seven-layers.md) |
 | `-XBnFO6FweQ` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
 | `-XLTrE5bjko` | 收入高卻存不住錢?7 個正在掏空你的隱形習慣 | [knowledge/investing/strategy/hidden-money-draining-habits.md](./knowledge/investing/strategy/hidden-money-draining-habits.md) |
 | `0-Rr2iho6CI` | 未來一年的 6 個 AI Agent 趨勢:從「背提示詞」到「當 AI 管理者」 | [knowledge/technology/ai-agents/foundations/six-ai-agent-trends-next-year.md](./knowledge/technology/ai-agents/foundations/six-ai-agent-trends-next-year.md) |
