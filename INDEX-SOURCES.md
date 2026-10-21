@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**367 個 YouTube video id**、**76 個 arXiv 編號**,涵蓋 **296 篇**筆記。
+> 統計:**369 個 YouTube video id**、**76 個 arXiv 編號**,涵蓋 **298 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(367 部,依 video id 排序)
+## YouTube(369 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -167,6 +167,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `gcCTxeLA6Mg` | NVIDIA N1X 能撞開 x86 四十年的城牆嗎?三個變量決定成敗 | [knowledge/technology/ai-industry/nvidia-n1x-vs-x86.md](./knowledge/technology/ai-industry/nvidia-n1x-vs-x86.md) |
 | `gD_so3Nc7Y0` | 當沖有技巧嗎?紐約證交所傳奇交易員 Peter Tuchman 的 40 年心法 | [knowledge/investing/technical-analysis/peter-tuchman-day-trading.md](./knowledge/investing/technical-analysis/peter-tuchman-day-trading.md) |
 | `gfhoJY2D4Jc` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
+| `Gg2eGkhspFo` | DeepSeek 開賣搜尋:Search / Fetch API 每千次 0.75 美元,便宜的搜尋能不能變成可靠的證據 | [knowledge/technology/ai-agents/applications/deepseek-search-fetch-api-agent-evidence.md](./knowledge/technology/ai-agents/applications/deepseek-search-fetch-api-agent-evidence.md) |
 | `gM5wm2x7fi8` | 美股狂熱會終結嗎?三大短期風險與「市場需要一個觸發點來解毒」 | [knowledge/investing/strategy/us-stocks-three-risks-detox-trigger.md](./knowledge/investing/strategy/us-stocks-three-risks-detox-trigger.md) |
 | `GrNbuWWJYiI` | 19 分鐘搞懂四個 AI Agent 熱詞:Harness、Loop、LLM Ops、Eval(一張圖串起記憶/RAG/Tracing) | [knowledge/technology/ai-agents/foundations/agent-harness-loop-llmops-eval-explained.md](./knowledge/technology/ai-agents/foundations/agent-harness-loop-llmops-eval-explained.md) |
 | `gv9IGo9qqZM` | 第 133 期:給 Agent 開家公司(Paperclip)、讓 Agent 剪影片(video-use)、騰訊開源 Octop、免費股票看板與 25MB 資料庫客戶端 | [knowledge/technology/github-weekly/issue-133.md](./knowledge/technology/github-weekly/issue-133.md) |
@@ -325,6 +326,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `U9jFYSaalIc` | 7 種主流 Agent 架構選型:從單槍匹馬到工業流水線,以及「多加一層」的真實代價 | [knowledge/technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md](./knowledge/technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md) |
 | `uBuBebzHd-U` | 第 130 期:可驗證的架構圖 Skill、即時 3D 地球觀測台、多智能體 AI 課堂、科研 Agent 技能庫與本地語音工作台 | [knowledge/technology/github-weekly/issue-130.md](./knowledge/technology/github-weekly/issue-130.md) |
 | `uflbrOB9ujQ` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |
+| `UG_IiOPAWng` | Sell Put 不必放到到期:提前買回、把資金換到下一張合約(Nick 美股咖啡館) | [knowledge/investing/derivatives/sell-put-early-close-roll-delta-nick.md](./knowledge/investing/derivatives/sell-put-early-close-roll-delta-nick.md) |
 | `UPF9Ogid4N0` | 黃仁勳談生死與接班:不做「接班計畫」,而是不停傳遞知識 | [knowledge/technology/ai-industry/jensen-huang-succession-and-vision.md](./knowledge/technology/ai-industry/jensen-huang-succession-and-vision.md) |
 | `UQDSftGndms` | Make 與 n8n 還值得學嗎:當維護的人從你換成 Agent,視覺化就從資產變成阻礙 | [knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md](./knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md) |
 | `UQtgJ2RWx64` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
