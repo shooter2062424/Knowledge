@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**369 個 YouTube video id**、**76 個 arXiv 編號**,涵蓋 **298 篇**筆記。
+> 統計:**370 個 YouTube video id**、**78 個 arXiv 編號**,涵蓋 **299 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(369 部,依 video id 排序)
+## YouTube(370 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -145,6 +145,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `EOg4gY0Yln0` | 讓訊號自己交易:Man Group 用 Claude Skills 治理打通系統化交易 | [knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md](./knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md) |
 | `eorQWlYarJY` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
 | `EUYt0Q-hPeo` | Vibe Coding 全解:模型、Agent、工作流三層,以及「需求 → 設計 → 任務 → 子 Agent」實戰流程(程序员老王) | [knowledge/technology/ai-productivity/vibe-coding-stack-model-agent-workflow.md](./knowledge/technology/ai-productivity/vibe-coding-stack-model-agent-workflow.md) |
+| `EVHyF_dhWDo` | Harness²:不換模型、不訓練,讓 agent 遞迴改自己的配置檔,弱模型反超強模型 | [knowledge/technology/ai-agents/foundations/harness2-recursive-agent-harnessing-google.md](./knowledge/technology/ai-agents/foundations/harness2-recursive-agent-harnessing-google.md) |
 | `eWkZlS5JMD4` | 駭客怎麼騙 AI:5.5 種 Prompt Injection 技巧與防禦實戰 | [knowledge/technology/ai-safety/prompt-injection-5-techniques-defenses.md](./knowledge/technology/ai-safety/prompt-injection-5-techniques-defenses.md) |
 | `EWvNQjAaOHw` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
 | `ExWlrAQrfdc` | 非技術者的資安入門:用五個問題做威脅建模,再交給 Codex Security 掃描 | [knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md](./knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md) |
@@ -400,7 +401,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(76 篇,依編號排序)
+## arXiv(78 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -478,8 +479,10 @@ grep -rlF --include=*.md -- "<id>" .
 | `2609.14858` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `2609.22978` | 為什麼沙箱成了 AI 圈最捲的新基建:microVM、快照,與「快照要多快」這道題 | [knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
 | `2609.35738` | Harness Learning:訓練一個「專門改 harness 的模型」,4B 學生贏過 35B 老師 | [knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md](./knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md) |
+| `2609.35738` | Harness²:不換模型、不訓練,讓 agent 遞迴改自己的配置檔,弱模型反超強模型 | [knowledge/technology/ai-agents/foundations/harness2-recursive-agent-harnessing-google.md](./knowledge/technology/ai-agents/foundations/harness2-recursive-agent-harnessing-google.md) |
 | `2609.36054` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `2610.11959` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
+| `2610.14224` | Harness²:不換模型、不訓練,讓 agent 遞迴改自己的配置檔,弱模型反超強模型 | [knowledge/technology/ai-agents/foundations/harness2-recursive-agent-harnessing-google.md](./knowledge/technology/ai-agents/foundations/harness2-recursive-agent-harnessing-google.md) |
 
 ---
 
