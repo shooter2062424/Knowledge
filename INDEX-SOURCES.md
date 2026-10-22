@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**370 個 YouTube video id**、**78 個 arXiv 編號**,涵蓋 **299 篇**筆記。
+> 統計:**371 個 YouTube video id**、**78 個 arXiv 編號**,涵蓋 **300 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(370 部,依 video id 排序)
+## YouTube(371 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -50,6 +50,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `1VqKUrxR2C8` | AI 編程的三個致命錯覺(OpenCode 創辦人 Dax Raad) | [knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md](./knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md) |
 | `1ZbNgx6Gscw` | Gemini 4 Argon:跑分領先但分布不均、定價是「首發優惠」、先給網安防禦者(Why QQ) | [knowledge/technology/ai-industry/gemini-4-argon-release-benchmarks-pricing.md](./knowledge/technology/ai-industry/gemini-4-argon-release-benchmarks-pricing.md) |
 | `25s5sR_rUu0` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
+| `29F96QJEf6o` | Claude Code 新手觀念地圖:從 Terminal 到 Worktree,一次認清 25 個名詞 | [knowledge/technology/claude-code/claude-code-beginner-concept-map-gary.md](./knowledge/technology/claude-code/claude-code-beginner-concept-map-gary.md) |
 | `2eq-8GM2bhg` | 什麼是 AI Harness?兩種「harness」的差別 | [knowledge/technology/ai-agents/foundations/ai-harness-explained.md](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) |
 | `2i3FT1vfcrA` | Claude Code Mods:從「調旋鈕」到「改程式本身」——事件關卡、三種動作、會畫介面(howie和小能熊 + 官方文件 + 範例原始碼) | [knowledge/technology/claude-code/claude-code-mods-explained.md](./knowledge/technology/claude-code/claude-code-mods-explained.md) |
 | `2mtn-Qp59y4` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
