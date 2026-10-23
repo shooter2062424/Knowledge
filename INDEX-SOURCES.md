@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**371 個 YouTube video id**、**78 個 arXiv 編號**,涵蓋 **300 篇**筆記。
+> 統計:**373 個 YouTube video id**、**79 個 arXiv 編號**,涵蓋 **302 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(371 部,依 video id 排序)
+## YouTube(373 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -44,6 +44,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `0K4JBcnO4eA` | AI 原生 SDLC 怎麼落地:程式碼變快之後,真正塞住的是驗證與評審 | [knowledge/technology/software-engineering/ai-native-sdlc-landing-checklist.md](./knowledge/technology/software-engineering/ai-native-sdlc-landing-checklist.md) |
 | `0kvj3lbJqoY` | AI 像 100 年前的電力革命:真正的商機不在「AI 應用」,而在「AI 採納」(美投君) | [knowledge/investing/equity-research/ai-adoption-electricity-revolution-analogy.md](./knowledge/investing/equity-research/ai-adoption-electricity-revolution-analogy.md) |
 | `0RTUj16alAU` | Claude Code Mods:從「調旋鈕」到「改程式本身」——事件關卡、三種動作、會畫介面(howie和小能熊 + 官方文件 + 範例原始碼) | [knowledge/technology/claude-code/claude-code-mods-explained.md](./knowledge/technology/claude-code/claude-code-mods-explained.md) |
+| `0SVpmARc90o` | 為什麼強化學習這麼難:探索與利用、資料要自己生、獎勵難設計,堆 GPU 也救不了 | [knowledge/technology/llm-internals/training/why-reinforcement-learning-is-hard-caleb.md](./knowledge/technology/llm-internals/training/why-reinforcement-learning-is-hard-caleb.md) |
 | `18QEjrwaNVM` | Opus 5 系統提示詞公開之後:五條可直接抄的工程模式,與「提示詞債務」 | [knowledge/technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md](./knowledge/technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) |
 | `1a1VXDdIyrk` | Harness Engineering 的演進:從 Prompt → Context → Harness(與 loop 架構) | [knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md](./knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md) |
 | `1SLbe0k6x4I` | 用 Claude Code + Jesse 做 AI 演算法交易:重點是「驗證流程」,不是那支策略 | [knowledge/investing/ai-assisted/ai-algo-trading-claude-jesse.md](./knowledge/investing/ai-assisted/ai-algo-trading-claude-jesse.md) |
@@ -99,6 +100,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `auolAJmicpg` | 一萬個 agent 破解千禧年難題:Navier-Stokes、抄襲指控,與「誰該被署名」 | [knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
 | `aYfZN8t6AQs` | Mem0 記憶架構拆解:三個儲存、抽取管線,與那個「加起來再除以 2.5」的混合排序 | [knowledge/technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md](./knowledge/technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md) |
 | `aZEmxJ9ivzg` | 學了那麼多 AI,為什麼還是沒加薪?——省下的時間 85% 被雜事吃掉,以及納許議價怎麼算你該開多少 | [knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md](./knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md) |
+| `b3aYWkBf7jg` | OpenCode Console 被攻破:AI 在進攻、AI 在拒守——密鑰放哪與「護欄不對稱」 | [knowledge/technology/ai-safety/opencode-console-breach-guardrail-asymmetry.md](./knowledge/technology/ai-safety/opencode-console-breach-guardrail-asymmetry.md) |
 | `b84VdIprZXA` | Opus 5.5 官方 Prompting Guide 十三點:effort 用 medium、刪掉「仔細思考」、講清終點與何時停(Gary Chen) | [knowledge/technology/claude-code/opus-5-5-prompting-guide-13-points.md](./knowledge/technology/claude-code/opus-5-5-prompting-guide-13-points.md) |
 | `B91bZL8wcAI` | 什麼是 AI Harness?兩種「harness」的差別 | [knowledge/technology/ai-agents/foundations/ai-harness-explained.md](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) |
 | `BAfRVpKIxZ4` | 交易的「贏家數學」:四個核心概念,以及一份完整的數學學習路線圖 | [knowledge/investing/strategy/trading-math-expectancy-variance-risk.md](./knowledge/investing/strategy/trading-math-expectancy-variance-risk.md) |
@@ -402,7 +404,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(78 篇,依編號排序)
+## arXiv(79 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -439,6 +441,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2401.06066` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
 | `2402.03300` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md](./knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md) |
 | `2402.03300` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
+| `2402.03300` | 為什麼強化學習這麼難:探索與利用、資料要自己生、獎勵難設計,堆 GPU 也救不了 | [knowledge/technology/llm-internals/training/why-reinforcement-learning-is-hard-caleb.md](./knowledge/technology/llm-internals/training/why-reinforcement-learning-is-hard-caleb.md) |
 | `2405.05254` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
 | `2406.04692` | Mixture-of-Agents(MoA):用「分層提議 + 聚合」讓多個 LLM 互相加成,純開源打贏 GPT-4o | [knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md](./knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md) |
 | `2406.04692` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
