@@ -5,6 +5,7 @@
 - **`new/` 收件匣**:使用者把大檔素材(影片、PDF 等)各放一個子資料夾到 `new/`;整理成筆記後把資料夾改名加 `done-` 前綴。`new/` 已列入 `.gitignore`,素材不進版控。
 - ⚠️ 這些排程是 **session-only**:Claude 一關就消失,而且**每個 7 天後會自動到期(靜默消失、不通知)**,過期期間的新內容**不會自動補**。
 - **完整 prompt 原文與重建流程都存在 [`SCHEDULES.md`](./SCHEDULES.md)** —— 新 session 開始、或發現排程沒觸發時,先用 `CronList` 檢查,缺的就照 `SCHEDULES.md` 複製 prompt 用 `CronCreate` 重建,**並立刻跑一次補檢**(不要等隔天)。
+- ⭐ **排程紀錄一律推上 GitHub**(使用者 2026-10-24 要求,方便換電腦恢復):凡是新增/停用/改 prompt/重建排程,`SCHEDULES.md` 要在同一輪 commit 並 `git push origin main`,不可只留本機。換電腦的恢復步驟見 `SCHEDULES.md`「在另一台電腦恢復排程」。
 - 該檔也記錄了共通踩坑(去重 grep 指令、git add 精準、LFS push fallback、Whisper 配方)。
 
 ## 寫作規範

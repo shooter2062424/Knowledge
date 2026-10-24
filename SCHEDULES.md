@@ -11,6 +11,17 @@
 2. **重建缺的:** 把下方對應章節的 prompt **原文複製**,用 `CronCreate` 建立(`recurring: true` + 對應的 cron 時間)。
 3. **⚠️ 重建後立刻跑一次補檢**(不要等隔天),因為過期期間的新內容不會自動補上。
 4. 建議**四個一起重建**讓到期日同步,之後好管理。
+5. **⚠️ 重建完把新 job id 與到期日寫進下方「最近一次重建」與「變更歷程」,並立刻 commit + `git push origin main`**(使用者 2026-10-24 要求:排程紀錄一律推上 GitHub,換電腦也能恢復)。
+
+### 在另一台電腦恢復排程
+
+本檔是排程**唯一的跨機器紀錄**(cron 本身只活在 session 記憶體裡;`.claude/scheduled_tasks.lock` 只是本機 session 鎖,不含排程內容)。新電腦上:
+
+1. `git clone git@github.com:shooter2062424/Knowledge.git`。⚠️ prompt 內寫死路徑 `C:\Users\shoot\project\Knowledge`,clone 到別處要先把各節 prompt 的路徑改掉。
+2. 確認工具:`yt-dlp`(加 `--js-runtimes node`,需 node)、`faster-whisper` + `av`(PyAV)、git SSH 金鑰可推 GitHub。
+3. 在該 repo 開 Claude Code,照上面 1–5 步用本檔 prompt 原文 `CronCreate` 重建,並立刻跑一次補檢。
+
+**規則:凡是改到排程(新增/停用/改 prompt/重建),本檔要在同一輪 commit 並 push,不留在本機。**
 
 | # | 排程 | cron | 說明 |
 |---|---|---|---|
@@ -530,6 +541,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-10-24 | **使用者要求「排程紀錄要 git push 上去保留,方便在不同電腦恢復」**:快速重建流程加第 5 步(重建後記 job id 並立刻 push),新增「在另一台電腦恢復排程」小節(clone、路徑、工具前置、重建);CLAUDE.md 加同一條規則。⚠️ `.claude/scheduled_tasks.lock` 只是本機 session 鎖,不含排程內容。 |
 | 2026-10-24 | 巡檢產出 2 新篇(零 Whisper):**Why QQ** `LlQgkvNRS9s` → ChatGPT 廣告栈拆解(讀 OpenAI 工程文原文核實,未能核實項另列);**Caleb Writes Code** `6VmA4x1lh1M` → PHP2Shell 兩個核心 RCE 與禁令洩漏(對照 PHP Foundation,標 Bluehost 業配)。新存量:YAHA學堂 `5gHSazZA2OU`。Nick 美股咖啡館 `Uo9m4fkdkFs` 會員限定,永久跳過。 |
 | 2026-10-23 | 巡檢產出 2 新篇(零 Whisper):**Why QQ** `b3aYWkBf7jg` → OpenCode Console 外洩與護欄不對稱(補正 Daybreak 數字口徑);**Caleb Writes Code** `0SVpmARc90o` → 為什麼 RL 這麼難(標 FireCrawl 業配)。新存量:白白说大模型 `W-gdYr3Vj8s`(需 Whisper) |
 | 2026-10-22 | 巡檢產出 1 新篇(零 Whisper):**Why QQ** `EVHyF_dhWDo` → Harness² 遞迴 agent harnessing(clone repo + 論文核實,補正 Meta-Harness 非全面落後、經驗庫範圍)。新存量:YAHA學堂 `qZOtyc6gWWI`(自動字幕 429 順延)、白白说大模型 `ydxlle8MNu4`(需 Whisper) |
