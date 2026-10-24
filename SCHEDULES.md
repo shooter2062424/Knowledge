@@ -32,7 +32,7 @@
 | 5 | 未涵蓋頻道巡檢 | `12 8 * * *`(每日 08:12) | Why QQ / Caleb / YAHA學堂 / 白白说大模型 / 小Lin说 / Redknot-乔红 / Nick 美股咖啡館 |
 | 6 | ⭐ `new/` 收件匣 | `37 8 * * *`(每日 08:37) | 使用者丟進 `new/` 的大檔素材,整理完改名 `done-`(2026-09-29 新增) |
 
-**最近一次重建:2026-10-20(使用者要求重建;gooaye 停用不再建,其餘五個全刪重建,到期日統一約 10-27)。**
+**最近一次重建:2026-10-24(使用者要求重建;gooaye 停用不再建,其餘五個全刪重建,到期日統一約 10-31)。** job id:①GitHub Weekly `f7452ef1` ②Gary Chen `919a6a5e` ④美投君 `3006f305` ⑤巡檢 `ade62da6` ⑥`new/` 收件匣 `a412e0d2`。
 本 session job id:①`933e4954`(GitHub Weekly 06:33) ②`fc522f3e`(Gary Chen 07:10) ④`327cd9c9`(美投君 07:50) ⑤`0834d5c8`(巡檢 08:12) ⑥`8835b076`(`new/` 收件匣 08:37)。③ gooaye 已停用。
 
 上一輪(2026-10-18):①`bef164f2` ②`36b385a0` ③`38a9bdca` ④`7680d510` ⑤`45fba139` ⑥`321c3c57`(已全刪)。
@@ -541,6 +541,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-10-24(重建) | **使用者要求「排程要重建」**:10-20 建的五個排程(`933e4954`/`fc522f3e`/`327cd9c9`/`0834d5c8`/`8835b076`)全刪,依本檔 prompt 原文重建為 `f7452ef1`/`919a6a5e`/`3006f305`/`ade62da6`/`a412e0d2`,**約 10-31 到期**;gooaye 照舊不建。當日五個排程皆已跑過,不需補檢。 |
 | 2026-10-24 | **使用者要求「排程紀錄要 git push 上去保留,方便在不同電腦恢復」**:快速重建流程加第 5 步(重建後記 job id 並立刻 push),新增「在另一台電腦恢復排程」小節(clone、路徑、工具前置、重建);CLAUDE.md 加同一條規則。⚠️ `.claude/scheduled_tasks.lock` 只是本機 session 鎖,不含排程內容。 |
 | 2026-10-24 | 巡檢產出 2 新篇(零 Whisper):**Why QQ** `LlQgkvNRS9s` → ChatGPT 廣告栈拆解(讀 OpenAI 工程文原文核實,未能核實項另列);**Caleb Writes Code** `6VmA4x1lh1M` → PHP2Shell 兩個核心 RCE 與禁令洩漏(對照 PHP Foundation,標 Bluehost 業配)。新存量:YAHA學堂 `5gHSazZA2OU`。Nick 美股咖啡館 `Uo9m4fkdkFs` 會員限定,永久跳過。 |
 | 2026-10-23 | 巡檢產出 2 新篇(零 Whisper):**Why QQ** `b3aYWkBf7jg` → OpenCode Console 外洩與護欄不對稱(補正 Daybreak 數字口徑);**Caleb Writes Code** `0SVpmARc90o` → 為什麼 RL 這麼難(標 FireCrawl 業配)。新存量:白白说大模型 `W-gdYr3Vj8s`(需 Whisper) |
