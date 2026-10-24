@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**373 個 YouTube video id**、**79 個 arXiv 編號**,涵蓋 **302 篇**筆記。
+> 統計:**375 個 YouTube video id**、**79 個 arXiv 編號**,涵蓋 **304 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(373 部,依 video id 排序)
+## YouTube(375 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -75,6 +75,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `6Ly6wZUsESA` | Anthropic 第四份威脅情報報告:自我改寫的惡意軟體、vibe hacking、API key 成為攻擊目標,與非法蒸餾 | [knowledge/technology/ai-safety/anthropic-threat-intelligence-2026-09.md](./knowledge/technology/ai-safety/anthropic-threat-intelligence-2026-09.md) |
 | `6Nyqv3XZ-ek` | 內部人買股是訊號不是保證:五家公司的 Form 4 實查(2026-10) | [knowledge/investing/equity-research/insider-buying-signal-five-companies.md](./knowledge/investing/equity-research/insider-buying-signal-five-companies.md) |
 | `6OBtO9niT00` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
+| `6VmA4x1lh1M` | PHP2Shell:兩個 PHP 核心 RCE、十週修補期,與一次被三方洩漏打穿的協調揭露 | [knowledge/technology/ai-safety/php2shell-cve-2026-109618-embargo-leak.md](./knowledge/technology/ai-safety/php2shell-cve-2026-109618-embargo-leak.md) |
 | `7_UKPsakszU` | 放量突破前高為什麼一追就被套:四層證據判斷真假突破與破底翻 | [knowledge/investing/technical-analysis/breakout-four-layers-of-evidence.md](./knowledge/investing/technical-analysis/breakout-four-layers-of-evidence.md) |
 | `7DncQnIjZmA` | 一萬個 agent 破解千禧年難題:Navier-Stokes、抄襲指控,與「誰該被署名」 | [knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
 | `7DyjFEzgVZ4` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
@@ -225,6 +226,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `L5LLzXrKFIY` | 史上最強 AI 模型只活了 72 小時:Claude Fable 事件與「別把流程綁死在單一模型」 | [knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md](./knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md) |
 | `LdPT6S6fcvQ` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `ll-OBB-iswM` | 「Loop Engineering」是名詞詐騙嗎?一個反方吐槽視角 | [knowledge/technology/ai-agents/foundations/loop-engineering-buzzword-critique.md](./knowledge/technology/ai-agents/foundations/loop-engineering-buzzword-critique.md) |
+| `LlQgkvNRS9s` | ChatGPT 廣告栈拆解:LLM 當編排者、確定性系統管錢、超時就丟 | [knowledge/technology/system-design/chatgpt-ads-stack-llm-orchestrator.md](./knowledge/technology/system-design/chatgpt-ads-stack-llm-orchestrator.md) |
 | `lnneAfJqd9M` | Skill 實戰:從製作到維護一份「agent 會自動觸發、產出穩定、人類維護得了」的 skill | [knowledge/technology/ai-agents/applications/building-claude-skills.md](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
 | `LPv1KfUXLCo` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `LPZh9BOjkQs` | 大型語言模型,簡單講(3Blue1Brown) | [knowledge/technology/llm-internals/architecture/llm-explained-3blue1brown.md](./knowledge/technology/llm-internals/architecture/llm-explained-3blue1brown.md) |
