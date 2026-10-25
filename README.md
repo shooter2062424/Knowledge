@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-338_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-339_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -110,7 +110,7 @@ flowchart LR
 | **JohnLu 談股(John Lu Talk Stock)** — K 線與技術分析短片 | 1 | [高位陰後陽/低位陽後陰口訣](./knowledge/investing/technical-analysis/high-yin-then-yang-low-yang-then-yin.md) |
 | **簡一聊交易** — 技術分析與形態交易 | 2 | [雙底雙頂:動能衰減](./knowledge/investing/technical-analysis/double-top-bottom-momentum.md) · [真假突破的四層證據](./knowledge/investing/technical-analysis/breakout-four-layers-of-evidence.md) |
 | **【CMoney理財寶】理財資優生** — 投資高手訪談 | 1 | [正期望值、手割分析與規則漏洞(ft. 馬克羊)](./knowledge/investing/strategy/positive-expectancy-rule-hunting-mark-yang.md) |
-| **風傳媒 下班經濟學 / The Storm Media** — 台股/投資 | 3 | [別再相信目標價(721)](./knowledge/investing/strategy/target-prices-institutional-secrets.md) · [孫慶龍 PE 五檔價(735)](./knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md) · [股癌選股心法](./knowledge/investing/strategy/gooaye-stock-picking-philosophy.md) |
+| **風傳媒 下班經濟學 / The Storm Media** — 台股/投資 | 4 | [壞膽固醇 160→55 與斑塊縮小(794,王宗道醫師)](./knowledge/health/cardiovascular/ldl-cholesterol-targets-plaque-regression.md) · [別再相信目標價(721)](./knowledge/investing/strategy/target-prices-institutional-secrets.md) · [孫慶龍 PE 五檔價(735)](./knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md) · [股癌選股心法](./knowledge/investing/strategy/gooaye-stock-picking-philosophy.md) |
 | **Caleb Writes Code** — agent harness | 15 | [PHP2Shell 兩個核心 RCE 與禁令被打穿](./knowledge/technology/ai-safety/php2shell-cve-2026-109618-embargo-leak.md) · [為什麼 RL 這麼難](./knowledge/technology/llm-internals/training/why-reinforcement-learning-is-hard-caleb.md) · [MiMo V2.6 非同步 RL 與技術報告(併入 MiMo 筆記 §十二)](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) · [Harness 演進史](./knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md) · [Pi Agent 極簡 harness](./knowledge/technology/ai-agents/foundations/pi-agent-minimal-harness.md) · [Graph Engineering 八分鐘](./knowledge/technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) · [Jalapeño 機架拓撲與 ASIC 賭注(併入跑分邊界筆記)](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) · [Fable 5.1 跑分方法論與訂閱層反面視角(併入 Fable 筆記)](./knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md) · [GPT-6 Astra 全面分析(合併整理)](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) · [Navier-Stokes 與一萬個 agent 的署名爭議](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) · [V4.1-Flash 架構深潛:Engram/CED/mHC(併入 DeepSeek 筆記)](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) · [Jev 七分鐘版:被忽略的自動化那一格(併入 Jev 筆記)](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) · [推論引擎演進:llama.cpp/vLLM/SGLang/TRT-LLM](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) · [Gemini 4 Argon 另一視角(併入 §8)](./knowledge/technology/ai-industry/gemini-4-argon-release-benchmarks-pricing.md) · [Haiku 5.5 小模型與 computer use](./knowledge/technology/ai-industry/claude-haiku-5-5-cheap-model-computer-use.md) · [AI 產出快過人類驗證(併入 Navier-Stokes 筆記)](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
 | **基地** — 半導體/AI 趨勢拆解 | 2 | [NVIDIA N1X vs x86](./knowledge/technology/ai-industry/nvidia-n1x-vs-x86.md) · [Sutton 行動認知 AI](./knowledge/technology/llm-internals/world-models/sutton-enactive-ai.md) |
 | **Redknot-乔红** — 動畫講硬核硬體/半導體原理 | 4 | [HBM 原理](./knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md) · [先進封裝](./knowledge/technology/ai-industry/advanced-packaging-explained.md) · [RAID 陣列/RAID 5 安全性](./knowledge/technology/system-design/raid-explained-why-raid5-unsafe.md) · [玻璃基板與 TGV(併入先進封裝第八節)](./knowledge/technology/ai-industry/advanced-packaging-explained.md) |
@@ -689,6 +689,11 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [你以為健康,其實天天慢性發炎:四個敵人與四個對策](./knowledge/health/wellness/chronic-inflammation-four-enemies.md) | 超加工食品/久坐/內臟脂肪/睡眠不足走四條路徑;只改一個或吞薑黃素沒用;驗 HS-CRP |
+
+### ❤️ cardiovascular(心血管)
+| 主題 | 一句話 |
+|---|---|
+| [壞膽固醇 160 降到 55:心肌梗塞的警訊、LDL 目標值,與斑塊為什麼能縮小(下班經濟學 794,王宗道醫師)](./knowledge/health/cardiovascular/ldl-cholesterol-targets-plaque-regression.md) | 典型警訊是**活動時一大片悶或喘、休息就好**,可延伸到下巴、上臂內側、膏肓;LDL 目標簡記 130/100/70/55;⭐⭐ 治療目的是**斑塊穩定甚至縮小**,降幅要 30–40% 以上;膽固醇約 80% 自體合成、飲食約降 20%;⚠️ 椰子油與加工食品的飽和/反式脂肪;紅麴勿與降膽固醇藥併用;口服藥一年後規律吃不到兩成 ⇒ 針劑選項;✅ 健保 2025-09 起極高風險目標 55;⚠️ 學會為節目公益合作夥伴;非醫療建議 |
 
 ---
 
