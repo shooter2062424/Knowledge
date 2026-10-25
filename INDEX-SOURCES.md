@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**375 個 YouTube video id**、**79 個 arXiv 編號**,涵蓋 **304 篇**筆記。
+> 統計:**376 個 YouTube video id**、**79 個 arXiv 編號**,涵蓋 **305 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(375 部,依 video id 排序)
+## YouTube(376 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -266,6 +266,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `pmWgyZM7mB8` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |
 | `PoQLjK2hlZk` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `PpeCur6fEXc` | 讓 AI agent 連續跑 27 小時:/goal 功能與「Evaluation 才是關鍵」 | [knowledge/technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md](./knowledge/technology/ai-agents/autonomy/long-running-agents-goal-evaluation.md) |
+| `PQj7cB4sqG4` | 麥當勞跌三成是一生一次的機會嗎?客流、加盟商與兩次歷史翻身 | [knowledge/investing/equity-research/mcdonalds-traffic-decline-franchisee-turnaround.md](./knowledge/investing/equity-research/mcdonalds-traffic-decline-franchisee-turnaround.md) |
 | `pR7teM31_wI` | AI 學會了裝傻和欺騙:為什麼現有 Safety Evaluation 跟不上大模型 | [knowledge/technology/ai-safety/safety-evaluation-crisis.md](./knowledge/technology/ai-safety/safety-evaluation-crisis.md) |
 | `pS_P2P0bO48` | RSA-260 被分解:一條推文、一次除法,全世界同時確認 —— 以及「可驗證性是一種設計」 | [knowledge/technology/system-design/rsa-260-factored-verifiability-as-design.md](./knowledge/technology/system-design/rsa-260-factored-verifiability-as-design.md) |
 | `ptFiH_bHnJw` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
