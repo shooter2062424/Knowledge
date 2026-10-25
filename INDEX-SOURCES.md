@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**376 個 YouTube video id**、**79 個 arXiv 編號**,涵蓋 **305 篇**筆記。
+> 統計:**379 個 YouTube video id**、**79 個 arXiv 編號**,涵蓋 **307 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(376 部,依 video id 排序)
+## YouTube(379 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -68,6 +68,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `4s-r0UA2iUM` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `4t8QcDdrL6Y` | AI 時代怎麼「讀」程式碼:6 個技巧(KodeKloud) | [knowledge/technology/ai-productivity/reading-code-ai-era-6-techniques.md](./knowledge/technology/ai-productivity/reading-code-ai-era-6-techniques.md) |
 | `5XeVLt9WejM` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |
+| `63_Y_8Cw7_U` | 別再叫 Claude「做專業一點」:把設計規則寫成 Skill,25 個技巧串成工作流 | [knowledge/technology/applied-ai/design/claude-design-25-tricks-design-rules-skill.md](./knowledge/technology/applied-ai/design/claude-design-25-tricks-design-rules-skill.md) |
 | `68sqg_knJqk` | Bill Gates〈AI 動盪時代〉長文導讀：工作、機器人稅、雙面刃、陪伴與「Human Reserved」 | [knowledge/technology/ai-industry/bill-gates-turbulent-ai-era-human-reserved.md](./knowledge/technology/ai-industry/bill-gates-turbulent-ai-era-human-reserved.md) |
 | `6bvEcpm72W0` | 給非技術人員的部署:為什麼 localhost 傳給朋友打不開,以及三個問題選平台 | [knowledge/technology/ai-productivity/deployment-for-vibe-coders-platform-selection.md](./knowledge/technology/ai-productivity/deployment-for-vibe-coders-platform-selection.md) |
 | `6d9s_hmXQX0` | llmfit:下載前先算——你的電腦跑得動哪個本地大模型、跑多快 | [knowledge/technology/llm-internals/inference/llmfit-local-model-hardware-fit.md](./knowledge/technology/llm-internals/inference/llmfit-local-model-hardware-fit.md) |
@@ -91,6 +92,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `9uq4FRJ0oEE` | 一萬個 agent 破解千禧年難題:Navier-Stokes、抄襲指控,與「誰該被署名」 | [knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
 | `_oDISo3B3xw` | 美債史詩級拋售:真正的變量不是 40 兆債務,是新任聯準會主席的「溝通方式」 | [knowledge/investing/strategy/us-treasury-selloff-warsh-communication-shift.md](./knowledge/investing/strategy/us-treasury-selloff-warsh-communication-shift.md) |
 | `_RD3iFDhuzs` | Karpathy 訪談:Software 3.0、Jagged Intelligence 與 Agentic Engineering | [knowledge/technology/ai-agents/foundations/karpathy-software-3-0.md](./knowledge/technology/ai-agents/foundations/karpathy-software-3-0.md) |
+| `_SVU3oC4JX8` | 別再叫 Claude「做專業一點」:把設計規則寫成 Skill,25 個技巧串成工作流 | [knowledge/technology/applied-ai/design/claude-design-25-tricks-design-rules-skill.md](./knowledge/technology/applied-ai/design/claude-design-25-tricks-design-rules-skill.md) |
 | `_xM8scs4_x4` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
 | `_yFen1B8hdU` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `a4IoNavG8jI` | Skill 實戰:從製作到維護一份「agent 會自動觸發、產出穩定、人類維護得了」的 skill | [knowledge/technology/ai-agents/applications/building-claude-skills.md](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
@@ -244,6 +246,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `mpGiFuRYrDk` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `msHyYioAyNE` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `MWNuu9m93dk` | 多 Agent 系統的資料一致性:為什麼數字越傳越亂,以及四層工程解法 | [knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md](./knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md) |
+| `Mx8I6etcyL0` | Kimi K3.1 Pro:Terminal-Bench 65.7 只差 Opus 5.5 0.7 分,但選型要看你的倉庫驗收 | [knowledge/technology/ai-industry/kimi-k3-1-pro-open-weight-coding-acceptance.md](./knowledge/technology/ai-industry/kimi-k3-1-pro-open-weight-coding-acceptance.md) |
 | `n8jL89H5d-c` | 第 135 期:藝術家的 AI IDE(ArtCraft)、互動式技術圖解 Skill(Anatomy)、組織多個 Agent 的工具(OpenRig)、生成原生 PPT 的工作流(PPT Master)與復刻 QQ 寵物(QQPet) | [knowledge/technology/github-weekly/issue-135.md](./knowledge/technology/github-weekly/issue-135.md) |
 | `nlNDzop6tBw` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [knowledge/technology/claude-code/output-style-communication-not-intelligence.md](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) |
 | `nLZ-C7bbZzs` | PLTR 財報後大漲 30%:市場真正在交易的不是業績,是「增速見頂」風險的釋放 | [knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md](./knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md) |
