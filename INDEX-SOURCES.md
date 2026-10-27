@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**383 個 YouTube video id**、**79 個 arXiv 編號**,涵蓋 **311 篇**筆記。
+> 統計:**384 個 YouTube video id**、**79 個 arXiv 編號**,涵蓋 **312 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(383 部,依 video id 排序)
+## YouTube(384 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -108,6 +108,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `b3aYWkBf7jg` | OpenCode Console 被攻破:AI 在進攻、AI 在拒守——密鑰放哪與「護欄不對稱」 | [knowledge/technology/ai-safety/opencode-console-breach-guardrail-asymmetry.md](./knowledge/technology/ai-safety/opencode-console-breach-guardrail-asymmetry.md) |
 | `b84VdIprZXA` | Opus 5.5 官方 Prompting Guide 十三點:effort 用 medium、刪掉「仔細思考」、講清終點與何時停(Gary Chen) | [knowledge/technology/claude-code/opus-5-5-prompting-guide-13-points.md](./knowledge/technology/claude-code/opus-5-5-prompting-guide-13-points.md) |
 | `B91bZL8wcAI` | 什麼是 AI Harness?兩種「harness」的差別 | [knowledge/technology/ai-agents/foundations/ai-harness-explained.md](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) |
+| `b9fvVzHgMbw` | 4090 算力翻倍?gpu-unlock-ada 解開 Tensor「半速鎖」:指令翻倍,但你的專案未必快 | [knowledge/technology/llm-internals/inference/gpu-unlock-ada-tensor-half-rate-override.md](./knowledge/technology/llm-internals/inference/gpu-unlock-ada-tensor-half-rate-override.md) |
 | `BAfRVpKIxZ4` | 交易的「贏家數學」:四個核心概念,以及一份完整的數學學習路線圖 | [knowledge/investing/strategy/trading-math-expectancy-variance-risk.md](./knowledge/investing/strategy/trading-math-expectancy-variance-risk.md) |
 | `bBMp5tLxShQ` | Shopify Helix:用「檢查點 + 四道關卡」讓 AI 寫完的東西過得了關,以及怎麼在 Claude Code 裡自己搭一套 | [knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md](./knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md) |
 | `Bhe3uhfEK6E` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
