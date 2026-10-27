@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**384 個 YouTube video id**、**79 個 arXiv 編號**,涵蓋 **312 篇**筆記。
+> 統計:**385 個 YouTube video id**、**79 個 arXiv 編號**,涵蓋 **313 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(384 部,依 video id 排序)
+## YouTube(385 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -196,6 +196,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `Hnf1ExYg3M8` | SpaceX 為什麼這時間點上市?Musk 在 JP Morgan 投資人訪談說了什麼 | [knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md](./knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md) |
 | `Hng-GqRfO1I` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `hR5ephowvLM` | AI Agent 工具調用一次講清:從 ReAct → Function Calling → MCP → CLI | [knowledge/technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md](./knowledge/technology/ai-agents/foundations/function-calling-mcp-cli-tool-evolution.md) |
+| `huzZi422Ni0` | 颱風假躲過重挫,接下來補跌還是主跌?黃培碩用波浪結構看大盤、台積電與個股(2026-10-27) | [knowledge/investing/technical-analysis/taiex-elliott-wave-relay-pattern-huang-20261027.md](./knowledge/investing/technical-analysis/taiex-elliott-wave-relay-pattern-huang-20261027.md) |
 | `HyHKizkVuVM` | Skill 不是能力,是能力的施工圖:Agent 交不出活的三層工程棧「跑 / 做 / 驗」 | [knowledge/technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md](./knowledge/technology/ai-agents/foundations/agent-skill-three-layer-run-do-verify.md) |
 | `hZ6fSjPGQWM` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
 | `I-PMiyYZkrs` | 你以為健康,其實天天慢性發炎:四個敵人與四個對策 | [knowledge/health/wellness/chronic-inflammation-four-enemies.md](./knowledge/health/wellness/chronic-inflammation-four-enemies.md) |
