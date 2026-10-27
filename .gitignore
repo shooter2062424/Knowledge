@@ -35,3 +35,6 @@ research/*/data/
 
 # --- 使用者素材收件匣(大檔,只整理成筆記,本身不入庫) ---
 new/
+
+# --- 台股清單快取(scripts/market/tw_stock_lookup.py update 產生) ---
+scripts/market/data/
