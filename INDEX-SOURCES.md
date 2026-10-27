@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**385 個 YouTube video id**、**79 個 arXiv 編號**,涵蓋 **313 篇**筆記。
+> 統計:**386 個 YouTube video id**、**79 個 arXiv 編號**,涵蓋 **314 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(385 部,依 video id 排序)
+## YouTube(386 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -222,6 +222,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `KeRBNTOITEo` | 十大恐怖主管特質:從竹科裸辭看「只做向上管理」如何逼走一個好員工 | [knowledge/career/workplace/ten-toxic-manager-traits.md](./knowledge/career/workplace/ten-toxic-manager-traits.md) |
 | `KG9M-8mvq7Q` | 五大風險集中爆發?把「真風險」和「導火線」分開:加息、美債、資料中心、中美談判、Anthropic 上市 | [knowledge/investing/strategy/us-stocks-five-risks-2026q4-hike-treasury-midterm.md](./knowledge/investing/strategy/us-stocks-five-risks-2026q4-hike-treasury-midterm.md) |
 | `kGYFSDd-ZVY` | Loop Engineering 實務:怎麼設計、什麼任務值得、失控的三個坑(Gary Chen) | [knowledge/technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md](./knowledge/technology/ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md) |
+| `KjLmBefKvv4` | Agent Harness 已死?模型吃掉 harness、harness 去開下一片疆土 | [knowledge/technology/ai-agents/foundations/agent-harness-dead-data-flywheel-katz.md](./knowledge/technology/ai-agents/foundations/agent-harness-dead-data-flywheel-katz.md) |
 | `KNP9Mr1rUQY` | 你不是不會寫 Prompt,是不會「定義任務」:五個欄位把需求寫成 AI 接得住的 brief | [knowledge/technology/ai-productivity/defining-tasks-not-prompts.md](./knowledge/technology/ai-productivity/defining-tasks-not-prompts.md) |
 | `KOAKRtBHecs` | OpenAI DevDay 2026:主角不是模型,是常駐 agent「dots」——以及 Sol、Ultrafast、Decisions API 與 Codex 上雲 | [knowledge/technology/ai-industry/openai-devday-2026-dots-sol-codex.md](./knowledge/technology/ai-industry/openai-devday-2026-dots-sol-codex.md) |
 | `KOfeTp-9PI8` | 網路安全憑什麼成為 AI 新王?Agent 時代的兩大需求與兩大趨勢(美投君) | [knowledge/investing/equity-research/cybersecurity-ai-agent-identity-platformization.md](./knowledge/investing/equity-research/cybersecurity-ai-agent-identity-platformization.md) |
