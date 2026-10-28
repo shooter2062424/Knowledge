@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-347_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-348_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -153,6 +153,7 @@ flowchart LR
 | **人蔘 Try Catch** — AI 工程落地短講 | 1 | [Jev 落地場景與終端機守門員(併入 Jev 筆記)](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | **仕宇JavaPub** — GitHub 開源專案推薦 | 1 | [五個開源英語學習專案(已讀原始碼)](./knowledge/technology/applied-ai/language-learning/five-open-source-english-learning-tools.md) |
 | **AI LABS** — Claude Code 工作流實作(⚠️ 含業配與付費社群) | 3 | [EGM:大象寫規格、金魚零記憶挑毛病](./knowledge/technology/ai-agents/applications/elephant-goldfish-model-egm-spec-review.md) · [Shopify Helix 檢查點與四道關卡](./knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md) · [Agit:對話的版本控制](./knowledge/technology/ai-agents/applications/agit-version-control-for-agent-sessions.md) |
+| **轩辕的编程宇宙** — LLM 原理動畫講解 | 1 | [100 萬上下文為什麼貴又會變笨:MHA 到 CSA](./knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md) |
 
 ### ✍️ 個人/部落格/官方
 
@@ -450,6 +451,7 @@ flowchart LR
 | [AI 思維鏈:為什麼有用、怎麼演進,以及「它是幻象嗎?」(程序员老王,兩支合併)](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) | ⭐⭐⭐ 每個 token 計算量固定、但 token 數可變 ⇒ 寫步驟=多計算;⭐⭐ 演進線 Show Your Work→Self-Consistency→Verifiers→STaR→PRM→GRPO(⚠️ 早期只看答案不看過程);⚠️⚠️ Zhao 等 2025 DataAlchemy:任務/長度/格式一超出分布就失靈,更像模式匹配;✅ 8 篇論文核實 |
 | [大模型怎麼「看懂」圖片:ViT 切塊、編碼器與多模態接法(程序员老王)](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) | ⭐ 像素太多且無語意;⭐⭐ 224×224 切 16×16 共 196 塊(每塊 768 數),Transformer 編碼器讓每塊參考全圖 ⇒ 狗眼睛;編碼器雙向適合總結;補 patch embedding、位置編碼、CLIP/LLaVA projector;📌 像素數口誤更正 |
 | [多頭注意力用人話講:語法表、需求表、內容表就是 K、Q、V(程序员老王)](./knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md) | ⭐ 「我用毒毒毒蛇」:Embedding 是標籤分數;⭐⭐⭐ K=我是什麼、Q=我想找什麼、V=降維內容,softmax(QKᵀ/√d_k)·V;GPT 加 Mask、BERT 不加;多頭=多視角 concat、疊幾十層;附 NumPy 單頭實作 |
+| [100 萬上下文為什麼貴、又為什麼會變笨?從 MHA、MQA、GQA 到 MLA、DSA、CSA(轩辕的编程宇宙 + DeepSeek-V2 論文)](./knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md) | ⭐⭐⭐ 六招是**同一問題的不同刀法**:KV cache 不重算 → MQA/GQA **少存幾套** → MLA **每套壓窄** → DSA **只挑重要的看**(indexer 要的是召回率)→ CSA **先把歷史壓短再挑**;MLA 橫著壓、CSA 豎著壓;⭐ 論文補正:**MLA 比 MHA 更好,不是「差不多」**(d_c=4d_h、等於 2.25 組 GQA,Table 9 大模型快取 860.2K→34.6K 元素);示意計算 32 層 32 頭 128 維:MHA 100 萬 token 約 524 GB、MLA 約 37 GB;推論時其實吸收矩陣不真展開;⚠️ 無字幕 Whisper 轉錄,字幕還原已列 |
 | [MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王)](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) | ⭐ FFN 分不出老王愛與戀愛 ⇒ 注意力融上下文 ⇒ Dense 堆參數;⭐⭐⭐ MoE 拆小專家 + 路由器選 top-k + 共享專家(DeepSeek-V3 256 選 8);✅ DeepSeekMoE 145B 啟用 22.2B ≈ 67B Dense,2 倍空間換 3 倍速度;附 PyTorch MoE 層 |
 | [用 Transformers 在本機跑 DeepSeek-R1 蒸餾模型:載入、padding、chat template(程序员老王)](./knowledge/technology/llm-internals/inference/transformers-local-deepseek-r1-distill.md) | ⭐⭐ PyTorch 給積木、Transformers 給各家完整架構(結果仍是 nn.Module);批次推論要 padding、padding_side=left、attention_mask;⭐⭐⭐ 直接丟問題會胡說,需 apply_chat_template + add_generation_prompt;附可跑腳本與除錯順序 |
 
