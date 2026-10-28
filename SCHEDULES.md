@@ -284,7 +284,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
    grep -rlF --include=*.md -- "<id>" knowledge/
    ⚠️⚠️⚠️ **範圍必須是 knowledge/,不可用 `.`** —— SCHEDULES.md 存有待處理 video id 清單,對整個 repo 搜尋會讓每一支都誤報 SEEN 且完全不報錯(2026-09-03 踩過,18 支全誤報)。
    ⚠️ -F fixed-string、-- 終止選項解析;--include 必須放在 -- 之前。判斷用 exit code:0=SEEN、非0=NEW。不要用 `grep … | head -1`。逐支直接 grep,不要繞暫存檔。
-   ⚠️⚠️ **`BbofEyeE2Ek` 是頻道會員限定影片**(level: Gary AI 實戰營),`extract_info` 直接報 members-only、拿不到 metadata 或字幕,**永久跳過不要重試**。⚠️ `roUfF8nUYNo`(2026-09-27)、`JctGH-SOYBA`(2026-09-29)、`OtxkHfjWeaU`(2026-10-21)同為會員限定,永久跳過;該頻道新片常搭配一支會員專屬片。日後若再遇到 members-only 就同樣跳過並記錄。
+   ⚠️⚠️ **`BbofEyeE2Ek` 是頻道會員限定影片**(level: Gary AI 實戰營),`extract_info` 直接報 members-only、拿不到 metadata 或字幕,**永久跳過不要重試**。⚠️ `roUfF8nUYNo`(2026-09-27)、`JctGH-SOYBA`(2026-09-29)、`OtxkHfjWeaU`(2026-10-21)、`ftEBJkNNsRk`(2026-10-30)同為會員限定,永久跳過;該頻道新片常搭配一支會員專屬片。日後若再遇到 members-only 就同樣跳過並記錄。
 3. 未整理的:優先抓官方字幕(yt-dlp --write-subs --sub-langs zh-Hant/zh-TW/zh/zh-Hans/en),無官方字幕再抓自動字幕,都無則走 Whisper(下載音訊 --remote-components ejs:github + faster-whisper small/int8 zh,vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3、beam_size=5)。⚠️ 遇 HTTP 403 用同參數重試(最多 3 次),不要改 player_client;連續 3 次全 403 且 log 有 `n challenge solving failed` ⇒ 先 python -m pip install -U yt-dlp。⚠️ 字幕下載遇 HTTP 429 就重試(通常第 2–3 次會過)。⚠️ 不要用 `yt-dlp … | tail -1`。逐字稿寫暫存 .txt 再 Read;轉完掃結尾有無同句重複數十行(幻覺迴圈)。
    ⚠️⚠️ **Whisper 一律用「前景」跑,不要用 `nohup ... &` 背景跑** —— 2026-09-13/14 連續兩天踩到:背景 shell 環境變數不完整,torch/numpy import 會失敗(`_ARRAY_API not found` 後直接 Traceback)。前景執行若超過 600s 會自動轉背景,再用 TaskOutput 等它完成即可。
    ⭐ **前景跑時 stderr 仍會印 `Failed to initialize NumPy: _ARRAY_API not found` 的 UserWarning,那只是警告、轉錄會正常完成**(2026-09-19 確認)。看到它不要以為失敗,看最後有沒有印出 segment 行數為準。
@@ -501,6 +501,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 - ⚠️ **2026-09-23 判定不整理**:白白说 `ITniwzQy9uc`(Jev 3 分鐘入門,需 Whisper)—— **Jev 已累積 5 個來源、筆記 64 KB,3 分鐘入門片不可能有新內容,依「先判斷撞題」規則直接跳過,不花 Whisper**。
 - ⭐ **2026-09-22 巡檢新發現(尚未處理)**:白白说 `Ru_YVdveirY`(30+ 程式設計師轉行的四個 AI 方向,約 13.6 分鐘,需 Whisper)。
 - ⭐ **2026-09-19 巡檢新發現(尚未處理)**:白白说 `JNVK-fd2pH4`(09-18 新片,從 Token 到 Agent 底層技術全拆解,約 19 分鐘,需 Whisper)、小Lin说 `fKoWrF49Qo8`(⚠️ **2026-07-23 舊片**,川普收入曝光,有官方繁中字幕)、Redknot `N3o8AcflmO4`(⚠️ **2026-05-12 舊片**,磁軸鍵盤原理,無字幕需 Whisper)。
+- ⚠️⚠️ **Gary Chen `ftEBJkNNsRk` 同為會員限定(2026-10-30 發現,與 RAG 影片 `YM-6-QhGHgI` 同日上傳),永久跳過。**
 - ⚠️⚠️ **Gary Chen `OtxkHfjWeaU` 同為會員限定(2026-10-21 發現),永久跳過。**
 - ⚠️⚠️ **Gary Chen `JctGH-SOYBA` 同為會員限定(2026-09-29 發現),永久跳過。**
 - ⚠️⚠️ **Gary Chen `roUfF8nUYNo` 同為會員限定(2026-09-27 發現,level: Gary AI 實戰營),永久跳過**;該頻道新片常搭配一支會員專屬片,遇到 members-only 一律跳過。
@@ -545,6 +546,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-10-30 | Gary Chen 新增 1 篇:`YM-6-QhGHgI` → 從零搞懂 RAG(官方 zh-TW 字幕;標明 Skool 與付費實戰營推廣、不轉述付費內容)。`ftEBJkNNsRk` 為會員限定,永久跳過。 |
 | 2026-10-28(重建) | **使用者要求「重建一下」**:10-24 建的五個排程(`f7452ef1`/`919a6a5e`/`3006f305`/`ade62da6`/`a412e0d2`)全刪,依本檔 prompt 原文重建為 `f1cb9681`/`44aadf36`/`90610a0e`/`d7df861d`/`ce69a81b`,**約 11-04 到期**;gooaye 照舊不建。當日五個排程皆已跑過,不需補檢。 |
 | 2026-10-28 | 巡檢產出 1 新篇 + 1 增補(零 Whisper):**Why QQ** `0hIA9sJg4CA` → Anthropic S-1 三張表與 Agent 單位成本;**Caleb Writes Code** `bi2np7qc3Lw` → 併入 Kimi K3.1 Pro 筆記 §十。新存量:白白说大模型 `wTO77RICB1U`。 |
 | 2026-10-27 | 巡檢產出 1 新篇(零 Whisper):**Why QQ** `b9fvVzHgMbw` → gpu-unlock-ada 解開 Tensor 半速鎖(clone repo 核實,補功耗與量化 MoE 無加速)。無新存量。 |

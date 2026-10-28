@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**390 個 YouTube video id**、**83 個 arXiv 編號**,涵蓋 **317 篇**筆記。
+> 統計:**391 個 YouTube video id**、**84 個 arXiv 編號**,涵蓋 **318 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(390 部,依 video id 排序)
+## YouTube(391 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -397,6 +397,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `yF2BY8kQfyo` | HBM 高頻寬記憶體原理:矽中介層、TSV、堆疊鍵合一次看懂 | [knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md](./knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md) |
 | `yHNp_rT6uEo` | Jalapeño 首批跑分:推理晶片的評判標準換了,以及怎麼讀廠商自己給的數字 | [knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) |
 | `yLOtgJwjhZ8` | 打造「0 人 AI 公司」:用 Hermes Agent + Paperclip 讓 AI 互相協作 | [knowledge/technology/ai-agents/applications/zero-person-ai-company.md](./knowledge/technology/ai-agents/applications/zero-person-ai-company.md) |
+| `YM-6-QhGHgI` | 從零搞懂 RAG:用「巴菲特分身」走完 R、A、G 三步,以及答錯時的排查順序 | [knowledge/technology/ai-agents/memory-retrieval/rag-from-scratch-buffett-clone-gary.md](./knowledge/technology/ai-agents/memory-retrieval/rag-from-scratch-buffett-clone-gary.md) |
 | `Ynv_WYO_slw` | Understand-Anything vs Graphify:把 codebase 變成知識圖譜給 AI 查,實測對比 | [knowledge/technology/dev-tools/understand-anything-vs-graphify.md](./knowledge/technology/dev-tools/understand-anything-vs-graphify.md) |
 | `yOExQX0j19g` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
 | `YRZnUoGrsh0` | 五個開源英語學習專案:從聽力訓練流程到「把每天看的英文網頁變成教材」 | [knowledge/technology/applied-ai/language-learning/five-open-source-english-learning-tools.md](./knowledge/technology/applied-ai/language-learning/five-open-source-english-learning-tools.md) |
@@ -421,7 +422,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(83 篇,依編號排序)
+## arXiv(84 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -432,6 +433,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `1810.04805` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `1911.02150` | 100 萬上下文為什麼貴、又為什麼會變笨?從 MHA、MQA、GQA 到 MLA、DSA、CSA | [knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md](./knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md) |
 | `2002.05202` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
+| `2005.11401` | 從零搞懂 RAG:用「巴菲特分身」走完 R、A、G 三步,以及答錯時的排查順序 | [knowledge/technology/ai-agents/memory-retrieval/rag-from-scratch-buffett-clone-gary.md](./knowledge/technology/ai-agents/memory-retrieval/rag-from-scratch-buffett-clone-gary.md) |
 | `2006.11239` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
 | `2007.00072` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `2010.11929` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
