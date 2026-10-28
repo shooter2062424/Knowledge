@@ -2,6 +2,8 @@
 
 > 整理自 YouTube 頻道 **Why QQ(為什麼叫 QQ)**〈[KIMI K3.1 Pro 能减少返工吗？65.7分照样要验收](https://www.youtube.com/watch?v=Mx8I6etcyL0)〉(2026-10-24,約 10 分鐘,官方簡中字幕)。
 >
+> ➕ **第十節增補**:**Caleb Writes Code**〈[Kimi K3.1 Pro explained in 6min..](https://www.youtube.com/watch?v=bi2np7qc3Lw)〉(2026-10-27,約 6 分鐘,英文自動字幕),從算力、推論分發與產品定位的角度補充。
+>
 > ✅ **已讀 Kimi 官方技術部落格原文對照**(〈Kimi K3.1 Pro Tech Blog: Advancing Open Intelligence〉)。影片說明欄自述資料來自官方部落格、API 文件、官方 X 發布帖與 Hacker News,**內部測試一律按官方自述處理**。部落格的跑分表是圖片,部分數字(Terminal-Bench Science、BenchCAD 無工具分數)本筆記沒能從文字版核對,見第九節。
 
 ---
@@ -244,6 +246,44 @@ flowchart TB
 
 ---
 
+## 十、增補:從算力與產品定位看 K3.1 Pro(Caleb Writes Code)
+
+Caleb 的角度和 Why QQ 不同,不談怎麼驗收,而是問:**在算力短缺的時候做最大的開放模型,Moonshot 卡在哪裡?**
+
+### 1. 算力:模型越大,越吃最新的卡
+
+- 他引用 SemiAnalysis 的圖表:**GPU 租金又在上漲**。
+- 2.8T 參數的模型,在 Hopper(H100 / H200)多節點上跑雖然可行,但推論複雜度與開銷讓它不實際;比較合理的是放在 **Blackwell(B200 / B300)**,而這類卡的供給更緊。
+- 三個月內從 K3 練出新 checkpoint,代表訓練效率下了很大功夫。
+
+### 2. 推論分發:中國模型靠美國推論商
+
+- 前一代 K3 在 OpenRouter 上的推論供應商幾乎全是美國公司(Amazon Bedrock、DigitalOcean、Together AI、Fireworks、Baseten)。
+- ⇒ 做這麼大的模型,等於**要求整個生態系在算力短缺下幫你分發**。
+
+### 3. 後訓練:算力預算正從預訓練移往 RL
+
+- 他引用的估算:前沿實驗室 2026 年第四季**超過 50% 的算力預算**投在後訓練與 RL。
+- K3.1 和 K3 架構相同,進步主要來自後訓練 ⇒ 後訓練本身就是很大的算力成本(對應本文第二節的「大規模聯合 RL」)。
+- **Artificial Analysis 綜合分數 +11 分,代價是平均多生成約 15% 的 token。**(⭐ 和第五節「始終思考、推理 token 也計費」是同一件事:分數提升有一部分是用更多 token 換來的)
+
+### 4. 網安:刻意削弱,對開放權重是兩難
+
+- 他把官方「中期訓練與後訓練都移除網安資料」(第六節)解讀為:**故意讓模型在網安上變弱**,在開放模型可能被監管的時間點,這是降低分發風險的避險做法。
+- 但開放權重的目的是擴大採用,網安能力較弱反而可能違背這一點。
+- 他舉的例子:7 月 Hugging Face 入侵事件中,鑑識團隊因為**前沿專有模型一直拒絕分析日誌**,最後改用 GLM 開源模型才找到根因。⇒ 開放模型在防守端有實際用途。
+  - ⚠️ 補正:Caleb 說是「OpenAI 內部團隊」用了 GLM;依本庫 [[rsi-recursive-self-improvement-anthropic]] §8.6 的整理,**是 Hugging Face 在鑑識階段被專有模型拒絕,改用 GLM-5.2 量化版**。該事件「約 700 個 agent 協同」的說法另有兩種正式出處互相矛盾,詳見該節。
+
+### 5. 定位:卡在中間的尷尬
+
+- 這是 Moonshot **第一次在模型名加上「Pro」**,暗示之後可能有 **Flash** 版(DeepSeek、小米、Z.AI 都已採用 Flash / Pro 雙線)。
+- Flash 版能用較低營運成本擴大採用。
+- Caleb 的判斷:**最便宜的是 DeepSeek,性能領先的是 Opus 和 GPT-6**;Moonshot 做了最大的模型卻卡在中間,兩端都有更便宜或更聰明的選擇。
+
+⚠️ **未能核實**:SemiAnalysis 的 GPU 租金圖、「2026 Q4 後訓練占算力 >50%」、Artificial Analysis「多 15% token」三項,本筆記沒有讀到原始圖表。
+
+---
+
 ## 相關筆記
 
 - [[gpt-6-astra-token-efficiency-and-harness]]:Astra 的 token 效率與 harness 之爭,本文對照組之一。
@@ -261,3 +301,4 @@ flowchart TB
 - Unite.AI,〈Moonshot AI Releases Kimi K3.1 Pro, First Model in New K3.1 Series〉: https://www.unite.ai/moonshot-ai-releases-kimi-k3-1-pro-first-model-in-new-k3-1-series/
 - OpenRouter,Kimi K3.1 Pro 頁面: https://openrouter.ai/moonshotai/kimi-k3.1-pro
 - Terminal-Bench 排行榜: https://www.tbench.ai/
+- YouTube:Caleb Writes Code〈Kimi K3.1 Pro explained in 6min..〉 https://www.youtube.com/watch?v=bi2np7qc3Lw (2026-10-27,英文自動字幕;第十節)
