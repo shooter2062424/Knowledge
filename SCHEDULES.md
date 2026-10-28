@@ -32,7 +32,7 @@
 | 5 | 未涵蓋頻道巡檢 | `12 8 * * *`(每日 08:12) | Why QQ / Caleb / YAHA學堂 / 白白说大模型 / 小Lin说 / Redknot-乔红 / Nick 美股咖啡館 |
 | 6 | ⭐ `new/` 收件匣 | `37 8 * * *`(每日 08:37) | 使用者丟進 `new/` 的大檔素材,整理完改名 `done-`(2026-09-29 新增) |
 
-**最近一次重建:2026-10-24(使用者要求重建;gooaye 停用不再建,其餘五個全刪重建,到期日統一約 10-31)。** job id:①GitHub Weekly `f7452ef1` ②Gary Chen `919a6a5e` ④美投君 `3006f305` ⑤巡檢 `ade62da6` ⑥`new/` 收件匣 `a412e0d2`。
+**最近一次重建:2026-10-28(使用者要求「重建一下」;gooaye 停用不再建,其餘五個全刪重建,到期日統一約 11-04)。** job id:①GitHub Weekly `f1cb9681` ②Gary Chen `44aadf36` ④美投君 `90610a0e` ⑤巡檢 `d7df861d` ⑥`new/` 收件匣 `ce69a81b`。
 本 session job id:①`933e4954`(GitHub Weekly 06:33) ②`fc522f3e`(Gary Chen 07:10) ④`327cd9c9`(美投君 07:50) ⑤`0834d5c8`(巡檢 08:12) ⑥`8835b076`(`new/` 收件匣 08:37)。③ gooaye 已停用。
 
 上一輪(2026-10-18):①`bef164f2` ②`36b385a0` ③`38a9bdca` ④`7680d510` ⑤`45fba139` ⑥`321c3c57`(已全刪)。
@@ -545,6 +545,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-10-28(重建) | **使用者要求「重建一下」**:10-24 建的五個排程(`f7452ef1`/`919a6a5e`/`3006f305`/`ade62da6`/`a412e0d2`)全刪,依本檔 prompt 原文重建為 `f1cb9681`/`44aadf36`/`90610a0e`/`d7df861d`/`ce69a81b`,**約 11-04 到期**;gooaye 照舊不建。當日五個排程皆已跑過,不需補檢。 |
 | 2026-10-28 | 巡檢產出 1 新篇 + 1 增補(零 Whisper):**Why QQ** `0hIA9sJg4CA` → Anthropic S-1 三張表與 Agent 單位成本;**Caleb Writes Code** `bi2np7qc3Lw` → 併入 Kimi K3.1 Pro 筆記 §十。新存量:白白说大模型 `wTO77RICB1U`。 |
 | 2026-10-27 | 巡檢產出 1 新篇(零 Whisper):**Why QQ** `b9fvVzHgMbw` → gpu-unlock-ada 解開 Tensor 半速鎖(clone repo 核實,補功耗與量化 MoE 無加速)。無新存量。 |
 | 2026-10-26 | 巡檢產出 2 新篇(零 Whisper):**Why QQ** `IBpVGtty3iU` → UE 5.8 官方 MCP 用 Claude 做遊戲的真實水位(對照 Epic README 與 Puget 原文);**YAHA學堂** `QQqUj0ZB2Ro` → VHS 終端錄屏腳本(clone repo 核實)。無新存量。 |
