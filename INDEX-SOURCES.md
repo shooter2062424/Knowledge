@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**388 個 YouTube video id**、**79 個 arXiv 編號**,涵蓋 **315 篇**筆記。
+> 統計:**389 個 YouTube video id**、**79 個 arXiv 編號**,涵蓋 **316 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(388 部,依 video id 排序)
+## YouTube(389 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -385,6 +385,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `XTCP1qoa3cc` | Google Agentic Engineering 課程 Day 2+3:MCP、A2A、AP2 三協定,與 Skill 上線的四地雷四防線 | [knowledge/technology/ai-agents/foundations/google-agentic-engineering-day2-3.md](./knowledge/technology/ai-agents/foundations/google-agentic-engineering-day2-3.md) |
 | `xu8g7ZhavUc` | 高油價會不會讓通膨失控?油價傳導四步檢查法(2026-10 美股大跌) | [knowledge/investing/strategy/oil-price-pass-through-inflation-checklist.md](./knowledge/investing/strategy/oil-price-pass-through-inflation-checklist.md) |
 | `XvmixEXPT3Q` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
+| `xxf6D9jynFw` | Elephant-Goldfish Model(EGM):大象寫規格,金魚在「零記憶」下挑毛病 | [knowledge/technology/ai-agents/applications/elephant-goldfish-model-egm-spec-review.md](./knowledge/technology/ai-agents/applications/elephant-goldfish-model-egm-spec-review.md) |
 | `xzrvAERmvRk` | Cross-Model Review:用 stop hook + skill + marker 讓 Claude 跟 Codex 自動互審(自建 harness) | [knowledge/technology/ai-agents/applications/cross-model-review-claude-codex-harness.md](./knowledge/technology/ai-agents/applications/cross-model-review-claude-codex-harness.md) |
 | `Y2yElMkwH_A` | Claude Code Hooks 完全指南:CLAUDE.md 是提醒紙條,Hook 才是自動門 | [knowledge/technology/claude-code/claude-code-hooks-complete-guide.md](./knowledge/technology/claude-code/claude-code-hooks-complete-guide.md) |
 | `Y31OgSV-S8k` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |

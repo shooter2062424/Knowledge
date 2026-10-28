@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-346_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-347_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -152,7 +152,7 @@ flowchart LR
 | **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
 | **人蔘 Try Catch** — AI 工程落地短講 | 1 | [Jev 落地場景與終端機守門員(併入 Jev 筆記)](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | **仕宇JavaPub** — GitHub 開源專案推薦 | 1 | [五個開源英語學習專案(已讀原始碼)](./knowledge/technology/applied-ai/language-learning/five-open-source-english-learning-tools.md) |
-| **AI LABS** — Claude Code 工作流實作(⚠️ 含業配與付費社群) | 2 | [Shopify Helix 檢查點與四道關卡](./knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md) · [Agit:對話的版本控制](./knowledge/technology/ai-agents/applications/agit-version-control-for-agent-sessions.md) |
+| **AI LABS** — Claude Code 工作流實作(⚠️ 含業配與付費社群) | 3 | [EGM:大象寫規格、金魚零記憶挑毛病](./knowledge/technology/ai-agents/applications/elephant-goldfish-model-egm-spec-review.md) · [Shopify Helix 檢查點與四道關卡](./knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md) · [Agit:對話的版本控制](./knowledge/technology/ai-agents/applications/agit-version-control-for-agent-sessions.md) |
 
 ### ✍️ 個人/部落格/官方
 
@@ -379,6 +379,7 @@ flowchart LR
 | [Anthropic 用 949 個 agent session 找到新酶系統 ART:科研 harness 分工與「模型會 ≠ Agent 會」(Why QQ)](./knowledge/technology/ai-agents/applications/anthropic-art-enzyme-discovery-research-harness.md) | ⭐⭐ Worker/Supervisor/Curator/Editor + 後續任務隊列(119 任務中 98 個由線索長出);⭐⭐⭐ **同一 harness 重跑 10 次全錯過**、**DNA 直給九成以上 vs 給檔案+工具最低 32%**、**39% 嘗試沒連續讀滿 200 bp** ⇒ 瓶頸在推理之前;✅ 已讀 40 頁技術報告:跑的是 **Mythos 5**、**2.156 億 token 有 88% 是寫入快取**、模型內部有對重複 DNA 反應的可解釋訊號;⚠️ 預印本、功能未知,「下一個 CRISPR」是標題黨 |
 | [一句 prompt 做出 iPhone 宣傳片:Opus 5.5 vs Opus 5,差在「會挑工具」與「會回頭檢查」(Gary Chen)](./knowledge/technology/ai-agents/applications/opus-5-5-video-agent-tool-selection-self-check.md) | ⭐⭐ Opus 5.5 盤點環境用 Blender 建模、等算圖時用 Python 配樂與 OpenCV 光暈、Remotion 剪接;⭐⭐⭐ 截圖自我檢查 42 次 vs 14 次,「一個把東西做出來,一個想把東西做好」;✅ 與官方公告「視覺最強、會創意地自我驗證」一致;⚠️ 單人單次實測、作者推廣 Skool |
 | [Shopify Helix:用「檢查點 + 四道關卡」讓 AI 寫完的東西過得了關(AI LABS)](./knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md) | ⭐⭐⭐ **「嘗試可以是錯的;在它變對之前,不准交付」**(Shopify 原文);⭐⭐ 檢查點**由簡到難**(先骨架),小到放得進小 context;⭐⭐⭐ **四道關卡**:CLI 行為測試 → Gemini 比對截圖 → **兩個獨立審查者都核准** → 工程師核准;⭐⭐ **「規則是建議,關卡是強制」** —— 用 Stop hook exit code 2 讓 agent 不能提早收工(⚠️ 本文補:要檢查 `stop_hook_active` 防無限迴圈);⚠️⚠️ **補正:300 畫面的主 App 仍在遷移中,12 週完成的是較小的 Shop App;方向是從 React Native 回到原生**;⚠️ **重建版把「兩個獨立審查者」改成「一審一修」,少了第二個獨立判斷** |
+| [Elephant-Goldfish Model(EGM):大象寫規格,金魚在「零記憶」下挑毛病(AI LABS + Google repo 原始碼)](./knowledge/technology/ai-agents/applications/elephant-goldfish-model-egm-spec-review.md) | ⭐⭐⭐ 三角色:**大象**(有脈絡、起草)/ **金魚**(零對話記憶的子 agent,看不到聊天就不會附和)/ **你**(取捨拍板);流程 Bootstrap→Brainstorm(六鏡頭)→Draft(逐段)→**Review 五階段 5 到 9 必須依序**→人類 PR→實作→**Drift report 每週**;備選方案是硬性規定;⭐ 補:現行官方是外掛安裝(`egm@egm`)、Claude Code 需 2.1.271+、不能開新子 agent 就停審;Google FAQ:小修別用、完成流程不等於提升生產力;⚠️ 含 Hedra 業配與付費社群推廣 |
 | [Agit:把 Git 那套用在「和 agent 的對話」上,以及影片沒講的兩個坑(AI LABS)](./knowledge/technology/ai-agents/applications/agit-version-control-for-agent-sessions.md) | ⭐⭐ **一個 session 一條 branch、一個回合一個 commit**,可 push 分享、cherry-pick 別段對話、**`--as codex` 直接把 Claude Code 的對話帶進 Codex**(有損:思考過程帶不過去);⭐ revert 只改 agent 看到的 VIEW,不動程式碼也不動原始 log;✅ **已 clone 讀文件**,⚠️⚠️ **兩處補正**:① 影片說 Agit 會漏掉普通單字密碼、要靠他們的付費 skill —— **其實 Agit 內建 `agit secrets add`**,不看格式做子字串比對、存加密保險庫;且事後登記雖不移除舊明文,**push 會檢查整個歷史並擋下**;② **同一台電腦上 revert 後直接 resume,revert 可能沒生效**(零複製路徑繞過 VIEW) |
 | [Skill 實戰:從製作到維護的完整指南](./knowledge/technology/ai-agents/applications/building-claude-skills.md) | 給心法不給死步驟;references / scripts / subagent;§8 官方最佳實踐七條(目錄、自由度、多模型測試、一層引用、checklist、回饋迴圈、依賴)逐條核實與補正;⭐ §9(白白说大模型):**別再造 agent,改造 skill**——三痛點(管理成本、聰明不專業、智能體動物園)、新員工發入職手冊比喻、MCP 管連接 / skill 管做法、四種角色分工與企業治理四件事;⚠️ 內容取材自 2025-11 Anthropic 演講,非新動向 |
 | [Man Group:用 Claude Skills 治理打通系統化交易](./knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md) | 組織 context 是 IP;skill 治理解鎖企業級 |
