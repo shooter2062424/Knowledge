@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**394 個 YouTube video id**、**87 個 arXiv 編號**,涵蓋 **321 篇**筆記。
+> 統計:**395 個 YouTube video id**、**87 個 arXiv 編號**,涵蓋 **322 篇**筆記。
 
 ---
 
@@ -24,10 +24,11 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(394 部,依 video id 排序)
+## YouTube(395 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
+| `-5mwnyjP5Jo` | AI Agent 入門課:五大核心要素、知識庫(RAG)與 Cherry Studio / 騰訊 ima 實操 | [knowledge/technology/ai-agents/foundations/ai-agent-beginner-course-five-elements-knowledge-base.md](./knowledge/technology/ai-agents/foundations/ai-agent-beginner-course-five-elements-knowledge-base.md) |
 | `-_U4YHElE2k` | 特斯拉暴跌 20% 拆解:資本開支才是恐慌根源,以及「大跌後持有半年 9 成賺」的歷史規律(美投君) | [knowledge/investing/equity-research/tesla-q2-2026-capex-shock-vs-narrative.md](./knowledge/investing/equity-research/tesla-q2-2026-capex-shock-vs-narrative.md) |
 | `-C6K3wtjjoI` | 照新標準手寫第一個 MCP Server:四個坑,其中兩個不會報錯 | [knowledge/technology/ai-agents/foundations/mcp-server-first-build-four-pitfalls.md](./knowledge/technology/ai-agents/foundations/mcp-server-first-build-four-pitfalls.md) |
 | `-hKHbHA0KKI` | Milvus 架構拆解:從「Segment 不可變」到存算分離,以及 2.6 版已經改掉的三件事 | [knowledge/technology/system-design/milvus-architecture-vector-database.md](./knowledge/technology/system-design/milvus-architecture-vector-database.md) |

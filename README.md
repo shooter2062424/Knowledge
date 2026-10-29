@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-352_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-353_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -153,6 +153,7 @@ flowchart LR
 | **人蔘 Try Catch** — AI 工程落地短講 | 1 | [Jev 落地場景與終端機守門員(併入 Jev 筆記)](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | **仕宇JavaPub** — GitHub 開源專案推薦 | 1 | [五個開源英語學習專案(已讀原始碼)](./knowledge/technology/applied-ai/language-learning/five-open-source-english-learning-tools.md) |
 | **AI LABS** — Claude Code 工作流實作(⚠️ 含業配與付費社群) | 3 | [EGM:大象寫規格、金魚零記憶挑毛病](./knowledge/technology/ai-agents/applications/elephant-goldfish-model-egm-spec-review.md) · [Shopify Helix 檢查點與四道關卡](./knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md) · [Agit:對話的版本控制](./knowledge/technology/ai-agents/applications/agit-version-control-for-agent-sessions.md) |
+| **Agent开发教程** — AI Agent 入門課(⚠️ 含公眾號引流) | 1 | [AI Agent 入門課:五大要素、知識庫 RAG 與 Cherry Studio / 騰訊 ima 實操](./knowledge/technology/ai-agents/foundations/ai-agent-beginner-course-five-elements-knowledge-base.md) |
 | **轩辕的编程宇宙** — LLM 原理動畫講解 | 1 | [100 萬上下文為什麼貴又會變笨:MHA 到 CSA](./knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md) |
 
 ### ✍️ 個人/部落格/官方
@@ -302,6 +303,7 @@ flowchart LR
 | [2026 Agent 工程師要什麼能力:四塊拼圖(附 11 道面試題與標準答案)](./knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) | Demo↔生產的鴻溝;人機協同掛起/工單/喚醒;攔截→指數退避→兜底降級;三黃金指標(完成率>95%、工具異常<0.1%、P99<500ms);熔斷防燒錢;LLM-as-a-Judge + 灰度 5% + Trace ID |
 | [Harness/Loop/Graph 三層排障地圖:把「Agent 又抽風了」變成排查工單](./knowledge/technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) | 環境/反饋/流程三層 + 七症狀決策表;七條可抄實踐(證據驅動停止、有界重試四要素、工具寧窄勿寬…);三個坑(圖過早儀式化、術語通膨、廠商敘事)|
 | [Harness Engineering 的演進:Prompt → Context → Harness](./knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md) | context 撞牆在越摘要越失真;harness 用 loop+每輪乾淨 context 取代(Ralph) |
+| [AI Agent 入門課:五大核心要素、知識庫(RAG)與 Cherry Studio / 騰訊 ima(Agent开发教程)](./knowledge/technology/ai-agents/foundations/ai-agent-beginner-course-five-elements-knowledge-base.md) | 入門框架:大腦+記憶+工具+規劃+行動;工具≠行動;ReAct vs 先規劃;RAG 開卷考;本地 vs 線上知識庫;ima 個人/共享/訂閱三庫;核實 23 分 15 秒與授權 |
 | [Agent Harness 已死?模型吃掉 harness、harness 去開下一片疆土(AI学长小林,轉述 Jediah Katz 演講)](./knowledge/technology/ai-agents/foundations/agent-harness-dead-data-flywheel-katz.md) | ⭐⭐⭐ **資料飛輪**:harness 扶起能力 → 任務變訓練資料 → 模型學會 → 拆腳手架 → 去下個領域;coding 轉完一圈所以變薄、Grok Bot 辦公類正把護欄加回去;✅ HarnessTax:Fable 5 在 Claude Code 97.8% / Pi 96.7%,成本 $1.33 vs $0.67、12 組 9 組非原廠最好;⚠️ 補:每基準 30 題、信賴區間 25–35 點,5 倍是單一組合;**吃不掉的三件事:在哪跑、能碰什麼、花多少錢**;規則寫成帶得走的檔案 |
 | [Pi Agent:用「留白」的極簡 harness 對沖框架易變](./knowledge/technology/ai-agents/foundations/pi-agent-minimal-harness.md) | OpenClaw 的大腦;刻意不內建 MCP/sub-agent,能用 TS 擴展自己的 harness;build less |
 | [五大 Agent 模式(2026 生產系統至少用一個)](./knowledge/technology/ai-agents/foundations/five-agent-patterns.md) | Prompt Chaining/Routing/Parallelization/Orchestrator-Workers/Evaluator-Optimizer;工作流 vs 自主 |

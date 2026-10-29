@@ -548,6 +548,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 | 日期 | 事件 |
 |---|---|
 | 2026-10-30 | 巡檢產出 3 新篇(零 Whisper):**Why QQ** `uFaDKby_Wzs` → Tailworm 與 AI 代理網路邊界;**YAHA學堂** `pWJJRM38TMQ` → AI 為什麼會幻覺;**Nick 美股咖啡館** `R1oLllxY7IQ` → 巴西大選暴跌與 SoFi Q3(標明作者持有、IB 推廣)。無新存量。 |
+| 2026-10-30 | 使用者傳連結(非巡檢):Agent开发教程 `-5mwnyjP5Jo` → AI Agent 入門課五要素與知識庫(無字幕,Whisper;標註公眾號引流) |
 | 2026-10-30 | Gary Chen 新增 1 篇:`YM-6-QhGHgI` → 從零搞懂 RAG(官方 zh-TW 字幕;標明 Skool 與付費實戰營推廣、不轉述付費內容)。`ftEBJkNNsRk` 為會員限定,永久跳過。 |
 | 2026-10-28(重建) | **使用者要求「重建一下」**:10-24 建的五個排程(`f7452ef1`/`919a6a5e`/`3006f305`/`ade62da6`/`a412e0d2`)全刪,依本檔 prompt 原文重建為 `f1cb9681`/`44aadf36`/`90610a0e`/`d7df861d`/`ce69a81b`,**約 11-04 到期**;gooaye 照舊不建。當日五個排程皆已跑過,不需補檢。 |
 | 2026-10-28 | 巡檢產出 1 新篇 + 1 增補(零 Whisper):**Why QQ** `0hIA9sJg4CA` → Anthropic S-1 三張表與 Agent 單位成本;**Caleb Writes Code** `bi2np7qc3Lw` → 併入 Kimi K3.1 Pro 筆記 §十。新存量:白白说大模型 `wTO77RICB1U`。 |
