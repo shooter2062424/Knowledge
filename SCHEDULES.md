@@ -548,6 +548,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-10-31 | 使用者傳連結(非巡檢):Felix Rieseberg 部落格 → ai-productivity/more-ambitious-with-models-altitude-depth-range-rieseberg |
 | 2026-10-30 | 巡檢第二輪產出 2 新篇(1 支 Whisper):**Why QQ** `M6sOWI1QLEc` → Lauren Tan 驗證與抽檢;**白白说大模型** `msrADZcUS60` → Agent 記憶八策略 |
 | 2026-10-30 | 巡檢產出 3 新篇(零 Whisper):**Why QQ** `uFaDKby_Wzs` → Tailworm 與 AI 代理網路邊界;**YAHA學堂** `pWJJRM38TMQ` → AI 為什麼會幻覺;**Nick 美股咖啡館** `R1oLllxY7IQ` → 巴西大選暴跌與 SoFi Q3(標明作者持有、IB 推廣)。無新存量。 |
 | 2026-10-30 | 使用者傳連結(非巡檢):Agent开发教程 `-5mwnyjP5Jo` → AI Agent 入門課五要素與知識庫(無字幕,Whisper;標註公眾號引流) |

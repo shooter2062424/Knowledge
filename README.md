@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-355_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-356_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -161,6 +161,7 @@ flowchart LR
 | 來源 | 篇數 | 筆記 |
 |---|---|---|
 | **Andrej Karpathy(本人著作/repo)** | 4 | [microGPT 200 行](./knowledge/technology/llm-internals/architecture/microgpt-karpathy.md) · [autoresearch 最小 harness](./knowledge/technology/ai-agents/autonomy/karpathy-autoresearch.md) · [LLM Wiki 知識庫模式](./knowledge/technology/ai-agents/memory-retrieval/llm-wiki-karpathy.md) · [How I use LLMs(一般人用 LLM 心智模型)](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
+| **Felix Rieseberg(個人部落格,⚠️ Anthropic 員工)** | 1 | [怎麼對模型更有野心:高度、深度、廣度](./knowledge/technology/ai-productivity/more-ambitious-with-models-altitude-depth-range-rieseberg.md) |
 | **blog.aihao.tw(ihower)** — agent 工程 | 2 | [Agent Streaming 格式設計](./knowledge/technology/ai-agents/applications/agent-streaming-format-design.md) · [用 AI 分析 Agent Traces](./knowledge/technology/ai-agents/applications/agent-trace-analysis-with-ai.md) |
 | **Prime Intellect(官方部落格)** | 1 | [Prime Agent:RLM 與 Continual Harness](./knowledge/technology/ai-agents/foundations/prime-agent-rlm-continual-harness.md) |
 | **Anthropic(官方研究/頻道)** | 4 | [五大 Agent 模式](./knowledge/technology/ai-agents/foundations/five-agent-patterns.md) · [Man Group 用 Claude Skills 治理](./knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md) · [J-Space 全域工作空間](./knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md) · [Claude Code 團隊自己怎麼用 Claude Code](./knowledge/technology/claude-code/claude-code-team-how-they-work.md) |
@@ -488,6 +489,7 @@ flowchart LR
 | [AI 編程的三個致命錯覺(OpenCode Dax Raad)](./knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md) | 自動變快/執行就贏/在飛皆是幻覺;瓶頸是想清楚做什麼,慢下來打地基才最快 |
 | [別跟單一模型結婚:Model Agnostic 才是槓桿位置](./knowledge/technology/ai-productivity/model-agnostic-ai-workflow.md) | 沒有魔法模型;按任務選模型而非把任務塞進最強模型;擁有自有 infra 讓模型可替換 |
 | [Model Routing:同一任務 $21.7→$9.15,重點是「算力分配」不是挑模型](./knowledge/technology/ai-productivity/model-routing-compute-allocation.md) | 模型選擇×推理強度四象限;先過「公司准用」與「特殊資料源」兩道限制;五步交付鏈(Research/Spec/Execute/Review/Fix);**能驗收才能交給便宜模型**;Output 比 Input 貴故 Execute 最值得 Routing |
+| [怎麼對模型更有野心:速度、高度、深度、廣度四種提問升級(Felix Rieseberg,Anthropic 員工)](./knowledge/technology/ai-productivity/more-ambitious-with-models-altitude-depth-range-rieseberg.md) | 從任務升到結果;用專家的原始資料與工具;名詞換動詞;外部裁判;不合理目標需防作假 |
 | [你不是不會寫 Prompt,是不會定義任務](./knowledge/technology/ai-productivity/defining-tasks-not-prompts.md) | 目標/背景/素材/邊界/完成定義五欄位寫成 brief;AI 能幫你問不能替你想;本質是管理力 |
 | [AI 時代怎麼「讀」程式碼:6 個技巧](./knowledge/technology/ai-productivity/reading-code-ai-era-6-techniques.md) | 從進入點/先讀測試/跟著資料走/跳雜訊/讀一條失敗路徑/壓成一句話 |
 | [AI 旅遊規劃組合技:NotebookLM + Gemini + My Maps](./knowledge/technology/ai-productivity/ai-travel-planning-notebooklm-gemini.md) | 蒐集即時資料→整合零散素材→Canvas排程當裁判→CSV匯地圖→Live現場助理;分工是關鍵 |
