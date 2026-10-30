@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**395 個 YouTube video id**、**87 個 arXiv 編號**,涵蓋 **322 篇**筆記。
+> 統計:**397 個 YouTube video id**、**89 個 arXiv 編號**,涵蓋 **324 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(395 部,依 video id 排序)
+## YouTube(397 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -245,6 +245,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `LRJV5lcsnfA` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
 | `luN-yydHpYY` | Graphify 實戰壓測:10 萬 Star 的程式碼知識圖譜,打不贏 grep?「找」與「看」的分水嶺 | [knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md](./knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) |
 | `Lx22N9R_0As` | Claude Code 30 個藏得最深的快捷鍵與功能:暫存、插隊、回退與 Agent 視圖 | [knowledge/technology/claude-code/claude-code-30-hidden-shortcuts.md](./knowledge/technology/claude-code/claude-code-30-hidden-shortcuts.md) |
+| `M6sOWI1QLEc` | 先給 Agent 驗證,再談規模:Lauren Tan 訪談的「人肉代理」、抽檢與自動合併 | [knowledge/technology/ai-agents/applications/agent-verification-before-scale-lauren-tan-reaction.md](./knowledge/technology/ai-agents/applications/agent-verification-before-scale-lauren-tan-reaction.md) |
 | `m6U_TGf9Z_M` | 新版 Codex 全流程實戰:從資料夾、辦公文件、生圖,到 Skill / Hook / Worktree / 一鍵部署 | [knowledge/technology/ai-agents/applications/codex-desktop-full-workflow-guide.md](./knowledge/technology/ai-agents/applications/codex-desktop-full-workflow-guide.md) |
 | `mAoXktiOhWY` | 找 Bug 第一名的模型,修 Bug 卻墊底:GPT-6 Astra 與 Claude Fable 5.1 的分工式選型 | [knowledge/technology/ai-productivity/astra-vs-fable-find-bugs-vs-fix-bugs.md](./knowledge/technology/ai-productivity/astra-vs-fable-find-bugs-vs-fix-bugs.md) |
 | `mBePcvqLX88` | Graph Engineering 八分鐘講清楚:從 1736 年的柯尼斯堡七橋,到 108 個 agent 的 DAG | [knowledge/technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md](./knowledge/technology/ai-agents/foundations/graph-engineering-explained-euler-to-agents.md) |
@@ -255,6 +256,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `mnuk1GkJxDU` | 股癌選股心法:籌碼/技術都是工具,本質是「選對題材的好股」 | [knowledge/investing/strategy/gooaye-stock-picking-philosophy.md](./knowledge/investing/strategy/gooaye-stock-picking-philosophy.md) |
 | `mpGiFuRYrDk` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `msHyYioAyNE` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
+| `msrADZcUS60` | Agent 記憶實作八種策略:從全量記憶、滑動窗口到 MemoryOS | [knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md) |
 | `MWNuu9m93dk` | 多 Agent 系統的資料一致性:為什麼數字越傳越亂,以及四層工程解法 | [knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md](./knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md) |
 | `Mx8I6etcyL0` | Kimi K3.1 Pro:Terminal-Bench 65.7 只差 Opus 5.5 0.7 分,但選型要看你的倉庫驗收 | [knowledge/technology/ai-industry/kimi-k3-1-pro-open-weight-coding-acceptance.md](./knowledge/technology/ai-industry/kimi-k3-1-pro-open-weight-coding-acceptance.md) |
 | `n8jL89H5d-c` | 第 135 期:藝術家的 AI IDE(ArtCraft)、互動式技術圖解 Skill(Anatomy)、組織多個 Agent 的工具(OpenRig)、生成原生 PPT 的工作流(PPT Master)與復刻 QQ 寵物(QQPet) | [knowledge/technology/github-weekly/issue-135.md](./knowledge/technology/github-weekly/issue-135.md) |
@@ -426,7 +428,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(87 篇,依編號排序)
+## arXiv(89 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -463,6 +465,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2307.03172` | 一段提示詞把 Gemini CLI 變成自動化 Agent:拆成輸入/輸出/過程,再讓 AI 記「工作筆記」 | [knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md](./knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md) |
 | `2309.06180` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
 | `2310.06824` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
+| `2310.08560` | Agent 記憶實作八種策略:從全量記憶、滑動窗口到 MemoryOS | [knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md) |
 | `2312.07104` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
 | `2401.01301` | AI 為什麼會幻覺?「評分制度逼它硬猜」、四個高危場景與四句核查提示詞 | [knowledge/technology/ai-safety/why-llms-hallucinate-benchmarks-reward-guessing.md](./knowledge/technology/ai-safety/why-llms-hallucinate-benchmarks-reward-guessing.md) |
 | `2401.06066` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
@@ -479,6 +482,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2501.12599` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
 | `2501.12948` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
 | `2505.09388` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
+| `2506.06326` | Agent 記憶實作八種策略:從全量記憶、滑動窗口到 MemoryOS | [knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md) |
 | `2506.12605` | Bill Gates〈AI 動盪時代〉長文導讀：工作、機器人稅、雙面刃、陪伴與「Human Reserved」 | [knowledge/technology/ai-industry/bill-gates-turbulent-ai-era-human-reserved.md](./knowledge/technology/ai-industry/bill-gates-turbulent-ai-era-human-reserved.md) |
 | `2507.19457` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md](./knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md) |
 | `2508.01191` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
