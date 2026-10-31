@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**400 個 YouTube video id**、**119 個 arXiv 編號**,涵蓋 **332 篇**筆記。
+> 統計:**401 個 YouTube video id**、**119 個 arXiv 編號**,涵蓋 **332 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(400 部,依 video id 排序)
+## YouTube(401 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -237,6 +237,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `L1OBRtfPS34` | Always-on Agent 怎麼運作:Lee Robinson 在史丹佛 CS146S 拆解 Grok Bot | [knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) |
 | `l38ceFOWOAE` | 萬達怎麼一步步賣掉自己:兩份對賭、四次遞表失敗,與「名字還在、公司換人」 | [knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md](./knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md) |
 | `L5LLzXrKFIY` | 史上最強 AI 模型只活了 72 小時:Claude Fable 事件與「別把流程綁死在單一模型」 | [knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md](./knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md) |
+| `l_xDqUm0MDQ` | pstack:Cursor 內部最火的 agent 工作流插件(poteto-mode、23 個劇本、24 條原則) | [knowledge/technology/ai-agents/applications/pstack-poteto-mode-cursor-plugin.md](./knowledge/technology/ai-agents/applications/pstack-poteto-mode-cursor-plugin.md) |
 | `LdPT6S6fcvQ` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `ll-OBB-iswM` | 「Loop Engineering」是名詞詐騙嗎?一個反方吐槽視角 | [knowledge/technology/ai-agents/foundations/loop-engineering-buzzword-critique.md](./knowledge/technology/ai-agents/foundations/loop-engineering-buzzword-critique.md) |
 | `LlQgkvNRS9s` | ChatGPT 廣告栈拆解:LLM 當編排者、確定性系統管錢、超時就丟 | [knowledge/technology/system-design/chatgpt-ads-stack-llm-orchestrator.md](./knowledge/technology/system-design/chatgpt-ads-stack-llm-orchestrator.md) |
