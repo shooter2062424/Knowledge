@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-358_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-363_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -61,9 +61,11 @@ flowchart LR
     T --> T12["🗞️ github-weekly"]
     T --> T6["⚛️ quantum-computing"]
     T --> T5["📡 telecom"]
+    T --> T16["💻 code-dev"]
     T1 --> T1a["foundations · autonomy · memory-retrieval<br/>applications · resources"]
     T2 --> T2a["architecture · inference · world-models<br/>training · interpretability"]
     T4 --> T4a["design · forecasting · speech-synthesis"]
+    T16 --> T16a["spec-code-flow · c-cpp"]
 ```
 
 ### 目錄
@@ -82,6 +84,7 @@ flowchart LR
   - [🛡️ ai-safety(AI 安全與評測)](#️-ai-safetyai-安全與評測)
   - [⚛️ quantum-computing(量子計算)](#️-quantum-computing量子計算)
   - [📡 telecom(電信)](#-telecom電信)
+  - [💻 code-dev(大型程式開發:規格驅動與 C/C++)](#-code-dev大型程式開發規格驅動與-cc)
   - [🗞️ github-weekly(GitHub 週報)](#️-github-weeklygithub-週報)
 - [💼 career(職涯與職場)](#-career職涯與職場)
 - [🩺 health(健康與身體)](#-health健康與身體)
@@ -637,6 +640,16 @@ flowchart LR
 |---|---|
 | [3GPP 懸疑小說《頻譜密典》](./knowledge/technology/telecom/spectrum-codex-novel.md) | 用懸疑小說包裝 3GPP 協定知識 |
 | [WiFi 是怎麼傳遞資訊的?把資訊裝進電磁波的硬核原理](./knowledge/technology/telecom/wifi-how-it-works.md) | QAM 在振幅相位刻位元、OFDM 擠千條子載波、MIMO 開平行空間;WiFi4→7 提速之路 |
+
+### 💻 code-dev(大型程式開發:規格驅動與 C/C++)
+> 子資料夾:`spec-code-flow/`(spec-to-code & code-to-spec 流程)、`c-cpp/`(C/C++ 穩定化工具鏈)。
+| 主題 | 一句話 |
+|---|---|
+| [Spec ⇄ Code 流程總覽:greenfield 與 brownfield 如何穩定開發大型 C/C++(以 5G NR → 6G Modem 為例)](./knowledge/technology/code-dev/spec-code-flow/spec-code-flow-overview-greenfield-brownfield.md) | 兩方向是同一閉環,靠可執行驗證綁住;五層穩定機制;⚠️ PHY/MAC 自動產碼與大型 brownfield 量化實證**找不到一手證據** |
+| [Spec-to-Code 現況(2026):Spec Kit、Kiro、OpenSpec、BMAD](./knowledge/technology/code-dev/spec-code-flow/spec-driven-development-landscape-2026.md) | 三級分類 spec-first/anchored/as-source;各工具流程對照;Böckeler 與 Radar 批評;brownfield 共識=增量 delta spec;drift gate 僅提案無數據 |
+| [Code-to-Spec:從既有大型程式碼庫反推規格](./knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md) | CodeConcise(AST+圖+分層摘要+RAG)、Autoware C++ 案例、AutoSpec/ProtocolGPT、TRACTOR/Syzygy;LLM 傾向推意圖不照抄 bug;以舊版 C 當 oracle 差分驗證 |
+| [5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) | Rel-21 首個 6G 規範(Stage-3 2028-12、ASN.1 2029-03);ASN.1→codec 成熟、TTCN-3 人工;CellularLint 157 項、SpecLens 185/197 與 60 項實作分歧;⚠️ modem 韌體實務皆推論 |
+| [穩定開發大型 C/C++ 的工具箱](./knowledge/technology/code-dev/c-cpp/cpp-large-codebase-stability-toolbox.md) | C++26 Contracts 留下(114/12/3)、Profiles 延 C++29;CBMC 有界證明;libFuzzer 維護模式;clang-tidy diff 模式限制;CI 三層分工;OSS-Fuzz-gen 30 vs 26 差異未解 |
 
 ### 🗞️ github-weekly(GitHub 週報)
 | 期數 | 主題 |

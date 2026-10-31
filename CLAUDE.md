@@ -43,7 +43,7 @@ scripts/      通用腳本,按功能分類
   - 大類示例:`knowledge/investing/`(投資)、`knowledge/technology/`(科技與技術研究)。
   - 現有中類:
     - `knowledge/investing/`:`strategy`、`derivatives`、`technical-analysis`、`ai-assisted`、`equity-research`、`personal-finance`(房貸/稅務/繼承等個人理財與政策)。
-    - `knowledge/technology/`:`ai-agents`(再分 `foundations`/`autonomy`/`memory-retrieval`/`applications`/`resources`)、`llm-internals`(`architecture`/`inference`/`world-models`)、`ai-productivity`、`applied-ai`(`design`/`forecasting`/`speech-synthesis`)、`telecom`、`github-weekly`(週報 cron 落點)。
+    - `knowledge/technology/`:`ai-agents`(再分 `foundations`/`autonomy`/`memory-retrieval`/`applications`/`resources`)、`llm-internals`(`architecture`/`inference`/`world-models`)、`ai-productivity`、`applied-ai`(`design`/`forecasting`/`speech-synthesis`)、`telecom`、`github-weekly`(週報 cron 落點)、`code-dev`(大型程式開發;`spec-code-flow` 放 spec-to-code / code-to-spec 流程,`c-cpp` 放 C/C++ 工具鏈)。
   - 路徑示例:`knowledge/technology/ai-agents/foundations/12-factor-agents.md`、`knowledge/investing/strategy/just-keep-buying-nick-maggiulli.md`。
   - 新筆記歸到最貼切的中類;若不屬於任何現有中類,可新增中類資料夾並更新 README 索引。
 - 資料夾命名一律用 **小寫英文 + 連字號**,保持網址乾淨。
