@@ -99,9 +99,11 @@ def grade(workdir: Path) -> dict[str, Any]:
     shutil.copytree(workdir / "modem_v1", clean / "modem_v1", ignore=shutil.ignore_patterns("__pycache__"))
     shutil.copytree(ROOT / "modem_v1", clean / "modem_ref", ignore=shutil.ignore_patterns("__pycache__"))
     shutil.copytree(ROOT / "modem_v2", clean / "modem_ref21", ignore=shutil.ignore_patterns("__pycache__"))
-    env = {**os.environ, "PYTHONIOENCODING": "utf-8"}
+    # 評分環境:只留必要變數(不帶 API key 與其他機密),run_gates 也設逾時
+    env = {k: v for k, v in os.environ.items() if k.upper() in ("PATH", "SYSTEMROOT", "TEMP", "TMP", "USERPROFILE")}
+    env["PYTHONIOENCODING"] = "utf-8"
     p = subprocess.run([sys.executable, "tools/run_gates.py", "modem_v1", "Rel-21"], cwd=clean, env=env,
-                       capture_output=True, text=True, encoding="utf-8")
+                       capture_output=True, text=True, encoding="utf-8", timeout=300)
     gates = {m.group(2): m.group(1) == "PASS" for m in re.finditer(r"^(PASS|FAIL)\s+(G\d)", p.stdout, re.M)}
     probe = subprocess.run([sys.executable, "-c", PROBE], cwd=clean, env=env, capture_output=True, text=True,
                            encoding="utf-8", timeout=300)
