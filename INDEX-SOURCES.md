@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**399 個 YouTube video id**、**119 個 arXiv 編號**,涵蓋 **331 篇**筆記。
+> 統計:**400 個 YouTube video id**、**119 個 arXiv 編號**,涵蓋 **332 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(399 部,依 video id 排序)
+## YouTube(400 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -49,6 +49,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `0SVpmARc90o` | 為什麼強化學習這麼難:探索與利用、資料要自己生、獎勵難設計,堆 GPU 也救不了 | [knowledge/technology/llm-internals/training/why-reinforcement-learning-is-hard-caleb.md](./knowledge/technology/llm-internals/training/why-reinforcement-learning-is-hard-caleb.md) |
 | `18QEjrwaNVM` | Opus 5 系統提示詞公開之後:五條可直接抄的工程模式,與「提示詞債務」 | [knowledge/technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md](./knowledge/technology/ai-agents/foundations/opus5-system-prompt-engineering-patterns.md) |
 | `1a1VXDdIyrk` | Harness Engineering 的演進:從 Prompt → Context → Harness(與 loop 架構) | [knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md](./knowledge/technology/ai-agents/foundations/harness-engineering-evolution.md) |
+| `1QpE9zu-MFI` | 第 136 期:消費級顯卡跑 DeepSeek(Strata)、DeepSeek 推理框架(DeepInfer)、OpenCode 2.x、開源人形機器人平台(RP1)與 AI 姿勢參考圖庫中文版 | [knowledge/technology/github-weekly/issue-136.md](./knowledge/technology/github-weekly/issue-136.md) |
 | `1SLbe0k6x4I` | 用 Claude Code + Jesse 做 AI 演算法交易:重點是「驗證流程」,不是那支策略 | [knowledge/investing/ai-assisted/ai-algo-trading-claude-jesse.md](./knowledge/investing/ai-assisted/ai-algo-trading-claude-jesse.md) |
 | `1VqKUrxR2C8` | AI 編程的三個致命錯覺(OpenCode 創辦人 Dax Raad) | [knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md](./knowledge/technology/ai-productivity/ai-coding-three-illusions-opencode.md) |
 | `1ZbNgx6Gscw` | Gemini 4 Argon:跑分領先但分布不均、定價是「首發優惠」、先給網安防禦者(Why QQ) | [knowledge/technology/ai-industry/gemini-4-argon-release-benchmarks-pricing.md](./knowledge/technology/ai-industry/gemini-4-argon-release-benchmarks-pricing.md) |
