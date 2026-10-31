@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**399 個 YouTube video id**、**117 個 arXiv 編號**,涵蓋 **330 篇**筆記。
+> 統計:**399 個 YouTube video id**、**119 個 arXiv 編號**,涵蓋 **331 篇**筆記。
 
 ---
 
@@ -430,7 +430,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(117 篇,依編號排序)
+## arXiv(119 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -448,6 +448,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2103.00020` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
 | `2103.00020` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
 | `2106.09685` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
+| `2110.05828` | 多層規格並存下的程式演進:外部公定 spec + 內部實作 spec + 既有 code(5G NR → 6G Modem) | [knowledge/technology/code-dev/spec-code-flow/multi-spec-layered-evolution-modem-5g-to-6g.md](./knowledge/technology/code-dev/spec-code-flow/multi-spec-layered-evolution-modem-5g-to-6g.md) |
 | `2110.14168` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2112.00114` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2112.10752` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
@@ -498,6 +499,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2412.14234` | Code-to-Spec:從既有大型程式碼庫反推規格(CodeConcise、Clang、ACSL、C→Rust) | [knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md](./knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md) |
 | `2412.19437` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
 | `2412.19437` | 多頭注意力(Multi-Head Attention)用人話講:「語法表、需求表、內容表」就是 K、Q、V(程序员老王) | [knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md](./knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md) |
+| `2412.21077` | 多層規格並存下的程式演進:外部公定 spec + 內部實作 spec + 既有 code(5G NR → 6G Modem) | [knowledge/technology/code-dev/spec-code-flow/multi-spec-layered-evolution-modem-5g-to-6g.md](./knowledge/technology/code-dev/spec-code-flow/multi-spec-layered-evolution-modem-5g-to-6g.md) |
 | `2501.12599` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
 | `2501.12948` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
 | `2501.18837` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |

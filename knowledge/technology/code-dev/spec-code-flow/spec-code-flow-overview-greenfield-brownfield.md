@@ -2,6 +2,8 @@
 
 > 本篇是「spec-code-flow」子資料夾的總覽,把四篇研究串起來。**內容分三級:已讀原文的事實、對已讀事實的歸納、純推論**;推論處明確標示。研究日期 2026-11-01。
 >
+> ⭐ **若你的情境是「外部公定 spec(3GPP)+ 內部實作 spec + 既有 code,6G 要加入又要保留 5G」**,直接看 [[multi-spec-layered-evolution-modem-5g-to-6g]]。
+>
 > 細節請看:[[spec-driven-development-landscape-2026]](spec → code)、[[code-to-spec-reverse-engineering-legacy-codebase]](code → spec)、[[cpp-large-codebase-stability-toolbox]](C/C++ 工具鏈)、[[5g-nr-to-6g-modem-spec-to-code-flow]](modem 案例)。
 
 ---
