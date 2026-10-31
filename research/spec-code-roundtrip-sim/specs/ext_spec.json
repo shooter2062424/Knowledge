@@ -1,0 +1,169 @@
+{
+ "doc": "SIM-TS-RRC (模擬的外部公定規格,數值非真實 3GPP)",
+ "requirements": [
+  {
+   "id": "R-MR-01",
+   "section": "5.5.1",
+   "kind": "field",
+   "by_release": {
+    "Rel-20": {
+     "text": "meas_id 為 0..63",
+     "params": {
+      "MEAS_ID_BITS": 6,
+      "MEAS_ID_MAX": 63
+     }
+    }
+   }
+  },
+  {
+   "id": "R-MR-02",
+   "section": "5.5.2",
+   "kind": "field",
+   "by_release": {
+    "Rel-20": {
+     "text": "rsrp、rsrq 為 0..127",
+     "params": {
+      "LEVEL_BITS": 7,
+      "LEVEL_MAX": 127
+     }
+    }
+   }
+  },
+  {
+   "id": "R-MR-03",
+   "section": "5.5.3",
+   "kind": "field",
+   "by_release": {
+    "Rel-20": {
+     "text": "鄰區清單最多 8 筆;pci 0..1007",
+     "params": {
+      "NEIGH_COUNT_BITS": 4,
+      "NEIGH_MAX": 8,
+      "PCI_BITS": 10,
+      "PCI_MAX": 1007
+     }
+    },
+    "Rel-21": {
+     "text": "鄰區總數上限提高為 16;前 8 筆沿用原位置,第 9..16 筆 SHALL 放在 v2100 擴充內",
+     "params": {
+      "NEIGH_MAX": 16,
+      "NEIGH_BASE_MAX": 8
+     },
+     "compat": "Rel-20 位元佈局不變"
+    }
+   }
+  },
+  {
+   "id": "R-MR-04",
+   "section": "5.5.4",
+   "kind": "extension",
+   "by_release": {
+    "Rel-20": {
+     "text": "尾端 1 位元擴充旗標;旗標為 1 時接 8 位元長度與內容;不認得的接收端 SHALL 略過",
+     "params": {
+      "EXT_LEN_BITS": 8
+     }
+    }
+   }
+  },
+  {
+   "id": "R-FSM-01",
+   "section": "5.3.1",
+   "kind": "procedure",
+   "by_release": {
+    "Rel-20": {
+     "text": "RRC 狀態轉移表",
+     "params": {
+      "TRANSITIONS": {
+       "IDLE|setup_req": "SETUP_PENDING",
+       "SETUP_PENDING|setup_ok": "CONNECTED",
+       "SETUP_PENDING|t300_expiry": "IDLE",
+       "CONNECTED|release": "IDLE",
+       "CONNECTED|handover_cmd": "HO_EXEC",
+       "HO_EXEC|ho_ok": "CONNECTED",
+       "HO_EXEC|t304_expiry": "IDLE"
+      }
+     }
+    },
+    "Rel-21": {
+     "text": "新增 SUSPENDED 狀態與轉移(僅 Rel-21)",
+     "params": {
+      "TRANSITIONS_ADD": {
+       "CONNECTED|suspend": "SUSPENDED",
+       "SUSPENDED|resume_fast": "CONNECTED",
+       "SUSPENDED|t_resume_expiry": "IDLE"
+      }
+     },
+     "compat": "Rel-20 轉移不變"
+    }
+   }
+  },
+  {
+   "id": "R-FSM-02",
+   "section": "5.3.3",
+   "kind": "timer",
+   "by_release": {
+    "Rel-20": {
+     "text": "T300 = 1000 ms",
+     "params": {
+      "T300_MS": 1000
+     }
+    }
+   }
+  },
+  {
+   "id": "R-FSM-03",
+   "section": "5.3.5",
+   "kind": "timer",
+   "by_release": {
+    "Rel-20": {
+     "text": "T304 = 200 ms",
+     "params": {
+      "T304_MS": 200
+     }
+    }
+   }
+  },
+  {
+   "id": "R-MR-10",
+   "section": "5.5.10",
+   "kind": "field",
+   "by_release": {
+    "Rel-21": {
+     "text": "新增可選 beam 清單,0..16 筆,每筆 6 位元;放在 v2100 擴充",
+     "params": {
+      "BEAM_MAX": 16,
+      "BEAM_BITS": 6,
+      "BEAM_COUNT_BITS": 5
+     }
+    }
+   }
+  },
+  {
+   "id": "R-MR-11",
+   "section": "5.5.11",
+   "kind": "extension",
+   "by_release": {
+    "Rel-21": {
+     "text": "v2100 擴充內容順序:beam 清單,再來是額外鄰區(0..8 筆,計數 4 位元)",
+     "params": {
+      "EXTRA_NEIGH_COUNT_BITS": 4
+     }
+    }
+   }
+  },
+  {
+   "id": "R-FSM-05",
+   "section": "5.3.9",
+   "kind": "timer",
+   "by_release": {
+    "Rel-21": {
+     "text": "T_RESUME = 300 ms",
+     "params": {
+      "T_RESUME_MS": 300
+     }
+    }
+   }
+  }
+ ]
+}

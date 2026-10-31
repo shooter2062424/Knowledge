@@ -1,0 +1,367 @@
+{
+ "pkg": "modem_v1",
+ "constants": [
+  {
+   "module": "codec",
+   "name": "MEAS_ID_BITS",
+   "value": 6,
+   "tags": [
+    "R-MR-01"
+   ]
+  },
+  {
+   "module": "codec",
+   "name": "MEAS_ID_MAX",
+   "value": 63,
+   "tags": [
+    "R-MR-01"
+   ]
+  },
+  {
+   "module": "codec",
+   "name": "LEVEL_BITS",
+   "value": 7,
+   "tags": [
+    "R-MR-02"
+   ]
+  },
+  {
+   "module": "codec",
+   "name": "LEVEL_MAX",
+   "value": 127,
+   "tags": [
+    "R-MR-02"
+   ]
+  },
+  {
+   "module": "codec",
+   "name": "NEIGH_COUNT_BITS",
+   "value": 4,
+   "tags": [
+    "R-MR-03"
+   ]
+  },
+  {
+   "module": "codec",
+   "name": "NEIGH_MAX",
+   "value": 8,
+   "tags": [
+    "R-MR-03"
+   ]
+  },
+  {
+   "module": "codec",
+   "name": "PCI_BITS",
+   "value": 10,
+   "tags": [
+    "R-MR-03"
+   ]
+  },
+  {
+   "module": "codec",
+   "name": "PCI_MAX",
+   "value": 1007,
+   "tags": [
+    "R-MR-03"
+   ]
+  },
+  {
+   "module": "codec",
+   "name": "EXT_LEN_BITS",
+   "value": 8,
+   "tags": [
+    "R-MR-04"
+   ]
+  },
+  {
+   "module": "fsm",
+   "name": "T300_MS",
+   "value": 1000,
+   "tags": [
+    "R-FSM-02"
+   ]
+  },
+  {
+   "module": "fsm",
+   "name": "T304_MS",
+   "value": 150,
+   "tags": [
+    "R-FSM-03"
+   ]
+  },
+  {
+   "module": "fsm",
+   "name": "SETUP_RETRY_MAX",
+   "value": 3,
+   "tags": [
+    "D-INT-03"
+   ]
+  },
+  {
+   "module": "fsm",
+   "name": "TRANSITIONS",
+   "value": {
+    "IDLE|setup_req": "SETUP_PENDING",
+    "SETUP_PENDING|setup_ok": "CONNECTED",
+    "SETUP_PENDING|t300_expiry": "IDLE",
+    "CONNECTED|release": "IDLE",
+    "CONNECTED|handover_cmd": "HO_EXEC",
+    "HO_EXEC|ho_ok": "CONNECTED",
+    "HO_EXEC|t304_expiry": "IDLE"
+   },
+   "tags": [
+    "R-FSM-01"
+   ]
+  },
+  {
+   "module": "sched",
+   "name": "BUDGET_US",
+   "value": 50,
+   "tags": [
+    "D-INT-02"
+   ]
+  },
+  {
+   "module": "sched",
+   "name": "COST_BASE_US",
+   "value": 5,
+   "tags": [
+    "D-INT-02"
+   ]
+  },
+  {
+   "module": "sched",
+   "name": "COST_PER_NEIGH_US",
+   "value": 3,
+   "tags": [
+    "D-INT-02"
+   ]
+  },
+  {
+   "module": "sched",
+   "name": "NEIGH_CAP",
+   "value": 8,
+   "tags": [
+    "D-INT-01"
+   ]
+  }
+ ],
+ "functions": [
+  {
+   "module": "codec",
+   "name": "BitWriter.__init__",
+   "traces": [],
+   "public": false,
+   "infra": true,
+   "doc": ""
+  },
+  {
+   "module": "codec",
+   "name": "BitWriter.write",
+   "traces": [],
+   "public": true,
+   "infra": true,
+   "doc": ""
+  },
+  {
+   "module": "codec",
+   "name": "BitWriter.to_bytes",
+   "traces": [],
+   "public": true,
+   "infra": true,
+   "doc": ""
+  },
+  {
+   "module": "codec",
+   "name": "BitReader.__init__",
+   "traces": [],
+   "public": false,
+   "infra": true,
+   "doc": ""
+  },
+  {
+   "module": "codec",
+   "name": "BitReader.read",
+   "traces": [],
+   "public": true,
+   "infra": true,
+   "doc": ""
+  },
+  {
+   "module": "codec",
+   "name": "encode_measurement_report",
+   "traces": [
+    "R-MR-01",
+    "R-MR-02",
+    "R-MR-03",
+    "R-MR-04"
+   ],
+   "public": true,
+   "infra": false,
+   "doc": "編碼 MeasurementReport。"
+  },
+  {
+   "module": "codec",
+   "name": "decode_measurement_report",
+   "traces": [
+    "R-MR-01",
+    "R-MR-02",
+    "R-MR-03",
+    "R-MR-04"
+   ],
+   "public": true,
+   "infra": false,
+   "doc": "解碼 MeasurementReport;遇到未知擴充依 R-MR-04 靜默略過。"
+  },
+  {
+   "module": "codec",
+   "name": "pack_bits_debug",
+   "traces": [],
+   "public": true,
+   "infra": false,
+   "doc": "除錯用:位元字串(歷史遺留,無規格標註)。"
+  },
+  {
+   "module": "codec",
+   "name": "legacy_filter",
+   "traces": [
+    "R-MR-99"
+   ],
+   "public": true,
+   "infra": false,
+   "doc": "舊需求殘留的標註(R-MR-99 已不存在於外部規格)。"
+  },
+  {
+   "module": "fsm",
+   "name": "Rrc.__init__",
+   "traces": [],
+   "public": false,
+   "infra": false,
+   "doc": ""
+  },
+  {
+   "module": "fsm",
+   "name": "Rrc.step",
+   "traces": [
+    "R-FSM-01"
+   ],
+   "public": true,
+   "infra": false,
+   "doc": ""
+  },
+  {
+   "module": "fsm",
+   "name": "Rrc.on_t300_expiry",
+   "traces": [
+    "R-FSM-01",
+    "R-FSM-02",
+    "D-INT-03"
+   ],
+   "public": true,
+   "infra": false,
+   "doc": "T300 逾時:規格要求回 IDLE;內部決定在上限內自動重發 setup_req。"
+  },
+  {
+   "module": "sched",
+   "name": "cost_us",
+   "traces": [
+    "D-INT-02"
+   ],
+   "public": true,
+   "infra": false,
+   "doc": "估算處理一份回報所需微秒數。"
+  },
+  {
+   "module": "sched",
+   "name": "admit",
+   "traces": [
+    "D-INT-01",
+    "D-INT-02",
+    "R-MR-03"
+   ],
+   "public": true,
+   "infra": false,
+   "doc": "判斷回報是否在預算內可處理。"
+  }
+ ],
+ "tests": [
+  {
+   "file": "test_modem.py",
+   "name": "test_golden_vectors_bit_exact",
+   "covers": [
+    "R-MR-01",
+    "R-MR-02",
+    "R-MR-03"
+   ]
+  },
+  {
+   "file": "test_modem.py",
+   "name": "test_rel20_rejects_9_neighbors",
+   "covers": [
+    "R-MR-03"
+   ]
+  },
+  {
+   "file": "test_modem.py",
+   "name": "test_setup_retry",
+   "covers": [
+    "R-FSM-01",
+    "R-FSM-02",
+    "D-INT-03"
+   ]
+  },
+  {
+   "file": "test_modem.py",
+   "name": "test_t304_timer_matches_spec",
+   "covers": [
+    "R-FSM-03"
+   ]
+  },
+  {
+   "file": "test_modem.py",
+   "name": "test_budget_worst_case",
+   "covers": [
+    "D-INT-02"
+   ]
+  },
+  {
+   "file": "test_rel21.py",
+   "name": "test_roundtrip_16_neighbors_and_beams",
+   "covers": [
+    "R-MR-03",
+    "R-MR-10",
+    "R-MR-11"
+   ]
+  },
+  {
+   "file": "test_rel21.py",
+   "name": "test_rel20_decoder_ignores_rel21_extension",
+   "covers": [
+    "R-MR-04",
+    "R-MR-11"
+   ]
+  },
+  {
+   "file": "test_rel21.py",
+   "name": "test_rel21_base_prefix_equals_rel20_encoding",
+   "covers": [
+    "R-MR-03"
+   ]
+  },
+  {
+   "file": "test_rel21.py",
+   "name": "test_17_neighbors_rejected",
+   "covers": [
+    "R-MR-03"
+   ]
+  },
+  {
+   "file": "test_rel21.py",
+   "name": "test_suspend_resume_only_in_rel21",
+   "covers": [
+    "R-FSM-01",
+    "R-FSM-05"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+  "doc": "內部實作規格(可協商);每條決定列出理由與對外部規格的約束",
+  "decisions": [
+    {"id": "D-INT-01", "title": "鄰區處理上限", "rationale": "與外部上限對齊,不得少於外部 NEIGH_MAX",
+     "constraint": "code.sched.NEIGH_CAP >= ext['NEIGH_MAX']", "negotiable": true},
+    {"id": "D-INT-02", "title": "單份回報處理預算(微秒)", "rationale": "由硬體 slot 時序推得;最壞情況(外部最大鄰區數)成本必須落在預算內",
+     "constraint": "code.sched.cost_us(ext['NEIGH_MAX']) <= code.sched.BUDGET_US", "negotiable": true, "owner": "HW/時序小組"},
+    {"id": "D-INT-03", "title": "setup 自動重試上限", "rationale": "產品體驗決定,外部規格未規定", "constraint": "True", "negotiable": true}
+  ]
+}
