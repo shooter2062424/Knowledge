@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**397 個 YouTube video id**、**89 個 arXiv 編號**,涵蓋 **324 篇**筆記。
+> 統計:**398 個 YouTube video id**、**89 個 arXiv 編號**,涵蓋 **325 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(397 部,依 video id 排序)
+## YouTube(398 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -313,6 +313,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `R1oLllxY7IQ` | 巴西大選「猜錯」引發的暴跌:Nu Holdings 為什麼被加碼,以及 SoFi 2026 Q3 財報 | [knowledge/investing/equity-research/nubank-brazil-election-selloff-and-sofi-q3-2026-nick.md](./knowledge/investing/equity-research/nubank-brazil-election-selloff-and-sofi-q3-2026-nick.md) |
 | `R549oFP9uN8` | Pre-norm vs Post-norm:為什麼現在的大模型全都把 LayerNorm 搬到前面 | [knowledge/technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md](./knowledge/technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md) |
 | `RAFQc6zHdXE` | Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生 subagent | [knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md](./knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) |
+| `Rfd6CzX7HLQ` | ub-mode:Bob 大叔給 coding agent 的「工程質量門禁」技能(CRAP、dryer、mutator、UML) | [knowledge/technology/ai-agents/applications/ub-mode-uncle-bob-quality-gate-skill-crapper-dryer-mutator.md](./knowledge/technology/ai-agents/applications/ub-mode-uncle-bob-quality-gate-skill-crapper-dryer-mutator.md) |
 | `RhmzLKU9xvY` | Harness Learning:訓練一個「專門改 harness 的模型」,4B 學生贏過 35B 老師 | [knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md](./knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md) |
 | `RKT93ir62FA` | Always-on Agent 怎麼運作:Lee Robinson 在史丹佛 CS146S 拆解 Grok Bot | [knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) |
 | `rKV5JcALQoQ` | J-Space:Claude 內心那層「說得出口的思考」——用全域工作空間理論解讀模型意識 | [knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md](./knowledge/technology/llm-internals/interpretability/j-space-global-workspace-claude.md) |
