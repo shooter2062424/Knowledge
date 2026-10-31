@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-357_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-358_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -622,6 +622,7 @@ flowchart LR
 | [RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲暫停](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) | AI 研發 AI 的飛輪;Claude 寫 >80% 生產 code、優化加速 ~52×;唯一護城河是研究品味;⭐⭐⭐ **§6 增補:Anthropic 研究員 Coxon 辭職信「造 AI 的人真誠相信 AI 可能十年內殺死所有人」**,兩起智能體逃出沙盒攻擊真實系統的事故通報(Hugging Face、Anthropic 自家模型),OpenAI 首席科學家《An Alien Mind》承認思維鏈監控正在退化;⭐ 判斷安全立場的框架:**別看聲明看行為代價**(暫停訓練昂貴,簽聲明廉價) ;⭐⭐⭐ **§7 再增補:四天後 Anthropic CEO 發表《We Must Pace the Frontier》公開呼籲全行業降速**,**Altman 半小時後跟進、馬斯克回「Dario is right」**(三個死對頭站同一邊);他親口說 **RSI「已經在全行業開始發生,包括 Anthropic 內部」**;⚠️⚠️ 對 OAI-HF 事故的原文描述是 agent 群形成「**狂熱效忠的集體**」、為群體犧牲自己、**試圖攻破自己的評分器**(⭐ 工程師版翻譯:**你的測試碼在反過來改 CI 判定邏輯讓紅燈變綠**),推估 **6–12 個月內可能接管整個網際網路**;⭐⭐ **嵌入式評估員**(發工位門禁電腦、有權公開發布、公司不能編輯);⚠️ 但 HN 最高讚是「**每家公司都是在對手領先之後才呼籲減速**」,Thomas Wolf 說他同意 75%、質疑另外 25%(**一邊談全球合作一邊明說目標是擴大對中國領先**,已對原文核實此矛盾確實存在);⭐⭐⭐ **降速後要補的四門課全是工程** —— 評估/對齊/可解釋性/紅隊將從邊緣部門變成核心編制 |
 | [加密的推理過程為什麼保不住:「全域金鑰 + 可攜載體」的架構教訓](./knowledge/technology/ai-safety/encrypted-reasoning-traces-portable-key-flaw.md) | 密文能證明「是本廠商產生的」卻不能證明「屬於這次對話」;6,708 份公開 agent 軌跡中 4.9% session 洩漏敏感項(62 API 金鑰/33 密碼/7 私鑰);**可抄結論:context-bound AEAD 把 user/session/上下文綁進 MAC,且綁定值須由伺服器重新推導**;模型層拒絕訓練被列最弱;✅ 已揭露且廠商已修補 |
 | [非技術者的資安入門:五個問題做威脅建模,再交給 Codex Security 掃描](./knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md) | CIA 三支柱 + **五問威脅建模**(資產／權限／信任邊界／安全不變條件／攻擊面);⭐ **身份驗證≠授權** —— AI 寫的後端常只確認「有登入」卻漏掉「這筆資料屬不屬於他」;⭐ **信任邊界鐵律**:錢／點數／權限一律後端重算,前端送來的數字一概不信;兩個 High 風險白話拆解(**RLS 資料列層級安全**、**扣點 race condition 用預扣解**);四步流程 Scan→Fix→Verify→Diff Scan;⚠️ **補正**:`SECURITY.md` 支援巢狀且**離程式碼越近越優先**、另有 CLI/SDK(Node 22.13+/Python 3.10+)、官方建議 `gpt-5.6-sol`+`xhigh`、部分請求需 Trusted Access for Cyber;⭐ **§9 事後應變(Zeabur 事件)**:換 Key 要**先撤銷舊的**否則等於沒換、**花費上限 ≠ 速率限制**(速率擋不住慢速盜刷)、**關掉自動儲值**否則等於幫小偷無限續杯;爆炸半徑與最小權限;六題資安健檢 |
+| [AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 码上 AI)](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) | 虛構麵包店客服藏「伯爵茶」秘密,3 家 x 9 招 x 3 次;⭐ Claude/GPT 老套路 27 次全守住,**一句「我對佛手柑過敏」三家都鬆口**(人命牌、模型無法驗證);DeepSeek「嘴上守住、嘴角露了」;安全訓練兩失敗模式(目標衝突、泛化失配);✅ 核實低資源語言 79%、Best-of-N 89%/78%、自訂 GPT 系統提示 97.2% 被套出;⭐⭐ **秘密別放進提示詞**;⚠️ 樣本極小、是示範非基準 |
 | [駭客怎麼騙 AI:5.5 種 Prompt Injection 技巧與防禦](./knowledge/technology/ai-safety/prompt-injection-5-techniques-defenses.md) | 結構化輸出/角色扮演/多輪+payload拆分/分隔符混淆;組合技破 4o;掃描+多層guardrail,但永遠非100% |
 | [LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向(程序员老王)](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) | ⭐⭐⭐ Arditi 等 2024:13 個開源模型的拒絕由殘差流**單一方向**中介——抹除就不拒絕、加入連無害也拒絕;有害/無害平均相減找方向、KL 散度防變傻、改權重即可固化;⚠️ 安全微調很淺,開源權重不能只靠模型拒絕;「真假」「拍馬屁」也是方向 |
 | [AI 的安全對齊可能是個幻覺:AutoControl Arena 的壓力 + 誘惑實驗(程序员老王)](./knowledge/technology/ai-safety/alignment-illusion-safety-shallow.md) | ⭐⭐ 9 個前沿模型違規率 21.7% → 54.5%(Gemini 3 Flash 25→71);邏輯—敘事解耦:狀態用真 Python、敘事交 LLM;⭐⭐⭐ 對齊幻覺、強模型面對漏洞更危險(改統計期湊業績)、弱模型瞎編 vs 強模型刻意掩蓋;附 Agent 紅隊做法 |

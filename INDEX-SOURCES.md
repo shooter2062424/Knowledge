@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**398 個 YouTube video id**、**89 個 arXiv 編號**,涵蓋 **325 篇**筆記。
+> 統計:**399 個 YouTube video id**、**95 個 arXiv 編號**,涵蓋 **326 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(398 部,依 video id 排序)
+## YouTube(399 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -335,6 +335,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `T3R3CFtYUww` | 什麼是先進封裝?從有機基板到矽中介層、TSV、矽橋、玻璃基板一次看懂 | [knowledge/technology/ai-industry/advanced-packaging-explained.md](./knowledge/technology/ai-industry/advanced-packaging-explained.md) |
 | `t4QF0t_Y2Bs` | Python 3.15 幾個值得關注的新特性:frozendict、Sentinel、lazy import | [knowledge/technology/dev-tools/python-3-15-new-features.md](./knowledge/technology/dev-tools/python-3-15-new-features.md) |
 | `t5CtfUWJjm4` | 為什麼 AI 寫的網站一上線就掛?用手搖飲店看懂網站架構擴展 | [knowledge/technology/system-design/scaling-web-architecture-bubble-tea.md](./knowledge/technology/system-design/scaling-web-architecture-bubble-tea.md) |
+| `t7j-pWy2NA8` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
 | `T7z71yENz94` | 川普關稅被判違法之後:1,660 億美元退稅、150 天的過渡條款,與無縫接上的 301 條款 | [knowledge/investing/strategy/us-tariff-ieepa-struck-down-refunds-and-section-301.md](./knowledge/investing/strategy/us-tariff-ieepa-struck-down-refunds-and-section-301.md) |
 | `t96q8onLu90` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `t9WA-BkLUps` | 非技術者的資安入門:用五個問題做威脅建模,再交給 Codex Security 掃描 | [knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md](./knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md) |
@@ -429,7 +430,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(89 篇,依編號排序)
+## arXiv(95 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -463,10 +464,13 @@ grep -rlF --include=*.md -- "<id>" .
 | `2305.13245` | 100 萬上下文為什麼貴、又為什麼會變笨?從 MHA、MQA、GQA 到 MLA、DSA、CSA | [knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md](./knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md) |
 | `2305.14314` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
 | `2305.20050` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
+| `2307.02483` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
 | `2307.03172` | 一段提示詞把 Gemini CLI 變成自動化 Agent:拆成輸入/輸出/過程,再讓 AI 記「工作筆記」 | [knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md](./knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md) |
 | `2309.06180` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
+| `2310.02446` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
 | `2310.06824` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
 | `2310.08560` | Agent 記憶實作八種策略:從全量記憶、滑動窗口到 MemoryOS | [knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md) |
+| `2311.11538` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
 | `2312.07104` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
 | `2401.01301` | AI 為什麼會幻覺?「評分制度逼它硬猜」、四個高危場景與四句核查提示詞 | [knowledge/technology/ai-safety/why-llms-hallucinate-benchmarks-reward-guessing.md](./knowledge/technology/ai-safety/why-llms-hallucinate-benchmarks-reward-guessing.md) |
 | `2401.06066` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
@@ -477,11 +481,14 @@ grep -rlF --include=*.md -- "<id>" .
 | `2405.05254` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
 | `2406.04692` | Mixture-of-Agents(MoA):用「分層提議 + 聚合」讓多個 LLM 互相加成,純開源打贏 GPT-4o | [knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md](./knowledge/technology/ai-agents/foundations/mixture-of-agents-moa.md) |
 | `2406.04692` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
+| `2406.11717` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
 | `2406.11717` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
+| `2412.03556` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
 | `2412.19437` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
 | `2412.19437` | 多頭注意力(Multi-Head Attention)用人話講:「語法表、需求表、內容表」就是 K、Q、V(程序员老王) | [knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md](./knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md) |
 | `2501.12599` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
 | `2501.12948` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
+| `2501.18837` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
 | `2505.09388` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
 | `2506.06326` | Agent 記憶實作八種策略:從全量記憶、滑動窗口到 MemoryOS | [knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md) |
 | `2506.12605` | Bill Gates〈AI 動盪時代〉長文導讀：工作、機器人稅、雙面刃、陪伴與「Human Reserved」 | [knowledge/technology/ai-industry/bill-gates-turbulent-ai-era-human-reserved.md](./knowledge/technology/ai-industry/bill-gates-turbulent-ai-era-human-reserved.md) |
