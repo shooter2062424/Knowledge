@@ -26,3 +26,5 @@ python tools/mutation_probe.py                        # 關卡強度探測(10 �
 
 
 Agent 實測:`python tools/agent_trials.py run 5 <out_dir>`(會呼叫 `claude -p --model haiku --effort medium`,耗訂閱額度;B 組現在只允許跑 run_gates)。結果摘要:`out/agent_trials_summary.json`。
+
+含糊/矛盾實測:`python tools/ambiguity_trials.py 4 <out_dir>`;結果摘要 `out/ambiguity_trials_summary.json`。
