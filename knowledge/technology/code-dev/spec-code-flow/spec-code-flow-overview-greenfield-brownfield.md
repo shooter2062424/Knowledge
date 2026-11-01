@@ -4,6 +4,8 @@
 >
 > ⭐ **若你的情境是「外部公定 spec(3GPP)+ 內部實作 spec + 既有 code,6G 要加入又要保留 5G」**,直接看 [[multi-spec-layered-evolution-modem-5g-to-6g]]。
 >
+> ⭐ **若是「多個團隊各守一個 module、模組間靠 ILN 訊息/API 溝通,只改自己的 spec 別人不知道」**,看 [[iln-multi-team-spec-workflow]](含 12,000 次變更模擬)。
+>
 > 細節請看:[[spec-driven-development-landscape-2026]](spec → code)、[[code-to-spec-reverse-engineering-legacy-codebase]](code → spec)、[[cpp-large-codebase-stability-toolbox]](C/C++ 工具鏈)、[[5g-nr-to-6g-modem-spec-to-code-flow]](modem 案例)。
 
 ---

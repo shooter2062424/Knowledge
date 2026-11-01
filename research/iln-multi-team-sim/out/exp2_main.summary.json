@@ -1,0 +1,53 @@
+{
+ "summary": {
+  "n": 1800,
+  "A_broken": 1800,
+  "B_broken": 196,
+  "C_broken": 0,
+  "D_broken": 0,
+  "C_blocked_any": 196,
+  "expand_ok": 1800,
+  "B_mid_ok": 1800,
+  "D_mid_ok": 1800,
+  "strict_relaxed_total": 900,
+  "dyn_hidden_cases": 196,
+  "readers_avg": 1.4416666666666667,
+  "by_kind": {
+   "index": {
+    "n": 386,
+    "A": 386,
+    "B": 45,
+    "C": 0,
+    "D": 0
+   },
+   "time": {
+    "n": 364,
+    "A": 364,
+    "B": 37,
+    "C": 0,
+    "D": 0
+   },
+   "flag": {
+    "n": 344,
+    "A": 344,
+    "B": 33,
+    "C": 0,
+    "D": 0
+   },
+   "enum": {
+    "n": 362,
+    "A": 362,
+    "B": 50,
+    "C": 0,
+    "D": 0
+   },
+   "scaled": {
+    "n": 344,
+    "A": 344,
+    "B": 31,
+    "C": 0,
+    "D": 0
+   }
+  }
+ }
+}

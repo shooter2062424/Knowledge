@@ -1,0 +1,8 @@
+mutations=4800 truly_broken=2721 (57%)
+G0_own         recall=0.000 (0/2721)  FP=0/2079 (0.0%)
+G1_schema      recall=0.404 (1100/2721)  FP=635/2079 (30.5%)
+G2_manifest    recall=0.946 (2575/2721)  FP=18/2079 (0.9%)
+G2d_dataflow   recall=0.951 (2587/2721)  FP=18/2079 (0.9%) mod_prec=0.90 mod_rec=0.91
+G3_contract    recall=0.790 (2149/2721)  FP=0/2079 (0.0%)
+G4_e2e         recall=0.842 (2291/2721)  FP=0/2079 (0.0%)
+FULL           recall=0.994 (2704/2721)  FP=18/2079 (0.9%) mod_prec=0.91 mod_rec=0.99
