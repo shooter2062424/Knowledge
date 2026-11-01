@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "0182563c-3000-4270-be1e-f6f7871b72e1",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "C:\\Users\\shoot\\project\\Knowledge\\.archify\\ilm-diagrams-20261101-234810\\overview.json",
+  "output": "C:\\Users\\shoot\\project\\Knowledge\\knowledge\\technology\\code-dev\\spec-code-flow\\ilm-multi-team-spec-workflow-diagrams\\overview.html",
+  "specification": {
+    "sha256": "76aa84f0f9ab0f1a17cc5cf4cec6aa92d4ab24b53bc7f668a922d3a563d70ce2",
+    "bytes": 2297
+  },
+  "artifact": {
+    "sha256": "6728d1dae073e7fd975a7fee4a00812110abac62e0066ad10615c087d10cd339",
+    "bytes": 836606
+  }
+}

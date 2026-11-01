@@ -1,0 +1,181 @@
+{
+ "meta": {
+  "title": "ILM 變更流程(ICR)",
+  "locale": "zh-TW",
+  "quality_profile": "showcase",
+  "output": "knowledge/technology/code-dev/spec-code-flow/ilm-multi-team-spec-workflow-diagrams/icr-flow.html"
+ },
+ "lanes": [
+  {
+   "id": "cons",
+   "label": "consumer 團隊"
+  },
+  {
+   "id": "ci",
+   "label": "CI 與合併佇列"
+  },
+  {
+   "id": "prod",
+   "label": "producer 團隊"
+  }
+ ],
+ "mainPath": [
+  "p",
+  "d",
+  "k",
+  "x",
+  "t",
+  "q",
+  "z",
+  "e"
+ ],
+ "nodes": [
+  {
+   "id": "p",
+   "lane": "prod",
+   "type": "frontend",
+   "label": "改 registry 與程式",
+   "sublabel": "同一個 PR",
+   "col": 0
+  },
+  {
+   "id": "d",
+   "lane": "ci",
+   "col": 1,
+   "type": "backend",
+   "label": "算 diff 與影響",
+   "sublabel": "誰讀、誰在下游、風險分類"
+  },
+  {
+   "id": "k",
+   "lane": "ci",
+   "col": 2,
+   "type": "security",
+   "label": "變更類別",
+   "sublabel": "判定風險"
+  },
+  {
+   "id": "ok",
+   "lane": "ci",
+   "col": 3,
+   "type": "backend",
+   "label": "自動通過"
+  },
+  {
+   "id": "x",
+   "lane": "prod",
+   "col": 3,
+   "type": "messagebus",
+   "label": "走共存期",
+   "sublabel": "新增並存欄位"
+  },
+  {
+   "id": "r",
+   "lane": "cons",
+   "col": 3,
+   "type": "external",
+   "label": "通知受影響 consumer",
+   "sublabel": "附失敗案例"
+  },
+  {
+   "id": "t",
+   "lane": "cons",
+   "col": 4,
+   "type": "frontend",
+   "label": "consumer 開遷移 PR",
+   "sublabel": "manifest 標記已遷移"
+  },
+  {
+   "id": "q",
+   "lane": "ci",
+   "col": 4,
+   "type": "security",
+   "label": "合併佇列",
+   "sublabel": "合併後狀態跑全部閘門"
+  },
+  {
+   "id": "z",
+   "lane": "ci",
+   "col": 5,
+   "type": "security",
+   "label": "確認無人讀取舊欄位",
+   "sublabel": "runtime 追蹤、契約、端到端"
+  },
+  {
+   "id": "e",
+   "lane": "prod",
+   "col": 5,
+   "type": "backend",
+   "label": "移除舊欄位"
+  }
+ ],
+ "edges": [
+  {
+   "id": "p-d",
+   "from": "p",
+   "to": "d",
+   "variant": "default"
+  },
+  {
+   "id": "d-k",
+   "from": "d",
+   "to": "k",
+   "variant": "default"
+  },
+  {
+   "id": "k-ok",
+   "from": "k",
+   "to": "ok",
+   "label": "純新增、無人受影響",
+   "variant": "default"
+  },
+  {
+   "id": "k-x",
+   "from": "k",
+   "to": "x",
+   "label": "語意或結構破壞",
+   "variant": "emphasis"
+  },
+  {
+   "id": "k-r",
+   "from": "k",
+   "to": "r",
+   "label": "邊界或行為",
+   "variant": "security"
+  },
+  {
+   "id": "x-t",
+   "from": "x",
+   "to": "t",
+   "variant": "emphasis",
+   "fromSide": "top",
+   "toSide": "bottom"
+  },
+  {
+   "id": "r-t",
+   "from": "r",
+   "to": "t",
+   "variant": "default"
+  },
+  {
+   "id": "t-q",
+   "from": "t",
+   "to": "q",
+   "variant": "default"
+  },
+  {
+   "id": "q-z",
+   "from": "q",
+   "to": "z",
+   "variant": "default"
+  },
+  {
+   "id": "z-e",
+   "from": "z",
+   "to": "e",
+   "variant": "emphasis"
+  }
+ ],
+ "schema_version": 2,
+ "diagram_type": "workflow"
+}

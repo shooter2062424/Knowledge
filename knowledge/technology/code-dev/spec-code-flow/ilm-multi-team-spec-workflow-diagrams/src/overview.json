@@ -1,0 +1,131 @@
+{
+ "meta": {
+  "title": "ILM 共同維護流程總覽",
+  "locale": "zh-TW",
+  "quality_profile": "showcase",
+  "output": "knowledge/technology/code-dev/spec-code-flow/ilm-multi-team-spec-workflow-diagrams/overview.html"
+ },
+ "lanes": [
+  {
+   "id": "prod",
+   "label": "producer 團隊"
+  },
+  {
+   "id": "plat",
+   "label": "registry 與 CI"
+  },
+  {
+   "id": "cons",
+   "label": "consumer 團隊"
+  }
+ ],
+ "mainPath": [
+  "a",
+  "r",
+  "i",
+  "g",
+  "m",
+  "c"
+ ],
+ "nodes": [
+  {
+   "id": "a",
+   "lane": "prod",
+   "type": "frontend",
+   "label": "改自己的 ILM 規格",
+   "sublabel": "producer 團隊",
+   "col": 0
+  },
+  {
+   "id": "r",
+   "lane": "plat",
+   "col": 1,
+   "type": "database",
+   "label": "ILM registry",
+   "sublabel": "唯一機器可讀真相"
+  },
+  {
+   "id": "i",
+   "lane": "plat",
+   "col": 2,
+   "type": "backend",
+   "label": "自動影響分析",
+   "sublabel": "誰讀這個欄位、誰在下游"
+  },
+  {
+   "id": "n",
+   "lane": "cons",
+   "col": 3,
+   "type": "external",
+   "label": "通知 consumer 團隊",
+   "sublabel": "附具體失敗案例"
+  },
+  {
+   "id": "g",
+   "lane": "plat",
+   "col": 3,
+   "type": "security",
+   "label": "分層閘門",
+   "sublabel": "manifest、契約測試、端到端"
+  },
+  {
+   "id": "m",
+   "lane": "cons",
+   "col": 4,
+   "type": "messagebus",
+   "label": "共存期遷移",
+   "sublabel": "新舊欄位並存"
+  },
+  {
+   "id": "c",
+   "lane": "plat",
+   "col": 5,
+   "type": "backend",
+   "label": "確認無人讀取",
+   "sublabel": "才移除舊欄位"
+  }
+ ],
+ "edges": [
+  {
+   "id": "a-r",
+   "from": "a",
+   "to": "r",
+   "variant": "emphasis"
+  },
+  {
+   "id": "r-i",
+   "from": "r",
+   "to": "i",
+   "variant": "emphasis"
+  },
+  {
+   "id": "i-n",
+   "from": "i",
+   "to": "n",
+   "label": "通知",
+   "variant": "default"
+  },
+  {
+   "id": "i-g",
+   "from": "i",
+   "to": "g",
+   "label": "擋下",
+   "variant": "emphasis"
+  },
+  {
+   "id": "g-m",
+   "from": "g",
+   "to": "m",
+   "variant": "default"
+  },
+  {
+   "id": "m-c",
+   "from": "m",
+   "to": "c",
+   "label": "全數遷完",
+   "variant": "emphasis"
+  }
+ ],
+ "schema_version": 2,
+ "diagram_type": "workflow"
+}

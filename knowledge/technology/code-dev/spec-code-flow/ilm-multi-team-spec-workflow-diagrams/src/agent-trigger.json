@@ -1,0 +1,122 @@
+{
+ "meta": {
+  "title": "agent 能不能跟上 ILM 變更(Haiku 實測)",
+  "locale": "zh-TW",
+  "quality_profile": "showcase",
+  "output": "knowledge/technology/code-dev/spec-code-flow/ilm-multi-team-spec-workflow-diagrams/agent-trigger.html"
+ },
+ "lanes": [
+  {
+   "id": "start",
+   "label": "起點與判斷"
+  },
+  {
+   "id": "aligned",
+   "label": "被要求對齊規格"
+  },
+  {
+   "id": "other",
+   "label": "做別的任務"
+  },
+  {
+   "id": "diff",
+   "label": "有附 diff"
+  }
+ ],
+ "mainPath": [
+  "a",
+  "b",
+  "d",
+  "f"
+ ],
+ "nodes": [
+  {
+   "id": "a",
+   "lane": "start",
+   "type": "frontend",
+   "label": "producer 改 ILM",
+   "col": 0
+  },
+  {
+   "id": "b",
+   "lane": "start",
+   "col": 1,
+   "type": "security",
+   "label": "被要求對齊規格?",
+   "sublabel": "規格在眼前"
+  },
+  {
+   "id": "c",
+   "lane": "aligned",
+   "col": 2,
+   "type": "backend",
+   "label": "修對 80 of 80",
+   "sublabel": "不論有無通知",
+   "tag": "明確要求時"
+  },
+  {
+   "id": "d",
+   "lane": "other",
+   "col": 2,
+   "type": "security",
+   "label": "有附 registry diff?",
+   "sublabel": "規格只當參考"
+  },
+  {
+   "id": "e",
+   "lane": "other",
+   "col": 3,
+   "type": "external",
+   "label": "只修對 17 of 80",
+   "sublabel": "沒 diff"
+  },
+  {
+   "id": "f",
+   "lane": "diff",
+   "col": 3,
+   "type": "backend",
+   "label": "修對 76 of 80",
+   "sublabel": "有 diff",
+   "tag": "要自動推送"
+  }
+ ],
+ "edges": [
+  {
+   "id": "a-b",
+   "from": "a",
+   "to": "b",
+   "variant": "default"
+  },
+  {
+   "id": "b-c",
+   "from": "b",
+   "to": "c",
+   "label": "是",
+   "variant": "emphasis"
+  },
+  {
+   "id": "b-d",
+   "from": "b",
+   "to": "d",
+   "label": "否",
+   "variant": "security"
+  },
+  {
+   "id": "d-e",
+   "from": "d",
+   "to": "e",
+   "label": "沒有",
+   "variant": "security",
+   "role": "error"
+  },
+  {
+   "id": "d-f",
+   "from": "d",
+   "to": "f",
+   "label": "有",
+   "variant": "emphasis"
+  }
+ ],
+ "schema_version": 2,
+ "diagram_type": "workflow"
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "a7bf70cc-8d25-4a84-b433-2447378652c2",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "C:\\Users\\shoot\\project\\Knowledge\\.archify\\ilm-diagrams-20261101-234810\\agent-trigger.json",
+  "output": "C:\\Users\\shoot\\project\\Knowledge\\knowledge\\technology\\code-dev\\spec-code-flow\\ilm-multi-team-spec-workflow-diagrams\\agent-trigger.html",
+  "specification": {
+    "sha256": "156e7cd8e5184ee411d6fee6098ae81254c19bf32ecbd1a818746fc6241ea149",
+    "bytes": 2130
+  },
+  "artifact": {
+    "sha256": "1751d1b4a37e746dde0894cba5a54a9ea1fa36e99bc61f3590250be19e044b67",
+    "bytes": 834700
+  }
+}

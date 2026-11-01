@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "16ecc1f3-03eb-4724-91af-011333c244cb",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "C:\\Users\\shoot\\project\\Knowledge\\.archify\\ilm-diagrams-20261101-234810\\icr-flow.json",
+  "output": "C:\\Users\\shoot\\project\\Knowledge\\knowledge\\technology\\code-dev\\spec-code-flow\\ilm-multi-team-spec-workflow-diagrams\\icr-flow.html",
+  "specification": {
+    "sha256": "7822c7d9c2b4ca871030dbf2146f81b68a78fcbce9465bf3417d5bdccfe3982a",
+    "bytes": 3118
+  },
+  "artifact": {
+    "sha256": "a7099d2f7f5b160fcfca34b8a3afbc7064577962cf3fe3f52699ae5d535558cc",
+    "bytes": 841051
+  }
+}

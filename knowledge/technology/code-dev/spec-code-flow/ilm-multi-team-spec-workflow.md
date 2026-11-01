@@ -2,6 +2,8 @@
 
 > **情境(使用者 2026-11-01 提出):** 公司每個 team 有自己的 module 與守護範圍,module 之間透過 API 或 **ILM(Inter-Layer Message)** 溝通,ILM 可跨 5G NR、4G 等各層。問題:**我只改自己這邊的 spec,別人並不知道,而中間牽涉訊息與 API 的變化,要怎麼讓大家配合得上?** 要一套大家能共同維護的 spec-to-code / code-to-spec workflow,並用夠多次的實驗證明它不是剛好在小案例上成立。
 >
+> **圖:** 流程圖改用 [Archify](https://github.com/tt-a1i/archify) 繪製(`ilm-multi-team-spec-workflow-diagrams/*.html`,原始 JSON 在 `src/`),各圖旁附文字版流程。HTML 每個約 0.8 MB,需下載到本機用瀏覽器開啟。
+>
 > **證據分級:** 🟢 本篇模擬實跑的數字 · 🔴 本篇的設計推論(實驗支持其中部分,但不是任何公司的實測)。
 > **誠實聲明:** 模擬系統是隨機產生的玩具(沒有任何公司或 3GPP 的真實 ILM 格式);閘門與 ground truth 出自同一套模型,所以**絕對數字不能搬到真實專案**,能搬的是「哪一類變更被哪一層看得到、哪一層看不到」的相對結構。限制見第六節。
 > 程式與資料:[`research/ilm-multi-team-sim/`](https://github.com/shooter2062424/Knowledge/tree/main/research/ilm-multi-team-sim)。前置:[[multi-spec-layered-evolution-modem-5g-to-6g]]、[[multi-spec-roundtrip-experiment-python-sim]]、[[spec-code-flow-overview-greenfield-brownfield]]。
@@ -16,15 +18,9 @@
 4. 🟢 **破壞性變更用「新增並存欄位 → consumer 逐一遷移 → 確認沒人讀才移除舊欄位」:1,800 次遷移,中間期 0 次出事。** 只靠 AST 找讀取者有 10.9% 在移除時壞掉(全是靜態分析看不到的動態讀取);加上移除前的契約測試/端到端閘門,或用執行期存取追蹤找讀取者,**都降到 0**。
 5. 🟢 **LLM agent 當 consumer 團隊成員(實驗三,Haiku,496 次呼叫):能力不是瓶頸,「有沒有被叫起來、有沒有看到 diff」才是。** 明確要求「對齊最新規格」時,80 次會壞的變更 **80/80 修對**(連沒收通知也一樣);但當 agent 在做別的小任務、規格只是放在旁邊當參考時,**沒收通知只修對 17/80(21%),附上 registry diff 則 76/80(95%)**。所以 manifest 通知與 ICR diff 要自動推到 consumer 的工作流裡,不能指望誰順手發現。
 
-```mermaid
-flowchart LR
-    A["A 團隊改自己的 ILM 規格"] --> R["ILM registry<br/>唯一機器可讀真相"]
-    R --> I["自動影響分析<br/>誰讀這個欄位、誰在下游"]
-    I --> N["通知 consumer 團隊<br/>附具體失敗案例"]
-    I --> G["分層閘門<br/>manifest、契約測試、端到端"]
-    G --> M["共存期遷移<br/>新舊欄位並存"]
-    M --> C["確認無人讀取後<br/>才移除舊欄位"]
-```
+> 📊 **互動圖(Archify):** [ILM 共同維護流程總覽](./ilm-multi-team-spec-workflow-diagrams/overview.html)(下載後用瀏覽器開啟;GitHub 網頁不會渲染 HTML)
+>
+> 流程:A 團隊改自己的 ILM 規格 → **ILM registry**(唯一機器可讀真相)→ **自動影響分析**(誰讀這個欄位、誰在下游)→ 分兩路:**通知 consumer 團隊**(附具體失敗案例)與**分層閘門**(manifest、契約測試、端到端)→ **共存期遷移**(新舊欄位並存)→ 確認無人讀取後才移除舊欄位。
 
 ---
 
@@ -59,19 +55,10 @@ flowchart LR
 
 ### 3.2 變更流程(ILM Change Request,簡稱 ICR)
 
-```mermaid
-flowchart TD
-    P["producer 團隊在自己 module 改 registry 與程式<br/>同一個 PR"] --> D["CI 算 diff 與影響<br/>誰讀、誰在下游、風險分類"]
-    D --> K{"變更類別"}
-    K -->|"純新增、無人受影響"| OK["自動通過"]
-    K -->|"語意或結構破壞"| X["必須走共存期<br/>新增並存欄位"]
-    K -->|"邊界或行為"| R["通知受影響 consumer<br/>附失敗案例"]
-    X --> T["consumer 各自開遷移 PR<br/>manifest 標記已遷移"]
-    R --> T
-    T --> Q["合併前跑合併後狀態的全部閘門<br/>合併佇列"]
-    Q --> Z["確認無人讀取舊欄位<br/>runtime 追蹤加契約加端到端"]
-    Z --> E["移除舊欄位"]
-```
+> 📊 **互動圖(Archify):** [ILM 變更流程 ICR](./ilm-multi-team-spec-workflow-diagrams/icr-flow.html)
+>
+> 1. producer 在同一個 PR 改 registry 與程式 → 2. CI 算 diff 與影響(誰讀、誰在下游、風險分類)→ 3. 依變更類別分流:**純新增、無人受影響**自動通過;**語意或結構破壞**必須走共存期(新增並存欄位);**邊界或行為**通知受影響 consumer 並附失敗案例。
+> 4. consumer 各自開遷移 PR,manifest 標記已遷移 → 5. 合併佇列在合併後狀態跑全部閘門 → 6. 確認無人讀取舊欄位(runtime 追蹤加契約加端到端)→ 7. 移除舊欄位。
 
 重點規則(🔴 推論,第五節實驗支持其中「共存期」與「移除前閘門」兩項):
 
@@ -229,14 +216,9 @@ consumer 是**由模板產生的 Python 原始碼**,manifest 用 `ast` 真的從
 | (b) 無關型 N0 | **17 / 80(21%)** | 26 / 80 | 24 / 24 |
 | (b) 無關型 N2 | **76 / 80(95%)** | 75 / 80 | 23 / 24 |
 
-```mermaid
-flowchart LR
-    A["producer 改 ILM"] --> B{"consumer 的 agent<br/>有沒有被要求對齊規格"}
-    B -->|"有,且規格在眼前"| C["Haiku 修對 80 of 80"]
-    B -->|"沒有,規格只是參考"| D{"有沒有附 registry diff"}
-    D -->|"沒有"| E["只修對 17 of 80"]
-    D -->|"有"| F["修對 76 of 80"]
-```
+> 📊 **互動圖(Archify):** [agent 能不能跟上 ILM 變更](./ilm-multi-team-spec-workflow-diagrams/agent-trigger.html)
+>
+> producer 改 ILM 之後:若 consumer 的 agent **被要求對齊規格**且規格在眼前,Haiku 修對 80 of 80;若它在做別的任務、規格只是參考,再看**有沒有附 registry diff**:沒有只修對 17 of 80,有則 76 of 80。
 
 **怎麼讀:**
 
