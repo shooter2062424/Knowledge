@@ -1,6 +1,6 @@
 {
- "ILN_MeasCfg": {
-  "name": "ILN_MeasCfg",
+ "ILM_MeasCfg": {
+  "name": "ILM_MeasCfg",
   "producer": "rrc",
   "positional": false,
   "seq": 0,
@@ -40,8 +40,8 @@
    }
   }
  },
- "ILN_SchedGrant": {
-  "name": "ILN_SchedGrant",
+ "ILM_SchedGrant": {
+  "name": "ILM_SchedGrant",
   "producer": "mac",
   "positional": false,
   "seq": 1,

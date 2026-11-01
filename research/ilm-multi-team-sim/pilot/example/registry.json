@@ -1,11 +1,11 @@
 {
- "ILN_MeasCfg": {"name":"ILN_MeasCfg","producer":"rrc","positional":false,"seq":0,"latency_us":200,
+ "ILM_MeasCfg": {"name":"ILM_MeasCfg","producer":"rrc","positional":false,"seq":0,"latency_us":200,
   "fields":{
    "meas_period":{"kind":"time","unit":"ms","lo":1,"hi":640,"default":1,"optional":false},
    "carrier_idx":{"kind":"index","base":0,"lo":0,"hi":15,"default":0,"optional":false},
    "report_mode":{"kind":"enum","map":{"PERIODIC":0,"EVENT":1,"ONESHOT":2},"default":0,"optional":true},
    "ho_enable":{"kind":"flag","true_val":1,"default":0,"optional":true}}},
- "ILN_SchedGrant": {"name":"ILN_SchedGrant","producer":"mac","positional":false,"seq":1,"latency_us":100,
+ "ILM_SchedGrant": {"name":"ILM_SchedGrant","producer":"mac","positional":false,"seq":1,"latency_us":100,
   "fields":{
    "tx_power":{"kind":"scaled","scale":0.5,"lo":0,"hi":120,"default":0,"optional":false},
    "harq_id":{"kind":"index","base":0,"lo":0,"hi":15,"default":0,"optional":false}}}

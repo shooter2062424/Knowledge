@@ -15,7 +15,7 @@ import random
 import sys
 from typing import Any
 
-import iln_sim as S
+import ilm_sim as S
 
 
 def rebuild(inst: S.Instance) -> None:

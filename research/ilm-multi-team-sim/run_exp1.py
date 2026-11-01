@@ -10,7 +10,7 @@ import random
 import sys
 from collections import defaultdict
 
-import iln_sim as S
+import ilm_sim as S
 
 GATES = ["G0_own", "G1_schema", "G2_manifest", "G2d_dataflow", "G3_contract", "G4_e2e", "FULL"]
 

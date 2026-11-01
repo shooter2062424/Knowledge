@@ -1,7 +1,7 @@
-"""ILN 變更影響檢查器(試點版):registry 語意 diff + 從原始碼抽 consumer manifest + 影響通知。
+"""ILM 變更影響檢查器(試點版):registry 語意 diff + 從原始碼抽 consumer manifest + 影響通知。
 
 拿真實模組做試點用。不依賴外部套件。流程:
-  1. 把兩個以上模組的 ILN 訊息整理成 registry JSON(格式見 example/registry.json)
+  1. 把兩個以上模組的 ILM 訊息整理成 registry JSON(格式見 example/registry.json)
   2. `manifest`  掃各模組原始碼,抽出「這個模組讀了哪些訊息的哪些欄位」
   3. `diff`      比較新舊 registry,把每項變更分類(靜默破壞 / 結構破壞 / 相容)
   4. `impact`    diff + manifest => 每個模組要收到什麼通知
@@ -12,10 +12,10 @@
 出現的第一個已知訊息名)。Python 檔另外用 ast 精確抽取 msg["x"] / msg.get("x")。
 
 用法:
-  python iln_check.py manifest <config.json> > manifest.json
-  python iln_check.py diff <old_registry.json> <new_registry.json>
-  python iln_check.py impact <old_registry.json> <new_registry.json> <manifest.json>
-  python iln_check.py inject <registry.json> <manifest.json>
+  python ilm_check.py manifest <config.json> > manifest.json
+  python ilm_check.py diff <old_registry.json> <new_registry.json>
+  python ilm_check.py impact <old_registry.json> <new_registry.json> <manifest.json>
+  python ilm_check.py inject <registry.json> <manifest.json>
 """
 from __future__ import annotations
 
@@ -113,7 +113,7 @@ def build_manifest(cfg: dict[str, Any], registry: dict[str, Any]) -> dict[str, A
             src = p.read_text(encoding="utf-8", errors="replace")
             mentioned = [m for m in msg_names if re.search(rf"\b{re.escape(m)}\b", src)]
             fields: set[tuple[str, str]] = set()
-            # 變數型別表: `const ILN_X *g` / `ILN_X &cfg` => g/cfg 屬於 ILN_X(讓 g->field 能判出訊息)
+            # 變數型別表: `const ILM_X *g` / `ILM_X &cfg` => g/cfg 屬於 ILM_X(讓 g->field 能判出訊息)
             names_rx = "|".join(re.escape(m) for m in sorted(msg_names, key=len, reverse=True))
             var2msg = {g.group("var"): g.group("msg") for g in
                        re.finditer(rf"\b(?P<msg>{names_rx})\b\s*(?:const\s*)?[&*]*\s*(?P<var>[A-Za-z_]\w*)", src)} if names_rx else {}

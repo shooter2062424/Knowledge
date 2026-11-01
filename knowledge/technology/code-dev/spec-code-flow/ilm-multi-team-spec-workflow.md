@@ -1,16 +1,16 @@
-# 多團隊各守一個 module、靠 ILN 溝通時的 Spec ⇄ Code 共同維護流程(含 12,000 次變更模擬)
+# 多團隊各守一個 module、靠 ILM 溝通時的 Spec ⇄ Code 共同維護流程(含 12,000 次變更模擬)
 
-> **情境(使用者 2026-11-01 提出):** 公司每個 team 有自己的 module 與守護範圍,module 之間透過 API 或 **ILN(Inter-Layer Message)** 溝通,ILN 可跨 5G NR、4G 等各層。問題:**我只改自己這邊的 spec,別人並不知道,而中間牽涉訊息與 API 的變化,要怎麼讓大家配合得上?** 要一套大家能共同維護的 spec-to-code / code-to-spec workflow,並用夠多次的實驗證明它不是剛好在小案例上成立。
+> **情境(使用者 2026-11-01 提出):** 公司每個 team 有自己的 module 與守護範圍,module 之間透過 API 或 **ILM(Inter-Layer Message)** 溝通,ILM 可跨 5G NR、4G 等各層。問題:**我只改自己這邊的 spec,別人並不知道,而中間牽涉訊息與 API 的變化,要怎麼讓大家配合得上?** 要一套大家能共同維護的 spec-to-code / code-to-spec workflow,並用夠多次的實驗證明它不是剛好在小案例上成立。
 >
 > **證據分級:** 🟢 本篇模擬實跑的數字 · 🔴 本篇的設計推論(實驗支持其中部分,但不是任何公司的實測)。
-> **誠實聲明:** 模擬系統是隨機產生的玩具(沒有任何公司或 3GPP 的真實 ILN 格式);閘門與 ground truth 出自同一套模型,所以**絕對數字不能搬到真實專案**,能搬的是「哪一類變更被哪一層看得到、哪一層看不到」的相對結構。限制見第六節。
-> 程式與資料:[`research/iln-multi-team-sim/`](https://github.com/shooter2062424/Knowledge/tree/main/research/iln-multi-team-sim)。前置:[[multi-spec-layered-evolution-modem-5g-to-6g]]、[[multi-spec-roundtrip-experiment-python-sim]]、[[spec-code-flow-overview-greenfield-brownfield]]。
+> **誠實聲明:** 模擬系統是隨機產生的玩具(沒有任何公司或 3GPP 的真實 ILM 格式);閘門與 ground truth 出自同一套模型,所以**絕對數字不能搬到真實專案**,能搬的是「哪一類變更被哪一層看得到、哪一層看不到」的相對結構。限制見第六節。
+> 程式與資料:[`research/ilm-multi-team-sim/`](https://github.com/shooter2062424/Knowledge/tree/main/research/ilm-multi-team-sim)。前置:[[multi-spec-layered-evolution-modem-5g-to-6g]]、[[multi-spec-roundtrip-experiment-python-sim]]、[[spec-code-flow-overview-greenfield-brownfield]]。
 
 ---
 
 ## 一、結論
 
-1. **「只改自己的 spec」本身不會讓別人知道,也不會自己同步。** 要讓別人配合得上,需要三件事同時成立:**ILN 規格只有一份機器可讀的真相**、**每個 consumer 怎麼用它也能被機器看見**、**破壞性變更必須走新舊並存的共存期**,不能一次切換。
+1. **「只改自己的 spec」本身不會讓別人知道,也不會自己同步。** 要讓別人配合得上,需要三件事同時成立:**ILM 規格只有一份機器可讀的真相**、**每個 consumer 怎麼用它也能被機器看見**、**破壞性變更必須走新舊並存的共存期**,不能一次切換。
 2. 🟢 **最大的坑是「語意變更」而不是「欄位增減」。** 12,000 次隨機變更中,真的會讓別的團隊壞掉的有 7,094 次;其中 **4,367 次(62%)純 schema diff 完全看不到**(單位、縮放、極性、索引基底、預設值、範圍放寬、enum 新增、順序、延遲)。
 3. 🟢 **沒有單一閘門夠用。** 各層的抓取率:團隊自己的測試 0%、schema diff 38%(還有 32% 誤報)、manifest 語意比對 95%、consumer 契約測試 85%、端到端 replay 82%;**疊起來 99.7%**,在較差的現實條件下仍有 98.5%。各層的盲點不一樣,所以要疊。
 4. 🟢 **破壞性變更用「新增並存欄位 → consumer 逐一遷移 → 確認沒人讀才移除舊欄位」:1,800 次遷移,中間期 0 次出事。** 只靠 AST 找讀取者有 10.9% 在移除時壞掉(全是靜態分析看不到的動態讀取);加上移除前的契約測試/端到端閘門,或用執行期存取追蹤找讀取者,**都降到 0**。
@@ -18,7 +18,7 @@
 
 ```mermaid
 flowchart LR
-    A["A 團隊改自己的 ILN 規格"] --> R["ILN registry<br/>唯一機器可讀真相"]
+    A["A 團隊改自己的 ILM 規格"] --> R["ILM registry<br/>唯一機器可讀真相"]
     R --> I["自動影響分析<br/>誰讀這個欄位、誰在下游"]
     I --> N["通知 consumer 團隊<br/>附具體失敗案例"]
     I --> G["分層閘門<br/>manifest、契約測試、端到端"]
@@ -48,16 +48,16 @@ flowchart LR
 
 | 資產 | 內容 | 擁有者 | 為什麼 |
 |---|---|---|---|
-| **ILN registry**(機器可讀) | 每則訊息:producer 模組、版本、欄位(型別、**單位、縮放、範圍、enum 對照、預設值、極性、索引基底**)、**送出順序、延遲上限**、穩定度等級 | producer 團隊(各自的訊息);registry 結構與規則由一個輕量的架構/平台小組維護 | 語意屬性寫在 registry 才看得見;寫在人腦或 Word 裡等於不存在 |
+| **ILM registry**(機器可讀) | 每則訊息:producer 模組、版本、欄位(型別、**單位、縮放、範圍、enum 對照、預設值、極性、索引基底**)、**送出順序、延遲上限**、穩定度等級 | producer 團隊(各自的訊息);registry 結構與規則由一個輕量的架構/平台小組維護 | 語意屬性寫在 registry 才看得見;寫在人腦或 Word 裡等於不存在 |
 | **consumer manifest**(由 code 抽出,不手寫) | 這個模組讀了哪些訊息的哪些欄位、哪些欄位原樣轉發到哪則下游訊息、宣告的假設(單位、cap、是否容忍未知 enum) | consumer 團隊;**由 CI 從原始碼自動抽取**,人只補不能從 code 推出的假設 | 讓「誰在用」變成可查詢的資料,影響分析才算得出來 |
-| **module spec**(團隊自己的守護範圍) | 模組內部行為、狀態機、內部決定(時序預算、記憶體) | 該模組團隊 | 內部決定要寫成可執行約束,外部規格或 ILN 一變才知道哪個假設被打破 |
+| **module spec**(團隊自己的守護範圍) | 模組內部行為、狀態機、內部決定(時序預算、記憶體) | 該模組團隊 | 內部決定要寫成可執行約束,外部規格或 ILM 一變才知道哪個假設被打破 |
 
 這裡 spec-to-code 與 code-to-spec 各有一個明確位置:
 
 - **spec → code:** 從 registry **產生** producer 的編碼/驗證與 consumer 的解碼常數(單位、縮放、enum 表)。這樣「consumer 手寫常數與 spec 漂移」這一類問題根本不會出現。🔴 推論;實驗只模擬了「consumer 常數自己寫」的情況。
 - **code → spec:** 從 consumer 原始碼抽 manifest(本實驗用 Python `ast` 實作;真實 C/C++ 要換 libclang 或 Joern),並比對「宣告的假設」與「實際程式常數」。
 
-### 3.2 變更流程(ILN Change Request,簡稱 ICR)
+### 3.2 變更流程(ILM Change Request,簡稱 ICR)
 
 ```mermaid
 flowchart TD
@@ -109,14 +109,14 @@ flowchart TD
 
 - **每週 drift 報告:** 宣告的假設 vs 實際程式常數 vs registry,三者不一致的清單(實驗中「宣告比程式寬鬆」這類過期是造成漏接的主因之一)。
 - **季度變異探測:** 在真實 registry 上跑第四節的實驗,看各層抓取率有沒有下滑。
-- **owner 表與升級路徑:** 每則 ILN 有 producer owner 與至少一位 consumer 代表;registry 結構本身的變更需要架構小組核准。
+- **owner 表與升級路徑:** 每則 ILM 有 producer owner 與至少一位 consumer 代表;registry 結構本身的變更需要架構小組核准。
 - **版本與棄用期:** 並存欄位有明確移除日期,到期前 manifest 與執行期追蹤仍有讀取者就自動升級給 owner。
 
 ---
 
 ## 四、實驗一:12,000 次隨機變更
 
-**設計(🟢):** 80 個隨機產生的系統(4–8 個模組、每系統 7–27 則 ILN 訊息,中位數 16;約 23% 是位置式編碼;consumer 有嚴格/寬鬆、有 cap、有 enum 對照、有些把欄位原樣轉發給下游模組)。每個系統做 150 次隨機的 producer 端變更,共 12,000 次,涵蓋 18 種變更類型(含一種純文件變更當對照)。**ground truth:** 稠密取樣(含邊界、省略可選欄位、所有 enum 符號)跑整個系統,以物理意義比對 consumer 解碼出的值,有例外或值不符就算壞掉。被判定會壞的 7,094 次(59%),不會壞的 4,906 次。
+**設計(🟢):** 80 個隨機產生的系統(4–8 個模組、每系統 7–27 則 ILM 訊息,中位數 16;約 23% 是位置式編碼;consumer 有嚴格/寬鬆、有 cap、有 enum 對照、有些把欄位原樣轉發給下游模組)。每個系統做 150 次隨機的 producer 端變更,共 12,000 次,涵蓋 18 種變更類型(含一種純文件變更當對照)。**ground truth:** 稠密取樣(含邊界、省略可選欄位、所有 enum 符號)跑整個系統,以物理意義比對 consumer 解碼出的值,有例外或值不符就算壞掉。被判定會壞的 7,094 次(59%),不會壞的 4,906 次。
 
 consumer 是**由模板產生的 Python 原始碼**,manifest 用 `ast` 真的從原始碼抽出(動態 key 讀取抽不到,是刻意保留的盲點)。
 
@@ -231,7 +231,7 @@ consumer 是**由模板產生的 Python 原始碼**,manifest 用 `ast` 真的從
 
 ```mermaid
 flowchart LR
-    A["producer 改 ILN"] --> B{"consumer 的 agent<br/>有沒有被要求對齊規格"}
+    A["producer 改 ILM"] --> B{"consumer 的 agent<br/>有沒有被要求對齊規格"}
     B -->|"有,且規格在眼前"| C["Haiku 修對 80 of 80"]
     B -->|"沒有,規格只是參考"| D{"有沒有附 registry diff"}
     D -->|"沒有"| E["只修對 17 of 80"]
@@ -246,7 +246,7 @@ flowchart LR
 - **對照組有 1/24 被改壞**(scale_change,兩種任務各一次,同一案例):agent 對一個其實不用改的 consumer 動了手。流程上 agent 的修補仍要過 G3/G4 閘門與人工審,不能直接合併。
 - **這給 workflow 的設計含義:** (1) manifest 通知要自動變成各 consumer repo 裡的 issue/PR,把 diff 一起帶上;(2) 要求 agent 在修補 PR 中同步更新 ASSUME/宣告,並讓 G2 在 PR 上檢查「宣告與程式一致」;(3) 不依賴 agent 在做別的任務時順手發現。
 
-**這個實驗的限制(🔴):** 只有 Haiku 一個模型、單輪、一個 consumer 一則訊息;consumer 是 80 行以內的模板 Python,agent 不用找檔案、不用跑測試;對齊型任務的提示裡直接寫了「對齊最新規格」,等於告訴 agent 要檢查什麼。真實 C/C++ 大檔、多檔、多訊息的情況,修對率一定低於這個數字。資料:`research/iln-multi-team-sim/out/exp3_*`(LLM 輸出無法固定 seed,逐筆結果有存)。
+**這個實驗的限制(🔴):** 只有 Haiku 一個模型、單輪、一個 consumer 一則訊息;consumer 是 80 行以內的模板 Python,agent 不用找檔案、不用跑測試;對齊型任務的提示裡直接寫了「對齊最新規格」,等於告訴 agent 要檢查什麼。真實 C/C++ 大檔、多檔、多訊息的情況,修對率一定低於這個數字。資料:`research/ilm-multi-team-sim/out/exp3_*`(LLM 輸出無法固定 seed,逐筆結果有存)。
 
 ---
 
@@ -256,11 +256,11 @@ flowchart LR
 - **consumer 是模板產生的,不是真實 C/C++。** manifest 用 Python `ast`;C/C++ 有 macro、條件編譯、指標別名,抽取難度高很多。
 - **「宣告過期」只模擬了比程式寬鬆的一種;** 其他不一致在 baseline 就會被發現,所以不算靜默過期。
 - **誤報的來源之一是模型規則太粗:** 位置式訊息改欄位名稱,對嚴格 consumer 的 `known` 名單判定會報,但線上格式其實沒變。
-- **實驗二不處理位置式訊息、也不處理被轉發的欄位;** 這兩類在真實 ILN 很常見,需要另外的遷移方式(保留槽位、同步遷移下游)。
+- **實驗二不處理位置式訊息、也不處理被轉發的欄位;** 這兩類在真實 ILM 很常見,需要另外的遷移方式(保留槽位、同步遷移下游)。
 - **執行期追蹤只看得到被執行到的路徑。** 模擬中用稠密取樣所以抓得完整;真實系統的罕見分支(錯誤處理、特殊頻段)追蹤到不到,取決於測試與流量覆蓋。
 - **沒有並行變更。** 兩個團隊同時改相關的訊息,各自都過閘門、合併後才壞的情況沒模擬(流程中以合併佇列對應,但沒驗證)。
 - **LLM agent 實驗只做了最簡單的一環。** 實驗三只測「單一 consumer、單一訊息、收到通知後改碼」,用 Haiku、單輪、模板產生的短 Python;沒測 agent 當 producer、沒測它會不會繞過閘門或亂改別人的碼、沒測 Sonnet/Opus、沒測真實大型 C/C++。結果只能說明「通知內容夠具體時 agent 修得動」,不能說明整個流程可以交給 agent 自走。
-- **沒有真實 3GPP 或公司內部 ILN 格式。**
+- **沒有真實 3GPP 或公司內部 ILM 格式。**
 
 ---
 
@@ -280,11 +280,11 @@ flowchart LR
 
 ## 八、試點工具與下一步
 
-**已做(🟢):** `research/iln-multi-team-sim/pilot/` 放了可以直接拿去試點的最小工具 `iln_check.py`(單檔、無外部相依):`manifest` 掃原始碼抽出各模組讀了哪些訊息的哪些欄位(Python 用 `ast`,C/C++ 用可設定的 regex 加上 `const ILN_X *g` 變數宣告反查訊息)、`diff` 做 registry 語意 diff 並分成靜默破壞/結構破壞/相容、`impact` 算每個模組該收到什麼通知、`inject` 對 registry 逐一注入變更並列出每個變更會通知到誰。附 RRC(C)、MAC(C++)、CTL(Python)三個玩具模組和兩則玩具訊息的範例,以及五步試點流程與要記的三個數字。範例已實跑:注入 15 種變更,通知對象符合程式碼實際的讀取關係。**範例是玩具、不是任何公司的真實格式。**
+**已做(🟢):** `research/ilm-multi-team-sim/pilot/` 放了可以直接拿去試點的最小工具 `ilm_check.py`(單檔、無外部相依):`manifest` 掃原始碼抽出各模組讀了哪些訊息的哪些欄位(Python 用 `ast`,C/C++ 用可設定的 regex 加上 `const ILM_X *g` 變數宣告反查訊息)、`diff` 做 registry 語意 diff 並分成靜默破壞/結構破壞/相容、`impact` 算每個模組該收到什麼通知、`inject` 對 registry 逐一注入變更並列出每個變更會通知到誰。附 RRC(C)、MAC(C++)、CTL(Python)三個玩具模組和兩則玩具訊息的範例,以及五步試點流程與要記的三個數字。範例已實跑:注入 15 種變更,通知對象符合程式碼實際的讀取關係。**範例是玩具、不是任何公司的真實格式。**
 
 **還沒做、需要你這邊的真實資料才能做(🔴):**
 
-1. **拿真實的 ILN 定義試一次(取決於貴公司資料,無法在本倉庫完成):** 挑兩個真實 module 的 ILN,依 `pilot/README.md` 建 registry 最小版、調 `read_patterns`、抽 manifest、注入變更,並回放 5 個歷史上真的出過事的 ILN 變更。這一步決定本篇數字能不能參考。需要真實 ILN 欄位定義與一份 consumer 原始碼(可去識別)。
+1. **拿真實的 ILM 定義試一次(取決於貴公司資料,無法在本倉庫完成):** 挑兩個真實 module 的 ILM,依 `pilot/README.md` 建 registry 最小版、調 `read_patterns`、抽 manifest、注入變更,並回放 5 個歷史上真的出過事的 ILM 變更。這一步決定本篇數字能不能參考。需要真實 ILM 欄位定義與一份 consumer 原始碼(可去識別)。
 2. **C/C++ 的 manifest 抽取:** 試點工具是 regex 加變數反查,巨集、模板、經 helper 轉手的讀取抓不到;下一步用 libclang 抽 AST,manifest 格式不用變。
 3. **擴大 agent 實驗:** Sonnet/Opus 對照、agent 當 producer、多檔多訊息的真實 C/C++ consumer、agent 會不會繞過閘門。
 4. **並行變更與合併佇列:** 兩個團隊同時動相關訊息,量合併後才壞的比例。
@@ -293,7 +293,7 @@ flowchart LR
 
 ## 來源
 
-- 實驗程式與彙整資料:[research/iln-multi-team-sim](https://github.com/shooter2062424/Knowledge/tree/main/research/iln-multi-team-sim)(`iln_sim.py`、`run_exp1.py`、`run_exp2.py`;固定 seed,可重現。`run_exp3.py` 為 LLM agent 實驗,模型輸出不可重現,逐筆結果存於 `out/exp3_*_rows.json`)。試點工具:[pilot/](https://github.com/shooter2062424/Knowledge/tree/main/research/iln-multi-team-sim/pilot)。
+- 實驗程式與彙整資料:[research/ilm-multi-team-sim](https://github.com/shooter2062424/Knowledge/tree/main/research/ilm-multi-team-sim)(`ilm_sim.py`、`run_exp1.py`、`run_exp2.py`;固定 seed,可重現。`run_exp3.py` 為 LLM agent 實驗,模型輸出不可重現,逐筆結果存於 `out/exp3_*_rows.json`)。試點工具:[pilot/](https://github.com/shooter2062424/Knowledge/tree/main/research/ilm-multi-team-sim/pilot)。
 - 前置研究:[[multi-spec-layered-evolution-modem-5g-to-6g]](3GPP 擴充機制本身累加式向下相容)、[[multi-spec-roundtrip-experiment-python-sim]](單一規格往返實驗與 Haiku 實測)、[[spec-driven-development-landscape-2026]]、[[code-to-spec-reverse-engineering-legacy-codebase]]。
 - 概念名稱(本篇未重讀原文,僅作查證線索,不作為任何數字的出處):consumer-driven contract testing、tolerant reader、parallel change / expand and contract、schema breaking-change 檢查。
-- 使用者情境說明(2026-11-01):ILN 為公司內部對 Inter-Layer Message 的稱呼,跨 5G NR、4G 等層與模組溝通;本篇沒有任何公司內部文件。
+- 使用者情境說明(2026-11-01):ILM 為公司內部對 Inter-Layer Message 的稱呼,跨 5G NR、4G 等層與模組溝通;本篇沒有任何公司內部文件。

@@ -1,12 +1,12 @@
 {
  "rrc": {
-  "ILN_SchedGrant": [
+  "ILM_SchedGrant": [
    "harq_id",
    "tx_power"
   ]
  },
  "mac": {
-  "ILN_MeasCfg": [
+  "ILM_MeasCfg": [
    "carrier_idx",
    "ho_enable",
    "meas_period",
@@ -14,7 +14,7 @@
   ]
  },
  "ctl": {
-  "ILN_MeasCfg": [
+  "ILM_MeasCfg": [
    "carrier_idx",
    "ho_enable"
   ]

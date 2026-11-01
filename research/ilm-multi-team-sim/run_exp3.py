@@ -27,13 +27,13 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
-import iln_sim as S
+import ilm_sim as S
 
 OPS3 = ["unit_change", "scale_change", "range_widen", "range_narrow", "enum_add", "enum_renumber",
         "enum_remove", "flag_polarity", "index_base", "reorder_fields", "rename_field", "default_change"]
 
 LEGEND = """\
-ILN 欄位語意(registry 的 kind):
+ILM 欄位語意(registry 的 kind):
 - time  : 線上原始值 raw,實際時間(微秒 us) = raw * unit 對應的微秒數(us=1, ms=1000, s=1000000);範圍 lo..hi(raw 單位)
 - index : 實際索引 = raw - base(輸出為從 0 起算);raw 範圍 lo..hi
 - enum  : map 為 符號->raw;handler 輸出符號字串;raw 不在 map 時輸出 "UNKNOWN"(除非該模組設定 strict,strict 則可拋例外)
@@ -43,7 +43,7 @@ ILN 欄位語意(registry 的 kind):
 - positional=true 的訊息是 list,依 fields 順序取位置;否則是 dict,依欄位名稱取
 handler 規則:r[欄位名] 必須等於上述『實際值』;對規格範圍內的所有 raw 值都不可拋例外;上限檢查(cap)必須涵蓋規格範圍。"""
 
-PROMPT = """你是模組 {c} 的維護者。你的模組用下面的 Python 檔處理 ILN 訊息 {m}。
+PROMPT = """你是模組 {c} 的維護者。你的模組用下面的 Python 檔處理 ILM 訊息 {m}。
 {legend}
 
 【目前 registry 中訊息 {m} 的規格(JSON,最新版)】
@@ -58,7 +58,7 @@ PROMPT = """你是模組 {c} 的維護者。你的模組用下面的 Python 檔�
 只輸出一個 ```python 區塊,內容是完整的 {c}.py,不要其他文字。"""
 
 
-PROMPT_U = """你是模組 {c} 的維護者。現在的任務是一個和 ILN 無關的小功能:
+PROMPT_U = """你是模組 {c} 的維護者。現在的任務是一個和 ILM 無關的小功能:
 在 handle(msg) 的回傳 r 中,新增一個鍵 "_cnt",值為本模組處理的欄位數量(len 現有的 r 項目即可,不要改變其他欄位的輸出)。
 {legend}
 
@@ -127,7 +127,7 @@ def build_notice(cond: str, t: dict[str, Any], inst: S.Instance, reg: dict[str, 
     if cond == "N0":
         return ""
     m = t["m"]
-    txt = f"\n【通知】ILN 訊息 {m}(producer: {inst.registry[m]['producer']})在 registry 有更新,你的模組有讀取它。\n"
+    txt = f"\n【通知】ILM 訊息 {m}(producer: {inst.registry[m]['producer']})在 registry 有更新,你的模組有讀取它。\n"
     if cond == "N2":
         a = spec_json(inst.registry, m).splitlines()
         b = spec_json(reg, m).splitlines()

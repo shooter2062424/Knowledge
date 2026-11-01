@@ -1,10 +1,10 @@
-"""多團隊 ILN(Inter-Layer Message)規格往返模擬:隨機系統產生、變異算子、閘門。
+"""多團隊 ILM(Inter-Layer Message)規格往返模擬:隨機系統產生、變異算子、閘門。
 
 玩具規模、全為模擬值,不是真實 3GPP 或任何公司的內部格式。用途是回答:
-一個團隊只改自己模組的 ILN 規格時,哪一層檢查能抓到「其他團隊會壞掉」。
+一個團隊只改自己模組的 ILM 規格時,哪一層檢查能抓到「其他團隊會壞掉」。
 
 結構:
-  registry   : ILN 訊息規格(單一真相來源,每個欄位帶 kind/unit/range/enum/default)
+  registry   : ILM 訊息規格(單一真相來源,每個欄位帶 kind/unit/range/enum/default)
   consumer   : 每個模組的處理程式(由模板產生 Python 原始碼再 exec,所以可用 ast 抽取)
   mutation   : 18 種 producer 端變更算子
   gates      : G1 schema diff / G2 manifest 語意 diff / G2d 含 dataflow / G3 契約測試 / G4 端到端 replay
