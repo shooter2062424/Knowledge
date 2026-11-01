@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**401 個 YouTube video id**、**119 個 arXiv 編號**,涵蓋 **332 篇**筆記。
+> 統計:**402 個 YouTube video id**、**119 個 arXiv 編號**,涵蓋 **332 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(401 部,依 video id 排序)
+## YouTube(402 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -123,6 +123,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `bNMBbrplILM` | Fable 5.1:榜單全線第一,官方卻叫你先用 Opus 5 —— 旗艦模型開始為「可用性」讓路 | [knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md](./knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md) |
 | `bPWcSxkD6Uo` | WiFi 是怎麼傳遞資訊的?把資訊裝進電磁波的硬核原理 | [knowledge/technology/telecom/wifi-how-it-works.md](./knowledge/technology/telecom/wifi-how-it-works.md) |
 | `BQveePDWavA` | Token 與 Embedding 的分工:為什麼 LLM 的 embedding 和 RAG 的 embedding 不是同一回事 | [knowledge/technology/llm-internals/architecture/token-vs-embedding-llm-and-rag.md](./knowledge/technology/llm-internals/architecture/token-vs-embedding-llm-and-rag.md) |
+| `bs0IXxThe3o` | 同樣 200 美元，Claude 訂閱值 OpenAI 的五倍？SemiAnalysis 訂閱額度實測與「補貼算力」的生意 | [knowledge/technology/ai-industry/ai-subscription-api-equivalent-value-semianalysis.md](./knowledge/technology/ai-industry/ai-subscription-api-equivalent-value-semianalysis.md) |
 | `ByBLjNA3MvY` | 海鷗策略(Seagull):牛市中「不踏空又不怕跌」的三腿期權對沖 | [knowledge/investing/derivatives/seagull-options-hedge.md](./knowledge/investing/derivatives/seagull-options-hedge.md) |
 | `CGd5zDUrWnw` | Agent 為什麼會長成 Runtime:DeepSeek Harness 的插件樹與事件日誌,以及底下那篇 Cordis 論文 | [knowledge/technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md](./knowledge/technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) |
 | `cgKUgAJE3cs` | AI 產業秘密轉向:大模型集體從 C 端轉 B 端、訂閱轉用量,而「算力」成了現階段的勝負手 | [knowledge/investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md](./knowledge/investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md) |

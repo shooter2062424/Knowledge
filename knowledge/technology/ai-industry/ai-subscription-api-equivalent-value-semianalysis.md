@@ -1,6 +1,8 @@
 # 同樣 200 美元，Claude 訂閱值 OpenAI 的五倍？SemiAnalysis 訂閱額度實測與「補貼算力」的生意
 
-> 整理自 YouTube「Why QQ(为什么叫QQ)」〈Claude VS OpenAI 200美元，差5倍｜10分钟看清AI订阅〉(2026-10-10，約 10 分鐘，官方簡中字幕)。影片導讀 **SemiAnalysis 2026-10-05** 的報告〈Anthropic subscriptions offer 5x…〉(作者 Andrew Megalaa、Max Kan、Dylan Patel)，並加上作者自己的選型建議。
+> 整理自 YouTube「Why QQ(为什么叫QQ)」〈Claude VS OpenAI 200美元，差5倍｜10分钟看清AI订阅〉(2026-10-10，約 10 分鐘，官方簡中字幕)。
+>
+> ➕ 2026-11-01 增補第 9 節:Why QQ〈[AI订阅怎么选？别再乱买](https://www.youtube.com/watch?v=bs0IXxThe3o)〉(2026-10-31)——帳單兩層拆法、每個成功任務的成本、輕量路由與 30 天審計,並對照 Anthropic 官方價格頁核實。影片導讀 **SemiAnalysis 2026-10-05** 的報告〈Anthropic subscriptions offer 5x…〉(作者 Andrew Megalaa、Max Kan、Dylan Patel)，並加上作者自己的選型建議。
 >
 > ⚠️ **立場與材料性質**：影片說明欄註明「觀點部分含筆者判斷，僅供參考」。SemiAnalysis 報告**部分段落付費**(Cursor、Cognition 等第三方方案與底層 Tokenomics Model 資料)，本筆記只核對公開段落；影片中有幾個數字在公開段落找不到，下文「核實結果」逐一標出。
 >
@@ -164,7 +166,68 @@ OpenAI 負責 Codex 的 Tibo(Thibault Sottiaux)一方的說法是：OpenAI 模�
 
 ---
 
+## 9. 增補(2026-11-01):「AI 訂閱怎麼選」——把帳單拆成兩層,再用每個成功任務的成本比
+
+> 來源:Why QQ〈AI订阅怎么选？别再乱买〉(2026-10-31,約 9 分鐘,官方 zh-Hans 字幕)。📌 立場:說明欄未見業配或聯盟連結;片中兩度請觀眾「打在公屏」,屬互動話術。與第 1–8 節(SemiAnalysis 的「同價差五倍」)互補:前者談**訂閱本身值不值**,這支談**怎麼決策**。
+
+### 9.1 影片的五個論點
+
+```mermaid
+flowchart TD
+    A["先拆帳單"] --> B["訂閱買工作環境<br/>介面 檔案 記憶 Agent 整合 使用規則"]
+    A --> C["API 買模型推理<br/>與實際呼叫的工具"]
+    B --> D["20 美元 API 額度<br/>不等於 20 美元訂閱"]
+    C --> E["Agent 帳單失控點<br/>重複上下文"]
+    E --> F["穩定內容放前面 清過期工具輸出<br/>摘要 檢索 快取 Batch"]
+    D --> G["比較用指標<br/>每個成功任務的成本"]
+    F --> G
+    G --> H["輕量路由 加 30 到 50 題真實任務評測集"]
+```
+
+1. **看變更先看作用域,別只看標題的數字。** 10 月 29 日 OpenAI 撤回 Pro 200 的減配:低額度者的 Work 與 Codex 額度翻倍追平;Pro 100、Pro 500 也拿到 Work 與 Codex 兩倍;Plus 不在內;GPT-6 Pro 的 Chat 訊息限制另算。
+2. **API 額度福利有門檻:** 影片稱符合條件的 Pro 100/200/500 每個計費週期可領 100/200/500 美元 API Credits(Business Standard 每席 20 美元、Premium 100 美元、工作區月封頂 500 美元),需主動啟用、綁自己的 API Organization、訂閱至少已付費 7 天、週期結束過期不結轉,**不提高 ChatGPT 或登入版 Codex 上限,用 API Key 跑 Codex 也不能用**。
+3. **打包不等於批發價:** 10 月 12 日 X Subscription 把 Grok、Grok Bot、Cursor、X Premium 併成一個套餐;Grok 與 Cursor 共享**每週刷新的同一個 Grok 模型額度池**;Premium 以上仍可選 Claude、GPT 等第三方模型,但**從第一次呼叫起就按 API 標價用預付餘額另付**。天天在 Cursor 跑 Claude 的人,30 美元只買到一部分工作流,模型帳還在後面。
+4. **Agent 帳單最容易失控的是重複上下文:** System Prompt、專案規範、工具定義、歷史訊息、程式碼片段與終端輸出,每一步請求都整段重新進入;連跑 50 次,重複部分蓋過新增問題。處理:穩定內容放前面、過期工具輸出及時清、長對話做摘要、檢索只回傳相關程式碼、**先看請求日誌再談換便宜模型**。
+5. **指標改用「每個成功任務的成本」:** 分子 = 模型費 + 工具費 + 人工審核與修復時間,分母 = 通過驗收的任務數。便宜模型反覆改錯測試、漏邊界條件,省的 token 費會被你修半小時吞掉;貴模型也不自動划算。任務要有明確驗收(測試通過、Schema 合法、人工無需返工)。
+
+### 9.2 落地做法(影片建議)
+
+- **輕量路由:** 分類、抽取、格式轉換走低價模型;常規改碼與摘要走中檔;複雜除錯與架構決策才上前沿模型。**升級條件要寫進規則**(測試連續失敗、上下文超預算、工具呼叫異常就切換或停止)。
+- **小評測集:** 選 30–50 個自己 repo 的真實任務,每週跑一遍,記成功率、延遲、重試次數、審核分鐘數。
+- **30 天審計:** 列出每個訂閱的使用頻率、獨有功能、重疊額度、遷移成本,再決定保留或替換。高頻工作台留訂閱,零散任務走 API,兩邊都記錄真實用量。
+- **遷移成本別漏:** 鑑權、日誌、重試、限流、評測、資料權限都得有人維護;只比價的人漏掉的是原本由產品承擔的工程勞動。
+- **團隊要有可遷移路徑:** 關鍵工作流依賴列清單;模型能換,但倉庫上下文、權限、評測與稽核紀錄也要能搬走。
+
+### 9.3 核實結果
+
+| 狀態 | 項目 |
+|---|---|
+| ✅ 已核實(Anthropic 官方價格頁,2026-11-01) | Claude Sonnet 5.5:輸入 $2、輸出 $10 / MTok;快取寫入 5 分鐘 $2.50、1 小時 $4,**快取讀取 $0.10**;Batch API 輸入與輸出皆五折;Claude 4.6 以後(**Haiku 5.5 除外**)在 1M 上下文內維持標準單價;**Haiku 5.5 另有分檔**(提示 100K 以內:輸入 $0.10、輸出 $0.50、快取讀取 $0.01;超過 100K:輸入 $0.50、輸出 $2.50、快取讀取 $0.05);Claude 4.7 以後使用新 tokenizer,**同一段文字約多 30% token**,視內容而定 |
+| ✅ 算式吻合(依本庫既有筆記單價) | 500 萬輸入加 100 萬輸出:Sol($2/$10)= $20 ✅、Luna($0.10/$0.50)= $1 ✅、Sonnet 5.5($2/$10)= $20 ✅;Grok 4.7($2/$6)= $16 吻合,但 Grok 單價在本庫 [[rsi-recursive-self-improvement-anthropic]] 標⚠️未核實。**影片自己也聲明:無快取、工具、長上下文加價,也不含成功率,只能當費率示例,不是採購結論**。另:GPT-6.1 超過 272K 輸入整個請求加價(輸入與快取輸入 2 倍、輸出 1.5 倍),見 [[gpt-6-astra-token-efficiency-and-harness]] §12 |
+| ✅ 5 分鐘快取「命中一次就划算」 | 以 Sonnet 5.5 算:寫入 $2.50 + 讀取 $0.10 = $2.60,低於兩次完整輸入的 $4.00 ✅;1 小時寫入 $4 需更多次複用才回本,與影片一致 |
+| ✅ X Subscription 層級 | 2026-10-12 推出,層級 Free / Plus $8 / Premium $30 / Super $100 / Ultra $200,Grok 與 Cursor 共用額度,既有訂閱者可暫留舊方案;官方「Premium 相當於過去分買合計約 $90」的對照有多家報導。⚠️ 以上來自二手報導([inside.com.tw](https://www.inside.com.tw/article/42627-x-subscription-grok-cursor-premium-bundle-plans-from-8-usd)、[Free Press Journal](https://www.freepressjournal.in/tech/x-launches-unified-subscription-bundling-grok-cursor-and-premium-all-details)),X 官方頁面未直讀。影片自己也提醒「新舊額度不完全等價,別急著 90 減 30」 |
+| ⚠️ 部分核實 | **OpenAI 與 Cursor:** 多家報導確認 OpenAI 提議 **11 月 12 日**結束直接供應模型給 Cursor(SpaceX 收購 Cursor 後),且**終止日尚未經雙方確認**,與影片「提出的過渡日期、尚未確認最終日」一致([Tom's Guide](https://www.tomsguide.com/ai/openai-is-leaving-cursor-in-november-here-are-your-3-options)、[TheNextWeb](https://thenextweb.com/news/openai-ends-cursor-contract-spacex-acquisition-eu-switching-rules))。「自己的 OpenAI API Key 只覆蓋 Cursor 的本地 Chat 與 Agent、不覆蓋 Tab、Auto、雲端 Agent」只找到一份指南類來源,**未對照 Cursor 官方文件,未能核實** |
+| ❓ 未能核實 | **10 月 29 日 Pro 200 撤回減配、額度翻倍**與**每週期 100/200/500 美元 API Credits** 的具體條件(7 天、綁 API Organization、過期不結轉、Business 席位金額):搜尋只找到 4 月推出 Pro $100(Codex 5 倍)、Pro $200(20 倍)的報導,以及 9 月起暫停新註冊 Pro $200 的第三方說法,**沒有找到 10 月底調整的第一手或多家來源**,當作影片轉述。 GPT-6.1 Terra 的 $10(=約 $1/$5)沒有在本庫找到單價來源。|
+
+### 9.4 應用案例:一個人怎麼做 30 天審計
+
+情境:你同時付 ChatGPT Plus、Claude Pro、Cursor,每月合計約 60 美元。
+
+1. **記錄:** 30 天內每次用 AI 前先寫一行:任務類型、用哪個產品、有沒有用到該產品獨有功能(語音、Deep Research、雲端 Agent、Tab 補全)。
+2. **拆兩層:** 把任務分成「只要模型」(批次摘要、格式轉換、分類)與「需要工作環境」(讀 PDF、長期記憶、雲端 Agent)。第一類改走 API 的低價模型並開快取與 Batch;第二類才留訂閱。
+3. **建 30 題評測集:** 從自己真實任務挑 30 題,各家模型各跑一遍,記錄是否通過驗收、花了多少錢、你修了幾分鐘。算「每個成功任務的成本」,而不是看哪家每百萬 token 便宜。
+4. **設路由與升級條件:** 低價模型連續兩次測試失敗就升級中檔;單次請求超過預算就停下請求確認。
+5. **看 Cursor 這類中介產品的風險:** 若你的工作流依賴 Cursor 內的 OpenAI 模型,先查 11 月 12 日前後官方公告,並準備一條備用路徑(換模型或直接用 Codex)。
+
+⚠️ 本節為科技產業資訊整理,**不構成任何購買訂閱的建議**;各家方案與額度隨時變動。
+
+---
+
 ## 來源
 
 - YouTube「Why QQ」〈Claude VS OpenAI 200美元，差5倍｜10分钟看清AI订阅〉(2026-10-10)：https://www.youtube.com/watch?v=9BvovCrgmnI
 - SemiAnalysis〈Anthropic subscriptions offer 5x…〉(2026-10-05，部分付費)：https://newsletter.semianalysis.com/p/anthropic-subscriptions-offer-5x
+- YouTube「Why QQ」〈AI订阅怎么选？别再乱买〉(2026-10-31,官方 zh-Hans 字幕):https://www.youtube.com/watch?v=bs0IXxThe3o
+- Anthropic 官方價格頁(第 9 節核實用,2026-11-01):https://platform.claude.com/docs/en/about-claude/pricing
+- X Subscription 報導:https://www.inside.com.tw/article/42627-x-subscription-grok-cursor-premium-bundle-plans-from-8-usd
+- OpenAI 與 Cursor 合約報導:https://www.tomsguide.com/ai/openai-is-leaving-cursor-in-november-here-are-your-3-options
