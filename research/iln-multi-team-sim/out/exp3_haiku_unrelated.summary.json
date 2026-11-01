@@ -1,0 +1,26 @@
+{
+ "broken_N0": {
+  "n": 80,
+  "ok": 17,
+  "assume_synced": 26,
+  "cost_usd": 0.085
+ },
+ "broken_N2": {
+  "n": 80,
+  "ok": 76,
+  "assume_synced": 75,
+  "cost_usd": 0.102
+ },
+ "safe_N0": {
+  "n": 24,
+  "ok": 24,
+  "assume_synced": 24,
+  "cost_usd": 0.022
+ },
+ "safe_N2": {
+  "n": 24,
+  "ok": 23,
+  "assume_synced": 23,
+  "cost_usd": 0.025
+ }
+}

@@ -1,0 +1,3 @@
+{"root": ".", "registry": "registry.json",
+ "read_patterns": ["\\b(?P<var>\\w+)(?:->|\\.)(?P<field>[a-z_][a-z0-9_]*)\\b"],
+ "modules": {"rrc": {"path": "rrc"}, "mac": {"path": "mac"}, "ctl": {"path": "ctl"}}}

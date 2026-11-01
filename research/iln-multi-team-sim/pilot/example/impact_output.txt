@@ -1,0 +1,5 @@
+== mac
+  [silent] ILN_MeasCfg.meas_period: unit 'ms' -> 'us'
+  [silent] ILN_MeasCfg.meas_period: hi 640 -> 640000(consumer 的上限/陣列大小可能不夠)
+== rrc
+  [silent] ILN_SchedGrant.harq_id: hi 15 -> 31(consumer 的上限/陣列大小可能不夠)

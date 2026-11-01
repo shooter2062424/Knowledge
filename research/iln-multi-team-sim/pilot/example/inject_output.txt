@@ -1,0 +1,16 @@
+注入的變更                                        通知到的模組
+ILN_MeasCfg.meas_period: unit ms->us         mac
+ILN_MeasCfg.meas_period: 範圍上限放寬 x2+1         mac
+ILN_MeasCfg.carrier_idx: index base 0<->1    ctl, mac
+ILN_MeasCfg.carrier_idx: 範圍上限放寬 x2+1         ctl, mac
+ILN_MeasCfg.report_mode: enum 新增符號           mac
+ILN_MeasCfg.report_mode: enum 兩值互換           mac
+ILN_MeasCfg.report_mode: default +1          mac
+ILN_MeasCfg.ho_enable: flag 極性反轉             ctl, mac
+ILN_MeasCfg.ho_enable: default +1            ctl, mac
+ILN_MeasCfg: latency x3                      ctl, mac
+ILN_SchedGrant.tx_power: scale/2             rrc
+ILN_SchedGrant.tx_power: 範圍上限放寬 x2+1         rrc
+ILN_SchedGrant.harq_id: index base 0<->1     rrc
+ILN_SchedGrant.harq_id: 範圍上限放寬 x2+1          rrc
+ILN_SchedGrant: latency x3                   rrc

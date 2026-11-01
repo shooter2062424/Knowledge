@@ -1,0 +1,25 @@
+trials=104 (broken=80) jobs=208 model=haiku
+  done 10/208
+  done 20/208
+  done 30/208
+  done 40/208
+  done 50/208
+  done 60/208
+  done 70/208
+  done 80/208
+  done 90/208
+  done 100/208
+  done 110/208
+  done 120/208
+  done 130/208
+  done 140/208
+  done 150/208
+  done 160/208
+  done 170/208
+  done 180/208
+  done 190/208
+  done 200/208
+broken N0: ok 17/80  assume_synced 26/80  cost $0.09
+broken N2: ok 76/80  assume_synced 75/80  cost $0.10
+safe   N0: ok 24/24  assume_synced 24/24  cost $0.02
+safe   N2: ok 23/24  assume_synced 23/24  cost $0.03

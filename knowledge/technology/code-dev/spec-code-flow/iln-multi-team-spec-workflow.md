@@ -14,6 +14,7 @@
 2. 🟢 **最大的坑是「語意變更」而不是「欄位增減」。** 12,000 次隨機變更中,真的會讓別的團隊壞掉的有 7,094 次;其中 **4,367 次(62%)純 schema diff 完全看不到**(單位、縮放、極性、索引基底、預設值、範圍放寬、enum 新增、順序、延遲)。
 3. 🟢 **沒有單一閘門夠用。** 各層的抓取率:團隊自己的測試 0%、schema diff 38%(還有 32% 誤報)、manifest 語意比對 95%、consumer 契約測試 85%、端到端 replay 82%;**疊起來 99.7%**,在較差的現實條件下仍有 98.5%。各層的盲點不一樣,所以要疊。
 4. 🟢 **破壞性變更用「新增並存欄位 → consumer 逐一遷移 → 確認沒人讀才移除舊欄位」:1,800 次遷移,中間期 0 次出事。** 只靠 AST 找讀取者有 10.9% 在移除時壞掉(全是靜態分析看不到的動態讀取);加上移除前的契約測試/端到端閘門,或用執行期存取追蹤找讀取者,**都降到 0**。
+5. 🟢 **LLM agent 當 consumer 團隊成員(實驗三,Haiku,496 次呼叫):能力不是瓶頸,「有沒有被叫起來、有沒有看到 diff」才是。** 明確要求「對齊最新規格」時,80 次會壞的變更 **80/80 修對**(連沒收通知也一樣);但當 agent 在做別的小任務、規格只是放在旁邊當參考時,**沒收通知只修對 17/80(21%),附上 registry diff 則 76/80(95%)**。所以 manifest 通知與 ICR diff 要自動推到 consumer 的工作流裡,不能指望誰順手發現。
 
 ```mermaid
 flowchart LR
@@ -208,6 +209,47 @@ consumer 是**由模板產生的 Python 原始碼**,manifest 用 `ast` 真的從
 
 ---
 
+## 五之二、實驗三:LLM agent 當 consumer 團隊成員(Haiku,496 次呼叫)
+
+**做法(🟢):** 從 12 種語意/結構變更算子中,各挑 8 個「對某 consumer 真的會壞」的案例(共 80 個),另挑 24 個「該 consumer 其實不會壞」的對照案例。每個案例把該 consumer 的 Python 原始碼、最新 registry 條目交給 headless `claude -p --model haiku`(單輪、不給工具、不載入本機設定),要它輸出改好的完整檔案。評分是把改好的 `handle` 換進系統,用稠密取樣(含邊界值)只跑那個 consumer,物理真值全對才算過;另外檢查檔頭的 `ASSUME` 宣告是否同步到新規格。通知程度分三種:
+
+| 條件 | 給 agent 的資訊 |
+|---|---|
+| N0 沒通知 | 最新 registry 條目,什麼都沒提變更 |
+| N1 只通知 | N0 + 一句「你消費的訊息 Mx 更新了」(manifest 比對後的自動通知) |
+| N2 附 diff | N1 + registry 條目 old→new 的 unified diff(ICR 內容) |
+
+任務有兩種:**(a) 對齊型**:明確要求「確保 handle 對最新規格正確」;**(b) 無關型**:要它做一個無關的小功能(回傳多一個計數欄位),registry 條目只是「參考」,測 agent 在做別的事時會不會順手發現漂移。
+
+| 任務 / 條件 | 會壞的變更修對 | ASSUME 宣告同步 | 對照組(本來就對)沒被改壞 |
+|---|---|---|---|
+| (a) 對齊型 N0 | **80 / 80** | 48 / 80 | 24 / 24 |
+| (a) 對齊型 N1 | 80 / 80 | 54 / 80 | — |
+| (a) 對齊型 N2 | 80 / 80 | **71 / 80** | 23 / 24 |
+| (b) 無關型 N0 | **17 / 80(21%)** | 26 / 80 | 24 / 24 |
+| (b) 無關型 N2 | **76 / 80(95%)** | 75 / 80 | 23 / 24 |
+
+```mermaid
+flowchart LR
+    A["producer 改 ILN"] --> B{"consumer 的 agent<br/>有沒有被要求對齊規格"}
+    B -->|"有,且規格在眼前"| C["Haiku 修對 80 of 80"]
+    B -->|"沒有,規格只是參考"| D{"有沒有附 registry diff"}
+    D -->|"沒有"| E["只修對 17 of 80"]
+    D -->|"有"| F["修對 76 of 80"]
+```
+
+**怎麼讀:**
+
+- **能力不是瓶頸。** 只要有人叫 agent 去對齊、規格擺在眼前,Haiku 就把 12 種變更全修對(單位換算、極性、index base、enum 重新編號、改名、縮放、default 全包含)。
+- **瓶頸是觸發與可見性。** 無關型任務下,沒 diff 時各算子的修對數是 default_change 1/8、enum_remove 0/8、rename_field 0/8、unit_change 1/8、index_base 1/8;只有 range_widen 7/8(推測:放寬上限後多數 consumer 的原檢查剛好沒擋住新範圍,所以不改也過)。附 diff 後除 rename_field 6/8、scale_change 7/8、enum_renumber 7/8 之外都是 8/8。
+- **「只通知、沒細節」在對齊型任務就夠,但 ASSUME 宣告同步有差:** 48 → 54 → 71。程式修對了、檔頭宣告沒跟上,會讓下一輪 G2 manifest 比對拿到過期假設。diff 對「宣告與程式一致」的幫助比對「程式修對」的幫助更大。
+- **對照組有 1/24 被改壞**(scale_change,兩種任務各一次,同一案例):agent 對一個其實不用改的 consumer 動了手。流程上 agent 的修補仍要過 G3/G4 閘門與人工審,不能直接合併。
+- **這給 workflow 的設計含義:** (1) manifest 通知要自動變成各 consumer repo 裡的 issue/PR,把 diff 一起帶上;(2) 要求 agent 在修補 PR 中同步更新 ASSUME/宣告,並讓 G2 在 PR 上檢查「宣告與程式一致」;(3) 不依賴 agent 在做別的任務時順手發現。
+
+**這個實驗的限制(🔴):** 只有 Haiku 一個模型、單輪、一個 consumer 一則訊息;consumer 是 80 行以內的模板 Python,agent 不用找檔案、不用跑測試;對齊型任務的提示裡直接寫了「對齊最新規格」,等於告訴 agent 要檢查什麼。真實 C/C++ 大檔、多檔、多訊息的情況,修對率一定低於這個數字。資料:`research/iln-multi-team-sim/out/exp3_*`(LLM 輸出無法固定 seed,逐筆結果有存)。
+
+---
+
 ## 六、這些實驗沒證明的事(請特別看這節)
 
 - **模型與評分器出自同一套假設。** 變更類型、consumer 的解碼模板、閘門規則是我設計的;G2 能比對的屬性正好是 ground truth 會檢查的屬性。所以 **99.7% 不是「真實專案能抓到 99.7%」**,而是「若 consumer 的假設可以被宣告/抽取,這樣的分層能補到幾乎沒有已知類別的盲區」。真實專案裡未知的盲點類別(例如時序抖動、並行競爭、記憶體佈局、跨訊息狀態)沒有被模擬。
@@ -217,7 +259,7 @@ consumer 是**由模板產生的 Python 原始碼**,manifest 用 `ast` 真的從
 - **實驗二不處理位置式訊息、也不處理被轉發的欄位;** 這兩類在真實 ILN 很常見,需要另外的遷移方式(保留槽位、同步遷移下游)。
 - **執行期追蹤只看得到被執行到的路徑。** 模擬中用稠密取樣所以抓得完整;真實系統的罕見分支(錯誤處理、特殊頻段)追蹤到不到,取決於測試與流量覆蓋。
 - **沒有並行變更。** 兩個團隊同時改相關的訊息,各自都過閘門、合併後才壞的情況沒模擬(流程中以合併佇列對應,但沒驗證)。
-- **沒用 LLM agent 當團隊成員。** 本篇的「變更」是程式注入的,沒測 agent 會不會照流程跑、會不會繞過閘門。承接 [[multi-spec-roundtrip-experiment-python-sim]] 的 Haiku 實測,這是下一步。
+- **LLM agent 實驗只做了最簡單的一環。** 實驗三只測「單一 consumer、單一訊息、收到通知後改碼」,用 Haiku、單輪、模板產生的短 Python;沒測 agent 當 producer、沒測它會不會繞過閘門或亂改別人的碼、沒測 Sonnet/Opus、沒測真實大型 C/C++。結果只能說明「通知內容夠具體時 agent 修得動」,不能說明整個流程可以交給 agent 自走。
 - **沒有真實 3GPP 或公司內部 ILN 格式。**
 
 ---
@@ -236,18 +278,22 @@ consumer 是**由模板產生的 Python 原始碼**,manifest 用 `ast` 真的從
 
 ---
 
-## 八、下一步
+## 八、試點工具與下一步
 
-1. **拿真實的 ILN 定義試一次:** 挑兩個真實 module 的 ILN,先建 registry 的最小版(只有欄位型別、單位、範圍、enum),用本篇的注入變更跑一次,看哪一層漏接。這一步決定本篇數字能不能參考。
-2. **C/C++ 的 manifest 抽取:** 用 libclang 抽「讀了哪些 ILN 欄位」,評估動態存取(index 計算、巨集)的比例。
-3. **LLM agent 當團隊成員的實驗:** 一個 agent 當 producer 改 spec,另一批 agent 當 consumer owner 收通知並遷移,量「照流程走的比例」「繞過閘門的比例」。
+**已做(🟢):** `research/iln-multi-team-sim/pilot/` 放了可以直接拿去試點的最小工具 `iln_check.py`(單檔、無外部相依):`manifest` 掃原始碼抽出各模組讀了哪些訊息的哪些欄位(Python 用 `ast`,C/C++ 用可設定的 regex 加上 `const ILN_X *g` 變數宣告反查訊息)、`diff` 做 registry 語意 diff 並分成靜默破壞/結構破壞/相容、`impact` 算每個模組該收到什麼通知、`inject` 對 registry 逐一注入變更並列出每個變更會通知到誰。附 RRC(C)、MAC(C++)、CTL(Python)三個玩具模組和兩則玩具訊息的範例,以及五步試點流程與要記的三個數字。範例已實跑:注入 15 種變更,通知對象符合程式碼實際的讀取關係。**範例是玩具、不是任何公司的真實格式。**
+
+**還沒做、需要你這邊的真實資料才能做(🔴):**
+
+1. **拿真實的 ILN 定義試一次(取決於貴公司資料,無法在本倉庫完成):** 挑兩個真實 module 的 ILN,依 `pilot/README.md` 建 registry 最小版、調 `read_patterns`、抽 manifest、注入變更,並回放 5 個歷史上真的出過事的 ILN 變更。這一步決定本篇數字能不能參考。需要真實 ILN 欄位定義與一份 consumer 原始碼(可去識別)。
+2. **C/C++ 的 manifest 抽取:** 試點工具是 regex 加變數反查,巨集、模板、經 helper 轉手的讀取抓不到;下一步用 libclang 抽 AST,manifest 格式不用變。
+3. **擴大 agent 實驗:** Sonnet/Opus 對照、agent 當 producer、多檔多訊息的真實 C/C++ consumer、agent 會不會繞過閘門。
 4. **並行變更與合併佇列:** 兩個團隊同時動相關訊息,量合併後才壞的比例。
 
 ---
 
 ## 來源
 
-- 實驗程式與彙整資料:[research/iln-multi-team-sim](https://github.com/shooter2062424/Knowledge/tree/main/research/iln-multi-team-sim)(`iln_sim.py`、`run_exp1.py`、`run_exp2.py`;固定 seed,可重現)。
+- 實驗程式與彙整資料:[research/iln-multi-team-sim](https://github.com/shooter2062424/Knowledge/tree/main/research/iln-multi-team-sim)(`iln_sim.py`、`run_exp1.py`、`run_exp2.py`;固定 seed,可重現。`run_exp3.py` 為 LLM agent 實驗,模型輸出不可重現,逐筆結果存於 `out/exp3_*_rows.json`)。試點工具:[pilot/](https://github.com/shooter2062424/Knowledge/tree/main/research/iln-multi-team-sim/pilot)。
 - 前置研究:[[multi-spec-layered-evolution-modem-5g-to-6g]](3GPP 擴充機制本身累加式向下相容)、[[multi-spec-roundtrip-experiment-python-sim]](單一規格往返實驗與 Haiku 實測)、[[spec-driven-development-landscape-2026]]、[[code-to-spec-reverse-engineering-legacy-codebase]]。
 - 概念名稱(本篇未重讀原文,僅作查證線索,不作為任何數字的出處):consumer-driven contract testing、tolerant reader、parallel change / expand and contract、schema breaking-change 檢查。
 - 使用者情境說明(2026-11-01):ILN 為公司內部對 Inter-Layer Message 的稱呼,跨 5G NR、4G 等層與模組溝通;本篇沒有任何公司內部文件。
