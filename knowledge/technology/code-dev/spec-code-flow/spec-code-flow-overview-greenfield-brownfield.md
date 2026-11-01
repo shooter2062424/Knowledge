@@ -6,6 +6,8 @@
 >
 > ⭐ **若是「多個團隊各守一個 module、模組間靠 ILM 訊息/API 溝通,只改自己的 spec 別人不知道」**,看 [[ilm-multi-team-spec-workflow]](含 12,000 次變更模擬)。
 >
+> ⭐ **要一套通用、可執行、可發布的 workflow / skill(不綁 5G/ILM)**,看 [[spec-code-flow-skill-experiments]](plugin `spec-code-flow`)。
+>
 > 細節請看:[[spec-driven-development-landscape-2026]](spec → code)、[[code-to-spec-reverse-engineering-legacy-codebase]](code → spec)、[[cpp-large-codebase-stability-toolbox]](C/C++ 工具鏈)、[[5g-nr-to-6g-modem-spec-to-code-flow]](modem 案例)。
 
 ---

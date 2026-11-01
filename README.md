@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-367_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-368_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -650,6 +650,7 @@ flowchart LR
 | [Code-to-Spec:從既有大型程式碼庫反推規格](./knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md) | CodeConcise(AST+圖+分層摘要+RAG)、Autoware C++ 案例、AutoSpec/ProtocolGPT、TRACTOR/Syzygy;LLM 傾向推意圖不照抄 bug;以舊版 C 當 oracle 差分驗證 |
 | [實驗:多層規格往返流程(Python 模擬)——code→spec→合併 Rel-21 delta→改碼→關卡](./knowledge/technology/code-dev/spec-code-flow/multi-spec-roundtrip-experiment-python-sim.md) | 實跑:反推揪出 T304 偏離;影響分析提前抓 2 個內部決定衝突;天真改位元寬度被 golden 擋下;5000 筆差分 0 不一致;變異探測 9/10→補邊界後 10/10;**再用 headless Haiku(medium)當開發者實測 10 次:協定核心 10/10 逐位元組正確、0 竄改、7 次紅燈皆誠實升級(T304 遺留偏離、HW 預算);能跑關卡把 T304 修正率 1/5→4/5**;⚠️ 玩具規模、每組僅 5 次;**含糊/矛盾規格再測 16 次:8/8 都誠實回報、0 默默猜,但 8 個 agent 做出 4 種互不相容的線上格式**;附 agent 守哪裡的分工表與新護欄 |
 | [多團隊各守一個 module、靠 ILM 溝通時的 Spec ⇄ Code 共同維護流程](./knowledge/technology/code-dev/spec-code-flow/ilm-multi-team-spec-workflow.md) | 只改自己的 spec 別人不會知道:registry 單一真相+AST 抽 consumer manifest+共存期遷移+分層閘門;**12,000 次隨機變更模擬:62% 的真破壞 schema diff 看不到;單層 38–95%、疊加 99.7%(差條件 98.5%);1,800 次遷移:就地改 100% 壞、共存期+移除前閘門或 runtime 追蹤 0 壞,只靠 AST 找讀取者 10.9% 壞(全是動態讀取);Haiku 當 consumer 團隊成員:被要求對齊規格時 80/80 修對,做別的任務時沒通知 17/80、附 registry diff 76/80**;附可拿去試點的 `pilot/ilm_check.py`;⚠️ 模型與評分器同源、絕對數字不能搬到真實專案 |
+| [通用 Spec ⇄ Code 工作流 skill:設計、實驗與結果(plugin `spec-code-flow`)](./knowledge/technology/code-dev/spec-code-flow/spec-code-flow-skill-experiments.md) | 可發布的通用 workflow:追溯標註+`specflow.py`(query/impact/check/stamp/guard/mutate/contract-diff)+init/change/sync/audit 子 skill;**640 專案漂移偵測:只靠測試 24%、加 check+guard 100%、良性 0 誤報;Haiku 96 次:規格變更撞上凍結 golden 時無 skill 12/12 改了 golden、有 skill 0/12 且 12/12 安全完成**;⚠️ 玩具規模、Haiku、單輪,不可外推 |
 | [多層規格並存的程式演進:3GPP 公定 spec + 內部 spec + 既有 code(5G → 6G 保留舊版)](./knowledge/technology/code-dev/spec-code-flow/multi-spec-layered-evolution-modem-5g-to-6g.md) | 規格三層+Release/產品雙版本軸;3GPP ASN.1 擴充機制本身累加向下相容;Release 能力表取代散落 #ifdef(Linux 變異性 bug 實證);delta spec+追溯矩陣+舊版回歸;⚠️ 架構建議為推論 |
 | [5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) | Rel-21 首個 6G 規範(Stage-3 2028-12、ASN.1 2029-03);ASN.1→codec 成熟、TTCN-3 人工;CellularLint 157 項、SpecLens 185/197 與 60 項實作分歧;⚠️ modem 韌體實務皆推論 |
 | [穩定開發大型 C/C++ 的工具箱](./knowledge/technology/code-dev/c-cpp/cpp-large-codebase-stability-toolbox.md) | C++26 Contracts 留下(114/12/3)、Profiles 延 C++29;CBMC 有界證明;libFuzzer 維護模式;clang-tidy diff 模式限制;CI 三層分工;OSS-Fuzz-gen 30 vs 26 差異未解 |
