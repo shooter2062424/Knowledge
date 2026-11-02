@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**403 個 YouTube video id**、**119 個 arXiv 編號**,涵蓋 **333 篇**筆記。
+> 統計:**405 個 YouTube video id**、**119 個 arXiv 編號**,涵蓋 **335 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(403 部,依 video id 排序)
+## YouTube(405 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -172,6 +172,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `FmIUUT-TXHs` | 別跟單一模型「結婚」:Model Agnostic 才是槓桿位置 | [knowledge/technology/ai-productivity/model-agnostic-ai-workflow.md](./knowledge/technology/ai-productivity/model-agnostic-ai-workflow.md) |
 | `FmzFqM-kf0A` | AI 算力與 Token 經濟學:當「省錢神話」撞上天價帳單 | [knowledge/technology/ai-industry/ai-compute-token-economics.md](./knowledge/technology/ai-industry/ai-compute-token-economics.md) |
 | `FOHyospzUd4` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
+| `FOmXeN_KQ6s` | Google、Amazon 財報後大跌:Nick 的「加碼 15 股」邏輯與我的核實 | [knowledge/investing/equity-research/google-amazon-q3-2026-selloff-nick.md](./knowledge/investing/equity-research/google-amazon-q3-2026-selloff-nick.md) |
 | `FQ81w5UO9u8` | 你可能用錯 AI 了:Processing vs Thinking 與三層 token 效率陷阱 | [knowledge/technology/ai-productivity/context-engineering-processing-vs-thinking.md](./knowledge/technology/ai-productivity/context-engineering-processing-vs-thinking.md) |
 | `FrAAxWbxSyE` | Claude 5 時代的 Context Engineering 新規則:Claude Code 刪掉 80% 系統提示詞,評測卻沒掉 | [knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md](./knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
 | `fuppI9SkKrs` | Anatomy:一行字造出能上手玩的機器——「物體就是解釋」的 Claude Code 技能(Why QQ + 原始碼) | [knowledge/technology/applied-ai/design/anatomy-skill-object-is-the-explanation.md](./knowledge/technology/applied-ai/design/anatomy-skill-object-is-the-explanation.md) |
@@ -343,6 +344,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `t96q8onLu90` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `t9WA-BkLUps` | 非技術者的資安入門:用五個問題做威脅建模,再交給 Codex Security 掃描 | [knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md](./knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md) |
 | `ta5HOdr_32E` | Karpathy 的「能力漏斗」:為什麼你覺得 AI 很蠢,有人卻說已經看到另一個世界 | [knowledge/technology/ai-industry/karpathy-ai-capability-funnel-perception-gap.md](./knowledge/technology/ai-industry/karpathy-ai-capability-funnel-perception-gap.md) |
+| `TbeJwwp-YE4` | Martin Fowler〈LLM Voice〉:AI 文字的恐怖谷,與工程師該怎麼寫文件 | [knowledge/technology/software-engineering/fowler-llm-voice-ai-writing-uncanny-valley.md](./knowledge/technology/software-engineering/fowler-llm-voice-ai-writing-uncanny-valley.md) |
 | `tBnpspp4IH8` | 用 Agent 五分鐘上手 Blender:把 3D 預覽當成 AI 影片的「參考影片」 | [knowledge/technology/applied-ai/design/blender-previz-mcp-ai-video.md](./knowledge/technology/applied-ai/design/blender-previz-mcp-ai-video.md) |
 | `TBVjqvueeCo` | qm(YC 開源):把個人 Agent 變成「多人可用」的 Agent Harness —— scope 隔離、權限審批與可換 harness | [knowledge/technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md](./knowledge/technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md) |
 | `tEjPWVEuu_8` | 為什麼「賺好賺滿」反而會害了你:社會資產與「不最大化」的選擇 | [knowledge/investing/strategy/not-maximizing-income-social-assets-nick.md](./knowledge/investing/strategy/not-maximizing-income-social-assets-nick.md) |
