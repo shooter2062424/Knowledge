@@ -5,6 +5,8 @@
 > **立場聲明:** 影片無業配;說明欄僅放作者自己的圖文教程連結與動畫工具 svganimate.ai 的標示(自我宣傳等級,非付費置入)。影片轉述的是 DeepSeek 的設計文章〈Exploring Super-agent Design: Towards a More Autonomous Agent System〉。**我沒有找到該文章全文**,因此影片中「文章說了什麼」無法逐句核對;能核對的是 DeepSeek 同步公開的原型 repo(已 clone 讀完),見下方核實段。
 >
 > 該片無字幕,逐字稿以 CPU faster-whisper 轉錄,非官方字幕。
+>
+> **增補(2026-11-03):** 併入第二支影片 AI随风〈DeepSeek SuperAgent 实测:接单干活全自动〉(2026-11-02,約 13 分鐘,影片 ID `OrNE5vMFD2k`,無字幕、Whisper 轉錄),見 §6——前半是概念講解,§6 是實際裝起來跑一遍的操作紀錄。
 
 ---
 
@@ -119,7 +121,49 @@ Agent 幹活綁著三樣東西:**計算**(推進 Agent 迴圈)、**狀態**(會�
 - **自己做多任務助理**:同時有「寫調研報告 + 回信 + 做簡報」時,不是開三個會話自己記進度,而是一個入口收單、背後各開一個隔離上下文的執行者。可借用的設計:**對話層用便宜模型,執行層用強模型;每個任務的推理過程關在內部,只對外送結論。**
 - **主動型規則要先寫窄**:例如「CI 失敗且與近期提交相關時,先在後台復現並準備修復,只有確認可行才通知人」——對應影片的靜默復現;repo 也要求先以記錄模式觀察。
 
-## 6. 與本庫其他筆記的關係
+## 6. 實測:裝起來、接單、出 PR(AI随风〈DeepSeek SuperAgent 实测〉`OrNE5vMFD2k`)
+
+> **立場:** 影片無業配;說明欄只列章節與自己的實測內容,片中提到的 mattpocock/skills 是作者拿來當 PR 規範的第三方技能(我未讀該技能內容)。作者另說飛書對接留到下一集。
+
+### 6.1 作者的操作流程(影片說法,對照 repo 後標註)
+
+```mermaid
+flowchart TD
+    A["安裝:把 SETUP.md 的提示詞丟給 coding agent<br/>它問問題、列計畫、確認後才執行"] --> B["選資訊源:GitHub 或飛書"]
+    B --> C["設定:Agent 帳號、發起者、准入名單"]
+    C --> D["在 GitHub 開 issue 並 @Agent 帳號"]
+    D --> E["主 session 收到、讀取、分派"]
+    E --> F["新建工作目錄 + 專屬執行 session"]
+    F --> G["修復並提 PR<br/>UI 變更附改前改後截圖"]
+    G --> H["人工審核後合併"]
+```
+
+| 影片說法 | 對照 repo(`dsh-superagent-prototype`) |
+|---|---|
+| 安裝只要把一段提示詞發給 AI 工具,它讀 SETUP 文件、下載、安裝,過程中問你選哪個資訊源 | **屬實**:README 寫「Read SETUP.md…set up dsh-superagent with me」;SETUP.md 規定**一次一個問題**、給推薦答案、**最後列完整計畫經確認才執行**、**絕不在聊天裡要密碼** |
+| 資訊源有 GitHub 與飛書,任務要有來源也要能回覆,是**雙向**通道 | **屬實**:Source 同時定義事件與回覆的 Channel(GitHub 留言 / 飛書話題回覆) |
+| SuperAgent 跑在**另一個獨立的 DeepSeek Harness 站點**,與日常工作的桌面介面分開 | **屬實**:docs/006 要求建一個**專用 profile**(如 `superagent`),因為外掛會改行程層級的 `PATH` 與 git 設定,需獨立重啟與升級 |
+| **自己不能給自己提問**:用自己的帳號開 issue,Agent 不接;必須有另一個人(同事 / 協作者)當發起者 | **方向屬實,但原因要說準**:Agent 要用**專用的 GitHub 帳號**(不能是 GitHub App,因為要讀該帳號的通知);Source 會**丟掉 Agent 自己的訊息**。若 Agent 帳號與你是同一個,你的 issue 就被當成它自己的訊息。更完整的規則是:發起者要在**准入名單**上,且要「@Agent」才是明確請求 |
+| **@ 它** → 立刻接單;**沒 @ 但發起者在名單內** → 看模式:**「僅觀察」只記錄、不幹活;「自動接單」則直接開工** | **大致屬實**,repo 的名稱是 accept mode:`off` / `observe`(**預設**)/ `auto`。明確 @ 的請求**在任何模式都會執行**;未 @ 的「主動」工作在 `observe` 只記錄「會接」的判斷,`auto` 才真接。注意 repo 的 auto 還要求**有符合的規則(rule)**,不是只要在名單內就接,影片說得較寬鬆 |
+| 每個任務**新建工作目錄**,分派一個**專屬執行 session**;主 session(協調者)負責收單、讀取、分派 | **屬實**:每個 Ticket 一個 `worker-<id>` Executor Session 與目錄;prepare 指令常用 `git worktree` 建 checkout |
+| 設定可選**研判模型**(負責研判與路由)、**執行模型**、推理強度,**並行工單數預設 3** | **部分核實**:repo 有分開指定 Eval / Execution 模型與 `maxWorkers` 設定;**「預設 3」我沒在文件中看到數字**,以面板為準 |
+| 提示詞分階段、可改,可定溝通方式、通知寫法、交付要求 | **屬實**:docs/004 把提示詞拆成多個可覆寫的部分(shared / orchestrator / worker / handoff / team 的 communication、delivery、scope 等) |
+| UI 變更的 PR 要附**改前 / 改後截圖**,並有「修改範圍」「單向門 / 雙向門」欄位 | **改前改後屬實且是硬規定**:`prompts/team/delivery.md` 要求 UI 變更的 PR 描述**必須同時有 Before 和 After**,只有 After 算未完成,且禁止拿 mockup 冒充舊版。**「單向門 / 雙向門」不在 repo 的預設提示詞裡**,影片說那是用 mattpocock/skills 的 PR 技能產生的模板;其解釋(單向門 = 發布後無法回滾、雙向門 = 可回滾)是作者的說法,我未核實該技能 |
+| 人工審核後合併;未來低風險 PR 可能連審核都省掉、自動發布 | repo 預設**相反且更保守**:**Agent 不會用自己的帳號啟用 auto-merge**,預設由人合併;除非提示詞指定另一個帳號的 merge CLI,且 PR 小於 200 行、必要核准涵蓋 head commit 才可自動合併。影片這句是作者對**趨勢**的看法,不是這個原型現在的行為 |
+
+### 6.2 作者的結論(影片觀點)
+
+- 自動化接單就是三步:**接單、幹活、人審**;更複雜的系統只是把每一步做得更準(更多 agent、更多模型去 code review 與檢查)。
+- 推論:模型能力邊際效益遞減、產出的 PR 越來越多,人看不過來,所以要把注意力移到更有價值的事。
+- 提醒:作者自己說**這還不是完整版**(與 repo README「研究原型」的說法一致)。
+
+### 6.3 應用案例
+
+- **照著試跑的最小設定**:建一個專用 Agent GitHub 帳號、再用另一個帳號當發起者;先把 accept mode 留在 `observe`,只靠「@Agent」觸發,觀察它的 PR 品質,再決定要不要開 `auto`。
+- **UI 專案的交付規範**:把「改前 / 改後截圖」寫進 delivery 提示詞,讓審核者不必自己拉分支就能判斷改對沒;這是 repo 本來就有的預設,不用另外寫。
+- **安全提醒**:repo 說 Executor 以 `danger-full-access` 用你的 OS 帳號跑,wrapper 不是安全邊界;要玩請用**專用 OS 帳號 + 只有 Agent 的憑證**,別在日常工作機直接開。
+
+## 7. 與本庫其他筆記的關係
 
 - 底層執行環境:[[agent-runtime-deepseek-harness-cordis]](DeepSeek Harness 的插件樹與事件日誌;dsh-superagent 就是打包成這個 harness 的 bundle)。
 - 長時間自主執行的評估問題:[[long-running-agents-goal-evaluation]]。
@@ -141,6 +185,11 @@ Agent 幹活綁著三樣東西:**計算**(推進 Agent 迴圈)、**狀態**(會�
 | House 的命令 | shell 的命令 | 推定,與 repo 的 shell job 吻合 |
 | 云钻的小龙虾 | 雲端的「小龍蝦」類 Agent | 推定,具體產品未確認 |
 | Daemon / Demon | Daemon | 影片稱「很輕量的小程式」,名稱推定 |
+| 信息员、CellerUp、DPC、DBSC、AZ | 資訊源(Source)、SETUP、DeepSeek、DeepSeek、Agent | 第二支影片(AI随风),依上下文推定 |
+| 盐胖/盐炮模型、研判 | 研判模型(負責研判與路由) | 第二支影片,推定 |
+| Open Cloud Go,Stay E-Fresh | 疑為作者選的某個服務商與模型名 | **未能辨識,未寫入正文** |
+| 警官查 | 僅觀察(observe) | 推定 |
+| 門控/門空、單順門 | 單向門 / 雙向門 | 與上下文「無法回滾 / 可回滾」吻合,推定 |
 
 ## 來源
 
@@ -148,5 +197,6 @@ Agent 幹活綁著三樣東西:**計算**(推進 Agent 迴圈)、**狀態**(會�
 - DeepSeek 原型 repo(已 clone 讀 README、`docs/000`–`007`、`prompts/`):https://github.com/deepseek-ai/dsh-superagent-prototype
 - DeepSeek Harness:https://github.com/deepseek-ai/deepseek-harness
 - 作者圖文教程(說明欄):https://www.xuanyuancode.com/ai-llm
+- AI随风〈DeepSeek SuperAgent 实测:接单干活全自动〉 https://www.youtube.com/watch?v=OrNE5vMFD2k (無字幕,CPU faster-whisper 轉錄,非官方字幕)
 
 > 本篇的設計內容主要來自影片轉述,**原文章未能取得**;與 repo 的對照以上述核實段為準。引用具體機制前請回到 DeepSeek 原文章與 repo 文件。
