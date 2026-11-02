@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**402 個 YouTube video id**、**119 個 arXiv 編號**,涵蓋 **332 篇**筆記。
+> 統計:**403 個 YouTube video id**、**119 個 arXiv 編號**,涵蓋 **333 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(402 部,依 video id 排序)
+## YouTube(403 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -353,6 +353,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `tU_1u8YyVLI` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
 | `tUI3ITjo2Bw` | AI 是威脅還是機遇?軟體股多點開花的選股邏輯 | [knowledge/investing/equity-research/ai-software-stocks-usage-based.md](./knowledge/investing/equity-research/ai-software-stocks-usage-based.md) |
 | `TY4JQhwEm1s` | 第 127 期:DeepSeek Harness、出版級圖表 Skill、自我進化的 RLM Agent、團隊工作台與可稽核語義圖譜 | [knowledge/technology/github-weekly/issue-127.md](./knowledge/technology/github-weekly/issue-127.md) |
+| `U6DV0MzMBJs` | 個人 Agent 大戰:Meta Muse 為何爆紅、三大困難,以及誰最可能贏 | [knowledge/investing/equity-research/personal-agent-muse-meta-google-race.md](./knowledge/investing/equity-research/personal-agent-muse-meta-google-race.md) |
 | `U9jFYSaalIc` | 7 種主流 Agent 架構選型:從單槍匹馬到工業流水線,以及「多加一層」的真實代價 | [knowledge/technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md](./knowledge/technology/ai-agents/foundations/seven-agent-architectures-selection-guide.md) |
 | `uBuBebzHd-U` | 第 130 期:可驗證的架構圖 Skill、即時 3D 地球觀測台、多智能體 AI 課堂、科研 Agent 技能庫與本地語音工作台 | [knowledge/technology/github-weekly/issue-130.md](./knowledge/technology/github-weekly/issue-130.md) |
 | `uFaDKby_Wzs` | Tailworm:Tailscale SSH 的轉發與 AI Coding 代理的網路邊界 | [knowledge/technology/ai-safety/tailworm-tailscale-ssh-ai-coding-agent-boundary.md](./knowledge/technology/ai-safety/tailworm-tailscale-ssh-ai-coding-agent-boundary.md) |
