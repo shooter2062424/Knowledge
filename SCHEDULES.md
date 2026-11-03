@@ -557,6 +557,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-11-03(巡檢) | 巡檢產出 1 新篇(零 Whisper):**Why QQ** `kpvZVBwQGlI` → ai-agents/applications/pixelfx-code-pixel-effects-agent-render-feedback-loop(已 clone patch-gg/pixelfx 核實)。其餘清單外 id 皆為已知存量。 |
 | 2026-11-03 | **新增巡檢頻道:轩辕的编程宇宙**(`UCLkwRNY9Ck9-d1ulZYHsl-Q` / @xuanyuancoding,使用者要求固定追蹤;無字幕需 Whisper)。巡檢 prompt 由七個頻道改八個,cron 重建為 `c830c233`(舊 `d7df861d` 刪除)。同日產出首篇:`jLeYfSBXG_E` → ai-agents/autonomy/deepseek-super-agent-router-walker-xuanyuan.md(讀 dsh-superagent-prototype:影片的 Router/Walker/Watchdog 與 repo 的 orchestrator/worker 不一致,Watchdog 與雲端+本機 Daemon 分離 repo 未實作)。存量見第 5 節 |
 | 2026-11-02 | 巡檢產出 2 新篇(零 Whisper):**Why QQ** `TbeJwwp-YE4` → Fowler〈LLM Voice〉;**Nick 美股咖啡館** `FOmXeN_KQ6s` → Google/Amazon 財報大跌。另:美投君 `U6DV0MzMBJs`(個人 Agent 大戰,Whisper)→ equity-research/personal-agent-muse-meta-google-race |
 | 2026-11-01 | 巡檢產出 1 新篇(增補,零 Whisper):**Why QQ** `bs0IXxThe3o` → 併入 ai-industry/ai-subscription-api-equivalent-value-semianalysis §9(AI 訂閱怎麼選,對照 Anthropic 官方價格頁)|
