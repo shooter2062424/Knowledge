@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**408 個 YouTube video id**、**119 個 arXiv 編號**,涵蓋 **337 篇**筆記。
+> 統計:**409 個 YouTube video id**、**119 個 arXiv 編號**,涵蓋 **337 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(408 部,依 video id 排序)
+## YouTube(409 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -39,6 +39,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `-XLTrE5bjko` | 收入高卻存不住錢?7 個正在掏空你的隱形習慣 | [knowledge/investing/strategy/hidden-money-draining-habits.md](./knowledge/investing/strategy/hidden-money-draining-habits.md) |
 | `0-Rr2iho6CI` | 未來一年的 6 個 AI Agent 趨勢:從「背提示詞」到「當 AI 管理者」 | [knowledge/technology/ai-agents/foundations/six-ai-agent-trends-next-year.md](./knowledge/technology/ai-agents/foundations/six-ai-agent-trends-next-year.md) |
 | `01s3YdYUCcU` | 軟體股為何集體大漲:從「被 AI 顛覆」到「幫 AI 省 Token」與「當 Agent 的基礎設施」 | [knowledge/investing/equity-research/software-stocks-ai-token-cost-and-agent-infrastructure.md](./knowledge/investing/equity-research/software-stocks-ai-token-cost-and-agent-infrastructure.md) |
+| `038BebtLg1U` | DeepSeek「Super Agent」是什麼:從 ReAct 單會話,到 Router / Walker 的五個模組 | [knowledge/technology/ai-agents/autonomy/deepseek-super-agent-router-walker-xuanyuan.md](./knowledge/technology/ai-agents/autonomy/deepseek-super-agent-router-walker-xuanyuan.md) |
 | `0ANjSvoFq0g` | 用高階函式降低程式碼閱讀負擔:重點不是變短,是讀者的注意力放在哪 | [knowledge/technology/software-engineering/higher-order-functions-readable-code.md](./knowledge/technology/software-engineering/higher-order-functions-readable-code.md) |
 | `0AvqP_WRVVM` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
 | `0AvqP_WRVVM` | CLAUDE.md 砍掉 82% 反而更聽話:三個篩選問題、五項該留的、以及一個減號的坑 | [knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md](./knowledge/technology/claude-code/claude-md-cut-82-percent-and-maintain-it.md) |

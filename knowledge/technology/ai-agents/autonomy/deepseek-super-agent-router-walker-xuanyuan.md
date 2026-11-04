@@ -7,6 +7,8 @@
 > 該片無字幕,逐字稿以 CPU faster-whisper 轉錄,非官方字幕。
 >
 > **增補(2026-11-03):** 併入第二支影片 AI随风〈DeepSeek SuperAgent 实测:接单干活全自动〉(2026-11-02,約 13 分鐘,影片 ID `OrNE5vMFD2k`,無字幕、Whisper 轉錄),見 §6——前半是概念講解,§6 是實際裝起來跑一遍的操作紀錄。
+>
+> **增補(2026-11-04):** 併入第三支 Why QQ〈DeepSeek新原型:Super-agent 会话不用你〉(2026-11-03,約 10 分鐘,影片 ID `038BebtLg1U`,官方簡中字幕),見 §7——補上設計文章的**消融實驗數字與口徑**、Fast/Slow Path、Chain of Recall 等前兩支沒講的部分。此片無業配,片尾僅一般三連呼籲。
 
 ---
 
@@ -163,7 +165,49 @@ flowchart TD
 - **UI 專案的交付規範**:把「改前 / 改後截圖」寫進 delivery 提示詞,讓審核者不必自己拉分支就能判斷改對沒;這是 repo 本來就有的預設,不用另外寫。
 - **安全提醒**:repo 說 Executor 以 `danger-full-access` 用你的 OS 帳號跑,wrapper 不是安全邊界;要玩請用**專用 OS 帳號 + 只有 Agent 的憑證**,別在日常工作機直接開。
 
-## 7. 與本庫其他筆記的關係
+## 7. 實驗口徑與缺少的環節(Why QQ〈DeepSeek新原型:Super-agent 会话不用你〉`038BebtLg1U`)
+
+這支直接講設計文章(2026-10-31 發表,英文題名〈Exploring Super-agent Design: Towards a More Autonomous Agent System〉,我現在從 IT之家、愛范兒的報導確認它存在,**但仍未讀到英文原文**)。相對前兩支,新增的內容:
+
+| 項目 | 影片說法 | 核對 |
+|---|---|---|
+| 人同時只能跟 3 到 5 個活躍 Session | 文章的觀察 | 未能核實(報導未見此數字) |
+| 三個對象要分清 | 設計文章(內部實例)、GitHub repo(公開研究原型、只實作一部分)、DeepSeek Harness(底層環境) | ✅ 與前面 §4 一致;README 自己註明僅供研究參考 |
+| Fast Path / Slow Path | 程式規則先擋來源、群組、白名單、明確請求;過關的候選才交 LLM 判斷語意 | 設計文章概念;repo 對應 Eval 與 accept mode(`docs/002`) |
+| 訂閱直通 | 同一 PR 的 CI 與評審、同一 IM 話題的後續,直接投給已建立的 Worker,不再重新路由 | ✅ `docs/002`:訂閱 Thread 的訊息直達 Ticket、繞過 gate、不授予新權限 |
+| Inline & Spill、Chain of Recall | 高機率用到的放進視窗,長文只留摘要與讀取入口;每個 Trigger/Thread/Worker 有 ID,可沿引用鏈回溯 | 報導一致;repo 未逐項核對 |
+| start()/stop() 非同步 | `start()` 立即返回 Started,完成結果作為新事件投回;前台 Shell 五秒後轉背景 | ✅ 五秒規則見 §4;文章同時注明**異步機制已在 Harness 實現、尚未預設開啟**(影片轉述) |
+| 回覆不超過 100 詞 | 文章驗證過的規則 | ✅ repo `prompts/replies.md`:「100 words is a hard ceiling, not a writing target」,傳輸層會拒絕更長的 IM 訊息,連 Markdown 連結標籤與網址都算字數 |
+| Watchdog、雲端 Agent Loop + 本地 daemon(BYOM) | 設計方向,影片明說公開版沒實作 | ✅ repo 全文搜尋沒有 watchdog;與 §4 結論一致 |
+| 接受模式 off / observe / auto,預設 observe | 命中規則的推斷任務只記錄 would accept,不執行 | ✅ `docs/002`:`observe` (default),正向評估記為 ignore 並標 "would accept" |
+
+### 消融實驗(最容易被誤讀的數字)
+
+```mermaid
+flowchart LR
+    A["實驗設定<br/>每輪約 300 條群聊與 CI 訊息<br/>約 20 條是工作請求<br/>每種方案跑 5 次"] --> B["編碼被只耗時間的工具取代<br/>間隔與工時縮放為四分之一<br/>模型延遲保留真實值"]
+    B --> C["所以測的是調度與協作<br/>不是程式碼正確率"]
+    C --> D["Super-agent<br/>P50 12.4 分<br/>P95 15.7 分"]
+    C --> E["去掉訂閱直通<br/>P50 12.6 / P95 15.5 分<br/>cache-read 約 2323 萬到 3177 萬<br/>Router 決策約增 30%"]
+    C --> F["單 Session 加 Subagent<br/>中性提示 20.4 / 29.5 分<br/>優先委派提示 13.8 / 29.0 分"]
+```
+
+- **直通省的是路由和 token,不是完成時間:** 去掉直通後 P50、P95 幾乎沒變(12.4 到 12.6、15.7 到 15.5),但 cache-read token 約增 37%、Router 決策約增 30%。
+- **「優先委派」提示詞確實能縮短 P50(20.4 到 13.8 分),但 P95 仍 29.0 分**,影片說長尾來自某次未委派;這支持「提示詞不穩定」的論點,同時也說明這是 5 次的小樣本。
+- **Super-agent 的總 cache-read 高於單 Session**:用更多上下文換更穩的並行調度,沒有全維度勝出。
+- 事件速率升高時 Router 有批處理兜底(合併積壓的 Trigger),所以負載增加也沒撞上單 Router 吞吐上限(影片轉述)。
+- 核對:12.4/15.7、29.5、Router 約增 30%、cache-read 約 2320 萬到 3180 萬(約 37%)、「合成訊息、模擬工具延遲,主要測調度而非編碼品質」都與 [IT之家](https://www.ithome.com/1/020/615.htm)、[愛范兒](https://www.ifanr.com/1687026)的報導一致。**這是二手報導對原文的轉述,不是原文;其餘分項(20.4、13.8、29.0、12.6、15.5)我只在影片看到,未能獨立核實。**
+
+### 影片給的四個自我檢查(可搬去自己的系統)
+
+1. 新訊息會不會阻塞舊任務?
+2. 後續事件要重複路由幾次、長文會不會反覆進入視窗?
+3. 授權能否脫離提示詞被強制執行?(影片提醒:Worker 以運行帳號的權限執行命令,目錄封裝與禁用命令只是預設約束,試用請用獨立帳號、最小權限、隔離環境與分支保護。)
+4. 每完成一項任務,打斷了人多少次?(比在線時長更接近真實體驗。)
+
+**應用案例:** 想自己做小型版本,可照影片建議從非核心倉庫開始:只接明確 @ 請求、先跑 observe,記錄每次「接單、打斷、交付」,再逐步開一條窄規則,而不是一開始就開 auto。
+
+## 8. 與本庫其他筆記的關係
 
 - 底層執行環境:[[agent-runtime-deepseek-harness-cordis]](DeepSeek Harness 的插件樹與事件日誌;dsh-superagent 就是打包成這個 harness 的 bundle)。
 - 長時間自主執行的評估問題:[[long-running-agents-goal-evaluation]]。
@@ -198,5 +242,7 @@ flowchart TD
 - DeepSeek Harness:https://github.com/deepseek-ai/deepseek-harness
 - 作者圖文教程(說明欄):https://www.xuanyuancode.com/ai-llm
 - AI随风〈DeepSeek SuperAgent 实测:接单干活全自动〉 https://www.youtube.com/watch?v=OrNE5vMFD2k (無字幕,CPU faster-whisper 轉錄,非官方字幕)
+- Why QQ〈DeepSeek新原型:Super-agent 会话不用你〉 https://www.youtube.com/watch?v=038BebtLg1U (官方簡中字幕)
+- 設計文章報導(二手):IT之家 https://www.ithome.com/1/020/615.htm ;愛范兒 https://www.ifanr.com/1687026
 
-> 本篇的設計內容主要來自影片轉述,**原文章未能取得**;與 repo 的對照以上述核實段為準。引用具體機制前請回到 DeepSeek 原文章與 repo 文件。
+> 本篇的設計內容主要來自影片轉述,**原文章未能取得(只確認存在於 2026-10-31,並以二手報導核對部分數字)**;與 repo 的對照以上述核實段為準。引用具體機制前請回到 DeepSeek 原文章與 repo 文件。
