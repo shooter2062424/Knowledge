@@ -2,6 +2,7 @@
 
 > 整理自 YouTube 頻道 **AI懶人報**〈[EP432 - Always-on Agent 到底怎麼運作?史丹佛 CS146S:前 Cursor 的 Lee Robinson 拆解 Grok Bot](https://www.youtube.com/watch?v=RKT93ir62FA)〉(2026-10-16,約 20 分鐘,官方 zh-TW 字幕)。
 > 原課堂:Stanford CS146S《The Modern Software Developer》客座課〈How always-on agents work〉,講者 Lee Robinson(前 Vercel 副總、前 Cursor,Cursor 併入 SpaceX 後做 Grok 模型訓練)——[原始課堂影片](https://www.youtube.com/watch?v=L1OBRtfPS34)。
+> 增補(2026-11-05):§7 加入 Gary Chen〈Grok Bot 新手教學,30 分鐘學會!〉(`nnTqbMhKr3E`)的使用者端實戰與查核。
 > ⚠️ **本文是二手整理**(AI懶人報的中文重述),未逐句對照原課堂英文影片。
 > ⚠️ **設定值(閒置 2 分鐘關機、安全審查 15 秒沒回應就擋、profile 最多 100 條 / 4,000 字元、工具說明 4,000 字元以內)來自講者投影片,是 Grok Bot 一家公司的做法**;**Firecracker、Temporal 的使用與「模型審得比人好」是講者自己的說法,官方文件沒有公開**(影片說明欄原話)。
 
@@ -305,6 +306,86 @@ AI懶人報把四段對應成五個動作:
 
 ---
 
+## 七、使用者端實戰:Gary Chen 的 30 分鐘上手(2026-11-04 增補)
+
+> 增補來源:Gary Chen(@garychenai)〈Grok Bot 新手教學,30 分鐘學會!〉(2026-11-04,約 28 分鐘,影片 ID `nnTqbMhKr3E`,官方 zh-TW 字幕)。前面各章講「它內部怎麼運作」,本章換成**使用者怎麼用**。
+> ⚠️ **立場:** 作者聲明沒收 SpaceX/馬斯克的錢;但片尾推廣自家付費社群「Gary AI 實戰營」(付費文章附 bot 設定提示詞、額度算法與省額度法,放在說明欄)。**付費內容本筆記未取得、未轉述。**
+> ⚠️ 以下操作介面與數字為作者實測自述;只有「方案涵蓋範圍」「可建群組聊天」「可示範錄製任務」我對照了官方頁面。
+
+### 1. 作者的定位:不是寫程式工具,是「會調度的總管」
+
+| 對照對象 | 作者說的差異 |
+|---|---|
+| ChatGPT | 問一句答一句;Grok Bot 是分工明確的一群「員工」 |
+| Claude Code / Codex | 跑在你自己的電腦,筆電闔上就中斷;Grok Bot 每隻 bot 在雲端有專屬電腦,關機也照做 |
+| OpenClaw / Hermes | 要自備 Mac mini 或租主機;Grok Bot 下載 App 登入即用 |
+| dots / Claude Duets / Meta Muse | 作者說同賽道;dots 一人一隻,Grok Bot 主打一整支團隊(我沒有逐一核對這些產品的現況) |
+
+作者結論(重要):**Grok Bot 擅長協調與調度、溝通交接成本低,但貴又耗額度;重度寫程式應交給自己的 Claude Code / Codex 訂閱**。這與第三章的「harness 設計」互相印證:總管一個、手腳多個。
+
+### 2. 建立團隊的順序
+
+```mermaid
+flowchart TD
+    A["第一隻 bot:幕僚長<br/>釘選並設為主要 bot"] --> B["依職責建專職 bot<br/>晨間信箱、情報員、專案管理"]
+    B --> C["接外掛<br/>Gmail、日曆、Drive、Slack、Notion、Linear"]
+    C --> D["教 Skills<br/>對話存成、搬舊 Skill、Teach a task 錄製"]
+    D --> E["設 Routines<br/>定時排程或 Webhook 觸發"]
+    E --> F["權限與 Vault<br/>讀開放、寫與付款先問人"]
+```
+
+- **名字會影響角色推斷**:作者說 Grok Bot 會從 bot 名稱推測定位(例:`Chief of Design`),所以別亂取。
+- **給目標,不要只給雜事**:「幫我整理收件匣」只是跑腿;「幫我省下看信時間、挑出需決策的信、仿我語氣擬草稿」才是員工。
+- **兩層記憶**:全域記憶(你是誰、時區、風格)所有 bot 共享;個別記憶只存該 bot 的專業規則。作者因此不建議一隻 bot 包辦程式、回信、研究,以免 context 互相污染。
+- **作者的矛盾**:他一向建議避開 multi-agents(一個 agent 加多個 skills 即可),但說 Grok Bot 的產品天性是「開一間小公司」,所以這裡例外。讀者要自己判斷,別把兩句話都當通則。
+
+### 3. 共用的雲端電腦(對應第二章)
+
+- 每隻 bot 有獨立畫面,但**底層共用同一台雲端電腦**:登入狀態、硬碟檔案共享。作者的實用法是建 `context/`(公司與品牌規範)、`meetings/`(規格)、`projects/`(程式碼)三個資料夾,派工時一句話指到資料夾,Dev bot 不用每次重講背景。
+- 三個工具:瀏覽器(沒有 API 的老後台、診所掛號也能點)、檔案管理器、終端機。右側面板三分頁:Details(任務與 Routines)、Library、Computer(可 Take control 接手)。
+- **把 Claude Code / Codex 裝進雲端電腦**:請 bot 安裝 CLI、你貼授權碼登入,再建一個「全域共用寫程式 Skill」;之後手機交代一句,寫程式走你的訂閱額度,不吃昂貴的 Grok Bot usage。
+
+### 4. 觸發與自動化
+
+| 方式 | 適用 | 作者提醒 |
+|---|---|---|
+| 定時排程 | 固定時間的例行事 | 輪詢型工作會白白醒來空轉、浪費額度 |
+| 事件觸發 | Slack、GitHub、Linear 內建 | |
+| Webhook | Google 表單、Typeform 等 | 產生專屬網址加金鑰;**金鑰等同叫醒 bot 的開關,要像密碼保管** |
+
+另有外掛少於 Claude Code / Codex 的缺點,作者建議用第三方 Composio 補;內建**每天免費讀取 1,000 則 X 貼文**額度(作者自述,官方頁面未載明,未核實)。
+
+### 5. Group Chat、權限與 Vault
+
+- **Group Chat**:多隻 bot 同房開會,各自以記憶發言並二輪接話(官方頁面確認可群組聊天)。作者判斷標準:**已確定要做什麼就找單一 bot;自己還不確定、需要不同角度抓盲點才開群聊**,因為每隻 bot 都讀整串對話,額度消耗快很多。
+- **權限原則**:讀的權限大方、動手的權限吝嗇。對外寄信、公開發文、刪檔、刷卡付款一律用自然語言規則設成「先問我」,搭配預覽卡片按同意才送出。
+- **Vault**:預存網站帳密(可從 1Password 或 Chrome 匯入)、聯絡地址、付款方式,每筆可加備註決定何時用哪一筆。作者說 bot 本身看不到卡號與安全碼、由系統底層加密代填——**這是作者轉述,我沒有查到官方技術說明,未核實;敏感資料是否放入請自行評估**。
+- 匯入他人 Template 前,先在預覽看它要求存取哪些工具。
+
+### 6. 核實與修正
+
+**已核實(官方頁面 https://x.ai/news/grok-bot-more-plans)**
+- 方案涵蓋 SuperGrok、SuperGrok Plus、SuperGrok Heavy,以及 Cursor Pro、Pro+、Ultra 與 Teams;bot 有自己的用量,不扣原本 Grok/Cursor 額度。
+- 可把多隻 bot 放進群組聊天互相交辦;可讓 bot 觀看你做一次任務後自行重跑。
+
+**需修正 / 補充**
+- 作者說「最便宜方案每月 30 美元」。官方頁未列價格;二手報導對「30 美元是哪個方案」說法不一(有說 SuperGrok、有說 X Premium),早期 beta 另曾限 120–300 美元層級。**下單前請到 xAI 定價頁自己確認。**
+- 作者說「剛推出時體驗不驚艷、近期重試才覺得有東西」,與官方 2026-08 上線的時間線相符,但「熱度又上來」屬主觀判斷。
+
+**未能核實**
+- 每日免費讀 1,000 則 X 貼文、Vault 加密代填、OpenAI「dots」九月底推出、「Claude Duets」的存在、Webhook 的具體欄位。
+- 作者稱 Skill 比 Codex 自寫的更好讀,屬主觀感受。
+
+### 7. 應用案例:一人公司的客戶表單自動接待
+
+> 情境:你是接案設計師,網站有一張合作諮詢表單(Typeform)。
+> ①建「幕僚長」並釘選;再建「接案助理」bot,目標寫成「縮短回覆新客戶的時間,先查對方公司背景,依我的語氣擬確認信草稿」。
+> ②在共用電腦建 `context/brand.md`(報價與服務範圍),助理每次自己去讀。
+> ③請助理建 Webhook Routine,把網址與金鑰貼進 Typeform;平時休眠不耗額度。
+> ④權限規則寫「對外寄信一定先給我預覽」。結果:客戶一按送出,你手機收到查好背景的草稿卡片,點同意才寄出。
+> 若需求是寫網站程式,則改由助理呼叫共用 Skill 轉給 Claude Code,走自己的訂閱額度。
+
+
 ## 應用案例
 
 ### 案例 1:本倉庫的 session-only cron 就是「沒有 server 的 always-on」
@@ -367,6 +448,8 @@ AI懶人報把四段對應成五個動作:
 
 ## 來源
 
+- Gary Chen(@garychenai):〈Grok Bot 新手教學,30 分鐘學會!〉 https://www.youtube.com/watch?v=nnTqbMhKr3E (2026-11-04,官方 zh-TW 字幕;§7 來源,作者另推廣自家付費社群)
+- xAI 官方:Grok Bot 方案與功能說明 https://x.ai/news/grok-bot-more-plans
 - ⭐⭐⭐ [EP432 - Always-on Agent 到底怎麼運作?史丹佛 CS146S:前 Cursor 的 Lee Robinson 拆解 Grok Bot — AI懶人報](https://www.youtube.com/watch?v=RKT93ir62FA)(2026-10-16,約 20 分鐘,官方 zh-TW 字幕)
 - ⭐⭐⭐ [原始課堂影片:Stanford CS146S〈How always-on agents work〉,Lee Robinson](https://www.youtube.com/watch?v=L1OBRtfPS34)(未逐句對照)
 - [Stanford CS146S 課程網站 The Modern Software Developer](https://themodernsoftware.dev)
