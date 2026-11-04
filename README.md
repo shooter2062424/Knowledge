@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-373_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-374_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -183,6 +183,7 @@ flowchart LR
 
 | 來源 | 篇數 | 筆記 |
 |---|---|---|
+| **Addy Osmani(X / 部落格)** | 1 | [當 Agent 代勞時如何保持批判性思考:認知投降、驗證、意圖債](./knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md) |
 | **GitHub Weekly(IT咖啡馆「Github一周热点」)** | 35 | [第 99–134 期(整個 github-weekly 資料夾)](./knowledge/technology/github-weekly/) |
 
 ---
@@ -555,6 +556,7 @@ flowchart LR
 | [編譯通過 ≠ 記憶體安全:Rust issue #164250——借用檢查器裡住了約 11 年的 soundness 洞(Why QQ + issue 原文)](./knowledge/technology/software-engineering/rust-issue-164250-borrow-checker-soundness-hole.md) | ⭐⭐ safe Rust 零 `unsafe` 讀到已釋放記憶體:**協變欄位賦值時型別統一沒回頭檢查 lifetime bound + 故意惡意的 Drop**;⭐ lcnr 定級邏輯「11 年零目擊 ⇒ 不易撞上 ⇒ P-high」;⭐ 自查「bound + Drop + 公開欄位」並私有化、CI 加 Miri、借用檢查器不是安全邊界;📌 讀 issue 原文補正:最先宣布 since 1.4 的是 lcnr、rustbot 先標 P-critical 再改;修復 PR #164277 評審中、無 CVE、open 的 I-unsound 共 146 個 |
 | [AI 原生 SDLC 怎麼落地:程式碼變快之後,真正塞住的是驗證與評審](./knowledge/technology/software-engineering/ai-native-sdlc-landing-checklist.md) | ⭐⭐⭐ **生成端跑得比驗證端快,待審 PR 就開始排隊;速度會同時放大好需求和壞需求**;Anthropic 六階段(Plan/Design/Build/Test/Deploy/Maintain)與 intent/spec/plan 三份工件——**工件鏈本身就是稽核軌跡**;⭐ **用 GitLab 的「被接受的變更」當單位,別用 PR 數**;Amplitude 擴容整條管線、**Stripe Minions 高吞吐背後是隔離預熱環境 + 三百萬測試的相關性選擇**、Spotify Honk 誠實記錄限制;⭐⭐ **評審從「程式碼朗讀」轉向「證據判斷與風險批准」**;九步實施順序 |
 | [Claude Code 團隊怎麼做 code review:七層流水線,PR 翻倍、回滾降四成(Why QQ)](./knowledge/technology/software-engineering/claude-code-team-code-review-seven-layers.md) | Anthropic 2026-10-15 部落格導讀:提交前驗證、多 agent 找 bug 加投票、可擋合併的安全審查、CI、依風險 0/1/2 人批准(agent 批准不算人頭)、合併佇列與灰度、快速回滾;⭐ 五十多輪互審事故後設三輪上限,一輪通過率 65% 升到 78%;✅ 數字已逐項對照原文,⚠️ 皆為自報 |
+| [當 Agent 代勞時,如何保持批判性思考(Addy Osmani)](./knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md) | ⭐ **卸載 → 延遲 → 投降光譜**:判準是「連借助 Agent 都解釋不出來就是放棄主導權」;六個自問(先有假設、如何證明是錯的、敢不敢對維護者打包票);⭐⭐ **綠燈只證明一件事**,事前定義何謂已驗證、先看指令輸出再看摘要、讀它替你做的決定;意圖債(意圖必須源自你)與協調稅;「卸載工作與審計,但無法卸載當責」;✅ 已對照其部落格三篇原文;⚠️ 原貼文無法抓取、「Jeremy Twei 提出理解債」與「監督悖論」引文未能核實;作者在 Anthropic 做 Claude Code(有利益關係) |
 | [Martin Fowler〈LLM Voice〉:AI 文字的恐怖谷,與工程師該怎麼寫文件(Why QQ)](./knowledge/technology/software-engineering/fowler-llm-voice-ai-writing-uncanny-valley.md) | 對照 Fowler 原文:反應是人的反應、檢測工具抓錯重點;**不要讓 LLM 寫初稿**(腔調難去除)、寫作是思考工具、Say Your Writing;影片補充的預印本與 Nature 研究已逐項核實(「9 個模型」有出入、論文未實測讀者理解);⚠️「AI 審稿四步」是影片作者建議非 Fowler 主張 |
 | [用高階函式降低程式碼閱讀負擔:重點不是變短,是讀者的注意力放在哪](./knowledge/technology/software-engineering/higher-order-functions-readable-code.md) | 並排比較找出重複的**骨架**;迴圈描述「如何檢查」、`every` 宣告「在檢查什麼」;`filter` 答「哪些留下」/`map` 答「留下的長什麼樣」;**⚠️ 抽象化要壓縮語意層級、不能只是改名**;**補三個反例:`forEach`+async 不等待、`map`/`filter` 不能 break、熱路徑的多次走訪** |
 | [你的 AI 變好了?你可能根本測不出來:一套可落地的 LLM 評估方法(Why QQ)](./knowledge/technology/software-engineering/llm-evals-how-to-know-ai-works.md) | ⭐⭐ 四步循環、先讀輸出做錯誤分析、程式規則看形式不看意思;⭐⭐⭐ 裁判要測 kappa(一致率 60% 但 kappa 只有 0.15)、是非題拆解、五種裁判偏差;區間與偵測下限(60 筆約 12 點);pass^k;✅ 核對 Ask Don't Judge、GAUGE(實力接近時決策不一致 31%) |
