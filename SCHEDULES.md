@@ -558,6 +558,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-11-05(巡檢) | 巡檢產出 1 新篇(零 Whisper):**Why QQ** `B7I0HBXbty8` → 新篇 llm-internals/architecture/tokenizer-tax-chinese-vs-english-token-cost.md(CLEAR 數字對照二手整理、tiktoken 實測 13;Token Bench 與蒙古語數字未能核實)。新存量:**白白说大模型** `nuEYDFfDnOI`(MCP / Skill / 本地 Tools 區別,14.5 分,無字幕需 Whisper;動筆前先 grep 既有 MCP/Skill 筆記)。Caleb `77hHgDkbtLI` 本輪未重試(留待下輪)。 |
 | 2026-11-04(巡檢) | 巡檢併入 1 篇(零 Whisper):**Why QQ** `038BebtLg1U` → 增補 deepseek-super-agent-router-walker-xuanyuan §7。Caleb `77hHgDkbtLI` auto-subs 429 順延。 |
 | 2026-11-03(巡檢) | 巡檢產出 1 新篇(零 Whisper):**Why QQ** `kpvZVBwQGlI` → ai-agents/applications/pixelfx-code-pixel-effects-agent-render-feedback-loop(已 clone patch-gg/pixelfx 核實)。其餘清單外 id 皆為已知存量。 |
 | 2026-11-03 | **新增巡檢頻道:轩辕的编程宇宙**(`UCLkwRNY9Ck9-d1ulZYHsl-Q` / @xuanyuancoding,使用者要求固定追蹤;無字幕需 Whisper)。巡檢 prompt 由七個頻道改八個,cron 重建為 `c830c233`(舊 `d7df861d` 刪除)。同日產出首篇:`jLeYfSBXG_E` → ai-agents/autonomy/deepseek-super-agent-router-walker-xuanyuan.md(讀 dsh-superagent-prototype:影片的 Router/Walker/Watchdog 與 repo 的 orchestrator/worker 不一致,Watchdog 與雲端+本機 Daemon 分離 repo 未實作)。存量見第 5 節 |

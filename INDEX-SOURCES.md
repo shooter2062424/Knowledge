@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**410 個 YouTube video id**、**119 個 arXiv 編號**,涵蓋 **337 篇**筆記。
+> 統計:**411 個 YouTube video id**、**119 個 arXiv 編號**,涵蓋 **338 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(410 部,依 video id 排序)
+## YouTube(411 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -110,6 +110,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `aYfZN8t6AQs` | Mem0 記憶架構拆解:三個儲存、抽取管線,與那個「加起來再除以 2.5」的混合排序 | [knowledge/technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md](./knowledge/technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md) |
 | `aZEmxJ9ivzg` | 學了那麼多 AI,為什麼還是沒加薪?——省下的時間 85% 被雜事吃掉,以及納許議價怎麼算你該開多少 | [knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md](./knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md) |
 | `b3aYWkBf7jg` | OpenCode Console 被攻破:AI 在進攻、AI 在拒守——密鑰放哪與「護欄不對稱」 | [knowledge/technology/ai-safety/opencode-console-breach-guardrail-asymmetry.md](./knowledge/technology/ai-safety/opencode-console-breach-guardrail-asymmetry.md) |
+| `B7I0HBXbty8` | 語言稅:中文問 AI 真的更貴嗎?Tokenizer、文字系統與多語言成本實測方法 | [knowledge/technology/llm-internals/architecture/tokenizer-tax-chinese-vs-english-token-cost.md](./knowledge/technology/llm-internals/architecture/tokenizer-tax-chinese-vs-english-token-cost.md) |
 | `b84VdIprZXA` | Opus 5.5 官方 Prompting Guide 十三點:effort 用 medium、刪掉「仔細思考」、講清終點與何時停(Gary Chen) | [knowledge/technology/claude-code/opus-5-5-prompting-guide-13-points.md](./knowledge/technology/claude-code/opus-5-5-prompting-guide-13-points.md) |
 | `B91bZL8wcAI` | 什麼是 AI Harness?兩種「harness」的差別 | [knowledge/technology/ai-agents/foundations/ai-harness-explained.md](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) |
 | `b9fvVzHgMbw` | 4090 算力翻倍?gpu-unlock-ada 解開 Tensor「半速鎖」:指令翻倍,但你的專案未必快 | [knowledge/technology/llm-internals/inference/gpu-unlock-ada-tensor-half-rate-override.md](./knowledge/technology/llm-internals/inference/gpu-unlock-ada-tensor-half-rate-override.md) |
