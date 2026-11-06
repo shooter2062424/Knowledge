@@ -208,7 +208,7 @@ flowchart TB
 
 ## 9. 補充:CUDA 到底在解什麼問題——記憶體階層、SM 與 PTX(2026-11-06 增補,來源:Caleb Writes Code)
 
-> 來源影片:〈CUDA is hard..〉(Caleb Writes Code,2026-10-30,約 13 分鐘;無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差)。片中穿插對 NVIDIA CUDA 架構師 **Stephen Jones**(逐字稿拼作 Steven,推定)的訪談片段。含 Tripo(3D 生成 + Blender agent 工具 Chara Crew)業配,未納入。
+> 來源影片:〈CUDA is hard..〉(Caleb Writes Code,2026-10-30,約 13 分鐘;無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差)。片中穿插對 NVIDIA CUDA 架構師 **Stephen Jones**(逐字稿拼作 Steven,使用者 2026-11-07 確認為 NVIDIA 的 Stephen Jones)的訪談片段。含 Tripo(3D 生成 + Blender agent 工具 Chara Crew)業配,未納入。
 
 前面各節在談「為什麼是頻寬」「軟體生態是護城河」,這支影片補上**晶片內部**那一段:CUDA 為什麼需要存在。
 

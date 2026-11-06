@@ -354,7 +354,7 @@ flowchart LR
 
 **⚠️ 無法確認、已登記到 `TRANSCRIPT-PENDING.md` 的:**
 
-- 「Open Ed Brokeman 在 2024 年底說 2025 是智能體元年」:疑似 OpenAI 的 Greg Brockman,也可能是 Sam Altman,**不確定是誰、說了什麼**。
+- 「Open Ed Brokeman 在 2024 年底說 2025 是智能體元年」:使用者確認為 OpenAI 的 Greg Brockman(2026-11-07 確認);**他實際說了什麼、原話出處未核實**。
 - 情感陪伴 App 名稱「臨監療欲事」、電商 App「說不飯」:無法還原。
 - 阿里百煉的具體模型型號(字幕:「13008max」「千問 3.8 Flash」「3.7 Texin 背頂」):不可靠,筆記只寫「千問(Qwen)系列」。
 - 「ADP4.0 agent offers」:疑似騰訊的智能體開發平台,**未確認**。

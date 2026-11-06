@@ -4,7 +4,7 @@
 >
 > **立場揭露:** 前片含 Zo(Zo Computer,雲端常駐 agent)業配,後片含 Micro Center 業配,本文**不轉述**。
 >
-> **逐字稿說明:** 兩片皆無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差。已還原的人名:Yen LeCoum → Yann LeCun;Francois Shirley → François Chollet;Mario(from Anthropic)→ Dario Amodei(推定);Boris Sherney → Boris Cherny(推定);Demis Hasabis → Demis Hassabis;RKGI3 → ARC-AGI-3;Zou / Zoho → Zo。
+> **逐字稿說明:** 兩片皆無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差。已還原的人名:Yen LeCoum → Yann LeCun;Francois Shirley → François Chollet;Mario(from Anthropic)→ Dario Amodei;Boris Sherney → Boris Cherny(兩者皆經使用者 2026-11-07 確認);Demis Hasabis → Demis Hassabis;RKGI3 → ARC-AGI-3;Zou / Zoho → Zo。
 >
 > **整理日期:** 2026-11-06。
 
