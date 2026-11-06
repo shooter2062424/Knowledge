@@ -775,6 +775,42 @@ flowchart TD
 
 ---
 
+## 14. 補充:Opus 5.5 vs GPT-6——「成本效率」與「token 效率」兩條 Pareto 前緣(2026-11-06 增補,來源:Caleb Writes Code)
+
+> 來源影片:〈Opus 5.5 vs GPT-6 is racing to the bottom..?〉(Caleb Writes Code,2026-09-24,約 7.6 分鐘;無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差)。**含 HyperAgent 業配**(多 agent 旅遊規劃示範),未納入。
+
+這支影片把 §5 的主張畫成圖:**同一個智能水位,要比兩件事 —— 每 token 多少錢(cost)、花了多少 token(token)**。
+
+### 14.1 影片的主要論點
+
+1. 大家都在慶祝「智能成本下降」(影片開頭:Opus 5.5 約為 Fable 5.0 的 40%,GPT-6 Sol 與 Luna 降價約 50%),但**只畫「成本 × 智能」的 Pareto 前緣會漏掉第二條**:「token 用量 × 智能」。
+2. 在成本軸上,**Opus 5.5 在 GPT-6 Sol 以上的智能區間基本佔優**;在 token 軸上,**GPT-6(含 Astra)在它們能達到的智能範圍內 token 用得更少**,直到 Opus 5.5 把智能推得更高才被超過。
+3. 三維圖(成本、token、智能):Opus 5.5 沿「成本與 token 兩軸都接近基準線」的路徑均衡前進,智能到約 53 開始趨平;Fable 5.1 與前代 Opus 5 偏向 token 軸;GPT-6 Sol、Luna **智能上限較低**(影片:Sol 約 47.5、Luna 約 37.3),但 Luna 在成本軸移動得很有效率;**Astra 的軌跡比較像 Fable 5.1**。
+4. **誰付「沒效率的 token」?** API 用戶是按 token 付費,低效率直接轉嫁到帳單;訂閱用戶則是被 5 小時滾動視窗 + 每週額度限制,實際體驗取決於廠商補貼意願(競爭、資料中心可用量、硬體成本、毛利)。影片補充:2025 年 OpenAI 營收多來自訂閱、Anthropic 多來自 API(**講者轉述,未核實**)。
+5. 其他實驗室(Kimi、GLM、DeepSeek、MiMo、Gemini、MiniMax、xAI、Meta)集體在**成本軸**上競爭,DeepSeek 尤其明顯;今年 Q1 到 Q3 兩條前緣都在往理想點移動。
+
+### 14.2 與官方 / 第三方數字對照:兩處要指出
+
+| 影片 | 對照 | 判斷 |
+|---|---|---|
+| Opus 5.5 智能約 53 開始趨平 | Artificial Analysis 的 Opus 5.5 頁(Max 檔)智能指數為 **58–59**(兩個頁面略有出入);低檔 42、中檔 51 | ⚠️ **不一致**。可能是影片取了不同 effort 檔位或較早的指數版本。**不同指數版本 / 檔位的數字不可並列比較** |
+| GPT-6 Sol 約 47.5、Luna 約 37.3 | 本篇 §1、§3 記的 Astra 61、GPT-5.6 Sol 61、Fable 5.1 66 | ⚠️ **不可直接並列**:影片稱「GPT-6 Sol」,本篇沿用 AA 的「GPT-5.6 Sol」,指數與命名版本可能不同;我**未能核實**影片的 47.5 / 37.3 |
+| Opus 5.5 比 Fable 5.0「只要 40%」 | AA 頁:Opus 5.5 **$4 / $20**,Opus 5 為 $5 / $25,即輸入輸出價各降 **20%**;第三方部落格轉述 Anthropic 稱「跑同樣任務便宜約 40%」,自己算約 23.6% | 「40%」若指**每任務成本**有第三方說法支撐,但**未見 Anthropic 一手頁面**;若指**單價**則不符 |
+
+結論:影片的**結構性論點成立**(單價、token 用量是兩條獨立軸,對 API 與訂閱用戶影響不同),與 §5 的 Astra「單價貴、token 少」互相印證。但**圖上的絕對數字不要直接引用**。
+
+### 14.3 應用案例
+
+**案例 1|選模型時算「每次成功成本」而非單價:** 取 20 個代表性任務,用兩個模型各跑一次,記錄**總 token(含 thinking)× 單價 + 失敗重試**。若 A 單價是 B 的 1/2 但用 3 倍 token,實際反而更貴(§13.4 有同樣方法)。
+
+**案例 2|訂閱用戶看額度:** 若你在 5 小時視窗常撞牆,比較不同模型的**每個任務耗用的視窗百分比**,而不是單價;token 效率高的模型對訂閱用戶的價值被低估。
+
+**案例 3|讀降價新聞:** 「降價 50%」先問:**降的是單價還是每任務成本?智能檔位相同嗎?** 然後去看 AA 對應頁面的「cost to run」與 tokens 欄位。
+
+來源:[Caleb Writes Code〈Opus 5.5 vs GPT-6 is racing to the bottom..?〉](https://www.youtube.com/watch?v=gQmPD4I62rU)(2026-09-24)、[Claude Opus 5.5 — Artificial Analysis](https://artificialanalysis.ai/models/claude-opus-5-5)、[Claude Opus 5.5 pricing & benchmarks — Capital & Compute](https://capitalandcompute.net/blog/claude-opus-5-5-pricing-benchmarks/)(第三方)。
+
+---
+
 ## 來源
 
 - [智能原地踏步,凭什么叫GPT-6 | 但Fable5.1还是编程第一 — Why QQ](https://www.youtube.com/watch?v=tU_1u8YyVLI)(2026-09-04,約 9.1 分鐘,官方 zh-Hans 字幕)

@@ -106,6 +106,25 @@ flowchart TB
 
 ---
 
+## 附錄:託管版 Hermes「60 秒開通」實測與 agent vs chatbot 判準(YAHA学堂,2026-09-08)
+
+> 整理自 YouTube 頻道 **YAHA学堂**〈同样是 AI agent,为什么别人要装半小时,这个 60 秒就能用?〉(約 5.7 分,YouTube 自動字幕)。
+> ⚠️⚠️ **業配揭露:** 該片推廣第三方託管平台 **nexos.ai**(片中稱內建 ChatGPT / Claude 額度、頻道專屬 9 折優惠碼、「描述欄有優惠碼跟連結」、訂閱 24 個月折扣近 400 美元)。**本附錄不轉述方案價格、折扣與購買流程,只整理與 Hermes 本身有關的概念。** 我**未能在公開搜尋中查到 nexos.ai 提供 Hermes 託管的官方頁面**(搜到的是 Hostinger、Creative Tim 等其他託管商),該平台的功能與計費說法**未核實**。
+
+**Hermes Agent 本體(✅ clone [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) 讀 README / 目錄核實):** MIT 授權,Nous Research 出品;**單一 gateway 行程**同時接 Telegram、Discord、Slack、WhatsApp、Signal 與 CLI;內建 **cron 排程器**(自然語言設定、結果投遞到任一平台、無人值守);模型可換(Nous Portal、OpenRouter、OpenAI、自訂端點…);具「自我學習迴圈」(自動建 skill、記憶輪巡);支援子 agent 平行;終端後端含 local / Docker / SSH / Modal / Daytona / Vercel Sandbox。
+
+影片值得留下的三個判準與提醒:
+
+1. **agent 與 chatbot 的分水嶺只有一行:「網頁關掉,它就停了嗎?」**——作者認為官方對照 ChatGPT 的 7 列表格中只有 3 列有決定性:**能不能背景持續跑**、**能不能進你的通訊軟體**(ChatGPT 做不到)、**模型能不能自己換**。
+2. **給目標、不給步驟**:示範一句「查三家 AI(Anthropic / OpenAI / Google)的 API 價格,做成對照表,標出各情境最便宜的,傳到我手機」,之後不介入;產出為三家各自的輸入/輸出/快取價,並自動推送到 Telegram。(⚠️ 價格內容本身未核對,不要拿來報價。)
+3. **⭐ 成本陷阱:影片稱託管版預設「每 30 分鐘自己醒來一次檢查有沒有事做」,即使判斷沒事,這個判斷本身也要花 token**,不調長間隔或關掉就會持續漏錢。單次比價任務實測消耗 0.46 個平台點數(10 點約夠 20 幾次)。**核實:** 我在 repo 中找到 cron 的「every 30m / every 2h」間隔語法與 1800 秒級的逾時/重試常數,但**沒有找到名為「預設 30 分鐘 heartbeat」的設定**——此「預設 30 分鐘」應是**該託管平台自己的設定**,自架請檢查自己的 cron job 清單。
+
+**Telegram 接入三步(影片流程,與官方 gateway 文件一致):** ① 找 `@BotFather` 建機器人(顯示名 + 以 `bot` 結尾且全域唯一的使用者名稱),只取 HTTP API token;② 提供你自己的 Telegram 使用者 ID 當白名單(搜 ID 機器人時**小心仿冒帳號**,認官方頭像);③ 回自己建的 bot 按 Start 發一則訊息。第三方指南指出:**沒設白名單時 gateway 預設拒絕所有人**(安全預設)。
+
+**應用案例:** 想要「每天早上把某 GitHub repo 的新 release 摘要推到手機」——自架 Hermes 用 `hermes gateway` 常駐 + 一條自然語言 cron;若走託管版,先把喚醒間隔從 30 分鐘調成 6 小時,再看帳單。
+
+---
+
 ## 一句話總結
 
 > 與其在多個 agent / 模型視窗間切換,不如**做一個主 agent 當路由中樞**:用 gateway(HTTP)串子 agent、
@@ -120,3 +139,5 @@ flowchart TB
 - YouTube:[把 Hermes 爆改成超強主 Agent:無縫調度 SubAgent、Claude、Gemini 與 Codex(科技新征程)](https://www.youtube.com/watch?v=QAhJRYua62k)
 - 影片提到的工具:[Herdr(Tmux 多 agent 可視化)](https://herdr.dev/)、[web-access(動態抓取 skill)](https://github.com/eze-is/web-access)、[camofox(輕量反爬瀏覽器)](https://github.com/jo-inc/camofox-browser)。
 - 延伸:本庫 [[task-decomposition-agentic-workflow]]、[[function-calling-mcp-a2a]]、[[grep-vs-vector-agentic-search]]、[[building-claude-skills]]。
+- YouTube:[同样是 AI agent,为什么别人要装半小时,这个 60 秒就能用?](https://www.youtube.com/watch?v=9O4IueW_n1k)(YAHA学堂,2026-09-08;YouTube 自動字幕;**含 nexos.ai 業配,未納入**)——附錄
+- 官方 repo:[NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)(MIT)、[Messaging Gateway 文件](https://hermes-agent.nousresearch.com/docs/user-guide/messaging/)

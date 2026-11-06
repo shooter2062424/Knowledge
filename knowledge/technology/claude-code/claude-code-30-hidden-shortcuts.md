@@ -193,6 +193,77 @@ Claude 連改三個檔後測試全紅:
 
 ---
 
+## 9. 補充:AI LABS 整理的隱藏「設定」與指令,逐項對官方文件(2026-11-06 增補)
+
+> 來源影片:〈Claude Code Features That 90% Don't Know Exist〉(**AI LABS**,2026-10-05,約 16.4 分鐘;無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差;「Claude API prompt audit」「hill climb」等已依官方指令名還原)。
+>
+> **立場揭露:** 片中 Scrimba「Explain」(把程式碼轉成旁白影片的 AI 工具)為業配,**不轉述**;另宣傳其付費社群 AI Labs Pro。
+>
+> 本篇前八節偏**按鍵**;這支影片偏**設定檔與斜線指令**,兩者重疊的按鍵(`Ctrl+S` 暫存、`Ctrl+Y` 取回、`Ctrl+_` 復原)不再重複。2026-11-06 對照 [Commands](https://code.claude.com/docs/en/commands)、[Settings](https://code.claude.com/docs/en/settings)、[Model config](https://code.claude.com/docs/en/model-config)、[Env vars](https://code.claude.com/docs/en/env-vars) 查核。
+
+### 9.1 專案設定與「清垃圾」
+
+| 影片的功能 | 官方文件核實 | 備註 |
+|---|---|---|
+| `CLAUDE_CODE_NEW_INIT=1` 後 `/init` 先問問題、擬計畫、再寫 `CLAUDE.md`、skills、hooks | ✅ 環境變數存在,「互動流程,詢問要產生哪些檔案(CLAUDE.md、skills、hooks),再探索程式碼並寫入」 | 影片說**要在輸入 `claude` 之前設**,正確(環境變數)。不設則直接自動產生 `CLAUDE.md` |
+| `/import <agent>` 從別的 agent 搬設定 | ✅ `/import [codex\|gemini\|cursor] [--dry-run] [--yes]`,搬指令檔、MCP、commands、subagents、skills | `/init` 偵測到 Codex 或 Gemini CLI 設定時也會主動提議 |
+| `/claude-api prompt-audit`:用 subagent 稽核 `CLAUDE.md` 與 skills 有無過期指令 | ✅ `/claude-api` 子命令清單有 `prompt-audit`;另有 `/doctor prompt-audit [path]`(v2.1.283+) | 新模型剛出時最該跑——舊指令最容易過期。可對照本庫 [[claude-md-cut-82-percent-and-maintain-it]] |
+| `/skill-doctor`:看每個 skill 的使用頻率、最後使用時間、佔用 context | ✅ 存在,需 v2.1.252+ 與功能旗標抓取 | 見 [[skill-doctor-self-improving-agent-loop]] |
+| `/skills` 後按 `T` 依 token 排序 | ❓ 文件的指令表沒寫這個快捷鍵,未核實 | 以實機為準 |
+
+### 9.2 權限與 context 預算
+
+| 影片的功能 | 官方文件核實 | 備註 |
+|---|---|---|
+| `/auto-mode setup`:讀專案與過往 session,草擬 Auto mode 規則,審閱後存入使用者設定 | ✅ 指令實名為 **`/auto-mode-setup`**(草擬 `autoMode.environment` 項目,存到 user settings;v2.1.228+) | 影片的「從 Auto mode 啟動」呼應本篇姊妹篇 [[claude-code-2026-feature-timeline]] §8.5(Auto mode 成為預設) |
+| `/fewer-permission-prompts`:掃過往 transcripts,只挑**唯讀**的 Bash / MCP 呼叫,寫入 allow list | ✅ 官方描述幾乎同句,寫入**專案** `.claude/settings.json` | 與 auto mode 設定是兩條互補路徑:前者改分類器規則,後者加白名單 |
+| `disableClaudeAiConnectors: true`:不載入 Claude 網頁版連接器(Notion、Slack 等)進 Claude Code,省 context | ✅ 設定鍵存在;**任何範圍設 true 都生效,連 managed 設 false 也擋不住** | 連接器被載入卻沒用,白占 token(對應本篇姊妹 [[token-saving-three-moves-context-control]] 的「丟掉用不到的」) |
+| `enableArtifact: false`:關掉 Artifact 工具 | ✅ 鍵存在;「任何檔案設 false,沒有檔案能再打開」,需 v2.1.242+ | 影片說設在 `~/.claude/settings.json`;注意**一旦被關,低層級無法再開** |
+| `/claude-api build-eval`、`hillclimb`:建一組測試、反覆改 app 並只保留分數更高的變更 | ✅ `build-eval`、`hillclimb` 為官方子命令(影片寫 hill climb) | 影片警告:**每次執行都呼叫模型,會花 API 費用**;若你的 app 不呼叫模型,`build-eval` 仍可產出測試計畫而不耗 API(影片說法,我未實測) |
+
+### 9.3 計畫模式與輸出
+
+| 影片的功能 | 官方文件核實 | 備註 |
+|---|---|---|
+| `showClearContextOnPlanAccept: true`:接受計畫時恢復「先清 context 再實作」選項 | ✅ 設定鍵存在(索引列:Show a "clear context" option on the plan accept screen) | 清掉對話後計畫不會消失 |
+| `plansDirectory`:把計畫存到專案內指定資料夾 | ✅ 設定鍵存在(Choose where plan mode writes plan files) | 預設存在使用者 `.claude/plans`,設到專案內才能與團隊共享 |
+| `/output-style [style]` 五種風格:default、proactive、concise、explanatory、learning | ✅ 指令存在(v2.1.269+);五種風格名稱我**未逐一核實** | 與 [[output-style-communication-not-intelligence]] 並讀 |
+| `showThinkingSummaries: true` 後 `Ctrl+O` 看思考摘要 | ✅ 預設 `false`;未設時 API 會遮蔽思考區塊,只顯示摺疊占位 | 官方註明遮蔽只影響**你看到的**,不影響模型實際產生量 |
+| `/tui fullscreen` + `/focus`:只顯示最後的 prompt、一行工具摘要、最終回覆 | ✅ 兩者皆存在;focus 設定會跨 session 保存 | 影片說「focus 只在全螢幕可用」,與文件的 `/tui fullscreen` 搭配一致 |
+
+### 9.4 平行與多 session
+
+| 影片的功能 | 官方文件核實 | 備註 |
+|---|---|---|
+| `/branch`:複製目前對話開新分支,可用 `/resume` 回原本 | ✅ | 會切進分支 |
+| `/fork [prompt]`:把對話複製成**背景 session**,有 prompt 就立刻開工 | ✅ | 影片說「完成後背景 session 自己結束」,文件摘錄沒寫,**未核實** |
+| `/subtask <task>`:起一個繼承**完整對話**的 forked subagent,結果回到本對話 | ✅ | 一般 subagent 從乾淨 context 開始,只拿到主 agent 給的 prompt;`/subtask` 是例外 |
+| `/list-agents`:列出可傳訊的 subagent、teammates 與其他 session,可請一個 session 傳話給另一個 | ✅ 別名 `/peers`;需 v2.1.224+ | 見 [[claude-code-2026-feature-timeline]] §8.1 跨 session 訊息 |
+| `askUserQuestionTimeout`:Claude 提問閒置到時自動採用建議答案繼續 | ✅ 設定鍵存在,範圍**僅使用者或 managed** | 影片說「只在不阻塞時才自動選」——細節我**未核實** |
+| `/config` → 本機通知 → terminal bell | ❓ 未逐項核實 | |
+
+### 9.5 模型分工與省額度
+
+- **`/model opusplan`**:✅ 官方:「plan mode 用 opus,執行階段自動切到 sonnet」;兩個階段脈絡視窗各依該模型,要 1M 可用 `opusplan[1m]`。注意**換模型會讓該模型的 prompt cache 重算**(Settings 文件的提醒)。
+- **`CLAUDE_CODE_SUBAGENT_MODEL` + `CLAUDE_CODE_SUBAGENT_MODEL_FORCE=1`**:✅ 前者設 subagent / teammate / workflow agent 的預設模型(接受 `haiku` 等別名);前者**不會**蓋過「Claude 呼叫時指定的模型」與「agent 定義檔的 `model` 欄位」,要蓋過就設 `_FORCE=1`(需 v2.1.257+)。影片這段說得完全正確。
+- **`/powerup`**:✅ 官方指令名是 `/powerup`(不是 power up 兩個字),互動式小課程附動畫示範。
+
+### 9.6 應用案例
+
+**案例 1|新模型上線當天的 15 分鐘保養**:①`/doctor prompt-audit`(或 `/claude-api prompt-audit`)掃出對新模型多餘的規則 ②`/skill-doctor` 刪掉久未使用且 token 重的 skill ③`disableClaudeAiConnectors` 關掉沒用的連接器 ④再看一次 `/context`。目的:**把每輪都要重送的固定成本降下來**。
+
+**案例 2|讓一個晚上跑的長任務不被一個問題卡住**:`askUserQuestionTimeout` 設 60 秒(僅能放使用者或 managed 設定)+ `/config` 開本機通知 + `/fewer-permission-prompts` 預先把唯讀指令放行。**注意**:真正需要你決定的問題它還是會等,不要期待它替你做重要選擇。
+
+**案例 3|計畫與實作分檔、分模型**:`plansDirectory` 指到專案內 `docs/plans`(進版控、給同事看)、`showClearContextOnPlanAccept` 打開讓實作從乾淨 context 開始、`/model opusplan` 讓規劃用 Opus、實作用 Sonnet;subagent 用 `CLAUDE_CODE_SUBAGENT_MODEL=haiku` + `_FORCE=1` 做大量搜尋。
+
+**案例 4|試另一種做法又不丟現場**:`/branch` 試新方向、需要側任務用 `/subtask`(要完整上下文)或 `/fork <prompt>`(要獨立背景 session)。
+
+**核實狀態:** ✅ 大多數設定鍵與指令皆有官方文件依據(多項僅核到「索引列」描述,型別與預設值未逐一核)。❓ 未核實:`/skills` 內 `T` 排序、output style 五種名稱、`/fork` 自動結束、`askUserQuestionTimeout` 的「僅在不阻塞時」、terminal bell 路徑。⚠️ 指令名稱修正:`/auto-mode-setup`、`/powerup`、`hillclimb`。
+
+來源:[AI LABS〈Claude Code Features That 90% Don't Know Exist〉](https://www.youtube.com/watch?v=i6Q7bXnWGlM)(2026-10-05)—— **該片無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差**;[Commands](https://code.claude.com/docs/en/commands)、[Settings](https://code.claude.com/docs/en/settings)、[Settings reference](https://code.claude.com/docs/en/settings-reference)、[Env vars](https://code.claude.com/docs/en/env-vars)、[Model config](https://code.claude.com/docs/en/model-config)。
+
+---
+
 ## 延伸閱讀(本庫)
 
 - [[claude-code-mods-explained]]:Claude Code 的 mod 機制;diff 面板就是內建 mod `cc-plugin-diff` 畫的。

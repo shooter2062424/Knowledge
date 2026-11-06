@@ -650,6 +650,72 @@ flowchart TB
 
 ---
 
+## 十、⭐⭐ 改造實戰:Profile / Bundle / Plugin / Preset 四個概念,與把 dsh 變成「影片製作 Agent」(2026-11-06 增補,來源:軒轅的編程宇宙)
+
+> 來源:軒轅的編程宇宙〈把 DeepSeek Harness 改造成影片製作 Agent〉(`4Ylr5S60YJ4`,2026-09-28,約 6.9 分鐘)。影片結尾有「成為頻道會員看詳細開發過程」的邀請,**付費內容未納入**。
+> 本節對照已 clone 的 `deepseek-ai/deepseek-harness` 原始碼(`docs/architecture.md`、`packages/bundle/web-app/presets/*.patch.yml`、`packages/boot/app-boot/README.md`、`docs/user/develop/practice/dynamic-cordis.md`、`.agents/notes/archived/architecture/2026-08-03-per-session-agent-presets.md`)核實。
+
+### 10.1 四個概念分成兩個層面
+
+| 層面 | 概念 | 影片說法 | 原始碼核實 |
+|---|---|---|---|
+| **軟體系統** | **Plugin(插件)** | 每個插件宣告自己提供什麼服務、需要什麼依賴,由 Cordis 登記並「牽線搭橋」 | ✅ 即第二節的 service / `inject`。影片說 Agent Loop「需要六項服務」**未逐一核對數字** |
+| | **Profile(運行方式)** | `dsh --profile web` 指定本次以哪種方式啟動,只載入需要的插件 | ✅ `web`、`headless`、`sdk`、`sdk-minimal`、`acp` 五個內建範本;`dsh <name>` 為簡寫 |
+| | **Bundle(組合包)** | 把一堆完成特定功能的插件打包,profile 直接寫 bundle 名,可重用 | ✅ `dsh-base`(模型轉接、工具、持久化、沙箱與核准、設定、憑證、遙測)、`dsh-web-app`(瀏覽器應用)等;bundle 在自己的 `package.json` 用 `dsh.bundle.patch` 指向 patch 檔 |
+| **Agent 層面** | **Preset(Agent 預設)** | Agent 約等於「模型 + 系統提示詞 + Agent 迴圈 + 工具 + Skills」,Preset 就是一組預設,建立 session 時可選 | ✅ 但**有一個重要細節**:見 10.2 |
+
+```mermaid
+flowchart TB
+    subgraph SYS["軟體系統層(啟動時決定)"]
+        P["Profile<br/>例如 web 或 video"] --> B1["Bundle: dsh-base"]
+        P --> B2["Bundle: dsh-web-app"]
+        P --> B3["Bundle: 自訂 dsh-video-app"]
+        B1 --> PL["Plugin 群<br/>由 Cordis 依 inject 接線"]
+        B2 --> PL
+        B3 --> PL
+    end
+    subgraph AG["Agent 層(每個 session 決定)"]
+        PR["Preset<br/>standard / ptc / minimal / cordis<br/>或自訂 video"] --> T["人設 + 工具清單 + 提示詞區段 + 壓縮策略"]
+    end
+    PL --> PR
+```
+
+### 10.2 ⭐ 核實補正:Preset 管的是「Agent 平面」,不含模型
+
+- ✅ 原始碼的 web-app bundle 實際出貨 **4 個 preset**:`standard`(order 1)、`ptc`(2)、`minimal`(3)、`cordis`(4,Creator 模式)。這就是影片說的「內建 4 種模式是 4 種 Preset」。
+- ✅ 一個 preset 是一個 `@deepseek-ai/dsh-agent-preset` 宣告,內含 `config.plugins` 列表(persona、agent-instructions、time-context、各種 `tool-*`、compaction 等)。設計文件明寫 **"Model routing stays out of presets"**:模型/供應商/推理強度走另一條 per-agent seam,**所以 Preset 不等於影片說的「模型 + 提示詞 + 迴圈 + 工具」整包**,正確是「人設、提示詞區段、工具、壓縮策略」。
+- ✅ 設計分兩個平面:**Host 平面**(全域唯一:各種 registry、持久化、web host)與 **Agent 平面**(每個 session 一份:工具、人設、提示詞)。設計文件實測十二個 row 的 preset 每次掛載約 3ms、600KB,所以預設每 session 獨立掛載。
+- ✅ **session 空白時才能換 preset**;跑過一輪後換會讓已記錄的工具呼叫失去對應,回 `agent-preset-locked`。
+- ✅ preset 可在 Web 設定頁編輯,存於 `$DSH_HOME/profiles/web/cordis.patch.yml`;出貨的 preset 不可覆寫,要「複製再改」。
+
+### 10.3 三步改造成影片製作 Agent(影片流程 + 對照)
+
+1. **開發工具並封成插件**:例如用 Codex 寫圖片生成工具(影片說接「ZMG」模型,**字幕音譯,未能核實**)、文字轉語音(TTS)工具,各包成 dsh 插件加進 Agent 工具清單。新增工具的官方做法見 repo `docs/cookbook/adding-a-tool.md`。
+2. **組裝 Agent**:建立新 Preset,寫入「影片製作方法與流程」的系統提示詞,並掛上第 1 步的工具。此時即可在通用聊天介面選這個模式做影片。
+3. **做專屬 UI**:把影片製作、預覽播放介面封成 client 插件,寫成新 bundle,再加一個 `video` profile,疊上 `dsh-base` + `dsh-web-app` + 自訂 video bundle,之後 `dsh --profile video` 啟動就變成專屬應用。
+
+- ✅ 「複用既有 bundle + 疊自己的 bundle」與原始碼一致:套用順序為 bundle(依序)-> profile 的 `cordis.patch.yml` -> home patch -> `--patch`。
+- ✅ **補充(影片未提)**:repo 有 `dsh --profile <名稱> --from-default-profile web`,可從內建範本建立自訂 profile;patch 可 `insert` 新 row(例如一個新 preset 宣告)或依 id 取代整份 config。所以**不寫 bundle、只靠 `cordis.patch.yml` 插一個 preset** 也能做到第 2 步。
+- 影片說可交給 Codex、Claude Code 甚至 dsh 自己的 Creator 模式完成。✅ 與 `dynamic-cordis.md` 一致:Creator 模式帶 Plugin Manager,可由提示詞寫 bundle 並 `install_bundle`,HMR 開啟時同一 session 即時生效。
+
+### 10.4 應用案例
+
+- **網路封包分析 Agent**(影片舉例):換一組抓包、解析工具 + 封包分析提示詞 + 流量視圖 UI,不動 dsh 核心。最小改動是新 preset(提示詞 + 工具);要專屬畫面才加 client 插件與新 profile。
+- **團隊內部客服知識庫 Agent**:在 home 的 `cordis.patch.yml` 插入 `support` preset(人設 + 檢索工具 + 唯讀檔案工具),員工開新 session 時在選單挑它;模型沿用原設定。
+- **判斷該做到哪一層**:只改 Agent 行為就停在 Preset;要改啟動後整個產品長相才需要 Profile + Bundle。
+
+### 10.5 核實狀態
+
+| 項目 | 狀態 |
+|---|---|
+| Profile / Bundle / Plugin / Preset 概念與四個內建 preset | 已核實(repo 原始碼) |
+| 「Agent = 模型 + 提示詞 + 迴圈 + 工具 + Skills」 | 需修正:preset 不含模型路由(10.2) |
+| Agent Loop 需要「六項服務」 | 未能核實 |
+| 圖片生成接「ZMG」模型 | 未能核實(字幕音譯) |
+| repo 狀態 | developer preview,細節可能變動(同本文末段時效性提醒) |
+
+> 影片為自動字幕,同音字誤差多,已校正:「Deepsec/DeepSeq/DbscHarness」=DeepSeek Harness、「Cortis/Cortice/Carnage」=Cordis、「processet/Procept」=Preset、「揉件/拆件」=插件、「DSHGunbase」=dsh-base、「ADN/AZN/Aging」=Agent、「v6」推定為 video。
+
 ## 應用案例
 
 ### 案例 1|⭐ 把「三個崩潰狀態」抄進任何有副作用的自動化
@@ -770,6 +836,7 @@ dsh 的 monotonic guard **只能 deny 或棄權,前面的策略不能繞過它**
 - [Agent 为什么需要 Runtime?DeepSeek Harness 智能体架构深度解析 — TGLTommy](https://www.youtube.com/watch?v=CGd5zDUrWnw)(2026-08-16,約 12.5 分鐘)
 - [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) —— 已 clone 核實:`README.md`、`docs/architecture.md`、`docs/cordis-primer.md`、`docs/tool-execution-pipeline.md`、`docs/capability-seams.md`、`docs/agent-lifecycle.md`、`docs/glossary.md`、`docs/testing.md`、`docs/subsystems/{core,session}.md`
 - [cordiverse/cordis](https://github.com/cordiverse/cordis) —— dsh 底下的插件框架
+- [把 DeepSeek Harness 改造成影片製作 Agent — 軒轅的編程宇宙](https://www.youtube.com/watch?v=4Ylr5S60YJ4)(2026-09-28,約 6.9 分鐘,自動字幕;§十來源,已對 repo 的 `docs/architecture.md`、`packages/bundle/web-app/presets/`、`packages/boot/app-boot/README.md`、`docs/user/develop/practice/dynamic-cordis.md` 核實)
 - [cordiverse/paper — 《A Programming Paradigm for Spatiotemporal Composability》](https://github.com/cordiverse/paper) —— 已下載 PDF(88 頁)閱讀:引言與兩個維度、VSCode 量化證據、revertible effects / reactive coeffects、metatheory(Confluence)、實作與 Koishi 案例、討論(存取控制與沙箱、有效性威脅)
 - 本倉庫相關筆記:[[seven-agent-architectures-selection-guide]]、[[agent-five-cores-langgraph-trading-agent]]、[[herdr-terminal-runtime-agent-to-agent]]、[[agent-skill-three-layer-run-do-verify]]、[[dbx-rust-database-client-mcp]]
 

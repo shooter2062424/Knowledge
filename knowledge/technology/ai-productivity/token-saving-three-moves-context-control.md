@@ -272,6 +272,108 @@ grep -F -- "<video_id>" INDEX-SOURCES.md
 
 ---
 
+## 六、⭐ 增補:額度「兩天見底」的機制拆解,與 Claude Code 官方快取文件的最新對照(2026-11-06,來源:YAHA学堂)
+
+> 增補自 YAHA学堂〈[ClaudeCode 额度两天见底?每按一次回车,你都在为旧账全额付费 附解决方案](https://www.youtube.com/watch?v=yrnGrdPZx_U)〉(2026-08-24,約 11 分鐘,自動字幕;「Cloud Code」=Claude Code、「權量重發/前罪」=全量重發/前綴、「血球」=雪球、「OPS/SONIT」=Opus/Sonnet)。結論與本文前五節相同,這裡只補**新的角度**,並**用 Claude Code 官方快取文件逐項核實**。
+
+### 6.1 影片的切入點:真正花額度的是那 99%
+
+- API 底層**沒有記憶**,每輪把從第一句起的全部對話原封不動重塞(✅ 官方:「The model doesn't remember anything between requests」)。
+- 「舊帳」四層:①系統提示+專案規則(CLAUDE.md、Git 狀態、作業系統資訊)②工具說明書(每個 MCP 的名稱、參數、使用說明全文)③聊天記錄全文(含 AI 寫過的每段長分析)④檔案與日誌(讀過的程式碼、PDF、終端機噴出的大串錯誤)。影片說 `context` 一打,還沒幹活系統提示+工具清單就先占上萬 token(個人觀察,未核實精確數字)。
+- 到第 20 輪你打「幫我改第二行」,通常連整包的 1% 都不到。省額度要審的不是你打的那句,而是**滾大的雪球**。影片提到 2026 年 3 月重度用戶論壇出現「一條 Prompt 把額度從 21% 跳到 100%」,官方後來承認撞線比預期快,並說原因之一是快取 bug(⚠️ **未核實**,本次未找到一手公告)。
+
+### 6.2 「丟」與「縮」的新細節
+
+- **說錯話別往下接**:錯誤的長輸出會留在歷史、之後每輪重發。正確做法是回頭編輯那則訊息(影片:雙擊 Esc)或用 Rewind 回溯,把失敗產出整個抹掉。✅ 官方補充了隱藏好處:`/rewind` 把對話截回早先已快取的前綴,**下一個請求直接命中舊快取**;而 `/compact` 是產生全新(較短)前綴,要重建快取。
+- 「先搜再餵」「給結論不給過程」「管住輸出」與前文一致;影片引用的定價 **Opus 5:輸入 $5/百萬、輸出 $25(5 倍)、快取命中 $0.5(一折)** ✅ 與官方 Opus 5 列相符。⚠️ 新模型已不同:**Opus 5.5 輸入 $4、輸出 $20、快取讀取 $0.20(0.05×)**,Fable 5.1/Mythos 5.1 讀取僅 0.025×。「一折」是多數模型的 0.1×,不是全部。
+
+### 6.3 快取三顆「多米諾」——影片說法 vs 官方現況
+
+快取是**前綴匹配**:從整包第一個字起必須一字不差,中間任何位置變了,後面全作廢。✅ 官方階層 `tools → system → messages`。
+
+| 影片說的雷 | 官方文件現況 | 判定 |
+|---|---|---|
+| **中途換模型**:快取按模型分開存,整包全價重算 | ✅ 「Each model has its own cache」;`/model` 在快取仍溫時會先跳確認(≥ v2.1.238 超過 TTL 則不問) | 正確 |
+| **中途動配置**:工具說明書排最前,一動全滅 | ✅ 工具定義在最前層。**但**新版 MCP 預設用 tool search 延遲載入,對話中連上/斷開 MCP 不影響已快取內容(只對 MCP;影片也講到) | 正確且影片已提延遲載入 |
+| 「調思考強度、開加速模式、用權限規則禁掉內建工具,一動整排推倒」 | **需分模型修正**:fast mode 與標準速度各有快取,首次開啟會整段按 fast 價未命中 ✅;禁用整個工具(裸 `Bash` 等 deny)在 tool search 啟用的預設情況下**不改工具定義,快取保留**,僅在 tool search 不可用時才失效;**調 effort:在 Opus 5.5、Sonnet 5.5、Haiku 5.5、Fable 5.1(API key 或訂閱)上快取保留**,多數其他模型仍會失效(Claude Code 會先跳確認) | ⚠️ 影片過度概括 |
+| **放涼**:API 預設 5 分鐘,訂閱版 Claude Code 自動續到 1 小時,自己接 API key 仍是 5 分鐘 | ✅ 訂閱方案額度內:主對話 1 小時;API key/雲端供應商:5 分鐘;**子代理、壓縮、forks 等「其他」請求預設 5 分鐘**;超出方案額度改用 usage credits 時主對話也降為 5 分鐘。可用 `promptCacheTtl`(或 `CLAUDE_CODE_PROMPT_CACHE_TTL`,`5m`/`1h`,≥ v2.1.242)自選 | 正確,且官方給了可調旋鈕 |
+
+另一個影片沒講、但同屬「看似小動作」的官方列舉:啟用/停用有 MCP 的 plugin、累積大量圖片(Claude Code 會分批移除最舊圖片,造成一次慢速回合)、升級 Claude Code 後的第一個對話、`opusplan` 每次進出計畫模式(等於模型切換)。**不會破壞快取**的:編輯 CLAUDE.md(也不會生效,直到 `/clear`、`/compact` 或重啟)、切換權限模式、切換輸出風格、呼叫 skill、`/recap`、`/rewind`、派子代理(父層前綴不受影響)。
+
+查自己的命中情況:`/usage` 的 `Prompt cache (main)` 行(≥ v2.1.251),可顯示命中比與可能的上次未命中原因(≥ v2.1.260);或讀 statusline 的 `cache_read_input_tokens` / `cache_creation_input_tokens`。
+
+### 6.4 三問與「雪球、前綴、快取」
+
+影片收尾的「按 Enter 前三問」比本文 §五 多一問:①新問題真的需要前面歷史嗎?不需要→開新對話;②需要的話需要全部嗎?多半只要結論→整理成文件、開新窗口;③**這個任務的模型和配置開工時定好了嗎?定好中途別動,讓快取安靜幫你打一折**。燒額度三大習慣:一個窗口聊到天荒地老、說錯話硬往下接、聊到一半換模型動配置。
+
+### 應用案例(本節)
+
+1. **隔夜回來接著聊**:API key 使用者預設 5 分鐘 TTL,第二天第一輪是整包全價重算。若這個任務值得長期續聊,把 `promptCacheTtl` 設 `1h`(留意 1 小時寫入 2×),或把結論整理成文件、開新對話。
+2. **想用 `opusplan` 又頻繁進出計畫模式**:每次切換都等於換模型重建快取;改成一次計畫、批准後專心執行。
+3. **發現「剛才指令下錯」**:用 `/rewind` 回到錯誤之前那則,而不是在下面補一句「重來」;可讀回舊快取,也不留失敗長輸出。
+
+> 核實:快取機制/價格/TTL/失效清單均對照 [Claude Code prompt caching](https://code.claude.com/docs/en/prompt-caching.md) 與 [API prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)(該頁讀到前約 10 萬字元);「2026 年 3 月 21%→100% 事件」未核實。影片的 Hype 與訂閱呼籲屬自我推廣,未納入。
+
+---
+
+## 六、⭐⭐ 補充:同一句話,換成 coding harness 為什麼貴 30 倍?系統提示的「過路費」與快取的經濟學(2026-11-06 增補,來源:Caleb Writes Code)
+
+> 來源影片:〈Why harness is SO expensive..〉(Caleb Writes Code,2026-08-12,約 9.7 分鐘;無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差;逐字稿的 Client / Klein 為 **Cline**,Pie 為 **pi**)。**含 Cline Pass 業配**(開放權重模型訂閱方案,首月 1.99 美元之類促銷),未納入。
+
+### 六·一 實驗:同一個 25 token 的 prompt
+
+任務:「建立一個含字母表的檔案」。用 Opus 5 定價推算:
+
+| 路徑 | 影片數字 | 驗算 |
+|---|---|---|
+| 直接呼叫模型(25 token 輸入 + 約 500 token 輸出) | 約 **1 美分** | 輸入 25 × $5/M ≈ $0.000125;輸出 500 × $25/M ≈ $0.0125 ⇒ 約 1.3 美分 ✓ |
+| 同一模型、同一 prompt 經 **Claude Code** | **0.37 美元** | 0.37 ÷ 0.0125 ≈ **30 倍** ✓ |
+| 同一模型經 OpenCode / Cline / pi | 約 0.11 / 0.07 / 0.025 美元 | 差距來自 harness |
+
+**原因拆解(講者):**
+1. **系統提示(system prompt)**:Claude Code、pi、OpenCode、Cline、Cursor 等 harness 每則送給模型的訊息都附 **8,000–30,000 token** 的系統提示(影片估算,**未能獨立核實**;官方文件寫明 Claude Code 的系統提示**不公開**,只有 Cline 這類開源 harness 能直接讀 repo)。功能越多(slash 指令越多)描述越長。
+2. **迴圈往返**:agent 不是一問一答。模型決定先查檔案是否存在 → harness 執行 → 回傳 → 模型要求建立檔案 → 執行 → 模型要求寫入內容……**每一趟都重送整包**(系統提示 + 工具定義 + 歷史)。做一個網站 10–20 分鐘,往返次數更多。
+3. 引用 Anthropic 的說法:使用 agent 或多 agent 系統,成本可高出 **4 到 15 倍**(該數字出自 Anthropic 多 agent 研究系統的公開說明,講者轉述,我未重新查證原文)。
+
+```mermaid
+flowchart LR
+    A["使用者 25 token"] --> B["harness<br/>加系統提示 8k 到 30k"]
+    B --> C["模型"]
+    C -->|"要求工具"| D["harness 執行"]
+    D -->|"結果加回歷史"| B
+    C -->|"完成"| E["輸出"]
+```
+
+> ⭐ 這正好是本篇 §一「雪球效應」的極端版:你的指令占整包的比例趨近 0。
+
+### 六·二 Prompt caching 對 Anthropic 是一門好生意嗎?(講者的推算,屬推測)
+
+上面「六·一」的成本能被快取壓下來,因為伺服器暫存 KV cache(見 [[kv-cache]])。本篇 §三、§四 已核實價格倍率(讀取 0.1×、5 分鐘寫入 1.25×、1 小時寫入 2×);影片補了**供給側的帳**:
+
+- 一張 H100 租價約 3 美元 / 小時;假設 KV 量化後能把 **100 萬 token 的脈絡塞進 80 GB**,5 分鐘 TTL 下一小時可輪流服務 12 個這樣的快取位。
+- 12 × 100 萬 token × 5 分鐘寫入價 6.25 美元 / 百萬 ≈ **75 美元 / 小時**(影片說約 70)。
+- 1 小時 TTL 的寫入價 10 美元 / 百萬(影片提到「約 10 美元」,吻合 2× 倍率);講者**猜測** Anthropic 會把不活躍的快取卸到附近的 SSD、需要時再載回 GPU,才撐得起較低價格。
+
+> ⚠️ 這段是「講者自己的 back-of-envelope」:①「100 萬 token 塞進單張 80 GB」本身是**未證實的前提**(實際 KV 大小依模型而定);②75 美元 / 小時假設每個位都被**持續重新寫入**,真正的快取以 0.1× 的讀取為主,收入遠低於此;③SSD 卸載是推測。**只當作理解快取為什麼值得供應商做的思想實驗**。
+
+### 六·三 訂閱制:把「過路費焦慮」包掉
+
+ChatGPT / Claude / Gemini 的訂閱讓使用者不必每次擔心 agent 花多少,用量上限週期性刷新;Anthropic 的 Pro 方案可在 Claude Code、Claude chat 等多個 harness 間共用額度並切換 Opus / Sonnet / Haiku(講者還提到 Fable 有自己的用量視窗)。這也是廠商把使用者鎖在**自己的 harness**的方法:換 harness 的痛點是對話、skills、連接器、排程都綁在平台上(同見 [[qwen38-27b-local-economics-and-august-checkpoint-wave]] §5)。
+
+### 六·四 應用案例
+
+**案例 A|量一下你的 harness「底價」:** 開新 session、只問一句極短的話,記下**第一則請求的 input token 數**。這就是你的「過路費」。再比較啟用 / 停用 MCP 與 skills 後的差距,即可知道哪些設定在白燒。
+
+**案例 B|選 harness 的成本比較表:** 同模型、同任務(例如「建立字母表檔」「改一行 bug」)各 harness 各跑一次,記錄**總 token、有無命中快取、美元**。影片的 37 / 11 / 7 / 2.5 美分排序可當假說,但**你的環境與版本會變**,務必自己量。
+
+**案例 C|長任務選 1 小時 TTL 還是 5 分鐘:** 任務中間會有超過 5 分鐘的沉默(等人、等 CI)就選 1 小時;連續密集呼叫則 5 分鐘即可(見 §四·補正二的回本點)。
+
+**核實狀態:** ✅ 價格倍率與驗算吻合(本篇 §四 官方文件);系統提示 8k–30k token 與四個 harness 的美分數為**講者量測,未能獨立複現**;「4–15 倍」為引述;H100 帳為推測。
+
+來源:[Caleb Writes Code〈Why harness is SO expensive..〉](https://www.youtube.com/watch?v=8ji5vURIllM)(2026-08-12)、[Claude Code settings 文件(註明系統提示不公開)](https://code.claude.com/docs/en/settings)。
+
+---
+
 ## 重點回顧(TL;DR)
 
 1. **省 Token 的重點不是把 Prompt 寫短,是控制那包 Context。** 對話累積幾萬 token 時,把 50 字縮成 5 字省下的比例微乎其微。
@@ -299,3 +401,4 @@ grep -F -- "<video_id>" INDEX-SOURCES.md
 - 本倉庫相關筆記:[[context-engineering-processing-vs-thinking]]、[[claude-md-cut-82-percent-and-maintain-it]]、[[model-routing-compute-allocation]]、[[claude-throttling-opus-4-7]]
 
 > ⚠️ 價格與 TTL 以整理時的官方文件為準,模型商調整頻繁,實際請以當下官方定價頁為準。
+- 增補(§六):[ClaudeCode 额度两天见底?每按一次回车,你都在为旧账全额付费 — YAHA学堂](https://www.youtube.com/watch?v=yrnGrdPZx_U)(2026-08-24;使用自動字幕,可能有同音字誤差);官方:[How Claude Code uses prompt caching](https://code.claude.com/docs/en/prompt-caching.md)

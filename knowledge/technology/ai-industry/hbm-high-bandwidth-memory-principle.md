@@ -167,6 +167,57 @@ HBM 有效助力了 AI、提供關鍵算力基礎設施;**但它的生產工藝�
 
 ---
 
+## 8. 補充:HBF(High Bandwidth Flash)能不能補上 HBM 的容量缺口?(2026-11-06 增補,來源:Caleb Writes Code)
+
+> 來源影片:〈High Bandwidth Flash explained in 7min..〉(Caleb Writes Code,2026-08-21,約 7.2 分鐘;無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差;逐字稿裡的「HPF」「HPM」應為 HBF、HBM)。無業配。
+
+**問題:** 模型動輒 2 TB,但 GPU 的 HBM 只有 141 GB 等級。SSD 便宜(3 TB),但 NVMe 約 14.8 GB/s,載入 2 TB 要 **2 分鐘以上**(2000 ÷ 14.8 ≈ 135 秒,算式吻合)。**HBF 的提案**:把 NAND 快閃做成 die 堆疊、貼在 GPU 旁,中間加一層新的記憶體階層。
+
+```mermaid
+flowchart TD
+    A["GPU 核心"] --> B["HBM<br/>約 4.8 TB/s,容量小"]
+    A --> C["HBF<br/>最高約 3 TB/s,容量大"]
+    C --> D["SSD<br/>約 14.8 GB/s,最便宜"]
+```
+
+### 8.1 規格(依 Sandisk / SK hynix 經 OCP 公布的第一版規格,第三方報導核對)
+
+| 項目 | 內容 |
+|---|---|
+| 發布 | 2026 年 8 月初(FMS 2026),經 Open Compute Project;2 月起籌組,約半年 |
+| 封裝容量 | **最高 512 GB / 封裝**,8 層或 16 層 NAND die 堆疊 |
+| 頻寬 | 三個等級,約 0.4 到 **3.0 TB/s**,經 **UCIe** 接主機 |
+| 延遲 / 耐寫度 | 規格未明載;第三方論文估 read 延遲在微秒級,比 HBM 高一到兩個數量級 |
+| 時程 | 預計 2026 年底試產線、2027 商用(雙方未更新先前時程) |
+| 成員 | Sandisk、SK hynix 發起;Google、Tenstorrent 加入;**NVIDIA、AMD 等未列為成員**(nand-research,第三方) |
+| 廠商自稱 | 16 層 HBF 可達 HBM 的 8 到 16 倍容量、成本相近;Llama 3.1 405B 模擬結果在「無限 HBM」理想系統的 2.2% 內(**廠商模擬,非獨立量測**) |
+
+### 8.2 影片的論證:為什麼「兩邊的壞處都有」
+
+**(1) 頻寬不贏。** HBM 約 4.8 TB/s(H200 等級),HBF 最高 3 TB/s,慢約 **37.5%**(影片說 HBM 快 60%,同一件事)。更關鍵的是,現行做法是**把模型切到多張 GPU**:2 TB 切 16 張,每張只需讀約 125 GB,在 4.8 TB/s 下 **0.026 秒**;單一 HBF 讀 2 TB 要 **0.67 秒**,且 GPU 之間互連(約 3.6 TB/s)本來就比 HBF 快。
+
+> ⚠️ 影片的對照有個**隱含前提**:「單一 HBF 裝 2 TB」。但現行規格**每封裝最高 512 GB**,2 TB 需至少 4 個封裝並聯,頻寬與成本要另算 —— 影片的 0.67 秒是 2 ÷ 3 的理想值。
+
+**(2) 推論的 KV cache 是寫多於讀。** KV cache 隨生成 token 越長越大,寫入量高;NAND 要先擦除才能寫,寫比讀慢很多,耐寫度也有限。影片提到一篇標題叫「HBF sucks」的論文,量到作為 KV cache 只有約 1% 的延遲改善、即使理論速度拉到 3.75 倍。⚠️ **我沒找到這篇標題**;搜尋到的相關論文(例如 arXiv 2608.13868〈Exploring High-Bandwidth Flash for Modern LLM Inference〉、2608.14333〈Beyond Capacity: Scalable MoE LLM Inference via High-Bandwidth Flash〉)結論是:**HBF 適合放權重與讀多寫少的資料(如 MoE 專家),不適合頻繁寫入的 KV cache;耐寫度需約 25 倍改善**。那「1%、3.75 倍」兩個數字**未能核實**。
+
+**(3) 訓練幾乎沒好處。** 訓練靠擴節點與頻寬;還要產生梯度、用優化器更新權重,不是讀為主。預填(prefill)偏算力與容量受限、解碼(decode)偏頻寬與延遲受限,所以**容量擴張對推論的利益大於訓練**。
+
+### 8.3 NVIDIA 的另一條路(影片說法,未逐項核實)
+
+影片說 NVIDIA 押的是基礎設施側的「CMX / context memory extension」:用 BlueField 與 Spectrum-X 做專用儲存與網路的 pod,把長時間執行的 agent 需要保留的 KV cache 放在系統層,而不是晶片層。Sandisk / SK hynix 沒有擁有整條 AI 堆疊,所以只能在晶片層定規格。⚠️ 產品名稱與細節我**未逐項核對 NVIDIA 官方資料**,以影片轉述看待。
+
+### 8.4 判斷
+
+- 與本篇 §1 的「頻寬 = 頻率 × 位寬」呼應:HBF 想用堆疊 NAND 拿到接近 HBM 的位寬,但**單位延遲與耐寫度**是 NAND 的物理限制。
+- 比較貼切的定位是**容量層**(放權重、冷 KV),不是 HBM 的替代品。
+- 投資 / 產業面:規格由供給端主導、GPU 大廠尚未表態,**採用與否取決於 NVIDIA / AMD**;可與 [[memory-cycle-history-1995-2018-vs-ai]] 並讀。
+
+**核實狀態:** ✅ 已核實(第三方報導):規格(512 GB、8/16 層、UCIe、至 3 TB/s)、時程、Google 與 Tenstorrent 加入。⚠️ 需註明:2 TB 單一 HBF 的前提;HBF 不是 NVIDIA 成員。❓ 未能核實:「HBF sucks」論文及其 1% / 3.75 倍、CMX 細節、NVMe 14.8 GB/s(合理但未逐項核對)。
+
+來源:[Caleb Writes Code〈High Bandwidth Flash explained in 7min..〉](https://www.youtube.com/watch?v=ZxBRtRjMU88)(2026-08-21)、[High Bandwidth Flash gets its first spec — HWBusters](https://hwbusters.com/news/high-bandwidth-flash-gets-its-first-spec-512gb-stacks-at-up-to-3tb-s/)、[SK Hynix and Sandisk HBF Standard Reaches 512GB and 3TB/s Through UCIe — Guru3D](https://www.guru3d.com/story/sk-hynix-and-sandisk-hbf-standard-reaches-512gb-and-3tb-s-through-ucie/)、[Exploring High-Bandwidth Flash for Modern LLM Inference — arXiv 2608.13868](https://arxiv.org/pdf/2608.13868)、[Beyond Capacity (MoE + HBF) — arXiv 2608.14333](https://arxiv.org/pdf/2608.14333)。
+
+---
+
 ## 應用案例 / 怎麼用這套知識
 
 - **看懂 AI 硬體新聞**:以後看到「HBM3e / HBM4」「12 層 / 16 層堆疊」「位寬 1024/2048 bit」「TSV」「CoWoS(台積電的 2.5D 先進封裝,矽中介層就是它的核心之一)」就知道在講什麼——它們都是在拚「位寬 × 容量」這兩個維度。

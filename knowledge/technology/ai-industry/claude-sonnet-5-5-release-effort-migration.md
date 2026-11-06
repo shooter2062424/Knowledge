@@ -213,6 +213,76 @@ grep -rn 'messages\[.*\] *=' src/
 
 ---
 
+## 10. 追加:四個模型怎麼選、額度怎麼燒,以及 Advisor Strategy(YAHA学堂,2026-08-31)
+
+> 整理自 YouTube 頻道 **YAHA学堂**〈Anthropic 自己测的:Sonnet 配一个 Opus 顾问,分数更高、成本反而低 11.9%〉(2026-08-31,約 13.8 分)。**該片無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差**(Hikoo/Hikook = Haiku、OPIS/OPEX = Opus、Cursor Bench = CursorBench 等已還原)。
+> ⏳ 影片發布時是 Sonnet 5 / Opus 5 / Fable 5 世代;**價格與方案規則今年多次改**(影片自己也這麼說),以下「影片數字」請以當下官方頁為準。
+
+### 10.1 影片主張:「四個模型是四種任務形狀,不是好壞排序」
+
+| 模型 | 影片給的定位 | 影片價格(每百萬 token 輸入) |
+|---|---|---|
+| Haiku | **要快**:快問快答、抓資訊、分類、簡單摘要 | $1 |
+| Sonnet | **要穩**:日常主力(寫作、寫程式、除錯、多步驟);免費版與 Pro 預設 | $2(輸出 $10) |
+| Opus | **要深**:多層依賴分析、大重構、需來回討論的協作 | $5 |
+| Fable | **要長**:交代結果、自己規劃自查的長任務(例:Stripe 5,000 萬行 Ruby 遷移,一天跑完) | $10 |
+
+- 頭尾差 **10 倍**(輸出端 5 / 10 / 25 / 50 美元);訂閱制不看美元,但額度是照這個成本在扣。
+- **額度有兩道閘**:5 小時滾動窗口 + 每週上限。每則訊息扣多少取決於 **模型倍率**、**effort**(從 Low 到 Max;影片轉述官方部落格「同題開高 effort 比低 effort 多約 7 倍 token」)、以及 **每輪全量重送的對話歷史**。
+- **降級順序**:活很常規 → 先換小模型(品質不掉還省錢);模型沒選錯但做得不夠細 → 才動 effort。「不夠細」的訊號:寫程式看 **跳過檔案、不跑測試、不複查**;純聊天看 **答得太籠統**。
+- **預設 Sonnet,升級只有一個理由:小模型漏了你在乎的東西**。測法:拿一份你讀過的報告,讓 Haiku 摘成 5 點並標出一條想另外核對的說法,再開新對話讓 Sonnet 做同一件事;誰漏掉你自己會標的那條,就用誰。
+- **Pro 用戶的 Fable 不在月費內**(需另開 usage credit);個人方案只有 Max 把 Fable 包進去,且免費包含部分最多到週額度一半。⚠️ 影片自己說這條規則夏天改過好幾次——**以觀看當下官方頁為準**。
+- **Fable 的安全分類器**:碰到攻擊向資安、生物化學雙重用途等問題,會自動切給 Opus 回答;影片稱早期數據 **超過 95% 對話不觸發**。但一送出就被攔的整輪按 Opus 算、聊到一半才被攔的前半仍按 Fable 價——所以這類題**一開始就選 Opus** 較省。
+
+### 10.2 ⭐ Advisor Strategy:貴模型只在拍板處出手
+
+影片說 2026-04-09 Anthropic 發了〈Advisor Strategy〉一文。**對照官方原文([claude.com/blog/the-advisor-strategy](https://claude.com/blog/the-advisor-strategy),發布日 2026-04-09)核實:**
+
+| 項目 | 官方原文 | 結果 |
+|---|---|---|
+| 機制 | Sonnet 或 Haiku 當 **executor**(自己呼叫工具、迭代);遇到無法合理解決的決策才問 **Opus advisor**。advisor 讀共享上下文,回傳計畫、修正或停止訊號;**不呼叫工具、也不直接回覆使用者** | ✅ 與影片一致 |
+| API | 工具型別 `advisor_20260301`、beta header `anthropic-beta: advisor-tool-2026-03-01`、`max_uses` 限制單次請求的顧問呼叫數;整個交接在**同一個 `/v1/messages` 請求內** | 影片未提,補充 |
+| 計費 | advisor 的 token 按 advisor 模型計價、executor 的按 executor 計價;advisor 通常只產出 **400–700 text tokens** 的短計畫 | 補充 |
+| SWE-bench Multilingual | Sonnet + Opus advisor 比 Sonnet 單跑 **高 2.7 個百分點、每個 agentic 任務成本低 11.9%** | ✅ 影片數字正確 |
+| BrowseComp(Haiku) | Haiku + Opus advisor **41.2%**,Haiku 單跑 **19.7%**;比 Sonnet 單跑**分數低 29%、成本低 85%** | ✅ 影片數字正確;影片說「比 Sonnet 單跑便宜 85%、分數還差一截」同義 |
+| ⚠️ **模型世代** | 官方腳註:實驗用的是 **Sonnet 4.6 / Haiku 4.5 + Opus 4.6 advisor**;SWE-bench 為 5 次平均、300 題、9 種語言;BrowseComp 為 1,266 題、各一次 | 📌 影片語境像在談 5 代模型,**這組數字是 4.6 代的結果** |
+
+- **不寫程式也能照做**:Claude app 同一個對話中途可換模型——想方向、拆步驟的那一兩輪切 Opus,定案後執行輪切回 Sonnet,上下文還在。
+- **Claude Code**:輸入 `/model` 有 **Opus plan** 選項——計畫階段用 Opus、動手執行切回 Sonnet。
+- 影片補的反轉(轉述 7 月部落格):複雜多步驟任務,大模型可能幾步做完,小模型卻一直磨、一直撞上限;**有些活 Opus / Sonnet 開到任何 effort 都做不完**。結論不是越便宜越好,而是按任務形狀配模型。
+
+```mermaid
+flowchart TD
+    A["任務進來"] --> B{"任務形狀?"}
+    B -->|"要快"| C["Haiku"]
+    B -->|"要穩 預設"| D["Sonnet"]
+    B -->|"要深"| E["Opus"]
+    B -->|"要長 且 Opus 試過搞不定"| F["Fable"]
+    D -->|"漏了你在乎的東西"| E
+    D -.->|"卡在關鍵決策"| G["Opus 當 advisor<br/>只在拍板處"]
+    G -.-> D
+```
+
+### 10.3 核實與疑點
+
+| 說法 | 結果 |
+|---|---|
+| Advisor Strategy 發布日、2.7 pp、-11.9%、41.2 vs 19.7、-85% | ✅ 官方部落格 |
+| Haiku $1 / Sonnet $2 / Opus $5 / Fable $10 | Sonnet $2/$10 與 Fable $10/$50 與本庫他篇一致;⚠️ **Haiku 已於 2026-10-07 由 Haiku 5.5 改為 $0.10/$0.50(見 [[claude-haiku-5-5-cheap-model-computer-use]]),影片的 $1 是 Haiku 4.5 時期** |
+| Opus 5 離 Fable 峰值僅差 0.5%(CursorBench)、成本一半、電腦操作反超 | ❓ 未能獨立核實(自報數字) |
+| Pro 不含 Fable、Max 含至週額度一半 | ❓ 影片自述規則多變,未核實 |
+| 「額度消耗大頭是每輪全量重發歷史」「高 effort 約 7 倍 token」 | ❓ 轉述其他影片/部落格,未核實 |
+| 95% 對話不觸發 Fable 分類器 | ❓ 轉述發布時早期數據,未核實 |
+
+### 10.4 應用案例
+
+- **Pro 用戶的日常**:預設 Sonnet;整理會議記錄、改格式這種批量小活手動切 Haiku;若 Haiku 漏掉重點(用 10.1 的「摘 5 點 + 標一條」測),下次同類回 Sonnet。
+- **寫大功能**:先在 Claude Code 用 `/model` → Opus plan 產生計畫與驗收條件,再切回 Sonnet 執行;對照 [[model-routing-compute-allocation]] 的「規劃用強模型、執行用便宜模型」成本實算。
+- **自建 agent**:executor 用 Sonnet,在 API 加 `advisor_20260301` 工具並設 `max_uses`,只在「架構取捨、卡關」時叫 Opus;自己的評測集要同時跑 Sonnet 單跑 / Sonnet+advisor / Opus 單跑三組再決定(官方也這樣建議)。
+- **資安/生物類題**:直接選 Opus,不要繞 Fable。
+
+---
+
 ## 來源
 
 - YouTube:[Sonnet 5.5 更新了什么?](https://www.youtube.com/watch?v=s87lkkWk9rQ)(Why QQ,2026-09-29;官方簡中字幕)
@@ -221,3 +291,5 @@ grep -rn 'messages\[.*\] *=' src/
 - Simon Willison:[Claude Sonnet 5.5](https://simonwillison.net/2026/Sep/28/claude-sonnet-5-5/)
 - 討論:[Hacker News — Sonnet 5.5](https://news.ycombinator.com/item?id=49881850)
 - 報導:[TechCrunch](https://techcrunch.com/2026/09/28/anthropic-releases-sonnet-5-5-which-it-calls-a-significantly-cheaper-faster-work-partner/)、[VentureBeat](https://venturebeat.com/technology/anthropic-launches-claude-sonnet-5-5-with-30-cost-reduction-per-task-due-to-faster-speeds-and-fewer-tool-calls)、[Help Net Security](https://www.helpnetsecurity.com/2026/09/29/anthropic-claude-sonnet-5-5/)
+- YouTube:[Anthropic 自己测的:Sonnet 配一个 Opus 顾问…](https://www.youtube.com/watch?v=H4zIuJ4G1QY)(YAHA学堂,2026-08-31;**該片無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差**)——§10
+- Anthropic 官方:[The advisor strategy: Give agents an intelligence boost](https://claude.com/blog/the-advisor-strategy)(2026-04-09)——§10

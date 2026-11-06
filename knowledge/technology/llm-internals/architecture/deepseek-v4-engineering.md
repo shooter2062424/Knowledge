@@ -620,6 +620,87 @@ flowchart LR
 - **OpenRouter 上 V4.1 的用量以 prompt 為主** —— **屬作者觀察,未取得原始數據。**
 - **「token 效率是市面上最差的之一」、「超過 100 tokens/秒」** —— ⚠️ **屬作者評價與觀察,未取得第三方基準。**
 
+---
+
+### V16. ⭐⭐⭐ 雙棧第二步:2026-09-30 一次性開源七個昇騰 950 底層軟體(2026-11 增補,來源:Why QQ)
+
+> 📌 **來源:** Why QQ〈DeepGEMM 給 950DT 標出的 BF16 硬件上限〉(YouTube ID `nwI-Lg8Lk4w`,官方 zh-Hans 字幕)。
+> ⭐ **V9 已記了 DeepJIT 這個「CUDA + 昇騰雙後端」的編譯快取函式庫;這一節補上同一天(2026-09-30)一起開源的另外六個倉庫,
+> 完整拼出 DeepSeek 在昇騰 950 上「訓練 + 推理」兩條路徑所需的縱向軟體層。**
+
+#### V16.1 七個倉庫分工
+
+```mermaid
+flowchart TB
+    A["2026-09-30 同一天開源<br/>七個昇騰相關倉庫"] --> B["DeepGEMM-Ascend<br/>矩陣乘(GEMM)kernel"]
+    A --> C["FlashMLA(昇騰後端)<br/>注意力 kernel"]
+    A --> D["TileKernels<br/>訓練/推理通用算子"]
+    A --> E["DeepSelect<br/>TopK kernel"]
+    A --> F["DeepEP(昇騰後端)<br/>MoE 專家並行通信"]
+    A --> G["DeepJIT<br/>編譯/快取/載入運行時<br/>(V9 已記)"]
+    A --> H["TileLang 原生昇騰 950 後端<br/>Python DSL 寫 kernel"]
+    B --> I["縱向覆蓋:<br/>DSL → kernel → 分布式通信"]
+    C --> I
+    D --> I
+    E --> I
+    F --> I
+    G --> I
+    H --> I
+```
+
+⭐ **這次公開的判斷標準不是「有沒有開源」,而是「有沒有真的碰觸昇騰的手動流水線」——
+950 的每個 AI Core 是 Cube(矩陣)+ Vector(純量)分離架構,資料要經過 DMA、佇列同步旗標的手動排程,
+寫不好 Cube 就空轉;影片給出的結論是:DeepGEMM-Ascend 等倉庫對昇騰矩陣乘加速只做了很薄的抽象,位址計算與分形布局對齊全部攤開寫,「代碼已經貼到金屬上」。**
+
+#### V16.2 關鍵數字(以影片口述為主,見 V16.5 核實狀態)
+
+| 倉庫 | 數字 | 條件 |
+|---|---|---|
+| **DeepGEMM-Ascend** | **BF16 431 / 理論峰值 432 TFLOPS ≈ 99.8%;FP8 861/865 ≈ 99.5%;FP4 170/173 ≈ 98.3%** | 950DT + CANN 9.2 |
+| ⭐ **FlashMLA(昇騰)** | **Prefill 410 TFLOPS(理論峰值 95%)、Decode 360 TFLOPS(83%)** | 針對 DeepSeek V4.1 的 DSA 稀疏注意力推理 |
+| ⭐⭐ **DeepEP(昇騰 EP 通信)** | **EP8 dispatch 373–375 GB/s、EP32 335–340 GB/s、EP128 313–320 GB/s**;官方口徑 EP32 以內達物理頻寬 90–95% | 不含最後 epilog 開銷;combine 在更大 EP 規模下仍在優化 |
+| **DeepSelect** | **TopK 比原生 PyTorch 快約 10–20 倍** | 目前只支援 BF16、索引 int32、topk 上限 4096 |
+
+#### V16.3 ⚠️ 明確的邊界(訓練仍落後推理)
+
+- **MegaMoE(DeepGEMM-Ascend 裡的融合 kernel,把 EP dispatch、專家分組矩陣乘、SwiGLU、matmul、combine 融進一個 kernel)目前只支援 FP8×FP4+SwiGLU 這一條路徑** —— 是針對 DeepSeek 自家 workload 的極致方案,不是通用解。
+- **FlashMLA 昇騰後端目前只公開 forward**(支撐 V4.1 推理的 prefill/decode),**反向傳播(backward)尚未開源**;`sparse_decode.cpp` 裡 `enable_split_kv=force` 旁的註解寫著「昇騰尚未支援 split KV」—— CUDA 分支與昇騰分支在同一個檔案裡用紅線分得清楚。
+- **DeepEP(昇騰)的 `reduce_scatter` 與 `all_reduce` 尚未實現**;ongoing 清單還有 load-balance prefetch、weights/grad 的 reduce、PP 與 N-gram 標為 experimental、graph capture 標為 unsupported ——**MoE 的 EP 前向/反向主路徑已可跑通,但更廣泛的分布式訓練通信站還在施工。**
+- ⚠️ **這批 benchmark 用的是 950DT + CANN 9.2 + DeepSeek 拿到的 POC 版 HDK,需手動配置,尚未公開發行**;Huawei 建議等 Atlas 850e 的 Q3 商用 HDK(原訂約 10 月中旬,以廠商公告為準)——**代碼今天能 clone,但 README 的極限頻寬數字今天未必重現得出來。**
+
+#### V16.4 TileLang 原生昇騰 950 後端:從「寫 kernel」變成「生產 kernel 的機器」
+
+> ⭐⭐ **影片的判斷:前六個倉庫是 DeepSeek 寫好的 kernel 成品;TileLang 昇騰後端是把「寫 kernel」這件事本身工業化 ——**
+> **過去要用 Ascend C 手寫 DMA、佇列同步旗標、Cube/Vector 交接;現在用 Python DSL 宣告,編譯器自動處理排程、同步與流水線(但 tile 的流水線切法仍需開發者自己宣告,編譯器不會憑空找出最優解)。**
+
+⭐ **官方文件明確標註:這次 TileLang 昇騰後端的初始版本「主要由多名 DeepSeek 工程師開發」—— 模型公司的人下場寫編譯器後端,投入遠超過「隨手適配」。**
+
+⚠️ **範圍要說清楚:這輪官方支援與驗證主要集中在昇騰 950,DeepEP(昇騰)官方自己說「現有 benchmark 不能證明對其他昇騰設備的 kernel 支援」—— 不能外推成「全系昇騰支援」。**
+
+#### V16.5 核實狀態
+
+##### ✅ 已核實(對照 Tom's Hardware、SCMP、aiweekly/SemiAnalysis 轉述、DeepWiki 等第三方報導)
+
+| 影片說法 | 核實結果 |
+|---|---|
+| **2026-09-30 DeepSeek 與華為一次性開源多個昇騰相關倉庫,含 DeepGEMM-Ascend、FlashMLA(昇騰)、TileKernels、DeepSelect、DeepEP(昇騰)、TileLang 原生 950 後端** | **屬實**(多家媒體獨立報導同一批六個 kernel 倉庫 + TileLang 更新;DeepJIT 作為 DeepGEMM-Ascend 使用的 JIT runtime 也在同批報導中提及) |
+| **DeepJIT 是 CUDA 與昇騰共用的編譯/快取運行時,DeepGEMM-Ascend 用它做 JIT** | **屬實**(DeepWiki 與 README 記載一致,與本篇 V9 吻合) |
+| **這批優化綁定華為昇騰 950 supernode,CANN 相容 CUDA 約 95%、剩餘 5%(稀疏注意力/通信/低精度量化)需手動對齊** | **方向屬實**(第三方技術拆解文章證實) |
+| **推理在昇騰上已接近生產可用,完整訓練棧仍落後、CUDA 仍主導訓練** | **方向屬實**,與多篇報導的「inference production-ready, training remains CUDA-dominant」一致 |
+
+##### ⚠️ 未能獨立查證(以影片口述轉述看待,本文未直接開啟對應 repo 的 README/benchmark 原始數據)
+
+- **DeepGEMM-Ascend 的 99.8% / 99.5% / 98.3% 這三組精確數字、FlashMLA 的 410/360 TFLOPS 與 95%/83%、DeepEP 的 373–375 / 335–340 / 313–320 GB/s、DeepSelect 的 10–20 倍 TopK 加速** —— ⚠️ **第三方報導證實「Huawei 自家 kernel 跑到 99.7% GEMM 理論峰值」這類量級的說法存在,但本文未逐一比對 DeepSeek 各 repo 的原始 benchmark 數字,請視為影片轉述。**
+- **MegaMoE 融合 kernel 的具體機制、`sparse_decode.cpp` 裡 `enable_split_kv=force` 的註解原文** —— **未直接開啟原始碼核對,以影片轉述看待。**
+- **Atlas 850e 商用 HDK 的 10 月中旬時間表** —— **未查得華為官方公告原文確認具體日期。**
+- **「七個項目」的計數**(影片口述含 DeepJIT 共七個,第三方媒體多數只計六個新 kernel 倉庫,原因是 DeepJIT 並非當天全新發布,而是既有、同批被提及的共用 runtime)——**本文按影片口述記為七項,但提醒讀者多數報導只算六個「新倉庫」。**
+
+📎 **與 V9(DeepJIT)、V15(single-pass mHC 的 GPU 記憶體階層問題)連起來看:
+DeepSeek 在 CUDA 與昇騰兩邊都在做「把手伸進手動流水線」這件同一類工程 —— V15 處理的是 GPU 的 HBM/L2/暫存器落差,
+V16 處理的是昇騰 Cube/Vector 分離架構的 DMA 與佇列同步;兩者是同一條「榨乾硬件」主線在不同晶片上的分身。**
+
+> ⭐⭐⭐ **一句話:DeepSeek 在昇騰 950 上做的不是「移植模型」,而是把 CUDA 那套「榨乾硬件」的工程方法論,
+> 整套搬到第二個底座上再做一次 —— 推理這條線已經打穿,訓練的分布式通信站還在補。**
 
 ## 一句話總結
 
@@ -646,4 +727,11 @@ flowchart LR
   - [DeepSeek V4.1-Flash: 552B Params, 890 Bytes of KV Cache Per Token — NYU Shanghai RITS](https://rits.shanghai.nyu.edu/ai/deepseek-v4-1-flash-890-byte-kv-cache/)
   - ⭐ [You Only Cache Once: Decoder-Decoder Architectures for Language Models(YOCO,微軟研究院 2024)— arXiv 2405.05254](https://arxiv.org/abs/2405.05254)(CED 的思想源頭)
   - [deepseek-ai/DeepJIT — GitHub](https://github.com/deepseek-ai/DeepJIT)
+- ⭐⭐⭐ [DeepGEMM 給 950DT 標出的 BF16 硬件上限 — Why QQ](https://www.youtube.com/watch?v=nwI-Lg8Lk4w)(2026,約 12.5 分鐘)——
+  ⚠️ **該片 YouTube 官方字幕被限流抓不到,逐字稿以 CPU 版 Whisper 轉錄取得,可能有同音字誤差**(例:「DeepGIT」推定為「DeepJIT」、「DPP/DeepPipersand」推定為「DeepEP」、「TileLine」推定為「TileLang」、「TileCurnals」推定為「TileKernels」,詳見 V16)。**V16 架構拼圖的來源。**
+  - [DeepSeek Opens Six Ascend Kernel Repos, Co-Designs With Huawei — AI Weekly](https://aiweekly.co/alerts/deepseek-opens-six-ascend-kernel-repos-co-designs-with-huawei)
+  - [DeepSeek and Huawei release open source Ascend AI programming tools — Tom's Hardware](https://www.tomshardware.com/tech-industry/artificial-intelligence/deepseek-and-huawei-release-open-source-ascend-ai-programming-tools-to-reduce-reliance-on-nvidia-ecosystem-tools-include-compute-and-communication-libraries-as-well-as-ascend-support-for-tilelang)
+  - [China's DeepSeek open-sources tools to help Huawei chips supplant Nvidia — SCMP](https://www.scmp.com/tech/tech-trends/article/3369301/chinas-deepseek-open-sources-tools-help-huawei-chips-supplant-nvidia-ai)
+  - [deepseek-ai/DeepGEMM-Ascend — GitHub wiki](https://github.com/deepseek-ai/DeepGEMM-Ascend/wiki)
+  - [Why DeepSeek V4 Can Run on Huawei Ascend: A Deep Technical Breakdown — besthub.dev](https://www.besthub.dev/articles/why-deepseek-v4-can-run-on-huawei-ascend-a-deep-technical-breakdown-3dd21a91e7ec)
 - 延伸:本庫 [[kv-cache]]、[[context-engineering-processing-vs-thinking]]、[[long-running-agents-goal-evaluation]]、[[token-saving-three-moves-context-control]]、[[gpt-6-astra-token-efficiency-and-harness]]、[[rsi-recursive-self-improvement-anthropic]]。
