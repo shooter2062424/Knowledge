@@ -140,7 +140,7 @@ flowchart LR
 - **高度雷同**:影片③與 [[agent-project-resume-enterprise-grade]] 同主題(同作者),本篇只補不同之處;三道題的重疊度高,請勿重複背誦。
 
 ### 轉錄還原表(推定)
-「相量 / 項量 / 像量」=向量、「RG / RIG / IG」=RAG、「A准 / A織 / 一整」=Agent、「Furamo / Honkkon」=Chroma、「Panco」=Pinecone、「Meaverse / Mews / Mewis」=Milvus、「5C」=FAISS、「H&SW」=HNSW、「BG1 Rerankers」=BGE Reranker、「Lunchian / Long Graph」=LangChain / LangGraph、「VLL / TGI / Tensor TLL」=vLLM / TGI / TensorRT-LLM、「q轉的」=Qdrant、「Promise.org」=Promise.all、「Extrude / xcute」=Executor、「Planet / Pnano」=Planner、「斯大法則」=STAR 法則、「吊包程序員」=調包(調 API)工程師、「消融 / 骁容 / 銷融」=消融實驗。
+「相量 / 項量 / 像量」=向量、「RG / RIG / IG」=RAG、「A准 / A織 / 一整」=Agent、「Furamo / Honkkon」=Chroma、「Panco」=Pinecone、「Meaverse / Mews / Mewis」=Milvus(此三項 2026-11-07 以影片畫面截圖確認:投影片 Q4 向量資料庫選型寫 Chroma / Pinecone / Milvus)、「5C」=FAISS、「H&SW」=HNSW、「BG1 Rerankers」=BGE Reranker、「Lunchian / Long Graph」=LangChain / LangGraph、「VLL / TGI / Tensor TLL」=vLLM / TGI / TensorRT-LLM、「q轉的」=Qdrant、「Promise.org」=Promise.all、「Extrude / xcute」=Executor、「Planet / Pnano」=Planner、「斯大法則」=STAR 法則、「吊包程序員」=調包(調 API)工程師、「消融 / 骁容 / 銷融」=消融實驗。
 
 ---
 

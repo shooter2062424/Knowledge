@@ -104,7 +104,7 @@ flowchart TD
 **未能核實**
 - 「完整驗收只要 842 毫秒」「`pnpm test:render` 指令」「粒子壓縮後 397 位元組」:在 repo 的文件、README、package.json 中搜尋不到(根 `package.json` 無 `test:render`),可能來自官網或舊版範例;影片自稱「官方口徑,我沒實測」。
 - 「2026 年 8 月 27 日 Vercel 在 X 發文」未能獨立核實;說明欄僅附 https://vgpu.sh/。
-- Whisper 聽寫:「Visual」應為 Vercel(推定);「Barbiland Lite / Bubblenlight」(約 1:28、8:31)、「Executive Talk」(約 8:40)、「ThoreVG」(約 8:45)為無法確定的工具名,已記入 `TRANSCRIPT-PENDING.md`,本文未採用其內容。
+- Whisper 聽寫:「Visual」應為 Vercel(推定);「Barbiland Lite」(約 1:28,疑為 llvmpipe)、「Bubblenlight」(約 8:31,疑為 pixelmatch)、「Executive Talk」(約 8:40)= ExecuTorch、「ThoreVG」(約 8:45)= ThorVG。2026-11-07 以影片畫面截圖確認:第 17 節投影片列出 Golden Image、Dawn、SwiftShader、llvmpipe、ExecuTorch、pixelmatch、luma.gl、ThorVG 八項零件;前兩項的對應為依投影片推定,本文未採用其內容。
 
 ## 應用案例
 

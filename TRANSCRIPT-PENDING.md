@@ -13,12 +13,10 @@ Whisper 或自動字幕中判斷為不合理、但當下沒能請使用者確認
 | 2026-11-05 | Nick 美股咖啡館 `XUQo8M5NnAE` | 約 05:30 | 「半年 title revenue grow 只剩 1.61 趴」 | 與公司稿 +2%/+6% 口徑不同,不確定指哪個口徑 | 筆記標未能還原 |
 | 2026-11-05 | Nick 美股咖啡館 `9v_-p8Z3nC4` | 約 09:00 | 「近 12 個月出售投資利得約 180 億」 | 與二手報導 Q2 Anthropic 利得約 534 億不一致 | 筆記標未核實 |
 | 2026-11-05 | Nick 美股咖啡館 `7aWsuekAoqY` | 約 04:00 | 「13 billion 收購英國 fintech」(NU) | 收購對象與金額無法確認 | 筆記標未核實 |
-| 2026-11-05 | 白白說大模型 `0gtzVKkg3L0` | 約 06:40 / 07:15 | 「Lantian」「DeFi」「挨諾框架」「GVM」 | LangChain / Dify / Eino(已核實 cloudwego/eino) / JVM | 筆記標「推定」 |
+| 2026-11-05 | 白白說大模型 `0gtzVKkg3L0` | 約 06:40 / 07:15 | 「DeFi」「GVM」(Lantian=LangChain、挨諾=Eino 已由畫面確認) | Dify / JVM | 筆記標「推定」 |
 | 2026-11-05 | 白白說大模型 `Ru_YVdveirY` | 約 07:30 | 「Number Index」「DeFi」 | LlamaIndex / Dify | 筆記標「推定」 |
-| 2026-11-05 | 白白說大模型 `dThNVDU64ew` | 全片 | 「FD1」「結問司備論」「Must 平台」 | FDE / 傑文斯悖論 / MaaS | 筆記標「推定」 |
+| 2026-11-05 | 白白說大模型 `dThNVDU64ew` | 全片 | 「結問司備論」「Must 平台」(FD1=FDE 已由畫面確認) | 傑文斯悖論 / MaaS | 筆記標「推定」 |
 | 2026-11-05 | 白白說大模型 `wTO77RICB1U` | 約 08:00 | 「Cybertruck 完全沒有方向盤」 | 疑為 Cybercab,是否落地未核 | 筆記標「疑點」 |
-| 2026-11-05 | 白白说大模型 `Uz7K757psEU` | 約 04:14–04:34、07:01 | 「商品名RCP0」「RSP0」(藥物 ASA / 乙醯水楊酸 的商品名) | 推定為 Aspirin(阿司匹林) | 筆記標「推定 Aspirin」 |
-| 2026-11-05 | 白白说大模型 `x-s1Dbp4BE4` | 約 04:28–05:05 | 「Furamo / Honkkon」「Panco」「Meaverse / Mews」(向量庫) | 推定 Chroma / Pinecone / Milvus | 筆記標「推定」 |
 | 2026-11-05 | 白白说大模型 `XQXMSc0L5DA` | 約 03:03 | 「炒剁寻真现象」(上下文太長的現象) | 推定「大海撈針 / 中間迷失(lost in the middle)」 | 筆記標「推定」 |
 | 2026-11-05 | 小Lin说 `7qWH7e_AEDs` | 約 15:49 | 泰國央行隔夜拆借利率「1.5%」(接著說放空兩週虧一半) | 約 1,500%(離岸隔夜)?未核到精確值 | 筆記標「推定約 1,500%,未核實」 |
 | 2026-11-05 | 小Lin说 `7qWH7e_AEDs` | 約 25:34 | 「俄羅斯一年之內連換六任總理」 | 1998 年內可查到約三任(Chernomyrdin、Kiriyenko、Primakov) | 筆記標未核實 |
@@ -28,8 +26,6 @@ Whisper 或自動字幕中判斷為不合理、但當下沒能請使用者確認
 | 2026-11-06 | Caleb Writes Code `77hHgDkbtLI` | 約 09:56–10:01 | 「Waste Space Bench」(講者自建 benchmark) | WeightSpaceBench(未能找到官方頁) | 筆記標「推定」 |
 | 2026-11-06 | Caleb Writes Code `ZxBRtRjMU88` | 約 04:11 | 「paper called HPF sucks」(1% 延遲改善、3.75 倍) | 未找到同名論文;可能指 arXiv 2608.13868 或 2608.14333 一類 HBF 評估論文 | 筆記標「未能核實」 |
 | 2026-11-06 | Caleb Writes Code `Cx-pVoBR7C0` | 約 05:54 | 「most consumer grade computers top out at around 30 million parameters」 | 應為 30 billion | 筆記已改為 30B 並註明 |
-| 2026-11-06 | Why QQ `nScMXSWz9aE` | 約 1:28、8:31 | 「Barbiland Lite」「Bubblenlight」(Golden Image 老牌工具) | Babylon.js?(待確認) | 筆記未採用 |
-| 2026-11-06 | Why QQ `nScMXSWz9aE` | 約 8:40、8:45 | 「Executive Talk」「Luma.gl 和 ThoreVG」 | Luma.gl 可確定;ThoreVG 疑為 three.js 一類;Executive Talk 不明 | 筆記未採用 |
 | 2026-11-06 | Why QQ `nwI-Lg8Lk4w` | 約 0:32、10:12 | 「7個项目」vs 多家媒體只計六個新倉庫 | 第 7 項可能是既有共用 runtime DeepJIT,非當天新發布 | 筆記 V16 標註雙邊計數差異 |
 | 2026-11-06 | Why QQ `nwI-Lg8Lk4w` | 約 1:49、2:52、6:17 | 「DeepGIT」「DeepPipersand」「TileLine」「TileCurnals」 | 推定為 DeepJIT / DeepEP / TileLang / TileKernels | 筆記 V16 標「推定」並附第三方報導核對 |
 | 2026-11-06 | 小Lin说 `fKoWrF49Qo8` | 約 15:25 | 「排名第一的最大買家就是孫宇辰,總共給特朗普的各種幣打了剩億美元」(「剩億美元」語意不通) | 數字無法還原,可能是「近X億美元」但具體金額不明 | 筆記標「推定」,未引用具體金額 |
