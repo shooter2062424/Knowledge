@@ -50,7 +50,7 @@
 
 - 影片稱原始碼規則是「**禁止 Agent 為了省事把你的需求做小**」。對照 `references/workflow-routing.md`:「Do not infer permission to omit story beats, collapse a full episode into a teaser, remove dialogue, or replace reusable assets with prompt-only descriptions… approval to 'make it' is not approval of an Agent-authored condensed prompt.」**已核實。**
 - 影片稱「先把帳算給你看再問批不批,可選自動推進或逐步審批」。對照 `operate-topview-canvas/references/canvas-mcp-api.md`:第一次消耗 credit 的 `submit_topview_canvas_generation_task` 之前,必須讓使用者在 `confirm_each_submit`(逐步請求審批)與 `autonomous` 之間單選,且不得跳過。**已核實。**
-- 影片的 **「Identity Lock」** 段落(寫死杯子顏色、插畫位置、蓋子形狀):我在公開外掛 repo 內**搜尋不到這個字樣**,應是 Agent 實際產出的計畫內容或內部命名,**未能核實**。
+- 影片的 **「Identity Lock」** 段落(寫死杯子顏色、插畫位置、蓋子形狀):講者確實說了此詞(使用者 2026-11-07 聽原片確認),但我在公開外掛 repo 內搜尋不到這個字樣:**講者原話,repo 未見**,應是 Agent 實際產出的計畫內容或內部命名。
 - 該片的使用範圍:稱只能在 Work 模式使用、需先選 Topview 外掛才會走它——來自影片自述,未重現。
 
 **可遷移的做法(與廠商無關):**
@@ -110,7 +110,7 @@ flowchart TD
 ## 核實狀態
 
 - **已核實:** Topview 外掛的「不得縮小需求」與「付費審批模式」規則(原始碼 markdown);贊助與聯盟揭露(說明欄原文)。
-- **未能核實:** Filmora 與 Flova 皆無公開原始碼可對;所有功能操作、點數數字、成效對比皆為影片自述。「Identity Lock」字樣在公開 repo 中找不到。
+- **未能核實:** Filmora 與 Flova 皆無公開原始碼可對;所有功能操作、點數數字、成效對比皆為影片自述。「Identity Lock」為講者原話(使用者確認),公開 repo 中找不到。
 
 ## 來源
 

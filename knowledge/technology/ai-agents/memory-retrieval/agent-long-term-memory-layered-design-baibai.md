@@ -186,4 +186,4 @@ flowchart LR
 - 〈为什么“向量数据库+RAG”治不好大模型Agent的“老年痴呆”?〉— 白白说大模型,2026-08-14:<https://www.youtube.com/watch?v=XQXMSc0L5DA>
 - 〈长期Agent怎么记住关键事?记住事实、模糊召回与动态更新的完整工程方案〉— 白白说大模型,2026-10-21:<https://www.youtube.com/watch?v=ydxlle8MNu4>
 
-> 兩片均無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差。已還原的誤聽:「相量庫 / 項量庫」→向量庫、「RG」→RAG、「記忌 / 記忍」→記憶、「數損 / 數捷」→資料、「教驗」→校驗、「Lager」→Ledger、「Wills」→Views、「股價」→架構、「炒剁寻真」→「大海撈針 / 中間迷失」現象(推定為 lost in the middle)、「TTFT」為首字延遲。
+> 兩片均無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差。已還原的誤聽:「相量庫 / 項量庫」→向量庫、「RG」→RAG、「記忌 / 記忍」→記憶、「數損 / 數捷」→資料、「教驗」→校驗、「Lager」→Ledger、「Wills」→Views、「股價」→架構、「炒剁寻真」→「大海撈針 / 中間迷失」現象(推定為 lost in the middle;逐字稿現版找不到原詞,使用者聽原片未確認)、「TTFT」為首字延遲。

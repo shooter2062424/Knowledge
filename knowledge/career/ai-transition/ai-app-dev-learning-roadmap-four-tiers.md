@@ -81,9 +81,9 @@ flowchart TD
 ## 核實
 
 - 已核實:**Eino** 為 cloudwego 組織的 Go 語言 LLM/Agent 應用框架(GitHub 頁面);**Spring AI** 為 Spring 官方專案,提供聊天/嵌入抽象、多種向量庫與 RAG(官方文件)。LangChain / LangGraph / MCP / GraphRAG 為業界通用名詞。
-- 字幕還原:「Lantian」= LangChain、「挨諾」= Eino(2026-11-07 以影片畫面截圖確認:投影片寫 LangChain 1.0+ 與 Eino);「DeFi」= Dify(編排平台)、「GVM」= JVM 仍為推定。已追加到 `TRANSCRIPT-PENDING.md`。
+- 字幕還原:「Lantian」= LangChain、「挨諾」= Eino(2026-11-07 以影片畫面截圖確認:投影片寫 LangChain 1.0+ 與 Eino);「DeFi」= Dify(編排平台)、「GVM」= JVM(使用者 2026-11-07 聽原片確認)。
 - 未能核實(皆為講者個人說法):各檔位薪資(15K / 20K / 30K / 40K、年薪 50 萬)、「同級別薪資拉開 30% 到 50%」、「15 家公司面試」、面試官普遍沒系統學過、今年是唯一窗口、履歷範例的 38% 與 400ms、Agent 市場規模(「2025 年 113 億美元、年增 122%、2026 年 187 億、國內 310 億、超 40% 中大型企業上線」,無出處)。
-- 疑點:wTO77 片中「Cybertruck 沒有方向盤、已在美國落地」疑為講者口誤(無方向盤的應是 Cybercab,且是否已量產落地未核);「Codex 與 ChatGPT 合併」「豆包手機」未核實。
+- 講者口誤:wTO77 片中原話「CyberTrack/Cybertruck 沒有方向盤、已在美國落地」,無方向盤的是 Cybercab(使用者 2026-11-07 確認改寫為 Cybercab;是否已量產落地未核);「Codex 與 ChatGPT 合併」「豆包手機」未核實。
 
 ## 業配與推廣揭露(未納入)
 

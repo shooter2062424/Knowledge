@@ -198,7 +198,7 @@ flowchart TD
 
 > ⚠️ 影片的對照有個**隱含前提**:「單一 HBF 裝 2 TB」。但現行規格**每封裝最高 512 GB**,2 TB 需至少 4 個封裝並聯,頻寬與成本要另算 —— 影片的 0.67 秒是 2 ÷ 3 的理想值。
 
-**(2) 推論的 KV cache 是寫多於讀。** KV cache 隨生成 token 越長越大,寫入量高;NAND 要先擦除才能寫,寫比讀慢很多,耐寫度也有限。影片提到一篇標題叫「HBF sucks」的論文,量到作為 KV cache 只有約 1% 的延遲改善、即使理論速度拉到 3.75 倍。⚠️ **我沒找到這篇標題**;搜尋到的相關論文(例如 arXiv 2608.13868〈Exploring High-Bandwidth Flash for Modern LLM Inference〉、2608.14333〈Beyond Capacity: Scalable MoE LLM Inference via High-Bandwidth Flash〉)結論是:**HBF 適合放權重與讀多寫少的資料(如 MoE 專家),不適合頻繁寫入的 KV cache;耐寫度需約 25 倍改善**。那「1%、3.75 倍」兩個數字**未能核實**。
+**(2) 推論的 KV cache 是寫多於讀。** KV cache 隨生成 token 越長越大,寫入量高;NAND 要先擦除才能寫,寫比讀慢很多,耐寫度也有限。影片提到一篇標題叫「HBF sucks」的論文(字幕 "HPF sucks" 即 HBF sucks,使用者 2026-11-07 聽原片確認),量到作為 KV cache 只有約 1% 的延遲改善、即使理論速度拉到 3.75 倍。⚠️ **我沒找到這篇標題**;搜尋到的相關論文(例如 arXiv 2608.13868〈Exploring High-Bandwidth Flash for Modern LLM Inference〉、2608.14333〈Beyond Capacity: Scalable MoE LLM Inference via High-Bandwidth Flash〉)結論是:**HBF 適合放權重與讀多寫少的資料(如 MoE 專家),不適合頻繁寫入的 KV cache;耐寫度需約 25 倍改善**。那「1%、3.75 倍」兩個數字**未能核實**。
 
 **(3) 訓練幾乎沒好處。** 訓練靠擴節點與頻寬;還要產生梯度、用優化器更新權重,不是讀為主。預填(prefill)偏算力與容量受限、解碼(decode)偏頻寬與延遲受限,所以**容量擴張對推論的利益大於訓練**。
 

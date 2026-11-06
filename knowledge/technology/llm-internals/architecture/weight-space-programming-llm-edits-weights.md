@@ -4,7 +4,7 @@
 >
 > **立場揭露:** 影片含 DataImpulse(住宅代理服務)業配與講者自建 benchmark 的導流,業配段本文**不轉述**。
 >
-> **逐字稿說明:** 該片無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差。已還原:Astra → GPT-6 Astra;Waste Space Bench → 推定為 WeightSpaceBench(已記入 `TRANSCRIPT-PENDING.md`);Cloudcode → Claude Code。
+> **逐字稿說明:** 該片無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差。已還原:Astra → GPT-6 Astra;字幕 Waste Space Bench → 使用者 2026-11-07 聽原片確認為 Weight Space 系列名稱,精確 benchmark 名稱以使用者填答為準:Weight Space Programming(若實指 Weight Space Bench 亦可,兩者並列,無法分辨);Cloudcode → Claude Code。
 >
 > **整理日期:** 2026-11-06。**一手論文 / 部落格全文我沒有直接讀到**,下列細節來自 VentureBeat 報導與 Sean Goedecke 的批評文;標「未核實」者請以原作者文章為準。
 
@@ -100,7 +100,7 @@ flowchart LR
 
 ### 未能核實
 - 「1990 年代已有此概念」。
-- 講者自建的 WeightSpaceBench 細節與其他前沿模型的成績(影片最後的圖表,逐字稿沒有數字)。
+- 講者自建 benchmark(Weight Space Programming / Weight Space Bench)細節與其他前沿模型的成績(影片最後的圖表,逐字稿沒有數字)。
 - 原作者部落格全文(本次未直接讀到)。
 
 ---

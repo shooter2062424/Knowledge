@@ -628,7 +628,7 @@ flowchart LR
 > ⭐ **V9 已記了 DeepJIT 這個「CUDA + 昇騰雙後端」的編譯快取函式庫;這一節補上同一天(2026-09-30)一起開源的另外六個倉庫,
 > 完整拼出 DeepSeek 在昇騰 950 上「訓練 + 推理」兩條路徑所需的縱向軟體層。**
 
-#### V16.1 七個倉庫分工
+#### V16.1 七個倉庫分工(七項名稱經使用者 2026-11-07 聽原片確認)
 
 ```mermaid
 flowchart TB
@@ -693,7 +693,7 @@ flowchart TB
 - **DeepGEMM-Ascend 的 99.8% / 99.5% / 98.3% 這三組精確數字、FlashMLA 的 410/360 TFLOPS 與 95%/83%、DeepEP 的 373–375 / 335–340 / 313–320 GB/s、DeepSelect 的 10–20 倍 TopK 加速** —— ⚠️ **第三方報導證實「Huawei 自家 kernel 跑到 99.7% GEMM 理論峰值」這類量級的說法存在,但本文未逐一比對 DeepSeek 各 repo 的原始 benchmark 數字,請視為影片轉述。**
 - **MegaMoE 融合 kernel 的具體機制、`sparse_decode.cpp` 裡 `enable_split_kv=force` 的註解原文** —— **未直接開啟原始碼核對,以影片轉述看待。**
 - **Atlas 850e 商用 HDK 的 10 月中旬時間表** —— **未查得華為官方公告原文確認具體日期。**
-- **「七個項目」的計數**(影片口述含 DeepJIT 共七個,第三方媒體多數只計六個新 kernel 倉庫,原因是 DeepJIT 並非當天全新發布,而是既有、同批被提及的共用 runtime)——**本文按影片口述記為七項,但提醒讀者多數報導只算六個「新倉庫」。**
+- **「七個項目」的計數**(影片口述含 DeepJIT 共七個,第三方媒體多數只計六個新 kernel 倉庫,原因是 DeepJIT 並非當天全新發布,而是既有、同批被提及的共用 runtime)——**講者說「七個項目」經使用者 2026-11-07 聽原片確認;七項正式名稱(使用者填答):DeepGEMM-Ascend、FlashMLA、TileKernels、DeepSelect、DeepEP-Ascend、DeepJIT、TileLang 950 Backend。提醒讀者多數報導只算六個「新倉庫」。**
 
 📎 **與 V9(DeepJIT)、V15(single-pass mHC 的 GPU 記憶體階層問題)連起來看:
 DeepSeek 在 CUDA 與昇騰兩邊都在做「把手伸進手動流水線」這件同一類工程 —— V15 處理的是 GPU 的 HBM/L2/暫存器落差,
@@ -728,7 +728,7 @@ V16 處理的是昇騰 Cube/Vector 分離架構的 DMA 與佇列同步;兩者是
   - ⭐ [You Only Cache Once: Decoder-Decoder Architectures for Language Models(YOCO,微軟研究院 2024)— arXiv 2405.05254](https://arxiv.org/abs/2405.05254)(CED 的思想源頭)
   - [deepseek-ai/DeepJIT — GitHub](https://github.com/deepseek-ai/DeepJIT)
 - ⭐⭐⭐ [DeepGEMM 給 950DT 標出的 BF16 硬件上限 — Why QQ](https://www.youtube.com/watch?v=nwI-Lg8Lk4w)(2026,約 12.5 分鐘)——
-  ⚠️ **該片 YouTube 官方字幕被限流抓不到,逐字稿以 CPU 版 Whisper 轉錄取得,可能有同音字誤差**(例:「DeepGIT」推定為「DeepJIT」、「DPP/DeepPipersand」推定為「DeepEP」、「TileLine」推定為「TileLang」、「TileCurnals」推定為「TileKernels」,詳見 V16)。**V16 架構拼圖的來源。**
+  ⚠️ **該片 YouTube 官方字幕被限流抓不到,逐字稿以 CPU 版 Whisper 轉錄取得,可能有同音字誤差**(例:「DeepGIT」= DeepJIT、「DeepPipersand」對應 DeepSelect、「TileLine」= TileLang、「TileCurnals」= TileKernels;七項正式名稱經使用者 2026-11-07 聽原片確認,詳見 V16)。**V16 架構拼圖的來源。**
   - [DeepSeek Opens Six Ascend Kernel Repos, Co-Designs With Huawei — AI Weekly](https://aiweekly.co/alerts/deepseek-opens-six-ascend-kernel-repos-co-designs-with-huawei)
   - [DeepSeek and Huawei release open source Ascend AI programming tools — Tom's Hardware](https://www.tomshardware.com/tech-industry/artificial-intelligence/deepseek-and-huawei-release-open-source-ascend-ai-programming-tools-to-reduce-reliance-on-nvidia-ecosystem-tools-include-compute-and-communication-libraries-as-well-as-ascend-support-for-tilelang)
   - [China's DeepSeek open-sources tools to help Huawei chips supplant Nvidia — SCMP](https://www.scmp.com/tech/tech-trends/article/3369301/chinas-deepseek-open-sources-tools-help-huawei-chips-supplant-nvidia-ai)
