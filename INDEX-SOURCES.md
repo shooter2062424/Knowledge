@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**488 個 YouTube video id**、**150 個 arXiv 編號**,涵蓋 **379 篇**筆記。
+> 統計:**489 個 YouTube video id**、**150 個 arXiv 編號**,涵蓋 **380 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(488 部,依 video id 排序)
+## YouTube(489 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -308,6 +308,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `msrADZcUS60` | Agent 記憶實作八種策略:從全量記憶、滑動窗口到 MemoryOS | [knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md) |
 | `MWNuu9m93dk` | 多 Agent 系統的資料一致性:為什麼數字越傳越亂,以及四層工程解法 | [knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md](./knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md) |
 | `Mx8I6etcyL0` | Kimi K3.1 Pro:Terminal-Bench 65.7 只差 Opus 5.5 0.7 分,但選型要看你的倉庫驗收 | [knowledge/technology/ai-industry/kimi-k3-1-pro-open-weight-coding-acceptance.md](./knowledge/technology/ai-industry/kimi-k3-1-pro-open-weight-coding-acceptance.md) |
+| `MzklWMQ87Yw` | 怎麼對模型更有野心:速度、高度、深度、廣度四種提問升級(Felix Rieseberg) | [knowledge/technology/ai-productivity/more-ambitious-with-models-altitude-depth-range-rieseberg.md](./knowledge/technology/ai-productivity/more-ambitious-with-models-altitude-depth-range-rieseberg.md) |
 | `N3o8AcflmO4` | 磁軸鍵盤原理:霍爾感測、Rapid Trigger,與飛智 FS68 的雙霍爾與蜂窩墊設計 | [knowledge/technology/hardware/magnetic-switch-keyboard-hall-effect-principle.md](./knowledge/technology/hardware/magnetic-switch-keyboard-hall-effect-principle.md) |
 | `n8jL89H5d-c` | 第 135 期:藝術家的 AI IDE(ArtCraft)、互動式技術圖解 Skill(Anatomy)、組織多個 Agent 的工具(OpenRig)、生成原生 PPT 的工作流(PPT Master)與復刻 QQ 寵物(QQPet) | [knowledge/technology/github-weekly/issue-135.md](./knowledge/technology/github-weekly/issue-135.md) |
 | `nlNDzop6tBw` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [knowledge/technology/claude-code/output-style-communication-not-intelligence.md](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) |
