@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**480 個 YouTube video id**、**140 個 arXiv 編號**,涵蓋 **369 篇**筆記。
+> 統計:**481 個 YouTube video id**、**140 個 arXiv 編號**,涵蓋 **369 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(480 部,依 video id 排序)
+## YouTube(481 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -100,6 +100,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `7qWH7e_AEDs` | 資本如何接連引爆多國金融危機:1994 墨西哥到 1998 俄羅斯,同一條「資金流入 → 熱錢撤離 → 空頭補刀」主線 | [knowledge/investing/strategy/capital-flows-1990s-crisis-chain-mexico-asia-russia.md](./knowledge/investing/strategy/capital-flows-1990s-crisis-chain-mexico-asia-russia.md) |
 | `8BN8p5xDkzw` | 日圓創 40 年新低:主導因素從「利差」換成「財政風險」,以及美日 15 年來首次聯手干預 | [knowledge/investing/strategy/yen-40-year-low-takaichi-trade-and-us-japan-intervention.md](./knowledge/investing/strategy/yen-40-year-low-takaichi-trade-and-us-japan-intervention.md) |
 | `8ji5vURIllM` | AI 額度老是不夠用?三招省 Token:丟掉、縮減、打折 | [knowledge/technology/ai-productivity/token-saving-three-moves-context-control.md](./knowledge/technology/ai-productivity/token-saving-three-moves-context-control.md) |
+| `8tmDJ9ZuFc8` | Always-on Agent 怎麼運作:Lee Robinson 在史丹佛 CS146S 拆解 Grok Bot | [knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) |
 | `8unONuKIaPs` | 給非技術人員的部署:為什麼 localhost 傳給朋友打不開,以及三個問題選平台 | [knowledge/technology/ai-productivity/deployment-for-vibe-coders-platform-selection.md](./knowledge/technology/ai-productivity/deployment-for-vibe-coders-platform-selection.md) |
 | `91yRxsdc0gA` | 這次半導體狂歡是 2000 泡沫重演嗎?五個相同、四個不同、兩個要盯的信號 | [knowledge/investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md](./knowledge/investing/strategy/semiconductor-2000-bubble-vs-2026-ai.md) |
 | `98Mz0a1wJag` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |

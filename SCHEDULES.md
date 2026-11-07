@@ -465,6 +465,8 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 ### 存量清單(2026-09-01 首次巡檢盤點,已完成 1 支)
 
+- ⭐ **2026-11-08 巡檢**:YAHA學堂 `8tmDJ9ZuFc8`(Grok Bot 極速入門,無字幕,Whisper large-v3-turbo)✅ 併入 ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md §8(畫面核對 Bot 名稱小禾/小字/阿核/阿算,官方概覽頁核實共用電腦與 skill)。**新存量(Whisper 上限 1 支,順延)**:YAHA學堂 `-7Y4E5qihaY`(ChatGPT Sites 報名網站教學,無字幕,⚠️ 取 id 時需 `--` 前綴)、`LtN0pAsmgjc`(Filmora 16 智慧校對,說明欄含 Filmora 聯盟連結,既有 filmora 筆記可增補);白白说大模型 `iHmRszlT_WY`(普通程序員轉 AI 學什麼,13.5 分鐘,無字幕,可增補 ai-transition 路線筆記);Nick `dZ4skQnxewo`(期中選舉後半導體大跌,10 分鐘,官方字幕,需核 SEC/行情,標非投資建議)。
+
 - ⭐⭐ **2026-11-06 存量清空(使用者指示「各個頻道沒有歸檔的都要完成」,覆蓋 2–3 篇上限)**:八頻道巡檢範圍內所有未歸檔影片已全數整理(新建 30 篇(含使用者提供的 LLM-SLM-LRM-VLM 資訊圖)、追加既有筆記約 20 篇),**下方各頻道「剩 N」與 ⭐ 日期清單皆為歷史紀錄,不再有存量**;先前「判定不整理」的 `9O4IueW_n1k`(YAHA,Hostinger 聯盟/nexos.ai 業配,只整理 Hermes 本體,併入 hermes-main-agent-orchestration 附錄)與 `ITniwzQy9uc`(白白 Jev 入門,併入 Jev 筆記 §十八)也已處理。此後只看清單外新冒出的 id。永久跳過(會員限定):Gary `BbofEyeE2Ek`、`roUfF8nUYNo`、`JctGH-SOYBA`、`OtxkHfjWeaU`、`ftEBJkNNsRk`;Nick `Uo9m4fkdkFs`;轩辕 `0PmaZM2d1Qg`、`onOT4mmJ17M`;私人 `diU-Nbb1P_c`。
 
 - ⭐ **Nick 美股咖啡館(2026-10-17 加入,約每週 2 支,全有官方 zh-TW 字幕)**:2026-10-19 已完成 `sr3y1-iQ1vI`、`tEjPWVEuu_8`、`6Nyqv3XZ-ek`。剩餘存量 `7aWsuekAoqY`(跌幾 % 才加碼,10-03)、`XUQo8M5NnAE`(五家「無視 AI」的公司,09-30)、`9v_-p8Z3nC4`(澳洲第一次買股,生活向、優先度低)。再往前的舊片不追。
@@ -560,6 +562,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-11-08(巡檢) | 巡檢併入 1 篇(Whisper 1 支):**YAHA學堂** `8tmDJ9ZuFc8` → 增補 Grok Bot 筆記 §8;新存量 YAHA 2、白白 1、Nick 1(見第 5 節)。同日 Haiku 批次審閱 47 篇完成(`deepseek-v4-engineering` 因 Haiku 拒答待處理);`transcript_tools.py` 取代 `約 X:XX` 時間 |
 | 2026-11-06(巡檢) | **存量清空**(使用者:「各個頻道沒有歸檔的都要完成」):八頻道 67 支存量 + 新片 Why QQ `CghXuvlAhD0`、白白 `nuEYDFfDnOI` 全部整理,新建 30 篇(含使用者提供的 LLM-SLM-LRM-VLM 資訊圖)、追加既有筆記約 20 篇(含新中類 career/ai-transition、career/creator-business、technology/hardware)。方法:字幕遇 HTTP 429 全面改 Whisper(faster-whisper small/int8),subagent 分頻道寫筆記、主 session 統一 README/索引/commit。巡檢 cron 的 prompt 本身未變更,**`c830c233` 約 2026-11-10 到期須重建**。 |
 | 2026-11-05(巡檢) | 巡檢產出 1 新篇(零 Whisper):**Why QQ** `B7I0HBXbty8` → 新篇 llm-internals/architecture/tokenizer-tax-chinese-vs-english-token-cost.md(CLEAR 數字對照二手整理、tiktoken 實測 13;Token Bench 與蒙古語數字未能核實)。新存量:**白白说大模型** `nuEYDFfDnOI`(MCP / Skill / 本地 Tools 區別,14.5 分,無字幕需 Whisper;動筆前先 grep 既有 MCP/Skill 筆記)。Caleb `77hHgDkbtLI` 本輪未重試(留待下輪)。 |
 | 2026-11-04(巡檢) | 巡檢併入 1 篇(零 Whisper):**Why QQ** `038BebtLg1U` → 增補 deepseek-super-agent-router-walker-xuanyuan §7。Caleb `77hHgDkbtLI` auto-subs 429 順延。 |
