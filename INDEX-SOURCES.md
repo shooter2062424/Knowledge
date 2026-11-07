@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**489 個 YouTube video id**、**150 個 arXiv 編號**,涵蓋 **380 篇**筆記。
+> 統計:**490 個 YouTube video id**、**150 個 arXiv 編號**,涵蓋 **381 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(489 部,依 video id 排序)
+## YouTube(490 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -149,6 +149,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `bs0IXxThe3o` | 同樣 200 美元，Claude 訂閱值 OpenAI 的五倍？SemiAnalysis 訂閱額度實測與「補貼算力」的生意 | [knowledge/technology/ai-industry/ai-subscription-api-equivalent-value-semianalysis.md](./knowledge/technology/ai-industry/ai-subscription-api-equivalent-value-semianalysis.md) |
 | `BUHHheaKlDY` | 光刻機原理系列:從光的衍射、X 光的死路到 13.5nm EUV,再到 ASML 如何「繞過」阿貝極限 | [knowledge/technology/ai-industry/lithography-euv-light-source-and-asml-light-control.md](./knowledge/technology/ai-industry/lithography-euv-light-source-and-asml-light-control.md) |
 | `ByBLjNA3MvY` | 海鷗策略(Seagull):牛市中「不踏空又不怕跌」的三腿期權對沖 | [knowledge/investing/derivatives/seagull-options-hedge.md](./knowledge/investing/derivatives/seagull-options-hedge.md) |
+| `C2EzJjVpHpw` | OpenAI 用 Agent 流水線審計 Linux 內核:948 個本地提權漏洞、121 萬美元、以及「拿到 root 卻做錯」的 20 次 | [knowledge/technology/ai-safety/openai-linux-kernel-948-lpe-agent-pipeline-why-qq.md](./knowledge/technology/ai-safety/openai-linux-kernel-948-lpe-agent-pipeline-why-qq.md) |
 | `CGd5zDUrWnw` | Agent 為什麼會長成 Runtime:DeepSeek Harness 的插件樹與事件日誌,以及底下那篇 Cordis 論文 | [knowledge/technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md](./knowledge/technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) |
 | `CghXuvlAhD0` | 當 Agent 代勞時,如何保持批判性思考:Addy Osmani 的認知投降、驗證與當責 | [knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md](./knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md) |
 | `cgKUgAJE3cs` | AI 產業秘密轉向:大模型集體從 C 端轉 B 端、訂閱轉用量,而「算力」成了現階段的勝負手 | [knowledge/investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md](./knowledge/investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md) |
