@@ -72,6 +72,21 @@ flowchart TD
 - 對照比喻:菜譜 vs 管家下單買菜;導航 vs 自動駕駛;顧問只出方案 vs 員工自動撈資料庫、產生 Excel/PPT、寄信。
 - 補一個觀察(需修正):影片說 Computer Use「實務上多半還是走接口而非真的操作滑鼠」,此說不精確。Anthropic 官方文件([Computer use tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool))描述的機制是:Claude 透過**截圖加滑鼠鍵盤動作**控制桌面,但這些動作以 API `tool_use` 回傳,由應用程式在沙箱內實際執行,模型本身不直接接觸桌面。影片「看畫面 token 太多所以改走接口」的成本考量屬合理推論,但未附數據。
 
+## 6. 對照:另一種「由下而上」的路線圖(Anjana AI Engineer 2027,2026-11-08 增補)
+
+> 使用者提供的批次素材 `new/ai-guide/` 中,Anjana「AI & Tech」(Instagram `@aiwithanju`,社群引流型素材,未見付費導購)的〈Complete AI Engineer 2027 Roadmap〉90 頁 PDF。完整整理見 [[ai-ml-engineer-learning-roadmaps-anjana]]。
+
+| 面向 | 白白說的四階段(本文) | Anjana 的 12 個月路線 |
+|---|---|---|
+| 起點 | 先鎖定一個場景,2-3 週出 1.0 | 先 3 個月 Python 與數學,再傳統 ML、深度學習 |
+| 到 LLM 應用的時間 | 第 1 階段(約 15K 檔)就做 RAG 原型 | 第 9-10 個月才做 RAG |
+| 評估與安全 | 30K 檔才系統化(評測基準、容災) | 放在最後一類(AI 工程),但有 30-100 題評估集、提示注入、可觀測性 |
+| 共同點 | 作品要量化:召回、延遲、成本 | 「專案比證書重要」「先建基準線與留出測試集」 |
+
+**我的取捨建議**:要在 3-6 個月內求職,走本文的專案先行;要長期打底(能看懂論文、能除錯模型),用 Anjana 的順序但把 NLP/生成式 AI 提前。**不論哪條,第 8 類「AI 工程」(評估、觀測、安全、成本控制)都是本文 30K 與 40K 檔所說能力的清單化版本。**
+
+核實小結(詳見該筆記第 5 節):Anjana 列出的 Agent 工作流五種模式與 Anthropic〈Building effective agents〉一致(已核實);其框架清單的 AutoGen 已封存(需修正);兩份素材都沒有薪資數字,本文的 15K/20K/30K/40K 仍為講者個人說法。
+
 ## 應用案例
 
 - **後端工程師,現職穩定**:選「慢軌」。先半個月把 Python 補到能寫 FastAPI 級的服務,再用公司內部制度文件做一個 RAG 問答:語意切片、混合檢索、重排,加一組自動評測(忠實度、相關性、召回)。履歷寫「垂直領域問答系統,召回準確率與 P99 延遲」的量化結果(用自己的實測數字,別照抄 38% / 400ms)。
@@ -99,6 +114,12 @@ flowchart TD
 5. **KV Cache 與前綴快取(影片 [9:35]、投影片 [9:35] 附近為 KV Cache / Prefix Cache 三層架構圖)**:以 vLLM 為例,自動前綴快取是以 **完整 KV block** 為單位做雜湊(預設 sha256),只有「前綴相同」的請求能重用;官方文件也說增益會隨「生成時間佔比高」或「請求無共同前綴」而縮小。因此影片「響應速度翻倍、帳單大幅下降」屬情境性說法,要靠自家流量量測。來源:<https://docs.vllm.ai/en/latest/features/automatic_prefix_caching/>、<https://docs.vllm.ai/en/latest/design/prefix_caching.html>
 6. **Spring AI RAG(影片 [7:03])**:Spring AI 1.x 文件以 Advisor API 實作 RAG,`QuestionAnswerAdvisor` 為最簡路徑(每次問題做相似度搜尋後注入),進階流程用 `RetrievalAugmentationAdvisor`;官方頁面提示最新穩定版為 2.0。來源:<https://docs.spring.io/spring-ai/reference/1.0/api/retrieval-augmented-generation.html>(版本路徑以官方為準)
 
+## 補充:同主題的動手專案路線(2026-11-08 增補,Anjana「AI & Tech」素材批次 `new/ai-guide/`)
+
+- 作者 Anjana(@aiwithanju,社群引流型素材)另有一份 24 週的 AI 工程路線(Python/API → MCP → LangGraph 代理 → 評測 → 安全 RAG → 稽核 → LoRA 微調 → 知識圖譜),與本文第二、三階段(MCP、評測、微調)高度重疊,並附 7 個可跑的小專案原始碼。
+- 我已讀完原始碼並實跑,逐項列出缺陷(評測閘門壓線、正規式護欄可繞過、稽核日誌防不了截斷、LoRA 參數量標示差一倍等),見 [[ai-engineering-seven-projects-source-review]]。
+- 這份路線的 24 週時程是作者個人建議、無實證數據。
+
 ## 業配與推廣揭露(未納入)
 
 - iy9-ab999VA 片中:提供學習資料,需三連加留言「AI」領取,**未納入**。
@@ -111,6 +132,7 @@ flowchart TD
 - [[production-agent-engineer-skills-2026]]
 - [[over-30-developer-ai-career-switch-directions]]
 - [[fde-and-ordinary-people-ai-entry-guide]]
+- [[ai-ml-engineer-learning-roadmaps-anjana]]:Anjana 的 AI / ML 工程師路線圖整理(2026-11-08)
 
 ## 來源
 
@@ -118,6 +140,7 @@ flowchart TD
 - 白白說大模型〈後端轉AI應用開發學習路線:從基礎理論、框架選型到RAG與Agent生產級〉(2026-09-29):https://www.youtube.com/watch?v=0gtzVKkg3L0
 - 白白說大模型〈AI應用開發:從入行到高薪的4個階段〉(2026-10-24):https://www.youtube.com/watch?v=iy9-ab999VA
 - 白白說大模型〈2026十一月最新Agent零基礎教程(第一期:AI Agent入門介紹)〉(2026-10-27):https://www.youtube.com/watch?v=wTO77RICB1U
+- 使用者提供的本機素材批次 `new/ai-guide/`(2026-11-07 收件),檔案:`Complete_AI_Engineer_2027_Roadmap.pdf`(作者 Anjana「AI & Tech」,Instagram:https://www.instagram.com/aiwithanju/ ,社群引流型素材)
 - Eino:https://github.com/cloudwego/eino
 - Spring AI:https://docs.spring.io/spring-ai/reference/index.html
 - 以上四片皆無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差(簡繁混雜)。

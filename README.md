@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-407_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-422_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -165,6 +165,7 @@ flowchart LR
 
 | 來源 | 篇數 | 筆記 |
 |---|---|---|
+| **Anjana「AI & Tech」(@aiwithanju,社群引流型 PDF,`new/ai-guide/` 批次)** | 17 | [AI/ML 工程師路線圖](./knowledge/career/ai-transition/ai-ml-engineer-learning-roadmaps-anjana.md) · [資料分析師路線](./knowledge/career/data-analyst/data-analyst-roadmap-2027-and-7-day-plan.md) · [DA 10 專案](./knowledge/career/data-analyst/data-analyst-10-projects-code-review.md) · [免費課程核實](./knowledge/career/data-analyst/free-courses-and-job-search-resources-checked.md) · [監督式](./knowledge/technology/machine-learning/supervised-ml-algorithms-guide.md) · [非監督式](./knowledge/technology/machine-learning/unsupervised-ml-algorithms-guide.md) · [模型評估](./knowledge/technology/machine-learning/model-evaluation-techniques-guide.md) · [十大核心概念](./knowledge/technology/machine-learning/ml-ten-core-concepts-guide.md) · [ML 15 實戰專案](./knowledge/technology/machine-learning/ml-practice-projects-fifteen.md) · [Agentic 十概念](./knowledge/technology/ai-agents/foundations/agentic-ai-ten-concepts-interview-map.md) · [12 種架構](./knowledge/technology/ai-agents/foundations/ai-architectures-twelve-patterns-practical-examples.md) · [AI 工程 20 概念](./knowledge/technology/ai-agents/foundations/ai-engineering-twenty-concepts-serving-rag-ops.md) · [AI 入門 13 概念](./knowledge/technology/llm-internals/architecture/ai-essential-13-concepts-beginner-map.md) · [AI 7 專案](./knowledge/technology/ai-agents/applications/ai-engineering-seven-projects-source-review.md) · [雲端 15 概念](./knowledge/technology/system-design/cloud-engineering-fifteen-concepts.md) · 增補:[FDE 入局](./knowledge/career/ai-transition/fde-and-ordinary-people-ai-entry-guide.md) §3、[AI 應用開發四階段](./knowledge/career/ai-transition/ai-app-dev-learning-roadmap-four-tiers.md) §6 |
 | **Andrej Karpathy(本人著作/repo)** | 4 | [microGPT 200 行](./knowledge/technology/llm-internals/architecture/microgpt-karpathy.md) · [autoresearch 最小 harness](./knowledge/technology/ai-agents/autonomy/karpathy-autoresearch.md) · [LLM Wiki 知識庫模式](./knowledge/technology/ai-agents/memory-retrieval/llm-wiki-karpathy.md) · [How I use LLMs(一般人用 LLM 心智模型)](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
 | **Felix Rieseberg(個人部落格,⚠️ Anthropic 員工)** | 1 | [怎麼對模型更有野心:高度、深度、廣度](./knowledge/technology/ai-productivity/more-ambitious-with-models-altitude-depth-range-rieseberg.md) |
 | **blog.aihao.tw(ihower)** — agent 工程 | 2 | [Agent Streaming 格式設計](./knowledge/technology/ai-agents/applications/agent-streaming-format-design.md) · [用 AI 分析 Agent Traces](./knowledge/technology/ai-agents/applications/agent-trace-analysis-with-ai.md) |
@@ -302,6 +303,9 @@ flowchart LR
 **foundations — 基礎概念**
 | 主題 | 一句話 |
 |---|---|
+| [Agentic AI 面試必知十概念地圖(Anjana 輪播 PDF)](./knowledge/technology/ai-agents/foundations/agentic-ai-ten-concepts-interview-map.md) | Harness/Loop/Context/Tool/Memory/Orchestration/Guardrails/Evals/HITL/Observability 十概念分四組;無文字層輪播逐頁轉寫,附 6 張流程圖與原稿用語的修正 |
+| [12 種 AI 系統架構與實例(Anjana PDF)](./knowledge/technology/ai-agents/foundations/ai-architectures-twelve-patterns-practical-examples.md) | RAG/微調/Agent/事件驅動/邊緣/混合/人機協作 12 型;三層分組為整理者自訂,非標準分類 |
+| [AI 工程 20 個概念速查:推論、RAG、Agent 與上線維運(Anjana PDF)](./knowledge/technology/ai-agents/foundations/ai-engineering-twenty-concepts-serving-rag-ops.md) | 依模型推論/RAG/Agent/維運重新分組;指出 tokenization 範例對 cl100k_base 不成立等原稿錯誤 |
 | [AI 名詞地圖:從 Token 到 Agent Skills 三種分層框架(白白说大模型)](./knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md) | 每個新名詞都是補上前一個名詞的致命缺陷;八概念演進鏈 / 四層技術全景 / 職場四層選型 |
 | [Claude Task Budgets:給模型整輪工作的軟性 token 倒數(YAHA學堂)](./knowledge/technology/ai-agents/foundations/claude-task-budgets-advisory-token-countdown.md) | 伺服器端把倒數注入模型視野,模型據此排優先順序並收尾;不是帳單硬上限 |
 | [什麼是 AI Harness?兩種 harness 的差別](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) | harness = 模型權重以外的一切 |
@@ -396,6 +400,7 @@ flowchart LR
 **applications — 企業應用與實作**
 | 主題 | 一句話 |
 |---|---|
+| [AI 工程 7 個動手專案:讀完原始碼、實跑 6 支(Anjana PDF + zip)](./knowledge/technology/ai-agents/applications/ai-engineering-seven-projects-source-review.md) | MCP/多代理/評測閘門/安全 RAG/稽核代理/LoRA/知識圖譜;實跑發現 LoRA 參數量算錯、護欄可繞過、雜湊鏈抓不到截斷 |
 | [Agent / RAG 生產級面試題庫:字節 8 題 + 落地十連問 + 履歷五大雷區(白白说大模型)](./knowledge/technology/ai-agents/applications/agent-rag-production-interview-playbook-baibai.md) | 玩具 Demo 與生產系統差在高並發低延遲、容錯降級、安全隔離、分層記憶、可量化評測 |
 | [用 Easy MCP AI 讓 Claude Code 管 WordPress:強制草稿 / 停用工具 / 一鍵暫停(YAHA學堂)](./knowledge/technology/ai-agents/applications/easy-mcp-ai-wordpress-claude-code-seo-guardrails.md) | 一句話批次補 SEO,寫入前每篇攤在批准提示;三道煞車控風險 |
 | [Vercel vgpu:讓 Agent 寫的 Shader 能被機器驗收(Why QQ)](./knowledge/technology/ai-agents/applications/vercel-vgpu-agent-shader-verification-golden-image.md) | 能編譯不等於畫對了;渲染確定性 + 讀回像素 + 標準圖(Golden Image)三道關卡 |
@@ -452,6 +457,7 @@ flowchart LR
 ### 🧬 llm-internals(模型架構與推論)
 | 主題 | 一句話 |
 |---|---|
+| [AI 入門 13 個必懂概念(Anjana 輪播 PDF)](./knowledge/technology/llm-internals/architecture/ai-essential-13-concepts-beginner-map.md) | LLM/Token/神經網路/幻覺/LoRA/MoE/語音/Agentic/Vibe Coding;逐頁轉寫並指出幻覺投影片自相矛盾 |
 | [LLM、SLM、LRM、VLM 四種模型怎麼分、什麼時候用(企業 AI 路由法則)](./knowledge/technology/llm-internals/architecture/llm-slm-lrm-vlm-model-routing-guide.md) | 依任務選模型的路由表;來源為使用者提供的資訊圖,作者不明,僅作整理依據 |
 | [權重空間編程:讓 LLM 直接讀寫神經網路權重(Caleb Writes Code)](./knowledge/technology/llm-internals/architecture/weight-space-programming-llm-edits-weights.md) | 不訓練、由強 LLM 輸出數字改寫權重;Astra 改 Qwen3.5-0.8B 約 0.016% 權重,MATH-500 由 7.9% 升至 48.1% |
 | [Pre-norm vs Post-norm:為什麼現在的大模型全都把 LayerNorm 搬到前面](./knowledge/technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md) | ⭐ **是 attention-residuals 的前傳**;差別不只前後、更在「在不在殘差內」;梯度**連乘 vs 連加**、pre-norm 免 warmup;**⚠️ 微軟 DeepNet 反駁「末層梯度太大」說,主張是初期 update 爆炸導致梯度消失**(不收斂的模型梯度反而更小);Peri-LN 把兩者結合;**補:DeepNorm 其實救活了 post-norm 訓到 1000 層、Gemma 2 已在用 sandwich norm、QK-Norm** |
@@ -491,6 +497,11 @@ flowchart LR
 ### 📐 machine-learning(機器學習模型與方法)
 | 主題 | 一句話 |
 |---|---|
+| [監督式機器學習演算法速查與實作指南(Anjana PDF 長短版合併)](./knowledge/technology/machine-learning/supervised-ml-algorithms-guide.md) | 線性/邏輯迴歸、樹、森林、SVM、KNN、貝氏、XGBoost;對 scikit-learn 1.9.1 文件核實,指出 R² 範圍、隨機森林投票、SVM 機率等原稿簡化 |
+| [非監督式機器學習演算法完整指南(Anjana PDF 長短版合併)](./knowledge/technology/machine-learning/unsupervised-ml-algorithms-guide.md) | K-Means/階層式/DBSCAN/PCA/t-SNE/UMAP 與聚類評估 |
+| [機器學習模型評估完整指南(Anjana PDF 長短版合併)](./knowledge/technology/machine-learning/model-evaluation-techniques-guide.md) | 驗證策略與迴歸/分類/分群/排序/時間序列指標、統計嚴謹性;重算 8 張卡的範例並指出 MCC 與過擬合圖的原稿說法有誤 |
+| [機器學習十大核心概念(Anjana 兩份 PDF 合併)](./knowledge/technology/machine-learning/ml-ten-core-concepts-guide.md) | 維度災難/R²/偏差變異/梯度下降/核技巧/混淆矩陣/過擬合;程式範例全部本機重跑一致 |
+| [機器學習 15 個實戰專案整理與程式碼檢討(Anjana PDF)](./knowledge/technology/machine-learning/ml-practice-projects-fifteen.md) | 信用卡詐欺偵測先 SMOTE 再切分=資料洩漏、準確率 99% 沒意義;LSTM 股價、偽鈔、地震預測等逐專案檢討 |
 | [LimiX:用「遮罩聯合分布」打造的結構化資料(表格)基礎模型](./knowledge/technology/machine-learning/limix-tabular-foundation-model.md) | 一個模型四任務(分類/迴歸/填補/生成);CCMM+axis-wise attention;in-context 免訓練;勝 XGBoost/TabPFN |
 | [Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 與「一路對 AI 說謊」(程序员老王)](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) | ⭐⭐ U-Net 練猜雜訊、生成時騙它「裡面有柴犬」逐步去噪(DDPM 1000 步);CLIP 讓不同說法對到同一概念(4 億圖文對);VAE 壓成 128×128×4 latent 約 1/12;⭐ latent 是「理解」不是縮圖;負向提示詞與 CFG 公式;⏳ 新模型改用 Transformer |
 | [DLSS 與 FSR 到底做了什麼:從「猜細節」到「用時間換細節」(程序员老王)](./knowledge/technology/machine-learning/dlss-fsr-ai-upscaling-explained.md) | ⭐ 低解析度渲染再 AI 放大,跑在 Tensor Core;⚠️ DLSS 1.0 靠猜、每遊戲單獨訓練而翻車;⭐⭐⭐ DLSS 2.0 亞像素抖動 + 運動向量,多幀累積細節、一個模型通吃;FSR 長期非 AI、FSR 4 才改 AI 並綁 RDNA 4;DLSS 4 改 Transformer;✅ 時間線核實 |
@@ -591,6 +602,7 @@ flowchart LR
 ### 🏗️ system-design(系統設計與架構)
 | 主題 | 一句話 |
 |---|---|
+| [雲端工程 15 個基礎概念(Anjana 輪播 PDF,對照 AWS/GCP 官方文件)](./knowledge/technology/system-design/cloud-engineering-fifteen-concepts.md) | 子網路/DNS/NAT/自動擴縮/工作負載身分/可觀測性等;逐頁轉寫、附 6 張流程圖與 RTO/RPO 補充 |
 | [為什麼 AI 寫的網站一上線就掛?用手搖飲店看懂架構擴展](./knowledge/technology/system-design/scaling-web-architecture-bubble-tea.md) | 快取/Docker/CI-CD/負載平衡/Replica/微服務/CDN/Queue 是被問題逼出來的 |
 | [Milvus 架構拆解:從「Segment 不可變」到存算分離,以及 2.6 已經改掉的三件事(白白说大模型)](./knowledge/technology/system-design/milvus-architecture-vector-database.md) | ⭐⭐⭐ **最重要的一條規矩:資料檔案一旦生成就不可變** —— Growing Segment(記憶體、可查、無索引)→ flush → Sealed Segment(封存後才建索引),**舊資料只讀、新資料只寫,讀寫徹底解開**;⭐⭐ **三層組織 Collection → Partition → Segment**,Partition 的價值是**分區裁剪**;⭐⭐ **存算分離**(向量檢索讀多寫少,綁一起等於為了算力被迫買高配磁碟);⚠️⚠️⚠️ **本文三處補正:影片講的是 2.5 及更早的架構** —— **IndexNode 已在 2.6 移除**、**Woodpecker 零磁碟 WAL 取代 Pulsar/Kafka 外部相依**、**新增 StreamingNode 而 QueryNode 只剩歷史段批次查詢**;⭐ 另補 2.6 成本特性(RaBitQ 記憶體降 72%、分層儲存降 50%);⚠️ **純主鍵點查別用它,交給 Redis/Memcached**;⭐⭐⭐ **可帶走的通用手法:「可變的小窗口 + 不可變的大檔案」** |
 | [現在正在主導的 5 個程式設計概念](./knowledge/technology/system-design/dominating-programming-concepts.md) | 反應式/邊緣運算/資料導向設計/LLM 應用架構/本地優先;都是心智模型的轉變 |
@@ -758,9 +770,17 @@ flowchart LR
 ### 🔄 ai-transition(轉型 AI)
 | 主題 | 一句話 |
 |---|---|
+| [AI / ML 工程師學習路線圖:九個職位、104 主題、24 週計畫(Anjana 5 份 PDF 合併)](./knowledge/career/ai-transition/ai-ml-engineer-learning-roadmaps-anjana.md) | 職位差異表、八類主題優先順序、ML 長短版合併、313/325 連結核實;AutoGen 已封存等需修正處 |
 | [轉做 AI 應用開發的學習路線:從零基礎到 40K 架構的四個階段(白白说大模型)](./knowledge/career/ai-transition/ai-app-dev-learning-roadmap-four-tiers.md) | 不碰訓練大模型,走應用層;薪資等為講者個人說法,筆記已標示核實 |
 | [普通人的 AI 入局點:FDE(前線部署工程師)與應用層落地(白白说大模型)](./knowledge/career/ai-transition/fde-and-ordinary-people-ai-entry-guide.md) | 機會在把 AI 嵌進行業流程的應用/交付層;年薪與單案金額為講者判斷 |
 | [30 歲以上程式設計師怎麼轉型:五條出路與四個 AI 方向(白白说大模型)](./knowledge/career/ai-transition/over-30-developer-ai-career-switch-directions.md) | 技術當底牌、扎進業務、賣判斷而非工時 |
+
+### 📊 data-analyst(資料分析師)
+| 主題 | 一句話 |
+|---|---|
+| [資料分析師學習路線:24 週完整版 + 7 天速成表的現實評估(Anjana PDF)](./knowledge/career/data-analyst/data-analyst-roadmap-2027-and-7-day-plan.md) | 8 類 × 13 主題;7 天表只適合全貌體驗,視窗函數/DAX/作品級專案一天做不完;附 8 張原稿圖表 |
+| [資料分析師作品集 10 專案:讀完原始碼、實跑 9 支(Anjana PDF + zip)](./knowledge/career/data-analyst/data-analyst-10-projects-code-review.md) | 資料全為程式生成的模擬資料,「洞察」是生成公式的回聲;離職因素排名改用 permutation importance 後順序改變 |
+| [免費 AI 課程與求職/學習資源清單:逐項連結核實(Anjana 三份清單 PDF)](./knowledge/career/data-analyst/free-courses-and-job-search-resources-checked.md) | 多個連結失效或改名(Exponent→Aced、Mode→ThoughtSpot、AWS 學習計畫網址失效);唯一確定免費且扎實的是 CS50 AI |
 
 ### 🎬 creator-business(創作者商業)
 | 主題 | 一句話 |

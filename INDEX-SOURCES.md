@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**482 個 YouTube video id**、**140 個 arXiv 編號**,涵蓋 **370 篇**筆記。
+> 統計:**482 個 YouTube video id**、**150 個 arXiv 編號**,涵蓋 **376 篇**筆記。
 
 ---
 
@@ -168,7 +168,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `diU-Nbb1P_c` | 4 組頂級 Agent Skill:從「自我進化」到「工程／設計／內容」生產力套件 | [knowledge/technology/ai-agents/applications/top-skills-for-agents.md](./knowledge/technology/ai-agents/applications/top-skills-for-agents.md) |
 | `dJc-h7ui8wc` | LeetCode 怎麼刷最有效(上):從 0 刷到 200 題的真實心路歷程與方法 | [knowledge/career/interview-prep/leetcode-0-to-200-grinding-experience.md](./knowledge/career/interview-prep/leetcode-0-to-200-grinding-experience.md) |
 | `doc0NQas32U` | 雙底雙頂:看的不是形態像不像,而是動能有沒有衰減 | [knowledge/investing/technical-analysis/double-top-bottom-momentum.md](./knowledge/investing/technical-analysis/double-top-bottom-momentum.md) |
-| `dThNVDU64ew` | 普通人的 AI 入局點:FDE(前線部署工程師)與應用層落地(白白說大模型 2 支影片合併) | [knowledge/career/ai-transition/fde-and-ordinary-people-ai-entry-guide.md](./knowledge/career/ai-transition/fde-and-ordinary-people-ai-entry-guide.md) |
+| `dThNVDU64ew` | 普通人的 AI 入局點:FDE(前線部署工程師)與應用層落地(白白說大模型 2 支影片 + Anjana FDE 路線圖 PDF 合併) | [knowledge/career/ai-transition/fde-and-ordinary-people-ai-entry-guide.md](./knowledge/career/ai-transition/fde-and-ordinary-people-ai-entry-guide.md) |
 | `dVRFSzbLR7M` | C++ 演進史:複雜性詛咒、記憶體危機,與 AI 時代的絕地反擊 | [knowledge/technology/dev-tools/cpp-evolution-complexity-ai-era.md](./knowledge/technology/dev-tools/cpp-evolution-complexity-ai-era.md) |
 | `dwGn39M5oX8` | Claude Code 2026 功能演進:從「權限提示」到「agent 艦隊」的半年軌跡 | [knowledge/technology/claude-code/claude-code-2026-feature-timeline.md](./knowledge/technology/claude-code/claude-code-2026-feature-timeline.md) |
 | `DWgYcxnvpdQ` | Claude Code Mods:從「調旋鈕」到「改程式本身」——事件關卡、三種動作、會畫介面(howie和小能熊 + 官方文件 + 範例原始碼) | [knowledge/technology/claude-code/claude-code-mods-explained.md](./knowledge/technology/claude-code/claude-code-mods-explained.md) |
@@ -446,7 +446,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `WOMdoiy9Qas` | Opus 4.7 不是更強的 4.6,是另一種模型:四個該跟著升級的工作流 | [knowledge/technology/ai-productivity/opus-4-7-workflow-upgrades.md](./knowledge/technology/ai-productivity/opus-4-7-workflow-upgrades.md) |
 | `wpb-DrbhEiY` | SpaceX 為什麼這時間點上市?Musk 在 JP Morgan 投資人訪談說了什麼 | [knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md](./knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md) |
 | `Wq1icAZYr4E` | Claude 訂閱的 9 個「付了錢卻沒打開」的設定:記憶搬家、Skill、連接器、Chrome、Cowork 排程與 Dispatch | [knowledge/technology/ai-productivity/claude-app-nine-hidden-settings-memory-skills-dispatch.md](./knowledge/technology/ai-productivity/claude-app-nine-hidden-settings-memory-skills-dispatch.md) |
-| `wt2kiCU6sA0` | 普通人的 AI 入局點:FDE(前線部署工程師)與應用層落地(白白說大模型 2 支影片合併) | [knowledge/career/ai-transition/fde-and-ordinary-people-ai-entry-guide.md](./knowledge/career/ai-transition/fde-and-ordinary-people-ai-entry-guide.md) |
+| `wt2kiCU6sA0` | 普通人的 AI 入局點:FDE(前線部署工程師)與應用層落地(白白說大模型 2 支影片 + Anjana FDE 路線圖 PDF 合併) | [knowledge/career/ai-transition/fde-and-ordinary-people-ai-entry-guide.md](./knowledge/career/ai-transition/fde-and-ordinary-people-ai-entry-guide.md) |
 | `wTO77RICB1U` | 轉做 AI 應用開發的學習路線:從零基礎到 40K 架構的四個階段(白白說大模型 4 支影片合併) | [knowledge/career/ai-transition/ai-app-dev-learning-roadmap-four-tiers.md](./knowledge/career/ai-transition/ai-app-dev-learning-roadmap-four-tiers.md) |
 | `wu0zS1AuI_E` | 派拉蒙全現金收購華納兄弟:艾里森父子的「AB 股 + 上市殼」資本操作 | [knowledge/investing/equity-research/paramount-warner-bros-ellison-cash-acquisition.md](./knowledge/investing/equity-research/paramount-warner-bros-ellison-cash-acquisition.md) |
 | `WuMlsfKeWHc` | Loop Engineering(循環工程):從「寫提示詞驅動 agent」到「設計驅動 agent 的循環」 | [knowledge/technology/ai-agents/foundations/loop-engineering.md](./knowledge/technology/ai-agents/foundations/loop-engineering.md) |
@@ -513,7 +513,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(140 篇,依編號排序)
+## arXiv(150 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -523,6 +523,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `1701.06538` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
 | `1706.03762` | 多頭注意力(Multi-Head Attention)用人話講:「語法表、需求表、內容表」就是 K、Q、V(程序员老王) | [knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md](./knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md) |
 | `1706.03762` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
+| `1810.04805` | AI / ML 工程師學習路線圖:九個職位、104 主題、24 週計畫(Anjana「AI & Tech」5 份 PDF 合併) | [knowledge/career/ai-transition/ai-ml-engineer-learning-roadmaps-anjana.md](./knowledge/career/ai-transition/ai-ml-engineer-learning-roadmaps-anjana.md) |
 | `1810.04805` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `1911.02150` | 100 萬上下文為什麼貴、又為什麼會變笨?從 MHA、MQA、GQA 到 MLA、DSA、CSA | [knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md](./knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md) |
 | `2002.05202` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
@@ -533,7 +534,10 @@ grep -rlF --include=*.md -- "<id>" .
 | `2010.11929` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
 | `2103.00020` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
 | `2103.00020` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
+| `2106.09685` | AI 工程 7 個動手專案(MCP、多代理、評測、安全 RAG、稽核代理、LoRA、知識圖譜):讀完原始碼、實跑後的評估(Anjana「AI & Tech」素材) | [knowledge/technology/ai-agents/applications/ai-engineering-seven-projects-source-review.md](./knowledge/technology/ai-agents/applications/ai-engineering-seven-projects-source-review.md) |
+| `2106.09685` | AI 入門 13 個必懂概念:LLM、Token、神經網路、幻覺、LoRA、MoE、語音到 Agentic、Vibe Coding | [knowledge/technology/llm-internals/architecture/ai-essential-13-concepts-beginner-map.md](./knowledge/technology/llm-internals/architecture/ai-essential-13-concepts-beginner-map.md) |
 | `2106.09685` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
+| `2107.03374` | 機器學習模型評估完整指南:驗證策略、迴歸/分類/分群/排序/時間序列指標、統計嚴謹性與上線監控(Anjana「AI & Tech」) | [knowledge/technology/machine-learning/model-evaluation-techniques-guide.md](./knowledge/technology/machine-learning/model-evaluation-techniques-guide.md) |
 | `2110.05828` | 多層規格並存下的程式演進:外部公定 spec + 內部實作 spec + 既有 code(5G NR → 6G Modem) | [knowledge/technology/code-dev/spec-code-flow/multi-spec-layered-evolution-modem-5g-to-6g.md](./knowledge/technology/code-dev/spec-code-flow/multi-spec-layered-evolution-modem-5g-to-6g.md) |
 | `2110.14168` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2112.00114` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
@@ -544,9 +548,14 @@ grep -rlF --include=*.md -- "<id>" .
 | `2203.11854` | 5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼,以及反過來 | [knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) |
 | `2203.14465` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2205.11916` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
+| `2207.08815` | AI / ML 工程師學習路線圖:九個職位、104 主題、24 週計畫(Anjana「AI & Tech」5 份 PDF 合併) | [knowledge/career/ai-transition/ai-ml-engineer-learning-roadmaps-anjana.md](./knowledge/career/ai-transition/ai-ml-engineer-learning-roadmaps-anjana.md) |
 | `2207.12598` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
+| `2210.03629` | Agentic AI 面試必知十概念地圖(Harness / Loop / Context / Tool / Memory / Orchestration / Guardrails / Evals / HITL / Observability) | [knowledge/technology/ai-agents/foundations/agentic-ai-ten-concepts-interview-map.md](./knowledge/technology/ai-agents/foundations/agentic-ai-ten-concepts-interview-map.md) |
+| `2210.03629` | AI 工程 20 個概念速查:模型推論、RAG 檢索、Agent 與上線維運 | [knowledge/technology/ai-agents/foundations/ai-engineering-twenty-concepts-serving-rag-ops.md](./knowledge/technology/ai-agents/foundations/ai-engineering-twenty-concepts-serving-rag-ops.md) |
 | `2210.03629` | 用 Skywork 從查資料到做簡報:AI 研究助理該看的三個能力(溯源、自訂信源、單頁重生) | [knowledge/technology/ai-productivity/skywork-research-report-to-slides.md](./knowledge/technology/ai-productivity/skywork-research-report-to-slides.md) |
 | `2210.08277` | 29 個邏輯閘玩通馬里奧:沒有浮點數、沒有矩陣乘法的「AI」是什麼 | [knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md](./knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md) |
+| `2211.17192` | AI 工程 20 個概念速查:模型推論、RAG 檢索、Agent 與上線維運 | [knowledge/technology/ai-agents/foundations/ai-engineering-twenty-concepts-serving-rag-ops.md](./knowledge/technology/ai-agents/foundations/ai-engineering-twenty-concepts-serving-rag-ops.md) |
+| `2302.12173` | AI 工程 7 個動手專案(MCP、多代理、評測、安全 RAG、稽核代理、LoRA、知識圖譜):讀完原始碼、實跑後的評估(Anjana「AI & Tech」素材) | [knowledge/technology/ai-agents/applications/ai-engineering-seven-projects-source-review.md](./knowledge/technology/ai-agents/applications/ai-engineering-seven-projects-source-review.md) |
 | `2304.03442` | Agent 長期記憶分層設計:別把一切丟進向量庫(四層記憶 + LVP + 雙時間戳 / 三層記憶 + 影子 Agent) | [knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md](./knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md) |
 | `2304.08485` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
 | `2304.13734` | AI 為什麼會幻覺?「評分制度逼它硬猜」、四個高危場景與四句核查提示詞 | [knowledge/technology/ai-safety/why-llms-hallucinate-benchmarks-reward-guessing.md](./knowledge/technology/ai-safety/why-llms-hallucinate-benchmarks-reward-guessing.md) |
@@ -579,6 +588,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2404.00762` | Code-to-Spec:從既有大型程式碼庫反推規格(CodeConcise、Clang、ACSL、C→Rust) | [knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md](./knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md) |
 | `2404.13207` | 到底需不需要 GraphRAG?9 種 RAG 方案實測對照 + 脈絡優化省 19–53% token | [knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md](./knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md) |
 | `2404.15939` | 5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼,以及反過來 | [knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) |
+| `2404.16130` | AI 工程 7 個動手專案(MCP、多代理、評測、安全 RAG、稽核代理、LoRA、知識圖譜):讀完原始碼、實跑後的評估(Anjana「AI & Tech」素材) | [knowledge/technology/ai-agents/applications/ai-engineering-seven-projects-source-review.md](./knowledge/technology/ai-agents/applications/ai-engineering-seven-projects-source-review.md) |
 | `2404.18353` | 穩定開發大型 C/C++ 的工具箱:契約、靜態分析、形式驗證、fuzz 與 CI 分層(2026) | [knowledge/technology/code-dev/c-cpp/cpp-large-codebase-stability-toolbox.md](./knowledge/technology/code-dev/c-cpp/cpp-large-codebase-stability-toolbox.md) |
 | `2405.00393` | Code-to-Spec:從既有大型程式碼庫反推規格(CodeConcise、Clang、ACSL、C→Rust) | [knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md](./knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md) |
 | `2405.04434` | 100 萬上下文為什麼貴、又為什麼會變笨?從 MHA、MQA、GQA 到 MLA、DSA、CSA | [knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md](./knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md) |
