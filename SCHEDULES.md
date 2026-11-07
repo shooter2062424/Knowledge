@@ -25,13 +25,13 @@
 
 | # | 排程 | cron | 說明 |
 |---|---|---|---|
-| A | ⭐ **YouTube 來源總巡檢**(2026-11-07 合併) | `3 7 * * *`(每日 07:03) | 一個排程查 11 個來源:IT咖啡馆 GitHub Weekly、Gary Chen、美投君(核心三,細則在第 1/2/4 節)+ 八個巡檢頻道(第 5 節) |
+| A | ⭐ **YouTube 來源總巡檢**(2026-11-07 合併) | `3 7 * * *`(每日 07:03) | 一個排程查 12 個來源:IT咖啡馆 GitHub Weekly、Gary Chen、美投君(核心三,細則在第 1/2/4 節)+ 九個巡檢頻道(第 5 節) |
 | B | ⭐ `new/` 收件匣 | `37 8 * * *`(每日 08:37) | **一個子資料夾 = 一批 = 一個 task**,整批處理完改名 `done-`,並登記於 `INBOX-LOG.md` |
 | — | ~~gooaye 記憶更新~~ | ⛔ 2026-10-20 停用 | 重建時跳過,不要再建 |
 
 > 第 1、2、4 節原為獨立排程,2026-11-07 起**併入 A**:不再單獨建 cron,但各節 prompt 仍是 A 的作業細則(A 的 prompt 開跑前會先讀)。
 
-**2026-11-07 合併重建(使用者要求):原 1/2/4/5 四個排程併為 A「YouTube 來源總巡檢」`66762e2b`(07:03);`new/` 收件匣改規則重建為 B `bf0936ec`(08:37);舊巡檢 `c830c233` 已刪。約 11-14 到期。**
+**2026-11-07 合併重建(使用者要求):原 1/2/4/5 四個排程併為 A「YouTube 來源總巡檢」`2e61f6b6`(07:03);`new/` 收件匣改規則重建為 B `bf0936ec`(08:37);舊巡檢 `c830c233` 已刪。約 11-14 到期。**
 **2026-11-03 局部重建:巡檢排程(⑤)因使用者要求加入「轩辕的编程宇宙」改為八個頻道,舊 `d7df861d` 刪除,新 job id `c830c233`(08:12;其餘四個不變,約 11-04 到期,屆時整批重建)。**
 **最近一次重建:2026-10-28(使用者要求「重建一下」;gooaye 停用不再建,其餘五個全刪重建,到期日統一約 11-04)。** job id:①GitHub Weekly `f1cb9681` ②Gary Chen `44aadf36` ④美投君 `90610a0e` ⑤巡檢 `d7df861d` ⑥`new/` 收件匣 `ce69a81b`。
 本 session job id:①`933e4954`(GitHub Weekly 06:33) ②`fc522f3e`(Gary Chen 07:10) ④`327cd9c9`(美投君 07:50) ⑤`0834d5c8`(巡檢 08:12) ⑥`8835b076`(`new/` 收件匣 08:37)。③ gooaye 已停用。
@@ -376,11 +376,11 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 ### 排程 A 實際 prompt(2026-11-07 合併版;細則見第 1、2、4 節與下方八頻道版)
 
 ```text
-每日巡檢 Knowledge repo 的 11 個 YouTube 來源,把新影片整理成繁中筆記。⚠️ Knowledge repo 筆記在 knowledge/、腳本在 scripts/。
+每日巡檢 Knowledge repo 的 12 個 YouTube 來源,把新影片整理成繁中筆記。⚠️ Knowledge repo 筆記在 knowledge/、腳本在 scripts/。
 ⭐ 完整規則的唯一來源是 C:\Users\shoot\project\Knowledge\SCHEDULES.md:開跑前先 Read 第 5 節(含頻道清單與共通規則),再依來源讀第 1(IT咖啡馆 GitHub Weekly)、2(Gary Chen)、4(美投君)節的細則;各節 code block 內的步驟就是本任務的作業流程,照做。
 來源分兩組(一律用 channel ID,不用 handle;回報時用頻道中文名):
 A 核心三來源,有新的就全部處理、不受 2–3 篇上限:① IT咖啡馆 GitHub Weekly(UCXLV-KfDQAFUJ_as9H1Lfbw,第 1 節)② Gary Chen(UC9C3t-3ocL0LiwGRD0gBJ8A,第 2 節)③ 美投君/美投讲美股(UCBUH38E0ngqvmTqdchWunwQ,第 4 節,幾乎每支都要 Whisper)。
-B 其餘八頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模型、小Lin说、Redknot-乔红、Nick 美股咖啡館、轩辕的编程宇宙(清單與 ID 見第 5 節;規則照第 5 節,含「每次最多 2–3 篇、先增補既有筆記」)。
+B 其餘九頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模型、小Lin说、Redknot-乔红、Nick 美股咖啡館、轩辕的编程宇宙、橘鸦Juya(UCIDll3SRcbHwwcXbrwvBZNw,每日 AI 早報短影片,見第 5 節說明:同週早報併成週報式筆記並對官方來源核實,不逐日一篇)(清單與 ID 見第 5 節;規則照第 5 節,含「每次最多 2–3 篇、先增補既有筆記」)。
 全域上限:整次 Whisper 最多 2 支(A 組美投君 1 + B 組 1);其餘順延到隔天,並記入第 5 節存量。
 共通鐵則:
 - 去重:grep -rlF --include=*.md -- "<id>" knowledge/ (範圍必須是 knowledge/,不可用 .)。
@@ -417,6 +417,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 | Redknot-乔红 | `UCAf2Y9FGJlE_ByXYF7BXv5g` | @redknot-miaomiao | 多數無(⚠️ `rQR_0WZzjV4` 實測無官方字幕,只有自動英文 ASR) |
 | Nick 美股咖啡館 | `UCjrP2TtSTifuRJ76hW2IW1A` | @nick_stockcafe | 官方 zh-TW(2026-10-17 加入) |
 | 轩辕的编程宇宙 | `UCLkwRNY9Ck9-d1ulZYHsl-Q` | @xuanyuancoding | 無(需 Whisper;2026-11-03 加入) |
+| 橘鸦Juya | `UCIDll3SRcbHwwcXbrwvBZNw` | @imjuya | 每日「AI Morning News」短影片(1.5–8 分鐘);字幕待實測(2026-11-08 加入) |
 
 步驟:
 1. 逐個頻道列最新 6 部:
@@ -587,10 +588,11 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-11-08(新增頻道) | **新增巡檢頻道:橘鸦Juya**(`UCIDll3SRcbHwwcXbrwvBZNw` / @imjuya,使用者要求固定追蹤,先撈近兩周):每日 AI 早報短影片。排程 A 改為 12 個來源並重建(`66762e2b` 刪除,新 job `2e61f6b6`,約 11-15 到期)。處理策略:同週早報併成週報式筆記、新聞逐條對官方來源核實,不逐日一篇。近兩周(10/25–11/07)14 支:`AlgxsQlXrzg` `QW388hqEvB4` `S4vWj1RLHpc` `ib0XULK0p90` `u3V7VKX_7dQ` `YgMeqrQgtA0` `cwJTwCj6IJc` `Gx-P6B1JhdE` `Ir7OExbKsuc` `SQfZgN-e2DI` `8z3VXP_97Qg` `UoLqNKs0_n0` `aZ4ISFax7z8` `r9lFf4d6JJY` |
 | 2026-11-08(收件匣首批) | **`new/ai-guide/` 整批處理完成**(手動;排程 B 尚未首次觸發):28 PDF + 2 zip → 新建 15 篇、增補 2 篇、嵌入原稿圖表 67 張,資料夾改名 `done-ai-guide`;帳本見 `INBOX-LOG.md`。流程驗證:6 個 Sonnet 子 agent 分群(AI 概念/ML 演算法/ML 專案+雲端/DA+AI 專案含原始碼實跑/職涯路線/DA 路線+資源),主 session 統一驗收(Mermaid lint 0 問題、67 張圖連結全存在)、更新 README 與索引後單一 commit |
 | 2026-11-07(圖片規則修正) | **使用者修正**:不要把整頁文字投影片轉成一張大圖(文字不可複製、沒意義)。改為筆記=**可複製文字 + 延伸閱讀 + 原稿已有的精美圖表**。`extract_images.py` 新增 `text`(取可複製文字)、`figures`(列內嵌圖並標頭像/logo/重複)、`crop`(從無文字層輪播頁裁出圖表區塊),`embedded` 自動略過重複/過小圖;`pages` 整頁渲染僅限整頁就是圖表者。盤點 28 個 PDF:約 11 個是無文字層輪播(逐頁一張圖,需看圖轉寫),其餘有文字層(最多 20 萬字)且含 400×400 頭像等需略過的圖。收件匣排程再重建(新 id `bf0936ec`)。 |
 | 2026-11-07(收件匣圖片規則) | **使用者要求**:素材裡的圖片一定要閱讀並給出相關資訊,且**一定要附進 Markdown**。新增 `scripts/media/extract_images.py`(scan/pages/embedded/shrink,輸出寬 ≤1100px、≤220KB 的 JPEG/PNG 到筆記同層 `assets/<slug>/`);收件匣 prompt 加看圖與嵌圖步驟,並把「素材不進版控」改為「原檔不進版控、壓縮後配圖可進」;收件匣排程已重建為 `bf0936ec`(舊 `66c28dfa`、`1fda5ef7` 已刪)。 |
-| 2026-11-07(合併重建) | **使用者要求**:①排程 1/2/4 併入 5,合為 A「YouTube 來源總巡檢」`66762e2b`(07:03,查 11 個來源;gooaye 仍停用);②`new/` 收件匣重建為 B `bf0936ec`(08:37),規則改為**一個子資料夾=一批=一個 task**,整批處理、依內容分門別類、先比對既有筆記能合併就增補,來源註明批次,並新增 `INBOX-LOG.md` 帳本供回溯;③舊巡檢 `c830c233` 刪除。起因:發現 11-04 到期後只剩巡檢一個排程,`new/ai-guide/`(30 個檔、48 MB)無人處理。 |
+| 2026-11-07(合併重建) | **使用者要求**:①排程 1/2/4 併入 5,合為 A「YouTube 來源總巡檢」`2e61f6b6`(07:03,查 11 個來源;gooaye 仍停用);②`new/` 收件匣重建為 B `bf0936ec`(08:37),規則改為**一個子資料夾=一批=一個 task**,整批處理、依內容分門別類、先比對既有筆記能合併就增補,來源註明批次,並新增 `INBOX-LOG.md` 帳本供回溯;③舊巡檢 `c830c233` 刪除。起因:發現 11-04 到期後只剩巡檢一個排程,`new/ai-guide/`(30 個檔、48 MB)無人處理。 |
 | 2026-11-08(巡檢) | 巡檢併入 1 篇(Whisper 1 支):**YAHA學堂** `8tmDJ9ZuFc8` → 增補 Grok Bot 筆記 §8;新存量 YAHA 2、白白 1、Nick 1(見第 5 節)。同日 Haiku 批次審閱 47 篇完成(`deepseek-v4-engineering` 因 Haiku 拒答待處理);`transcript_tools.py` 取代 `約 X:XX` 時間 |
 | 2026-11-06(巡檢) | **存量清空**(使用者:「各個頻道沒有歸檔的都要完成」):八頻道 67 支存量 + 新片 Why QQ `CghXuvlAhD0`、白白 `nuEYDFfDnOI` 全部整理,新建 30 篇(含使用者提供的 LLM-SLM-LRM-VLM 資訊圖)、追加既有筆記約 20 篇(含新中類 career/ai-transition、career/creator-business、technology/hardware)。方法:字幕遇 HTTP 429 全面改 Whisper(faster-whisper small/int8),subagent 分頻道寫筆記、主 session 統一 README/索引/commit。巡檢 cron 的 prompt 本身未變更,**`c830c233` 約 2026-11-10 到期須重建**。 |
 | 2026-11-05(巡檢) | 巡檢產出 1 新篇(零 Whisper):**Why QQ** `B7I0HBXbty8` → 新篇 llm-internals/architecture/tokenizer-tax-chinese-vs-english-token-cost.md(CLEAR 數字對照二手整理、tiktoken 實測 13;Token Bench 與蒙古語數字未能核實)。新存量:**白白说大模型** `nuEYDFfDnOI`(MCP / Skill / 本地 Tools 區別,14.5 分,無字幕需 Whisper;動筆前先 grep 既有 MCP/Skill 筆記)。Caleb `77hHgDkbtLI` 本輪未重試(留待下輪)。 |
