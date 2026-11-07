@@ -29,7 +29,7 @@ research/     研究專案,一個題目一個資料夾(如 pundit-accuracy/)
 scripts/      通用腳本,按功能分類
   ├── knowledge/  本庫維護(build_source_index、lint_mermaid)
   ├── youtube/    頻道與影片擷取(collect_channel、discover_channels)
-  ├── media/      音訊處理(whisper_transcribe)
+  ├── media/      音訊處理(whisper_transcribe 語音轉文字統一入口、extract_images 配圖)
   └── market/     行情與回測(candlestick)
 ```
 
@@ -77,6 +77,7 @@ scripts/      通用腳本,按功能分類
    - 新版 yt-dlp 抓字幕需 JS runtime,務必加上 `--js-runtimes node`(否則會誤報「has no automatic captions」)。
    - **真正的卡點變成「影片本身有沒有字幕」**:若影片未提供字幕也無自動字幕(`TranscriptsDisabled` / `has no automatic captions`),**先走第 6 步用 Whisper 轉錄**,不要直接退回「非逐字稿」。
 6. **影片完全沒有字幕時:下載音訊 + 跑 CPU 版 Whisper 轉錄(使用者指定的首選 fallback,2026-05 實測可行):**
+   - ⭐⭐ **語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID、網址或檔案> -o <輸出.txt> [--prompt "詞表"|--prompt-file f]`**(2026-11-08 使用者決定):引擎固定 faster-whisper `large-v3-turbo` int8、參數與 `[m:ss]` 輸出格式都在腳本裡,YouTube ID 會自動下載音訊並清暫存。**不要自己 inline 寫 `WhisperModel(...)`、不要換 `small`**;成敗看最後一行 `segments N`,一律前景執行。下文各處殘留的 inline 轉錄參數僅是歷史說明,以本腳本為準。
    - 本機已裝 `faster-whisper`(1.2.1)與 `PyAV`(av 16.x);**faster-whisper 透過 PyAV 解碼,可直接吃原始 `.mp4/.m4a/.webm`,不需系統 ffmpeg**(本機 ffmpeg 缺也沒關係)。
    - **下載音訊**:`yt-dlp --no-update --js-runtimes node --remote-components ejs:github -f "bestaudio/best" -o "audio.%(ext)s" <url>`。
      - **關鍵:`--remote-components ejs:github`**(JS challenge solver)。少了它,音訊資料下載常 `HTTP 403 Forbidden`(SABR-only 串流實驗)。
@@ -135,4 +136,4 @@ scripts/      通用腳本,按功能分類
 2. 👁️ **看影片畫面,不只看字幕**:專有名詞、數字、圖表、論文/repo 畫面處截圖讀圖(白白说大模型、Why QQ 等有燒錄字幕與投影片,可直接讀到正確拼法)。
 3. 📚 **依字幕與畫面中的論文/技術/工具 keyword 查一手資料延伸**(arXiv、官方文件、GitHub、官方部落格,有 repo 就 clone 讀),把真的讀到的內容寫進「延伸閱讀與深度補充」,並標「已核實/需修正/未能核實」。
 4. 🙋 **需要使用者判斷的題目集中成一頁 Artifact**(每題附「從 X:XX 開始、目標句 Y:YY」連結、`db` 存選擇),不要在對話裡一題一題問;使用者填完後用 `ArtifactData` 讀回、更新筆記並清掉 `TRANSCRIPT-PENDING.md`。
-5. 🎙️ 語音辨識引擎:一般中文用 SenseVoice-Small(CPU 約 12 倍即時,專有名詞仍要畫面校正),中英夾雜/英文用 faster-whisper `large-v3-turbo` int8 + `initial_prompt`;`small` 只當備援。
+5. 🎙️ 語音辨識:**一律呼叫 `scripts/media/whisper_transcribe.py`(固定 faster-whisper `large-v3-turbo` int8,`--prompt` 帶標題/說明欄/詞表)**,專有名詞仍要畫面校正;SenseVoice-Small 只作純中文口播的備選實驗(未納入腳本),`small` 不再使用。

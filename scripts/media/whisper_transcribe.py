@@ -1,40 +1,54 @@
 #!/usr/bin/env python3
-"""用 CPU 版 faster-whisper 把影片或音訊轉成逐字稿。
+"""語音轉文字的統一入口:固定使用 faster-whisper ``large-v3-turbo``(CPU、int8)。
 
-適用情境:YouTube 影片沒有官方字幕也沒有自動字幕時的最後手段。
-可直接吃 `.webm` / `.m4a` / `.mp4` 原始檔 —— faster-whisper 透過 PyAV 解碼,
-**不需要系統安裝 ffmpeg**。
+**全倉庫(包含排程與其他 LLM / subagent)要轉錄影片或音訊,一律呼叫本腳本**,
+不要自己 inline 寫 ``WhisperModel(...)``,也不要換成 ``small`` 或其他模型。
+這樣引擎、參數、輸出格式只有一份,改進時只改這裡。
 
-預設參數是踩過坑之後定下來的:
-    * ``vad_filter=True``      先切掉非語音段,避免片頭配樂造成幻覺
-    * ``condition_on_previous_text=False`` 與 ``no_repeat_ngram_size=3``
-      兩者合力壓制「同一句重複數十行」的迴圈
+模型固定的理由(2026-11-07 實測,i7-1260P CPU):large-v3-turbo 比 small 只慢約 1.5 倍,
+但明顯更準(Java、向量資料庫、云原生都聽對);專有名詞仍會錯,所以要搭配
+``--prompt`` 的詞表(標題、說明欄、人名、工具名)與影片畫面校正。
+
+輸入可以是:
+    * 本機音訊/影片檔(``.webm`` ``.m4a`` ``.mp4`` ``.wav`` 等,PyAV 解碼,不需 ffmpeg)
+    * YouTube 影片 ID 或網址(自動下載音訊到暫存資料夾,轉完刪除)
+
+輸出為 ``[m:ss] 文字`` 逐行檔(與 ``scripts/youtube/transcript_tools.py find`` 相容),
+最後一行印出 ``segments N``;成敗以這個數字為準(stderr 的 numpy 警告可忽略)。
 
 用法:
-    python scripts/media/whisper_transcribe.py audio.webm
-    python scripts/media/whisper_transcribe.py audio.webm -o out.txt --model medium
-    python scripts/media/whisper_transcribe.py *.webm --outdir transcripts/
+    python scripts/media/whisper_transcribe.py oH0j8HYeMAM -o out.txt \
+        --prompt "Claude Code、Anthropic、Projects、subagent"
+    python scripts/media/whisper_transcribe.py audio.webm -o out.txt --prompt-file words.txt
+    python scripts/media/whisper_transcribe.py a.webm b.webm --outdir transcripts/
+    python scripts/media/whisper_transcribe.py talk.mp4 --language auto   # 自動偵測語言
 
 注意:
-    轉完務必掃一眼結尾。若出現同一句重複數十行,那是幻覺迴圈,
-    本模組的 :func:`detect_hallucination_loop` 會偵測並警告。
+    * 一律「前景」執行,不要 ``nohup … &``(背景 shell 環境不完整,torch/numpy 會失敗)。
+      長片超過 10 分鐘會被轉成背景工作,等完成通知即可。
+    * 轉完看結尾有無「同一句重複數十行」(幻覺迴圈);本腳本會偵測並警告。
+    * VAD 會切掉非語音段;中文旁白與英文原聲交疊的影片可能有時間缺口,缺口處以畫面為準。
 """
 
 from __future__ import annotations
 
 import argparse
+import re
+import shutil
 import sys
+import tempfile
 from collections import Counter
 from pathlib import Path
 from typing import Iterable, Iterator, NamedTuple
 
-# 預設模型。small 在中文口播上準確度與速度的平衡點最好;
-# 品質不足時可換 medium(約慢一倍),但換模型救不了 small 的同音錯字問題。
-DEFAULT_MODEL = "small"
+# 固定模型。不提供 --model 參數:要換模型代表要改這個常數並重做基準,而不是各處各自指定。
+MODEL = "large-v3-turbo"
 
 # 幻覺迴圈的判定門檻:結尾 N 行裡同一句出現超過 M 次即視為迴圈。
 _LOOP_TAIL_LINES = 80
 _LOOP_THRESHOLD = 25
+
+_YOUTUBE_ID = re.compile(r"^[A-Za-z0-9_-]{11}$")
 
 
 class Segment(NamedTuple):
@@ -52,11 +66,7 @@ class Segment(NamedTuple):
 
 
 def _utf8_stdout() -> None:
-    """把 stdout/stderr 切成 UTF-8。
-
-    Windows 終端機預設 cp950,印出中文檔名或逐字稿會直接
-    ``UnicodeEncodeError`` 並中斷整支腳本(不只是亂碼而已)。
-    """
+    """把 stdout/stderr 切成 UTF-8(Windows 預設 cp950 會在印中文時中斷腳本)。"""
     for stream in (sys.stdout, sys.stderr):
         try:
             stream.reconfigure(encoding="utf-8", errors="replace")  # type: ignore[union-attr]
@@ -65,40 +75,89 @@ def _utf8_stdout() -> None:
 
 
 def format_timestamp(seconds: float) -> str:
-    """把秒數格式化成 ``[MM:SS]``。
+    """把秒數格式化成 ``[m:ss]``(與 transcript_tools 相同,超過一小時仍以分鐘累計)。
 
     Args:
         seconds: 起始秒數。
 
     Returns:
-        形如 ``[03:07]`` 的字串;超過一小時仍以分鐘累計(例如 ``[75:12]``)。
+        形如 ``[3:07]``、``[75:12]`` 的字串。
     """
-    minutes = int(seconds // 60)
-    secs = int(seconds % 60)
-    return f"[{minutes:02d}:{secs:02d}]"
+    total = int(seconds)
+    return f"[{total // 60}:{total % 60:02d}]"
+
+
+def is_youtube_ref(value: str) -> bool:
+    """判斷輸入是不是 YouTube 影片 ID 或網址(且不是本機存在的檔案)。
+
+    Args:
+        value: 命令列輸入。
+
+    Returns:
+        是 YouTube 影片 ID(11 字元)或含 youtube.com / youtu.be 的網址時為 True。
+    """
+    if Path(value).exists():
+        return False
+    return bool(_YOUTUBE_ID.match(value)) or "youtube.com/" in value or "youtu.be/" in value
+
+
+def download_audio(ref: str, out_dir: Path) -> Path:
+    """用 yt-dlp 下載 YouTube 音訊(原始檔,不需 ffmpeg)。
+
+    ``--remote-components ejs:github`` 是 JS challenge solver,少了它音訊下載常 HTTP 403。
+
+    Args:
+        ref: 影片 ID 或網址。
+        out_dir: 下載資料夾。
+
+    Returns:
+        下載到的音訊檔路徑。
+
+    Raises:
+        RuntimeError: 下載失敗(連續三次 403 時先 ``python -m pip install -U yt-dlp``)。
+    """
+    import yt_dlp
+
+    url = ref if "/" in ref else f"https://www.youtube.com/watch?v={ref}"
+    opts = {
+        "quiet": True,
+        "no_warnings": True,
+        "format": "bestaudio/best",
+        "outtmpl": str(out_dir / "audio.%(ext)s"),
+        "js_runtimes": {"node": {}},
+        "remote_components": ["ejs:github"],
+    }
+    last: Exception | None = None
+    for _ in range(3):  # 403 用同參數重試,不要改 player_client
+        try:
+            with yt_dlp.YoutubeDL(opts) as ydl:
+                ydl.download([url])
+            files = sorted(out_dir.glob("audio.*"))
+            if files:
+                return files[0]
+        except Exception as exc:  # noqa: BLE001
+            last = exc
+    raise RuntimeError(f"音訊下載失敗:{ref}:{last}")
 
 
 def transcribe(
     audio_path: str | Path,
     *,
-    model_size: str = DEFAULT_MODEL,
-    language: str = "zh",
+    language: str | None = "zh",
+    prompt: str | None = None,
     threads: int = 6,
     beam_size: int = 5,
 ) -> Iterator[Segment]:
-    """轉錄單一音訊/影片檔,逐段產出結果。
-
-    以 generator 回傳,呼叫端可以邊轉邊寫檔,不必等整支跑完才有輸出。
+    """轉錄單一音訊/影片檔,逐段產出結果(generator,可邊轉邊寫檔)。
 
     Args:
-        audio_path: 音訊或影片檔路徑。可直接給 ``.webm``/``.m4a``/``.mp4``,
-            不需要事先轉檔。
-        model_size: faster-whisper 模型代號,如 ``small``、``medium``。
-            首次使用會自動下載。
-        language: 語音的語言代碼。中文影片給 ``zh``;若原音是英文,
+        audio_path: 音訊或影片檔路徑。
+        language: 語言代碼;中文影片給 ``zh``。``None`` 表示自動偵測。若原音是英文,
             即使頻道是中文的,轉出來也會是英文。
-        threads: CPU 執行緒數。與其他重運算工作並行時建議調低,避免互搶。
-        beam_size: beam search 寬度。調大略微提升準確度、代價是變慢。
+        prompt: 提示詞(``initial_prompt``):放標題、說明欄、人名、工具名等專有名詞詞表,
+            能補一部分專有名詞,但不能取代畫面核對。
+        threads: CPU 執行緒數。與其他重運算並行時調低。
+        beam_size: beam search 寬度。
 
     Yields:
         依時間排序的 :class:`Segment`。
@@ -110,22 +169,20 @@ def transcribe(
     path = Path(audio_path)
     if not path.exists():
         raise FileNotFoundError(f"找不到音訊檔:{path}")
-
     try:
         from faster_whisper import WhisperModel
-    except ImportError as exc:  # pragma: no cover - 取決於執行環境
+    except ImportError as exc:  # pragma: no cover
         raise ImportError("需要 faster-whisper:pip install faster-whisper") from exc
 
-    # int8 量化在 CPU 上是速度與記憶體的最佳解,對中文口播的準確度影響很小。
-    model = WhisperModel(model_size, device="cpu", compute_type="int8", cpu_threads=threads)
-
+    model = WhisperModel(MODEL, device="cpu", compute_type="int8", cpu_threads=threads)
     segments, _info = model.transcribe(
         str(path),
         language=language,
-        vad_filter=True,                 # 切掉非語音段,防配樂觸發幻覺
+        vad_filter=True,                   # 切掉非語音段,防配樂觸發幻覺
         condition_on_previous_text=False,  # 不讓前文影響後文,避免錯誤滾雪球
-        no_repeat_ngram_size=3,          # 壓制重複片語
+        no_repeat_ngram_size=3,            # 壓制重複片語
         beam_size=beam_size,
+        initial_prompt=prompt or None,
     )
     for seg in segments:
         text = seg.text.strip()
@@ -139,18 +196,15 @@ def detect_hallucination_loop(
     tail_lines: int = _LOOP_TAIL_LINES,
     threshold: int = _LOOP_THRESHOLD,
 ) -> str | None:
-    """偵測結尾是否出現幻覺迴圈。
-
-    Whisper 在長靜音或背景音樂處可能陷入「同一句重複數十行」的迴圈,
-    整篇逐字稿會因此報廢。這個檢查只看結尾,因為迴圈幾乎都發生在尾端。
+    """偵測結尾是否出現幻覺迴圈(同一句重複數十行,整篇逐字稿會報廢)。
 
     Args:
-        lines: 逐字稿的每一行(可含時間戳前綴,比較時不影響結果)。
-        tail_lines: 只檢查最後幾行。
+        lines: 逐字稿的每一行(不含時間戳最準)。
+        tail_lines: 只檢查最後幾行(迴圈幾乎都發生在尾端)。
         threshold: 同一行重複幾次以上就判定為迴圈。
 
     Returns:
-        判定為迴圈時回傳那句重複的文字,否則回傳 ``None``。
+        判定為迴圈時回傳那句重複的文字,否則 ``None``。
     """
     tail = [line.strip() for line in list(lines)[-tail_lines:] if line.strip()]
     if not tail:
@@ -160,46 +214,50 @@ def detect_hallucination_loop(
 
 
 def transcribe_to_file(
-    audio_path: str | Path,
+    source: str | Path,
     output_path: str | Path,
     *,
-    model_size: str = DEFAULT_MODEL,
-    language: str = "zh",
+    language: str | None = "zh",
+    prompt: str | None = None,
     threads: int = 6,
     with_timestamps: bool = True,
 ) -> int:
-    """轉錄並寫入純文字檔。
-
-    邊轉邊 flush,長影片中途中斷時已完成的部分仍會留在檔案裡。
+    """轉錄(本機檔或 YouTube 參照)並寫入逐行文字檔;邊轉邊 flush。
 
     Args:
-        audio_path: 音訊或影片檔路徑。
-        output_path: 輸出的 ``.txt`` 路徑,以 UTF-8、LF 換行寫入。
-        model_size: 模型代號。
-        language: 語言代碼。
+        source: 本機音訊/影片檔路徑,或 YouTube 影片 ID / 網址。
+        output_path: 輸出 ``.txt``,UTF-8、LF 換行。
+        language: 語言代碼,``None`` 自動偵測。
+        prompt: 詞表提示。
         threads: CPU 執行緒數。
-        with_timestamps: 是否在每行前面加 ``[MM:SS]`` 時間戳。
+        with_timestamps: 是否加 ``[m:ss]`` 前綴。
 
     Returns:
-        實際寫出的行數。
+        實際寫出的行數(segments 數)。
     """
     out = Path(output_path)
     out.parent.mkdir(parents=True, exist_ok=True)
-
-    lines: list[str] = []
-    with open(out, "w", encoding="utf-8", newline="\n") as fh:
-        for seg in transcribe(
-            audio_path, model_size=model_size, language=language, threads=threads
-        ):
-            line = f"{format_timestamp(seg.start)} {seg.text}" if with_timestamps else seg.text
-            fh.write(line + "\n")
-            fh.flush()  # 中途中斷也保住已完成的部分
-            lines.append(seg.text)
-
-    looped = detect_hallucination_loop(lines)
+    tmp: Path | None = None
+    try:
+        if isinstance(source, str) and is_youtube_ref(source):
+            tmp = Path(tempfile.mkdtemp(prefix="stt_"))
+            audio = download_audio(source, tmp)
+        else:
+            audio = Path(source)
+        texts: list[str] = []
+        with open(out, "w", encoding="utf-8", newline="\n") as fh:
+            for seg in transcribe(audio, language=language, prompt=prompt, threads=threads):
+                line = f"{format_timestamp(seg.start)} {seg.text}" if with_timestamps else seg.text
+                fh.write(line + "\n")
+                fh.flush()  # 中途中斷也保住已完成的部分
+                texts.append(seg.text)
+    finally:
+        if tmp is not None:
+            shutil.rmtree(tmp, ignore_errors=True)
+    looped = detect_hallucination_loop(texts)
     if looped:
         print(f"  ⚠️ 疑似幻覺迴圈,結尾重複:{looped[:40]}", file=sys.stderr)
-    return len(lines)
+    return len(texts)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -214,41 +272,41 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    parser.add_argument("inputs", nargs="+", help="音訊或影片檔(可多個)")
+    parser.add_argument("inputs", nargs="+", help="音訊/影片檔,或 YouTube 影片 ID / 網址(可多個)")
     parser.add_argument("-o", "--output", default=None, help="輸出檔;僅單一輸入時有效")
-    parser.add_argument("--outdir", default=None, help="輸出目錄;多檔輸入時使用")
-    parser.add_argument("--model", default=DEFAULT_MODEL, help=f"模型代號(預設 {DEFAULT_MODEL})")
-    parser.add_argument("--language", default="zh", help="語言代碼(預設 zh)")
+    parser.add_argument("--outdir", default=None, help="輸出目錄;多輸入時使用")
+    parser.add_argument("--language", default="zh", help="語言代碼(預設 zh;auto 自動偵測)")
+    parser.add_argument("--prompt", default=None, help="詞表提示(標題、說明欄、專有名詞)")
+    parser.add_argument("--prompt-file", default=None, help="從 UTF-8 檔讀詞表提示")
     parser.add_argument("--threads", type=int, default=6, help="CPU 執行緒數(預設 6)")
     parser.add_argument("--no-timestamps", action="store_true", help="不輸出時間戳")
     args = parser.parse_args(argv)
     _utf8_stdout()
 
+    prompt = args.prompt
+    if args.prompt_file:
+        prompt = Path(args.prompt_file).read_text(encoding="utf-8").strip()
+    language = None if args.language == "auto" else args.language
+
     failures = 0
     for raw in args.inputs:
-        src = Path(raw)
+        stem = raw if is_youtube_ref(raw) and "/" not in raw else Path(raw).stem
         if args.output and len(args.inputs) == 1:
             dest = Path(args.output)
         elif args.outdir:
-            dest = Path(args.outdir) / f"{src.stem}.txt"
+            dest = Path(args.outdir) / f"{stem}.txt"
         else:
-            dest = src.with_suffix(".txt")
-
-        print(f"轉錄 {src.name} -> {dest}", flush=True)
+            dest = Path(f"{stem}.txt") if is_youtube_ref(raw) else Path(raw).with_suffix(".txt")
+        print(f"轉錄 {raw} -> {dest}(模型 {MODEL})", flush=True)
         try:
             n = transcribe_to_file(
-                src,
-                dest,
-                model_size=args.model,
-                language=args.language,
-                threads=args.threads,
-                with_timestamps=not args.no_timestamps,
+                raw, dest, language=language, prompt=prompt,
+                threads=args.threads, with_timestamps=not args.no_timestamps,
             )
-            print(f"  完成,{n} 行", flush=True)
+            print(f"segments {n}", flush=True)
         except Exception as exc:  # noqa: BLE001 - 單檔失敗不該中斷整批
             failures += 1
             print(f"  失敗:{type(exc).__name__}: {exc}", file=sys.stderr, flush=True)
-
     return 1 if failures else 0
 
 
