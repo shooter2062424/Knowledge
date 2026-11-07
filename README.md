@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-423_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-424_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -188,7 +188,7 @@ flowchart LR
 | 來源 | 篇數 | 筆記 |
 |---|---|---|
 | **Addy Osmani(X / 部落格)** | 1 | [當 Agent 代勞時如何保持批判性思考:認知投降、驗證、意圖債](./knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md) |
-| **GitHub Weekly(IT咖啡馆「Github一周热点」)** | 35 | [第 99–134 期(整個 github-weekly 資料夾)](./knowledge/technology/github-weekly/) |
+| **GitHub Weekly(IT咖啡馆「Github一周热点」)** | 38 | [第 99–137 期(整個 github-weekly 資料夾)](./knowledge/technology/github-weekly/) |
 
 ---
 
@@ -714,6 +714,7 @@ flowchart LR
 ### 🗞️ github-weekly(GitHub 週報)
 | 期數 | 主題 |
 |---|---|
+| [第 137 期:DeepSeek Super Agent 原型、讓 Agent 操作桌面軟體(agent-desktop)、網站 SEO Skill(Claude SEO)、DeepSeek Harness 插件目錄與動漫角色自動分層(See-through)](./knowledge/technology/github-weekly/issue-137.md) | dsh-superagent / agent-desktop / Claude SEO / Awesome DSH Plugin / See-through |
 | [第 136 期:消費級顯卡跑 DeepSeek(Strata)、DeepSeek 推理框架(DeepInfer)、OpenCode 2.x、開源人形機器人平台(RP1)與 AI 姿勢參考圖庫中文版](./knowledge/technology/github-weekly/issue-136.md) | Strata / DeepInfer / OpenCode 2.x / RP1 / AI Pose Gallery |
 | [第 135 期:藝術家的 AI IDE(ArtCraft)、互動式技術圖解 Skill(Anatomy)、組織多個 Agent 的工具(OpenRig)、生成原生 PPT 的工作流(PPT Master)與復刻 QQ 寵物(QQPet)](./knowledge/technology/github-weekly/issue-135.md) | ArtCraft / Anatomy / OpenRig / PPT Master / QQPet |
 | [第 134 期:WebGPU 特效元件庫(Shaders)、PS5 遊戲移植到電腦(AnyPS5)、讓 Agent 逆向一切(REA)、提升 AI 前端設計的 Skill(Impeccable)與自架健身紀錄(openGym)](./knowledge/technology/github-weekly/issue-134.md) | Shaders / AnyPS5 / REA / Impeccable / openGym |

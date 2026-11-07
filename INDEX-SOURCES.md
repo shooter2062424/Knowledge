@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**486 個 YouTube video id**、**150 個 arXiv 編號**,涵蓋 **377 篇**筆記。
+> 統計:**488 個 YouTube video id**、**150 個 arXiv 編號**,涵蓋 **379 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(486 部,依 video id 排序)
+## YouTube(488 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -197,6 +197,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `F22wTQzVkI8` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `f4mI3d-nTrI` | MCP 無狀態化的維運視角:砍掉 Redis、恢復 round robin、伺服器能縮到零 | [knowledge/technology/ai-agents/foundations/mcp-stateless-deployment-ops-view.md](./knowledge/technology/ai-agents/foundations/mcp-stateless-deployment-ops-view.md) |
 | `F7oNfszczVc` | 再訪田淵棟:46.5 億美金估值的 RSI,押注「AI 自進化」與前沿實驗室的組織架構之爭 | [knowledge/technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md](./knowledge/technology/ai-industry/tian-yuandong-rsi-recursive-self-improvement.md) |
+| `fA7gNVUkkc8` | whisper.cpp vs faster-whisper:本機 CPU 轉錄 Benchmark(中英文速度與準確度) | [knowledge/technology/dev-tools/whisper-cpp-vs-faster-whisper-benchmark.md](./knowledge/technology/dev-tools/whisper-cpp-vs-faster-whisper-benchmark.md) |
 | `FESIfabbzy8` | 為什麼 Anthropic 工程師棄 Markdown 改用 HTML:當「理解」變成真正的瓶頸 | [knowledge/technology/ai-productivity/anthropic-html-work-pages.md](./knowledge/technology/ai-productivity/anthropic-html-work-pages.md) |
 | `FJxgz5pN4wU` | Pi Agent:用「留白」的極簡 harness,對沖 agent 框架的易變 | [knowledge/technology/ai-agents/foundations/pi-agent-minimal-harness.md](./knowledge/technology/ai-agents/foundations/pi-agent-minimal-harness.md) |
 | `fKoWrF49Qo8` | 川普第二任期的賺錢秘笈:從地產 IP 到加密貨幣 | [knowledge/investing/strategy/trump-second-term-income-sources-2025.md](./knowledge/investing/strategy/trump-second-term-income-sources-2025.md) |
@@ -369,6 +370,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `QQqUj0ZB2Ro` | VHS:把終端機操作寫成腳本,改一行就重新生成 GIF 和 MP4 | [knowledge/technology/dev-tools/vhs-terminal-recording-tape-script.md](./knowledge/technology/dev-tools/vhs-terminal-recording-tape-script.md) |
 | `QuQ2FOznK18` | Impeccable 深度解析:AI 做的網站為什麼有「AI 味」,以及一個 skill 怎麼把設計師流程教給 AI | [knowledge/technology/applied-ai/design/impeccable-frontend-design-skill-ai-slop.md](./knowledge/technology/applied-ai/design/impeccable-frontend-design-skill-ai-slop.md) |
 | `QwOUDPiBzfU` | 孫慶龍的「EPS × 本益比五檔價」估值法 + 護國群山、成長股複利 | [knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md](./knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md) |
+| `Qx4mrAfCs08` | 第 137 期:DeepSeek Super Agent 原型、讓 Agent 操作桌面軟體(agent-desktop)、網站 SEO Skill(Claude SEO)、DeepSeek Harness 插件目錄與動漫角色自動分層(See-through) | [knowledge/technology/github-weekly/issue-137.md](./knowledge/technology/github-weekly/issue-137.md) |
 | `qZOtyc6gWWI` | Claude Code 進階配置清單:先減上下文負擔,再減「停下來等你」(逐項對照官方文件) | [knowledge/technology/claude-code/claude-code-advanced-configs-context-and-interruptions-yaha.md](./knowledge/technology/claude-code/claude-code-advanced-configs-context-and-interruptions-yaha.md) |
 | `R1-j8TFlqCo` | 俄烏戰爭打了四年,到底誰在買單:兩國經濟的「內傷」與「外懸」 | [knowledge/investing/strategy/russia-ukraine-war-economy-who-pays.md](./knowledge/investing/strategy/russia-ukraine-war-economy-who-pays.md) |
 | `r1jHxwwg5tk` | REA:讓 Claude Code 帶著證據做逆向工程——分工、三類成品、四個案例與五個新手坑(YAHA學堂 + 原始碼) | [knowledge/technology/software-engineering/rea-ai-reverse-engineering-claude-code.md](./knowledge/technology/software-engineering/rea-ai-reverse-engineering-claude-code.md) |
