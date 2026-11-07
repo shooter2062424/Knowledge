@@ -77,7 +77,7 @@ scripts/      通用腳本,按功能分類
    - 新版 yt-dlp 抓字幕需 JS runtime,務必加上 `--js-runtimes node`(否則會誤報「has no automatic captions」)。
    - **真正的卡點變成「影片本身有沒有字幕」**:若影片未提供字幕也無自動字幕(`TranscriptsDisabled` / `has no automatic captions`),**先走第 6 步用 Whisper 轉錄**,不要直接退回「非逐字稿」。
 6. **影片完全沒有字幕時:下載音訊 + 跑 CPU 版 Whisper 轉錄(使用者指定的首選 fallback,2026-05 實測可行):**
-   - ⭐⭐ **語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID、網址或檔案> -o <輸出.txt> [--prompt "詞表"|--prompt-file f]`**(2026-11-08 使用者決定):引擎固定 faster-whisper `large-v3-turbo` int8、參數與 `[m:ss]` 輸出格式都在腳本裡,YouTube ID 會自動下載音訊並清暫存。**不要自己 inline 寫 `WhisperModel(...)`、不要換 `small`**;成敗看最後一行 `segments N`,一律前景執行。下文各處殘留的 inline 轉錄參數僅是歷史說明,以本腳本為準。
+   - ⭐⭐ **語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID、網址或檔案> -o <輸出.txt> [--prompt "詞表"|--prompt-file f]`**(2026-11-08 使用者決定):引擎固定 faster-whisper `large-v3-turbo` int8、參數與 `[m:ss]` 輸出格式都在腳本裡,YouTube ID 會自動下載音訊並清暫存。**不要自己 inline 寫 `WhisperModel(...)`、不要換 `small`**;成敗看最後一行 `segments N`,一律前景執行。下文各處殘留的 inline 轉錄參數僅是歷史說明,以本腳本為準。 ⚠️ **不要自己加 `no_repeat_ngram_size`**(2026-11-08 基準:中文會讓 turbo 的 CER 由約 4% 變 8%,重複詞被迫換字,例如「調查報告」→「調察報告」);腳本已移除,舊文件中提到此參數的配方一律作廢。
    - 本機已裝 `faster-whisper`(1.2.1)與 `PyAV`(av 16.x);**faster-whisper 透過 PyAV 解碼,可直接吃原始 `.mp4/.m4a/.webm`,不需系統 ffmpeg**(本機 ffmpeg 缺也沒關係)。
    - **下載音訊**:`yt-dlp --no-update --js-runtimes node --remote-components ejs:github -f "bestaudio/best" -o "audio.%(ext)s" <url>`。
      - **關鍵:`--remote-components ejs:github`**(JS challenge solver)。少了它,音訊資料下載常 `HTTP 403 Forbidden`(SABR-only 串流實驗)。

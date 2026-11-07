@@ -180,7 +180,9 @@ def transcribe(
         language=language,
         vad_filter=True,                   # 切掉非語音段,防配樂觸發幻覺
         condition_on_previous_text=False,  # 不讓前文影響後文,避免錯誤滾雪球
-        no_repeat_ngram_size=3,            # 壓制重複片語
+        # ⚠️ 不要設 no_repeat_ngram_size:中文 token 很細,它會禁止重複的詞(第二次出現的「調查報告」
+        # 被迫寫成「調察」「談查」),實測 CER 8% → 4%(2026-11-08 基準,fA7gNVUkkc8)。
+        # 幻覺迴圈改靠 VAD + condition_on_previous_text=False,並由結尾偵測警告。
         beam_size=beam_size,
         initial_prompt=prompt or None,
     )
