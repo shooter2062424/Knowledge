@@ -25,13 +25,13 @@
 
 | # | 排程 | cron | 說明 |
 |---|---|---|---|
-| 1 | GitHub Weekly 週報 | `33 6 * * *`(每日 06:33) | 撈 itcoffee66/githubweekly 最新一期 |
-| 2 | Gary Chen 頻道 | `10 7 * * *`(每日 07:10) | Gary Chen 新影片(**用 channel ID,不用 handle**) |
-| 3 | ~~gooaye 記憶更新~~ | ⛔ **2026-10-20 停用** | 使用者決定不再更新(上游停更且使用者已不再看);**重建時跳過,不要再建** |
-| 4 | 美投君 頻道 | `50 7 * * *`(每日 07:50) | @MeiTouJun 新影片(無字幕→Whisper) |
-| 5 | 未涵蓋頻道巡檢 | `12 8 * * *`(每日 08:12) | Why QQ / Caleb / YAHA學堂 / 白白说大模型 / 小Lin说 / Redknot-乔红 / Nick 美股咖啡館 / 轩辕的编程宇宙 |
-| 6 | ⭐ `new/` 收件匣 | `37 8 * * *`(每日 08:37) | 使用者丟進 `new/` 的大檔素材,整理完改名 `done-`(2026-09-29 新增) |
+| A | ⭐ **YouTube 來源總巡檢**(2026-11-07 合併) | `3 7 * * *`(每日 07:03) | 一個排程查 11 個來源:IT咖啡馆 GitHub Weekly、Gary Chen、美投君(核心三,細則在第 1/2/4 節)+ 八個巡檢頻道(第 5 節) |
+| B | ⭐ `new/` 收件匣 | `37 8 * * *`(每日 08:37) | **一個子資料夾 = 一批 = 一個 task**,整批處理完改名 `done-`,並登記於 `INBOX-LOG.md` |
+| — | ~~gooaye 記憶更新~~ | ⛔ 2026-10-20 停用 | 重建時跳過,不要再建 |
 
+> 第 1、2、4 節原為獨立排程,2026-11-07 起**併入 A**:不再單獨建 cron,但各節 prompt 仍是 A 的作業細則(A 的 prompt 開跑前會先讀)。
+
+**2026-11-07 合併重建(使用者要求):原 1/2/4/5 四個排程併為 A「YouTube 來源總巡檢」`66762e2b`(07:03);`new/` 收件匣改規則重建為 B `66c28dfa`(08:37);舊巡檢 `c830c233` 已刪。約 11-14 到期。**
 **2026-11-03 局部重建:巡檢排程(⑤)因使用者要求加入「轩辕的编程宇宙」改為八個頻道,舊 `d7df861d` 刪除,新 job id `c830c233`(08:12;其餘四個不變,約 11-04 到期,屆時整批重建)。**
 **最近一次重建:2026-10-28(使用者要求「重建一下」;gooaye 停用不再建,其餘五個全刪重建,到期日統一約 11-04)。** job id:①GitHub Weekly `f1cb9681` ②Gary Chen `44aadf36` ④美投君 `90610a0e` ⑤巡檢 `d7df861d` ⑥`new/` 收件匣 `ce69a81b`。
 本 session job id:①`933e4954`(GitHub Weekly 06:33) ②`fc522f3e`(Gary Chen 07:10) ④`327cd9c9`(美投君 07:50) ⑤`0834d5c8`(巡檢 08:12) ⑥`8835b076`(`new/` 收件匣 08:37)。③ gooaye 已停用。
@@ -242,7 +242,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 
 ---
 
-## 1. GitHub Weekly 週報整理(每日 06:33 / `33 6 * * *`)
+## 1. GitHub Weekly 週報整理(細則;2026-11-07 起併入排程 A)
 
 ```text
 每日 GitHub Weekly 週報整理任務。⚠️ Knowledge repo 已於 2026-08-30 重整:筆記在 knowledge/、腳本在 scripts/。步驟:
@@ -268,7 +268,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 ---
 
-## 2. Gary Chen 頻道(每日 07:10 / `10 7 * * *`)
+## 2. Gary Chen 頻道(細則;2026-11-07 起併入排程 A)
 
 > ⚠️⚠️ **2026-09-06:handle 從 `@garytalksstuff` 改成 `@garychenai`,舊 handle 直接 404。**
 > **本排程已改用 channel ID `UC9C3t-3ocL0LiwGRD0gBJ8A`**,不受日後再改名影響。詳見共通踩坑。
@@ -333,7 +333,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 ---
 
-## 4. 美投君 / 美投讲美股 頻道(每日 07:50 / `50 7 * * *`)
+## 4. 美投君 / 美投讲美股 頻道(細則;2026-11-07 起併入排程 A)
 
 > ⚠️ 該頻道影片**幾乎都無字幕**、多為 20+ 分鐘,基本上每支都要走 Whisper。
 
@@ -368,12 +368,36 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 ---
 
-## 5. 未涵蓋頻道每日巡檢(每日 08:12 / `12 8 * * *`)
+## 5. YouTube 來源總巡檢(排程 A,每日 07:03 / `3 7 * * *`;含八個巡檢頻道細則)
 
 > 2026-09-01 新增,同日首次執行後依實測結果修訂。緣由:盤點發現 README 作者索引共 **49 位,
 > 先前僅 3 位有排程涵蓋**,pi agent / MCP / Codex / CS336 等內容都得靠手動丟連結補。
 
-### prompt 原文(2026-09-28 同步自實際運作版本)
+### 排程 A 實際 prompt(2026-11-07 合併版;細則見第 1、2、4 節與下方八頻道版)
+
+```text
+每日巡檢 Knowledge repo 的 11 個 YouTube 來源,把新影片整理成繁中筆記。⚠️ Knowledge repo 筆記在 knowledge/、腳本在 scripts/。
+⭐ 完整規則的唯一來源是 C:\Users\shoot\project\Knowledge\SCHEDULES.md:開跑前先 Read 第 5 節(含頻道清單與共通規則),再依來源讀第 1(IT咖啡馆 GitHub Weekly)、2(Gary Chen)、4(美投君)節的細則;各節 code block 內的步驟就是本任務的作業流程,照做。
+來源分兩組(一律用 channel ID,不用 handle;回報時用頻道中文名):
+A 核心三來源,有新的就全部處理、不受 2–3 篇上限:① IT咖啡馆 GitHub Weekly(UCXLV-KfDQAFUJ_as9H1Lfbw,第 1 節)② Gary Chen(UC9C3t-3ocL0LiwGRD0gBJ8A,第 2 節)③ 美投君/美投讲美股(UCBUH38E0ngqvmTqdchWunwQ,第 4 節,幾乎每支都要 Whisper)。
+B 其餘八頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模型、小Lin说、Redknot-乔红、Nick 美股咖啡館、轩辕的编程宇宙(清單與 ID 見第 5 節;規則照第 5 節,含「每次最多 2–3 篇、先增補既有筆記」)。
+全域上限:整次 Whisper 最多 2 支(A 組美投君 1 + B 組 1);其餘順延到隔天,並記入第 5 節存量。
+共通鐵則:
+- 去重:grep -rlF --include=*.md -- "<id>" knowledge/ (範圍必須是 knowledge/,不可用 .)。
+- 同主題先 grep 既有筆記,能增補就增補(檔名不動,編號章節)。
+- 數字、規格、論文、repo 一律讀一手來源內文再標「已核實/需修正/未能核實」;有 repo 就 git clone --depth 1 讀完刪除。只看搜尋摘要不算核實。
+- 影片時間點只能來自帶時間逐字稿(scripts/youtube/transcript_tools.py find),不寫「約 X:XX」;專有名詞可疑處截圖核對(流程見 CLAUDE.md「影片筆記的時間、畫面、延伸校正流程」)。
+- 若派 subagent 幫忙審稿或查證:指示裡必須要求它先讀完一手來源內文才可寫「已核實」,讀不到就寫「未能核實」並說明原因。
+- 投資類標⚠️非投資建議;作者業配/聯盟/自家產品要在檔頭標明;Mermaid 節點用 ["..."] 並跑 python scripts/knowledge/lint_mermaid.py;[[wikilink]] 先確認目標存在。
+- 每個來源各自 commit(訊息標頻道名),更新 README 表格與 badge、作者索引、python scripts/knowledge/build_source_index.py;精準 git add 不用 -A;push 遇 LFS locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push;用 git rev-parse HEAD origin/main 判斷成敗。.claude/scheduled_tasks.lock 絕不 commit。
+- 完成後更新 SCHEDULES.md 第 5 節存量清單與「變更歷程」最上方一列,與筆記同 commit。
+⚠️ commit 訊息結尾要加:
+Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
+無新片只回報、不空 commit。回報列出各頻道(中文名)新增/略過/順延哪些影片,以及各頻道剩餘存量。(session-only 每日排程,7 天後自動到期,到期前請依 SCHEDULES.md 重建;完整規則備份在 SCHEDULES.md。)
+```
+
+### 八頻道細則(排程 A 的 B 組作業流程;2026-09-28 版,持續更新)
 
 ```text
 每日巡檢八個「有累積但沒有專屬排程」的頻道,把新影片整理進 Knowledge。⚠️ Knowledge repo 已於 2026-08-30 重整:筆記在 knowledge/、腳本在 scripts/。
@@ -530,7 +554,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 ---
 
-## 6. `new/` 收件匣巡檢(每日 08:37 / `37 8 * * *`,2026-09-29 新增)
+## 6. `new/` 收件匣巡檢(排程 B,每日 08:37 / `37 8 * * *`;2026-11-07 改為「資料夾 = 一批」)
 
 > 緣由:使用者要求「建立 `new/` 資料夾,有新東西(例如太大的檔案)就放這裡,定時來搜尋;整理完把資料夾加上 `done-` 前綴,下次就不會再處理」。
 > - `new/` 已加入 `.gitignore`,**素材本身永不進版控**,只有整理出的筆記進 repo。
@@ -538,22 +562,23 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 > - 本 session job id:`6e7a39b5`。
 
 ```text
-每日巡檢 Knowledge repo 的 `new/` 收件匣資料夾,把使用者丟進來的素材整理成筆記。⚠️ Knowledge repo 已於 2026-08-30 重整:筆記在 knowledge/、腳本在 scripts/。
-背景:使用者會把「太大、不方便直接貼」的素材(影片、音檔、PDF、簡報、圖片、文字檔等)各放一個子資料夾到 C:\Users\shoot\project\Knowledge\new\ 底下。**處理完的子資料夾要改名加上 `done-` 前綴,下次就不再處理。**
+每日巡檢 Knowledge repo 的 `new/` 收件匣,把使用者丟進來的素材整理成筆記。⚠️ 筆記在 knowledge/、腳本在 scripts/。
+核心規則(使用者 2026-11-07 確認):**一個子資料夾 = 一批 = 一個 task**。使用者會把同一批素材集中放進一個資料夾,方便日後回溯「這批是哪來的」。資料夾內可能有多種內容(PDF、zip、影片、圖片、文字…),由你判斷怎麼分門別類,**但整個資料夾一起處理完**,不拆成多天、不只挑幾個檔。處理完的資料夾改名加 `done-` 前綴,下次就不再處理。
 步驟:
-1. 列出 new/ 底下**名稱不以 `done-` 開頭**的子資料夾:`ls -1 new/ | grep -v '^done-'`。沒有就只回報「收件匣無新素材」,不 commit。
-2. 逐一檢查每個子資料夾的檔案(類型、大小、長度):影片/音檔用 PyAV 看長度與音軌;PDF 用 Read(pages 參數,每次最多 20 頁);圖片直接 Read;文字/Markdown 直接讀。⚠️ 檔名常含原作者與標題線索(例如 `Callan_-_Andrej_Karpathy_...`),據此用 WebSearch 找出原始出處網址,放進筆記「來源」。
-3. 影片/音檔轉錄:faster-whisper(WhisperModel('small', device='cpu', compute_type='int8', cpu_threads=6),transcribe(path, language=None 自動偵測, vad_filter=True, condition_on_previous_text=False, no_repeat_ngram_size=3, beam_size=5)),**可直接吃 mp4/m4a/webm,不需 ffmpeg**。segment 逐行寫暫存 .txt(帶 [分:秒] 時間戳、每行 flush)再 Read(大檔分段讀)。
-   ⚠️⚠️ **Whisper 一律用「前景」跑,不要用 `nohup ... &` 背景跑**(背景 shell 環境不完整,torch/numpy import 會失敗)。長片前景超過 600s 會自動轉背景,等完成通知即可;期間可 Read 暫存 .txt 看進度。stderr 的 `_ARRAY_API not found` UserWarning 只是警告。轉完掃結尾有無同句重複數十行(幻覺迴圈)。實測參考:129 分鐘英文影片約 40 分鐘轉完。
-4. 依 CLAUDE.md 寫作規範整理繁中筆記(含應用案例、Mermaid、結尾**完整網址**來源),歸三層結構最貼切中類;同主題已有筆記就優先增補(先 `grep -rl "<關鍵字>" knowledge/` 確認)。⭐ 可查證的規格/數字/論文/repo 一律比對一手來源核實並標出補正;講到開源 repo 就 `git clone --depth 1` 到暫存讀原始碼(讀完刪除)。來源區塊標註「使用者提供的本機檔案 `new/<資料夾>/<檔名>`」,若為轉錄則註明「逐字稿以 CPU faster-whisper 轉錄、非官方字幕」。投資類加⚠️非投資建議;作者推廣自家產品/業配要在檔頭標明立場。產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案>(節點一律方括號 `["文字"]`)。寫 `[[wikilink]]` 前先 `find knowledge -name "<slug>.md"` 確認存在。
-5. ⚠️⚠️ **`new/` 已列入 .gitignore,素材本身絕對不進版控**;不要把大檔複製到 knowledge/ 或任何被追蹤的路徑。
-6. 更新 README 主題表格、筆記數 badge、對應作者索引(兩處都要),跑 python scripts/knowledge/build_source_index.py。無 BOM UTF-8 暫存檔(.git/COMMIT_MSG_TMP,printf '%s')commit([feat] 前綴,訊息寫明來源為 new/ 收件匣)、git push -q origin main。⚠️ 精準 git add <檔案>,不要 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試;用 git rev-parse HEAD 與 origin/main 比對判斷 push 成敗。
-7. **筆記 commit 並 push 成功後**,才把該子資料夾改名:`mv "new/<名稱>" "new/done-<名稱>"`。處理失敗(轉錄失敗、檔案損毀、看不懂格式)就**不要改名**,在回報中說明原因,留待下次或請使用者協助。
-8. 清暫存(逐字稿 .txt、clone)。在 SCHEDULES.md「變更歷程」表最上方插入當日一列(記錄處理了哪個資料夾、產出哪篇筆記),與筆記同一個 commit。
+1. 列出 new/ 底下名稱不以 `done-` 開頭的子資料夾:ls -1 new/ | grep -v '^done-'。沒有就只回報「收件匣無新素材」,不 commit。一次只處理一個資料夾(多個就依資料夾修改時間由舊到新,處理完一個再下一個)。
+2. 盤點整個資料夾:每個檔的類型、大小、頁數/長度。影片/音檔用 PyAV 看長度與音軌;PDF 用 Read(pages 參數,每次最多 20 頁);圖片直接 Read;文字/Markdown 直接讀;.zip 解到 %TEMP% 下全新空目錄,讀完刪除(只整理重點,程式碼不放進 repo)。檔名常含作者與標題線索,用 WebSearch 找原始出處網址放進「來源」。**每個檔都要真的讀內文**(PDF 不能只看標題或第一頁);讀不了(損毀、加密、掃描圖檔無文字)就記下檔名與原因。
+3. 影片/音檔轉錄:一般中文用 SenseVoice-Small(隔離 numpy,見 CLAUDE.md),中英夾雜/英文用 faster-whisper large-v3-turbo int8 + initial_prompt(WhisperModel('large-v3-turbo', device='cpu', compute_type='int8', cpu_threads=6),transcribe(vad_filter=True, condition_on_previous_text=False, no_repeat_ngram_size=3, beam_size=5)),可直接吃 mp4/m4a/webm。逐行帶 [m:ss] 寫暫存 .txt 再 Read。⚠️ Whisper 一律「前景」跑,不要 nohup 背景;stderr 的 `_ARRAY_API not found` 只是警告,看最後 segment 行數判斷成敗;轉完掃結尾有無同句重複(幻覺迴圈)。
+4. 分門別類與比對既有筆記:把整個資料夾的內容依主題歸類(例如 5 份 ML 演算法 PDF 併成一篇、各職涯路線圖併成一篇)。**每個主題動筆前先 grep -rl "<關鍵字>" knowledge/ 比對既有筆記**:主題相近就增補編號章節到既有筆記(檔名不動,檔頭與來源同時列出),沒有才新建。素材內容重複的檔案在筆記裡合併敘述並註明。
+5. 依 CLAUDE.md 寫作規範整理繁中筆記(應用案例、Mermaid 用 ["..."] 並跑 python scripts/knowledge/lint_mermaid.py、結尾**完整網址**來源,歸三層結構最貼切中類)。可查證的規格/數字/論文/repo 讀一手來源內文後標「已核實/需修正/未能核實」;開源 repo 就 git clone --depth 1 讀原始碼(讀完刪除)。**來源區塊必須寫明批次**:「使用者提供的本機素材批次 `new/<資料夾名>/`(<日期>收件),檔案:<檔名清單或數量>」;轉錄註明引擎、非官方字幕。投資類加⚠️非投資建議;作者推廣自家產品要在檔頭標明。寫 [[wikilink]] 前先 find knowledge -name "<slug>.md" 確認存在。若派 subagent 協助:指示裡必須要求它先讀完素材內文才可歸納,讀不到要明說,不可只憑檔名或標題寫內容。
+6. ⚠️⚠️ new/ 已在 .gitignore,素材絕不進版控;不要把大檔複製到被追蹤的路徑。
+7. **在 INBOX-LOG.md 新增一列**(日期、批次資料夾名、檔案數與類型、產出/增補了哪些筆記路徑、未能讀取的檔)。這是使用者回溯批次的帳本,必須與筆記同一個 commit。
+8. 更新 README 主題表格、badge、作者索引(兩處),跑 python scripts/knowledge/build_source_index.py。commit 訊息([feat] 前綴)寫明「new/ 收件匣批次 <資料夾名>」,精準 git add 不用 -A;push 遇 LFS locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push;用 git rev-parse HEAD origin/main 判斷成敗。
+9. commit 並 push 成功後,才 mv "new/<名稱>" "new/done-<名稱>"。若有檔案讀不了:其餘照常整理、INBOX-LOG 註明,資料夾仍改名 done-,但在回報中明確列出讀不了的檔與原因請使用者處理;若整批失敗(例如轉錄全部失敗)就不改名。
+10. 清暫存(逐字稿、clone、解壓目錄),並在 SCHEDULES.md「變更歷程」最上方加一列(同一 commit)。
 ⚠️ commit 訊息結尾要加:
 Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
-沒有新素材就只回報、不空 commit。回報處理了哪些資料夾、產出哪些筆記、改名結果。(session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md 第 6 節。)
+沒有新素材就只回報、不空 commit。回報處理了哪個批次、產出哪些筆記、哪些檔讀不了、改名結果。(session-only 每日排程,7 天後自動到期,到期前請依 SCHEDULES.md 重建;完整 prompt 備份在 SCHEDULES.md 第 6 節。)
 ```
 
 ---
@@ -562,6 +587,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-11-07(合併重建) | **使用者要求**:①排程 1/2/4 併入 5,合為 A「YouTube 來源總巡檢」`66762e2b`(07:03,查 11 個來源;gooaye 仍停用);②`new/` 收件匣重建為 B `66c28dfa`(08:37),規則改為**一個子資料夾=一批=一個 task**,整批處理、依內容分門別類、先比對既有筆記能合併就增補,來源註明批次,並新增 `INBOX-LOG.md` 帳本供回溯;③舊巡檢 `c830c233` 刪除。起因:發現 11-04 到期後只剩巡檢一個排程,`new/ai-guide/`(30 個檔、48 MB)無人處理。 |
 | 2026-11-08(巡檢) | 巡檢併入 1 篇(Whisper 1 支):**YAHA學堂** `8tmDJ9ZuFc8` → 增補 Grok Bot 筆記 §8;新存量 YAHA 2、白白 1、Nick 1(見第 5 節)。同日 Haiku 批次審閱 47 篇完成(`deepseek-v4-engineering` 因 Haiku 拒答待處理);`transcript_tools.py` 取代 `約 X:XX` 時間 |
 | 2026-11-06(巡檢) | **存量清空**(使用者:「各個頻道沒有歸檔的都要完成」):八頻道 67 支存量 + 新片 Why QQ `CghXuvlAhD0`、白白 `nuEYDFfDnOI` 全部整理,新建 30 篇(含使用者提供的 LLM-SLM-LRM-VLM 資訊圖)、追加既有筆記約 20 篇(含新中類 career/ai-transition、career/creator-business、technology/hardware)。方法:字幕遇 HTTP 429 全面改 Whisper(faster-whisper small/int8),subagent 分頻道寫筆記、主 session 統一 README/索引/commit。巡檢 cron 的 prompt 本身未變更,**`c830c233` 約 2026-11-10 到期須重建**。 |
 | 2026-11-05(巡檢) | 巡檢產出 1 新篇(零 Whisper):**Why QQ** `B7I0HBXbty8` → 新篇 llm-internals/architecture/tokenizer-tax-chinese-vs-english-token-cost.md(CLEAR 數字對照二手整理、tiktoken 實測 13;Token Bench 與蒙古語數字未能核實)。新存量:**白白说大模型** `nuEYDFfDnOI`(MCP / Skill / 本地 Tools 區別,14.5 分,無字幕需 Whisper;動筆前先 grep 既有 MCP/Skill 筆記)。Caleb `77hHgDkbtLI` 本輪未重試(留待下輪)。 |
