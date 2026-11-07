@@ -656,7 +656,7 @@ flowchart TB
 
 | 倉庫 | 數字 | 條件 |
 |---|---|---|
-| **DeepGEMM-Ascend** | **BF16 431 / 理論峰值 432 TFLOPS ≈ 99.8%;FP8 861/865 ≈ 99.5%;FP4 170/173 ≈ 98.3%** | 950DT + CANN 9.2 |
+| **DeepGEMM-Ascend** | **BF16 431 / 理論峰值 432 TFLOPS ≈ 99.8%;FP8 861/865 ≈ 99.5%;FP4 1701/1730 ≈ 98.3%**(⚠️ 舊版誤寫 170/173,以 README 表格為準)** | 950DT + CANN 9.2 |
 | ⭐ **FlashMLA(昇騰)** | **Prefill 410 TFLOPS(理論峰值 95%)、Decode 360 TFLOPS(83%)** | 針對 DeepSeek V4.1 的 DSA 稀疏注意力推理 |
 | ⭐⭐ **DeepEP(昇騰 EP 通信)** | **EP8 dispatch 373–375 GB/s、EP32 335–340 GB/s、EP128 313–320 GB/s**;官方口徑 EP32 以內達物理頻寬 90–95% | 不含最後 epilog 開銷;combine 在更大 EP 規模下仍在優化 |
 | **DeepSelect** | **TopK 比原生 PyTorch 快約 10–20 倍** | 目前只支援 BF16、索引 int32、topk 上限 4096 |
@@ -664,7 +664,7 @@ flowchart TB
 #### V16.3 ⚠️ 明確的邊界(訓練仍落後推理)
 
 - **MegaMoE(DeepGEMM-Ascend 裡的融合 kernel,把 EP dispatch、專家分組矩陣乘、SwiGLU、matmul、combine 融進一個 kernel)目前只支援 FP8×FP4+SwiGLU 這一條路徑** —— 是針對 DeepSeek 自家 workload 的極致方案,不是通用解。
-- **FlashMLA 昇騰後端目前只公開 forward**(支撐 V4.1 推理的 prefill/decode),**反向傳播(backward)尚未開源**;`sparse_decode.cpp` 裡 `enable_split_kv=force` 旁的註解寫著「昇騰尚未支援 split KV」—— CUDA 分支與昇騰分支在同一個檔案裡用紅線分得清楚。
+- **FlashMLA 昇騰後端目前只公開 forward**(支撐 V4.1 推理的 prefill/decode),**反向傳播(backward)尚未開源**;`csrc/api/sparse_decode.cpp` 用 `#ifdef FLASH_MLA_IS_BUILD_ON_ASCEND` 切開兩條路:昇騰側是 `bool enable_split_kv = false;   // Ascend does not support split-KV`,CUDA 側才依條件算出是否啟用 —— ⚠️ **影片口述「`enable_split_kv=force`」與原始碼不符,實為直接寫死 `false`**(已 clone 核對,見 V16.6)。
 - **DeepEP(昇騰)的 `reduce_scatter` 與 `all_reduce` 尚未實現**;ongoing 清單還有 load-balance prefetch、weights/grad 的 reduce、PP 與 N-gram 標為 experimental、graph capture 標為 unsupported ——**MoE 的 EP 前向/反向主路徑已可跑通,但更廣泛的分布式訓練通信站還在施工。**
 - ⚠️ **這批 benchmark 用的是 950DT + CANN 9.2 + DeepSeek 拿到的 POC 版 HDK,需手動配置,尚未公開發行**;Huawei 建議等 Atlas 850e 的 Q3 商用 HDK(原訂約 10 月中旬,以廠商公告為準)——**代碼今天能 clone,但 README 的極限頻寬數字今天未必重現得出來。**
 
@@ -688,12 +688,29 @@ flowchart TB
 | **這批優化綁定華為昇騰 950 supernode,CANN 相容 CUDA 約 95%、剩餘 5%(稀疏注意力/通信/低精度量化)需手動對齊** | **方向屬實**(第三方技術拆解文章證實) |
 | **推理在昇騰上已接近生產可用,完整訓練棧仍落後、CUDA 仍主導訓練** | **方向屬實**,與多篇報導的「inference production-ready, training remains CUDA-dominant」一致 |
 
-##### ⚠️ 未能獨立查證(以影片口述轉述看待,本文未直接開啟對應 repo 的 README/benchmark 原始數據)
+##### ⚠️ 未能獨立查證(此段為 2026-11 舊版;2026-11-08 已 clone 七倉庫逐項核對,結果見下方 V16.6,以 V16.6 為準)
 
 - **DeepGEMM-Ascend 的 99.8% / 99.5% / 98.3% 這三組精確數字、FlashMLA 的 410/360 TFLOPS 與 95%/83%、DeepEP 的 373–375 / 335–340 / 313–320 GB/s、DeepSelect 的 10–20 倍 TopK 加速** —— ⚠️ **第三方報導證實「Huawei 自家 kernel 跑到 99.7% GEMM 理論峰值」這類量級的說法存在,但本文未逐一比對 DeepSeek 各 repo 的原始 benchmark 數字,請視為影片轉述。**
 - **MegaMoE 融合 kernel 的具體機制、`sparse_decode.cpp` 裡 `enable_split_kv=force` 的註解原文** —— **未直接開啟原始碼核對,以影片轉述看待。**
 - **Atlas 850e 商用 HDK 的 10 月中旬時間表** —— **未查得華為官方公告原文確認具體日期。**
 - **「七個項目」的計數**(影片口述含 DeepJIT 共七個,第三方媒體多數只計六個新 kernel 倉庫,原因是 DeepJIT 並非當天全新發布,而是既有、同批被提及的共用 runtime)——**講者說「七個項目」經使用者 2026-11-07 聽原片確認;七項正式名稱(使用者填答):DeepGEMM-Ascend、FlashMLA、TileKernels、DeepSelect、DeepEP-Ascend、DeepJIT、TileLang 950 Backend。提醒讀者多數報導只算六個「新倉庫」。**
+
+##### V16.6 ⭐⭐⭐ 2026-11-08 直接讀原始碼核實(clone `deepseek-ai/` 七個倉庫 main 分支,讀完已刪除)
+
+| 項目 | 核實結果 | 出處 |
+|---|---|---|
+| DeepGEMM-Ascend 三組效率 | ✅ **屬實**:BF16 431/432 = 99.8%、FP8 861/865 = 99.5%、**FP4 1701/1730 = 98.3%**(⚠️ 本文舊版「170/173」少一位,已更正);條件為 950DT + CANN 9.20、`bench_msprof` cold L2、單一 shape 4096×7168×16384 | https://github.com/deepseek-ai/DeepGEMM-Ascend |
+| FlashMLA 410 / 360 TFLOPS | ✅ **屬實**:README 寫 prefill 最高 410 TFLOPS(95% 理論峰值)、decode 360 TFLOPS(83%),2026-09-30 發布,需 CANN 9.2.0+;另 Dense MHA(含 forward/backward)寫明 **「currently supports CUDA only; Ascend is not supported」** —— 印證「昇騰只有稀疏注意力推理路徑」 | https://github.com/deepseek-ai/FlashMLA |
+| split-KV | ⚠️ **需修正**:原始碼是 `bool enable_split_kv = false; // Ascend does not support split-KV`,不是影片說的 `=force`;結論「昇騰沒開 split-KV」仍成立 | `csrc/api/sparse_decode.cpp` 約 221 行 |
+| DeepEP 昇騰:**獨立倉庫 `DeepEP-Ascend`** | ✅ EP8 dispatch 373–375、EP32 335–340、EP128 313–320 GB/s(README 表格另有 combine:EP8 345–347、EP32 320–324、EP128 272–278);dispatch 在 EP ≤ 32 約達物理頻寬 90–95%;條件為 950DT + CANN 9.2.0 + 手動設定的 PoC HDK;**驗證堆疊僅限 950DT,其他昇騰世代/CANN 版本未驗證** | https://github.com/deepseek-ai/DeepEP-Ascend(最後 commit 2026-11-03) |
+| DeepEP 昇騰的缺口 | ✅ `csrc/buffers/bucket.hpp`:`BucketBuffer::reduce_scatter` / `all_reduce` 皆 `EP_HOST_UNREACHABLE("… is not implemented on Ascend")`;README「Ongoing」:`lb_prefetch_weights`、`lb_reduce_grads` 尚未實作;PP / Engram / Bucket 標 experimental;hybrid 通信、CPU-backed Engram、graph capture 不支援 | 同上 |
+| Atlas 850E 商用 HDK | ✅ README:**計畫 2026-10 中旬(約 10/15)** 經華為 Atlas 850E 軟體下載頁開放申請,日期為廠商計畫。⚠️ 今天(11-08)已過該日,**未查證是否如期釋出**,頻寬數字的外部重現仍是未決驗證點 | `DeepEP-Ascend/README.md` §Recommended HDK |
+| TileKernels | ✅ README:「dozens of … kernels」基於 TileLang;含 Engram gating(fused RMSNorm、forward/backward、權重梯度歸約)、`mhc/`(Manifold HyperConnection)、`modeling/`(Engram 的 autograd 包裝);印證影片「Engram 含 forward/backward」 | https://github.com/deepseek-ai/TileKernels |
+| MegaMoE | ✅ 存在於 DeepGEMM-Ascend(「fuses EP dispatch, two grouped GEMMs, SwiGLU, and combine」),README 給 EP8、top-k=6、384 專家、16384 tokens 時約 831–846 TFLOPS。**「只支援 FP8×FP4+SwiGLU」本次未能在 README 逐字找到,仍屬影片口述** | `DeepGEMM-Ascend/README.md` §MegaMoE |
+| DeepSelect「快 10–20 倍」 | ⚠️ **未能核實**:README 只有 CUDA/Ascend 對 `torch.topk` 的**圖表**(bf16、topk=512),沒有文字倍數;`topk ≤ 4096` 限制 ✅ 屬實(主要針對 topk=512,即 V4 的 topk);倍數須看圖,本文不背書 | https://github.com/deepseek-ai/DeepSelect |
+
+> ⭐ **這次核實的意義**:影片(Why QQ)的數字與限制絕大多數與 README 一致,說明講者「真的翻過 README 和原碼」;唯二瑕疵是 split-KV 的字面(`force` vs `false`)與 DeepSelect 倍數無文字佐證。**DeepEP 昇騰是獨立倉庫 `DeepEP-Ascend`**,V16.1 流程圖把它畫成「DeepEP(昇騰後端)」,指的是這個倉庫,不是 `DeepEP` 主庫的後端。
+> ⏱️ 影片出處時間(逐字稿 `[m:ss]`,連結已提前 10 秒):FP4/FP8/BF16 三組數字 [2:13]–[2:24]、split-KV 註解 [5:23]–[5:27](目標句 [5:25])、DeepEP 頻寬 [6:46]–[6:53]、HDK 計畫 [7:33]–[7:37]、缺口 [7:59]–[8:16]。例:https://www.youtube.com/watch?v=nwI-Lg8Lk4w&t=315s(split-KV 段)。
 
 📎 **與 V9(DeepJIT)、V15(single-pass mHC 的 GPU 記憶體階層問題)連起來看:
 DeepSeek 在 CUDA 與昇騰兩邊都在做「把手伸進手動流水線」這件同一類工程 —— V15 處理的是 GPU 的 HBM/L2/暫存器落差,
