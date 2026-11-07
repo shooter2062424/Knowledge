@@ -31,7 +31,7 @@
 
 > 第 1、2、4 節原為獨立排程,2026-11-07 起**併入 A**:不再單獨建 cron,但各節 prompt 仍是 A 的作業細則(A 的 prompt 開跑前會先讀)。
 
-**2026-11-07 合併重建(使用者要求):原 1/2/4/5 四個排程併為 A「YouTube 來源總巡檢」`66762e2b`(07:03);`new/` 收件匣改規則重建為 B `66c28dfa`(08:37);舊巡檢 `c830c233` 已刪。約 11-14 到期。**
+**2026-11-07 合併重建(使用者要求):原 1/2/4/5 四個排程併為 A「YouTube 來源總巡檢」`66762e2b`(07:03);`new/` 收件匣改規則重建為 B `1fda5ef7`(08:37);舊巡檢 `c830c233` 已刪。約 11-14 到期。**
 **2026-11-03 局部重建:巡檢排程(⑤)因使用者要求加入「轩辕的编程宇宙」改為八個頻道,舊 `d7df861d` 刪除,新 job id `c830c233`(08:12;其餘四個不變,約 11-04 到期,屆時整批重建)。**
 **最近一次重建:2026-10-28(使用者要求「重建一下」;gooaye 停用不再建,其餘五個全刪重建,到期日統一約 11-04)。** job id:①GitHub Weekly `f1cb9681` ②Gary Chen `44aadf36` ④美投君 `90610a0e` ⑤巡檢 `d7df861d` ⑥`new/` 收件匣 `ce69a81b`。
 本 session job id:①`933e4954`(GitHub Weekly 06:33) ②`fc522f3e`(Gary Chen 07:10) ④`327cd9c9`(美投君 07:50) ⑤`0834d5c8`(巡檢 08:12) ⑥`8835b076`(`new/` 收件匣 08:37)。③ gooaye 已停用。
@@ -566,11 +566,11 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 核心規則(使用者 2026-11-07 確認):**一個子資料夾 = 一批 = 一個 task**。使用者會把同一批素材集中放進一個資料夾,方便日後回溯「這批是哪來的」。資料夾內可能有多種內容(PDF、zip、影片、圖片、文字…),由你判斷怎麼分門別類,**但整個資料夾一起處理完**,不拆成多天、不只挑幾個檔。處理完的資料夾改名加 `done-` 前綴,下次就不再處理。
 步驟:
 1. 列出 new/ 底下名稱不以 `done-` 開頭的子資料夾:ls -1 new/ | grep -v '^done-'。沒有就只回報「收件匣無新素材」,不 commit。一次只處理一個資料夾(多個就依資料夾修改時間由舊到新,處理完一個再下一個)。
-2. 盤點整個資料夾:每個檔的類型、大小、頁數/長度。影片/音檔用 PyAV 看長度與音軌;PDF 用 Read(pages 參數,每次最多 20 頁);圖片直接 Read;文字/Markdown 直接讀;.zip 解到 %TEMP% 下全新空目錄,讀完刪除(只整理重點,程式碼不放進 repo)。檔名常含作者與標題線索,用 WebSearch 找原始出處網址放進「來源」。**每個檔都要真的讀內文**(PDF 不能只看標題或第一頁);讀不了(損毀、加密、掃描圖檔無文字)就記下檔名與原因。
+2. 盤點整個資料夾:每個檔的類型、大小、頁數/長度。影片/音檔用 PyAV 看長度與音軌;PDF 用 Read(pages 參數,每次最多 20 頁);圖片直接 Read;文字/Markdown 直接讀;.zip 解到 %TEMP% 下全新空目錄,讀完刪除(只整理重點,程式碼不放進 repo)。檔名常含作者與標題線索,用 WebSearch 找原始出處網址放進「來源」。**每個檔都要真的讀內文**(PDF 不能只看標題或第一頁);讀不了(損毀、加密、掃描圖檔無文字)就記下檔名與原因。⭐ **素材含圖片(獨立圖檔,或 PDF/簡報裡的圖表、架構圖、截圖)一定要看**:獨立圖檔用 Read 看;PDF 先 python scripts/media/extract_images.py scan <pdf> 看各頁文字量與圖數,再 pages/embedded 子命令輸出頁面圖後用 Read 看,把圖裡的資訊(圖表數據、架構、流程、文字)讀進筆記。
 3. 影片/音檔轉錄:一般中文用 SenseVoice-Small(隔離 numpy,見 CLAUDE.md),中英夾雜/英文用 faster-whisper large-v3-turbo int8 + initial_prompt(WhisperModel('large-v3-turbo', device='cpu', compute_type='int8', cpu_threads=6),transcribe(vad_filter=True, condition_on_previous_text=False, no_repeat_ngram_size=3, beam_size=5)),可直接吃 mp4/m4a/webm。逐行帶 [m:ss] 寫暫存 .txt 再 Read。⚠️ Whisper 一律「前景」跑,不要 nohup 背景;stderr 的 `_ARRAY_API not found` 只是警告,看最後 segment 行數判斷成敗;轉完掃結尾有無同句重複(幻覺迴圈)。
 4. 分門別類與比對既有筆記:把整個資料夾的內容依主題歸類(例如 5 份 ML 演算法 PDF 併成一篇、各職涯路線圖併成一篇)。**每個主題動筆前先 grep -rl "<關鍵字>" knowledge/ 比對既有筆記**:主題相近就增補編號章節到既有筆記(檔名不動,檔頭與來源同時列出),沒有才新建。素材內容重複的檔案在筆記裡合併敘述並註明。
-5. 依 CLAUDE.md 寫作規範整理繁中筆記(應用案例、Mermaid 用 ["..."] 並跑 python scripts/knowledge/lint_mermaid.py、結尾**完整網址**來源,歸三層結構最貼切中類)。可查證的規格/數字/論文/repo 讀一手來源內文後標「已核實/需修正/未能核實」;開源 repo 就 git clone --depth 1 讀原始碼(讀完刪除)。**來源區塊必須寫明批次**:「使用者提供的本機素材批次 `new/<資料夾名>/`(<日期>收件),檔案:<檔名清單或數量>」;轉錄註明引擎、非官方字幕。投資類加⚠️非投資建議;作者推廣自家產品要在檔頭標明。寫 [[wikilink]] 前先 find knowledge -name "<slug>.md" 確認存在。若派 subagent 協助:指示裡必須要求它先讀完素材內文才可歸納,讀不到要明說,不可只憑檔名或標題寫內容。
-6. ⚠️⚠️ new/ 已在 .gitignore,素材絕不進版控;不要把大檔複製到被追蹤的路徑。
+5. 依 CLAUDE.md 寫作規範整理繁中筆記(應用案例、Mermaid 用 ["..."] 並跑 python scripts/knowledge/lint_mermaid.py、結尾**完整網址**來源,歸三層結構最貼切中類)。可查證的規格/數字/論文/repo 讀一手來源內文後標「已核實/需修正/未能核實」;開源 repo 就 git clone --depth 1 讀原始碼(讀完刪除)。**來源區塊必須寫明批次**:「使用者提供的本機素材批次 `new/<資料夾名>/`(<日期>收件),檔案:<檔名清單或數量>」;轉錄註明引擎、非官方字幕。⭐⭐ **素材裡有助理解的圖片(架構圖、流程圖、圖表、截圖)一定要附進 Markdown**(使用者 2026-11-07 要求,圖片是最快理解知識的方式):用 python scripts/media/extract_images.py (pages/embedded/shrink) 產生壓縮圖(寬 ≤1100px、單檔 ≤220KB),存到筆記同層的 `assets/<筆記 slug>/`,在對應段落用 `![說明](assets/<slug>/<檔名>)` 嵌入,圖下一行註明出處(批次與頁碼)並解說圖的重點;每篇建議 3–10 張,挑資訊量高的,裝飾性頁面不放。圖片壓縮後才 git add,原始大檔絕不進版控。投資類加⚠️非投資建議;作者推廣自家產品要在檔頭標明。寫 [[wikilink]] 前先 find knowledge -name "<slug>.md" 確認存在。若派 subagent 協助:指示裡必須要求它先讀完素材內文才可歸納,讀不到要明說,不可只憑檔名或標題寫內容。
+6. ⚠️⚠️ new/ 已在 .gitignore,素材原檔(PDF、zip、影片、原圖)絕不進版控;唯一例外是第 5 步經 extract_images.py 壓縮後的筆記配圖(放 assets/<slug>/,精準 git add 那些圖檔)。
 7. **在 INBOX-LOG.md 新增一列**(日期、批次資料夾名、檔案數與類型、產出/增補了哪些筆記路徑、未能讀取的檔)。這是使用者回溯批次的帳本,必須與筆記同一個 commit。
 8. 更新 README 主題表格、badge、作者索引(兩處),跑 python scripts/knowledge/build_source_index.py。commit 訊息([feat] 前綴)寫明「new/ 收件匣批次 <資料夾名>」,精準 git add 不用 -A;push 遇 LFS locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push;用 git rev-parse HEAD origin/main 判斷成敗。
 9. commit 並 push 成功後,才 mv "new/<名稱>" "new/done-<名稱>"。若有檔案讀不了:其餘照常整理、INBOX-LOG 註明,資料夾仍改名 done-,但在回報中明確列出讀不了的檔與原因請使用者處理;若整批失敗(例如轉錄全部失敗)就不改名。
@@ -587,7 +587,8 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
-| 2026-11-07(合併重建) | **使用者要求**:①排程 1/2/4 併入 5,合為 A「YouTube 來源總巡檢」`66762e2b`(07:03,查 11 個來源;gooaye 仍停用);②`new/` 收件匣重建為 B `66c28dfa`(08:37),規則改為**一個子資料夾=一批=一個 task**,整批處理、依內容分門別類、先比對既有筆記能合併就增補,來源註明批次,並新增 `INBOX-LOG.md` 帳本供回溯;③舊巡檢 `c830c233` 刪除。起因:發現 11-04 到期後只剩巡檢一個排程,`new/ai-guide/`(30 個檔、48 MB)無人處理。 |
+| 2026-11-07(收件匣圖片規則) | **使用者要求**:素材裡的圖片一定要閱讀並給出相關資訊,且**一定要附進 Markdown**。新增 `scripts/media/extract_images.py`(scan/pages/embedded/shrink,輸出寬 ≤1100px、≤220KB 的 JPEG/PNG 到筆記同層 `assets/<slug>/`);收件匣 prompt 加看圖與嵌圖步驟,並把「素材不進版控」改為「原檔不進版控、壓縮後配圖可進」;收件匣排程已重建為 `1fda5ef7`(舊 `66c28dfa` 已刪)。 |
+| 2026-11-07(合併重建) | **使用者要求**:①排程 1/2/4 併入 5,合為 A「YouTube 來源總巡檢」`66762e2b`(07:03,查 11 個來源;gooaye 仍停用);②`new/` 收件匣重建為 B `1fda5ef7`(08:37),規則改為**一個子資料夾=一批=一個 task**,整批處理、依內容分門別類、先比對既有筆記能合併就增補,來源註明批次,並新增 `INBOX-LOG.md` 帳本供回溯;③舊巡檢 `c830c233` 刪除。起因:發現 11-04 到期後只剩巡檢一個排程,`new/ai-guide/`(30 個檔、48 MB)無人處理。 |
 | 2026-11-08(巡檢) | 巡檢併入 1 篇(Whisper 1 支):**YAHA學堂** `8tmDJ9ZuFc8` → 增補 Grok Bot 筆記 §8;新存量 YAHA 2、白白 1、Nick 1(見第 5 節)。同日 Haiku 批次審閱 47 篇完成(`deepseek-v4-engineering` 因 Haiku 拒答待處理);`transcript_tools.py` 取代 `約 X:XX` 時間 |
 | 2026-11-06(巡檢) | **存量清空**(使用者:「各個頻道沒有歸檔的都要完成」):八頻道 67 支存量 + 新片 Why QQ `CghXuvlAhD0`、白白 `nuEYDFfDnOI` 全部整理,新建 30 篇(含使用者提供的 LLM-SLM-LRM-VLM 資訊圖)、追加既有筆記約 20 篇(含新中類 career/ai-transition、career/creator-business、technology/hardware)。方法:字幕遇 HTTP 429 全面改 Whisper(faster-whisper small/int8),subagent 分頻道寫筆記、主 session 統一 README/索引/commit。巡檢 cron 的 prompt 本身未變更,**`c830c233` 約 2026-11-10 到期須重建**。 |
 | 2026-11-05(巡檢) | 巡檢產出 1 新篇(零 Whisper):**Why QQ** `B7I0HBXbty8` → 新篇 llm-internals/architecture/tokenizer-tax-chinese-vs-english-token-cost.md(CLEAR 數字對照二手整理、tiktoken 實測 13;Token Bench 與蒙古語數字未能核實)。新存量:**白白说大模型** `nuEYDFfDnOI`(MCP / Skill / 本地 Tools 區別,14.5 分,無字幕需 Whisper;動筆前先 grep 既有 MCP/Skill 筆記)。Caleb `77hHgDkbtLI` 本輪未重試(留待下輪)。 |
