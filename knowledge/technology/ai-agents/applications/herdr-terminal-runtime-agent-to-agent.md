@@ -4,6 +4,7 @@
 > 1. YouTube 頻道 **AI隨風**〈AI超强终端herdr,让Agent互相通信,新手入门教程〉(2026-08-11,約 11.4 分鐘)
 > 2. YouTube 頻道 **Why QQ**〈多Agent瓶颈是人类注意力,是时候使用 Herdr了〉(2026-08-26,約 9.4 分鐘,官方 zh-Hans 字幕)—— 見 **§八**,補上完整物件模型、持久化的三種語意與選型判準
 > 3. YouTube 頻道 **程序员老王**〈Herdr VibeCoding最好的伴侣〉(2026-08-20,約 7 分鐘,無字幕以 faster-whisper 轉錄)—— 見 **§九**,一般使用者的上手體驗
+> 4. YouTube 頻道 **AI懶人報**〈EP459 - Herdr:AI agent 時代的 tmux〉(2026-11-03,約 22.5 分鐘,官方字幕;說明欄附 EasyType 自家產品推廣)—— 見 **§十**,多專案配置六條規則、agent 間共享 context 的三種方式、四位重度使用者的配置與適用邊界
 >
 > 依 CLAUDE.md 慣例,本文另**實地 clone 了 `herdrdev/herdr` 讀原始碼與官方文件核實**,並標出**三處與影片說法不同或影片沒講到的關鍵設計**。
 
@@ -481,6 +482,75 @@ Workspace: my-repo
 > 老王的結語:「它其實沒有什麼神奇的功能,但**許多小細節加起來**,確實給 AI 編程帶來不錯的體驗。」
 
 ---
+
+## 十、⭐ 多專案配置六條規則與三個等級的起手配置(2026-11-08 增補,來源:AI懶人報 EP459)
+
+**來源:** YouTube 頻道 **AI懶人報**〈EP459 - Herdr:AI agent 時代的 tmux|一個人同時帶好幾個 Claude Code、Codex,關掉視窗照樣跑〉https://www.youtube.com/watch?v=OVl3fFSHxqY (2026-11-03,約 22.5 分鐘,**官方字幕**,逐字稿為帶時間的 VTT)。
+**揭露:** 片中 [7:38] 介紹作者自家的 Mac 語音輸入工具 **EasyType**(免費公測、只支援 Apple 晶片),說明欄附連結與打賞連結;本節不採納其產品宣傳。說明欄聲明畫面是在作者的 Mac mini 上真的安裝、跑六個 agent 錄下,並註明星數為 10/31 查詢、**官網首頁先推的桌面 app 與這集的 TUI 不互通**。
+**核實方式:** 影片用語對照官方文件(herdr.dev/docs 的 Agents、Concepts、Configuration、Keyboard、Plugins 各頁)與 repo(`herdrdev/herdr`,2026-11-08 讀 README 與 `docs/next/website` 文件;clone 已刪)。✅ 已核實 / ⚠️ 需修正 / ❓ 未能核實逐項標註。
+
+### 10.1 影片補上的事實(與 §三、§八 的差異)
+
+| 項目 | 影片說法 | 核實 |
+|---|---|---|
+| 規模與授權 | 3 月發布第一版、10 月底 4.7 萬星、Apache 2.0 | ✅ repo 建立於 2026-03-27;GitHub API 顯示約 4.9 萬星(11-08);Apache-2.0、Rust。與 §六②的星數說明一致 |
+| 狀態四種 + unknown | working / blocked / done / idle,判斷不出標 unknown「不亂猜」 | ✅ 文件 concepts:blocked=需要輸入、批准或決定;working=執行中;**done=做完但你還沒看**;idle=做完或等待且已看過;unknown=無法有信心分類。⚠️ 補一點:**每個 client 各自記哪些完成已顯示**,在一個 client 看過不會清掉另一個的 Done 徽章 |
+| 狀態往上彙整 | agent 卡住,pane、tab、workspace 都顯示卡住 | ✅(concepts) |
+| 支援的 agent「20 幾個」 | Claude Code、Codex、Copilot CLI、Cursor、OpenCode、Amp 等,Gemini CLI 標註測得較少 | ✅ agents 文件表列約 19 項(含 Claude Code、Codex、Copilot、Cursor、OpenCode、Pi、Droid、Devin、Kimi、Kilo、Hermes、Qoder、Qwen、Letta、Mastra、Grok、Antigravity、Amp);Gemini CLI 列為「state only, less tested」。不在清單的 agent 當一般終端機跑、沒有狀態燈 |
+| 離開再回來 | 撐得過關視窗,撐不過關機;裝整合後重開可接回原對話 | ✅ README:重開機後「restores the saved layout and can resume supported agent sessions; **the original processes do not survive**」。與 §八 8.3 一致 |
+| 通知 | 預設只有提示音、彈窗預設關;`ui.toast.delivery` 改 `system`(SSH 用 `terminal`) | ⚠️ 選項 ✅:`herdr`(App 內)、`terminal`(外層終端機,SSH 可用)、`system`(OS 通知)、`off`。**預設值文件沒寫**,影片「預設只有聲音」❓未能核實 |
+| 中文輸入法 | `experimental` 兩個選項:選字框跟游標、按前綴鍵自動切英文 | ✅ 文件有 `reveal_hidden_cursor_for_cjk_ime`(macOS)與 `switch_ascii_input_source_in_prefix`(macOS/Windows;Windows 限韓文 IME)。預設值文件未寫 |
+| 狀態圖示 | `status_indicators = "symbols"` 換成不同形狀 | ✅ 預設是彩色圓點;文件只列出 `symbols` 一值 |
+| 優先順序排序 | `agent_panel_sort = "priority"` | ❓ 設定文件頁沒寫鍵名與值(只提 Agent panel ordering),**未能核實**;影片畫面示範可用 |
+| 前綴鍵 | 預設 Ctrl+B;v / 減號切 pane、c 新 tab、hjkl 移動、w workspace、q 離開、g 清單(b 卡住、d 做完)、z 放大 | ✅ keyboard 文件逐項確認。⚠️ `prefix+o`(跳到發通知的 agent)、`prefix+G`(新 worktree)、`prefix+R`(重載設定)**鍵盤文件頁沒列**(`prefix+r` 是調整大小模式),❓未能核實,可能在別頁或較新版 |
+| Plugin | 近 2,000 個社群 plugin;官方不審查不隔離 | ✅ 不審查、不沙箱(plugins 文件「does not review or sandbox plugin code」,與 §七②一致);❓「近 2,000」市集數量未讀到 |
+| 「一個 repo 一個 workspace」 | 官方建議 | ✅(影片 [8:25] 起的六條中,分層、狀態彙整、通知、命名、worktree、named session 各對應文件;細節以官方為準) |
+
+### 10.2 六條配置規則(影片 [8:25] 起,整理成表)
+
+| # | 規則 | 設定或指令 |
+|---|---|---|
+| 1 | 一個 repo 一個 workspace;tab 分用途(agents / server / logs / review);pane 放一個 agent 或一個指令 | 前綴+shift+t 改 tab 名;前綴+z 放大 |
+| 2 | 狀態往上彙整,最外層 workspace 就找得到誰在等你;清單照優先順序排 | `agent_panel_sort`(❓) |
+| 3 | 通知用系統或終端機層;有人叫你就跳過去,別一直切 | `ui.toast.delivery`;前綴+o(❓) |
+| 4 | 替 agent 取名字,之後用名字派工、讀輸出 | `herdr agent start reviewer --kind codex --pane …`;名字限小寫英數、減號、底線,同一伺服器內不可重複 |
+| 5 | 同專案平行改用 git worktree,各自一份檔案 | 前綴+G(❓);預設放 `~/.herdr/worktrees`(影片自述) |
+| 6 | 要完全隔開(工作 / 私人)才開 named session:各自的伺服器、socket、狀態 | `herdr --session <名>`(⚠️ 文件頁只見環境變數 `HERDR_SESSION`,❓旗標形式) |
+
+### 10.3 兩個 agent 能不能共享 context?(影片 [12:56] 起)
+
+結論先講:**Herdr 本身沒有共享記憶**,它管終端機,不碰 agent 的對話內容(✅ 與 §八 8.6「邊界感」一致)。三種方式:
+
+| 方式 | 做法 | 特性 |
+|---|---|---|
+| 即時傳話 | `herdr agent read --source recent-unwrapped --lines 120`、`herdr agent prompt … --wait` | 只是把文字從一個終端機搬到另一個;對方只知道你傳過去的 |
+| 共用檔案(最穩) | `CLAUDE.md`、`AGENTS.md` 放規矩;交接寫成 `handoff.md`(做了什麼、為什麼、下一步、希望審哪裡) | 長期要記得的事都放這;官方 skill 也建議讀不到完整回覆時請對方寫成 markdown |
+| 跨機器 | `herdr machine add` 存機器,指令加 `--machine <名>` | pane 編號與 agent 名字**每個伺服器各一套**,兩台可各有一個 `reviewer`,必須講清楚哪一台 |
+
+影片的示範(Claude Code 修 bug 並寫 `handoff.md`,再叫 Codex「先讀 handoff.md 再審那段修改」)說明:**Codex 完全沒看過 Claude Code 的對話,讀完檔案就知道該查哪裡**。⚠️ 影片 [15:54] 自己註明「不同家模型互相審比自己審自己容易抓到問題」是**作者經驗、官方沒有這樣說**,本庫同樣視為經驗之談。
+
+### 10.4 四位重度使用者(影片 [17:40] 起)
+
+| 人 | 配置重點 | 本庫既有對照 |
+|---|---|---|
+| **DHH** | 四到五台機器、每台約三個 agent,其中四台是舊迷你電腦;Tailscale 串起 Malibu 與 Copenhagen,手機可連;**自己能同時顧的上限約 16 條線**,且 agent 越快、能同時開的越少(因為要他看的東西來得更快) | 詳見 [[dhh-16-threads-bottleneck-migration]]。這句「上限是人不是工具」與 §八 8.1 的「瓶頸是人的注意力」同向 |
+| **Dave Ebbelaar** | 終端機換 Ghostty;每專案一個 space,第一個 tab 固定 Neovim、中間 agent tabs、最後跑 dev server;lazygit 熱鍵、zoxide;改成 Command+T/W/K 以避開前綴鍵;官方 skill 裝進每個 agent,Codex 當協調者開 Claude Code 審整個專案 | 個人習慣,影片轉述 |
+| **Alex Finn** | 側邊欄照機器分組;遊戲專案的 tab 照角色開(專案經理、玩法、設計、武器、地圖、音效),Claude Code 與 Codex 混用;自製 **Herdr HUD**(浮在最上層的按鈕,做完跳通知) | ⚠️ HUD 是他自己的開源專案,**官方沒有此功能** |
+| **翔宇**(中國創作者) | Herdr 當辦公室、每個 agent 一個員工:只對總經理說話,任務卡派給內容 / 影片 / 成長經理,臨時視窗當幫手;每角色一份崗位手冊(我是誰、負責什麼、不做什麼、交付標準、不確定怎麼辦);理由是 subagent 像黑箱,在 Herdr 每階段看得到、可插話或改派 | 與 §九、§8.9「會場陣型」同類,可交叉參考 |
+
+共同點(影片整理):一專案一 workspace;讓不同 agent 互相看、互相審;**真正上限是人一次看得了多少結果**。這三點本庫在 §八、§九 與 [[dhh-16-threads-bottleneck-migration]] 已有同結論,來源互相印證但**都出自同一批使用者敘述,不是對照實驗**。
+
+### 10.5 三個等級的起手配置與不適用情況(影片 [20:39] 起)
+
+| 級 | 情境 | 做法 |
+|---|---|---|
+| 1 | 單一專案、兩個 agent | 一個 workspace,左 Claude Code 寫、右 Codex 審;只學前綴+v 與前綴+q |
+| 2 | 多專案 | 照 10.2 六條;清單排優先順序、通知開系統層、agent 都命名 |
+| 3 | 遠端自主 | Herdr 裝在不關機的機器(桌機、Mac mini、雲端主機)並裝官方 skill;agent 自己開 pane、派工、互審;**交接一律寫成檔案**;筆電或手機經 SSH(可搭 Tailscale)接回去 |
+
+**不適用或要小心**(影片 [21:23] 起,已與文件核對):① 一次只開一個 agent,價值不大;② 撐不過重開機;③ 狀態燈是**讀畫面判斷**,agent 改版換介面偶爾把卡住判成閒置,官方提醒閒置燈號**不代表可放心批准任何動作**;④ **官網首頁現在先推的桌面 app 與 TUI 是兩套程式、agent 不互通**,且桌面 app 預設送使用統計、只支援 Apple 晶片(影片說法,❓桌面 app 細節未讀);⑤ 長時間跑最常見的結果是 agent 半夜卡在 blocked 等批准——事先想清楚權限、並讓通知能經 SSH 送到你身上(`delivery = "terminal"`)。
+
+**補充觀察(本庫):** 這集的「共用檔案才是最穩的共享」與 [[claude-code-advanced-configs-context-and-interruptions-yaha]]、[[context-engineering-claude-5-unhobbling]] 所講的「把狀態放進檔案而非對話」是同一個原則的不同面向,可一併閱讀。
 
 ## 應用案例
 

@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**482 個 YouTube video id**、**150 個 arXiv 編號**,涵蓋 **376 篇**筆記。
+> 統計:**486 個 YouTube video id**、**150 個 arXiv 編號**,涵蓋 **377 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(482 部,依 video id 排序)
+## YouTube(486 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -257,6 +257,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `iw1VF8HOCrk` | Attention Residuals:把注意力「轉 90 度」用在網路深度上 | [knowledge/technology/llm-internals/architecture/attention-residuals.md](./knowledge/technology/llm-internals/architecture/attention-residuals.md) |
 | `iy9-ab999VA` | 轉做 AI 應用開發的學習路線:從零基礎到 40K 架構的四個階段(白白說大模型 4 支影片合併) | [knowledge/career/ai-transition/ai-app-dev-learning-roadmap-four-tiers.md](./knowledge/career/ai-transition/ai-app-dev-learning-roadmap-four-tiers.md) |
 | `j2I2TIvhs0c` | Jalapeño 首批跑分:推理晶片的評判標準換了,以及怎麼讀廠商自己給的數字 | [knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) |
+| `J5EbL1UaqG8` | 「Claude 2.0」是什麼:一個對話管所有對話——巢狀對話、Projects、側聊與三個省額度的指令(Andy Lin 林玉堂整理 RoboNuggets × Ben AI) | [knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md](./knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md) |
 | `j7nu_6cprMI` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `jgy1A0Mrx7g` | Omarchy 4「Quattro」:當 Agent 從外掛升格成作業系統的一等公民 | [knowledge/technology/ai-agents/applications/omarchy-4-agent-as-os-citizen.md](./knowledge/technology/ai-agents/applications/omarchy-4-agent-as-os-citizen.md) |
 | `jJ5WAKs0eGE` | Make 與 n8n 還值得學嗎:當維護的人從你換成 Agent,視覺化就從資產變成阻礙 | [knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md](./knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md) |
@@ -325,8 +326,10 @@ grep -rlF --include=*.md -- "<id>" .
 | `OCcHTUiNnGI` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `OCE-qMzzb_U` | 用 Easy MCP AI 讓 Claude Code 管 WordPress:一句話批次補 SEO,與「強制草稿 / 停用工具 / 一鍵暫停」三道煞車 | [knowledge/technology/ai-agents/applications/easy-mcp-ai-wordpress-claude-code-seo-guardrails.md](./knowledge/technology/ai-agents/applications/easy-mcp-ai-wordpress-claude-code-seo-guardrails.md) |
 | `OcKl98ZQbMQ` | AI 資本圈的派系與捆綁:同級競爭、不同級綁在一起,以及「融了 1,100 億卻立刻欠出 1 兆」 | [knowledge/investing/equity-research/ai-capital-web-factions-and-mutual-binding.md](./knowledge/investing/equity-research/ai-capital-web-factions-and-mutual-binding.md) |
+| `oH0j8HYeMAM` | 「Claude 2.0」是什麼:一個對話管所有對話——巢狀對話、Projects、側聊與三個省額度的指令(Andy Lin 林玉堂整理 RoboNuggets × Ben AI) | [knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md](./knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md) |
 | `OrNE5vMFD2k` | DeepSeek「Super Agent」是什麼:從 ReAct 單會話,到 Router / Walker 的五個模組 | [knowledge/technology/ai-agents/autonomy/deepseek-super-agent-router-walker-xuanyuan.md](./knowledge/technology/ai-agents/autonomy/deepseek-super-agent-router-walker-xuanyuan.md) |
 | `ou9SC0Z_CtI` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
+| `OVl3fFSHxqY` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
 | `oW4hgB1vIoY` | 用 Python 做強化學習交易機器人:在 EUR/USD 外匯訓練 AI Agent | [knowledge/investing/ai-assisted/rl-trading-bot-forex.md](./knowledge/investing/ai-assisted/rl-trading-bot-forex.md) |
 | `oW6MHjzxHpU` | 賣財報波動率:把 $1 萬變 $100 萬的選擇權策略(以及它真正的風險) | [knowledge/investing/derivatives/selling-earnings-volatility.md](./knowledge/investing/derivatives/selling-earnings-volatility.md) |
 | `oZC00ImTJt8` | 存量邏輯下的四條投資原則:把握價值而非趨勢,以及該盯的那個訊號 | [knowledge/investing/strategy/ai-investing-four-principles-stock-logic.md](./knowledge/investing/strategy/ai-investing-four-principles-stock-logic.md) |
@@ -485,6 +488,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `yHNp_rT6uEo` | Jalapeño 首批跑分:推理晶片的評判標準換了,以及怎麼讀廠商自己給的數字 | [knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) |
 | `yLOtgJwjhZ8` | 打造「0 人 AI 公司」:用 Hermes Agent + Paperclip 讓 AI 互相協作 | [knowledge/technology/ai-agents/applications/zero-person-ai-company.md](./knowledge/technology/ai-agents/applications/zero-person-ai-company.md) |
 | `YM-6-QhGHgI` | 從零搞懂 RAG:用「巴菲特分身」走完 R、A、G 三步,以及答錯時的排查順序 | [knowledge/technology/ai-agents/memory-retrieval/rag-from-scratch-buffett-clone-gary.md](./knowledge/technology/ai-agents/memory-retrieval/rag-from-scratch-buffett-clone-gary.md) |
+| `yMnFHFf43Qg` | 「Claude 2.0」是什麼:一個對話管所有對話——巢狀對話、Projects、側聊與三個省額度的指令(Andy Lin 林玉堂整理 RoboNuggets × Ben AI) | [knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md](./knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md) |
 | `Ynv_WYO_slw` | Understand-Anything vs Graphify:把 codebase 變成知識圖譜給 AI 查,實測對比 | [knowledge/technology/dev-tools/understand-anything-vs-graphify.md](./knowledge/technology/dev-tools/understand-anything-vs-graphify.md) |
 | `yOExQX0j19g` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
 | `yrnGrdPZx_U` | AI 額度老是不夠用?三招省 Token:丟掉、縮減、打折 | [knowledge/technology/ai-productivity/token-saving-three-moves-context-control.md](./knowledge/technology/ai-productivity/token-saving-three-moves-context-control.md) |

@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-422_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-423_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -153,7 +153,8 @@ flowchart LR
 | **wow** — AI agent 真實系統壓測 | 2 | [Graphify 知識圖譜實戰壓測](./knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) · [本體論護欄與神經符號 AI(Frank Coyle)](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
 | **Nick 美股咖啡館(@nick_stockcafe)** — 美股個股與投資觀 | 9 | [Google、Amazon 財報後大跌與加碼邏輯](./knowledge/investing/equity-research/google-amazon-q3-2026-selloff-nick.md) · [巴西大選暴跌:Nu Holdings 加碼與 SoFi Q3 財報](./knowledge/investing/equity-research/nubank-brazil-election-selloff-and-sofi-q3-2026-nick.md) · [Sell Put 提前買回換約](./knowledge/investing/derivatives/sell-put-early-close-roll-delta-nick.md) · [內部人買股五家公司(Form 4 實查)](./knowledge/investing/equity-research/insider-buying-signal-five-companies.md) · [CoreWeave 債務壓力測試](./knowledge/investing/equity-research/coreweave-neocloud-debt-stress.md) · [不把錢賺好賺滿:社會資產](./knowledge/investing/strategy/not-maximizing-income-social-assets-nick.md) · [不靠 AI 也能穩的五家公司](./knowledge/investing/equity-research/ai-proof-five-moat-stocks-nick.md) · [跌多少才加碼:看理由不看幾趴](./knowledge/investing/strategy/when-to-add-reason-not-percent-fico-nick.md) · [出國後首度買股(併入 Google/Amazon 財報後筆記)](./knowledge/investing/equity-research/google-amazon-q3-2026-selloff-nick.md) |
 | **財女珍妮** — 美股投資與 AI 投資工具訪談 | 1 | [用 AI Agent + Skill 讀財報、做估值(課程推廣集)](./knowledge/investing/ai-assisted/ai-agent-skill-stock-research-workflow.md) |
-| **AI懶人報** — 名校課堂與 AI 工程講座的中文重述 | 1 | [Always-on Agent 怎麼運作:Lee Robinson 拆解 Grok Bot](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) |
+| **AI懶人報** — 名校課堂與 AI 工程講座的中文重述 | 2 | [Always-on Agent 怎麼運作:Lee Robinson 拆解 Grok Bot](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) · [Herdr 多專案六條規則(增補 §十)](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
+| **Andy Lin 林玉堂** — 二次整理他人教學的中文摘要 | 1 | [「Claude 2.0」是什麼:巢狀對話、Projects、側聊](./knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md) |
 | **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
 | **人蔘 Try Catch** — AI 工程落地短講 | 1 | [Jev 落地場景與終端機守門員(併入 Jev 筆記)](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | **仕宇JavaPub** — GitHub 開源專案推薦 | 1 | [五個開源英語學習專案(已讀原始碼)](./knowledge/technology/applied-ai/language-learning/five-open-source-english-learning-tools.md) |
@@ -617,6 +618,7 @@ flowchart LR
 ### 🖥️ claude-code(Claude Code 維運)
 | 主題 | 一句話 |
 |---|---|
+| [「Claude 2.0」是什麼:巢狀對話、Projects、側聊與 /doctor /advisor(Andy Lin 整理 RoboNuggets × Ben AI)](./knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md) | 不是新模型,是桌面 App 改版;巢狀對話(本機)vs subagent vs Projects(雲端測試版,Team/Enterprise 無);快取「一小時」只在訂閱額度內成立;/advisor 的 token 另計 |
 | [Claude Code 進階配置清單:先減上下文負擔,再減「停下來等你」(YAHA學堂)](./knowledge/technology/claude-code/claude-code-advanced-configs-context-and-interruptions-yaha.md) | 逐項對照官方文件:先檢查每天帶著什麼開工,再處理中斷,最後才談多任務與模型分工 |
 | [Claude Code 30 個藏得最深的快捷鍵與功能:暫存、插隊、回退與 Agent 視圖(YAHA學堂)](./knowledge/technology/claude-code/claude-code-30-hidden-shortcuts.md) | ⭐⭐ Ctrl+S 暫存、Ctrl+G 編輯器、Ctrl+B 背景、Ctrl+X Enter 排隊、Ctrl+Enter/Ctrl+X Ctrl+S 插隊、Ctrl+X Ctrl+K 全停;readline 編輯(Ctrl+W/Y/_);/model、/effort 按 s 只套用這次、Tab 切 Ultracode;Esc Esc 回退、Ctrl+O transcript、Ctrl+R 搜尋、/diff 加 Ctrl+X B、← 進 Agent 視圖;📌 逐鍵對照官方文件:多項需全螢幕渲染、macOS 要把 Option 設成 Meta、Ctrl+Z 僅 Unix、Ctrl+C 再按會退出;⚠️ 作者自述帳號被封 |
 | [Windows 原生安裝 Claude Code:一行指令,與五個報錯的官方修法(YAHA學堂)](./knowledge/technology/claude-code/claude-code-windows-native-install-troubleshooting.md) | ⭐⭐⭐ **官方做法是原生安裝器一行指令**,不需 Node / npm / 系統管理員權限,背景自動更新;⭐⭐ **一半失敗是窗口開錯**(有 `PS` 是 PowerShell,沒有是 CMD);⭐ 原生 Windows 正式支援,⚠️ **但沙箱只有 WSL 2 支援**;⚠️⚠️ **登入後 403 = 免費方案不含 Claude Code**,跟安裝時的 403 是兩回事;⭐⭐⭐ **五個坑全部對官方文件核實**:PATH 沒加 `.localin`、舊 Win10 要開 TLS 1.2、「不支援 32 位元」其實是開了 **PowerShell (x86)**、安裝 403 是代理/地區、打 `claude` 卻開桌面 App 是舊版 `Claude.exe` 搶 PATH;⭐ `claude doctor` 自檢;⭐ **本文補上**:支援 ARM64、WinGet 可用環境變數開自動更新、`CLAUDE_CODE_GIT_BASH_PATH` 不能指向 `git-bash.exe` |
