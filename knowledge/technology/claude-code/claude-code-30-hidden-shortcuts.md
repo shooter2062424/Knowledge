@@ -209,7 +209,7 @@ Claude 連改三個檔後測試全紅:
 | `/import <agent>` 從別的 agent 搬設定 | ✅ `/import [codex\|gemini\|cursor] [--dry-run] [--yes]`,搬指令檔、MCP、commands、subagents、skills | `/init` 偵測到 Codex 或 Gemini CLI 設定時也會主動提議 |
 | `/claude-api prompt-audit`:用 subagent 稽核 `CLAUDE.md` 與 skills 有無過期指令 | ✅ `/claude-api` 子命令清單有 `prompt-audit`;另有 `/doctor prompt-audit [path]`(v2.1.283+) | 新模型剛出時最該跑——舊指令最容易過期。可對照本庫 [[claude-md-cut-82-percent-and-maintain-it]] |
 | `/skill-doctor`:看每個 skill 的使用頻率、最後使用時間、佔用 context | ✅ 存在,需 v2.1.252+ 與功能旗標抓取 | 見 [[skill-doctor-self-improving-agent-loop]] |
-| `/skills` 後按 `T` 依 token 排序 | ❓ 文件的指令表沒寫這個快捷鍵,未核實 | 以實機為準 |
+| `/skills` 後按 `T` 依 token 排序 | ✅ 官方 [Commands](https://code.claude.com/docs/en/commands) 寫的是**小寫 `t`** 依 token 數排序(影片字幕寫大寫 `T`,以官方為準);排序方向(影片說遞增)文件未載,未核實 | 按 `Space`/`Enter` 可切換技能對 Claude 與 `/` 選單的可見度 |
 
 ### 9.2 權限與 context 預算
 
@@ -227,7 +227,7 @@ Claude 連改三個檔後測試全紅:
 |---|---|---|
 | `showClearContextOnPlanAccept: true`:接受計畫時恢復「先清 context 再實作」選項 | ✅ 設定鍵存在(索引列:Show a "clear context" option on the plan accept screen) | 清掉對話後計畫不會消失 |
 | `plansDirectory`:把計畫存到專案內指定資料夾 | ✅ 設定鍵存在(Choose where plan mode writes plan files) | 預設存在使用者 `.claude/plans`,設到專案內才能與團隊共享 |
-| `/output-style [style]` 五種風格:default、proactive、concise、explanatory、learning | ✅ 指令存在(v2.1.269+);五種風格名稱我**未逐一核實** | 與 [[output-style-communication-not-intelligence]] 並讀 |
+| `/output-style [style]` 五種風格:default、proactive、concise、explanatory、learning | ✅ 指令存在(v2.1.269+)。官方 [Output styles](https://code.claude.com/docs/en/output-styles) 確認五種:Default(預設)加 Proactive、Concise(v2.1.237+)、Explanatory、Learning 四個內建風格 | ⚠️ 設定檔 `outputStyle` 的值**區分大小寫**(要寫 `Explanatory`,寫 `explanatory` 會退回 Default);`/output-style` 指令則不分大小寫。與 [[output-style-communication-not-intelligence]] 並讀 |
 | `showThinkingSummaries: true` 後 `Ctrl+O` 看思考摘要 | ✅ 預設 `false`;未設時 API 會遮蔽思考區塊,只顯示摺疊占位 | 官方註明遮蔽只影響**你看到的**,不影響模型實際產生量 |
 | `/tui fullscreen` + `/focus`:只顯示最後的 prompt、一行工具摘要、最終回覆 | ✅ 兩者皆存在;focus 設定會跨 session 保存 | 影片說「focus 只在全螢幕可用」,與文件的 `/tui fullscreen` 搭配一致 |
 
@@ -236,7 +236,7 @@ Claude 連改三個檔後測試全紅:
 | 影片的功能 | 官方文件核實 | 備註 |
 |---|---|---|
 | `/branch`:複製目前對話開新分支,可用 `/resume` 回原本 | ✅ | 會切進分支 |
-| `/fork [prompt]`:把對話複製成**背景 session**,有 prompt 就立刻開工 | ✅ | 影片說「完成後背景 session 自己結束」,文件摘錄沒寫,**未核實** |
+| `/fork [prompt]`:把對話複製成**背景 session**,有 prompt 就立刻開工 | ✅ 官方 [Commands](https://code.claude.com/docs/en/commands) 與 [Agent view](https://code.claude.com/docs/en/agent-view) 確認 | 📌 **需修正**:影片說「完成後背景 session 自己結束」。官方寫的是任務完成後 session 留在 agent view 的 `Completed` 群組,閒置約一小時後程序可能被停止、對話保留,直到你再回覆或 attach 才續跑;需刪除才會消失。另,關掉 agent view 時 `/fork` 改為啟動 forked subagent。詳見 §9.7 |
 | `/subtask <task>`:起一個繼承**完整對話**的 forked subagent,結果回到本對話 | ✅ | 一般 subagent 從乾淨 context 開始,只拿到主 agent 給的 prompt;`/subtask` 是例外 |
 | `/list-agents`:列出可傳訊的 subagent、teammates 與其他 session,可請一個 session 傳話給另一個 | ✅ 別名 `/peers`;需 v2.1.224+ | 見 [[claude-code-2026-feature-timeline]] §8.1 跨 session 訊息 |
 | `askUserQuestionTimeout`:Claude 提問閒置到時自動採用建議答案繼續 | ✅ 設定鍵存在,範圍**僅使用者或 managed** | 影片說「只在不阻塞時才自動選」——細節我**未核實** |
@@ -244,8 +244,8 @@ Claude 連改三個檔後測試全紅:
 
 ### 9.5 模型分工與省額度
 
-- **`/model opusplan`**:✅ 官方:「plan mode 用 opus,執行階段自動切到 sonnet」;兩個階段脈絡視窗各依該模型,要 1M 可用 `opusplan[1m]`。注意**換模型會讓該模型的 prompt cache 重算**(Settings 文件的提醒)。
-- **`CLAUDE_CODE_SUBAGENT_MODEL` + `CLAUDE_CODE_SUBAGENT_MODEL_FORCE=1`**:✅ 前者設 subagent / teammate / workflow agent 的預設模型(接受 `haiku` 等別名);前者**不會**蓋過「Claude 呼叫時指定的模型」與「agent 定義檔的 `model` 欄位」,要蓋過就設 `_FORCE=1`(需 v2.1.257+)。影片這段說得完全正確。
+- **`/model opusplan`**:✅ 官方 [Model configuration](https://code.claude.com/docs/en/model-config):plan mode 用 `opus` 做複雜推理與架構決策,執行階段自動切到 `sonnet`;兩階段的脈絡視窗各依對應模型。用 `/model` 設定需 Claude Code v2.1.265+。「要 1M 可用 `opusplan[1m]`」一句,官方段落未見此寫法,**未核實**。注意**換模型會讓該模型的 prompt cache 重算**(Settings 文件的提醒)。
+- **`CLAUDE_CODE_SUBAGENT_MODEL` + `CLAUDE_CODE_SUBAGENT_MODEL_FORCE=1`**:✅ 官方 [Sub-agents](https://code.claude.com/docs/en/sub-agents) 的模型優先序(v2.1.251 起):①呼叫時傳入的 `model` 參數 → ②subagent 定義檔的 `model` frontmatter → ③`CLAUDE_CODE_SUBAGENT_MODEL` → ④主對話的模型。也就是環境變數只是**預設值**,不會蓋過①②。要讓所有 subagent 都用同一個模型,要再設 `CLAUDE_CODE_SUBAGENT_MODEL_FORCE=1`(需 v2.1.257+),此時會忽略定義檔的 `model` 欄位。官方範例放在 settings.json 的 `env` 區塊。影片說「不設 FORCE,subagent 自己的檔案仍可選別的模型」與上述一致。
 - **`/powerup`**:✅ 官方指令名是 `/powerup`(不是 power up 兩個字),互動式小課程附動畫示範。
 
 ### 9.6 應用案例
@@ -258,7 +258,49 @@ Claude 連改三個檔後測試全紅:
 
 **案例 4|試另一種做法又不丟現場**:`/branch` 試新方向、需要側任務用 `/subtask`(要完整上下文)或 `/fork <prompt>`(要獨立背景 session)。
 
-**核實狀態:** ✅ 大多數設定鍵與指令皆有官方文件依據(多項僅核到「索引列」描述,型別與預設值未逐一核)。❓ 未核實:`/skills` 內 `T` 排序、output style 五種名稱、`/fork` 自動結束、`askUserQuestionTimeout` 的「僅在不阻塞時」、terminal bell 路徑。⚠️ 指令名稱修正:`/auto-mode-setup`、`/powerup`、`hillclimb`。
+**核實狀態(2026-11-07 更新):** ✅ 大多數設定鍵與指令皆有官方文件依據(多項僅核到「索引列」描述,型別與預設值未逐一核)。已由 ❓ 改為 ✅:`/skills` 排序鍵(官方為小寫 `t`)、output style 五種名稱。📌 需修正:`/fork` 完成後**不會**自己結束(留在 agent view)。❓ 仍未核實:`/skills` 排序方向、`askUserQuestionTimeout` 的「僅在不阻塞時」(官方只寫「閒置後讓未回答的問題自動繼續」)、`opusplan[1m]` 寫法、terminal bell 路徑。⚠️ 指令名稱修正:`/auto-mode-setup`、`/powerup`、`hillclimb`(`/claude-api` 的子命令)。
+
+### 9.7 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+影片 [i6Q7bXnWGlM](https://www.youtube.com/watch?v=i6Q7bXnWGlM)(約 16 分鐘)是**無官方字幕**的自動轉錄,已依官方文件查核設定鍵與指令;畫面部分見下方「畫面核對」。以下只列**真的讀過官方頁面**後比影片多出或更正的內容。時間點皆來自 `transcript_tools.py find` 的精確時間。
+
+**A. 設定鍵的「作用範圍」與「單向開關」(官方 [Settings](https://code.claude.com/docs/en/settings) 的 Exceptions 表)**
+
+| 鍵 | 官方規則 | 對使用者的意義 |
+|---|---|---|
+| `disableClaudeAiConnectors` | `true` 從任何範圍都生效,**即使 managed 設 `false` 也擋不住** | 專案檔設 `true` 也會生效,不必動使用者檔 |
+| `enableArtifact` | `false` 從任何範圍都生效;**沒有任何檔案能再把它打開**;需 v2.1.242+ | 設過後,低層級的檔案無法再開;[6:21](https://www.youtube.com/watch?v=i6Q7bXnWGlM&t=371s) 影片說法正確 |
+| `askUserQuestionTimeout` | 範圍僅 **user 或 managed**,專案檔無效(與影片「寫在 `settings.json`」一致,但不可放專案檔) | [13:08](https://www.youtube.com/watch?v=i6Q7bXnWGlM&t=778s) 影片說的「寫在 main .claude 資料夾」即使用者層級 |
+| `showClearContextOnPlanAccept`、`plansDirectory`、`showThinkingSummaries` | 任何檔案皆可;`showThinkingSummaries` 預設 `false`,未開時 API 會遮蔽思考區塊,官方註明只影響**你看到的**內容 | 影片 [7:49](https://www.youtube.com/watch?v=i6Q7bXnWGlM&t=459s)、[8:26](https://www.youtube.com/watch?v=i6Q7bXnWGlM&t=496s)、[10:22](https://www.youtube.com/watch?v=i6Q7bXnWGlM&t=612s) 的設定鍵名正確 |
+
+**B. 四種「岔開」方式的差別(官方 [Commands](https://code.claude.com/docs/en/commands) 與 [Agent view](https://code.claude.com/docs/en/agent-view))**
+
+| 指令 | 結果 | 回報去向 |
+|---|---|---|
+| `/branch [name]` | 複製對話並**切進去**,原對話用 `/resume` 回得去 | 你自己接手 |
+| `/fork [prompt]` | 複製成**背景 session**,在 agent view 裡跑;兩邊獨立。除非選擇原地編輯,否則 Claude 會指示它先建立自己的 git worktree(`.claude/worktrees/`) 再改檔 | 完成後留在 `Completed` 群組,官方未寫會自動刪除 |
+| `/subtask <task>` | 背景 forked subagent,繼承完整對話 | **結果回到目前對話** |
+| 一般 subagent | 乾淨 context,只拿到主 agent 給的 prompt | 結果回到目前對話 |
+
+影片把 `/fork` 說成「完成後自己結束」([11:49](https://www.youtube.com/watch?v=i6Q7bXnWGlM&t=699s)),**需修正**如上。`/branch` 與 `/fork` 的差別([11:21](https://www.youtube.com/watch?v=i6Q7bXnWGlM&t=671s)、[11:36](https://www.youtube.com/watch?v=i6Q7bXnWGlM&t=686s))則與官方一致。
+
+**C. 模型分工的兩個細節**
+- `opusplan` 只控制**主對話**的 plan / 執行切換;subagent 的模型依 §9.5 所列四層順序決定,與 `opusplan` 無關。
+- `CLAUDE_CODE_SUBAGENT_MODEL` 單獨設定時,**不會改變內建 Explore、Plan 兩個 subagent 的模型**(官方明寫)。影片 [14:38](https://www.youtube.com/watch?v=i6Q7bXnWGlM&t=868s) 未提這點。兩個變數都設時,subagent 跑 `CLAUDE_CODE_SUBAGENT_MODEL` 指定的模型;只設 `_FORCE` 時,subagent 跑主對話的模型,但內建 Explore 仍跑它自己列出的模型(官方明寫)。
+
+**D. 輸出風格的大小寫陷阱**:見 §9.3 表格。影片把五種風格都列出來,正確;但它沒提設定檔值區分大小寫。
+
+**畫面核對(已截圖 5 格,截圖秒數 180、333、459、778、868 s)**:[3:00](https://www.youtube.com/watch?v=i6Q7bXnWGlM&t=180s)、[5:33](https://www.youtube.com/watch?v=i6Q7bXnWGlM&t=333s)、[7:39](https://www.youtube.com/watch?v=i6Q7bXnWGlM&t=459s)、[12:58](https://www.youtube.com/watch?v=i6Q7bXnWGlM&t=778s)、[14:28](https://www.youtube.com/watch?v=i6Q7bXnWGlM&t=868s) 的畫面是**示意動畫與卡片**,無可讀的設定鍵名或指令拼法;因此**設定鍵與指令名稱的正確性全部以官方文件為準,未以畫面核對**。
+
+**E. 未能核實清單**
+- `askUserQuestionTimeout` 是否「只在不會阻塞時才自動選」:官方索引只寫「閒置後讓未回答的問題自動繼續」,未能核實。
+- `/fork` 的「任務完成後自動結束」:官方不是這樣寫,已改為需修正。
+- `opusplan[1m]`:未能核實。
+- `/skills` 的 `t` 排序方向(遞增或遞減):未能核實。
+- `/doctor prompt-audit`(v2.1.283+)與 `/claude-api prompt-audit` 功能重疊:官方兩者皆列出,未比較輸出差異。
+
+**來源(9.7 新增)**
+- [Commands](https://code.claude.com/docs/en/commands)、[Settings](https://code.claude.com/docs/en/settings)、[Settings reference](https://code.claude.com/docs/en/settings-reference)、[Model configuration](https://code.claude.com/docs/en/model-config)、[Sub-agents](https://code.claude.com/docs/en/sub-agents)、[Agent view](https://code.claude.com/docs/en/agent-view)、[Output styles](https://code.claude.com/docs/en/output-styles)(2026-11-07 查核)
 
 來源:[AI LABS〈Claude Code Features That 90% Don't Know Exist〉](https://www.youtube.com/watch?v=i6Q7bXnWGlM)(2026-10-05)—— **該片無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差**;[Commands](https://code.claude.com/docs/en/commands)、[Settings](https://code.claude.com/docs/en/settings)、[Settings reference](https://code.claude.com/docs/en/settings-reference)、[Env vars](https://code.claude.com/docs/en/env-vars)、[Model config](https://code.claude.com/docs/en/model-config)。
 

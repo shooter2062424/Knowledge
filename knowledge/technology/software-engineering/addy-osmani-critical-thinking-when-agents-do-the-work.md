@@ -99,14 +99,15 @@ flowchart TD
 ## 核實紀錄(2026-11-05 查證)
 
 **已核實(對照 Addy Osmani 部落格原文)**
-- 「認知卸載 vs 認知投降」:[Cognitive Surrender](https://addyosmani.com/blog/cognitive-surrender/)(2026-05-05):卸載是交付機制但仍判斷結果是否合理;投降是停止形成自己的看法、AI 產出變成你的產出。引用華頓商學院 Shaw 與 Nave 的三個實驗(1,372 人),AI 答錯時 **73% 的受試者接受錯誤答案**;並稱認知投降是「理解債」累積的機制。
+- 「認知卸載 vs 認知投降」:[Cognitive Surrender](https://addyosmani.com/blog/cognitive-surrender/)(2026-05-05):卸載是交付機制但仍判斷結果是否合理;投降是停止形成自己的看法、AI 產出變成你的產出。引用華頓商學院 Shaw 與 Nave 的三個實驗(1,372 人),AI 答錯時 **73% 的受試者接受錯誤答案**;並稱認知投降是「理解債」累積的機制。⚠️ **2026-11-07 補充:「73%」與「1,372 人」僅見於 Addy 文章轉述;二手報導多寫約 80%(79.8%),SSRN 原頁於本次查證時回 HTTP 403。此數字現列為「衝突、未能核實」,請勿直接引用。**
 - 「Andy Clark 的委派 vs 協同」「提問前先形成預期」「請模型反駁自己」「不靠 AI 定期寫程式」均出現在該文。
 - 「意圖債」:[The Intent Debt](https://addyosmani.com/blog/intent-debt/)(2026-06-05)。定義為「外部化的理由、目標、限制缺失或流失」,存在於產物而非程式碼或人;**「Agent 可以靠讀程式碼重建理解,但無法生成意圖」**;借用 Margaret-Anne Storey 的「三重債務模型」(技術債、認知債、意圖債彼此獨立);他把認知債稱作「理解債(comprehension debt)」。
 - 「協調稅」:[The Orchestration Tax](https://addyosmani.com/blog/orchestration-tax/)(2026-05-24)。定義與「結構性差距」說法吻合;並提出「平行 Agent 數量應等於你能認真 code review 的數量」「批次審查」。
-- 華頓論文:Shaw 與 Nave 的 *Thinking—Fast, Slow, and Artificial* 確為 SSRN 預印本([papers.ssrn.com/abstract=6097646](https://papers.ssrn.com/abstract=6097646));另有評論指出其樣本、複現性、方法學有爭議(來源為二手彙整,**證據強度請保守看待**)。
+- 華頓論文:Shaw 與 Nave 的 *Thinking—Fast, Slow, and Artificial* 確為 SSRN 預印本([papers.ssrn.com/abstract=6097646](https://papers.ssrn.com/abstract=6097646));另有評論指出其樣本、複現性、方法學有爭議(來源為二手彙整,**證據強度請保守看待**)。2026-11-07 查證:SSRN 原頁回 HTTP 403,無法讀摘要;WebSearch 所得二手報導都確認「三個實驗、1,372 人」,但「接受錯誤答案比例」一處為 73%、多處為約 80%,**故該比例未能核實**。
 
 **需修正 / 注意**
 - 譯文說「理解債(Comprehension debt)是 Jeremy Twei 提出的詞彙」。Addy 在〈The Intent Debt〉裡的說法是**他自己一直把認知債稱作理解債**,並未提到 Jeremy Twei;且文章也未說誰最早創造「認知債」。此歸屬我**無法核實**,請勿當成定論。
+- 「Anthropic 技能形成實驗」的「低 17%」:Addy 原文與影片都寫 17,但 Anthropic 原文是 **50% 對 67%,即相差 17 個百分點**(相對降幅約 25%)。筆記中凡寫「低 17%」處,應讀作「低 17 個百分點」。(2026-11-07 已核實,見下文延伸段。)
 - 譯文的「延遲判斷(Deferral)」這一階:Addy 的〈Cognitive Surrender〉原文**沒有出現這個詞**,是本篇(較新、我找不到原文的長文)才有的三段式。
 - 「Anthropic 內部研究稱之為監督悖論」:〈Cognitive Surrender〉原文有引用 Anthropic 技能形成研究(用 AI 生成程式碼同時學習的工程師,理解測驗低 17%),**「paradox of supervision」這個詞與引文我沒有逐字核到**。
 
@@ -123,7 +124,7 @@ flowchart TD
 
 | 項目 | 影片說法 | 備註 |
 |---|---|---|
-| Anthropic 技能形成實驗 | 隨機對照,52 名工程師學習不熟悉的函式庫;用 AI 組與不用 AI 組**完成時間無顯著差異**,但隨後理解測驗 **50% 對 67%,差 17 個百分點**,差距較大的部分含**除錯**;主動追問概念、請 AI 解釋程式碼的人理解保持較好,整包丟給 AI 的較弱 | 「低 17%」與本篇核實紀錄中〈Cognitive Surrender〉轉述一致;**人數 52、50/67 的具體數字我未另外對照 Anthropic 原論文**,標「影片轉述,未核實」 |
+| Anthropic 技能形成實驗 | 隨機對照,52 名工程師學習不熟悉的函式庫;用 AI 組與不用 AI 組**完成時間無顯著差異**,但隨後理解測驗 **50% 對 67%,差 17 個百分點**,差距較大的部分含**除錯**;主動追問概念、請 AI 解釋程式碼的人理解保持較好,整包丟給 AI 的較弱 | 2026-11-07 已對照 Anthropic 原文核實:52 人、AI 組 50% 對非 AI 組 67%、相差 17 個百分點、完成時間 23 對 25 分鐘(p = 0.391,無顯著差異)、落差最大在除錯題。影片畫面(截圖時間 2:56)也以「理解差距 17 個百分點」字卡呈現 |
 | Storey 的學生團隊案例 | 做軟體專案的學生,推進到第 7、8 週時,簡單修改也會弄壞別的功能;追問才發現沒人說得清模組如何協作、設計決定從何而來——**程式碼還在,團隊共享的系統模型已散** | 對應前文「三重債務」(技術債/認知債/意圖債)。影片據此建議:紀錄變更時除了改了哪些檔案,還要留下**約束、被否決的方案與取捨理由**,否則新人只能繼續靠 Agent 解釋,債務往下傳 |
 | Claude Code 團隊審查數字 | 6 至 9 月合併 PR 增加一倍以上,需回滾比例下降超過 40%;文件修改、一般產品邏輯、計費與 CI 工作流**不該共用同一個批准按鈕** | 與 [[claude-code-team-code-review-seven-layers]] 的核實表一致(「more than doubled」「fell by more than 40 percent」) |
 
@@ -148,9 +149,36 @@ flowchart TD
 > 週五下午 Agent 回報「訂單同步重構完成,CI 全綠」,diff 600 行。照影片版流程:①開 session 前你已寫下「只該動 sync 層,冪等鍵不能變」;②先看它跑的命令與原始輸出,發現只跑了單元測試、沒跑整合測試;③要它列出所做決定,發現它把逾時預設從 30 秒改成 5 秒、還順手改了 11 個舊測試的預期值;④你挑三行(逾時設定、重試迴圈、一個改過的斷言)關掉解釋自己說明用途,第二個說不出來,就回頭問清楚;⑤PR 描述補上「未驗證:併發下的重複扣款」與回滾開關名稱,再按核准。
 
 **影片轉錄校正(Whisper)與核實**
-- 「Adios Money」= **Addy Osmani**(同音誤聽);「奥斯马尼」= 奧斯馬尼 = Osmani;「Margaret and Story」= **Margaret-Anne Storey**;「Cloud Code」= **Claude Code**;「認之投降」= 認知投降;「成為編排式」(約 6:30)= 「稱為編排稅」,即 orchestration tax。皆為依上下文與本篇前文的推定。
+- 「Adios Money」= **Addy Osmani**(同音誤聽);「奥斯马尼」= 奧斯馬尼 = Osmani;「Margaret and Story」= **Margaret-Anne Storey**;「Cloud Code」= **Claude Code**;「認之投降」= 認知投降;「成為編排式」(截圖時間 6:30)= 「稱為編排稅」,即 orchestration tax。皆為依上下文與本篇前文的推定。
 - 影片說 Osmani 長文「11 月 3 日發布」:與前文「原貼文無法抓取」並存,**發布日期未能獨立核實**。
 - 影片本身無業配;片尾「一鍵三連」為頻道例行呼籲,未納入。
+
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+**① Anthropic 技能形成實驗(一手原文已讀)**
+- 論文:〈How AI assistance impacts the formation of coding skills〉,Anthropic 2026-01-29 發布,arXiv 2601.20245。原文:<https://www.anthropic.com/research/AI-assistance-coding-skills>
+- 設計:52 名(多為初階)工程師,每週至少用 Python 一年以上,但沒用過 Trio(非同步程式庫);流程為暖身 10 分鐘、Trio 任務 35 分鐘、測驗 25 分鐘、問卷 5 分鐘。
+- 結果:完成時間約 23 分鐘(AI)對 25 分鐘(非 AI),p = 0.391,無顯著差異;測驗 50% 對 67%,Cohen's d = 0.738,p = 0.01;**落差最大在除錯題**。
+- 互動模式(原文分類):高分(≥65%)組包括「先生成再追問理解」(n=2,86%)、「要程式碼也要解釋」(n=3,68%)、「只問概念、錯誤自己解」(n=7,65%);低分(<40%)組包括「整包交給 AI」(n=4)、「逐步加重依賴」(n=4)、「反覆請 AI 除錯」(n=4)。
+- **原文自陳的限制(寫筆記時務必帶上):** 樣本「相對較小」;只測任務後不久的理解,未測長期;互動模式與學習結果之間**沒有因果結論**;研究只涵蓋寫程式;作者也說 Claude Code 這類代理式工具的影響可能更強,但未在本研究中測量。
+- 對照影片:影片說「主動追問概念的人理解保持較好」,與原文「概念提問組」一致;但原文的高分組樣本只有 2–7 人,不宜當成定論。
+
+**② Storey「三重債務模型」(arXiv 2603.22106,一手摘要已讀)**
+- 論文:Margaret-Anne Storey,〈From Technical Debt to Cognitive and Intent Debt: Rethinking Software Health in the Age of AI〉,2026-03-23 投稿(v4 於 2026-04-06 修訂)。<https://arxiv.org/abs/2603.22106>
+- 摘要定義:**技術債**在程式碼中;**認知債**是「團隊之間共享理解的侵蝕」(屬團隊層級,不是個人);**意圖債**是「明確理由、目標、限制的缺失或侵蝕」(存在於產物中,供人與代理讀取)。
+- 核心主張:生成式 AI 可能降低技術債,卻加快認知債與意圖債的累積。
+- **校正:** 本筆記前文把「理解債(comprehension debt)」當作認知債的同義詞。Addy 原文用的是 comprehension debt;Storey 的「認知債」定義更偏團隊共享理解。兩者接近但範圍不同,寫作時請分開。
+
+**③ 意圖債的畫面與原理(影片字卡,已截圖核對)**
+- 影片 [7:27] 處(<https://www.youtube.com/watch?v=CghXuvlAhD0&t=437s>)的字卡寫:「模糊需求 → 代理補全 → 意圖債」,並附實踐建議「寫清邊界與取捨的簡報;若兩次改寫仍不達標,停止優化提示詞,重定義問題」。字卡上的例子是「需求裡沒寫用戶是誰、哪些情況不做、怎樣算完成」。
+- 這與 Addy〈The Intent Debt〉的「Agent 可以靠讀程式碼重建理解,但無法生成意圖」一致(見前文核實紀錄)。
+
+**④ 「監督悖論」(paradox of supervision)仍未核實**
+- Addy〈Cognitive Surrender〉原文未出現此詞;Anthropic 原文(上文①)也未見此詞。本筆記第 7 節的「監督悖論」應視為譯文/影片的說法,**未能核實為 Anthropic 的正式用語**,請勿當成定論。
+
+**⑤ 截圖與字幕核對**
+- 截圖(影片畫面,已讀,於逐字稿查得的時間):片頭字卡「測試全綠,也可能沒人懂代碼」;[2:47] 起的字幕「讓52名工程師學習一個不熟悉的庫」(<https://www.youtube.com/watch?v=CghXuvlAhD0&t=157s>)同段字卡為「速度沒有換來理解」與「理解差距 17 個百分點」(截圖取自 2:46 畫面);[2:56] 「兩組成績是50%對67%」(<https://www.youtube.com/watch?v=CghXuvlAhD0&t=166s>);[7:27] 意圖債字卡(見上)。
+- 逐字稿中的錯字(Whisper):「Adios Money」「奧斯馬尼」「Cloud Code」等已在前文處理;本次另見「認之投降」「代研」「設計理由」等,皆為同音/近音誤寫,已依畫面與上下文改為「認知投降」「代碼」「設計理由」。
 
 ## 來源
 
@@ -159,5 +187,8 @@ flowchart TD
 - Why QQ〈600行PR〉(2026-11-05,影片版改寫;該片原有官方簡中字幕但被 YouTube 限流取不到,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差):https://www.youtube.com/watch?v=CghXuvlAhD0
 - Shaw & Nave〈Thinking—Fast, Slow, and Artificial〉:https://papers.ssrn.com/abstract=6097646
 - 加入 Anthropic 的報導(二手):https://runtimewire.com/article/addy-osmani-joins-anthropic-claude-code-developer-experience
+- Anthropic〈How AI assistance impacts the formation of coding skills〉(2026-01-29,arXiv 2601.20245):https://www.anthropic.com/research/AI-assistance-coding-skills
+- Storey〈From Technical Debt to Cognitive and Intent Debt〉(arXiv 2603.22106):https://arxiv.org/abs/2603.22106
+- Shaw & Nave SSRN 原頁(本次回 HTTP 403,未能讀取):https://papers.ssrn.com/abstract=6097646
 
 相關閱讀:[[claude-code-team-code-review-seven-layers]](文中引用的 code review 原則)、[[agent-verification-before-scale-lauren-tan-reaction]](先給 Agent 驗證手段再談規模)、[[llmentalist-effect-cold-reading-and-verifiers]](流暢的輸出為何讓人放鬆警戒)。

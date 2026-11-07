@@ -108,18 +108,18 @@ flowchart TB
 
 ## 附錄:託管版 Hermes「60 秒開通」實測與 agent vs chatbot 判準(YAHA学堂,2026-09-08)
 
-> 整理自 YouTube 頻道 **YAHA学堂**〈同样是 AI agent,为什么别人要装半小时,这个 60 秒就能用?〉(約 5.7 分,YouTube 自動字幕)。
+> 整理自 YouTube 頻道 **YAHA学堂**〈同样是 AI agent,为什么别人要装半小时,这个 60 秒就能用?〉(YouTube 自動字幕;逐字稿末句為 [5:34],片長約 5.5 分以上,精確長度未核實)。
 > ⚠️⚠️ **業配揭露:** 該片推廣第三方託管平台 **nexos.ai**(片中稱內建 ChatGPT / Claude 額度、頻道專屬 9 折優惠碼、「描述欄有優惠碼跟連結」、訂閱 24 個月折扣近 400 美元)。**本附錄不轉述方案價格、折扣與購買流程,只整理與 Hermes 本身有關的概念。** 我**未能在公開搜尋中查到 nexos.ai 提供 Hermes 託管的官方頁面**(搜到的是 Hostinger、Creative Tim 等其他託管商),該平台的功能與計費說法**未核實**。
 
-**Hermes Agent 本體(✅ clone [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) 讀 README / 目錄核實):** MIT 授權,Nous Research 出品;**單一 gateway 行程**同時接 Telegram、Discord、Slack、WhatsApp、Signal 與 CLI;內建 **cron 排程器**(自然語言設定、結果投遞到任一平台、無人值守);模型可換(Nous Portal、OpenRouter、OpenAI、自訂端點…);具「自我學習迴圈」(自動建 skill、記憶輪巡);支援子 agent 平行;終端後端含 local / Docker / SSH / Modal / Daytona / Vercel Sandbox。
+**Hermes Agent 本體(✅ 2026-11-07 以 WebFetch 讀 [README](https://github.com/NousResearch/hermes-agent) 摘要核實;未 clone 讀原始碼):** MIT 授權,Nous Research 出品;**單一 gateway 行程**同時接 Telegram、Discord、Slack、WhatsApp、Signal 與 CLI(README 快速參考另列 Email);內建 **cron 排程器**(README 確認有內建 scheduler、可投遞到任一平台;「自然語言設定」「無人值守」為影片說法,未逐條核實);模型可換(Nous Portal、OpenRouter、OpenAI、自訂端點…);具「自我學習迴圈」(自動建 skill、記憶輪巡);支援子 agent 平行;終端後端含 local / Docker / SSH / Modal / Daytona / Vercel Sandbox。
 
 影片值得留下的三個判準與提醒:
 
-1. **agent 與 chatbot 的分水嶺只有一行:「網頁關掉,它就停了嗎?」**——作者認為官方對照 ChatGPT 的 7 列表格中只有 3 列有決定性:**能不能背景持續跑**、**能不能進你的通訊軟體**(ChatGPT 做不到)、**模型能不能自己換**。
+1. **agent 與 chatbot 的分水嶺只有一行:「網頁關掉,它就停了嗎?」**——作者認為官方對照 ChatGPT 的 7 列表格中只有 3 列有決定性(該表格 [3:57] 附近畫面為轉場模糊,**未能以畫面核對表格內容**,也未另查到官方該表):**能不能背景持續跑**、**能不能進你的通訊軟體**(ChatGPT 做不到)、**模型能不能自己換**。
 2. **給目標、不給步驟**:示範一句「查三家 AI(Anthropic / OpenAI / Google)的 API 價格,做成對照表,標出各情境最便宜的,傳到我手機」,之後不介入;產出為三家各自的輸入/輸出/快取價,並自動推送到 Telegram。(⚠️ 價格內容本身未核對,不要拿來報價。)
-3. **⭐ 成本陷阱:影片稱託管版預設「每 30 分鐘自己醒來一次檢查有沒有事做」,即使判斷沒事,這個判斷本身也要花 token**,不調長間隔或關掉就會持續漏錢。單次比價任務實測消耗 0.46 個平台點數(10 點約夠 20 幾次)。**核實:** 我在 repo 中找到 cron 的「every 30m / every 2h」間隔語法與 1800 秒級的逾時/重試常數,但**沒有找到名為「預設 30 分鐘 heartbeat」的設定**——此「預設 30 分鐘」應是**該託管平台自己的設定**,自架請檢查自己的 cron job 清單。
+3. **⭐ 成本陷阱:影片稱託管版預設「每 30 分鐘自己醒來一次檢查有沒有事做」[5:15]–[5:28],即使判斷沒事,這個判斷本身也要花 token**,不調長間隔或關掉就會持續漏錢。單次比價任務實測消耗 0.46 個平台點數([5:06];10 點約夠「二十幾次」[5:11])。影片畫面中的點數數字(剩 9.54)為逐字稿轉述,截圖未逐格核對。**核實:** 我在 repo 中找到 cron 的「every 30m / every 2h」間隔語法與 1800 秒級的逾時/重試常數,但**沒有找到名為「預設 30 分鐘 heartbeat」的設定**——此「預設 30 分鐘」應是**該託管平台自己的設定**,自架請檢查自己的 cron job 清單。
 
-**Telegram 接入三步(影片流程,與官方 gateway 文件一致):** ① 找 `@BotFather` 建機器人(顯示名 + 以 `bot` 結尾且全域唯一的使用者名稱),只取 HTTP API token;② 提供你自己的 Telegram 使用者 ID 當白名單(搜 ID 機器人時**小心仿冒帳號**,認官方頭像);③ 回自己建的 bot 按 Start 發一則訊息。第三方指南指出:**沒設白名單時 gateway 預設拒絕所有人**(安全預設)。
+**Telegram 接入三步(影片流程,與官方 gateway 文件一致):** ① 找 `@BotFather` 建機器人(顯示名 + 以 `bot` 結尾且全域唯一的使用者名稱),只取 HTTP API token;② 提供你自己的 Telegram 使用者 ID 當白名單(搜 ID 機器人時**小心仿冒帳號**,認官方頭像);③ 回自己建的 bot 按 Start 發一則訊息。**已核實(2026-11-07):** 官方安全文件 [Security](https://hermes-agent.nousresearch.com/docs/user-guide/security) 寫明「若未設定任何 allowlist 且未設 `GATEWAY_ALLOW_ALL_USERS`,所有使用者皆被拒絕」;Telegram 文件 [Telegram](https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram) 指出白名單變數為 `TELEGRAM_ALLOWED_USERS`,未設定時 gateway 預設拒絕所有人。(以上為頁面摘要,未逐字比對全文。)影片沒有提到白名單變數名稱,這是補充來源。
 
 **應用案例:** 想要「每天早上把某 GitHub repo 的新 release 摘要推到手機」——自架 Hermes 用 `hermes gateway` 常駐 + 一條自然語言 cron;若走託管版,先把喚醒間隔從 30 分鐘調成 6 小時,再看帳單。
 
@@ -131,6 +131,16 @@ flowchart TB
 > 用 ACP/常駐 CLI(TCP+JSON-RPC)串三大模型、用 plugin 註冊「誰擅長什麼」讓它自動分派,
 > 再補上任務監控、cron 結果渲染與**分層網路抓取**。核心理念和 [[function-calling-mcp-a2a]]、[[task-decomposition-agentic-workflow]] 一致:
 > **把多個專才用標準介面接起來、由一個會路由的中樞調度,遠勝於塞一個什麼都做的 mega agent。**
+
+---
+
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+- **Gateway 預設安全(已核實)**:官方安全文件寫明未設 allowlist 且未開 `GATEWAY_ALLOW_ALL_USERS` 時拒絕所有使用者;Telegram 白名單變數 `TELEGRAM_ALLOWED_USERS`。影片的「Telegram 三步」與此一致,但影片只教「填自己的數字 ID」,沒有講「不填會全拒」這個前提。來源:<https://hermes-agent.nousresearch.com/docs/user-guide/security>、<https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram>
+- **Telegram 的 ID 陷阱(未核實於官方,社群回報)**:第三方 issue 指出「Unauthorized user」日誌要填的是人的數字 user ID,不是 bot token 前綴;`allowed_chats` 不是使用者授權鍵。來源:<https://github.com/NousResearch/hermes-agent/issues/34751>(摘要核對,未逐行讀全文)。同一搜尋結果中另一 issue 提到設定鍵寫法(`allow_from`)與官方文件不同,**此處未能確定當前版本的正確鍵名**,使用前請對照 config reference。
+- **README 核實重點**:MIT、單一 gateway 行程接多平台、內建 cron scheduler、「closed learning loop」與自動建 skill。來源:<https://github.com/NousResearch/hermes-agent>(WebFetch 摘要,非逐行原始碼)。
+- **未能核實的影片說法**:「官方 7 列對照表」(畫面模糊)、「每 30 分鐘 heartbeat」是託管平台設定還是 Hermes 預設(前述 repo 核實仍未定論)、「`hermes gateway` 指令」(未查官方 CLI 文件)、託管平台 nexos.ai 的點數與價格。以上都不應直接當成事實引用。
+- **應用含意(推論,非來源原文)**:託管版若預設 30 分鐘醒來一次,自架時同樣要看自己的 cron job 間隔——這與 agent 成本分析相通:**每次「醒來判斷」本身就是 token 支出**,監控頻率要與任務價值對等。
 
 ---
 

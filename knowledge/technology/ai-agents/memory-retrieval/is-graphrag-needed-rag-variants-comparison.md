@@ -50,7 +50,7 @@ flowchart TD
 | GraphRAG | S5(向量+預定義 KG) | 0.6514 | 0.7072 | GraphRAG 內最佳但**仍輸 S2** |
 | Modular/Agentic | **S8**(極簡工具自主 agent) | **0.6881** | **0.7549** | **全場最佳** |
 
-- **「簡單把 1-hop 關係併進文件」打贏精緻 GraphRAG(S2 > S5)**:因為 S5 的子圖用**三元組格式**容易很長,LLM 落入「lost in the middle」;S2 把 1-hop 按關係類型分組、更精簡。**精緻 ≠ 更好。**
+- **「簡單把 1-hop 關係併進文件」打贏精緻 GraphRAG(S2 > S5)**:論文推測的原因之一是 S5 的子圖用**三元組格式**容易很長,LLM 可能落入「lost in the middle」;S2 把 1-hop 按關係類型分組、更精簡。(論文同時列出超參數、子圖表示法等其他可能因素,並未單獨實驗驗證這個解釋。)**精緻 ≠ 更好。**
 - **純圖搜尋(S3)慘敗**(Hit@1 0.1376):沒有語意資訊、只靠圖遍歷不行。
 - **自動算出來的 KG(S4)會扯後腿**:品質難比預定義 KG,低品質 KG 甚至讓表現**比 S1 還差**。
 - **agent 自主性的價值**:S7(元件當工具)> S6(固定流程);而 **S8(只給檢索工具、其餘自己想)全場最佳**——顯示強模型能**內化複雜檢索推理**,不需預先特化的工具。**但 S9 加了 KG 工具或開 thinking 反而沒幫助。**
@@ -75,7 +75,17 @@ flowchart LR
 3. **文件檢索去重**:用 content hash 在加進記憶前砍掉重複文件/chunk。
 4. **批次 agentic 檢索(混合 ReAct + ReWOO)**:不再「一次工具呼叫一個查詢」(ReAct 預設),而是**一次擬多個互補子查詢、批次執行**(演算法 1)→ 減少 LLM 往返次數(每次往返都要重送整段歷史)。
 
-**效果**:S5 省 **53%**(表現相當)、S9 省 **24–42%** 且 Hit@5/R@20 **更好**(優化效益隨檢索複雜度放大);批次檢索達**最高檢索覆蓋率 RoR 94.4%**。**省下的 token 還能再投資去擴大檢索**(更多 paths/子圖)。
+**效果(2026-11-07 核實:論文 Table 2,單次實驗、無變異數)**:
+
+| 方案 | 節省 token | 精度變化(Hit@1 vs 基線) |
+|---|---|---|
+| S5-Opt,100 paths / 5 subgraphs | **−53%**(49.1K → 23.0K) | 0.6422 → 0.6330,**相當** |
+| S5-Opt,500 paths / 20 subgraphs | **+11%**(反而變多) | 0.6055,**下降** |
+| S8-Opt(四種設定全部) | −7.2% ~ −19%,另有 +21% 的設定 | 全部**下降**(最差 nonredundant + batch 0.5413) |
+| S9-Opt,KG 100 / 500 paths 非批次 | −24% / −42% | 0.6240 / 0.6420,**Hit@5、R@20、MRR 皆升** |
+| S9-Opt,batch 兩種 | −43% / −48% | 0.5321 / 0.5229,**下降** |
+
+所以「節省 19–53%」是摘要的大方向,**不是保證**:節省幅度與精度要分開看,**批次檢索在 S8、S9 都會傷精度**,不能預設「省 token 又更準」。另一面:S8-Opt 的 nonredundant + batch 設定達**最高檢索覆蓋率 RoR 94.4%**,生成端 Hit@1 卻掉到 0.5413——正是 §4 的「檢索–生成落差」實例。**省下的 token 還能再投資去擴大檢索**,但論文自己的數據顯示,擴大不必然換來更好答案。
 
 ---
 
@@ -99,7 +109,7 @@ flowchart LR
 
 ### 5.1 問題:線索散在不同文件,純向量檢索接不起來
 
-影片範例(虛構):文件 A「新型晶片 X100 由初創團隊『極智星』研發」;文件 B「極智星是華盛科技的全資子公司」;文件 C「華盛科技的實際控制人與第一大股東是遠景資本」。問「X100 的最終實際控制機構是誰?」——**沒有任何一篇文件直接寫出晶片與遠景資本的關係**。就算三段全被召回,彼此沒有拓撲線索,模型要嘛亂編投資機構,要嘛說找不到。
+影片範例(虛構):文件 A「新型晶片 X100 由初創團隊『極智芯』研發」;文件 B「極智芯是華盛科技的全資子公司」(2026-11-07 以畫面截圖核對 [2:36] 投影片,寫的是「極智芯」,字幕誤聽為「極智星」);文件 C「華盛科技的實際控制人與第一大股東是遠景資本」。問「X100 的最終實際控制機構是誰?」——**沒有任何一篇文件直接寫出晶片與遠景資本的關係**。就算三段全被召回,彼此沒有拓撲線索,模型要嘛亂編投資機構,要嘛說找不到。
 
 兩個常見錯誤補救:
 - **把 Top-K 從 5 放大到 50 甚至 100,再接 reranker**:無關噪音湧入,出現「中間資訊迷失」,推理準確率不升反降,延遲與 token 成本翻數倍。(與本篇 §4「擴大檢索≠答案更好」互相印證。)
@@ -112,8 +122,8 @@ flowchart LR
 ### 5.3 建圖三步走
 
 1. **輕量小模型粗篩**:專門訓練的 NER + 關係抽取小模型做高吞吐掃描,先粗抽候選實體與關係。
-2. **垂直領域少樣本精修**:用帶領域真實樣例的提示詞,調高階 LLM 做二次邏輯校驗、關係去重、屬性補全;影片稱金融 / 工業場景三元組準確率較通用抽取**提升三成以上**(⚠️ 未給實驗設定,**未能核實**)。
-3. **實體對齊 / 歸一化**:結合上下文共現規律與屬性特徵(例如都在討論抗血小板聚集、解熱鎮痛,且分子式與組織功效多維屬性重合),把 ASA / 商品名 / 學名收斂到同一個**全局唯一實體 ID**。
+2. **垂直領域少樣本精修**:用帶領域真實樣例的提示詞,調高階 LLM 做二次邏輯校驗、關係去重、屬性補全;影片稱金融 / 工業場景三元組準確率較通用抽取**提升三成以上**。(2026-11-07 核實:字幕原文「提升三層以上」是 Whisper 同音誤聽,[6:39](https://www.youtube.com/watch?v=Uz7K757psEU&t=389s) 投影片畫面標示「+30% 准确率」,確認為三成。但這是影片自述,未給實驗設定、資料集與基線,**未能核實**。)
+3. **實體對齊 / 歸一化**:結合上下文共現規律與屬性特徵(例如都在討論抗血小板聚集、解熱鎮痛,且分子式與組織功效多維屬性重合),把 ASA / 商品名 / 學名收斂到同一個**全局唯一實體 ID**。(2026-11-07 核實:[7:01](https://www.youtube.com/watch?v=Uz7K757psEU&t=411s) 投影片以 `Doc 1: "ASA"` / `Doc 2: "阿司匹林"` / `Doc 3: "乙酰水杨酸"` → `Entity UUID` 呈現,與影片講的「全局唯一實體身份證號」一致。)
 - 儲存:Neo4j 或 Nebula Graph 這類圖資料庫,支撐多跳拓撲查詢。
 - ⭐ **關鍵細節:每個節點 / 每條邊都要存「源頭元數據」**——出自哪篇文件的唯一編號與哪個切片編號。這是後面「白盒溯源」的基礎(「給每個知識點辦一張無法偽造的出身證明」)。
 
@@ -160,8 +170,25 @@ flowchart TB
 ### 5.8 核實
 
 - **已核實(通用事實)**:Neo4j、Nebula Graph 為真實存在的圖資料庫;交叉編碼器 reranker、NER/RE 為標準技術。
-- **未能核實**:「三元組準確率提升三成以上」「X100 / 極智星 / 華盛科技 / 遠景資本」(虛構範例,非真實公司)。
-- **轉錄還原(推定)**:「相量 / 項量」=向量、「土普 / 托補」=圖譜 / 拓撲、「RIG」=RAG、「紫圖」=子圖、「依鲜水阳酸」=乙醯水楊酸(轉錄寫成「以鮮水陽酸」)、「RSP0 / RCP0」=推定 Aspirin(**已記入 TRANSCRIPT-PENDING.md**)。
+- **未能核實**:「三元組準確率提升三成以上」(畫面有 +30%,但無實驗來源)、「X-100 / 極智芯 / 華盛科技 / 遠景資本」(虛構範例,非真實公司;畫面確認名稱為「極智芯」,見 [2:36](https://www.youtube.com/watch?v=Uz7K757psEU&t=146s))。
+- **畫面確認(2026-11-07)**:[4:28](https://www.youtube.com/watch?v=Uz7K757psEU&t=258s) 投影片「常見的兩大 RAG 調優陷阱」列出 `乙酰水杨酸` / `阿司匹林` / `ASA` 三個別名,並標「語義匹配無法對齊」——「RCP0 / RSP0」即推定為「阿司匹林」(字幕誤聽),**不再只是推定**。
+- **轉錄還原(推定)**:「相量 / 項量」=向量、「土普 / 托補」=圖譜 / 拓撲、「RIG」=RAG、「紫圖」=子圖、「余險相思度」=餘弦相似度、「依鲜水阳酸」=乙醯水楊酸(轉錄寫成「以鮮水陽酸」)。
+- 轉錄中「RSP0 / RCP0」原已記入 TRANSCRIPT-PENDING.md;畫面已確認為「阿司匹林」,待使用者 review 時可一併移除該項。
+
+---
+
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+**已讀一手來源**:論文 arXiv HTML 版的 Table 1(RAG 方案結果)、Table 2(脈絡優化結果)、Table 3(位置分析)、Table 4(S5-Opt 深挖),以及 Algorithm 1(批次代理式檢索)。Table 5(S8/S9 深挖)僅讀到標題,未逐列核對。第 2、3、4 節的數字已逐一對照 Table 1/2/3/4;下列是比影片與前文多出、或修正前文的部分。
+
+- **已核實 · 精度與節省要分開看(修正前文)**:Table 2 顯示,脈絡優化「省 token」在多數設定下**不等於**「更準」。S5-Opt 100/5 精度持平(Hit@1 0.6330 vs 0.6422);S8-Opt 四種設定 Hit@1 全部下降(0.5413–0.6330 vs 0.6881);S9-Opt 非批次版本反而全面提升,批次版本下降。論文自己標註為單次實驗、無變異數,小差距要謹慎看。來源:<https://arxiv.org/html/2606.25656>
+- **已核實 · 「19–53%」的來源**:摘要的 19%–53% 是挑出的最佳與次佳結果的區間;表中也有 +11%(S5-Opt 500 paths / 20 subgraphs)與 +21%(S8-Opt nonredundant docs)的**增加**設定。把它當「平均或保證節省」會誤讀。
+- **已核實 · 批次代理式檢索(ReAct + ReWOO)**:Algorithm 1 的外層是 ReAct 的 think–act–observe 迴圈,act 步驟把多個子查詢一次送進檢索工具(ReWOO 的「先規劃、後批次執行」想法)。論文報告 LLM 往返次數由 4.2 降到 2.8,但檢索也變得更寬、更推測性,反而會撐大最終生成脈絡。ReWOO 原論文:Xu et al.,arXiv:2305.18323(2023-05-23),主張把推理與工具觀察解耦、降低提示詞重複;其 HotpotQA 數字未在本次核對範圍內。<https://arxiv.org/abs/2305.18323>
+- **已核實 · 「lost in the middle」是底層現象,不是論文的實驗結論**:論文用它解釋 S2 勝過 S5,但只列為可能原因之一。這個現象的原始研究是 Liu et al.,〈Lost in the Middle: How Language Models Use Long Contexts〉,arXiv:2307.03172(TACL 2023),結論是關鍵資訊放在脈絡中段時準確率呈 U 型下降。<https://arxiv.org/abs/2307.03172>
+- **已核實 · 資料集來源**:STaRK 基準由 Wu et al. 提出,arXiv:2404.13207(NeurIPS 2024 Datasets & Benchmarks),涵蓋產品搜尋、學術論文搜尋與精準醫療三個領域;精準醫療那一塊即 STaRK-Prime(基於 PrimeKG)。<https://arxiv.org/abs/2404.13207> 論文本身於 2026-06-24 上傳;搜尋結果顯示 ACL Anthology 將其列於 GEM 2026 workshop(<https://aclanthology.org/2026.gem-main.40/>,僅依搜尋摘要,未開頁確認)。
+- **已核實 · 代理框架**:論文使用的 agent 框架為 Strands Agents SDK。<https://github.com/strands-agents/sdk-python/>。論文頁面**未附**自家實作的程式碼連結,因此無法直接讀原始碼重現。
+- **未能核實**:「核心 LLM 為 Claude 3.7 Sonnet」與「Amazon Bedrock、Neptune Analytics」等實作細節,本次僅核對了表格與方法段落,未重新逐項確認其設定頁。
+- **畫面核對(影片)**:已截圖 4 個時間點:[2:36](https://www.youtube.com/watch?v=Uz7K757psEU&t=146s)(X100 案例,投影片寫「極智芯」)、[4:28](https://www.youtube.com/watch?v=Uz7K757psEU&t=258s)(三個藥名別名)、[6:39](https://www.youtube.com/watch?v=Uz7K757psEU&t=389s)(「+30% 准确率」)、[7:01](https://www.youtube.com/watch?v=Uz7K757psEU&t=411s)(Entity UUID 對齊圖)。投影片的 3 處更正已寫入 §5。
 
 ---
 
@@ -170,7 +197,7 @@ flowchart TB
 - **別預設 GraphRAG 一定比較強**:先試「**把 1-hop 關係按類型分組併進文件(S2)**」這種最簡單的關係增強——本文裡它就打贏精緻 GraphRAG,且成本低、無需圖基礎設施。**精緻方案要能贏過你「調好的簡單 baseline」才值得上。**
 - **要上 GraphRAG 就用「向量+預定義 KG 混合(S5)」,別用純圖或自動算的 KG**:純圖搜尋(S3)沒語意會慘敗;自動抽出的 KG(S4)品質不穩**反而扯後腿**。預定義、高品質的 KG 才有價值。
 - **Agentic RAG 給「最少工具 + 好的系統提示」常勝過堆一堆特化工具**:S8 全場最佳。讓強模型自己內化改寫/重排/挑實體,比硬塞 KG 工具(S9)更好。
-- **agent 多步檢索一定要做脈絡優化**:否則 session 歷史累積會撞 context window。照搬本文四招——**關係分組表示、圖去重(單一統一子圖)、文件 content-hash 去重、批次檢索(ReAct+ReWOO 一次發多個子查詢)**——可省 19–53% token 還常常更準。
+- **agent 多步檢索一定要做脈絡優化**:否則 session 歷史累積會撞 context window。照搬本文四招——**關係分組表示、圖去重(單一統一子圖)、文件 content-hash 去重、批次檢索(ReAct+ReWOO 一次發多個子查詢)**——可省下大量 token,但要逐項量精度:S5 類(100 paths / 5 subgraphs)精度大致持平,S8 全部降、S9 的批次版本降,**不要照單全收**。
 - **改你評估 RAG 的方式**:不要只看 Hit@k/MRR 這種**檢索排名**指標(會高估進階檢索);要**端到端看 LLM 最終用了哪些實體**,並**分開報「檢索覆蓋率 vs 生成利用率」**。
 - **對抗「lost in the middle」**:把最關鍵的證據放在脈絡**前面**;用 prompt 鼓勵窮舉抽取、別讓查詢字面暗示壓低數量。控制脈絡長度比一味擴大檢索更重要。
 
@@ -181,5 +208,8 @@ flowchart TB
 ## 來源
 
 - 〈突破单跳限制:真正的高阶 RAG 架构与落地实践〉— 白白说大模型,2026-09-07(§5):<https://www.youtube.com/watch?v=Uz7K757psEU>(無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差)
+- Liu et al.,〈Lost in the Middle: How Language Models Use Long Contexts〉,arXiv:2307.03172(TACL 2023):<https://arxiv.org/abs/2307.03172>
+- Xu et al.,〈ReWOO: Decoupling Reasoning from Observations for Efficient Augmented Language Models〉,arXiv:2305.18323(2023):<https://arxiv.org/abs/2305.18323>
+- Wu et al.,〈STaRK: Benchmarking LLM Retrieval on Textual and Relational Knowledge Bases〉,arXiv:2404.13207(NeurIPS 2024 D&B):<https://arxiv.org/abs/2404.13207>
 - Long Chen, Ryan Razkenari, Yuxuan Zhou, Yuan Tian, Rahul Ghosh, Venkatesh Pappakrishnan, Disha Ahuja, Vidya Sagar Ravipati,〈Is GraphRAG Needed? From Basic RAG to Graph-/Agentic Solutions with Context Optimization〉,arXiv:2606.25656(2026-06-24,AWS GenAI Innovation Center + Cisco):<https://arxiv.org/abs/2606.25656>
-- 資料集 STaRK-Prime(Wu et al. 2024,基於 PrimeKG);實作技術:Amazon Bedrock Knowledge Bases、Neptune Analytics、Titan Text Embedding v2、OpenSearch Serverless、LlamaIndex、Strands Agents(ReAct);評估用 Claude 3.7 Sonnet;方法參考 ReAct(Yao 2023)與 ReWOO(Xu 2025)。本文依論文全文(§3 方法、§5 結果、附錄 case study)整理。
+- 資料集 STaRK-Prime(Wu et al. 2024,基於 PrimeKG);實作技術:Amazon Bedrock Knowledge Bases、Neptune Analytics、Titan Text Embedding v2、OpenSearch Serverless、LlamaIndex、Strands Agents(ReAct);評估用 Claude 3.7 Sonnet;方法參考 ReAct(Yao 2023)與 ReWOO(Xu et al. 2023,arXiv:2305.18323)。本文依論文全文(§3 方法、§5 結果、附錄 case study)整理。

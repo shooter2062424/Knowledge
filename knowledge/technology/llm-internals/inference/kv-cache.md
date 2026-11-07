@@ -67,8 +67,8 @@ flowchart LR
 
 ## 7. 新瓶頸:記憶體牆(Memory Wall)
 
-- 快取住在 GPU 記憶體,**每生成一個 token 就多一筆**。70B 模型約 **0.5 MB/token**;生成 10 萬 tokens → 背著 **50 GB** 快取;且 **每個並行使用者各有一份**。
-- 1995 年 Wulf & McKee 提的 **memory wall**:**算力一直翻倍,記憶體頻寬卻沒有**。
+- 快取住在 GPU 記憶體,**每生成一個 token 就多一筆**。影片說 70B 模型約 **0.5 MB/token**、10 萬 tokens 背 **50 GB**;⚠️ **需修正**:以 Llama 2 70B 的公開規格(80 層、8 組 KV 頭、head dim 128、fp16)推算約 **0.31 MiB/token**、10 萬 tokens 約 **31 GiB**,影片的數字對應的設定未說明(見 §12.3)。且 **每個並行使用者各有一份**。
+- 1995 年 Wulf & McKee 提的 **memory wall**:原文論點是處理器效能成長遠快於 DRAM 存取速度的改善(二手摘要多用「延遲」描述);「記憶體頻寬卻沒有」是常見簡化說法(見 §12.3)。
 - **結論金句:** 你的推論供應商賣的不是算力,是 **GPU 記憶體頻寬**。
 
 ---
@@ -206,7 +206,7 @@ flowchart LR
 | **區塊怎麼給分** | — | ⭐ **取該區塊內的最高分當作整塊的分數**(max-pool) |
 | **選多少** | Top-K,**K = 2048 個位置** | ⭐ **每個 GQA 組各留 top-16 個區塊**,合計**固定 2,048 token 的預算** |
 
-📌 **核實補充(影片未提,但很值得知道的三點):**
+📌 **核實補充(影片未提,但很值得知道的三點;2026-11-07 已對照 arXiv 全文核實,見 §12.3):**
 
 1. ⭐ **MSA 會強制納入「查詢所在的那個本地區塊」** —— 不論它分數高低。
    這是很合理的工程保險:**離你最近的上下文不該因為評分失準而被丟掉。**
@@ -324,9 +324,9 @@ flowchart LR
 
 | 說法 | 狀態 |
 |---|---|
-| 命中價約為一般輸入價十分之一 | 影片稱「有的只有十分之一」;§1 的案例是約 1/20,各家倍率不同,**以各廠商最新定價頁為準,未逐家核實** |
-| Anthropic 拼接順序為工具、系統、訊息 | 依影片轉述,本次未重新抓取官方文件,未能核實 |
-| 「中途換模型/推理強度會使快取失效」 | 影片以「很多廠商」概括,未逐家核實 |
+| 命中價約為一般輸入價十分之一 | ⚠️ **需修正(2026-11-07)**:Anthropic 官方一般模型讀取價為 0.1×,但 Opus 5.5、Sonnet 5.5 為 0.05×,Fable 5.1 / Mythos 5.1 為 0.025×。「十分之一」只適用一般模型;詳 §12.2 |
+| Anthropic 拼接順序為工具、系統、訊息 | ✅ **已核實**:官方文件寫明「tools, system, then messages」(§12.2) |
+| 「改推理強度會使快取失效」 | ✅ **大致已核實**:官方寫明改 thinking 設定或 `output_config.effort` 會使 message 區塊失效;「換模型」未能於官方頁面核實 |
 | 「存的是 K/V 不是文字」「只能命中前綴」 | 機制正確,與 §6、§8 一致 |
 
 ### 11.5 應用案例
@@ -336,6 +336,68 @@ flowchart LR
 - **壓縮策略**:設「超過 N token 才一次壓成摘要並固定住」,而不是每 5 輪壓一次。
 
 > 該片僅有自動字幕,同音字誤差多,已校正:「Pronocache / Proncash」=Prompt Cache、「钱罪/钱追」=前綴、「profile」=prefill(預填充)、「研码注意力」=因果(掩碼)注意力、「摄像手册」=飼養手冊、「Ansarapic」=Anthropic。
+
+## 12. 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+本節以一手來源與影片畫面逐項核對 §1–§11 的主要主張,並補上影片沒講、但實務上會踩到的細節。原有內容未刪,只在需要處加註。
+
+### 12.1 影片畫面核對(`transcript_tools.py` 定位 + 截圖讀圖)
+
+| 影片時間 | 影片說法 | 畫面所見 | 狀態 |
+|---|---|---|---|
+| [0:09] [連結](https://www.youtube.com/watch?v=Hr-82fWJyWE&t=0s) | 命中快取價「只有正常輸入價的 10 分之 1」 | [0:12] 的 API 價格卡,「命中緩存」進度條只填到 1/10,為示意圖,未標模型 | 畫面為示意,數值未由畫面證實 |
+| [5:30] [連結](https://www.youtube.com/watch?v=Hr-82fWJyWE&t=320s) | 服務端按自家固定模板把請求拼成一條 token 序列 | [5:31] 畫面:請求 JSON → 「固定模板」→ 模型 | 與官方文件相符(§12.2) |
+| [5:41] [連結](https://www.youtube.com/watch?v=Hr-82fWJyWE&t=331s) | Anthropic 拼接順序為工具、系統提示詞、消息 | 畫面未直接顯示順序文字;[5:58] 的示意是「工具 / 系統提示詞 / 歷史 / 新消息」四欄 | 順序以官方文件為準(已核實) |
+| [5:57] [連結](https://www.youtube.com/watch?v=Hr-82fWJyWE&t=347s) | 系統提示詞不要放用戶 ID、手機號、時間戳 | 畫面列出「用户ID」與「随机数」兩個動態值,標為會讓快取失效的內容 | 畫面佐證 |
+| [6:36] [連結](https://www.youtube.com/watch?v=Hr-82fWJyWE&t=386s) | 第三條:只追加不修改歷史 | 影片講者自述「截斷超長工具結果 → 命中率掉、取消截斷後帳單反降」,未附數據 | 個人經驗,未能核實 |
+
+> 畫面檔為 `review/frames_j44` 暫存,未進版控。
+
+### 12.2 官方文件核實(Anthropic Prompt caching)
+
+依 `platform.claude.com/docs/en/build-with-claude/prompt-caching`(原 `docs.anthropic.com` 網址會 301 轉址)。
+
+| 主張 | 狀態 | 官方原文/依據 |
+|---|---|---|
+| 前綴順序 tools → system → messages | ✅ 已核實 | 「Cache prefixes are created in the following order: `tools`, `system`, then `messages`.」 |
+| 改工具定義(名稱、描述、參數)使整個快取失效 | ✅ 已核實 | 「Modifying tool definitions (names, descriptions, parameters) invalidates the entire cache.」 |
+| 改系統提示詞使 system 與 messages 快取失效 | ✅ 已核實 | 官方以 web search / citations 開關為例,說明會修改 system prompt |
+| 改 `tool_choice`、加減圖片 | 補充 | `tool_choice` 只影響 messages 區塊;圖片增減影響 messages 區塊(影片未提) |
+| 改 thinking 設定或 `output_config.effort` 使 messages 區塊失效 | ✅ 已核實 | 「changing it always invalidates message blocks」 |
+| 讀取價 | ⚠️ 需修正 | 一般模型 0.1×;Opus 5.5、Sonnet 5.5 為 0.05×;Fable 5.1 / Mythos 5.1 為 0.025× |
+| 寫入價 | 補充(影片未提) | 5 分鐘 TTL 寫入 1.25× 基礎輸入價;1 小時 TTL 寫入 2× |
+| 預設 TTL | 補充(影片未提) | 預設 5 分鐘,每次命中免費刷新;計時從請求開始而非回應結束 |
+| 最短可快取長度 | 補充(影片未提) | 依模型為 512、1,024、2,048 或 4,096 tokens;**低於門檻不報錯、也不快取** |
+| 需要 `cache_control` 才會寫入快取 | 補充(影片未提) | 可用頂層自動快取,或在區塊上明確標記;「Cache writes occur only at your breakpoint」 |
+| 2024 年推出 | ✅ 已核實 | 2024-08-14 公開 beta,首批支援 Claude 3.5 Sonnet 與 Claude 3 Haiku(媒體報導,官方公告頁轉址未讀到原文) |
+
+**對 §8、§1 的修正:**
+- §8 「第一次呼叫付錢建快取」在官方定價下**成立**,而且寫入比不快取更貴(1.25×/2×)。所以「第一次就省錢」並不成立,要靠後續命中才回本。
+- §1 的「$1 vs 5 美分」是影片的示意數字,不是官方定價。
+- §9 客服案例要加一條:**系統提示 + FAQ 若低於該模型的最短可快取長度,等於完全沒有快取,而且不會報錯**。上線前應從 API 回傳的快取寫入/讀取 token 數確認有命中。
+
+### 12.3 論文與歷史來源核實
+
+- **Michie 1968 memoization** — ✅ 已核實書目:Donald Michie, "'Memo' functions and machine learning," *Nature* 218, 19–22 (1968)。來源:[FOLDOC: memoization](https://foldoc.org/memoization)、[Michie 大學介紹頁](https://www.aiai.ed.ac.uk/~dm/dmcv.html)。影片與 §6 說法正確。
+- **Wulf & McKee 1995 memory wall** — ✅ 書目已核實:"Hitting the Memory Wall: Implications of the Obvious," *Computer Architecture News* 23(1), 20–24(DOI [10.1145/216585.216588](https://doi.org/10.1145/216585.216588))。⚠️ **需修正**:依二手摘要,論文主張是處理器峰值吞吐量指數成長、DRAM 存取延遲改善只有線性;§7 寫的「記憶體頻寬」是常見簡化,應改為「延遲」。未逐頁讀原文。
+- **Llama 2 70B 的 KV cache 大小** — ⚠️ **需修正 §7 的 0.5 MB/token**。以 [Llama 2 70B config(NousResearch 鏡像)](https://huggingface.co/NousResearch/Llama-2-70b-hf/raw/main/config.json) 的規格:80 層、64 個注意力頭、**8 組 KV 頭**、hidden size 8192(head dim = 8192 / 64 = 128)、dtype fp16。
+  - 每 token KV = 2(K 與 V)× 80 層 × 8 組 × 128 × 2 bytes = **327,680 bytes ≈ 0.31 MiB**。
+  - 10 萬 tokens ≈ 32.8 GB ≈ **31 GiB**(不是 50 GB)。
+  - 若沒有 GQA(64 組 KV),同一模型會放大 8 倍,約 2.5 MiB/token。這正好呼應 §10.4:GQA 是把這個數字砍掉的關鍵。
+- **MiniMax Sparse Attention(MSA)** — ✅ 已核實全文([arXiv 2606.13392 HTML 版](https://arxiv.org/html/2606.13392)):
+  - 區塊大小 B_k = 128;每個 GQA 組保留 top-k = 16 個區塊。
+  - 區塊分數用 **max-pooling**(區塊內 token 分數取最大值)。
+  - 「固定 2,048 token 預算」在論文中是 **上限**(至多 2,048 個可見 token),不是每次恰好 2,048。
+  - 強制納入查詢所在的本地區塊(不論分數);索引分支以 **KL 散度**對齊主分支(以 stop-gradient 的主分支為 teacher)。
+  - §10.6 的表格與三點核實補充均屬實,僅「固定」需改為「上限」。
+- **DeepSeek DSA 的 K = 2048** — 🔎 本次未能核實(未讀 DeepSeek-V3.2 報告全文),維持原狀,見 [arXiv 2512.02556](https://arxiv.org/pdf/2512.02556)。
+- 影片說「評分層約為主注意力的十分之一或更少」 — 🔎 未能核實。
+
+### 12.4 應用補充:三個容易忽略的實務點
+
+1. **先看門檻再談快取**:同一份 FAQ,在最短可快取長度以下的模型上,開快取也沒有效果(§12.2)。做成本試算前,先用一次呼叫看快取寫入/讀取 token 數。
+2. **1 小時 TTL 是寫入加倍的賭注**:寫入 2× 只在同一前綴會被讀取多次時才划算。低頻客服、一次性批次任務用預設 5 分鐘即可。第三方部落格的回本估算(約 2.1× 對 2.0×)未經官方核實,僅供參考。
+3. **讀取價隨模型不同**:同樣 90% 的折扣寫法不能直接套用到新模型,換模型前要重看定價表(§12.2 的 0.05× 與 0.025×)。
 
 ## 來源
 
@@ -349,5 +411,15 @@ flowchart LR
   - 本倉庫相關筆記:[[deepseek-v4-engineering]]、[[attention-residuals]]、[[cs336-training-cost-napkin-math]](§6.2 也談 GQA)
 
 > ⚠️ **§10 那支影片無官方字幕,逐字稿取自自動字幕**(轉錄中的「MX」為 **MiniMax**、「代幣」為 **token**、「水頭」為**注意力頭**)。
-> §10.6 的精確規格(區塊大小、top-16、2,048 預算、KL 對齊損失、強制納入本地區塊)**為查證所得,影片未提**;
-> 影片提到的「評分層約為主注意力的十分之一或更少」**未獨立核實**,以影片轉述看待。
+> §10.6 的精確規格(區塊大小 128、top-16、2,048 預算、KL 對齊損失、強制納入本地區塊)**已於 2026-11-07 對照 arXiv 全文核實**(2,048 為上限,見 §12.3),影片未提;
+> 影片提到的「評分層約為主注意力的十分之一或更少」**仍未能核實**,以影片轉述看待。
+
+## 來源補充(2026-11-07 核實增補)
+
+- [Prompt caching — Anthropic 官方文件(platform.claude.com)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)(§11.4、§12.2)
+- [Anthropic 推出 prompt caching 的媒體報導 — SiliconANGLE, 2024-08-14](https://siliconangle.com/2024/08/14/anthropic-speeds-ai-model-access-times-prompt-caching)(§8、§12.2)
+- [FOLDOC:memoization](https://foldoc.org/memoization)、[Donald Michie 大學介紹頁](https://www.aiai.ed.ac.uk/~dm/dmcv.html)(§6、§12.3)
+- [Wulf & McKee 1995, "Hitting the Memory Wall" — DOI 10.1145/216585.216588](https://doi.org/10.1145/216585.216588)(§7、§12.3)
+- [Llama 2 70B config(NousResearch 鏡像)](https://huggingface.co/NousResearch/Llama-2-70b-hf/raw/main/config.json)(§7、§12.3)
+- [MiniMax Sparse Attention — arXiv 2606.13392 HTML](https://arxiv.org/html/2606.13392)(§10.6、§12.3)
+- 影片畫面與時間:[YouTube Hr-82fWJyWE](https://www.youtube.com/watch?v=Hr-82fWJyWE)(§11,軒轅的編程宇宙,自動字幕;畫面截圖於 §12.1 核對)

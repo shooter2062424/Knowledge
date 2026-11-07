@@ -793,11 +793,11 @@ flowchart TD
 
 | 影片 | 對照 | 判斷 |
 |---|---|---|
-| Opus 5.5 智能約 53 開始趨平 | Artificial Analysis 的 Opus 5.5 頁(Max 檔)智能指數為 **58–59**(兩個頁面略有出入);低檔 42、中檔 51 | ⚠️ **不一致**。可能是影片取了不同 effort 檔位或較早的指數版本。**不同指數版本 / 檔位的數字不可並列比較** |
-| GPT-6 Sol 約 47.5、Luna 約 37.3 | 本篇 §1、§3 記的 Astra 61、GPT-5.6 Sol 61、Fable 5.1 66 | ⚠️ **不可直接並列**:影片稱「GPT-6 Sol」,本篇沿用 AA 的「GPT-5.6 Sol」,指數與命名版本可能不同;我**未能核實**影片的 47.5 / 37.3 |
-| Opus 5.5 比 Fable 5.0「只要 40%」 | AA 頁:Opus 5.5 **$4 / $20**,Opus 5 為 $5 / $25,即輸入輸出價各降 **20%**;第三方部落格轉述 Anthropic 稱「跑同樣任務便宜約 40%」,自己算約 23.6% | 「40%」若指**每任務成本**有第三方說法支撐,但**未見 Anthropic 一手頁面**;若指**單價**則不符 |
+| Opus 5.5 智能約 53 開始趨平 | Artificial Analysis 的 Opus 5.5 頁(**Max 檔,2026-09-22 發布**)智能指數為 **59**;頁面只列 max 檔。影片 1:40 附近曲線趨平段約 52–53,對應 AA 圖上 **high / xhigh** with fallback 的位置(見 §14.4 截圖) | ✅ **大致吻合,差異來自檔位**:影片的 53 是非 max 檔的讀數,不是 max 的分數。原表「58–59」已更正為 59(AA 頁單一數字) |
+| GPT-6 Sol 約 47.5、Luna 約 37.3 | AA 頁 **GPT-6 Luna(max)為 37**(第三方 Benchmarklist 記 38,日文頁舊快照記 28);**GPT-6 Sol(max)在 AA v4.3 系列為 47.5–48**(OfficeChai、Orcarouter 轉載) | ✅ **已核實(大致吻合)**:影片數字對得上 AA v4.3 系列的 max 檔。⚠️ 但 §1、§3 的 **Astra 61、GPT-5.6 Sol 61** 屬於另一個指數版本(搜尋摘要稱 AA 於 2026-10-27 前後推出 v5),**不可與 47.5 並列**;§14.2 原文「沿用 AA 的 GPT-5.6 Sol」的說法應視為推定 |
+| Opus 5.5 比 Fable 5.0「只要 40%」 | AA 頁:Opus 5.5 **$4 / $20**(已核實);Opus 5 為 $5 / $25,即輸入輸出價各降 **20%**;第三方部落格轉述 Anthropic 稱「跑同樣任務便宜約 40%」,自己算約 23.6% | 單價 $4 已核實(與 0:12 截圖白板 $4.00 一致)。⚠️ **Fable 5.0 的單價未能核實**,故「40%」無法以一手資料驗證;「每任務 40%」有第三方說法但未見 Anthropic 一手頁面 |
 
-結論:影片的**結構性論點成立**(單價、token 用量是兩條獨立軸,對 API 與訂閱用戶影響不同),與 §5 的 Astra「單價貴、token 少」互相印證。但**圖上的絕對數字不要直接引用**。
+結論:影片的**結構性論點成立**(單價、token 用量是兩條獨立軸,對 API 與訂閱用戶影響不同),與 §5 的 Astra「單價貴、token 少」互相印證。數字部分經 §14.4 核對後大多吻合 AA 頁面,但**必須註明檔位與指數版本**,不可把 max 檔與 high/xhigh 檔的讀數、或不同版本的指數並列。
 
 ### 14.3 應用案例
 
@@ -806,6 +806,30 @@ flowchart TD
 **案例 2|訂閱用戶看額度:** 若你在 5 小時視窗常撞牆,比較不同模型的**每個任務耗用的視窗百分比**,而不是單價;token 效率高的模型對訂閱用戶的價值被低估。
 
 **案例 3|讀降價新聞:** 「降價 50%」先問:**降的是單價還是每任務成本?智能檔位相同嗎?** 然後去看 AA 對應頁面的「cost to run」與 tokens 欄位。
+
+### 14.4 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+**畫面核對(影片截圖 + 逐字稿時間)**
+
+| 影片時間 | 畫面內容 | 核對結果 |
+|---|---|---|
+| 0:12 截圖(白板) | 標示 Opus 5.5 **$4.00**、GPT-6 Sol **$2.00**、GPT-6 Luna **$0.10** | ✅ 與 AA / OpenAI 的**輸入單價**一致;白板未標示輸出單價 |
+| 1:44 [連結](https://www.youtube.com/watch?v=gQmPD4I62rU&t=94s) | 3D 圖中 Opus 5.5 曲線在約 52–53 出現轉折(紅色箭頭) | ✅ 與逐字稿「趨平於約 53」一致;數值為目視讀圖,精度約 ±1 |
+| 2:34 [連結](https://www.youtube.com/watch?v=gQmPD4I62rU&t=144s) | 3D 圖中 Luna、Sol 曲線止於低智能區 | 逐字稿的 47.5 / 37.3 另以 AA 頁面核對(見 §14.2) |
+| 1:00 截圖(AA 圖) | AA「Intelligence Index vs. Output Tokens」:Opus 5.5 max with fallback 最高;GPT-6 Sol (max) 約 47–48、Sol (low) 約 34;**同圖 Astra 各檔不見 61 的數字** | ⚠️ 影片使用的 AA 圖為**較早指數版本**;與本篇 §3 的 61 不同版本,不可直接比 |
+
+> 截圖檔案於本機暫存,未進版控。
+
+**一手與第三方核實**
+
+1. **Opus 5.5 單價與分數:** AA 頁顯示 Max 檔智能指數 **59**、輸入 **$4.00** / 輸出 **$20.00**、發布 **2026-09-22**。影片的「約 53 趨平」對應非 max 檔。來源:[Claude Opus 5.5 — Artificial Analysis](https://artificialanalysis.ai/models/claude-opus-5-5)
+2. **GPT-6 Luna(max)= 37:** AA 頁列為 37,並列出 xhigh 34、high 32、medium 29(同一版本 release 頁)。第三方 Benchmarklist 記 38,日文頁記 28(舊快照),以 AA 官方頁為準。來源:[GPT-6 Luna (max) — Artificial Analysis](https://artificialanalysis.ai/models/gpt-6-luna)、[Benchmarklist](https://benchmarklist.com/models/openai-gpt-6-luna/)
+3. **GPT-6 Sol(max)= 47.5–48(v4.3 系列):** 二手報導引 AA 數字 48;Orcarouter 記 47.5;Sol (high) 43、(xhigh) 44、(low) 34。**未能取得 AA v5 版本的 Sol 分數**。來源:[OfficeChai](https://officechai.com/ai/gpt-6-sol-shows-modest-gain-over-gpt-5-6-sol-on-artificial-analysis-intelligence-index-but-at-a-much-cheaper-price/)、[AA GPT-6 Sol](https://artificialanalysis.ai/models/gpt-6-sol)
+4. **未能核實:** Fable 5.0 的單價(影片「40%」的分母)、Opus 5.5 low 42 / medium 51(§14.2 原文數字,未重新核對)、影片「Sol 47.5 / Luna 37.3」的小數精度(AA 頁為整數 37;Sol 48 與 47.5 來自不同轉載)。
+
+**應用案例:用影片的 token 軸看自己的帳單**
+
+假設你用 Opus 5.5 的 API 跑一個每次約 3 萬 output token 的程式任務:單價 $20/M 輸出,單次輸出成本約 **$0.60**;若**假設**改用 GPT-6.1 Sol(輸出 $10/M,§13.1 表)且其 token 用量只有 Opus 的三分之一(純假設數字,§3.2 的倍數不可直接套用到你的任務),輸出成本約 **$0.10**;但**仍要先跑 20 個真實任務**確認成功率與重試成本(§13.4 的「每次成功成本」公式)。影片給的是結構性直覺,實際決策仍靠自己的評測集。
 
 來源:[Caleb Writes Code〈Opus 5.5 vs GPT-6 is racing to the bottom..?〉](https://www.youtube.com/watch?v=gQmPD4I62rU)(2026-09-24)、[Claude Opus 5.5 — Artificial Analysis](https://artificialanalysis.ai/models/claude-opus-5-5)、[Claude Opus 5.5 pricing & benchmarks — Capital & Compute](https://capitalandcompute.net/blog/claude-opus-5-5-pricing-benchmarks/)(第三方)。
 

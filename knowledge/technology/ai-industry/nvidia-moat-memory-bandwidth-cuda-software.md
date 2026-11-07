@@ -218,7 +218,7 @@ flowchart TB
 flowchart TD
     A["SSD<br/>放模型檔"] --> B["HBM<br/>約 80 GB"]
     B --> C["L2 快取<br/>約 50 MB"]
-    C --> D["每個 SM:L1 與共享記憶體約 256 KB<br/>暫存器檔另 256 KB"]
+    C --> D["每個 SM:L1 256 KB、共享記憶體約 228 KB<br/>暫存器檔 256 KB"]
     D --> E["單一執行緒"]
 ```
 
@@ -238,7 +238,7 @@ flowchart TD
 
 ### 9.3 為什麼 kernel 一直長出來:需求的多樣性
 
-GPU 出身是圖形(貼圖、旋轉、光柵化、光照、光線追蹤),後來有線性代數(**cuBLAS**)、深度學習(**cuDNN**)等函式庫。2012 年深度學習用兩張 GTX 580 訓練卷積網路(AlexNet)是轉折。AI 需求大到出現更高層的抽象:OpenAI 的 **Triton**、**FlashAttention**,它們建在 CUDA 之上、但**不屬於 CUDA 內建函式庫**。
+GPU 出身是圖形(貼圖、旋轉、光柵化、光照、光線追蹤),後來有線性代數(**cuBLAS**)、深度學習(**cuDNN**)等函式庫。2012 年深度學習用兩張 GTX 580 訓練卷積網路是轉折(影片 [8:39]–[8:44] 未唸出 AlexNet 之名,「AlexNet」為推定補充)。AI 需求大到出現更高層的抽象:OpenAI 的 **Triton**、**FlashAttention**,它們建在 CUDA 之上、但**不屬於 CUDA 內建函式庫**。
 
 Stephen Jones 的話(逐字稿節錄大意):CUDA 的祕密在於**別人在上面蓋了什麼**;如果量子、AI、圖形的人都在重做同一件事,代表 NVIDIA 漏了什麼 —— 通常是先在外面長出來,再收進核心。**什麼放核心、什麼留給生態,是軟體架構的取捨。**
 
@@ -254,13 +254,20 @@ Stephen Jones 的話(逐字稿節錄大意):CUDA 的祕密在於**別人在上�
 ### 9.5 核實與保留
 
 - ✅ 概念正確:記憶體階層遞減、warp = 32 執行緒、SM 同駐上千執行緒、PTX 為中介表示、Triton 與 FlashAttention 不屬內建 CUDA 函式庫。
-- ⚠️ 影片說 Stephen Jones「自 CUDA 1.0 於 2008 年發布起就在做 CUDA」。**據我所知 CUDA 1.0 公開於 2007 年中**,此處存疑(未現查 release notes);他的資歷與職稱(NVIDIA CUDA 架構師)亦未獨立核對。
+- ❌ 需修正:影片 [1:14] 說 CUDA 1.0 「was released back in 2008」,實際為 **2007 年 6 月**發布。Beyond3D 2007-06-25 新聞寫「NVIDIA has released version 1.0 of its CUDA programming framework」(https://beyond3d.com/content/news/304,已開啟核對)。
+- ⚠️ 影片說 Stephen Jones 「自 CUDA 1.0 起就在做 CUDA」。搜尋摘要顯示他本人表示自己不是 CUDA 創始成員、是 1.0 之後才加入(依搜尋摘要,未逐篇開啟原文;Computerworld 訪談中他另說 1.0「early 2007」正式發布,與 6 月日期有出入,留待查證)。「NVIDIA CUDA 架構師」職稱 ✅ 搜尋摘要相符。
 - ⚠️ 「3,000 週期 / 2 微秒」為理想值(見 9.2)。
 - 與 §5「CUDA 不是護城河、軟體生態才是」的結論互補:**kernel 的多樣性本身就是生態護城河的物質基礎** —— 每個 kernel 都是為某種工作負載手工調過的分工。
 
 **應用:** 讀 AI 晶片新聞時多問一題「**這家的 kernel 庫和編譯器堆疊,涵蓋了多少種工作負載的調校?**」只比硬體規格會漏掉這層。
 
-來源:[Caleb Writes Code〈CUDA is hard..〉](https://www.youtube.com/watch?v=s48xeUP_2qI)(2026-10-30)。
+### 9.6 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+- **CUDA 1.0 發布時間:** 2007 年 6 月(Beyond3D 新聞,2007-06-25,https://beyond3d.com/content/news/304,已開啟讀取)。影片說 2008 年,與此不符,已於 §9.5 標為需修正。
+- **畫面核對:** 影片 [4:40] 段落的 SM 示意圖畫面標示每 SM「L1 256kB、Shared 228kB、Registers 256kB」,與 §9.1 修正後數字一致;[12:21]–[12:33] 段落的編譯流程圖標示 PTX 目標為 SM_80 / SM_90 / SM_100(即 Ampere / Hopper / Blackwell 一代),與 §9.4 相符。
+- **未能核實:** Triton 與 FlashAttention 的開發脈絡、NCCL 與 NVLink 的配合細節,本次未開啟一手來源,維持影片口述、不作為事實。
+
+來源:[Caleb Writes Code〈CUDA is hard..〉](https://www.youtube.com/watch?v=s48xeUP_2qI)(2026-10-30)、[Beyond3D:NVIDIA CUDA 1.0 released](https://beyond3d.com/content/news/304)(2007-06-25)。
 
 ---
 

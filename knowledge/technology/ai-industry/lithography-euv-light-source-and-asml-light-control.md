@@ -120,8 +120,20 @@ flowchart LR
 
 - **已核實**:ASML FlexRay 為可程式化照明器,由數千面可獨立調整的微反射鏡產生任意瞳孔形狀,2010 年起隨 XT:1950i / NXT:1950i 浸沒式機台出貨([ASML 新聞稿 2010](https://www.asml.com/news/press-releases/2010/asml-flexray-illuminators-successfully-enter-market))。
 - **已核實(範圍內)**:Mo/Si 多層膜 13.5nm 反射率,文獻常見約 67%–74%(日常可達約 67.5%,專利標示約 74%,理論上限約 74%),影片「約 70%」落在範圍內;Mo/Be 於 11.3nm 約 70–71%(Chkhalo 簡報),理論上限約 78%。影片說的「80%」**偏高、需修正為約 70%(理論上限約 78%)**。出處:[OSTI](https://www.osti.gov/biblio/310916)、[Chkhalo PXRNMS 2016](https://utwente.nl/en/tnw/xuv/workshops/archive/pxrnms-workshop-2016/oral-presentations/chkhalo-pxrnms-2016-structural-and-reflective-characteristics-of-mobe-multilayer-with-barriers.PDF)。
-- **未能核實**:「4000 面」微鏡的精確數量(公開資料僅稱「數千面」);「ASML k1=0.27」的具體機型與出處;IBM X 光波長 1nm、15–25 微米間距的原始出處;林本堅「X-ray works for the dentist」軼事。
+- **已核實(2026-11-07 增補)**:FlexRay 自由形狀照明器為「4,000 個可獨立控制的微鏡陣列」,出自 [ASML「Pushing k1 further」頁面](https://www.asml.com/en/technology/lithography-principles/pushing-k1-further),該頁明確指 DUV 系統;影片「數千面」與之一致。
+- **已核實(大意)**:阿貝 1873 年論文已討論斜照明,且結論為極限斜照明下解析度約減半(與「0.5 × 0.5」一致);見 [Microscopy Research and Technique 文獻綜述](https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/10.1002/jemt.22834)(僅取摘要大意)。原文字句未逐字對讀。
+- **需修正(公式細節)**:影片畫面寫「0.5 × 0.5 = 0.25」與「ASML k1 = 0.27」並稱「相符」。兩者**並不相等**(差約 8%)。0.25 是理論下限的慣例值;0.27 是 ASML 機台宣稱的實際值,高於下限。本篇改以「0.27 高於 0.25 理論下限」描述,不視為完全吻合。
+- **未能核實**:ASML 官方頁面**未給出** k1 = 0.27 的數值,也未給 0.25 的下限數字(僅稱「k1 的物理極限」);第三方資料(193i、NA 1.35、k1 0.27 ≈ 40nm half-pitch)只能說明 0.27 是業界常見量級,**非 ASML 機型規格**。IBM X 光波長 1nm、15–25 微米間距的原始出處;林本堅「X-ray works for the dentist」軼事。
 - **k1 下限 0.25**:為光學理論慣例值(單次曝光),本篇依影片敘述與標準光學知識,未逐項查原論文。
+
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+- **浸沒式 193nm 的來歷(影片 [12:10] 一句帶過)**:[ETHW 林本堅條目](https://ethw.org/Burn_Jeng_Lin) 與 [Asianometry 浸沒式光刻專文](https://www.asianometry.com/p/a-deep-dive-into-immersion-lithography) 記載:浸沒概念約 1987 年由林本堅於 IBM 提出,原本針對 249nm;2002 年 SEMATECH 的 157nm 研討會上,他改提在既有 193nm 光學系統上加水浸沒,讓整套光學維持 193nm、避開 157nm 的氟雷射路線。**已核實(大意)**;時間與細節以兩來源描述為準,兩者對起源波長說法略有差異。
+- **13.5nm 反射鏡的實際數字(影片 [13:03] 與 [13:15])**:影片說「鉬/矽多層膜約 70%」可用 OSTI 文獻核實(見上節);影片「11nm、80%」的鉬/鈹鏡則**偏高**,本篇已改為約 70%(理論上限約 78%)。
+- **斜照明的歷史脈絡(影片 [10:21]–[10:43])**:影片說阿貝 1873 年即寫過斜照明且極限下解析度減半。檢索到的文獻綜述支持「阿貝討論斜照明、同口徑可收集更高階繞射、極限下約 2 倍解析度」的大意,但論文原文未逐字讀;**未能核實**的是影片把它直接說成「0.5 × 0.5 = 0.25 就是 ASML 公式」的精確對應。
+- **ASML 4,000 微鏡的出處(影片 [10:57])**:[ASML「Pushing k1 further」](https://www.asml.com/en/technology/lithography-principles/pushing-k1-further) 標示為 DUV 的 FlexRay 陣列,不是 EUV 機台的規格。影片畫面未註明機型,閱讀時注意這點。
+- **k1 = 0.27 的畫面(影片 [9:12] 推導、[9:24] 宣稱、[10:43] 乘 0.5)**:畫面上 ASML 公式寫 `CD = 0.27 · λ/NA`,與阿貝 `0.5 · λ/NA × 0.5` 並列,字幕說「相符」。兩者差約 8%,見核實節的修正說明。
+- **延伸自學順序建議**:先看 ASML 的 "Pushing k1 further" 理解 k1 與離軸照明,再讀阿貝原理的斜照明段落,最後回到影片的計算光刻(影片 [12:27]),會比直接看影片更容易分辨哪些是物理定律、哪些是工程手段。
 
 ## 來源
 
@@ -131,4 +143,8 @@ flowchart LR
 - [ASML:FlexRay illuminators successfully enter market](https://www.asml.com/news/press-releases/2010/asml-flexray-illuminators-successfully-enter-market)
 - [OSTI:Multilayer reflective coatings for extreme-ultraviolet lithography](https://www.osti.gov/biblio/310916)
 - [Chkhalo:Mo/Be multilayer with barriers](https://utwente.nl/en/tnw/xuv/workshops/archive/pxrnms-workshop-2016/oral-presentations/chkhalo-pxrnms-2016-structural-and-reflective-characteristics-of-mobe-multilayer-with-barriers.PDF)
+- [ASML:Pushing k1 further](https://www.asml.com/en/technology/lithography-principles/pushing-k1-further)
+- [ETHW:Burn Jeng Lin](https://ethw.org/Burn_Jeng_Lin)
+- [Asianometry:A Deep Dive into Immersion Lithography](https://www.asianometry.com/p/a-deep-dive-into-immersion-lithography)
+- [Microscopy Research and Technique(斜照明文獻綜述)](https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/10.1002/jemt.22834)
 - 延伸(本庫):[[advanced-packaging-explained]]、[[hbm-high-bandwidth-memory-principle]]

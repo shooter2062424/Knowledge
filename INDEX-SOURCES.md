@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**479 個 YouTube video id**、**121 個 arXiv 編號**,涵蓋 **368 篇**筆記。
+> 統計:**480 個 YouTube video id**、**140 個 arXiv 編號**,涵蓋 **369 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(479 部,依 video id 排序)
+## YouTube(480 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -312,6 +312,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `nnTqbMhKr3E` | Always-on Agent 怎麼運作:Lee Robinson 在史丹佛 CS146S 拆解 Grok Bot | [knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) |
 | `noPuRPDiY6k` | Astra 解出十個數學開放問題,然後呢?用「機制」與「能力」兩條軸看 AGI 之爭 | [knowledge/technology/ai-industry/astra-ten-open-problems-and-agi-two-axes-caleb.md](./knowledge/technology/ai-industry/astra-ten-open-problems-and-agi-two-axes-caleb.md) |
 | `nScMXSWz9aE` | Vercel vgpu:讓 Agent 寫的 Shader「畫對了」能被機器驗收(Golden Image 與三道關卡) | [knowledge/technology/ai-agents/applications/vercel-vgpu-agent-shader-verification-golden-image.md](./knowledge/technology/ai-agents/applications/vercel-vgpu-agent-shader-verification-golden-image.md) |
+| `nuEYDFfDnOI` | MCP、Skill、本地 Tools 到底有什麼區別:三層分工與選型決策樹 | [knowledge/technology/ai-agents/foundations/local-tools-skill-mcp-three-layer-decision-baibai.md](./knowledge/technology/ai-agents/foundations/local-tools-skill-mcp-three-layer-decision-baibai.md) |
 | `nwI-Lg8Lk4w` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
 | `nXs-PMjU7KY` | 用最低成本做好 Agent 意圖識別:規則層、上下文層、工具層的三層漏斗 | [knowledge/technology/ai-agents/foundations/agent-intent-recognition-three-layer-funnel.md](./knowledge/technology/ai-agents/foundations/agent-intent-recognition-three-layer-funnel.md) |
 | `NYFGCESmikA` | DHH 的 16 條並行 Agent:當寫程式幾乎免費,瓶頸遷移到哪裡去了 | [knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md](./knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md) |
@@ -510,17 +511,20 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(121 篇,依編號排序)
+## arXiv(140 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
+| `1212.5966` | Astra 解出十個數學開放問題,然後呢?用「機制」與「能力」兩條軸看 AGI 之爭 | [knowledge/technology/ai-industry/astra-ten-open-problems-and-agi-two-axes-caleb.md](./knowledge/technology/ai-industry/astra-ten-open-problems-and-agi-two-axes-caleb.md) |
 | `1301.3781` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
+| `1603.09320` | Agent / RAG 生產級面試題庫:字節 8 題 + 落地十連問 + 履歷五大雷區 | [knowledge/technology/ai-agents/applications/agent-rag-production-interview-playbook-baibai.md](./knowledge/technology/ai-agents/applications/agent-rag-production-interview-playbook-baibai.md) |
 | `1701.06538` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
 | `1706.03762` | 多頭注意力(Multi-Head Attention)用人話講:「語法表、需求表、內容表」就是 K、Q、V(程序员老王) | [knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md](./knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md) |
 | `1706.03762` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `1810.04805` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `1911.02150` | 100 萬上下文為什麼貴、又為什麼會變笨?從 MHA、MQA、GQA 到 MLA、DSA、CSA | [knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md](./knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md) |
 | `2002.05202` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
+| `2005.11401` | AI 名詞地圖:從 Token 到 Agent Skills——三種分層框架對照(八概念演進鏈 / 四層技術全景 / 職場四層選型) | [knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md](./knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md) |
 | `2005.11401` | 從零搞懂 RAG:用「巴菲特分身」走完 R、A、G 三步,以及答錯時的排查順序 | [knowledge/technology/ai-agents/memory-retrieval/rag-from-scratch-buffett-clone-gary.md](./knowledge/technology/ai-agents/memory-retrieval/rag-from-scratch-buffett-clone-gary.md) |
 | `2006.11239` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
 | `2007.00072` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
@@ -533,6 +537,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2112.00114` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2112.10752` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
 | `2201.11903` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
+| `2203.02155` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `2203.11171` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2203.11854` | 5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼,以及反過來 | [knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) |
 | `2203.14465` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
@@ -540,15 +545,22 @@ grep -rlF --include=*.md -- "<id>" .
 | `2207.12598` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
 | `2210.03629` | 用 Skywork 從查資料到做簡報:AI 研究助理該看的三個能力(溯源、自訂信源、單頁重生) | [knowledge/technology/ai-productivity/skywork-research-report-to-slides.md](./knowledge/technology/ai-productivity/skywork-research-report-to-slides.md) |
 | `2210.08277` | 29 個邏輯閘玩通馬里奧:沒有浮點數、沒有矩陣乘法的「AI」是什麼 | [knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md](./knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md) |
+| `2304.03442` | Agent 長期記憶分層設計:別把一切丟進向量庫(四層記憶 + LVP + 雙時間戳 / 三層記憶 + 影子 Agent) | [knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md](./knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md) |
 | `2304.08485` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
 | `2304.13734` | AI 為什麼會幻覺?「評分制度逼它硬猜」、四個高危場景與四句核查提示詞 | [knowledge/technology/ai-safety/why-llms-hallucinate-benchmarks-reward-guessing.md](./knowledge/technology/ai-safety/why-llms-hallucinate-benchmarks-reward-guessing.md) |
 | `2305.07759` | 每一種尺寸的硬體能跑什麼本地 AI:從 32 KB 的 Arduino 到 8 張 H100 | [knowledge/technology/llm-internals/inference/local-ai-every-hardware-size.md](./knowledge/technology/llm-internals/inference/local-ai-every-hardware-size.md) |
 | `2305.13245` | 100 萬上下文為什麼貴、又為什麼會變笨?從 MHA、MQA、GQA 到 MLA、DSA、CSA | [knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md](./knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md) |
 | `2305.14314` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
+| `2305.18323` | 到底需不需要 GraphRAG?9 種 RAG 方案實測對照 + 脈絡優化省 19–53% token | [knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md](./knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md) |
 | `2305.20050` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2307.02483` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
 | `2307.03172` | 一段提示詞把 Gemini CLI 變成自動化 Agent:拆成輸入/輸出/過程,再讓 AI 記「工作筆記」 | [knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md](./knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md) |
+| `2307.03172` | AI 名詞地圖:從 Token 到 Agent Skills——三種分層框架對照(八概念演進鏈 / 四層技術全景 / 職場四層選型) | [knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md](./knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md) |
+| `2307.03172` | Agent 長期記憶分層設計:別把一切丟進向量庫(四層記憶 + LVP + 雙時間戳 / 三層記憶 + 影子 Agent) | [knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md](./knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md) |
+| `2307.03172` | 到底需不需要 GraphRAG?9 種 RAG 方案實測對照 + 脈絡優化省 19–53% token | [knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md](./knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md) |
+| `2309.06180` | 30 歲以上程式設計師怎麼轉型:五條出路與四個 AI 方向(白白說大模型 2 支影片合併) | [knowledge/career/ai-transition/over-30-developer-ai-career-switch-directions.md](./knowledge/career/ai-transition/over-30-developer-ai-career-switch-directions.md) |
 | `2309.06180` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
+| `2309.15217` | 30 歲以上程式設計師怎麼轉型:五條出路與四個 AI 方向(白白說大模型 2 支影片合併) | [knowledge/career/ai-transition/over-30-developer-ai-career-switch-directions.md](./knowledge/career/ai-transition/over-30-developer-ai-career-switch-directions.md) |
 | `2310.01831` | Code-to-Spec:從既有大型程式碼庫反推規格(CodeConcise、Clang、ACSL、C→Rust) | [knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md](./knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md) |
 | `2310.02446` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
 | `2310.06824` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
@@ -557,11 +569,13 @@ grep -rlF --include=*.md -- "<id>" .
 | `2312.07104` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
 | `2401.01301` | AI 為什麼會幻覺?「評分制度逼它硬猜」、四個高危場景與四句核查提示詞 | [knowledge/technology/ai-safety/why-llms-hallucinate-benchmarks-reward-guessing.md](./knowledge/technology/ai-safety/why-llms-hallucinate-benchmarks-reward-guessing.md) |
 | `2401.06066` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
+| `2401.07883` | 轉做 AI 應用開發的學習路線:從零基礎到 40K 架構的四個階段(白白說大模型 4 支影片合併) | [knowledge/career/ai-transition/ai-app-dev-learning-roadmap-four-tiers.md](./knowledge/career/ai-transition/ai-app-dev-learning-roadmap-four-tiers.md) |
 | `2401.08807` | Code-to-Spec:從既有大型程式碼庫反推規格(CodeConcise、Clang、ACSL、C→Rust) | [knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md](./knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md) |
 | `2402.03300` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md](./knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md) |
 | `2402.03300` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2402.03300` | 為什麼強化學習這麼難:探索與利用、資料要自己生、獎勵難設計,堆 GPU 也救不了 | [knowledge/technology/llm-internals/training/why-reinforcement-learning-is-hard-caleb.md](./knowledge/technology/llm-internals/training/why-reinforcement-learning-is-hard-caleb.md) |
 | `2404.00762` | Code-to-Spec:從既有大型程式碼庫反推規格(CodeConcise、Clang、ACSL、C→Rust) | [knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md](./knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md) |
+| `2404.13207` | 到底需不需要 GraphRAG?9 種 RAG 方案實測對照 + 脈絡優化省 19–53% token | [knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md](./knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md) |
 | `2404.15939` | 5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼,以及反過來 | [knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) |
 | `2404.18353` | 穩定開發大型 C/C++ 的工具箱:契約、靜態分析、形式驗證、fuzz 與 CI 分層(2026) | [knowledge/technology/code-dev/c-cpp/cpp-large-codebase-stability-toolbox.md](./knowledge/technology/code-dev/c-cpp/cpp-large-codebase-stability-toolbox.md) |
 | `2405.00393` | Code-to-Spec:從既有大型程式碼庫反推規格(CodeConcise、Clang、ACSL、C→Rust) | [knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md](./knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md) |
@@ -582,7 +596,9 @@ grep -rlF --include=*.md -- "<id>" .
 | `2412.21077` | 多層規格並存下的程式演進:外部公定 spec + 內部實作 spec + 既有 code(5G NR → 6G Modem) | [knowledge/technology/code-dev/spec-code-flow/multi-spec-layered-evolution-modem-5g-to-6g.md](./knowledge/technology/code-dev/spec-code-flow/multi-spec-layered-evolution-modem-5g-to-6g.md) |
 | `2501.12599` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
 | `2501.12948` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
+| `2501.13956` | Agent 長期記憶分層設計:別把一切丟進向量庫(四層記憶 + LVP + 雙時間戳 / 三層記憶 + 影子 Agent) | [knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md](./knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md) |
 | `2501.18837` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
+| `2503.13657` | 多 Agent 系統的資料一致性:為什麼數字越傳越亂,以及四層工程解法 | [knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md](./knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md) |
 | `2504.21061` | Code-to-Spec:從既有大型程式碼庫反推規格(CodeConcise、Clang、ACSL、C→Rust) | [knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md](./knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md) |
 | `2505.09388` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
 | `2505.16821` | 5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼,以及反過來 | [knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) |
@@ -604,6 +620,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2601.01554` | MOSS-Transcribe-Diarize 0.9B 評估:端到端「轉錄+分辨說話者」開源模型,對我們的管線是否值得換? | [knowledge/technology/dev-tools/moss-transcribe-diarize-evaluation.md](./knowledge/technology/dev-tools/moss-transcribe-diarize-evaluation.md) |
 | `2602.00180` | Spec-to-Code 現況(2026):Spec Kit、Kiro、OpenSpec、BMAD 與大型專案的穩定做法 | [knowledge/technology/code-dev/spec-code-flow/spec-driven-development-landscape-2026.md](./knowledge/technology/code-dev/spec-code-flow/spec-driven-development-landscape-2026.md) |
 | `2603.07427` | AI 的安全對齊可能是個幻覺:AutoControl Arena 用「壓力 + 誘惑」測出的三個發現(程序员老王) | [knowledge/technology/ai-safety/alignment-illusion-safety-shallow.md](./knowledge/technology/ai-safety/alignment-illusion-safety-shallow.md) |
+| `2603.22106` | 當 Agent 代勞時,如何保持批判性思考:Addy Osmani 的認知投降、驗證與當責 | [knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md](./knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md) |
 | `2603.24621` | ARC-AGI-3:人類 100%、前沿 AI 不到 1% —— 一個用「行動效率」而不是「對不對」計分的 agentic 基準 | [knowledge/technology/ai-safety/arc-agi-3-agentic-benchmark.md](./knowledge/technology/ai-safety/arc-agi-3-agentic-benchmark.md) |
 | `2603.27277` | Codebase-Memory:把程式碼變成「可查詢的知識圖譜」,讓 LLM 探索程式碼省 10 倍 token | [knowledge/technology/ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md](./knowledge/technology/ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md) |
 | `2604.25850` | Agentic Harness Engineering:讓 harness 自己演化自己,而瓶頸不是能力是「可觀測性」 | [knowledge/technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md](./knowledge/technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md) |
@@ -614,6 +631,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2606.09498` | Self-Harness:讓 Agent 自己改進「操作自己的那層 harness」 | [knowledge/technology/ai-agents/foundations/self-harness.md](./knowledge/technology/ai-agents/foundations/self-harness.md) |
 | `2606.13392` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
 | `2606.13643` | Recursive Agent Harness:遞迴的單位該是「一次模型呼叫」還是「一整個 harness」? | [knowledge/technology/ai-agents/foundations/recursive-agent-harness-harness-recursion.md](./knowledge/technology/ai-agents/foundations/recursive-agent-harness-harness-recursion.md) |
+| `2606.17519` | Graph Engineering:把腦袋裡的分工、路由與驗收畫出來,別再當人肉 routing system | [knowledge/technology/ai-agents/foundations/graph-engineering-node-edge-state.md](./knowledge/technology/ai-agents/foundations/graph-engineering-node-edge-state.md) |
 | `2606.25656` | 到底需不需要 GraphRAG?9 種 RAG 方案實測對照 + 脈絡優化省 19–53% token | [knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md](./knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md) |
 | `2606.27045` | Spec-to-Code 現況(2026):Spec Kit、Kiro、OpenSpec、BMAD 與大型專案的穩定做法 | [knowledge/technology/code-dev/spec-code-flow/spec-driven-development-landscape-2026.md](./knowledge/technology/code-dev/spec-code-flow/spec-driven-development-landscape-2026.md) |
 | `2606.27226` | 你的 AI 變好了?你可能根本測不出來:一套可落地的 LLM 評估(eval)方法(Why QQ) | [knowledge/technology/software-engineering/llm-evals-how-to-know-ai-works.md](./knowledge/technology/software-engineering/llm-evals-how-to-know-ai-works.md) |
@@ -621,6 +639,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2607.28272` | MemHarness:記憶是「重建」出來的,不是「重播」——用 RL 讓 agent 學會批判自己的經驗 | [knowledge/technology/ai-agents/memory-retrieval/memharness-memory-reconstructed-not-replayed.md](./knowledge/technology/ai-agents/memory-retrieval/memharness-memory-reconstructed-not-replayed.md) |
 | `2608.03970` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |
 | `2608.09867` | 加密的推理過程為什麼保不住:一個「全域金鑰 + 可攜載體」的架構教訓 | [knowledge/technology/ai-safety/encrypted-reasoning-traces-portable-key-flaw.md](./knowledge/technology/ai-safety/encrypted-reasoning-traces-portable-key-flaw.md) |
+| `2608.11668` | HBM 高頻寬記憶體原理:矽中介層、TSV、堆疊鍵合一次看懂 | [knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md](./knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md) |
 | `2608.13868` | HBM 高頻寬記憶體原理:矽中介層、TSV、堆疊鍵合一次看懂 | [knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md](./knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md) |
 | `2608.14333` | HBM 高頻寬記憶體原理:矽中介層、TSV、堆疊鍵合一次看懂 | [knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md](./knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md) |
 | `2608.17528` | Harnessed Agentic RL:當 harness 而不是訓練器擁有互動迴圈,RL 會壞在哪四個地方 | [knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md](./knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md) |
@@ -632,6 +651,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2609.35738` | Harness Learning:訓練一個「專門改 harness 的模型」,4B 學生贏過 35B 老師 | [knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md](./knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md) |
 | `2609.35738` | Harness²:不換模型、不訓練,讓 agent 遞迴改自己的配置檔,弱模型反超強模型 | [knowledge/technology/ai-agents/foundations/harness2-recursive-agent-harnessing-google.md](./knowledge/technology/ai-agents/foundations/harness2-recursive-agent-harnessing-google.md) |
 | `2609.36054` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
+| `2609.37647` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `2609.38752` | 5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼,以及反過來 | [knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) |
 | `2610.11959` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
 | `2610.14224` | Harness²:不換模型、不訓練,讓 agent 遞迴改自己的配置檔,弱模型反超強模型 | [knowledge/technology/ai-agents/foundations/harness2-recursive-agent-harnessing-google.md](./knowledge/technology/ai-agents/foundations/harness2-recursive-agent-harnessing-google.md) |

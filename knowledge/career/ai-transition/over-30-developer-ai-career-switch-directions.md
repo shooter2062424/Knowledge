@@ -63,13 +63,42 @@ flowchart LR
 
 ## 核實
 
-- 未能核實(講者個人說法):各方向起薪(25K、30K、20K、18K)、學歷門檻、「全國能有幾個岗位做底層算法」、「國企 30 出頭是黃金期、不卡 35 歲」、量化「薪水天花板高、拿分紅」、「實體企業老 ERP 維護者將退休」。薪資幣別影片未說明,推定為人民幣月薪。
+- **畫面已核對(2026-11-07 截圖,共 9 張;以下秒數為截圖時間,非使用者用的時間點)**:Ru_YVdveirY 截圖 280「Agent 編排框架(LangChain / Dify)」、316「方向二 AI 算法工程化(LLMOps)、一線 30K+ 起步、本科及以上」、240「方向一 AI 應用與智能體(Agent)開發、25K+ 起步、大專起投、本科優先」、580「方向四 AI 測試工程師(AI QA)、18K+ 起步」;9qcN-YSezMY 截圖 500「QD 量化交易開發:Kernel Bypass 內核旁路、FPGA、C++ 內存極致優化」、620「傳統產業信息化與 SRE / DevOps:ERP(SAP / 用友)· CRM · WMS · MES」、140「千萬傳統企業(外貿 / 供應鏈 / 律所 / 製造廠)」、350「方向二 B 端:從 How 到 Why、ROI」、481「QR 量化研究員 vs QD 量化開發」。以上數字是**投影片上的講者說法**,畫面可證實「影片這樣寫」,不能證實市場真實薪資。
+- 未能核實(講者個人說法):方向二 PM「20K 起」(未截到該頁畫面)、各方向學歷門檻的市場實況、「全國能有幾個岗位做底層算法」、「國企 30 出頭是黃金期、不卡 35 歲」、量化「薪水天花板高、拿分紅」、「實體企業老 ERP 維護者將退休」。薪資幣別影片未說明,推定為人民幣月薪。
 - 與 [[ai-skills-no-raise-nash-bargaining]] 對照:該篇主張薪水是價格而非獎金,與本文「賣業務價值而非工時」方向一致,但各自是個人觀點。
-- 字幕還原:「DeFi」= Dify(使用者 2026-11-07 確認;「Number Index」於現行逐字稿未出現,若出現推定為 LlamaIndex)、「弊端」= B 端、「妙化/秒化」= 量化。
-
+- 字幕還原:「DeFi」= Dify(使用者 2026-11-07 確認,且 280 秒投影片明載「Agent 編排框架(LangChain / Dify)」,已核實);「Lantian」= LangChain(同上投影片,已核實);「LM OPS / ENA」= LLMOps(316 秒投影片,已核實);「弊端」= B 端(推定);「妙化 / 秒化 / 好秒」= 量化 / 微秒(推定,依 500 秒投影片「微秒級低延遲通信」);「Number Index」於現行逐字稿未出現,若出現推定為 LlamaIndex。
 ## 業配與推廣揭露
 
 兩片未見明確的課程/社群推銷;片尾僅「點讚收藏」。
+
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+以下只寫實際讀到內容的來源;搜尋摘要未讀全文者一律標「未能核實」。
+
+**1. 編排框架:Dify 與 LangChain**
+- 影片 [4:48](https://www.youtube.com/watch?v=Ru_YVdveirY&t=278s) 說 Agent 編排可用 LangChain 或 Dify。Dify 官方 GitHub README(https://github.com/langgenius/dify)自述為 "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace",授權為 Dify Open Source License(以 Apache 2.0 為基礎加附加條款)。
+- 影片只說「把零件串成流水線」。README 多出的重點是:Agent 可在獨立沙箱執行指令與處理檔案、支援 MCP 工具,並可部署為聊天應用或工作流程中的一個步驟。
+- LangChain 本次未讀官方文件,版本細節未能核實。
+
+**2. 「自動評測流水線」:RAGAS 論文**
+- 影片 [10:14] 談定量指標,[10:39] 談自動跑上萬題的評測流水線。一手論文為 Es 等人的 *Ragas: Automated Evaluation of Retrieval Augmented Generation*,arXiv:2309.15217(首次提交 2023-09-26,v2 於 2025-04-28 修訂):https://arxiv.org/abs/2309.15217
+- 摘要讀到的重點:不需人工標準答案的 RAG 評估框架,分別評估檢索品質、LLM 是否忠實使用檢索內容、生成品質。摘要沒有數字。
+- 搜尋摘要稱論文有 faithfulness、answer relevance、context relevance 三指標,但我讀的摘要頁未列出這三個名稱,**未能核實**;需讀全文 https://arxiv.org/pdf/2309.15217 才能確認。
+- 影片說的「抓幻覺」,在 RAG 評估裡大致對應「忠實度」的概念,此對應為**推定**。
+
+**3. 「3 秒變 1 秒」:vLLM / PagedAttention 論文**
+- 影片 [6:29] 說把回應需 3 秒的模型優化到 1 秒內。論文為 Kwon 等人的 *Efficient Memory Management for Large Language Model Serving with PagedAttention*,arXiv:2309.06180(2023-09-12):https://arxiv.org/abs/2309.06180
+- 摘要重點:KV cache 的碎片與重複浪費會限制 batch size;PagedAttention 借用作業系統的分頁概念管理 KV cache;vLLM 在同延遲下吞吐量達 FasterTransformer、Orca 的 **2–4×**。
+- **與影片的差異**:論文量的是「同延遲下的吞吐量」,不是影片所說「單次回應從 3 秒到 1 秒」。影片的數字無法由此論文核實;論文也不是量化或蒸餾的論文,影片中這些手段需另找來源。
+
+**4. 量化開發:Kernel Bypass(內核旁路)**
+- 影片 [8:29](https://www.youtube.com/watch?v=9qcN-YSezMY&t=499s) 談「直接繞過作業系統內核收網路封包」,當時的投影片(截圖 500 秒)寫「Kernel Bypass 內核旁路」。讀 Databento 的說明:https://databento.com/microstructure/kernel-bypass
+- 機制:應用直接與網卡的 TX/RX buffer 互動、零拷貝進應用緩衝區、常用 lock-free ring buffer;常見實作包括 Solarflare OpenOnload、AMD TCPDirect、ef_vi、Mellanox VMA、DPDK、RDMA、XDP/eBPF。
+- 該頁**未提供延遲數字**。搜尋結果中「內核開銷 20–50 微秒」「2–5 微秒」等數字來源分歧,**未能核實**,不列入。
+- DPDK 官方資料未讀,未能核實其細節。
+
+**5. 畫面未見的說法**
+- 9:37 逐字稿有「混合雲運維」,但 620 秒投影片只列「傳統產業信息化與 SRE / DevOps」與 ERP、CRM、WMS、MES,未出現「混合雲」字樣;此詞以逐字稿為準,畫面未佐證。
 
 ## 相關筆記
 

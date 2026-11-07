@@ -6,7 +6,7 @@
 **整理日期:** 2026-11-06
 
 > **立場揭露:** 該片為頻道自己的工具評測,說明欄只放該 repo 連結,**未見業配或聯盟連結**。影片結尾的「Hype 按鈕」是請觀眾幫忙 YouTube 曝光,非商業推廣。
-> **字幕品質:** 該片僅有自動字幕(簡體,同音字錯誤多,如「制服」=字元、「Cloud」=Claude、「淡地」=本地、「Synthet Text」=SynthID-Text),已逐句校正。
+> **字幕品質:** 該片僅有自動字幕(簡體,同音字錯誤多,如「制服」=字元、「Cloud」=Claude、「淡地」=本地、「Synthet Text」=SynthID-Text),已逐句校正。2026-11-07 補核:字幕「WaterMax Remover」經畫面(1:26 前後的 GitHub 頁)確認為 **guillaumemeyer/watermarks-remover**;「CRPA / AI原数具」畫面為 **C2PA / AI 中繼資料**。
 
 ---
 
@@ -24,14 +24,14 @@ Anthropic 說明文件(2026-11 讀取)的要點:
 
 | 項目 | 內容 |
 |---|---|
-| 機制一 | 模型層級把**不可察覺的水印織進文字本身**,複製貼上後仍在,輕度編輯可能仍在 |
+| 機制一 | 模型層級把**不可察覺的水印織進文字本身**,複製貼上後仍在,輕度編輯可能仍在。文件**未點名演算法**(未提 SynthID 或其他方案) |
 | 機制二 | 產生的 PNG/JPEG 等檔案附 **C2PA Content Credentials** 簽章 |
 | 時間 | 簽署 EU AI Act 第 50(2) 條透明度實務守則;**2026-08-02 起**於歐盟推出的模型上市即支援,舊模型為過渡期 |
-| 偵測 | **文字水印偵測目前是私有預覽**(監管機關、媒體、事實查核、研究者、特定企業);免費的 Claude Content Checker **只驗檔案的 Content Credentials,不是文字偵測器** |
+| 偵測 | **文字水印偵測目前是私有預覽**(監管機關、執法、媒體、事實查核、獨立研究者、教育機構、歐盟公民社會團體,及需驗證自家 Claude 輸出的企業);可經申請表登記。影片與初版筆記提到的「免費 Claude Content Checker 只驗檔案 Content Credentials」——**未能核實**(本次抓取的文件未提及該工具名稱) |
 | 官方警語 | 偵測到水印**不等於**全是 Claude 寫的(可能只是校稿、翻譯、摘要);沒偵測到也**不等於**人寫的(舊模型、大幅改寫、極短文字、取樣參數非預設等) |
 
 ⚠️ **影片說「Claude 用的是 Google 發在 Nature 的 SynthID-Text」——Anthropic 並未公布演算法。** repo 自己的 `how-claude-marks.md` 也寫「Anthropic has not published the algorithm」,只把它歸為 *likely* 統計式 token 取樣水印(Kirchenbauer / SynthID 類)。**把它講成「就是 SynthID-Text」屬於推定。**
-(Anthropic 文件另提到:Sonnet 4.6 在設定非預設 `temperature` / `top_p` / `top_k` 時,水印可能不穩定出現。)
+(Anthropic 文件另提到:Claude **Opus 4.6 與 Sonnet 4.6** 在設定非預設 `temperature` / `top_p` / `top_k` 時,水印可能不穩定出現。)
 
 ---
 
@@ -111,15 +111,41 @@ python clean_text.py s.txt --stats -o s.out
 3. **要發布含 AI 圖片的檔案**:想先檢查有無 C2PA/EXIF 的 AI 標記,用 `inspect_file.py`;但要注意合規場景(歐盟 AI Act 第 50 條)下刻意移除標記可能違反揭露義務,repo 自己的 `ethics.md` 也這麼警告。
 4. **評估任何「去水印神器」的方法論**:學影片的作法——先建對照組(自己植入已知標記)證明偵測器有效,再看工具的「宣稱範圍」是否涵蓋威脅模型,最後看是否有**可複驗的指標**。
 
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+**1. SynthID-Text 原始論文(影片所指的「Google 發在 Nature 上的方法」)。** 已核實:Dathathri et al., *Nature* 634, 818–823(2024-10-23),DOI 10.1038/s41586-024-08025-4,標題〈Scalable watermarking for identifying large language model outputs〉,採 *tournament sampling*,可設成「不失真」或「較強可偵測」兩種模式;論文報告在 Gemini 上近 2,000 萬次回應的即時測試中未見品質損失。**限制(取自二手摘要,未逐字讀原文):** 改寫、翻譯、大幅編輯後訊號會減弱,極短或高度事實性文字較難偵測;偵測只對採用同一方案的服務有效。
+- 論文 PMC 版:https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11499265/
+- 參考實作(DeepMind 官方,README 註明非正式上線用途):https://github.com/google-deepmind/synthid-text
+
+**2. 這點直接影響影片的推論。** SynthID-Text 是**公開論文的演算法**,而 Anthropic 文件**未點名任何演算法**。因此「Claude 用的就是 SynthID-Text」仍屬**推定**;更精確的說法是「Claude 採用某種 token 層級統計水印,機制未公開」。影片「用詞分佈帶著簽名」(畫面 1:12 附近的投影片:*The pattern becomes a signature*)是對統計水印的通俗比喻,與論文的 token 取樣機制一致。
+
+**3. 去水印 repo 的自我定位(已由 README 核實)。** README 明言:Layer A 為確定性 Unicode 清洗,Layer B 為「盡力而為」的改寫;並寫道在廠商公開偵測器與金鑰之前,「no tool can honestly certify」某個水印通過官方檢測。這與影片「Layer B 只能靠重寫、無法驗證」的結論一致,也說明作者自己不宣稱能洗掉統計水印。
+
+**4. 影片時間對照(以 `transcript_tools.py find` 核實,給使用者看的時間只取自此):**
+
+| 影片時間 | 內容 | 連結(提前 10 秒) |
+|---|---|---|
+| [0:46]–[0:47] | 三個零寬字元被掃出 | https://www.youtube.com/watch?v=9leHSMk-9nY&t=37s |
+| [1:12] | 「這套東西叫 Synthet Text」 | https://www.youtube.com/watch?v=9leHSMk-9nY&t=62s |
+| [1:26] | 項目名(字幕誤聽為 WaterMax Remover,畫面為 watermarks-remover) | https://www.youtube.com/watch?v=9leHSMk-9nY&t=78s |
+| [2:44] | 「Backend 是 Print Prompt」 | https://www.youtube.com/watch?v=9leHSMk-9nY&t=154s |
+| [3:13] | 「音頻和視頻水印不在範圍內」 | https://www.youtube.com/watch?v=9leHSMk-9nY&t=183s |
+
+**5. 畫面核對(截圖 4 格,已看圖):** 0:26 終端機輸入開頭(未見結果);1:12 投影片 *The pattern becomes a signature*;1:24 GitHub 頁,顯示 `guillaumemeyer/watermarks-remover`,Star 約 18.8k(拍攝當下);2:34 終端機執行 `rewrite_text.py`,輸出 `"backend": "print-prompt"`、`"model": null`,且只印出提示詞、未改寫;3:26 終端機 `grep "Out of scope"` 於 `removal-matrix.md`,列出 *Audio / video watermarks (SynthID-media)*、*C2PA soft binding*、*Data-driven model backdoors* 為範圍外。
+
+**6. 未能核實的影片細節:** 影片中「81 字 Claude 中文」的原始掃描結果無樣本;影片結尾預告「用官方檢測器測改寫後的 Claude 文章」,屬未來實驗,本筆記不採信其結果。
+
 ## 核實狀態
 
-- **已核實:** Anthropic 標記機制與日期;repo 結構、Layer A 碼位表、`print-prompt` 後端、範圍外清單、Star 數;Layer A 清洗實測。
-- **推定:** Claude 使用 SynthID-Text 類演算法。
-- **未能核實:** 影片中「用 Claude 寫的 81 字」命中 0 的原始實驗(無樣本);Layer B 對 Claude 真實水印的實際去除率(無官方偵測器,私有預覽中)。
+- **已核實:** Anthropic 標記機制與 EU AI Act 日期(2026-11-07 重新抓取文件);私有預覽對象範圍;「非偵測即非 Claude」等警語;Opus 4.6 / Sonnet 4.6 取樣參數注意;repo 自述範圍、Layer B 三種後端、「無法誠實認證」的限制、MIT 授權、Star 約 26.5k(2026-11-07);SynthID-Text 論文書目與 DOI;影片 [1:26] 項目名為字幕誤聽;Layer A 清洗實測(前次讀取)。
+- **推定:** Claude 使用 SynthID-Text 或其他同類統計水印演算法(Anthropic 未點名)。
+- **未能核實:** 影片中「用 Claude 寫的 81 字」命中 0 的原始實驗(無樣本);Layer B 對 Claude 真實水印的實際去除率(無官方偵測器,私有預覽中);「Claude Content Checker」工具名稱;SynthID-Text 論文全文的限制段落(僅讀到二手摘要)。
 
 ## 來源
 
 - 〈实测1.8万星 Claude 去水印工具:蹭流量的,完全没用〉YAHA学堂,2026-09-01:https://www.youtube.com/watch?v=9leHSMk-9nY (該片為自動字幕,簡體,非官方人工字幕,同音字誤差已校正)
 - guillaumemeyer/watermarks-remover(MIT):https://github.com/guillaumemeyer/watermarks-remover
 - Anthropic〈How Claude marks AI-generated content〉:https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content
+- Dathathri et al., 〈Scalable watermarking for identifying large language model outputs〉,*Nature* 2024:https://www.nature.com/articles/s41586-024-08025-4(PMC 版:https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11499265/)
+- google-deepmind/synthid-text(參考實作):https://github.com/google-deepmind/synthid-text
 - 相關筆記:[[prompt-injection-5-techniques-defenses]](同屬 AI 安全面向,角度不同)

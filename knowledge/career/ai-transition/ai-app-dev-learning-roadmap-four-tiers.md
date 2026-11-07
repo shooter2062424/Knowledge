@@ -70,7 +70,7 @@ flowchart TD
 - 演進三階段(講者劃分):2023 的 Function Calling/外掛、2024 至 2025 的單 Agent(ReAct、長期記憶、規劃反思)、2026 的系統級 Agent(Computer Use、多 Agent、企業 ERP/CRM 落地)。
 - Agent 四要素:大模型、記憶(短期/長期向量)、工具、反思循環。
 - 對照比喻:菜譜 vs 管家下單買菜;導航 vs 自動駕駛;顧問只出方案 vs 員工自動撈資料庫、產生 Excel/PPT、寄信。
-- 補一個觀察:Computer Use 實務上多半仍是走接口而非真的操作滑鼠,因為看畫面要處理的 token 太多。
+- 補一個觀察(需修正):影片說 Computer Use「實務上多半還是走接口而非真的操作滑鼠」,此說不精確。Anthropic 官方文件([Computer use tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool))描述的機制是:Claude 透過**截圖加滑鼠鍵盤動作**控制桌面,但這些動作以 API `tool_use` 回傳,由應用程式在沙箱內實際執行,模型本身不直接接觸桌面。影片「看畫面 token 太多所以改走接口」的成本考量屬合理推論,但未附數據。
 
 ## 應用案例
 
@@ -80,10 +80,24 @@ flowchart TD
 
 ## 核實
 
-- 已核實:**Eino** 為 cloudwego 組織的 Go 語言 LLM/Agent 應用框架(GitHub 頁面);**Spring AI** 為 Spring 官方專案,提供聊天/嵌入抽象、多種向量庫與 RAG(官方文件)。LangChain / LangGraph / MCP / GraphRAG 為業界通用名詞。
+- 已核實:**Eino** 為 cloudwego 組織的 Go 語言 LLM/Agent 應用框架,Apache-2.0 授權,README 自述「Eino 是 Golang 的 LLM 應用開發框架」,安全回報指向 ByteDance Security,確認為字節跳動開源(<https://github.com/cloudwego/eino>,2026-11-07 讀 README 核對)。**Spring AI** 為 Spring 官方專案,提供聊天/嵌入抽象、多種向量庫與 RAG(<https://docs.spring.io/spring-ai/reference/index.html>)。LangChain / LangGraph / MCP / GraphRAG 為業界通用名詞。
+- 已核實(2026-11-07 投影片畫面 [7:19] 附近):畫面寫「Python 生態 LangChain (1.0+)、LangGraph;Java 生態 Spring AI;Go 生態 Eino(字節跳動開源,構建高併發輕量級服務)」,並標「規避陳舊教學資料/廢棄 API」,與影片口述一致。
+- 已核實(LangChain v1 官方文件,<https://docs.langchain.com/oss/python/releases/langchain-v1>):v1 以 `create_agent` 作為建立 agent 的標準入口,取代 `langgraph.prebuilt.create_react_agent`;舊有 legacy chains、retrievers、indexing API、hub 等移到 `langchain-classic`,需改 import。影片「舊教學已被重構或廢棄」大方向正確,但文件並未說明確切發布日期與補丁版號。
+- 字幕還原補充:影片 [6:46] 的「Long Graph」= LangGraph(投影片同畫面可見)。
 - 字幕還原:「Lantian」= LangChain、「挨諾」= Eino(2026-11-07 以影片畫面截圖確認:投影片寫 LangChain 1.0+ 與 Eino);「DeFi」= Dify(編排平台)、「GVM」= JVM(使用者 2026-11-07 聽原片確認)。
-- 未能核實(皆為講者個人說法):各檔位薪資(15K / 20K / 30K / 40K、年薪 50 萬)、「同級別薪資拉開 30% 到 50%」、「15 家公司面試」、面試官普遍沒系統學過、今年是唯一窗口、履歷範例的 38% 與 400ms、Agent 市場規模(「2025 年 113 億美元、年增 122%、2026 年 187 億、國內 310 億、超 40% 中大型企業上線」,無出處)。
+- 未能核實(皆為講者個人說法):各檔位薪資(15K / 20K / 30K / 40K、年薪 50 萬)、「同級別薪資拉開 30% 到 50%」、「15 家公司面試」、面試官普遍沒系統學過、今年是唯一窗口、履歷範例的 38% 與 400ms、Agent 市場規模(「2025 年 113 億美元、年增 122%、2026 年 187 億、國內 310 億、超 40% 中大型企業上線」)。影片 [6:32] 附近的投影片確實印有這些數字,但**投影片與口播均未附來源**,仍未能核實。
 - 講者口誤:wTO77 片中原話「CyberTrack/Cybertruck 沒有方向盤、已在美國落地」,無方向盤的是 Cybercab(使用者 2026-11-07 確認改寫為 Cybercab;是否已量產落地未核);「Codex 與 ChatGPT 合併」「豆包手機」未核實。
+
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+以下只列實際讀過內容的一手來源,並標明與影片說法的差異。
+
+1. **Eino(影片 [7:19],框架選型)**:README 指出它是 Go 語言框架,核心模組包括 Components(ChatModel、Tool、Retriever 等可替換元件)、`adk`(Agent Development Kit:工具型 agent、多 agent、interrupt/resume 人工介入)、`compose`(圖與工作流編排)。影片只說「高併發、輕量級一步調用趁手」,未提到 Go 生態與 Python 的取捨;若面試的是 Go 團隊,這是影片沒講的關鍵。來源:<https://github.com/cloudwego/eino>
+2. **LangChain v1 與 LangGraph(影片 [6:46])**:v1 的 agent 入口是 `create_agent`,底層建立在 LangGraph 上,提供持久化、串流、人工核准與 time travel;LangGraph 不必直接學也能用到這些功能。影片說「要學底層 LangGraph 狀態圖」,與官方定位大致相符,但實務上可先用 `create_agent`。來源:<https://docs.langchain.com/oss/python/releases/langchain-v1>
+3. **Computer Use(影片 [5:35]、[6:10])**:見第 5 節的修正。官方機制是截圖 + 滑鼠鍵盤動作由 API 回傳、應用程式執行,並建議在最小權限的專用 VM 或容器中執行,重大動作需人工確認。來源:<https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool>
+4. **混合檢索與重排(影片 [11:38]、投影片 [11:38] 附近為「關鍵詞 + 向量 → Rerank → 高精度相關性召回」流程圖)**:學術證據支持「BM25 + 向量 + 融合」有助召回,例如 *The Chronicles of RAG*(arXiv 2401.07883)表中自訂混合方案 recall@5 為 0.943,標準混合為 0.879;但增益依資料集而異,RRF 在某電商資料集僅約 +1.7% NDCG。重排的效益在我們讀到的資料中**最不確定**:一篇 2024 年實測指出加入 cross-encoder 重排平均約 -0.05% 準確率,與影片「重排再精篩」的說法不一定一致。結論:混合檢索值得做,重排要用自家語料實測再決定。來源:<https://arxiv.org/pdf/2401.07883>、<https://jaekang.quarto.pub/jaekangai-quarto/posts/2411_rerank_rag/2024-11-23-rerank-rag.html>(二手實測,未能核實原始數字)
+5. **KV Cache 與前綴快取(影片 [9:35]、投影片 [9:35] 附近為 KV Cache / Prefix Cache 三層架構圖)**:以 vLLM 為例,自動前綴快取是以 **完整 KV block** 為單位做雜湊(預設 sha256),只有「前綴相同」的請求能重用;官方文件也說增益會隨「生成時間佔比高」或「請求無共同前綴」而縮小。因此影片「響應速度翻倍、帳單大幅下降」屬情境性說法,要靠自家流量量測。來源:<https://docs.vllm.ai/en/latest/features/automatic_prefix_caching/>、<https://docs.vllm.ai/en/latest/design/prefix_caching.html>
+6. **Spring AI RAG(影片 [7:03])**:Spring AI 1.x 文件以 Advisor API 實作 RAG,`QuestionAnswerAdvisor` 為最簡路徑(每次問題做相似度搜尋後注入),進階流程用 `RetrievalAugmentationAdvisor`;官方頁面提示最新穩定版為 2.0。來源:<https://docs.spring.io/spring-ai/reference/1.0/api/retrieval-augmented-generation.html>(版本路徑以官方為準)
 
 ## 業配與推廣揭露(未納入)
 

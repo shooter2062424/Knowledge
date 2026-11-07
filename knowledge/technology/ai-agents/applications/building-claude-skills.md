@@ -292,6 +292,8 @@ flowchart LR
 
 ### 10.1 人機交互五級進化(為什麼會長出 Skill)
 
+> ⚠️ **五級是影片作者自己的分類,不是 Anthropic 官方分級。** 官方文件只講三層漸進式披露(metadata → `SKILL.md` 本文 → 其他檔案,見 §1 與 10.6)。Level 4「元數據路由」指的是作者為**業務文件**貼的標籤做法,與 `SKILL.md` frontmatter 的 `metadata` 欄位是兩回事。
+
 | Level | 階段 | 解決什麼 | 局限 |
 |---|---|---|---|
 | 1 | 提示詞:普通 prompt → 結構化 prompt(Role / Task / 規則) | 輸出失控 | 太長,每次複製貼上 |
@@ -312,6 +314,8 @@ flowchart LR
 4. **執行工具箱**:靜態掃描腳本、單元測試執行器,可直接跑測試出報告。
 
 工程優勢是**極致模組化**:基座模型與主幹程式像固定插座,新增功能不動核心程式碼、不重訓模型,插一個技能資料夾即可,拔掉資料夾就去掉功能。
+
+**對照官方規格(2026-11-07 核實):** 官方格式是「一個目錄 + 必備 `SKILL.md`」,可選目錄為 `scripts/`、`references/`、`assets/`(模板、圖片、資料檔)。四件東西對得上的部分:岗位说明书 = `SKILL.md` 本文;门牌号 = frontmatter 的 `name` / `description`(`name` 須與目錄名相同、≤64 字元,`description` ≤1024 字元);参考资料 = `references/`;执行工具 = `scripts/`。影片**漏掉 `assets/`**。frontmatter 的 `metadata` 欄位只是任意鍵值對,不是影片所說的業務路由標籤。官方 PDF 範例也說明 Claude 可以執行腳本、而**不必把腳本或 PDF 載入 context**,與影片「腳本程式碼不進上下文、只回流輸出」一致 ✅。來源:[Anthropic 工程部落格:Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)、[Agent Skills 規格](https://agentskills.io/specification)。
 
 ### 10.3 背景三階段(五步)運作流
 
@@ -336,6 +340,24 @@ flowchart TB
 - **團隊程式碼審查**:把「Google 規範 + 公司漏洞白皮書 + 靜態掃描腳本」打成 `code-review` 技能資料夾;新人 clone 即得同一套審查標準;規範更新只改文件,「像改文檔一樣簡單」。
 - **合規審查**:通用 Agent 只能拿 60 分;打包「法律條款 SOP + 違規風險識別 + 報告模板」後逼近專家水準(此為 [[ai-concepts-layered-map-baibai]] 的第八概念範例)。
 
+### 10.6 核實狀態與畫面核對(2026-11-07 延伸增補)
+
+**畫面核對:** 以 `transcript_tools.py frames` 截取影片畫面並讀圖,確認以下投影片與字幕一致(截圖時間點 5:11、7:00、10:07、13:28):
+- 元數據路由投影片:三節點「業務文件打上輕量級 Meta Data Tags → 模型根據訴求檢索標籤 → 精準拉取對應文件,避免全量文件塞爆上下文」。對應逐字稿 [4:26] 起「Level 四元數據路由階段」。
+- 「范式轉變:AI 角色定位的重塑」投影片,對應 [6:56] 「以前我們是在跟 AI 聊天,現在我們是在給 AI 配置專業崗位」。
+- 「階段二:決策響應與動態激活」投影片:步驟 3 大模型匹配 `code-reviewer` 技能、步驟 4 客戶端載入 `SKILL.md`。對應 [9:52] 起的三階段說明。
+- 「概念辨析:Agent Skills vs Workflow(自適應 vs 鐵軌)」投影片。對應 [13:12] 「一輛搭載智能導航的無人駕駛車」。
+
+| 說法 | 結果 |
+|---|---|
+| 「四大要素」(指令 / 門牌 / 參考 / 工具)可打包成資料夾 | ✅ 可對到官方目錄結構;但這是作者的歸納法,官方不用此分法,且漏 `assets/` |
+| 「五級進化」Level 1–5 | 📌 作者自創分類;官方只有三層漸進式披露 |
+| 「按 metadata 路由可把 token 成本砍 90%」 | ❓ 未能核實(官方文章未提任何百分比) |
+| 「腳本程式碼不進 context」 | ✅ 官方工程文章明言可執行腳本而不載入 context |
+| 「Skill 是大腦、MCP 是手」、「Workflow 是固定鐵軌」 | 📌 作者比喻;官方文件未見這組對比 |
+| 「Skill 內可含固定步驟與腳本,與 workflow 可融合」(本節 10.4 評語) | 📌 本篇評語,非影片說法;官方規格允許 SKILL.md 內含任何步驟與腳本引用 |
+| `SKILL.md` 本文 < 500 行 | ✅ 與官方「Keep your main SKILL.md under 500 lines」一致(見 §1、§8) |
+
 ---
 
 ## 來源
@@ -349,3 +371,5 @@ flowchart TB
 - [AI Engineer:Don't Build Agents, Build Skills Instead – Barry Zhang & Mahesh Murag, Anthropic(2025-11)](https://www.ai.engineer/talks/CEvIs9y1uog-agent-skills)
 - [Simon Willison:Agent Skills 成為開放標準(2025-12-19)](https://simonwillison.net/2025/dec/19/agent-skills) · [agentskills.io](https://agentskills.io/)
 - [Anthropic:Skill authoring best practices(官方文件)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
+- [Anthropic 工程部落格:Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)(§10.2、§10.6 核實)
+- [Agent Skills 規格 — agentskills.io/specification](https://agentskills.io/specification)(frontmatter 限制、目錄結構、漸進式披露,§10.2、§10.6 核實)

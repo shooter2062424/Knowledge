@@ -17,7 +17,7 @@
 
 ## 1. 它是什麼(以 repo 現況為準)
 
-- 一個 Agent Skill,輸出是**單一自含的 HTML + inline SVG**(可再匯出 SVG / PNG)。README 自述「45 diagram types. No shadows. No Mermaid slop.」(影片錄製時的星數約 2.6 萬;**我讀到時 GitHub API 顯示 65,290**,影片的數字已過時)。
+- 一個 Agent Skill,輸出是**單一自含的 HTML + inline SVG**(可再匯出 SVG / PNG)。README 自述「45 diagram types. No shadows. No Mermaid slop.」(影片錄製時的星數約 2.6 萬;**2026-11-07 以 `gh api repos/cathrynlavery/diagram-design` 查詢為 65,494**,影片的數字已過時)。
 - 兩種安裝:`npx skills add cathrynlavery/diagram-design`(多宿主),或 Claude Code 內 `/plugin marketplace add cathrynlavery/diagram-design` → `/plugin install diagram-design@diagram-design`(含斜線指令)。
 - 斜線指令在 `commands/`:`import-mermaid`、`import-drawio`、`import-excalidraw`、`export-diagram`、`profile`、`doctor`(影片所說「Diagram Design 開頭的命令」)。
 - 影片示範的五種情境:讀專案程式碼畫架構圖、從網址抽品牌色、Mermaid 整批翻新、產品經理用的四象限圖、PNG 匯出進 PPT。
@@ -40,8 +40,8 @@ flowchart TD
 | 存檔 | 配色寫在**外掛目錄內**,更新外掛可能被覆蓋 → 另存成 **profile**;專案根目錄放 `.diagram-design` 單行檔,自動切換 | `commands/profile.md`、`references/profiles.md`(第一步先解析 `.diagram-design` marker) |
 | Mermaid 翻新 | 先跑**解析腳本**把 Mermaid 拆成表(節點數、邊數、入口、終點、最多連線節點),不渲染、不連網、不執行內容;再畫 | `commands/import-mermaid.md`(支援 `.mmd` 與 Markdown 內 fenced mermaid;預設 `--detail=balanced`) |
 | 批次 | 直接說「整個目錄」,流程圖 / 時序圖 / 狀態機自動辨識 | 同上 |
-| PNG 匯出 | 沒裝 Playwright 時**貼出安裝指令但不自動安裝** | `export-diagram.md` 第 4 條:「PNG requested but Playwright not installed → surface the install instruction verbatim and stop. Do **not** auto-install.」**已核實** |
-| 倍率 | 1000x640 的 viewBox 輸出 2000x1280(2x) | 影片實測,未重現 |
+| PNG 匯出 | 沒裝 Playwright 時**停下、不自動安裝** | `commands/export-diagram.md` 第 35 行:「PNG requested but Playwright not installed → surface the install instruction from the reference verbatim and stop. Do **not** auto-install.」;`references/export.md` 的 Detection 段給的提示文字本身**不含安裝指令**,只說明 Playwright 須由宿主環境準備。**已核實**(規格);影片畫面與規格的差異見下方延伸一節 |
+| 倍率 | 1000x640 的 viewBox 輸出 2000x1280(2x) | 規格:`references/export.md` 預設 `device_scale_factor=2`,數學上 1000×2=2000、640×2=1280 **符合規格**;未實跑出 PNG |
 
 ## 3. 「規則」才是主角:影片點名的五條,逐一對原始碼
 
@@ -52,7 +52,7 @@ flowchart TD
 | 任何元素不准有陰影 | 反模式表:「Shadow on any element — Shadows are out. Borders are in.」 | 已核實 |
 | 圓角有上限 | 「`rounded-2xl` on boxes — Max radius 6–10px or none」 | 已核實 |
 | 強調色一張圖最多 2 個元素 | 「accent 1–2 focal elements per diagram」「if you're tempted to accent 4 things, you haven't decided what's focal yet」 | 已核實 |
-| 連線 6 條規則「不可談判」,斜線直接不合格 | §6「Non-negotiable」:orthogonal only(圓角直角彎 r=8,r=6 為緊湊下限)、標籤間隙、不重疊、扇出連接點、不穿過非端點方塊、標籤遮罩在節點之前。**「Any breach of the six §6 connector rules → Automatic fail」** | 已核實 |
+| 連線 6 條規則「不可談判」,斜線直接不合格 | §6「Non-negotiable」:orthogonal only(圓角直角彎 r=8,r=6 為緊湊下限)、標籤間隙、不重疊、扇出連接點、不穿過非端點方塊、標籤遮罩在節點之前。另於 **§4 反模式表**:「Any breach of the six §6 connector rules」對應「Automatic fail」 | 已核實 |
 | 座標 / 字號 / 間距必須是 4 的倍數 | 「Structural geometry sits on a 4px grid」——但注意:**字型大小依角色階梯,不是 4px 網格**(影片說「字號」也是 4 的倍數,**不精確**) | 需修正 |
 | Taste Gate「30 幾條」勾完才准交圖 | §9 Pre-Output Checklist,我數到 **38 個勾選項**(`- [ ]`) | 已核實(影片的「30 幾」成立) |
 
@@ -75,13 +75,46 @@ flowchart TD
 3. **PM 的優先級四象限**:提供七個功能與大概位置,加一句「焦點放最值得先做的」;依「強調色只用 1–2 處」的規則,整張只有一個珊瑚色象限,避免所有象限都在喊「重要」。
 4. **簡報用圖**:`/export-diagram` 匯出透明背景 PNG(2x 像素),沒裝 Playwright 時它會停下來貼安裝指令,由你決定是否裝。
 
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+**① 影片畫面核實(時間點皆取自 `transcript_tools.py find` 輸出)**
+
+- **[6:42] 缺 Playwright 時的實際行為。** 畫面中 Claude Code 執行 `python3 -c "import playwright"`,回傳 `ModuleNotFoundError: No module named 'playwright'`;接著查其他 Python 環境、確認都沒有後**不自動安裝**,先產出 SVG,再回報 PNG 受阻。這與 `references/export.md` 規格一致。
+- **[6:47]「他把安裝命令貼給你」——與畫面不完全相符(需修正)。** 本次擷取的 [6:42] 畫面中只看到「不自動安裝、先出 SVG」,**未見 AI 貼出安裝命令**;規格的提示文字也不含命令。影片此處的描述不能當成規格行為。
+- **[7:00] 作者手動安裝。** 作者的畫面是 `python3 -m pip install --break-system-packages playwright`,之後 `python3 -m playwright install chr…`(指令未完整錄到)。「兩行命令」大致屬實,但 `--break-system-packages` 會直接改系統 Python,與影片同段「不想動系統的話先建虛擬環境」的建議矛盾;照做時建議先用 venv。
+- **[4:09] 起的批次示範。** 畫面的批次輸出寫「三份源圖都落在 balanced(≤12) 與 §7 預算內」——這和下一點的規格衝突。
+
+**② 規格內部不一致(未能判定哪個為準)**
+
+- `SKILL.md` §7 寫 **Max nodes 9**;但 `references/output-spec.md` 的 `balanced` 寫 **≤12 節點**,並說「`balanced` and `simplified` sit inside the standard complexity budget (SKILL.md §7)」。
+- 影片說「九個節點在預算內」,畫面卻寫「balanced(≤12)」。讀者若以為 9 是硬上限,匯入時可能到 12 才察覺不符。這點我只能指出矛盾,作者意圖未查 issue,標「未能核實」。
+
+**③ 畫面揭露、影片沒講的「規則會頂撞品牌」實例**
+
+- 影片 [2:33] 命名為 FreeTapis 後,onboarding 報告(畫面可讀)列出三件事:① `JetBrains Mono 被破例`——§4 反模式表與 §9 Typography 都禁止 JetBrains Mono,但因為是品牌真實字體,AI 選擇例外並在 `style-guide.md` 寫 override 說明;② `link` 與 `accent` 同色,AI 把 link 映射成獨立色,理由是 API 箭頭與強調線之後要能區分;③ 沒有暗色主題,不是品牌素材,需要使用者決定。
+- 含意:Taste Gate 在 onboarding 階段就會覆寫使用者的品牌素材,而且是**以 AI 判斷的例外**進行,不是純機械驗證。
+
+**④ 機器驗證(本機實跑)**
+
+- `python -I scripts/verify-geometry.py skills/diagram-design/assets/example-flowchart.html`:`1 file(s) checked, 0 finding(s).`
+- `python -I skills/diagram-design/scripts/self_check.py skills/diagram-design/assets/example-flowchart.html`:`OK`
+- 以上只證明**官方範例**通過檢查,不代表影片作者那張圖通過;連線六規則確實可機器驗證,但需要對每張圖各跑一次。
+
+**⑤ 外部一手來源**
+
+- Playwright Python 文件(https://playwright.dev/python/docs/intro):抓取結果列出 `pip install pytest-playwright` 與 `playwright install`;頁面未直接給出只裝 `playwright` 套件的指令,也未提及 `chromium` 參數。影片用的 `playwright install chromium` 形式**未能完全核實**。
+
 ## 核實狀態
 
-- **已核實:** 安裝指令、斜線指令清單、刪除原則、密度與 9 節點規則、無陰影、圓角上限、強調色 1–2、連線六規則、不自動安裝 Playwright、Taste Gate 條數、授權、星數現況。
-- **需修正:** 「字號也必須是 4 的倍數」(字型大小依角色階梯)。
-- **未能核實:** 影片中的耗時比較(Figma 30 分鐘 vs 1 分多鐘)、倍率輸出與三項渲染修正(CSS 撐寬、位移多兩行、紙色底)為作者實測,我未重跑。
+- **已核實:** 安裝指令(README 的 `npx skills add` 與 `/plugin marketplace add` / `/plugin install`)、斜線指令清單(`commands/` 六檔)、刪除原則、密度與 9 節點規則、無陰影、圓角上限、強調色 1–2、連線六規則(§6 與 §4 反模式表)、不自動安裝 Playwright(`commands/export-diagram.md` 與 `references/export.md`)、Taste Gate 條數(§9 共 38 個 `- [ ]`)、2x 預設倍率、授權、星數(2026-11-07 為 65,494)、畫面上 6:42 的缺 Playwright 行為。
+- **需修正:**
+  - 「字號也必須是 4 的倍數」:`SKILL.md` §7 明確寫「Type sizes follow the role ramp … not the grid」。
+  - 「貼出安裝指令」:規格未要求、畫面 [6:42] 也未見,影片此處描述與來源不符。
+  - 「九個節點在預算內」:與 `output-spec.md` 的 `balanced ≤12` 互相矛盾(見延伸②)。
+- **未能核實:** 影片中的耗時比較(Figma 30 分鐘 vs 1 分多鐘)、三項渲染修正(CSS 撐寬、位移多兩行、紙色底)為作者實測,我未重跑;`playwright install chromium` 的完整指令形式;「balanced ≤12」與「§7 九節點」哪個為作者真正意圖。
 
 ## 來源
 
 - 〈GitHub 冲榜第一的 Claude Code 画图 Skill…〉YAHA学堂,2026-09-03:https://www.youtube.com/watch?v=rq4EHbqaaAk (自動字幕,簡體,非官方人工字幕)
-- cathrynlavery/diagram-design(MIT):https://github.com/cathrynlavery/diagram-design
+- cathrynlavery/diagram-design(MIT):https://github.com/cathrynlavery/diagram-design(2026-11-07 shallow clone 讀取:`skills/diagram-design/SKILL.md`、`references/export.md`、`references/output-spec.md`、`commands/export-diagram.md`、`README.md`)
+- Playwright Python 文件:https://playwright.dev/python/docs/intro

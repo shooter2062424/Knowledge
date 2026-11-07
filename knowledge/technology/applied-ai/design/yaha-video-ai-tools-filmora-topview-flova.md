@@ -33,7 +33,7 @@
 
 | 功能 | 操作要點(影片自述) | 取捨 |
 |---|---|---|
-| **AI 媒體分析** | 素材上右鍵 →「AI 媒體分析」,可單選或批次;單支分析**消耗 2 點積分**(影片所述);結果在「媒體資訊」頁籤:關鍵詞、主體、場景、影片描述、剪輯建議、素材評分;另可自加 TAG,在媒體庫搜尋 | 解決「5T 素材找不到」的索引問題;**要付積分、需上傳分析**,隱私與成本需自行評估(影片未說明資料處理方式,**未能核實**) |
+| **AI 媒體分析** | 素材上右鍵 →「AI 媒體分析」,可單選或批次;單支分析**消耗 2 點積分**([1:30] 影片所述);結果在「媒體資訊」頁籤([1:46]):關鍵詞、主體、場景/地點、描述、編輯建議、**分數**([1:59];2026-11-07 截圖核對,見下);另可自加 TAG,在媒體庫搜尋([2:07]) | 解決「5T 素材找不到」的索引問題;**要付積分、需上傳分析**,隱私與成本需自行評估(影片未說明資料處理方式,**未能核實**);官網與報導皆未列出「單支扣幾點」,**2 點之數字未能核實** |
 | **攝影機追蹤** | 屬性面板「追蹤」→ 攝影機追蹤,範圍可選頭部 / 身體 / 自訂,自動裁切成人物特寫 | 影片提醒:**關掉「自動裁切」與「模糊背景」會出現黑邊與背景移動,建議保持開啟** |
 | **運動跟蹤** | 在畫布上框出目標 → 開始跟蹤 → 另加矩形(只留邊框、長度拉到與片段一致)→ 把矩形設為「連接元素」才會跟著目標走 | 適合讓文字、貼紙、馬賽克、標註框跟隨目標 |
 | **軌道遮罩** | 文字做遮罩層,影片勾選「軌道遮罩」並選該文字 | 文字入場動畫 + 遮罩 = 片頭字卡效果 |
@@ -50,7 +50,8 @@
 
 - 影片稱原始碼規則是「**禁止 Agent 為了省事把你的需求做小**」。對照 `references/workflow-routing.md`:「Do not infer permission to omit story beats, collapse a full episode into a teaser, remove dialogue, or replace reusable assets with prompt-only descriptions… approval to 'make it' is not approval of an Agent-authored condensed prompt.」**已核實。**
 - 影片稱「先把帳算給你看再問批不批,可選自動推進或逐步審批」。對照 `operate-topview-canvas/references/canvas-mcp-api.md`:第一次消耗 credit 的 `submit_topview_canvas_generation_task` 之前,必須讓使用者在 `confirm_each_submit`(逐步請求審批)與 `autonomous` 之間單選,且不得跳過。**已核實。**
-- 影片的 **「Identity Lock」** 段落(寫死杯子顏色、插畫位置、蓋子形狀):講者確實說了此詞(使用者 2026-11-07 聽原片確認),但我在公開外掛 repo 內搜尋不到這個字樣:**講者原話,repo 未見**,應是 Agent 實際產出的計畫內容或內部命名。
+- 影片的 **「Identity Lock」** 段落(寫死杯子顏色、插畫位置、蓋子形狀):講者於 [2:02] 說出此詞(使用者 2026-11-07 聽原片確認)。2026-11-07 截圖 `CV7HX6qFglc_123.png`(截圖時間 2:03 畫面)可見 Canvas 的「Production Plan」中確有 **IDENTITY LOCK** 段,內容為 `Product-1 owns … pale blush pink …`、`Product-3 is internal cutaway evidence only`、`Woman: adult late twenties…` 等**明文身份條目**。二次 `git clone` 並全 repo grep `Identity Lock` / `identity lock` 仍無命中,故**詞語為畫面上的計畫標題,repo 內無此字樣**(應是 Agent 產出的計畫格式,非外掛規範名稱)。
+- **字幕還原:** 字幕「這是一個 40A 的保溫杯」([0:45],`t=35s`)實為 **40 OZ**(40 盎司);截圖中實施說明的字幕欄寫 `"40 OZ. BIG ON ADVENTURE"`,與片中念出的 "forty ounces" 一致。「40A」為字幕誤聽,**已核實(畫面文字)**。
 - 該片的使用範圍:稱只能在 Work 模式使用、需先選 Topview 外掛才會走它——來自影片自述,未重現。
 
 **可遷移的做法(與廠商無關):**
@@ -80,8 +81,9 @@ flowchart TD
 
 - **元素分類**:Agent 自己把元素分成「跨鏡頭必須一致」與「只出現一次但不能搞混」,作者說這是他自己沒想到的區分。
 - **「先別生成」是省錢閘門**:作者說不加這句,Agent 會順手把參考圖也生成一遍(白花點數),且直接生成 30 秒會耗掉「900 多點數」(其點數單位為該平台計價,**未能核實**)。提示詞草稿是文字,**生成才計費**。
-- **交接寫法三句**:`CONTINUITY`(接上一段結束狀態)、`DO NOT`(不要做什麼)、`KEEP UNCHANGED`(保持哪些元素)。
-- **定點除錯範例**:第五段出現憑空麥克風架與扛攝影機的人。回頭查發現是**參考圖(探照燈那張)本身就含有麥架和攝影師**,模型照圖畫。解法是**提示詞一個字不動,只換參考圖**重生該段,其他五段不動。教訓:**畫面錯誤先查參考圖,再怪提示詞**。
+- **交接寫法三句**:`CONTINUITY`(接上一段結束狀態)、`DO NOT`(不要做什麼)、`KEEP UNCHANGED`(保持哪些元素)。2026-11-07 截圖 `ahb8kfsZmIk_343.png`(截圖時間 5:43)確認實際提示詞以 `CONTINUITY — this shot picks up EXACTLY where the previous shot ended` 開頭,下方接 `DO NOT let her turn around in this shot`,底部列 `Seedance 2.5 / 720p` 設定。**原字幕「continuity / Do not / Keep unchanged」已核實**([5:42] / [5:45] / [5:48])。
+- **交付規格(影片 [1:27] 自述):** 30 秒、720P、橫屏、字幕不燒進畫面;作者說 Agent 不會知道這些,要自己補。
+- **定點除錯範例**:第五段出現憑空麥克風架與扛攝影機的人([6:12] 起)。回頭查發現是**參考圖(探照燈那張)本身就含有麥架和攝影師**([6:20] 起),模型照圖畫。解法是**提示詞一個字不動,只換參考圖**重生該段,其他五段不動。教訓:**畫面錯誤先查參考圖,再怪提示詞**。*2026-11-07 補註:截圖 `ahb8kfsZmIk_380.png`(6:20)只見元素頁與舞台參考縮圖,**未能以畫面核對「探照燈」參考圖內是否有麥架,此處仍是作者說法**。*
 - **說明欄補充的實戰規則(作者自述):** 每個角色至少四視角參考圖;**參考圖不能全來自同一段素材**(內容太像,相鄰兩鏡會生成得幾乎一樣);每段提示詞開頭寫清上一段最後一幀。
 - **音畫對齊**:Agent 在排分鏡時就把音訊層(118 BPM、人聲在 6.5 秒進入,對齊第三段開頭)定好,而不是留到剪輯。音樂參考僅作風格參考,成片要用原創曲。
 - 平台自述支援 Seedance 以及 MiniMax、可靈、Gemini 的 Omni 等多個模型、4 到 30 秒、最高 1080p——**來自影片與贊助方說法,未獨立核實**。
@@ -96,7 +98,7 @@ flowchart TD
 | 成本機制 | 單次分析扣積分 | credits;首次付費生成前須選審批模式 | 點數;提示詞草稿免費、生成扣點 |
 | 揭露狀態 | 疑似推廣 | 聯盟參數 | 明示贊助與推薦碼 |
 
-**共同風險:** (1) 三者皆為作者單方面演示,沒有第三方基準或失敗率;(2) 一致性「零崩壞」是**單次成功案例**;(3) 計價隨時調整,選方案請以官方當下頁面為準。
+**共同風險:** (1) 三者皆為作者單方面演示,沒有第三方基準或失敗率;(2) 一致性「零崩壞」是**單次成功案例**——獨立測試文章 Kapwing 同樣測 Seedance 2.5 多鏡頭角色,結論是「2.5 does not eliminate continuity errors」,開場的 studded leather 夾克後段漸變成 bomber 夾克,臉與項鍊大致保留(見延伸閱讀);(3) 計價隨時調整,選方案請以官方當下頁面為準。
 
 ## 5. 應用案例
 
@@ -107,15 +109,31 @@ flowchart TD
 
 相關:[[blender-previz-mcp-ai-video]](另一條用 3D 預覽當參考影片的 AI 影片流程,同樣含廠商外掛立場揭露)。
 
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+- **Filmora 16 點數制度(未能取得單次扣點數):** 搜尋到的 Filmora 官方地區頁與媒體報導都寫 AI 功能以 **AI credits** 計量;韓文 16 下載頁寫 7 天試用含 **500 AI credits**(僅試用期有效);PC World 德文報導寫年繳 Premium 每月 **2,000** credits、Advanced **1,000**(第三方報導,數字以官網當下為準);韓文 AI credits 規則頁列了其他 AI 功能的扣點,但**未列 AI 媒體分析**。**「AI 媒體分析扣 2 點」在上述來源中都找不到**,只能標「影片所述,未能核實」。上市日期:媒體稿指 2026-10-09 上市(見 PR Newswire 稿)。另一聚合報導稱分析模型為 Qwen3.7 Flash,**官方頁未見,未能核實**。
+- **Filmora 色彩遮罩面板(截圖核對,截圖時間 4:08 畫面):** 截圖 `5gHSazZA2OU_248.png` 可見色彩遮罩下的「手繪蒙版」與「遮罩設定」(羽化、不透明度、路徑)。影片說的四種遮罩工具(手繪 / 矩形 / 橢圓 / AI)與此一致。
+- **Seedance 2.5 一致性的獨立測試:** Kapwing 文章(https://www.kapwing.com/resources/is-seedance-2-5-actually-better-than-2-0-heres-what-i-found/)實測 2.0 與 2.5 的多鏡頭角色,原文:「Neither Seedance 2.0 nor 2.5 handled that perfectly in my test」、「2.5 does not eliminate continuity errors」;2.5 的漂移是開場 studded leather 夾克後段變成 bomber 夾克,臉與項鍊、大部分造型保留;2.0 漂移更明顯。**這與影片「零崩壞」敘述有落差**,值得讀者把 Flova 單次成功案例當作流程示範,而非品質保證。
+- **Seedance 2.5 參考圖上限:** Kapwing 寫由約 12 張提升到 **50** 張;其他搜尋摘要也有類似說法,但 barchart 頁面抓取為空、未能直接核對。**非官方規格,未能核實**。
+- **發布日期衝突:** Kapwing 寫 **7 月 31 日**推出(未見年份);另一指南寫預定 7 月初;barchart 頁面抓取為空。**發布日未能核實**,影片與本文均不以日期立論。
+- **Topview 外掛規則再核(2026-11-07 重新 clone `topviewai/plugins` 讀 `operate-topview-canvas/SKILL.md` 與 `references/canvas-mcp-api.md`):** `confirm_each_submit` / `autonomous` 雙選與「第一筆付費 submit 前必須先問」的規則都在 repo 內,且中文選項文字為「逐步請求審批 / 每次付費生成前展示本次參數,等待你的確認」——與影片 [2:24–2:27] 的「自動推進 / 逐步請求審批」對應。影片說 Identity Lock 僅是畫面計畫標題,repo 不含。
+
 ## 核實狀態
 
-- **已核實:** Topview 外掛的「不得縮小需求」與「付費審批模式」規則(原始碼 markdown);贊助與聯盟揭露(說明欄原文)。
-- **未能核實:** Filmora 與 Flova 皆無公開原始碼可對;所有功能操作、點數數字、成效對比皆為影片自述。「Identity Lock」為講者原話(使用者確認),公開 repo 中找不到。
+- **已核實:** Topview 外掛的「不得縮小需求」與「付費審批模式」規則(原始碼 markdown);贊助與聯盟揭露(說明欄原文);Filmora 媒體資訊面板欄位與分數(截圖 `51z1s4rrkdg_120.png`,截圖時間 2:00);Topview 計畫中的 IDENTITY LOCK 段與「40 OZ」字樣(截圖 `CV7HX6qFglc_123.png`);Flova 提示詞開頭的 CONTINUITY / DO NOT / KEEP UNCHANGED 與 720p 設定(截圖 `ahb8kfsZmIk_343.png`)。
+- **需修正(字幕):** Topview「40A」→ **40 OZ**(已核實,見 Topview 節)。
+- **未能核實:** Filmora 與 Flova 皆無公開原始碼可對;所有功能操作、單次扣點數、成效對比皆為影片自述。Flova 的「探照燈參考圖含麥架」截圖未能直接看到參考圖內容。Seedance 2.5 發布日與參考圖上限為第三方說法。「Identity Lock」為講者念出且畫面上為計畫標題,repo 內無此字樣。
 
 ## 來源
 
 - YAHA学堂〈別再手動整理5T素材!實測用Filmora 16 AI媒體分析直接搜畫面〉2026-10-08:https://www.youtube.com/watch?v=51z1s4rrkdg
 - YAHA学堂〈Filmora 16 调色根本不用动脑?…〉2026-10-23:https://www.youtube.com/watch?v=5gHSazZA2OU
-- YAHA学堂〈我让AI Agent做视频,它居然拒绝直接生成?实测Topview拆解3镜头电商广告〉2026-09-17(含聯盟連結):https://www.youtube.com/watch?v=CV7HX6qFglc- YAHA学堂〈AI视频角色一致性总是崩?Flova+Seedance 2.5…〉2026-08-26(贊助):https://www.youtube.com/watch?v=ahb8kfsZmIk
+- YAHA学堂〈我让AI Agent做视频,它居然拒绝直接生成?实测Topview拆解3镜头电商广告〉2026-09-17(含聯盟連結):https://www.youtube.com/watch?v=CV7HX6qFglc
+- YAHA学堂〈AI视频角色一致性总是崩?Flova+Seedance 2.5…〉2026-08-26(贊助):https://www.youtube.com/watch?v=ahb8kfsZmIk
 - topviewai/plugins:https://github.com/topviewai/plugins
+- Kapwing,〈Is Seedance 2.5 Actually Better Than 2.0? Here's What I Found〉:https://www.kapwing.com/resources/is-seedance-2-5-actually-better-than-2-0-heres-what-i-found/
+- barchart,〈Seedance 2.5 released…〉:https://www.barchart.com/story/news/2563727/seedance-2-5-released-next-level-multi-shot-ai-video-generation-with-enhanced-consistency(頁面抓取為空,僅作發布消息來源)
+- Wondershare Filmora 16 上市新聞稿(PR Newswire):https://www.prnewswire.com/pt/comunicados-de-imprensa/wondershare-filmora-16-launches-to-make-professional-video-creation-more-accessible-with-ai-302902544.html
+- Filmora 16 韓文試用與 AI credits 規則頁:https://filmora.wondershare.kr/upgrade/16-free-download.html 、https://filmora.wondershare.kr/filmora-ai-credits-rule.html
+- PC World(德文)Filmora 16 評測:https://www.pcwelt.de/?p=3270178
 - 以上皆非官方人工字幕:逐字稿為 YouTube 自動字幕,可能有同音字誤差。

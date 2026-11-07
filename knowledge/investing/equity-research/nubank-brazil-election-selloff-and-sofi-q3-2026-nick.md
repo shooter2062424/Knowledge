@@ -34,7 +34,8 @@
 - 影片說「巴西大盤跌十幾個百分點」✅ 成立(−13.9%)。
 - 影片說 NU「盤前暴跌 25%」:收盤跌 17%,15.16 × 0.75 ≈ 11.4,與他說的盤前約 11 美元吻合;**盤前價本筆記沒有逐筆數據**。10-26 NU 成交量約 3.4 億股,是前幾日的 4 到 8 倍。
 - 影片說「熔斷機制全部觸發」:本筆記**未核實**。
-- 選舉結果本身(Lula 險勝):影片展示 BBC 標題「Lula wins fourth term in dramatic Brazil election comeback」。⚠️ 本筆記無法在搜尋中直接找到賽後報導,但上述大幅下跌與選前「市場押右派」的報導一致。
+- 選舉結果本身(Lula 險勝):✅ 已核實。第二輪於 2026-10-25 舉行,Lula 得 51.79%、Flávio Bolsonaro 得 48.21%(選舉法院公布的票數;另一家媒體報 51.74% 對 48.26%,四捨五入後一致),Lula 獲第四個(非連續)總統任期。來源:[The Pink News 2026-10-26 報導](https://www.thepinknews.com/2026/10/26/brazil-election-result-2026/)。影片畫面的 BBC 標題「Lula wins fourth term in dramatic Brazil election comeback」可對上。
+- 「Ibovespa 因選舉結果下跌」的因果敘述:上表收盤數字 ✅;但搜尋未找到直接連結「大選結果 → 大盤下跌」的賽後市場報導,**因果仍屬推論**。
 
 ---
 
@@ -58,6 +59,10 @@
 
 作者說 Lula 2023 年上任至今,巴西最大公司之一 Mercado Libre 業績漲 3 倍以上、Nu 的營收與淨利成長 4 倍並由虧轉盈。使用者 2026-11-07 聽原片確認:「three billion」「MercadoLibre 業績漲了 3 倍以上」「627 million(是一開頭那個數字)」。⚠️ 其餘字幕數字(「2.4/2.5 billion」「297 million」)使用者未確認,**仍不引用,列入待確認**。
 
+**2026-11-07 畫面與一手資料核實(增補):**
+- **MercadoLibre「3 倍以上」**:✅ 方向成立。影片畫面([7:41] 附近,Stock Analysis 季度營收圖)標示 2023 年初季度營收約 3B 美元、末端季度約 10B 美元,目測約 3 倍以上。⚠️ 這是圖表目測,未逐季對 MELI 一手財報。
+- **Nu「營收 627M → 2.47B、成長 4 倍」**:⚠️ **需修正/口徑不明**。畫面圖表(Stock Analysis)確實標出 627M 與末端 2.47B,但 Nu 2023 Q1 公告的營收約 **16 億美元**(約 $1.6B,年增約 87%)、GAAP 淨利約 **1.418 億美元**([sigma.world 整理的 Q1 2023 公告](https://sigma.world/news/brazils-success-story-nubank-reports-record-first-quarter-2023-results/))。若以 2023 Q1 公告的 $1.6B 為基準,到末端 2.47B 約 **1.5 倍**,不是 4 倍;影片的 627M / 297M 與公告數字對不上,時點與口徑不明,**不引用**。末端 2.47B 也未能對上 Nu Q3 2026 公告。
+
 > ⚠️ 這個論證的邏輯限制(我的補充):**「Lula 上任後股市與公司業績都成長」不能證明政策好**,因為同期有全球利率週期、Nu 自己的客戶成長等混雜因素。作者的結論只用來反駁「Lula 一定比較差」,不能反過來證明他一定比較好,他自己也一直這樣說。
 
 ---
@@ -66,7 +71,8 @@
 
 ### 巴西的信用狀況(影片說法)
 
-- Lula 上任前,信用違約人口比例 **39.2%**,現在 **58%**,「每兩個人就有一個沒準時還銀行錢」。⚠️ **本筆記沒找到對應數據,未核實**。
+- Lula 上任前,信用違約人口比例 **39.2%**,現在 **58%**,「每兩個人就有一個沒準時還銀行錢」。
+  - ❌ **需修正**:影片畫面的圖表(成人人口中的違約比例,2016–2026)末端 2026 年為 **49.9%**,與 [Serasa 十年資料的報導(2026-03-24)](https://economicnewsbrasil.com.br/2026/03/24/inadimplencia-no-brasil-em-2026/) 一致;搜尋**找不到 58% 的來源**。影片的 39.2% 在圖表上對應的是 2021 年(圖上 2016 年標 40.0%);Serasa 相關報導則說 2016 年為 39.2%,兩者基準年不一致,**未能核實**。「每兩人一人」改寫為「約每兩人就有近一人(49.9%)」較準確。
 - 原因:①利率極高,借了不一定還得起;②制度上可以**「重新談判」**:銀行與政府有機制讓你不還錢後重新談新合約、少還一點(作者認為在台灣與美國難以想像)。
 
 ### 債務重組方案(Desenrola,使用者 2026-11-07 聽原片確認)
@@ -78,14 +84,24 @@
 | 階段 | 內容 |
 |---|---|
 | 2.0 | 鼓勵違約者找銀行重新談;銀行折扣可能很大(他說到 98% 折扣、幾乎不用還),**政府不出錢,但若重新借款後又不還,政府補助 Nu**;Nu 是最大參與者之一 |
-| 3.0(上個月推出) | 預計約 300 億美元的債務合格,**政府直接出錢買斷這些壞帳** |
+| 3.0(上個月推出) | 預計約 300 億美元的債務合格,**政府直接出錢買斷這些壞帳**(2026-11-07 核實:合格債務約 US$29B;政府是買入組合,見第三節) |
+
+**2026-11-07 核實增補(Desenrola 2.0 / 3.0):**
+
+- ✅ **Desenrola 2.0 = Novo Desenrola Brasil**(2026-05 啟動)。Nubank 5/5 公告確認參與,並說明可能重新啟用信用卡,但須通過 Nubank 資格與新的信用評估([Nubank 新聞稿](https://nu.com/en/newsroom/company/nubank-confirms-participation-in-novo-desenrola-brasil))。
+- ✅ 影片「2.1.86 billion」即 **US$1.86 billion**:畫面截圖的 [Rio Times](https://www.riotimesonline.com/) 2026-07-25 報導(原文 URL 未能取得,以影片截圖為準)指 Banco do Brasil 在 Novo Desenrola 下結清約 **R$10.4 billion** 逾期債務,標題為「Settles $1.86 Billion」。影片所指的「這一波解套」對應的是這類數字,但**不是 Nubank 的數字**。
+- ❌ **需修正:「98% 折扣」未能核實**。Nubank 5/5 公告只寫「依個案評估的顯著折扣」,未給百分比。媒體報導的「最高 90%」出現在 3.0 相關文章,指的是**聯邦政府買入債權組合的折扣**,不是保證債務人可享的折扣。因此本筆記先前寫「Nubank 2026-06 公告提供最高 90% 折扣」**不成立**,應刪除。
+- ✅ **Desenrola 3.0 = MP 1.393**(2026-09-25 發布):聯邦政府可整批或部分買入銀行等債權人的個人違約債權組合;依該 MP,買入須以至少 90% 折扣進行,但債務人折扣不保證相同;預算上限 **R$15 billion**;適用一般為單筆 R$10,000 以下、逾期 720 至 1,645 天的個人債務;需經競標,並非符合條件即一定被買([MP 1.393 整理,Congresso Nacional](https://www.congressonacional.leg.br/en_US/materias/medidas-provisorias/-/mpv/175870);[法律與媒體摘要](https://www.dgabc.com.br/Noticia/4349548/desenrola-brasil-3-0-veja-quem-pode-participar-e-como-funciona))。
+- ⚠️ **金額需修正**:影片「thirty billion US dollar」(約 290 億美元)對應影片截圖中的 Rio Times 2026-09-25 報導(標題「Brazil's Desenrola 3.0 Targets US$29 Billion in Debt」;原文 URL 未能取得,以影片截圖為準),是**符合條件的債務規模**;MP 的**採購預算**是 R$15 billion,兩者不同口徑,本筆記原寫「約 300 億美元」改為 **約 US$29B(合格債務)**。
+- ⚠️ **「政府補助 Nu」未能核實**:搜尋沒找到 2.0 版政府補助 Nubank 壞帳的條款;作者說法留作推論。
+- 🔎 **對作者論點的補充**:MP 的買入對象是**小額個人債務**且逾期兩年以上,政府向銀行買入的價格決定銀行回收率;Nubank 是否「最大受益者」,取決於它的壞帳組合落在哪個區間,以及它以什麼價格賣出,影片與現有資料都沒有 Nubank 的個別數字,**未能核實**。
 
 **作者的推論:** 欠 Nu 錢的人本來就沒打算還,現在有人接盤壞帳,對 Nu 絕對是好事;而且 Nu 是**巴西最大的「窮人銀行」**(不是最大的銀行),Lula 要照顧的客群自然是還不起錢的人,**Nu 是這些政策最大的受益者**。所以「短期對 Nu 絕對是利多」,長期(十年)他說不確定。
 
 **核對與補充:**
 
-- ✅ Nubank 官方公告:2026-05 確認參與「Novo Desenrola Brasil」;2026-06 公告提供**最高 90%** 的折扣與全數位流程;客戶結清後可能重新啟用信用卡,但須通過 Nubank 內部資格與新的信用評估。巴西媒體報導 Nubank 在 Novo Desenrola 的分期重新協商中居領先地位,針對較低收入的家庭。
-- ⚠️ 作者說的「98% 折扣」「3.0 版、約 300 億美元、政府買斷」,本筆記**沒有找到對應來源**,未核實。
+- ✅ Nubank 官方公告(2026-05-05):確認參與「Novo Desenrola Brasil」;客戶結清後可能重新啟用信用卡,但須通過 Nubank 內部資格與新的信用評估。(已於 2026-11-07 重新開啟原文:**原文沒有 90% 數字**,先前「2026-06 公告最高 90%」的寫法已刪除。)巴西媒體報導 Nubank 在 Novo Desenrola 的分期重新協商中居領先地位,針對較低收入的家庭。
+- ⚠️ 作者說的「98% 折扣」**未核實**;「3.0 版、政府買斷」已由 MP 1.393 核實為買入組合(見第三節),「約 300 億美元」應為合格債務約 US$29B。
 - ⭐ **作者沒討論的風險(我的補充):** ①政策變動:受益來自政府方案,延續性與規則不由公司決定;②**道德風險**:作者自己也說「鼓勵不還錢」,若處罰不夠,未來違約誘因上升,會傷害 Nu 的新貸款品質;③政府補助條件(例如重新借款後再違約由政府補助)的細節與期限不明;④本次暴跌也可能包含財政風險與匯率因素(EWZ −19.8% 反映整體巴西資產被賣),不只是 Nu 自己的基本面。
 
 作者承認:**後續財報開出來怎麼樣,到時再談。**
@@ -100,7 +116,7 @@
 |---|---|---|---|
 | 調整後淨營收 | 成長 44%,優於預期 | **13.71 億美元,+44%** | ✅ |
 | 新增會員 | 單季約 120 萬,破紀錄 | **單季新增 120 萬(紀錄)**,總計 **1,707 萬**,+35% | ✅ |
-| Rule of 40 | 來到 79,「IPO 以來最好」 | **連續第 20 季達標,分數 79** | ✅ 79;⚠️「IPO 以來最好」新聞稿沒寫 |
+| Rule of 40 | 來到 79,「IPO 以來最好」 | **連續第 20 季達標,分數 79** | ✅ 79;「IPO 以來最好」:SoFi 2026 Q3 投影片 [10 / 57](影片 [13:42] 附近截圖)所列 4Q21 至 3Q26 的 Rule of 40 序列中 79 為最高(前高 4Q22 的 74),**僅限該圖表期間,新聞稿本身沒寫** |
 | 2026 全年指引 | 營收成長從 30% 調升到 40% | **調整後淨營收約 50.4 億美元(約 +40%,調升)**、調整後 EBITDA 約 16.6 億(調升) | ✅ 方向;新聞稿摘要沒列「調升前的數字」 |
 | 2026 EPS | 0.60 微升到 0.61 | 調整後 EPS 約 **0.61** | ⚠️ 數字吻合;但我取得的摘要寫「未變」,影片寫「微升」,**出入未解** |
 | **2027 展望(首次給出)** | 營收 +27%、EPS 0.90 | **調整後淨營收約 64 億(+27%)、調整後 EBITDA 約 22.4 億(35%)、調整後 EPS 約 0.90** | ✅ |
@@ -119,7 +135,9 @@
 
 ### 作者的觀察
 
-1. **新舊貸款的還款表現**:兩條線比較「早期放出的貸款」與「近年放出的貸款」,新貸款還款比例更好,說明風控模型在進步,差距從上季 172 個基點擴大到 191 個基點,「連續九季」。⚠️ 字幕把比較基準年寫成「2027」(顯然聽錯,應為早期某年),使用者 2026-11-07 聽原片也聽不清,**無法還原**。
+1. **新舊貸款的還款表現**:兩條線比較「早期放出的貸款」與「近年放出的貸款」,新貸款還款比例更好,說明風控模型在進步,差距從上季 172 個基點擴大到 191 個基點,「連續九季」。
+   - ✅ **已用投影片核實**(SoFi 2026 Q3 Investor Presentation 第 26 頁,影片 [17:39]–[18:30] 附近截圖):比較基準是 **2017 年的貸款組**(灰線),對照的是 **2022 Q4 至 2025 Q4 放出的貸款**(紅線)。Q2'26 差距 172 bps,Q3'26 為 191 bps(在剩餘本金 33% 處,NCL 4.71% 對 6.62%);投影片標題為「Outperformance ... has widened for 9 consecutive quarters」。影片字幕的「2027」是 **2017** 的聽錯,使用者 2026-11-07 聽原片難以分辨,以投影片為準。
+   - 這一頁的 NCL 是**投影片所列口徑**(排除已確認詐欺的貸款),與「沖銷率 2.26%」是不同指標,不要混用。
 2. **指引提高 + 首度給 2027**:作者說前幾季不敢調升指引,這次全面上調。⚠️ 他說明「不敢調升」原因的那句字幕不通順(字幕「林總快要升級」,使用者 2026-11-07 聽原片確認應為「林總快要升息」;其後「race guidance」依上下文為 raise guidance,字幕音近);另一句「臉總會生洗」使用者未回答,**仍不採用,列入待確認**。
 3. **作者看不順眼的一點**:手續費占比沒上升(上表);他拿 Palantir 早年被質疑「只吃政府單」、後來商業端起來類比,認為不會每季都往上,觀察幾季。
 
@@ -200,7 +218,10 @@ flowchart TB
 - SoFi 2026 Q3:調整後淨營收 +44%、新增會員 120 萬(總 1,707 萬)、Rule of 40 為 79(連續第 20 季)、2026 全年指引(約 50.4 億美元,+40%)、2027 展望(64 億、+27%、EPS 約 0.90)、個人貸款沖銷率 2.26%、手續費占 42%。(SEC 8-K)
 - 市場數據:Ibovespa −13.9%、NU −17.0%、EWZ −19.8%(10-26);SoFi +13.4%(10-27)。
 - 選前背景:Lula 對 Flávio Bolsonaro、民調五五波、市場押右派。
-- Nubank 參與 Novo Desenrola Brasil、折扣最高 90%。
+- Nubank 參與 Novo Desenrola Brasil(2026-05 公告,✅)。**「折扣最高 90%」不成立**,見第三節;90% 是 3.0 的聯邦採購折扣。
+- 2026-10-25 Lula 以 51.79% 對 48.21% 當選第四任期(✅,見第一節)。
+- 新舊貸款差距 172→191 bps 的比較基準為 **2017 年貸款組**(✅ 投影片第 26 頁;字幕「2027」為聽錯)。
+- Rule of 40 = 79 在投影片所列期間為最高(✅ 第 10 頁)。
 
 **⚠️ 需補正:**
 
@@ -208,17 +229,37 @@ flowchart TB
 - Selic 約 **14.00%**,不是 13%。
 - 「2.26%」是回報口徑,**全包口徑約 3.4%**,兩者不可混用。
 - 2023–2026 巴西大盤「+60 幾%」是以**暴跌後**的位置計算;暴跌前是 +87%。
+- ❌ 「98% 折扣」與「Nubank 公告最高 90%」:前者未能核實,後者不成立(見第三節)。
+- ❌ 違約人口「39.2% → 58%」:畫面與 Serasa 報導的 2026 年數字為 **49.9%**,58% 找不到來源。
+- ⚠️ Desenrola 3.0 合格債務規模約 **US$29B**(影片「thirty billion」),非 300 億美元整;MP 採購預算 R$15 billion。
+- ❌ Nu「營收 627M → 2.47B、成長 4 倍」:與 2023 Q1 公告的 $1.6B 基準不符,約 1.5 倍,影片數字不引用。
 
 **⚠️ 未能核實:**
 
-- 選舉結果的賽後報導原文、熔斷觸發、NU 盤前 −25% 的盤前價。
-- 信用違約人口 39.2% → 58%、98% 折扣、Desenrola「3.0」與約 300 億美元、政府買斷。
-- Nu、Mercado Libre 的營收與淨利倍數(字幕錯亂)。
-- Rule of 40「IPO 以來最好」、手續費占比上期 43%、淨沖銷率高點 3.8%、新舊貸款還款差距的基準年份。
+- 熔斷觸發、NU 盤前 −25% 的盤前價。
+- Desenrola「3.0」的「政府買斷」已由 MP 1.393 核實為**買入組合、設預算上限**;「政府補助 Nu」「Nu 為最大受益者」的具體金額未能核實。
+- Mercado Libre「3 倍以上」為圖表目測;Nu 淨利 297M 與 2.47B 末端數字未能對上一手資料。
+- 手續費占比上期 43%、淨沖銷率高點 3.8%。
 
 **字幕還原**(官方繁中字幕多處聽錯,以下依上下文與公開資訊還原,**推定項已列入待確認**):「Luna / 魯拉」→ Lula;「博索拿」→ Bolsonaro(實為 Flávio Bolsonaro);「New Bay / 牛病 / new pink」→ Nu / Nubank;「底層 ROLLER / DCR2.0 / 鑲嵌 2.0」→ Desenrola 2.0/3.0(使用者 2026-11-07 聽原片確認);「Renego寫」→ renegotiate;「摩卡多雷波 / Mcadle library」→ Mercado Libre(使用者 2026-11-07 聽原片確認);「forty zag / raw forty」→ Rule of 40;「net charge up」→ net charge-off;「Trepo b」與「臉總會生洗」:字幕不通順,**無法還原**,已列待確認清單,本筆記不採用任何推測;「林總快要升級」→「林總快要升息」(使用者 2026-11-07 確認)。
 
 ---
+
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+**本次讀過的一手或近一手來源**(均已實際開啟或讀到內容):
+
+- **巴西 MP 1.393(Desenrola 3.0)**:政府可買入個人違約債權組合,設預算上限與適用條件,並在 2028-06-30 前運作;條文與媒體摘要一致,但最終以國會正式版為準([Congresso Nacional 條文頁](https://www.congressonacional.leg.br/en_US/materias/medidas-provisorias/-/mpv/175870))。
+- **Nubank 2026-05-05 新聞稿**:只寫「依個案評估的顯著折扣」與信用卡可能重新啟用,**沒有**百分比、也**沒有**政府買債條款([nu.com 新聞稿](https://nu.com/en/newsroom/company/nubank-confirms-participation-in-novo-desenrola-brasil))。
+- **SoFi 2026 Q3 Investor Presentation**:第 10 頁 Rule of 40 圖、第 26 頁個人貸款 NCL 比較(影片畫面截圖讀取,見上文)。
+- **Nu 2023 Q1 公告(二手整理)**:營收約 $1.6B、GAAP 淨利 $141.8M、調整後淨利 $182.4M、客戶 7,910 萬 ([sigma.world](https://sigma.world/news/brazils-success-story-nubank-reports-record-first-quarter-2023-results/))。⚠️ 二手整理,金額以 Nu 原始 6-K/新聞稿為準,本次未直接開啟。
+
+**影片沒講、但讀資料後值得注意的點:**
+
+1. **Desenrola 3.0 的採購對象是「小額、逾期久」的個人債**:一般為單筆 R$10,000 以下、逾期 720 至 1,645 天。Nubank 的受益多寡取決於它的壞帳落在哪個區間,影片沒有這層資料。
+2. **競標制與「符合條件 ≠ 會被買」**:債權人需提交組合參與競標,影片把「政府買斷」說成確定受益,忽略了這一層。
+3. **券商與研究的觀點分歧(搜尋摘要,未取得原文)**:有分析指 Goldman Sachs 認為 Nubank 在此次政策中居中心地位,但利率降息對 2026 年底前的違約率影響有限;另有 Bradesco BBI 認為 Desenrola 已結束、申請量放緩。兩者與影片「短期絕對利多」的結論方向不同,**未能核實**。
+4. **2.0 的規模**:搜尋摘要提到 Desenrola 整體重組約 R$100 billion 家庭債務、約 2,000 萬潛在借款人,仍有約 1,100 萬人逾期(bne IntelliNews 摘要,未取得原文)。若數字屬實,影片「每兩人就有一人違約」的說法需與 Serasa 等其他統計口徑一起看,不能單獨引用。
 
 ## 相關筆記
 
@@ -232,6 +273,12 @@ flowchart TB
 - YouTube:Nick 美股咖啡館〈笑死！這絕對是我見過最「瞎」的暴跌法：趁亂買入兩家公司！〉 https://www.youtube.com/watch?v=R1oLllxY7IQ (2026-10-28,官方繁中字幕;含 IB 盈透證券推廣連結;作者持有 NU、SoFi)
 - SoFi Technologies,2026 Q3 財報新聞稿(SEC 8-K): https://www.sec.gov/Archives/edgar/data/0001818874/000181887426000065/a2026q3earningsrelease.htm
 - Yahoo Finance 日線(SOFI、NU、^BVSP、EWZ): https://finance.yahoo.com/quote/NU/history
-- Nubank,〈Nubank confirms participation in Novo Desenrola Brasil〉: https://international.nubank.com.br/company/nubank-confirms-participation-in-novo-desenrola-brasil/
+- Nubank,〈Nubank confirms participation in Novo Desenrola Brasil〉(2026-05-05): https://nu.com/en/newsroom/company/nubank-confirms-participation-in-novo-desenrola-brasil (原網址 international.nubank.com.br 會 301 轉址至此)
+- The Pink News,巴西 2026 大選結果(2026-10-26): https://www.thepinknews.com/2026/10/26/brazil-election-result-2026/
+- Congresso Nacional,Medida Provisória n° 1393 de 2026(Desenrola 3.0): https://www.congressonacional.leg.br/en_US/materias/medidas-provisorias/-/mpv/175870
+- DGABC,Desenrola Brasil 3.0 適用對象與運作方式: https://www.dgabc.com.br/Noticia/4349548/desenrola-brasil-3-0-veja-quem-pode-participar-e-como-funciona
+- Economic News Brasil,巴西 2026 年違約比例 49.9%(引 Serasa 十年資料,2026-03-24): https://economicnewsbrasil.com.br/2026/03/24/inadimplencia-no-brasil-em-2026/
+- sigma.world,Nubank Q1 2023 結果整理(二手): https://sigma.world/news/brazils-success-story-nubank-reports-record-first-quarter-2023-results/
+- SoFi,2026 Q3 Investor Presentation 第 10、26 頁(影片畫面截圖核對)
 - Rio Times,巴西選前報導與 Ibovespa 位置: https://www.riotimesonline.com/brazil-stocks-election-week-risk-2026/
 - 巴西 Copom 降息至 14.00% 報導(未讀央行公告): https://www.mnimarkets.com/articles/mni-bcb-review-aug-2026-sep-live-data-dependence-continues-1786011233718

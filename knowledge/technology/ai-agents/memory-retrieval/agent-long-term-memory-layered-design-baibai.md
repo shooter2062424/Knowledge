@@ -96,7 +96,7 @@ flowchart LR
 
 ### 2. LVP:Ledger / Policy / Views 三件套(影片①)
 
-> 轉錄原文為「LVP 工程股價」「Lager」「Wills 視圖」,依上下文還原為 **Ledger(帳本)/ Policy(策略)/ Views(視圖)**;「股價」為「框架/架構」的同音誤聽。
+> 轉錄原文為「LVP 工程股價」「Lager」「Wills 視圖」,依上下文還原為 **Ledger(帳本)/ Policy(策略)/ Views(視圖)**;「股價」為「骨架」的同音誤聽。**已核實**:影片 [7:49] 附近的投影片標題為「LVP 工程骨架:實現狀態回溯與動態控制」,三個方塊分別寫 Ledger(不可變帳本)、Policy(控制策略)、Views(任務派生視圖),字幕亦寫「引入一套被稱為 LVP 的工程骨架」。
 
 | 元件 | 角色 | 重點 |
 |---|---|---|
@@ -104,7 +104,7 @@ flowchart LR
 | **P = Policy 控制策略** | 像「攔截網」:定義什麼場景能寫、什麼規則能讀、遇隱私資料怎麼攔 | 在帳本與模型之間 |
 | **V = Views 任務派生視圖** | 專供大模型讀取的狀態卡片 | 依當前任務從帳本動態提取、聚合 |
 
-**隱私合規情境**:用戶要求注銷帳號、擦除剛輸入的機密或銀行卡號。傳統做法硬改底層帳本,成本高又破壞審計完整性。LVP 做法:**帳本不動、只給最高權限的安全審計系統看;Policy 在生成 View 時自動脫敏,把敏感欄位換成「已遮蔽」標記**——Agent 拿到的上下文安全合規,審計鏈完好。
+**隱私合規情境**:用戶要求注銷帳號、擦除剛輸入的機密或銀行卡號。傳統做法硬改底層帳本,成本高又破壞審計完整性。LVP 做法:**帳本不動、只給最高權限的安全審計系統看;Policy 在生成 View 時自動脫敏,把敏感欄位換成「已遮蔽」標記**——Agent 拿到的上下文安全合規,審計鏈完好。(影片 [9:05] 截圖的投影片實際寫的是 `[REDACTED]`,口述稱「被遮蔽標記」(約 [9:24]);已核實為同一概念,標記字樣以畫面為準。)
 
 ### 3. 雙時間戳:解決「杭州 vs 成都」(影片①)
 
@@ -120,7 +120,7 @@ flowchart LR
 
 ### 4. 動態更新:矛盾識別 + 遺忘衰減(影片②)
 
-「記憶不能是一坛死水」。後台引擎要:**增量寫入吸收 → 面對衝突時覆寫(北京改上海)→ 過時雜訊遺忘退火(幾個月前無意義的閒聊切片定期衰減)→ 再掛載回新互動**。影片②用的是「更新舊值」,影片①用的是「封存舊值並保留歷史」——**兩者可以並存**:畫像卡只要最新值,審計 / 回溯需求則用雙時間戳。
+「記憶不能是一坛死水」。後台引擎要:**增量寫入吸收 → 面對衝突時覆寫(北京改上海)→ 過時雜訊遺忘退火(幾個月前無意義的閒聊切片定期衰減)→ 再掛載回新互動**。影片 [11:39] 截圖的投影片把這個引擎標為「自進化引擎(清洗、合併、退火)」,示意「居住地:北京 + 最近搬家到了上海 → 居住地:上海」;投影片只畫示意,沒有給衰減公式或門檻(見第八節「缺口」)。影片②用的是「更新舊值」,影片①用的是「封存舊值並保留歷史」——**兩者可以並存**:畫像卡只要最新值,審計 / 回溯需求則用雙時間戳。
 
 ---
 
@@ -167,10 +167,10 @@ flowchart LR
 ### 業界通用概念(可信,但本文未逐一查證原始文件)
 - **雙時間(bitemporal)模型**:valid time 與 transaction time 是時態資料庫的標準概念(SQL:2011 也有時態表支援),屬通用資料庫知識,非影片獨創。
 - **Event sourcing / append-only ledger** 作為審計底座、**滑動視窗、摘要壓縮、KV 畫像 + 向量混合**,均為常見做法。
-- 「lost in the middle」現象在文獻中有記載(見 [[is-graphrag-needed-rag-variants-comparison]] §4 對 lost-in-the-middle 的處理)。
+- 「lost in the middle」現象在文獻中有記載(見 [[is-graphrag-needed-rag-variants-comparison]] §4 對 lost-in-the-middle 的處理)。**已核實**原始論文,見下方延伸閱讀。
 
 ### 作者主張 / 未驗證
-- **LVP 並非業界標準術語**(未查到公認出處,推定為作者自行歸納的名稱);其概念上類似 event sourcing + CQRS(帳本 = 事件流、視圖 = 讀模型),但「Policy」層作為記憶讀寫與脫敏的閘道,是作者的設計包裝。**未能核實**是否來自某個開源專案。
+- **LVP 並非業界標準術語**(未查到公認出處,推定為作者自行歸納的名稱);其概念上類似 event sourcing + CQRS(帳本 = 事件流、視圖 = 讀模型),但「Policy」層作為記憶讀寫與脫敏的閘道,是作者的設計包裝。**未能核實**是否來自某個開源專案。2026-11-07 補查:搜尋只找到 besthub.dev 等二手部落格,描述「Raw Ledger(append-only 事件日誌)/ Derived Views / Policy(控制層)」三件套的相似框架,且該文同樣未引用一手論文或規格、未出現「LVP」字樣,故仍標為未能核實來源。
 - 「年薪 30 萬 vs 60 萬的分水嶺」、「90% 跑不下去的 Agent 項目死於記憶太好」:**行銷性修辭,無數據**。
 - 「token 費用呈指數上升」:嚴格說,全量重送歷史的**累計成本約隨輪數平方成長**(每輪成本線性增長),並非指數;影片用語偏誇張。(本文判斷)
 
@@ -181,9 +181,32 @@ flowchart LR
 
 ---
 
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+> 以下每點都是實際讀過來源頁面後寫的;影片本身沒有引用論文,這些是影片提到的概念對應到的一手資料。
+
+1. **Lost in the middle(對應影片①「模型看花了眼」、②「注意力迷失」)** — Liu et al.,*Lost in the Middle: How Language Models Use Long Contexts*,arXiv:2307.03172(TACL 2023)。測試兩類任務:多文件問答與 key-value 檢索。主要發現:相關資訊在輸入開頭或結尾時準確率最高,放在中段時明顯下降(U 形曲線);長上下文模型同樣受影響。<https://arxiv.org/abs/2307.03172>。**與影片差異**:論文量的是「位置」對準確率的影響,影片講的是「Token 成本 + 注意力」兩個痛點;論文並未涉及記憶系統或成本。影片的「把最近幾輪原樣貼最下面」與論文的「開頭/結尾較可靠」方向一致,但論文沒有直接證明這套拼裝方式最佳。
+2. **遺忘衰減的具體形式(對應影片②「遺忘退火」,影片未給公式)** — Park et al.,*Generative Agents*,arXiv:2304.03442(UIST '23)。檢索分數由三項組成:**recency**(距離上次被檢索過的沙盒遊戲小時數,做指數衰減,衰減因子 0.995)、**importance**(由 LLM 以 1–10 分評分,1 為平凡、10 為深刻)、**relevance**(記憶與查詢的 embedding 餘弦相似度);三者各自 min-max 正規化到 [0,1] 後加總,論文設定 α 權重皆為 1。<https://arxiv.org/pdf/2304.03442>。**可用來補影片缺口**:影片說的「定期衰減」,論文給出的是「依最後存取時間指數衰減 + 重要性分數」的一種具體做法。注意這是 2023 年研究原型,不是生產規格。
+3. **雙時間戳的實作先例(對應影片①「封存舊值、開啟新值」)** — Zep 的 Graphiti 引擎。README 寫明「each fact in a context graph has a validity window: when it became true, and when (if ever) it was superseded」、「Facts have validity windows. When information changes, old facts are invalidated — not deleted」,並稱 GraphRAG 比較表中具備「Explicit bi-temporal tracking with automatic fact invalidation」。<https://github.com/getzep/graphiti>。論文 Zep:arXiv:2501.13956(Rasmussen et al., 2025),自報 DMR 94.8%(MemGPT 93.4%)。<https://arxiv.org/abs/2501.13956>。**與影片差異**:影片用「`valid_to` 封存」來解「杭州 vs 成都」,Graphiti 的做法與之同構(舊事實標為失效、不刪除)。但 README 未逐一列出欄位名稱,欄位細節未能核實(需看 `graphiti_core` 原始碼)。
+4. **bitemporal 的標準定義(對應影片①「系統時間 / 有效時間」)** — SQL:2011 定義了 application-time period(有效時間)與 system-versioned tables(系統時間,名為 `SYSTEM_TIME`),兩者可並用成為 bitemporal table;主流資料庫如 Microsoft SQL Server(2016 起的 temporal tables)、MariaDB 10.3 有實作。<https://en.wikipedia.org/wiki/SQL:2011>。**影片「交易時間 / 有效時間」的用語與標準一致**,只是影片沒提到 SQL:2011 這個出處。
+5. **LVP 三件套的相似框架(二手來源,非一手規格)** — besthub.dev 的 *Rethinking AI Memory: From Raw Ledger to Policy-Driven Closed Loop* 描述 Raw Ledger(append-only)→ Derived Views(可追溯回帳本)→ Policy(決定何時讀寫、更新、遺忘)的閉環,並提到 transaction_time 與 valid_time 分開記錄。<https://www.besthub.dev/articles/rethinking-ai-memory-from-raw-ledger-to-policy-driven-closed-loop-37d1631c3493>。此文未出現「LVP」與「REDACTED」脫敏機制。
+
+### 影片之外的實務提醒(本節判斷,非影片說法)
+- 影片說「花生過敏放結構化欄位、不放向量庫」是正確方向;但**過敏與禁忌也要有寫入校驗與更新流程**(使用者改口「已不過敏」時怎麼覆寫),否則結構化欄位同樣會過期。
+- 影片把 LVP 的隱私擦除說成「不改帳本、只在 View 脫敏」;若法規要求真正刪除個資,單靠 View 層遮蔽未必足夠,需依當地法律另行確認(影片未涉及)。
+
 ## 來源
 
 - 〈为什么“向量数据库+RAG”治不好大模型Agent的“老年痴呆”?〉— 白白说大模型,2026-08-14:<https://www.youtube.com/watch?v=XQXMSc0L5DA>
 - 〈长期Agent怎么记住关键事?记住事实、模糊召回与动态更新的完整工程方案〉— 白白说大模型,2026-10-21:<https://www.youtube.com/watch?v=ydxlle8MNu4>
+- Liu et al., *Lost in the Middle*,arXiv:2307.03172:<https://arxiv.org/abs/2307.03172>
+- Park et al., *Generative Agents*,arXiv:2304.03442:<https://arxiv.org/pdf/2304.03442>
+- Rasmussen et al., *Zep*,arXiv:2501.13956:<https://arxiv.org/abs/2501.13956>;Graphiti:<https://github.com/getzep/graphiti>
+- SQL:2011(Wikipedia):<https://en.wikipedia.org/wiki/SQL:2011>
+- besthub.dev 二手文章(見延伸閱讀第 5 點)
 
-> 兩片均無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差。已還原的誤聽:「相量庫 / 項量庫」→向量庫、「RG」→RAG、「記忌 / 記忍」→記憶、「數損 / 數捷」→資料、「教驗」→校驗、「Lager」→Ledger、「Wills」→Views、「股價」→架構、「炒剁寻真」→「大海撈針 / 中間迷失」現象(推定為 lost in the middle;逐字稿現版找不到原詞,使用者聽原片未確認)、「TTFT」為首字延遲。
+> 兩片均無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差。**2026-11-07 以投影片截圖核對(已核實)**:「Lager」→Ledger、「Wills」→Views、「股價」→骨架(投影片標題「LVP 工程骨架」)、「双时间戳击制」→雙時間戳機制(投影片)、「四層」投影片為會話、窗口、檔案、摘要。其他誤聽:「相量庫 / 項量庫」→向量庫、「RG」→RAG、「記忌 / 記忍」→記憶、「數損 / 數捷」→資料、「教驗」→校驗、「TTFT」為首字延遲(投影片有此字樣)。
+> - 「炒剁寻真现象」(②[2:44] 口述)→ [2:34] 截圖的投影片標示「**注意力迷失**」(模型遲鈍、抓不住當前重點),口述與畫面的逐幀對應未另行核對;原先推定的「大海撈針 / 中間迷失」改為「注意力迷失」,對應 lost in the middle 現象。
+> - 「影子 Agent」(②[11:15])為影片用語,投影片以「後台影子 Agent」標示(未另外核實來源)。
+> - 「四合一動態組裝」(②[8:25])投影片中的模組名為 System Prompt、畫像插槽(Layer 2)、召回語境(Layer 3)、滑窗上下文(Layer 1),與本文第三節一致。
+> - 「90% 跑不下去的 Agent」「年薪 30 萬 / 60 萬」為行銷說法,未能核實。

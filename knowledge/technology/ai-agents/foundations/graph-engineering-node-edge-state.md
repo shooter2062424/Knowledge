@@ -355,7 +355,7 @@ L1–L3 = Prompt / Context / Tool;L4 = Loop(把決定權交給模型在循環裡
 
 1. **上下文衰減**:除錯日誌與噪音淹沒原始目標,跑著跑著忘了要幹嘛。
 2. **錯誤級聯**:第一步推錯,後面全跟著錯,很難跳出局部死循環。
-3. **工具過載**:單節點塞超過約 15 個工具,路由準確率急劇下降(⚠️ 「15 個」是影片的經驗值,**未能核實**出處)。
+3. **工具過載**:單節點塞超過約 15 個工具,路由準確率急劇下降(投影片亦標「>15 個」,逐字稿 [2:20];⚠️ 「15」這個門檻**未能核實**一手出處。搜尋到的相關研究只支持「工具目錄變大、準確率下降」的方向,例如 [arXiv 2606.17519](https://arxiv.org/pdf/2606.17519)(僅讀搜尋摘要,未讀全文)。)
 4. **控制粒度缺失**:只有全自動或手動,中途無法阻止、審批、分配。
 5. **可觀測性盲區**:出錯定位不到根因。
 
@@ -384,12 +384,16 @@ L1–L3 = Prompt / Context / Tool;L4 = Loop(把決定權交給模型在循環裡
 1. **獨立驗證器節點**:同一個 Agent 既當程式員又當測試員,在工程上是幻想——歷經多次工具呼叫、報錯、重試,上下文已被錯誤資訊污染;大模型天生順從,加上被自己的推理套牢,幾乎必然「自我感覺良好、幸運放行」(比喻:凌晨三點熬夜寫碼的人說「沒有 bug」)。驗證器**不看生成者折騰過程,只收最終產物**,在**全新乾淨的上下文**裡專職挑錯,不過就打回。
    三種玩法:**對抗式**(多個 Agent 從不同角度駁回,扛得住多輪辯論才通過)、**多視角**(邏輯 / 安全 / 複雜度各查各的互不干涉)、**評委制**(多個生成節點產出不同方案,評委團打分選優,甚至組合各方案優秀片段)。
 2. **確定性的來源**:大模型節點只做意圖理解、模糊判斷、內容生成;格式校驗、數學計算、權限收口、路由這些交給傳統確定性程式。**「讓模型的判斷力落在節點上,讓程式的可靠性落在邊上。」**
-3. **現實錨點(reality anchor)**:不可篡改的客觀事實——模型說碼寫好了,以單元測試通過為準;說資料更新了,以資料庫事務提交成功回值為準;說客服處理好了,以真實用戶的滿意回傳為準。「缺少現實錨點的 Graph,本質上是一個項目管理做得更好的幻覺工廠。」
+3. **現實錨點(reality anchor)**(畫面投影片標題「系統確定性:邊界劃分與現實錨點」於 [10:00] 截圖可見,字幕 [9:59] 同段寫「現實某點」、[9:26] 段寫「現實毛點」,正確為「錨點」):不可篡改的客觀事實——模型說碼寫好了,以單元測試通過為準;說資料更新了,以資料庫事務提交成功回值為準;說客服處理好了,以真實用戶的滿意回傳為準。「缺少現實錨點的 Graph,本質上是一個項目管理做得更好的幻覺工廠。」
 4. **工作圖 vs 角色圖**:工作圖(任務怎麼拆、子任務怎麼合併)屬業務邏輯,可給模型在沙盒中現場規劃;**角色圖(誰有權改資料庫、誰能呼叫付費 API、誰能繞過審批執行腳本)絕不允許模型在運行時動態申請,必須事先硬編碼、強約束、可審計**。比喻:請裝修隊,可讓他們決定先刷牆還是先鋪地板,但不能把保險箱密碼給他們。
 
 ### 10.5 框架:從「訊息驅動」到「狀態驅動」
 
 早期框架讓 Agent 互相發長篇對話,夾雜解釋性廢話——影片說兩個 Agent 對談幾輪,上下文可到約 8000 token;LangGraph 這類企業框架圍繞全局字典 / 物件做精準狀態讀寫(A 查到資料就更新某字段,B 接著處理),影片稱 token 由約 8000 降到約 2000(⚠️ 單一示例數字,**未能核實**)。狀態持久化帶來四個工程保障:**人在回路**(敏感節點挂起落庫,人工審批 / 改狀態後續跑)、**長效記憶**(跨會話保留關鍵上下文)、**時間旅行**(每節點狀態都存,第 5 步錯了可回滾第 4 步重放或分叉測試)、**精準容錯**(節點因網路抖動掛掉只重試該節點,已成功節點的產出保留)。
+
+> **2026-11-07 核實補記(LangGraph 官方文件)**:官方 persistence 頁只把 checkpointer 的用途列為 time travel 與 fault tolerance,未描述機制([來源](https://docs.langchain.com/oss/python/langgraph/persistence))。time travel 頁:**replay** = 以過去 checkpoint 的 config 呼叫,該點之前的節點**不重跑**、之後的節點**會重跑**(LLM 呼叫可能得到不同結果);**fork** = 對過去 checkpoint 呼叫 `update_state` 建立改過狀態的新分支,原歷史保留([來源](https://docs.langchain.com/oss/python/langgraph/use-time-travel))。⚠️ 影片「精準容錯只重跑失敗節點、保留成功節點產出」的機制,上述兩頁**未能核實**(persistence 頁只提及 fault tolerance 一詞)。
+>
+> ⚠️ 「8000 → 2000 token」在影片投影片以「常規消息驅動約 8000 token / 狀態驅動約 2000 token」並列示意(截圖 [11:28]、[11:53] 同一畫面;字幕 [11:38] 提 8000、[12:03] 提降到 2000),無實驗條件與來源,**未能核實**;只能當作方向性示意,不宜當成效能數字引用。
 
 ### 10.6 成本權衡與升級判準(核實)
 
@@ -404,7 +408,7 @@ L1–L3 = Prompt / Context / Tool;L4 = Loop(把決定權交給模型在循環裡
 | 搜集 | 單信源串行 | 多信源並行 |
 | 啟動成本 | 一個 prompt | 多 prompt + 狀態結構 |
 
-**權衡數字(已核實)**:影片說「多 Agent 比單體性能提升 90.2%,但 token 消耗飆到單輪對話的 15 倍;80% 的性能方差可由 token 用量解釋」。對照 Anthropic〈How we built our multi-agent research system〉,**原文確有此三個數字**:multi-agent(Opus 4 主導 + Sonnet 4 子代理)「outperformed single-agent Claude Opus 4 by 90.2% on our internal research eval」;「multi-agent systems use about 15× more tokens than chats」;BrowseComp 評測中「token usage by itself explains 80% of the variance」。⚠️ 但**影片把它講成「我們在內部評測發現」,實為 Anthropic 研究系統的結果**,且該 90.2% 是**研究類任務**的內部評測,不可直接外推到所有任務(本文判斷)。80% 變異由 token 解釋也意味:**很大程度是用量堆出來的質量**,重構前先算專業價值是否覆蓋 15 倍成本。
+**權衡數字(已核實)**:影片說「多 Agent 比單體性能提升 90.2%,但 token 消耗飆到單輪對話的 15 倍;80% 的性能方差可由 token 用量解釋」。對照 Anthropic〈How we built our multi-agent research system〉(2026-11-07 重讀原文),**原文確有此三個數字**:multi-agent(Claude Opus 4 主導 + Claude Sonnet 4 子代理)「outperformed single-agent Claude Opus 4 by 90.2% on our internal research eval」;「multi-agent systems use about 15× more tokens than chats」;BrowseComp 評測中「token usage by itself explains 80% of the variance」。⚠️ 但**影片把它講成「我們在內部評測發現」,實為 Anthropic 研究系統的結果**,且該 90.2% 是**研究類任務**的內部評測,不可直接外推到所有任務(本文判斷)。80% 變異由 token 解釋也意味:**很大程度是用量堆出來的質量**,重構前先算專業價值是否覆蓋 15 倍成本。
 
 **升級判準(三問)**:任務是否有分支或並行需求?是否需要跨天保留狀態?是否需要人工審批?三者皆否(一個目標、一個停止條件)⇒ 堅持單體 Loop,強拆多 Agent 只會增加延遲和成本。若子 Agent 產生大量無關上下文、需並發擴大搜索空間、或不同步驟依賴完全不同的工具與權限 ⇒ 上 Graph。
 
@@ -419,6 +423,15 @@ L1–L3 = Prompt / Context / Tool;L4 = Loop(把決定權交給模型在循環裡
 | 一致結論 | 驗證器必須獨立;不是每件事都要 Graph | 同 |
 
 相關:[[multi-agent-data-consistency-reliability]](同頻道、共享狀態 + 校驗的實作細節)、[[loop-engineering]]、[[seven-agent-architectures-selection-guide]]、[[five-agent-patterns]]。
+
+### 10.8 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+本節只記錄實際讀過的一手內容,影片沒有、或與原文不同之處一併註明。
+
+- **Anthropic〈Building effective agents〉**:原文用的是 "finding the simplest solution possible, and only increasing complexity when needed" 這類說法;五種模式名稱與影片白話對照一致。原文**沒有**提到工具數量或「15 個」門檻,因此 §10.1 第 3 點的 15 仍**未能核實**。([來源](https://www.anthropic.com/engineering/building-effective-agents))
+- **Anthropic〈How we built our multi-agent research system〉**:影片的 90.2%、15 倍 token、80% 變異三個數字均見於原文,但原文明確是**研究類任務**的**內部**評測,lead 為 Claude Opus 4、subagent 為 Claude Sonnet 4;影片沒講這些條件。([來源](https://www.anthropic.com/engineering/multi-agent-research-system))
+- **LangGraph persistence 與 time travel 文件**:checkpointer 的用途包含 time travel、fault tolerance;replay 不重跑之前節點、fork 建立新分支。文件**沒有**說明「只重跑失敗節點、保留成功節點產出」的機制,影片此點仍屬未能核實。([persistence](https://docs.langchain.com/oss/python/langgraph/persistence)、[use-time-travel](https://docs.langchain.com/oss/python/langgraph/use-time-travel))
+- **字幕與畫面校正**:「毛點」→「錨點」(截圖 [10:00] 投影片);工具上限截圖 [2:20] 顯示「單節點掛載過多工具 (>15 個),路由準確率驟降」,與字幕一致但仍無一手出處。
 
 ---
 
@@ -544,7 +557,8 @@ L1–L3 = Prompt / Context / Tool;L4 = Loop(把決定權交給模型在循環裡
 
 - [Graph Engineering 解析,AI 圈新名詞到底在紅什麼? — Gary Chen(@garytalksstuff)](https://www.youtube.com/watch?v=CKKJuFVMvXQ)(2026-08-22,約 16.5 分鐘,官方 zh-TW 字幕)
 - [从单体Loop到分布式Graph架构 — 白白说大模型](https://www.youtube.com/watch?v=whdEwyY9A78)(2026-08-24,§十;無官方字幕,CPU Whisper 轉錄,「Growth / Growh」=Graph、「Harnes」=Harness、「路皮」=Loop、「Ensobic」=Anthropic)
-- Anthropic:<https://www.anthropic.com/engineering/building-effective-agents>、<https://www.anthropic.com/engineering/multi-agent-research-system>(§10.3、10.6 核實)
+- Anthropic:<https://www.anthropic.com/engineering/building-effective-agents>、<https://www.anthropic.com/engineering/multi-agent-research-system>(§10.3、10.6、10.8 核實)
+- LangGraph:<https://docs.langchain.com/oss/python/langgraph/persistence>、<https://docs.langchain.com/oss/python/langgraph/use-time-travel>(§10.5、10.8 核實)
 - 影片引用:**Peter Steinberger** 在 X 上關於 loops vs graphs 的貼文
 - 本倉庫相關筆記:[[loop-engineering-when-and-how-gary-chen]](前傳)、[[agent-five-cores-langgraph-trading-agent]](LangGraph 實作)、[[seven-agent-architectures-selection-guide]](架構選型)、[[agent-native-tooling-steinberger]]、[[task-decomposition-agentic-workflow]]、[[claude-dynamic-workflows]]、[[context-engineering-processing-vs-thinking]]、[[token-saving-three-moves-context-control]]、[[agent-runtime-deepseek-harness-cordis]]、[[pi-minimal-agent-harness-teardown]]、[[matt-pocock-skills-teardown]]
 

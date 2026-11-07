@@ -34,11 +34,11 @@
 初學者的雷:用字串匹配判斷意圖、為圖省事丟 Python `eval` 動態執行——一上線就有**權限注入與資料破壞**風險。
 
 ### Q2:還有哪些工具調用姿勢?
-ReAct(邊想邊做,先查天氣再規劃路線)、LangChain / LangGraph 式執行器把多工具串成 DAG、**輕量小模型當裁判**動態選最優路徑(高並發低延遲場景省掉大模型反覆推理)、事件總線做非同步分發、本地插件做**熱載入**、多 Agent 間發訊息委託形成去中心化協作網。
+ReAct(邊想邊做,先查天氣再規劃路線)、LangChain / LangGraph 式執行器把多工具串成 DAG（影片 [5:39]–[5:44] 的說法；**需修正**：LangGraph 的設計重點是有狀態圖與循環（agent 迴圈），並非只限 DAG，見延伸閱讀），**輕量小模型當裁判**動態選最優路徑(高並發低延遲場景省掉大模型反覆推理)、事件總線做非同步分發、本地插件做**熱載入**、多 Agent 間發訊息委託形成去中心化協作網。
 
 ### Q3:模型怎麼判斷要不要調工具?MCP 解決什麼?
 三種成熟做法(可組合,無絕對優劣):① 在提示詞定規矩,模型自己判斷並吐出特定標記;② 專門訓練一個**輕量分類小模型**當開關(極低延遲,適合高並發入口);③ ReAct 式推理規劃。
-MCP:解決「**適配地獄**」——以前每個模型 × 每個工具都要硬編碼適配;MCP 統一用標準化格式描述工具、請求回應、錯誤碼與非同步回調,「像插 USB」。(轉錄為「全用接生C碼說話」,使用者 2026-11-07 確認講者說的是 JSON Schema;另註:MCP 傳輸協定本身是 JSON-RPC 2.0,工具參數以 JSON Schema 描述,兩者不同層。見 [[function-calling-mcp-a2a]]。)
+MCP:解決「**適配地獄**」——以前每個模型 × 每個工具都要硬編碼適配;MCP 統一用標準化格式描述工具、請求回應、錯誤碼與非同步回調,「像插 USB」。(轉錄為「全用接生C碼說話」,使用者 2026-11-07 確認講者說的是 JSON Schema;另註:MCP 傳輸協定本身是 JSON-RPC 2.0,工具參數以 JSON Schema 描述,兩者不同層(已核實:[MCP 工具規範 2025-06-18](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) 的 `tools/list`、`tools/call` 範例為 JSON-RPC 2.0,工具的 `inputSchema` 為 JSON Schema)。見 [[function-calling-mcp-a2a]]。)
 
 ### Q4:上下文爆表(token 超限)怎麼辦?
 三優先級:**① 保證當前任務完成(不可妥協)→ ② 盡量保留近期對話相關性 → ③ 最後才顧語句流暢**。拒絕按長度硬截斷。四種策略:滑動視窗(適合短時任務)、舊對話高倍率壓縮成摘要 + 關鍵實體(有損但保關鍵)、**RAG 化歷史**(歷史向量化存庫,依當前語意召回最相關片段)、**讓大模型給每段歷史打重要性分**只留高分(像清理手機相簿)。
@@ -47,7 +47,7 @@ MCP:解決「**適配地獄**」——以前每個模型 × 每個工具都要�
 開卷考試三步:問題 → embedding 轉向量 → 向量庫做近似最近鄰(ANN)搜尋 → 片段 + 原問題拼給大模型生成。進階:檢索器與生成器可獨立優化,甚至用強化學習做端到端微調,讓檢索器學會「為生成器找對資料」(前沿研究方向)。
 
 ### Q6:Embedding 與向量庫底層怎麼檢索?
-文件按固定或動態視窗切塊(例:512 token 一塊)→ 模型轉定長稠密向量 → 查詢也轉向量 → 算餘弦相似度或內積找最近座標。資料量大時暴力算距離跑不動,線上要用 **FAISS / HNSW** 這類 ANN 索引。(轉錄「5C / H&SW」=FAISS / HNSW。)
+文件按固定或動態視窗切塊(例:512 token 一塊)→ 模型轉定長稠密向量 → 查詢也轉向量 → 算餘弦相似度或內積找最近座標。資料量大時暴力算距離跑不動,線上要用 **FAISS / HNSW** 這類 ANN 索引。(轉錄「5C / H&SW」=FAISS / HNSW,**已核實**:影片 [12:20] 同段投影片標示 FAISS、HNSW 字樣;HNSW 原論文見延伸閱讀。)
 例:搜「蘋果手機續航」而文件寫「iPhone 電池耐用」——字面幾乎無重疊,關鍵字搜不到,向量空間裡兩概念靠得很近能召回。
 
 ### Q7:Agent 記憶怎麼管、存在哪?
@@ -80,11 +80,11 @@ flowchart LR
 1. **生產級 Agent 架構**:拆 6 層——入口層、調度層(Planner / Executor)、模型層、工具層、記憶層、緩存層。入口像機場安檢:確認身份、限流、路由;結果還要過**安全模組**審核,最後由聚合器回傳。
 2. **規劃-執行-反思迴圈**:本質是**狀態機控制**。Planner 產生步驟並**為每步定驗收標準**;Executor 調度工具 / 模型;Reflector 校驗結果,錯了帶具體報錯原因回去讓 Planner 重新規劃。**必加三道保險**:最大重試輪次、單次執行超時、最終人工兜底——否則模型死咬錯誤工具陷入「我覺得我還能再搶救一下」的死循環,打爆 token。
 3. **多輪記憶分級與緩存**:記憶不是越長越好,是越有條理越好(整理衣櫃):短期上下文(Redis 熱資料)→ 會話摘要(動態壓縮,保主線)→ 用戶長期畫像(向量庫,語意召回)→ **業務知識庫**(扣款記錄、訂單狀態這類強一致資料,**必須進業務 DB,絕不能丟**)。緩存 key 要綁**用戶 ID + 會話 ID + 工具 ID + 結果**,且每個 key **強制帶 TTL、版本號、失效策略**。黃金定律:**緩存亂了比沒有緩存更可怕**,寧可不加也不讓不一致資料污染上下文。
-4. **向量庫選型**(比喻):Chroma 像電動車,輕量適合本地原型,但擴展性差,資料到百萬級以上就吃力;Pinecone 像租專車,全託管 SaaS 免運維,團隊小求快首選,但資料不在自己手裡、規模大成本高;Milvus 像自己改裝的重卡,雲原生、存算分離、億級向量毫秒檢索、私有化部署且成本可控。影片以「淘寶導購 / 客服」為例:資料量龐大、要和即時交易鏈路打通 → 選 Milvus 或自研;且**純向量相似度不夠**,要把品類、價格、品牌等**業務元數據**混進去。(轉錄「Furamo / Honkkon」=推定 Chroma;「Panco」=Pinecone;「Meaverse / Mews / Mewis」=Milvus。)
+4. **向量庫選型**(比喻):Chroma 像電動車,輕量適合本地原型,但影片稱「不支持分布式、資料量大查詢變慢」(投影片畫面,[4:30]),**需修正**:Chroma 官方架構頁已列 Distributed 模式(多服務 + 物件儲存,託管版為 Chroma Cloud),單機模式官方描述適用約 1,000 萬筆以下;「不支持分布式」已過時,「百萬級就吃力」未能核實;Pinecone 像租專車,全託管 SaaS 免運維,團隊小求快首選,但資料不在自己手裡、規模大成本高;Milvus 像自己改裝的重卡,雲原生、存算分離、億級向量毫秒檢索、私有化部署且成本可控。（存算分離與無狀態 worker 已核實，見 [Milvus 架構頁](https://milvus.io/docs/architecture_overview.md)；該頁未載「億級」與「毫秒」數字，未能核實。）影片以「淘寶導購 / 客服」為例:資料量龐大、要和即時交易鏈路打通 → 選 Milvus 或自研;且**純向量相似度不夠**,要把品類、價格、品牌等**業務元數據**混進去。(轉錄「Furamo / Honkkon」=Chroma(投影片與講者 [4:30] 對應,已核實);「Panco」=Pinecone;「Meaverse / Mews / Mewis」=Milvus。)
 5. **Function Calling 可靠性**:五層「防彈衣」——Schema 校驗、參數補全(缺省值自動填)、**權限校驗**(不越權調改 API)、**冪等控制**(防重複下單 / 重複扣款)、結果校驗(回傳資料是否合邏輯)。模型反覆調錯同一工具的**四步熔斷**:① 記錄失敗軌跡,連續兩次出錯則把該工具拉入黑名單、暫時從上下文剔除;② 強制切斷當前執行,把具體錯誤堆疊交給 Planner 換思路;③ 重新規劃仍不行就走**規則化兜底**,輸出預設的抱歉話術;④ 涉及核心交易鏈路則立即**轉人工**,不讓模型死磕。
 6. **工具 description 怎麼寫**:它是給大模型看的使用說明書。公式:**用途 + 邊界 + 輸入約束 + 禁忌場景**。淘寶查庫存例:用途「用戶詢問特定商品在特定地區是否有貨時呼叫」;約束「必須提供數字型 ItemID 與國標省市區代碼 RegionID」;禁忌「**絕對不要用於**查價格、優惠券、個性化推薦或店鋪搜尋;問價格請呼叫 query_price」。「它能幹什麼、絕對不能幹什麼都講清楚,呼叫準確率會有質的飛躍。」
 7. **RAG 切塊大小**:沒有銀彈,取決於語意完整性與召回精度。**FAQ / 客服**:300–500 字(一問一答,越細越準;勿把多個 QA 對跨在同一塊);**基礎文件**:800–1200 字,按 Markdown 標題或**程式碼塊邊界**切,**不要從中間硬切長程式碼**;**商品詳情**:別當普通文字切,存成**結構化 JSON**,價格 / 材質 / 評價作為 metadata 精準提取。
-8. **檢索相關性不高怎麼優化**:先像警察斷案排查三要素(切分不合理?向量模型失效?排序不靠譜?),再用四招:① **混合檢索**:BM25 做關鍵字精準硬匹配(防專有名詞查不到)+ 向量檢索做語意泛化;② **查詢改寫**:口語先用小模型預處理成標準關鍵詞(「蘋果手機」→「iPhone」);③ **重排**:粗排多抓(例 Top-50),再用專門的重排模型(轉錄「BG1 Rerankers」=推定 BGE Reranker)精排;④ **業務特徵強過濾**:電商把品類、品牌、價格區間、庫存當**硬性過濾條件**。
+8. **檢索相關性不高怎麼優化**:先像警察斷案排查三要素(切分不合理?向量模型失效?排序不靠譜?),再用四招:① **混合檢索**:BM25 做關鍵字精準硬匹配(防專有名詞查不到)+ 向量檢索做語意泛化;② **查詢改寫**:口語先用小模型預處理成標準關鍵詞(「蘋果手機」→「iPhone」);③ **重排**:粗排多抓(例 Top-50),再用專門的重排模型(轉錄「BG1 Rerankers」=BGE Reranker,[9:57] 講者念出,同段投影片標示 BGE-Reranker,已核實;模型見延伸閱讀)精排;④ **業務特徵強過濾**:電商把品類、品牌、價格區間、庫存當**硬性過濾條件**。
 9. **串行工具導致高延遲**:優化看 **P95 / P99** 而非平均。原則:「用戶要的是快看見,不是算完」。① 並行與緩存:無依賴工具並行發起(如 `Promise.all`),高頻資料直接 Redis 不走大模型,複雜聚合由定時任務離線預計算;② **大小模型路由**:簡單意圖識別交小模型秒回,複雜推理決策才上大模型;③ **流式輸出**,先回可降級的骨架資料,長任務轉後台非同步;④ 外部介面必加超時熔斷,不讓一個慢速第三方 API 拖垮整個 Agent。
 10. **高並發彈性伸縮**:核心是**無狀態編排與有狀態儲存徹底拆開**。入口網關(像遊樂園閘機)承擔限流排隊熔斷;**無狀態執行層**只負責邏輯編排,可看佇列長度與 P95 延遲用 **K8s HPA** 秒級橫向擴縮;最難的是**有狀態資源層**(大模型 API 並發配額、資料庫連線池、第三方介面),難以瞬間擴容,要做隔離與容量保護——**長任務與短任務分開、設不同優先級佇列**(別讓只買一瓶水的人堵住整個結帳台)。
 
@@ -134,13 +134,45 @@ flowchart LR
 
 ## 核實與評語
 
-- **業界通用,可信**:FAISS / HNSW 為標準 ANN 索引;BM25 + 向量的混合檢索、查詢改寫、reranker 為常見組合;Chroma / Pinecone / Milvus / Qdrant 為真實向量庫;vLLM / TGI / TensorRT-LLM 為真實推論引擎;合同網協議(Contract Net)為分散式 AI 經典協調機制;事件溯源、Actor 模型、冪等、K8s HPA 皆標準工程概念(以上未逐項查官方文件)。
+- **業界通用,可信**:FAISS / HNSW 為標準 ANN 索引;BM25 + 向量的混合檢索、查詢改寫、reranker 為常見組合;Chroma / Pinecone / Milvus / Qdrant 為真實向量庫;vLLM / TGI / TensorRT-LLM 為真實推論引擎;合同網協議(Contract Net)為分散式 AI 經典協調機制;事件溯源、Actor 模型、冪等、K8s HPA 皆標準工程概念(除 HNSW 論文、MCP 工具規範、Milvus 與 Chroma 架構頁、BGE Reranker 模型頁已讀外,其餘未逐項查官方文件)。
 - **作者主張 / 經驗值**:切塊大小(300–500 / 800–1200)、「連續兩次出錯拉黑名單」「重試上限」「FAQ 越細越準」皆屬經驗法則,**未提供實驗依據**,請依自己語料實測;Top-50 粗排也是示意值。
 - **有爭議處**:影片③雷區 2 說「個人跑模型沒價值」略絕對——對應用工程師來說,**了解推論引擎的取捨有助於成本與延遲估算**,但不該在簡歷把自己包裝成部署專家(這一點判斷是合理的)。
 - **高度雷同**:影片③與 [[agent-project-resume-enterprise-grade]] 同主題(同作者),本篇只補不同之處;三道題的重疊度高,請勿重複背誦。
 
 ### 轉錄還原表(推定)
 「相量 / 項量 / 像量」=向量、「RG / RIG / IG」=RAG、「A准 / A織 / 一整」=Agent、「Furamo / Honkkon」=Chroma、「Panco」=Pinecone、「Meaverse / Mews / Mewis」=Milvus(此三項 2026-11-07 以影片畫面截圖確認:投影片 Q4 向量資料庫選型寫 Chroma / Pinecone / Milvus)、「5C」=FAISS、「H&SW」=HNSW、「BG1 Rerankers」=BGE Reranker、「Lunchian / Long Graph」=LangChain / LangGraph、「VLL / TGI / Tensor TLL」=vLLM / TGI / TensorRT-LLM、「q轉的」=Qdrant、「Promise.org」=Promise.all、「Extrude / xcute」=Executor、「Planet / Pnano」=Planner、「斯大法則」=STAR 法則、「吊包程序員」=調包(調 API)工程師、「消融 / 骁容 / 銷融」=消融實驗。
+
+---
+
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+> 以下每點都是實際讀過的一手來源(論文摘要、官方規範/架構頁、模型頁);影片比來源多出的部分才標為「補充」。
+
+1. **HNSW 原論文**(Malkov & Yashunin,arXiv 2016,v4 2018)：[https://arxiv.org/abs/1603.09320](https://arxiv.org/abs/1603.09320)
+   - 機制：建立多層鄰近圖（hierarchical NSW）；每個元素的最高層隨機抽取、機率呈指數衰減；搜尋從最稀疏的上層開始逐層下探，複雜度隨資料量呈對數成長。
+   - 與影片的差異：影片 [12:20] 只說「線上要用 FAISS / HNSW 這類 ANN 加速」，沒講到建索引成本、記憶體佔用與 recall 之間的取捨。面試若被追問，可從「分層 + 由上而下搜尋」切入。
+
+2. **MCP 工具規範（2025-06-18）**：[https://modelcontextprotocol.io/specification/2025-06-18/server/tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools)
+   - 工具欄位：`name`、`description`、`inputSchema`（JSON Schema）、可選 `outputSchema`；呼叫為 `tools/call`。
+   - **錯誤分兩類**：① 協定錯誤（JSON-RPC `error`，如 `Unknown tool`、參數無效）；② 工具執行錯誤（回傳 `isError: true`，如 API 限流）。這正好對應 Q1 的「錯誤捕獲」，影片沒講這個區分。
+   - 規範的安全要求：Server **MUST** 驗證所有輸入、限流、清理輸出；Client **SHOULD** 對敏感操作要求使用者確認、在呼叫前顯示輸入、驗證結果後才餵給 LLM、設 timeout、記錄審計日誌。比影片的「五道關卡」多出 **人工確認與審計**。
+
+3. **Milvus 架構頁**：[https://milvus.io/docs/architecture_overview.md](https://milvus.io/docs/architecture_overview.md)
+   - 官方用語為 "fully disaggregated storage and compute layers"；worker 因存算分離而**無狀態**；持久化資料與索引存在物件儲存（MinIO / AWS S3 / Azure Blob），QueryNode 快取查詢所需的資料與索引。
+   - 快取被逐出時資料不會消失，但未命中會增加 I/O 與查詢延遲（Tiered Storage 說明）。
+   - **未能核實**：影片與投影片的「億級向量、毫秒檢索」數字，官方架構頁未載。
+
+4. **Chroma 架構頁**：[https://docs.trychroma.com/docs/overview/architecture](https://docs.trychroma.com/docs/overview/architecture)
+   - 三種部署：Local（嵌入式，原型用）、Single-Node（官方描述約 1,000 萬筆以下、少量 collection）、**Distributed**（多服務部署，物件儲存 + SSD 快取 + 共享系統資料庫；託管版為 Chroma Cloud）。
+   - 與影片差異：投影片「不支持分布式」已過時；影片「百萬級就吃力」屬作者經驗，未能以官方數字完全對應。
+   - 實務含義：選型時不要只看「本地 vs 雲」，而要看**規模超過單機門檻後是否要換 Distributed 或託管版**。
+
+5. **BGE Reranker v2-m3 模型頁**：[https://huggingface.co/BAAI/bge-reranker-v2-m3](https://huggingface.co/BAAI/bge-reranker-v2-m3)
+   - 北京智源（BAAI）出品，約 0.6B 參數，以 bge-m3 初始化；**cross-encoder** 架構：query 與 passage 一起輸入、輸出相關性分數（非獨立向量）。
+   - 定位：對第一階段檢索的候選做**重排**，不用於全庫搜尋；官方評測是對其他檢索器的 top-100 結果重排。
+   - 與影片對照：影片說「粗排取 50 條、再用 BGE Reranker 精排」，方向一致；「50 條」為示意值，官方評測用 top-100。
+
+6. **LangGraph 的循環設計（未能一手核實全文）**：影片 [5:39] 把 LangGraph 與 LangChain 歸為 DAG 工作流。搜尋摘要引用舊版 LangGraph.js 文件，稱 LangGraph 主要為**加入循環**而設計、不只是 DAG（[https://js.langchain.com/docs/langgraph](https://js.langchain.com/docs/langgraph)，該網址已重導向）；我抓取的新版 LangChain overview 頁只描述 LangGraph 為「low-level orchestration framework, for advanced needs combining deterministic and agentic workflows」（[https://docs.langchain.com/oss/javascript/langchain/overview](https://docs.langchain.com/oss/javascript/langchain/overview)），未提循環。**結論：影片「串成 DAG」的說法不準確，但循環的具體文字依據尚待一手全文確認（未能核實全文）。**
 
 ---
 

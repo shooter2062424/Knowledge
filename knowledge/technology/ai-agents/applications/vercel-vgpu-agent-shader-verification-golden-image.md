@@ -102,9 +102,22 @@ flowchart TD
 - 影片說「Mock 是確定性軟體模擬、不碰 GPU,pixelmatch 比對在 Mock 上跑綠」。**原始碼:`createMockAdapter` 是純 JavaScript、以 `Uint8Array` 記憶體 buffer 實作的 adapter;`adapter-mock` README 明寫「`vgpu/mock` 用於指令/資源測試,`vgpu/node` 才用於真實渲染與讀回快照」。** 也就是 Mock 不光柵化像素;真正做像素快照、又要確定性的,是 `vgpu/node` 搭 `adapter: "software"`(Mesa lavapipe CPU 渲染)。影片「三道關卡」的分工(瀏覽器看畫面、Node 看 CI 連通、Mock 看邏輯)方向可用,但「Mock 出像素」這一環應改成「software renderer 出像素」。
 
 **未能核實**
-- 「完整驗收只要 842 毫秒」「`pnpm test:render` 指令」「粒子壓縮後 397 位元組」:在 repo 的文件、README、package.json 中搜尋不到(根 `package.json` 無 `test:render`),可能來自官網或舊版範例;影片自稱「官方口徑,我沒實測」。
-- 「2026 年 8 月 27 日 Vercel 在 X 發文」未能獨立核實;說明欄僅附 https://vgpu.sh/。
-- Whisper 聽寫:「Visual」應為 Vercel(推定);「Barbiland Lite」(約 1:28,疑為 llvmpipe)、「Bubblenlight」(約 8:31,疑為 pixelmatch)、「Executive Talk」(約 8:40)= ExecuTorch、「ThoreVG」(約 8:45)= ThorVG。2026-11-07 以影片畫面截圖確認:第 17 節投影片列出 Golden Image、Dawn、SwiftShader、llvmpipe、ExecuTorch、pixelmatch、luma.gl、ThorVG 八項零件;前兩項的對應為依投影片推定,本文未採用其內容。
+- 「完整驗收只要 842 毫秒」「`pnpm test:render` 指令」「粒子壓縮後 397 位元組」:影片畫面確實有這些字([5:32] 第 11 節投影片「pnpm test:render · 官方示例約 842ms」;[6:27] 第 12 節投影片「示例壓縮後僅 397 字節」),但 repo 的 `package.json` 無 `test:render`(現有腳本為 `snapshots:check`、`snapshots:update`、`test:fast`),README 與官方文件也搜不到 842 / 397 兩個數字。影片自稱「官方口徑,我沒實測」,來源不明。
+- 「2026 年 8 月 27 日 Vercel 在 X 發文」([1:45]–[1:47])未能獨立核實;說明欄僅附 https://vgpu.sh/。
+- Whisper 聽寫(2026-11-07 以畫面截圖校對):
+  - 「Visual」([1:47])應為 Vercel(推定)。
+  - 「Barbiland Lite」([1:28]):**已核實(畫面)**——第 03 節投影片寫「Babylon-Lite / luma.gl」。前一版推測為 llvmpipe,有誤,已更正。
+  - 「Bubblenlight」([8:31]):**未能確定**。畫面第 17 節投影片列出八項:Golden Image、Dawn、SwiftShader、llvmpipe、ExecuTorch、pixelmatch、luma.gl、ThorVG;[8:31] 本身未截圖,「pixelmatch」僅為推定。
+  - 「Executive Talk」([8:40]):**已核實(畫面)**為 ExecuTorch。
+  - 「ThoreVG」([8:45]):**已核實(畫面)**為 ThorVG。
+
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+- **畫面核對**:共截 5 張——[1:28] 第 03 節(Golden Image 人眼驗收老傳統)、[5:32] 第 11 節(CI 三步閉環)、[6:27] 第 12 節(WGSL 成真模組)、[8:40] 第 17 節(八項零件)、[9:42] 第 19 節(邊界二:參考圖從哪來)。第 19 節投影片寫「Golden Image 第一張圖,往往來自真機或人眼審核」,與本文「第一張基準還是靠人」一致;第 11 節投影片把 Mock adapter 列為 CI 渲染組件之一,與下方〈需修正〉所述的分工問題相同。
+- **pixelmatch 內建行為**([官方 README](https://github.com/mapbox/pixelmatch)):函式簽名為 `pixelmatch(img1, img2, output, width, height[, options])`;`threshold` 預設 `0.1`、`includeAA` 預設 `false`;回傳值是**不同像素的數量**。所以「誤差超標就報錯」的百分比門檻(vgpu 的 `maxDiffRatio`)是 pixelmatch 之上的一層判定,不是 pixelmatch 本身的功能。
+- **llvmpipe 與 lavapipe 不同**([Mesa llvmpipe 文件](https://docs.mesa3d.org/drivers/llvmpipe.html)):llvmpipe 是 Mesa 的 CPU 軟體光柵器,頁面定位為 **OpenGL** 實作("drop-in alternative for `libGL.so`")。影片投影片把 llvmpipe 與 SwiftShader 等並列為 Golden Image 的零件;但 vgpu 文件中的 `adapter: "software"` 指向的是 Mesa 的 Vulkan 軟體驅動 lavapipe。兩者的區別是一般知識(推定),該頁未提及 lavapipe,未能由此頁核實。
+- **版本歧異**:搜尋摘要中,德文報導寫 vgpu 0.5.0(2026-09-14),西文報導寫 0.3.1(與影片相同);讀到的 canary 為 `vgpu-api` 0.6.0。只看到摘要,未開啟原文,版本以 repo tag 為準,本文不另作結論。
+  - 來源:[drweb.de 報導](https://www.drweb.de/vgpu-webgpu-bibliothek-coding-agenten/)、[diariobitcoin 報導](https://www.diariobitcoin.com/tecnologia/vercel-abre-vgpu-su-libreria-webgpu-para-shaders-de-agentes-de-ia/)(僅搜尋摘要)。
 
 ## 應用案例
 
@@ -118,4 +131,7 @@ flowchart TD
 
 - Why QQ〈Vercel开源vgpu:一行命令让AI把着色器写对〉(2026-08-31):https://www.youtube.com/watch?v=nScMXSWz9aE (該片無官方字幕取得,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差)
 - vgpu 官網:https://vgpu.sh/
+- vgpu `package.json`(2026-11-07 讀取):https://github.com/vercel-labs/vgpu/blob/main/package.json
+- pixelmatch README:https://github.com/mapbox/pixelmatch
+- Mesa llvmpipe 文件:https://docs.mesa3d.org/drivers/llvmpipe.html
 - 原始碼:https://github.com/vercel-labs/vgpu (README、`packages/adapter-mock`、`packages/adapter-node`、`apps/docs/content/docs/get-started/node.mdx`、`packages/vgpu-api/test-utils/snapshot.ts`、`packages/vgpu/lib/{check,snapshot}`、`scripts/check-bundle-size.mjs`)

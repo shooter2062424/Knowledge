@@ -231,7 +231,7 @@ grep -rn 'messages\[.*\] *=' src/
 - **額度有兩道閘**:5 小時滾動窗口 + 每週上限。每則訊息扣多少取決於 **模型倍率**、**effort**(從 Low 到 Max;影片轉述官方部落格「同題開高 effort 比低 effort 多約 7 倍 token」)、以及 **每輪全量重送的對話歷史**。
 - **降級順序**:活很常規 → 先換小模型(品質不掉還省錢);模型沒選錯但做得不夠細 → 才動 effort。「不夠細」的訊號:寫程式看 **跳過檔案、不跑測試、不複查**;純聊天看 **答得太籠統**。
 - **預設 Sonnet,升級只有一個理由:小模型漏了你在乎的東西**。測法:拿一份你讀過的報告,讓 Haiku 摘成 5 點並標出一條想另外核對的說法,再開新對話讓 Sonnet 做同一件事;誰漏掉你自己會標的那條,就用誰。
-- **Pro 用戶的 Fable 不在月費內**(需另開 usage credit);個人方案只有 Max 把 Fable 包進去,且免費包含部分最多到週額度一半。⚠️ 影片自己說這條規則夏天改過好幾次——**以觀看當下官方頁為準**。
+- **Pro 用戶的 Fable 不在月費內**(需另開 usage credit);個人方案只有 Max 把 Fable 包進去,且免費包含部分最多到週額度一半。✅ 2026-11-07 已對照 Anthropic 官方說明頁核實(見 §10.5.5)。⚠️ 影片自己說這條規則夏天改過好幾次,**仍以觀看當下官方頁為準**。
 - **Fable 的安全分類器**:碰到攻擊向資安、生物化學雙重用途等問題,會自動切給 Opus 回答;影片稱早期數據 **超過 95% 對話不觸發**。但一送出就被攔的整輪按 Opus 算、聊到一半才被攔的前半仍按 Fable 價——所以這類題**一開始就選 Opus** 較省。
 
 ### 10.2 ⭐ Advisor Strategy:貴模型只在拍板處出手
@@ -248,7 +248,8 @@ grep -rn 'messages\[.*\] *=' src/
 | ⚠️ **模型世代** | 官方腳註:實驗用的是 **Sonnet 4.6 / Haiku 4.5 + Opus 4.6 advisor**;SWE-bench 為 5 次平均、300 題、9 種語言;BrowseComp 為 1,266 題、各一次 | 📌 影片語境像在談 5 代模型,**這組數字是 4.6 代的結果** |
 
 - **不寫程式也能照做**:Claude app 同一個對話中途可換模型——想方向、拆步驟的那一兩輪切 Opus,定案後執行輪切回 Sonnet,上下文還在。
-- **Claude Code**:輸入 `/model` 有 **Opus plan** 選項——計畫階段用 Opus、動手執行切回 Sonnet。
+- **Claude Code**:輸入 `/model` 有 **Opus plan** 選項——計畫階段用 Opus、動手執行切回 Sonnet。✅ 官方文件中此選項的別名是 **`opusplan`**,定義為「plan mode 用 `opus`、執行時自動切 `sonnet`」;若管理員設了 `availableModels` 白名單,會以白名單中最新的 Opus 做規劃(見 §10.5.3)。
+- **Claude Code 內建 `/advisor`(較新功能,需 v2.1.260 以上)**:不必靠自己切模型,直接設定顧問模型,由 Claude 在關鍵時刻自行呼叫(見 §10.5.2)。影片沒提到這個入口。
 - 影片補的反轉(轉述 7 月部落格):複雜多步驟任務,大模型可能幾步做完,小模型卻一直磨、一直撞上限;**有些活 Opus / Sonnet 開到任何 effort 都做不完**。結論不是越便宜越好,而是按任務形狀配模型。
 
 ```mermaid
@@ -269,8 +270,12 @@ flowchart TD
 |---|---|
 | Advisor Strategy 發布日、2.7 pp、-11.9%、41.2 vs 19.7、-85% | ✅ 官方部落格 |
 | Haiku $1 / Sonnet $2 / Opus $5 / Fable $10 | Sonnet $2/$10 與 Fable $10/$50 與本庫他篇一致;⚠️ **Haiku 已於 2026-10-07 由 Haiku 5.5 改為 $0.10/$0.50(見 [[claude-haiku-5-5-cheap-model-computer-use]]),影片的 $1 是 Haiku 4.5 時期** |
-| Opus 5 離 Fable 峰值僅差 0.5%(CursorBench)、成本一半、電腦操作反超 | ❓ 未能獨立核實(自報數字) |
-| Pro 不含 Fable、Max 含至週額度一半 | ❓ 影片自述規則多變,未核實 |
+| Opus 5 離 Fable 峰值僅差 0.5%(CursorBench)、成本一半 | ⚠️ **部分核實**(2026-11-07):二手報導轉述 Anthropic 的主張——CursorBench 3.2 上 Opus 5 max 檔 70.1、Fable 5 為 70.4(差 0.3 分),**每任務成本約一半**;屬自報數字,且版本不同,不可與 CursorBench 4.0 比較(見 §10.5.6) |
+| Opus 5 電腦操作反超 Fable、成本 1.3% 多一點 | ❓ 未能核實(未找到原始數字) |
+| Opus 5 於 7/24 發布、Max 預設、Pro 最強 | ✅ 影片畫面字卡核對(字卡「7 / 24 才出的」、「MAX 預設」、「PRO 最強」);發布日本身未另行查證 |
+| Pro 不含 Fable、Max 含至週額度一半 | ✅ Anthropic 官方說明頁(§10.5.5) |
+| `opusplan` 在 plan 階段用 Opus、執行用 Sonnet | ✅ Claude Code 官方文件(§10.5.3) |
+| Advisor 的 2.7 pp 與 11.9% 是「同條件」比較 | ⚠️ **條件不同**:Sonnet 單跑開 adaptive thinking,advisor 那組關閉 thinking(§10.5.4)。影片未提 |
 | 「額度消耗大頭是每輪全量重發歷史」「高 effort 約 7 倍 token」 | ❓ 轉述其他影片/部落格,未核實 |
 | 95% 對話不觸發 Fable 分類器 | ❓ 轉述發布時早期數據,未核實 |
 
@@ -280,6 +285,75 @@ flowchart TD
 - **寫大功能**:先在 Claude Code 用 `/model` → Opus plan 產生計畫與驗收條件,再切回 Sonnet 執行;對照 [[model-routing-compute-allocation]] 的「規劃用強模型、執行用便宜模型」成本實算。
 - **自建 agent**:executor 用 Sonnet,在 API 加 `advisor_20260301` 工具並設 `max_uses`,只在「架構取捨、卡關」時叫 Opus;自己的評測集要同時跑 Sonnet 單跑 / Sonnet+advisor / Opus 單跑三組再決定(官方也這樣建議)。
 - **資安/生物類題**:直接選 Opus,不要繞 Fable。
+
+### 10.5 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+> 以下是逐一打開官方文件、部落格與說明頁後**真的讀到**的內容;影片沒講或講錯的地方一併標出。
+
+#### 10.5.1 Advisor 工具的 API 細節(官方 API 文件)
+
+- **工具定義**:`{"type": "advisor_20260301", "name": "advisor", "model": "claude-opus-5-5"}`;beta header `anthropic-beta: advisor-tool-2026-03-01`(仍屬 beta)。頂層 `model` 是 executor,工具內的 `model` 是 advisor,advisor 按自己的費率計價。
+- **限制**:advisor 必須是 **Sonnet 4.6 或更強**,且**能力不低於 executor**。`max_uses` 限制單一 turn 的顧問呼叫次數,預設不限;超過上限會回 `advisor_tool_result_error`(`max_uses_exceeded`),**整個請求不會失敗**。`max_tokens`(最小 1024)可限制每次顧問輸出。
+- **回傳形式(影響能不能讀)**:Opus 4.8 等 advisor 回 **明文** `advisor_result`;Sonnet 5.5、Opus 5、Opus 5.5、Fable 5 / 5.1、Mythos 5 / 5.1、Haiku 5.5 當 advisor 時回 **加密** `advisor_redacted_result`——客戶端讀不到建議內容,由伺服器在下一次請求解密後注入 executor 的提示。**做除錯或稽核時,要知道這點**。
+- **計費**:`usage.iterations[]` 內 `type: "advisor_message"` 按 advisor 費率計;`type: "message"` 按 executor 費率計。**頂層 `usage` 只含 executor**,不會把 advisor 的 token 加進去——若只看頂層數字,會低估成本。
+- **串流**:advisor 子推論**不串流**;executor 的串流會暫停,結果以單一事件送回。
+- **快取**:executor 端快取照常;advisor 端快取是**選用**(`caching`),官方說「每段對話顧問呼叫少於或等於 2 次時,寫入快取的成本高於讀取省下的錢」。
+- **強制呼叫**:`tool_choice: {"type": "tool", "name": "advisor"}` 不能與手動 extended thinking 併用(回 400);Opus 5.5、Sonnet 5.5、Fable 5.1 等 executor 不接受 `tool` / `any`,要改用提示詞引導。
+
+#### 10.5.2 Claude Code 的 `/advisor`:配對規則(官方 Claude Code 文件)
+
+- 設定方式三種:`/advisor opus`(互動選單或直接指定,會存入 `advisorModel`)、設定檔 `"advisorModel": "opus"`、啟動旗標 `claude --advisor opus`。
+- **顧問必須不低於主模型**。Claude Code 內建配對表的重點列:
+
+| 主模型 | 可接受的顧問 |
+|---|---|
+| Haiku 4.5 | Fable、Opus、Sonnet、Haiku 5.5 |
+| Sonnet 5 或 Haiku 5.5 | Fable、Opus 4.7 以上、Sonnet 5 以上、Haiku 5.5 |
+| Sonnet 5.5 | Fable、**Opus 5 以上**、Sonnet 5.5 |
+| Opus 5 / Opus 5.5 | Fable、Opus 5 以上 |
+
+- **Haiku 4.5 可以呼叫顧問,但不能當顧問**。影片的「Haiku 單跑 vs Haiku + Opus 顧問」實驗(BrowseComp)是在 **API** 上做的,與 Claude Code 這張表是不同層面的設定。
+- 中途**開關** `/advisor` **不會**讓主模型的 prompt cache 失效(與切換主模型不同)。
+- **只能用於 Anthropic 官方 API**:Amazon Bedrock、Google Cloud、Microsoft Foundry 都不支援;經 LLM gateway 轉送時看 gateway 是否原樣轉發。
+- 功能標示為 **experimental**,行為、計價與可用性可能改變。
+
+#### 10.5.3 `opusplan` 的官方定義
+
+- `opusplan` 是別名:**plan mode 用 `opus` 做複雜推理與架構決策,執行模式自動切到 `sonnet`** 寫程式。
+- context window:兩階段各自沿用 `opus` / `sonnet` 的設定;若要兩段都用 1M context,設 `opusplan[1m]`(例:`/model opusplan[1m]`)。
+- 若管理員設了 `availableModels`,例如 `["sonnet", "claude-opus-4-6"]`,`opusplan` 會用白名單中**最新**的 Opus 規劃。
+- 官方文件把它與 `/advisor` 區分:`opusplan` 是「依 plan mode 切換」;advisor 是「Claude 在任務中途自己決定何時問」。
+
+#### 10.5.4 Advisor 基準的「條件表」(官方部落格腳註)
+
+| 測試 | 執行者 | 顧問 | 條件 |
+|---|---|---|---|
+| SWE-bench Multilingual(+2.7 pp、成本 -11.9%) | Sonnet 4.6 | Opus 4.6 | **Sonnet 單跑開 adaptive thinking;advisor 組關閉 thinking**;5 次平均、300 題、9 種語言 |
+| BrowseComp(Haiku 19.7% → 41.2%) | Haiku 4.5 | Opus 4.6 | 關閉 thinking;Sonnet 4.6 用 medium effort;1,266 題、各一次 |
+| Terminal-Bench 2.0 | Sonnet 4.6 | Opus 4.6 | 關閉 thinking;Sonnet 用 medium;89 題、每題 5 次 |
+
+- ⚠️ **影片沒講的重點**:2.7 pp 的兩組**thinking 設定不同**(單跑開、advisor 組關),所以它比較的不是「只多了一個顧問」這件事,而是「單跑 vs 顧問+關 thinking」。若要自己評估,應該讓兩組條件一致。
+- 同一頁的客戶引述 Eve Legal:Haiku 4.5 + Opus 4.6 顧問,品質與前沿模型相當、成本約五分之一(單一客戶自述)。
+
+#### 10.5.5 Fable 的方案規則(Anthropic 官方說明頁,2026-11-07 讀取)
+
+- **Max、Ultra、高階 Team / Enterprise 席位**:Fable 5 與 5.1 是方案標準內容;最多可用**週額度的 50%**,超過後可改用 usage credits 或換模型。Fable 比其他模型更快消耗週額度。
+- **Pro、標準 Team / Enterprise 席位**:Fable「不在方案用量內」,從第一個 token 起就按 pay-as-you-go usage credits 計費。
+- **API**:按標準 API 費率。
+- 前一波促銷只針對 **Fable 5**(2026-07-19 PT 結束),**Fable 5.1 從未包含在內**。
+- ✅ 影片「Pro 要另開 credit、Max 只包到一半」的說法,與官方頁一致;影片也說規則會變,以頁面為準。
+
+#### 10.5.6 Opus 5 與 Fable 5 的 CursorBench 數字(二手查證)
+
+- 搜尋摘要轉述 Anthropic 的主張:**CursorBench 3.2** 上,Opus 5 max 檔 **70.1**、Fable 5 為 **70.4**,差 0.3 分(報導稱「0.5%」),**每任務成本約一半**;每 token 單價未變($5 / $25)。
+- ⚠️ 這是 Anthropic 自報、且我**未讀到原始官方頁**,只看到多家報導的一致轉述,故標為「二手」。
+- ⚠️ 後來 Cursor 文件表示 **Opus 5.5 取代了 Opus 5**;另一組 CursorBench 4.0 的數字(Opus 5.5 57.8、Opus 5 46.6)是**不同版本**,不要與 3.2 的 70.x 混比。
+
+### 10.6 補充應用案例
+
+- **Sonnet 主力 + 顧問**:在 `settings` 設 `"advisorModel": "opus"`,主模型用 Sonnet 5.5。注意 Sonnet 5.5 的顧問只能是 **Opus 5 以上**(Opus 4.x 不在配對表內),所以設 `opus` 別名會解析到當下的 Claude Code 內建預設版本;若要固定版本,寫完整模型 ID(如 `claude-opus-5-5`)。
+- **多輪除錯的成本核算**:advisor 的 token 不會出現在頂層 `usage`;自建 agent 要從 `usage.iterations[]` 按 `type` 分開加總,否則帳單對不上。
+- **想要可稽核的顧問意見**:選明文回傳的顧問(例如 Opus 4.8 系列)。Opus 5 / 5.5 或 Haiku 5.5 當顧問時,你在 API 回應中只能看到加密區塊,不能直接把建議寫進 log 或審查紀錄。
 
 ---
 
@@ -293,3 +367,7 @@ flowchart TD
 - 報導:[TechCrunch](https://techcrunch.com/2026/09/28/anthropic-releases-sonnet-5-5-which-it-calls-a-significantly-cheaper-faster-work-partner/)、[VentureBeat](https://venturebeat.com/technology/anthropic-launches-claude-sonnet-5-5-with-30-cost-reduction-per-task-due-to-faster-speeds-and-fewer-tool-calls)、[Help Net Security](https://www.helpnetsecurity.com/2026/09/29/anthropic-claude-sonnet-5-5/)
 - YouTube:[Anthropic 自己测的:Sonnet 配一个 Opus 顾问…](https://www.youtube.com/watch?v=H4zIuJ4G1QY)(YAHA学堂,2026-08-31;**該片無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差**)——§10
 - Anthropic 官方:[The advisor strategy: Give agents an intelligence boost](https://claude.com/blog/the-advisor-strategy)(2026-04-09)——§10
+- Anthropic 官方 API 文件:[Advisor tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool)——§10.5.1(2026-11-07 讀取)
+- Claude Code 官方文件:[Escalate hard decisions with the advisor tool](https://code.claude.com/docs/en/advisor.md)(§10.5.2)、[Model configuration](https://code.claude.com/docs/en/model-config.md)(`opusplan`,§10.5.3)
+- Anthropic 官方說明頁:[Claude Fable models on your plan](https://support.claude.com/articles/15424964-claude-fable-models-on-your-plan)——§10.5.5(頁面僅顯示「Updated over a week ago」,無精確日期)
+- 二手報導(未讀原頁):Opus 5 的 CursorBench 3.2 數字,見 [implicator.ai](https://www.implicator.ai/anthropics-opus-5-cut-tokens-17-but-cost-more-to-benchmark-than-opus-4-8/)、[Opus 5 Does Fable 5's Job for Half the Price](https://ilikekillnerds.com/2026/07/25/opus-5-fable-capability-half-the-price/)——§10.5.6

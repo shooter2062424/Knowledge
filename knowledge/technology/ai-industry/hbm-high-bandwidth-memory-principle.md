@@ -130,7 +130,7 @@ flowchart LR
 | **SK 海力士**(MR-MUF) | 把所有晶片**一次性堆好整體加熱**,所有微凸點同時焊接,再放入模具**灌入液態環氧樹脂**流進縫隙,加熱加壓固化 | **更快**(不必逐層焊);焊接時晶片間除了微凸點沒別的東西干擾,**良率更好** |
 | **三星 / 美光**(TC-NCF) | 兩層晶片間先夾一層**高分子薄膜**,加熱加壓時薄膜融化、微凸點焊接,冷卻固化,再逐層往上疊 | 一層一層焊,較慢 |
 
-**散熱**是堆疊的大問題(多顆晶片疊在一起)。廠商會多做一些**不傳資料、專門散熱的通孔**;SK 海力士還在環氧樹脂裡**摻入高導熱顆粒**(把樹脂做成類似矽脂的東西)。結果 **SK 海力士的 HBM 散熱效率約是三星的兩倍**,這也讓它成為 HBM 市場霸主,**市佔約 50%**。
+**散熱**是堆疊的大問題(多顆晶片疊在一起)。廠商會多做一些**不傳資料、專門散熱的通孔**;SK 海力士還在環氧樹脂裡**摻入高導熱顆粒**(把樹脂做成類似矽脂的東西)。結果 **SK 海力士的 HBM 散熱效率約是三星的兩倍**,這也讓它成為 HBM 市場霸主,**市佔約 50%**。(2026-11-07 核實:搜尋摘要顯示 2023 年 TrendForce 估 SK 海力士 53%、三星 38%,2024 年估 54% / 39%,「約 50%」大致成立。「散熱效率兩倍」**未能獨立核實**,相關說法多來自 SK 海力士陣營來源;搜尋摘要亦提到三星公開主張 TC-NCF 利於堆更高層。)
 
 ---
 
@@ -187,8 +187,8 @@ flowchart TD
 | 發布 | 2026 年 8 月初(FMS 2026),經 Open Compute Project;2 月起籌組,約半年 |
 | 封裝容量 | **最高 512 GB / 封裝**,8 層或 16 層 NAND die 堆疊 |
 | 頻寬 | 三個等級,約 0.4 到 **3.0 TB/s**,經 **UCIe** 接主機 |
-| 延遲 / 耐寫度 | 規格未明載;第三方論文估 read 延遲在微秒級,比 HBM 高一到兩個數量級 |
-| 時程 | 預計 2026 年底試產線、2027 商用(雙方未更新先前時程) |
+| 延遲 / 耐寫度 | 規格未明載(HWBusters 只說「以延遲換容量」,無數字)。「read 延遲微秒級、比 HBM 高一到兩個數量級」**未能核實**,未找到出處 |
+| 時程 | 樣品:2026 年下半年;推論裝置送樣 2027 年初(HWBusters 引 Sandisk 先前時程,本次發布未更新) |
 | 成員 | Sandisk、SK hynix 發起;Google、Tenstorrent 加入;**NVIDIA、AMD 等未列為成員**(nand-research,第三方) |
 | 廠商自稱 | 16 層 HBF 可達 HBM 的 8 到 16 倍容量、成本相近;Llama 3.1 405B 模擬結果在「無限 HBM」理想系統的 2.2% 內(**廠商模擬,非獨立量測**) |
 
@@ -198,7 +198,13 @@ flowchart TD
 
 > ⚠️ 影片的對照有個**隱含前提**:「單一 HBF 裝 2 TB」。但現行規格**每封裝最高 512 GB**,2 TB 需至少 4 個封裝並聯,頻寬與成本要另算 —— 影片的 0.67 秒是 2 ÷ 3 的理想值。
 
-**(2) 推論的 KV cache 是寫多於讀。** KV cache 隨生成 token 越長越大,寫入量高;NAND 要先擦除才能寫,寫比讀慢很多,耐寫度也有限。影片提到一篇標題叫「HBF sucks」的論文(字幕 "HPF sucks" 即 HBF sucks,使用者 2026-11-07 聽原片確認),量到作為 KV cache 只有約 1% 的延遲改善、即使理論速度拉到 3.75 倍。⚠️ **我沒找到這篇標題**;搜尋到的相關論文(例如 arXiv 2608.13868〈Exploring High-Bandwidth Flash for Modern LLM Inference〉、2608.14333〈Beyond Capacity: Scalable MoE LLM Inference via High-Bandwidth Flash〉)結論是:**HBF 適合放權重與讀多寫少的資料(如 MoE 專家),不適合頻繁寫入的 KV cache;耐寫度需約 25 倍改善**。那「1%、3.75 倍」兩個數字**未能核實**。
+**(2) 推論的 KV cache 是寫多於讀。** KV cache 隨生成 token 越長越大,寫入量高;NAND 要先擦除才能寫,寫比讀慢很多,耐寫度也有限。影片提到的論文〈HBF sucks〉(字幕 "HPF sucks",使用者 2026-11-07 聽原片確認)**已核實**:**arXiv 2608.11668**〈HBF Sucks? A Full-Stack Characterization of High-Bandwidth Flash for KV-Centric LLM Serving〉(Li 等人,2026-08-12 投稿,https://arxiv.org/abs/2608.11668)。論文重點:
+- ① 把 HBF 速度拉到 3.75 倍,**延遲變動不到 1%**。影片說的「1% 改善」指的是這個結果;準確說法是「變動不到 1%」,不是「改善 1%」,需修正。
+- ② 把 HBF 接進 Mooncake 式架構當 KV cache 池,**端到端平均延遲上升 2–5.5 倍**,最大 SLO goodput 下降 1.1–2.7 倍(H100 / B200)。
+- ③ 寫入次數在每條 trace 上都多於讀取;熱模型顯示堆疊會在遠低於峰值頻寬時觸頂。
+- ④ 結論:「HBF sucks as an SSD replacement for transient KV」,但搭配重用感知放置、寫入預算與散熱協調可選擇性使用。論文範圍為推論,**未談訓練**。
+
+另一篇 arXiv 2608.13868〈Exploring High-Bandwidth Flash for Modern LLM Inference: Opportunities and Challenges〉(https://arxiv.org/abs/2608.13868,IEEE CAL 短文)摘要只說:HBF 寫入效能有限、需要與 HBM 相當的讀取頻寬才能發揮,且需要「顯著的耐寫度改善」。**「耐寫度需約 25 倍改善」摘要中查無,未能核實。** 2608.14333〈Beyond Capacity〉未開啟讀取,其 MoE 結論**未能核實**。
 
 **(3) 訓練幾乎沒好處。** 訓練靠擴節點與頻寬;還要產生梯度、用優化器更新權重,不是讀為主。預填(prefill)偏算力與容量受限、解碼(decode)偏頻寬與延遲受限,所以**容量擴張對推論的利益大於訓練**。
 
@@ -209,12 +215,12 @@ flowchart TD
 ### 8.4 判斷
 
 - 與本篇 §1 的「頻寬 = 頻率 × 位寬」呼應:HBF 想用堆疊 NAND 拿到接近 HBM 的位寬,但**單位延遲與耐寫度**是 NAND 的物理限制。
-- 比較貼切的定位是**容量層**(放權重、冷 KV),不是 HBM 的替代品。
+- 比較貼切的定位是**容量層**,不是 HBM 的替代品。arXiv 2608.11668 的結論也是「選擇性使用」,與此一致;「放權重」的部分已讀摘要未直接核實。
 - 投資 / 產業面:規格由供給端主導、GPU 大廠尚未表態,**採用與否取決於 NVIDIA / AMD**;可與 [[memory-cycle-history-1995-2018-vs-ai]] 並讀。
 
-**核實狀態:** ✅ 已核實(第三方報導):規格(512 GB、8/16 層、UCIe、至 3 TB/s)、時程、Google 與 Tenstorrent 加入。⚠️ 需註明:2 TB 單一 HBF 的前提;HBF 不是 NVIDIA 成員。❓ 未能核實:「HBF sucks」論文及其 1% / 3.75 倍、CMX 細節、NVMe 14.8 GB/s(合理但未逐項核對)。
+**核實狀態:** ✅ 已核實(HWBusters 報導,https://hwbusters.com/news/high-bandwidth-flash-gets-its-first-spec-512gb-stacks-at-up-to-3tb-s/):規格(512 GB、8/16 層、UCIe、約 0.4–3.0 TB/s)、OCP 首版規格、Google 與 Tenstorrent 加入。「8–16 倍容量」「Llama 3.1 405B 在 2.2% 內」為廠商自稱與模擬,非獨立量測。⚠️ 需註明:2 TB 單一 HBF 的前提;HBF 不是 NVIDIA 成員(未在第三方來源中看到 NVIDIA 加入)。✅ 已核實:「HBF sucks」論文為 arXiv 2608.11668(3.75 倍 / 延遲變動 <1% / 延遲上升 2–5.5 倍,見上)。❓ 未能核實:「耐寫度 25 倍」、2608.14333 的 MoE 結論、CMX 細節(BlueField / Spectrum-X 組合)、NVMe 14.8 GB/s(合理但未逐項核對)。
 
-來源:[Caleb Writes Code〈High Bandwidth Flash explained in 7min..〉](https://www.youtube.com/watch?v=ZxBRtRjMU88)(2026-08-21)、[High Bandwidth Flash gets its first spec — HWBusters](https://hwbusters.com/news/high-bandwidth-flash-gets-its-first-spec-512gb-stacks-at-up-to-3tb-s/)、[SK Hynix and Sandisk HBF Standard Reaches 512GB and 3TB/s Through UCIe — Guru3D](https://www.guru3d.com/story/sk-hynix-and-sandisk-hbf-standard-reaches-512gb-and-3tb-s-through-ucie/)、[Exploring High-Bandwidth Flash for Modern LLM Inference — arXiv 2608.13868](https://arxiv.org/pdf/2608.13868)、[Beyond Capacity (MoE + HBF) — arXiv 2608.14333](https://arxiv.org/pdf/2608.14333)。
+來源:[Caleb Writes Code〈High Bandwidth Flash explained in 7min..〉](https://www.youtube.com/watch?v=ZxBRtRjMU88)(2026-08-21)、[High Bandwidth Flash gets its first spec — HWBusters](https://hwbusters.com/news/high-bandwidth-flash-gets-its-first-spec-512gb-stacks-at-up-to-3tb-s/)、[SK Hynix and Sandisk HBF Standard Reaches 512GB and 3TB/s Through UCIe — Guru3D](https://www.guru3d.com/story/sk-hynix-and-sandisk-hbf-standard-reaches-512gb-and-3tb-s-through-ucie/)、[Exploring High-Bandwidth Flash for Modern LLM Inference — arXiv 2608.13868](https://arxiv.org/pdf/2608.13868)、[Beyond Capacity (MoE + HBF) — arXiv 2608.14333](https://arxiv.org/pdf/2608.14333)、[HBF Sucks? A Full-Stack Characterization — arXiv 2608.11668](https://arxiv.org/abs/2608.11668)。
 
 ---
 

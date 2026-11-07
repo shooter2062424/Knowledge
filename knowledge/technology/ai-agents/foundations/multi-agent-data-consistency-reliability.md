@@ -367,6 +367,53 @@ flowchart TB
 
 ---
 
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+> 依據:影片 [4CZiE0Y0FFQ](https://www.youtube.com/watch?v=4CZiE0Y0FFQ) 的 7 個截圖畫面(投影片)與帶時間逐字稿,以及下列實際讀過的一手來源。時間點皆來自 `transcript_tools.py find`。
+
+### 一、畫面核對
+
+| 影片時間 | 畫面內容 | 核實結果 |
+|---|---|---|
+| [1:31](https://www.youtube.com/watch?v=4CZiE0Y0FFQ&t=81s) | 投影片「典型線上事故」:信息檢索 Agent 查到負債 **1.2 億**;財報分析 Agent 誤判為 **4.5 億** | ✅ 已核實。字幕「真實負載」應為 **負債**(畫面標示「負債」) |
+| [2:14](https://www.youtube.com/watch?v=4CZiE0Y0FFQ&t=124s) | 綜述報告 Agent 產生「幻覺爆發:總負債超百億」 | ✅ 已核實。字幕「寫中速報告」應為 **綜述報告**(畫面 Agent 名稱) |
+| [3:00](https://www.youtube.com/watch?v=4CZiE0Y0FFQ&t=170s) | 畫面字幕為「這次負債不寫成百億了」;「五十億」未出現在畫面上 | ⚠️ 「五十億」未能以畫面核對 |
+| [8:18](https://www.youtube.com/watch?v=4CZiE0Y0FFQ&t=488s) | 投影片「引入結構化共享狀態」:Shared State 內含 `risk_data` / `model_output`;檢索 Agent 標示 **RBAC 僅寫**;附帶 **Version 與 Writer ID**,防覆蓋 | ✅ 已核實權限隔離與版本/寫入者記錄。畫面**未出現 Redis**,字幕「內存或 Redis」未能以畫面核對 |
+| [9:46](https://www.youtube.com/watch?v=4CZiE0Y0FFQ&t=576s) | 投影片「嚴格的 DAG 編排與角色硬約束」:Validator Layer(網關攔截);DAG 合法性校驗(環路死鎖、孤立節點、冗餘任務);限定 JSON Schema、工具白名單 | ✅ 已核實。字幕「Jason Schema」為 **JSON Schema** |
+| [10:10](https://www.youtube.com/watch?v=4CZiE0Y0FFQ&t=600s) | 投影片「三維輸出校驗與局部自愈」:格式校驗(JSON Schema / Pydantic)→ 事實支撐校驗(證據鏈)→ 一致性校驗(與 Shared State 無衝突);**Max Retries: 2** | ✅ 已核實三層名稱與重試上限(原文為「2」)。畫面用「事實支撐校驗（證據鏈）」,本文第五節的「資料鏈對齊」為整理者譯名;「重試 2 次」的依據畫面未說明 |
+| [12:19](https://www.youtube.com/watch?v=4CZiE0Y0FFQ&t=729s) | 投影片「魯棒性保障」:閾值熔斷(設定耗時上限與重試次數,防永久阻塞);非核心節點填預設值;核心節點 Trigger HITL Alert(推送快照)→ Pause System | ✅ 已核實。字幕「熔鍛 / 熔鍛之後」為 **熔斷 / 熔斷之後** |
+
+### 二、一手來源(實際讀過)
+
+1. **Anthropic〈How we built our multi-agent research system〉** — <https://www.anthropic.com/engineering/multi-agent-research-system>
+   - 「outperformed single-agent Claude Opus 4 by 90.2% on our internal research eval」、「multi-agent systems use about 15× more tokens than chats」(§10.5 已記)。
+   - 新增:「token usage by itself explains 80% of the variance」— 原文用來解釋效能差異的來源,支持本文「成本看板要量化 token」的說法。
+   - 新增:「we built systems that can resume from where the agent was when the errors occurred」,並搭配「retry logic and regular checkpoints」— 與影片第六節「保存快照、人工修正後續跑」同向,但原文談的是 **checkpoint 續跑**,並非影片的「交付前全局對帳」。
+   - ⚠️ 差異:原文描述子代理各自擁有獨立上下文窗口,在檔案系統模式下回傳「輕量引用」給協調者;原文另把「子代理之間無法協調」列為同步架構的限制。影片的「廢除點對點私聊、改走共享狀態」方向一致,但原文並未逐字規定「只能經共享狀態通訊」,那是作者的設計選擇。
+
+2. **Cemri et al., 〈Why Do Multi-Agent LLM Systems Fail?〉**(arXiv:2503.13657)— <https://arxiv.org/abs/2503.13657>
+   - 分析 1,600+ 份標註軌跡、7 種多 Agent 框架,歸納 **14 種失敗模式**,分為三類:**FC1 系統設計問題**(如 FM-1.4 對話歷史遺失)、**FC2 Agent 間錯位**(如 FM-2.4 資訊保留、FM-2.5 忽略其他 Agent 的輸入)、**FC3 任務驗證**(如 FM-3.2 驗證不完整、FM-3.3 驗證錯誤)。
+   - 與影片對應:資訊傳遞的問題有 FC2 的實證支持;論文原文「Current verifier implementations are often insufficient; sole reliance on final-stage, low-level checks is inadequate.」支持影片「每個節點都要校驗」的方向。
+   - ⚠️ 差異:分類中**沒有獨立的「捏造數據」或「死鎖」類別**(論文只把 hallucination 當作 LLM 的通用限制提及)。因此影片的「幻覺傳染」與「死鎖」**未能由 MAST 分類直接核實**。本次核實只讀到分類與 verifier 的一句建議(原文:「Current verifier implementations are often insufficient; sole reliance on final-stage, low-level checks is inadequate.」),未逐段核對論文其餘的修正方案。
+
+3. **OpenTelemetry〈Traces〉**— <https://opentelemetry.io/docs/concepts/signals/traces/>
+   - 原文:「A **span** represents a unit of work or operation.」「Spans can be nested, as is implied by the presence of a parent span ID: child spans represent sub-operations.」
+   - 支持第七節的 span 與父子關係說明。⚠️ 官方頁未規定「每次任務都要生成全局 Trace ID」之類的做法,那是影片的實作建議。
+
+### 三、本次修正摘要
+
+- 「真實負載」→ **負債**;「寫中速報告」→ **綜述報告 Agent**(畫面確認,見上表)。
+- 「Jason Schema」→ **JSON Schema**;「熔鍛」→ **熔斷**(畫面確認)。
+- 「Redis」與「五十億」屬字幕內容、畫面未出現,保留原字幕寫法但標明**未能以畫面核對**。
+
+### 四、仍不確定
+
+- 影片未說明「數字經計算得出」(如 800 億 = 500 億 × 增長率)時,交付前對帳如何處理;本文 §八已點出這是實作難點,影片仍未解決。
+- 「重試上限 2 次」在畫面上出現(Max Retries: 2),但**沒有給出依據**;「30 秒超時」只出現在字幕 [12:14] 附近,投影片上沒有此數字。Anthropic 與 MAST 來源都沒有對應的數字。
+- 「三層校驗」的分層名稱與順序是影片的設計,來源上只能核實到各層的通用概念(JSON Schema / Pydantic 格式校驗、證據檢查、與共享狀態比對)。
+
+---
+
 ## 來源
 
 - [多Agent系统数据一致性与高可靠协同架构设计 — 白白说大模型](https://www.youtube.com/watch?v=MWNuu9m93dk)(2026-09-15,約 12.4 分鐘。⚠️ 作者於說明欄推廣自家公眾號配套教程)

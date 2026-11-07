@@ -4,6 +4,7 @@
 > ⭐⭐ **本文已直接讀取 [TypeSafe AI 官方部落格原文](https://typesafe.ai/blog/introducing-system-one-models-and-jev) 核實**,
 > 並補上影片未提、**但官方自己承認的兩個限制**(見 §8)。
 > ⚠️ **這是一個剛發布的商業產品,所有效能數字目前都只有官方口徑,尚無第三方獨立評測。**
+> ⭐ **2026-11-07 更新:已出現一篇 arXiv 第三方評測(37 資料集),見延伸節 §4;本句寫於發布初期,已過時。**
 >
 > ⭐⭐ **2026-09-19 增補 人蔘 Try Catch**〈[Agent 帳單爆炸?把「做決定」交給 Jev,快 200 倍、便宜 400 倍](https://www.youtube.com/watch?v=j7nu_6cprMI)〉(2026-09-19,約 4.8 分鐘,官方繁中字幕),成為 **§十二:落地視角** —— 三個已在用的場景(語意 `if`、**Agent 終端機守門員**、迴圈早停)、公司背景與取得管道,⚠️⚠️ **並補正該片把「校準」講成單次調用保證的一處過度解讀**(見 §12.5)。
 >
@@ -207,6 +208,7 @@ flowchart LR
 > ⚠️ **「很多人腦子裡還在比 Jev 和 Claude 誰強 —— 這個對比本身就站不住。」**
 
 **Jev 的限制很明確:不會寫程式、不會聊天、上下文 32K、不支援圖片、目前只有邀請制 API。**
+> ⚠️ **2026-11-07 補正:「不支援圖片」已過時(1.13 起支援靜態圖,需標頭);上下文為每題 32k、每請求 64k。見延伸節 §2。**
 
 ```mermaid
 flowchart LR
@@ -656,6 +658,7 @@ flowchart LR
 | ⚠️ **低** | **別動,轉人工** |
 
 > ⭐⭐⭐ **關鍵:**閾值要跟操作風險掛鉤**,不是一個全域常數。**
+> ⚠️ **2026-11-07 補正**:官方 skill 明言「confidence 衡量的是分布集中度,不等於答案正確的機率」,不要直接拿 confidence 當閘門;應以 `noul` 機率設計閾值(起手 >0.7 / <0.3,中間未定)。見延伸節 §3。
 
 **⭐ 官方文件的例子很到位:**
 
@@ -1402,7 +1405,7 @@ flowchart LR
 - **三條特徵同時命中才拉黑**:評論內容像代刷的 AI、暱稱常見特徵、頭像是特定形象。前兩條用純程式碼規則;**只有前兩條命中才呼叫模型分析頭像**,以省成本。
 - 給模型幾張典型頭像當參考,讓它判斷「是不是這類形象」。
 - 影片稱模型「便宜、快、沒有幻覺」;**「沒有幻覺」是影片說法**,與本文 §五 對「零幻覺」的保留看法一致:Jev 回的是帶機率的枚舉,不是不會錯。作者自己也承認「不是百分之百準,有漏網之魚」。
-- ⚠️ 影片稱模型叫「G1V」,字幕音譯;依上下文(視覺判斷、便宜、快)**推定為 Jev 的圖片能力**,未能由影片本身確認,也未核實他實際用的版本。
+- ✅ 影片稱模型叫「G1V」,字幕音譯;**畫面投影片寫「JEV 模型」**(2026-11-07 抽格核對,[1:39](https://www.youtube.com/watch?v=aZzWVQXKL0c&t=89s)),確定為 Jev。影片未說明實際用的版本與是否帶圖片標頭,此點仍未能核實。
 
 這個設計其實是 §10 與 §17 的現成實例:**先用便宜的確定性規則過濾,只把必要的模糊判斷丟給 System One 模型,再由程式碼決定動作。**
 
@@ -1442,7 +1445,7 @@ flowchart LR
 | 「模型 95% 做得對,卻不告訴你何時落在那 5%,就無法自動化」 | ✅ 官方原話存在,但出現在**批評現有 LLM 信心不可靠的對照表**,不是 RLCD 條目本身。本文 §四 的說法不變 |
 | 一次問 13 題,比分 13 次**便宜 12 倍以上、快 10 倍,答案不變** | ✅ 第三方 API 文件站(jevapi.org,自稱與 TypeSafe 無關)引 TypeSafe cookbook:「12.2× cheaper and 10.0× faster … identical answers」。前提:同次請求的各題**互相看不見**,後題要用前題答案就得分兩次呼叫 |
 | 選項上限 255、打分題「2–10 級」 | ✅ 同上文件站:Up to 255 options;score 2–10 levels。影片說「最多十幾級」與官方不符(§15.3 已更正過 11 級的說法) |
-| 1000 封信分類:Jev 70 秒/9 美分 vs GPT 5.6 Luna 5 分鐘/62 美分;1700 封信全跑不到 2 毛 | ⚠️ **未核實**(官方部落格頁未載;「Luna」亦非該頁出現的型號名稱)。當作「有人自述的數量級」,不可當基準 |
+| 1000 封信分類:Jev 70 秒/9 美分 vs GPT 5.6 Luna 5 分鐘/62 美分;1700 封信全跑不到 2 毛 | ⚠️ **部分核實**:2026-11-07 抽格,畫面 [11:40] 確認 Jev 70 秒 / 9 美分,但 Luna 畫面顯示 **3 分 53 秒**(口述 5 分鐘);62 美分與「1700 封」未在畫面見到。官方部落格頁未載;「Luna」亦非該頁出現的型號名稱。當作「有人自述的數量級」,不可當基準(見延伸節 §1) |
 | 路由 12 個任務省約七成;影片自己提醒是 12 個提示詞的小樣本、派單本身也要花錢 | 未核實;提醒本身是對的:算整條流程總成本與品質 |
 | 單次上下文 64K,資料+最長問題 ≤ 32K;只吃純文字;英語為主要訓練語言;無關內容越多準確率越低(context rot);計數/日期不可靠;預設不防提示注入 | 這幾項**未在本次可讀頁面找到原文**(官方部落格頁與第三方文件站都沒載);但與 §六、§十四 已核實的官方「它不完美」頁的取向一致。**上線前以官方最新文件為準** |
 | 「不是 Claude Code / Cursor 的替代品」 | ✅ 方向正確:官方頁說明它「cannot write prose, summarize, or call tools」,仍需要 LLM 做語言工作 |
@@ -1473,6 +1476,88 @@ flowchart LR
 1. **客服信箱分流**:先用「一個問題只問一件事」問 5 個窄信號(是不是發票/詐騙/退款/急件/需人工),一次批量送出;閾值先在是非題上用 200 筆已標註資料校準,再決定 0.9 以上自動處理、其餘轉真人。
 2. **出口把關**:Claude 起草退款回覆,Jev 檢查「是否承諾了未確認的退款」;只要判定為是或不確定,就停在人工審核,而不是自動寄出。
 3. **自己的盤點**:列出主要自動化流程的所有節點,數出其中「其實只是在做是不是/哪一個/幾分」的個數(影片的今日作業),先挑最大量的一個做旁路測試。
+
+---
+
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+> 本節讀的一手材料:`typesafe-ai/skills` 的 `SKILL.md`(已 clone 讀完)、`vinnylarouge/jevlike` 的 README 與 `jevlike/model.py`、`jevlike/eval.py`(已 clone 讀完)、TypeSafe 官方 `images.md` / `models.md`、arXiv 2203.02155、arXiv 2609.37647(第三方評測),以及影片畫面 6 張。
+> 標示:✅ 已核實 / ⚠️ 需修正 / ❓ 未能核實。時間點皆來自 `transcript_tools.py find`。
+
+### 1. 影片畫面核對
+
+| 影片說法 | 結果 |
+|---|---|
+| 白白說大模型 [1:02](https://www.youtube.com/watch?v=ITniwzQy9uc&t=54s):「目前只支持文字輸入」 | ⚠️ 需修正:截至 2026-11-07 已支援靜態圖片,見 §2 |
+| 白白說大模型 [2:33](https://www.youtube.com/watch?v=ITniwzQy9uc&t=143s):官網入口 | ✅ 畫面為 "Join Waitlist" 與 "Join Discord" 首頁,與影片敘述一致(影片當時的狀態) |
+| 軒轅的編程宇宙 [1:39](https://www.youtube.com/watch?v=aZzWVQXKL0c&t=89s):三條規則「交給 G1V 模型」 | ✅ 畫面投影片寫「**JEV 模型**」,旁列「價格便宜 / 速度賊快 / 沒有幻覺」;**G1V 確為字幕把 Jev 聽錯**,§18.3 的「推定」可改為已核實 |
+| YAHA學堂 [11:35](https://www.youtube.com/watch?v=sX6n9lL_9F8&t=685s):Jev 跑 1000 封 70 秒、9 美分 | ✅ 畫面 [11:40] 投影片數字一致:Jev 70 秒、成本 9 美分 |
+| YAHA學堂 [11:43](https://www.youtube.com/watch?v=sX6n9lL_9F8&t=693s):Luna 要 5 分鐘、62 美分 | ⚠️ 需修正:同一投影片上 Luna 顯示 **3 分 53 秒**,口述與畫面不符;62 美分在抽樣畫面中未見,**未能核實** |
+| YAHA學堂 [12:38](https://www.youtube.com/watch?v=sX6n9lL_9F8&t=748s):13 題比 13 次便宜 12 倍 | ❓ 抽樣畫面只見「省錢小技巧:官方有數據」標題頁,數字未能以畫面核對 |
+
+### 2. 官方文件:影片說法已過時的部分
+
+依 TypeSafe 官方 `images.md` 與 `models.md`(2026-11-07 讀取):
+
+- ✅ **圖片**:PNG / JPEG 靜態圖;單檔 16 MiB;寬高各 280–1568 px;總像素 78,400–2,458,624。**超限直接拒絕、不縮放**;任一張出錯整個請求失敗(格式/尺寸回 `400`、大小回 `413`)。
+- ✅ **啟用標頭**:每個含圖片或 Box 題的請求都要帶 `TypeSafe-Danger-Zone-Images: true`,否則回 `400`。官方標示為 "Dreamer-ready",即未達正式環境標準。
+- ✅ **版本**:Box 題型需要 `jev-1.14.0`;圖片在 1.13 與 1.14 都能用。`jev-latest` 與 `jev-preview` 都是 `jev-1.14.0` 的別名,官方寫「目前沒有 preview build」。
+- ✅ **上下文**:預設每請求 64k、每題 32k;加 `TypeSafe-Danger-Zone-Long-Context: true` 可到 262k,官方說「更慢也更不準」。
+- ⚠️ **需修正**:§一、§十 寫的「上下文 32K、不支援圖片」已過時(§十 的「32K」應讀為「每題 32k」)。
+- ❓ **語言**:官方未列支援語言清單,只說讀「自然語言文字」。§18.1「英文最好」仍是影片與社群說法;中文精度要自己測。
+
+### 3. 官方 skill 對 §十四「心法三」的補正
+
+`typesafe-ai/skills` 的 `SKILL.md`(2026-11-07 讀取)有一句與 §十四 直接衝突的話:
+
+> "Confidence measures how concentrated an answer's probability distribution is, which is not the same as how likely the answer is to be correct."
+
+- ⚠️ **需修正**:§十四 心法三的表格以「信心度」決定自動執行或轉人工。官方 skill 明言 **confidence 不是正確機率的估計,不應直接當閘門**。心法三的「閾值跟操作風險掛鉤」仍成立,但閘門應改用 `noul` 的機率或分布設計,不要用 confidence。
+- ✅ **起手閾值**:skill 建議 `noul` 機率 **>0.7 讀為是、<0.3 讀為否**,中間區段視為「問題未定」,可另列一種情況處理;並提醒「不要過度擬合到少數測試案例」。
+- ✅ **算術與日期交給程式**:skill 原文明列「Arithmetic, dates」不適合問模型,與 §18.4 一致。
+- ✅ **Score 分布要看**:Score 的「位置」可能被拉向中間,遮住雙峰分布,要先看各級機率再決定程式讀哪一級。
+
+### 4. 第三方評測:舊結論「沒有獨立評測、沒有論文」已過時
+
+**arXiv 2609.37647《Evaluating and Benchmarking the System One Model Jev》**(Tobias Deußer 等 4 人,2026-09-29 v1、10-29 v2)。
+
+- ✅ **獨立性**:作者單位為 Bonn 大學、Lamarr Institute、Fraunhofer IAIS(另一位作者為 Accura AI Labs),**沒有 TypeSafe 隸屬、經費也未提及**;但未聲明是否有預發佈存取權,故「獨立」只能說「未見利害關係揭露」。
+- ✅ **規模與成本**:37 個資料集、zero-shot、346,009 次請求、總成本不到 US$10(評測對象為 `jev-1.13.0`)。
+- ✅ **準確率**:IMDB、SST-2、HellaSwag、ARC 等分類準確率 95–99%;勝過 Qwen 27/37 個資料集、勝過 Gemma 37/37。
+- ✅ **校準(§4.3)**:Choice 機率 22 個資料集合併 ECE **0.028**(279,925 個答案),但個別差很大:Emotion **0.279**、AfriXNLI 0.165;20/22 資料集為**過度自信**。
+- ✅ **選擇性預測**:只保留 50% 最有把握的題目時,Banking77 準確率 **79.7% → 96.3%**;SIB-200 81.5% → 98.2%;ANLI 73.9% → 86.9%;Emotion 58.5% → 73.3%。
+- ✅ **門檻**:UNFAIR-ToS 二元題,每題各自調門檻(在 1,000 筆訓練/驗證資料上調)後 micro-F1 從 **0.499 → 0.748**。
+- ✅ **弱點**:序列決策表現差——ALFWorld(未見任務)完成 35%、TextWorld 42%、BabyAI-Text 21%;FrozenLake 幾乎不繞開洞、常重複無效動作;Qwen 在 ALFWorld / TextWorld 較好(54.5% / 51.1%)。
+- ✅ **限制(作者自述)**:每資料集只用一個 prompt 且未調參、單次執行、未量 run-to-run 變異、不能偵測「記住的問答配對」、只測 jev-1.13.0。
+
+**對本筆記的意義**:
+
+- 它**補上了** §八 的「沒有論文、沒有第三方」:現在有可讀的獨立量測。
+- 它**沒有揭露 RLCD 方法**;§十二「校準訓練是 TypeSafe 真正的功夫」的判斷仍成立。搜尋也未找到 RLCD 方法論文(❓ 見 §6)。
+- 它的校準數字是**群體統計**:ECE 0.028 是 22 個資料集的合併值,而 Emotion 為 0.279。正好佐證 §12.5「校準要在自己的資料分布上測」。
+
+### 5. jevlike 程式碼核對(§九)
+
+[vinnylarouge/jevlike](https://github.com/vinnylarouge/jevlike)(MIT)。README 明說「**TypeSafe has not published its design**」、「research starter, not a copy of Jev」,與 §九 一致。
+
+- ✅ **架構**(`jevlike/model.py` `AttentionHead`,約第 12–43 行):每個選項先做 token embedding 的平均得到向量,投影成 **query**;context 投影成 key / value;query 與 key 做 softmax 注意力,加權 value 得到「被注意後的上下文向量」 `attended`;最後 `logits = (query * attended).sum(-1) / √rank`,跨選項做 softmax。
+  - §九 的流程圖「查詢向量 → 注意力 → 點積 → softmax」**順序正確**;補充一點:點積是 **query 與 attended 上下文**之間,不是選項直接與原始 context 點積。
+- ✅ **預設編碼器**(`TinyScorer`):從零學的 byte embedding(詞表 257)。可選 `--encoder hf`(`FrozenTransformerScorer`)凍結 Hugging Face 編碼器,只訓練小 head。§九「凍結 Qwen2.5-0.5B」對應的是這個選項。
+- ❓ **數字**:98%(合成資料)、26% vs 8%(Wikipedia 點擊資料)、「八選項快約 100 倍」都是 README 自述的實驗。**本次未重新訓練或執行,不能獨立確認。**
+- ✅ **評測工具**(`jevlike/eval.py`):top-1、top-3、**ECE**(10 個信心分桶,第 37–43 行)、以及 **shuffled-context 對照**(第 65 行,把上下文錯配給選項)。模型若在錯配對照下仍很準,代表它沒在讀上下文。
+
+### 6. 其他查證
+
+- ✅ **InstructGPT 作者**:arXiv 2203.02155(Ouyang 等,2022)作者列表中 **Diogo Almeida 為第 4 作者**。§一的說法正確。
+- ❓ **RLCD 方法論文**:WebSearch 未找到獨立論文,僅 TypeSafe 自己的材料;一處西班牙文來源提到 IEEE COMPSAC 2026 論文,無法確認內容,不採信。
+- ❓ **「Reddit 上 4.21 億參數的雙向 BERT」**:WebSearch 找不到對應專案。次級來源列出的近似開源選項是 `OpenSystem1-classifier`(ModernBERT zero-shot)與 `Verdict-open-jev`(ModernBERT + GLiClass),**參數量與原始 repo 均未讀**。§十三.5 維持「未能核實」,但可補一句「類似的 ModernBERT 系分類器確有人做」。
+- ❓ **「13 題 12.2× 便宜、10.0× 快」**:仍只有 jevapi.org(自稱與 TypeSafe 無關)引用 cookbook,未能查到 TypeSafe 原始 cookbook。
+
+### 7. 應用案例(本節)
+
+1. **用 jevlike 的對照組檢查你自己的判斷題**:準備一批有標註的資料,先跑正常上下文,再跑 shuffled-context;兩者準確率差距太小,代表模型幾乎沒用到上下文,這個題目要重寫,不是換模型。
+2. **用官方 skill 的閾值起手,再用自己的資料調**:`noul` 機率 >0.7 讀為是、<0.3 讀為否、中間轉人工;把中間區段的比例記下來,它太大就代表題目寫得不夠窄。
+3. **選擇性預測當上線條件**:仿效論文的做法,只對最有把握的 50% 自動處理,其餘轉人工;先在自己的資料上確認「保留的部分準確率」真的提高,再決定覆蓋率。
 
 ---
 
@@ -1584,6 +1669,7 @@ grep -rn "json.loads\|JSON.parse" --include=*.py --include=*.ts . | grep -i "res
 
 > ⚠️⚠️ **這是一個發布三天的商業產品,所有效能宣稱目前都只有官方口徑,
 > **沒有任何第三方獨立評測,也沒有論文或消融實驗**。
+> ⚠️ **2026-11-07 更新:此句已過時。** 已有 arXiv 2609.37647 第三方評測(37 資料集,作者與 TypeSafe 無隸屬關係),但它**未揭露 RLCD 方法**,評測數字仍不等於官方方法的證明。見延伸節 §4、§5。
 > ⭐ 本文整理其設計思路與社群質疑,不對其效能宣稱背書。**
 
 ---
@@ -1637,4 +1723,5 @@ grep -rn "json.loads\|JSON.parse" --include=*.py --include=*.ts . | grep -i "res
 - [不会打字的AI,有啥用?程序员给了1777赞 ChatGPT作者的新作 — Why QQ](https://www.youtube.com/watch?v=pEMIF2Cu1mA)(2026-09-17,約 9.7 分鐘,官方 zh-Hans 字幕)
 - ⭐⭐ **一手素材**:[Introducing System One models and Jev — TypeSafe AI 官方部落格](https://typesafe.ai/blog/introducing-system-one-models-and-jev)(**定價、延遲、RLCD、零幻覺框架、評測方法皆已對此頁核實**)
 - [vinnylarouge/jevlike — GitHub](https://github.com/vinnylarouge/jevlike)(開源起步專案,**作者明說非 Jev 複刻**)
+- §延伸節(2026-11-07)的核實來源:[typesafe-ai/skills — SKILL.md](https://github.com/typesafe-ai/skills)、[vinnylarouge/jevlike](https://github.com/vinnylarouge/jevlike)(已 clone 讀)、[官方 images 頁](https://docs.typesafe.ai/go/images.md)、[官方 models 頁](https://docs.typesafe.ai/go/models.md)、[arXiv 2609.37647 — Evaluating and Benchmarking the System One Model Jev](https://arxiv.org/abs/2609.37647)、[arXiv 2203.02155 — InstructGPT](https://arxiv.org/abs/2203.02155)
 - 延伸:本庫 [[multi-agent-data-consistency-reliability]](強型別約束與結構化輸出)、[[agent-paid-api-cost-guardrails-mcp]](讓無人值守成為可能的另一半:外部護欄)、[[jalapeno-inference-benchmark-boundaries]](⚠️ 傑文斯效應的另一面)、[[token-vs-embedding-llm-and-rag]]、[[kv-cache]]、[[gpt-6-astra-token-efficiency-and-harness]]。

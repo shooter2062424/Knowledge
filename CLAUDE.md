@@ -127,3 +127,11 @@ scripts/      通用腳本,按功能分類
   1. ⭐⭐ **優先用 `AskUserQuestion` 問使用者**,把原字幕、上下文和候選答案列出來讓使用者選。
   2. 使用者沒空回答(例如排程在無人時執行)時,**先記錄到 `TRANSCRIPT-PENDING.md`**(影片、時間點、原字幕、候選、目前筆記寫法),筆記裡標「推定」,之後再問。
 - 使用者確認後:股票名寫進 `scripts/market/stock_name_aliases.csv`,術語補進上面的對照表,並把 `TRANSCRIPT-PENDING.md` 對應項目移除、更新筆記。
+
+### 影片筆記的「時間、畫面、延伸」校正流程(2026-11-07 使用者要求,之後一律照做)
+完整流程見 skill `video-transcript-verify`(ai-grocery 倉庫,`plugins/knowledge-tools/skills/video-transcript-verify/SKILL.md`);工具是 `scripts/youtube/transcript_tools.py`(`fetch` 帶時間字幕、`find` 精確時間與連結、`frames` 影片截圖)。重點:
+1. ⏱️ **時間絕對不可錯**:給使用者的時間點只能來自帶時間逐字稿的 `[m:ss]`(用 `find` 查),禁止「約 X:XX」;逐字稿一律保留時間(官方字幕存 VTT 時間,不要存成無時間純文字);連結提前 10 秒;找不到詞就寫找不到。
+2. 👁️ **看影片畫面,不只看字幕**:專有名詞、數字、圖表、論文/repo 畫面處截圖讀圖(白白说大模型、Why QQ 等有燒錄字幕與投影片,可直接讀到正確拼法)。
+3. 📚 **依字幕與畫面中的論文/技術/工具 keyword 查一手資料延伸**(arXiv、官方文件、GitHub、官方部落格,有 repo 就 clone 讀),把真的讀到的內容寫進「延伸閱讀與深度補充」,並標「已核實/需修正/未能核實」。
+4. 🙋 **需要使用者判斷的題目集中成一頁 Artifact**(每題附「從 X:XX 開始、目標句 Y:YY」連結、`db` 存選擇),不要在對話裡一題一題問;使用者填完後用 `ArtifactData` 讀回、更新筆記並清掉 `TRANSCRIPT-PENDING.md`。
+5. 🎙️ 語音辨識引擎:一般中文用 SenseVoice-Small(CPU 約 12 倍即時,專有名詞仍要畫面校正),中英夾雜/英文用 faster-whisper `large-v3-turbo` int8 + `initial_prompt`;`small` 只當備援。

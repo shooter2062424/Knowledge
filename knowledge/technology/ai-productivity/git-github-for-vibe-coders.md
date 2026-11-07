@@ -80,6 +80,7 @@ flowchart LR
 - **branch 的致命傷:** 雖然能切換不同狀態,但**你終究只有一張辦公桌,同一時間只能顯示一個平行時空**。硬叫兩個 AI 同時在這唯一的桌子上做事(一個看資料庫藍圖、一個看 UI 設計稿),它們會**為了搶這張桌子的顯示狀態而大打出手**——你明明在資料庫的 branch 上,裡面卻混進了修改 UI 的 commit,Git 狀態變得非常混亂。
 - **worktree = 第二張實體的桌子**:跟 Claude Code 說要開 worktree,它會在你電腦裡**生出一個全新的實體資料夾**,讓兩個時空**同時並存**。
 - **最棒的是:這些桌子連通同一個 Git 記憶庫** → Agent A 去第一張桌子負責資料庫 branch、Agent B 去第二張桌子負責 UI branch,**各司其職、平行開發效率拉滿、完全不互相干擾**。
+  - **需修正(2026-11-07 核實):** 「各自獨立」只成立在「每張桌子檢出不同分支」時。官方規則是同一分支不能同時檢出在兩個 worktree(`git worktree add` 預設拒絕,`-f` 可覆寫),所以兩個 Agent 要各開一條自己的 branch。來源見文末「延伸閱讀與深度補充」。
 - **為什麼現在才紅:** 以前工程師不太用 worktree(一個人沒三頭六臂,一次專心做一件事);但**身為 Vibe Coder,你很可能同時開兩三個 AI Agent 平行工作**,而不是呆呆排隊等一個做完換下一個。
 
 ```mermaid
@@ -231,6 +232,67 @@ flowchart LR
 
 > 核實:Git/GitHub 的概念與行為屬通用知識,與前文一致;影片未涉及版本或商品聲稱,無需對照一手來源。影片結尾的訂閱與 Hype 呼籲屬自我推廣,未納入。
 
+
+---
+
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+> 本節依影片逐字稿(帶時間)、四張影片畫面與 git-scm / GitHub 官方文件整理。時間點皆由逐字稿查得,連結已提前 10 秒。
+
+### 字幕還原(自動字幕同音字校正)
+
+| 字幕寫法 | 還原 | 依據 |
+|---|---|---|
+| Gate / Gate Hub / GateUp | Git / GitHub / GitHub | 語意判斷;影片以「Gate 是記帳方法、Gate Hub 是網站」區分 [1:46](https://www.youtube.com/watch?v=o1EQ5wezMyA&t=96s) |
+| Puller Request | Pull Request | 逐字稿 [8:59](https://www.youtube.com/watch?v=o1EQ5wezMyA&t=529s) 旁白說明「大家平常直接叫它 PR」 |
+| DIF | diff | 同上段,「綠色是加上去的、紅色是刪掉的」 |
+| 插路 / 岔路 / 插組 | 分支(branch) | 畫面標題 `§4 branch` 印證 |
+| 主纹 / 主纤 / 主限 | 主線(main) | 語意判斷 |
+| Commeter 是你的純檔點 | Commit 是你的存檔點 | 語意判斷,與前文 §七 一致 |
+
+### 畫面核對
+
+- 已看 4 張投影片截圖(影片截圖時間 2:16、6:29、8:15、9:12):標題依序為 `§3 commit`、`§4 branch`、`§5 解法`、`§6 PR`,印證 commit / branch / PR 拼寫。
+- 「大部分…」(6:29 附近)、「Git 給你留了一個位置處理這個」(8:12 附近)、「你在岔路上做完了一件事,先別直接合回主線」(9:12 附近)為投影片原文,與字幕一致。
+- 投影片**沒有**出現 Gate / Puller Request 等詞,上表的校正以語意判斷,標為「語意判斷」而非畫面確認。
+
+### 影片重點的時間點(逐字稿查得)
+
+- commit 是「盖章」、存檔點:[2:22](https://www.youtube.com/watch?v=o1EQ5wezMyA&t=132s)
+- 判斷一「只要現在這個狀態還能跑就 commit」:[3:08](https://www.youtube.com/watch?v=o1EQ5wezMyA&t=178s)
+- 「大部分公司…禁止你直接動 main」:[6:29](https://www.youtube.com/watch?v=o1EQ5wezMyA&t=379s)
+- 公開倉庫 + API key 外洩:[7:52](https://www.youtube.com/watch?v=o1EQ5wezMyA&t=462s)
+- `.gitignore`:[8:15](https://www.youtube.com/watch?v=o1EQ5wezMyA&t=485s)
+- PR 與 diff:[8:59](https://www.youtube.com/watch?v=o1EQ5wezMyA&t=529s)
+- 審 AI 的 PR 順序:[10:05](https://www.youtube.com/watch?v=o1EQ5wezMyA&t=595s)
+- 三個新手坑:[11:31](https://www.youtube.com/watch?v=o1EQ5wezMyA&t=681s)
+- 第一個行動(`git init`、`git add`、`git commit`):[13:09](https://www.youtube.com/watch?v=o1EQ5wezMyA&t=779s)
+
+### 核實結果
+
+| 主張 | 結果 | 來源 |
+|---|---|---|
+| **worktree 各自獨立** | **需修正**:同一分支不能同時檢出在兩個 worktree(`add` 預設拒絕,`-f` 可覆寫);共享 `refs/`、config,各自有 HEAD 與 index。移除請用 `git worktree remove`,直接刪資料夾會留殘留紀錄,之後用 `git worktree prune` 清。 | [git-worktree 官方文件](https://git-scm.com/docs/git-worktree) |
+| **revert 是加反向 commit、保留歷史** | **已核實**:`git revert` 記錄新 commit 反向抵消舊改動;執行前工作區需乾淨。 | [git-revert 官方文件](https://git-scm.com/docs/git-revert) |
+| **金鑰外洩要先撤銷/重發** | **已核實**:GitHub 官方第一步是 revoke 和/或 rotate;改寫歷史不能清掉他人 clone 與 fork 的資料,且 GitHub Support 只在無法靠輪替緩解時協助移除快取內容。§七.3 的「先到服務商撤銷並重發」正確,但需補充「改寫歷史不等於已外洩資料被清除」。 | [Removing sensitive data from a repository](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository) |
+| **公開倉庫 secret 掃描與 push protection** | **已核實(新增)**:secret scanning 與 push protection 對公開倉庫預設啟用;push protection 會在 push 時擋下 hardcode 的 secret,繞過會產生警示;偵測到的公開 secret 會通知服務商。**但這不是保險**:本次未核實其對各種 key 格式的覆蓋率,不應依賴。影片所說「不會當場爆錯」指的是無此防護的情境。 | [GitHub security features](https://docs.github.com/en/code-security/getting-started/github-security-features) |
+| **私人倉庫 / 免費帳號** | **已核實**:公開倉庫任何人可見且可 fork;私人倉庫限制存取。免費帳號可開私人倉庫,但改為私人後部分功能(如 GitHub Pages)不可用。**未能核實**:2019 年報導的「每個私人 repo 最多 3 位協作者」是否仍適用。 | [Setting repository visibility](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)、[2019 報導(The Register)](https://www.theregister.com/2019/01/07/github_free_private_repos/) |
+| **「大部分公司禁止直接動 main」** | **未能核實**:這是影片原話,未找到統計來源。官方 branch protection 文件說明可用「要求 PR」或限制推送來阻擋直接 push(並非預設行為)。 | [About protected branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) |
+
+### 延伸閱讀(本次實際讀過)
+
+- **git worktree**:官方手冊說明共享與獨立的狀態範圍、`remove` 只接受乾淨 worktree、`prune` 用途。對應 §三「第二張桌子」比喻,但比喻需加上「同一分支不能兩處檢出」的限制。
+- **git revert**:對應 §五「已 commit 用 revert」。官方範例 `git revert HEAD~3` 會建立一個新 commit,不改寫既有歷史。
+- **GitHub 安全功能**:對應 §七.3。公開倉庫的 secret scanning / push protection 是防線之一,但仍應把 `.gitignore` 與「push 前確認公開或私人」當作主要做法。
+- **GitHub 移除敏感資料**:對應 §七.3。官方建議順序為「先撤銷/輪替,再視需要改寫歷史」。
+
+### 應用案例(本節)
+
+1. **兩個 Agent 平行做事**:Agent A 在 `db-schema` 分支用 worktree `../wt-db`,Agent B 在 `ui-login` 分支用 `../wt-ui`。若有人想讓 B 也檢出 `db-schema`,`git worktree add` 會拒絕,這時應開新分支而非強行 `-f`。
+2. **誤把 key 推上公開倉庫**:先到服務商後台撤銷並重發 key → 確認 `.env` 已進 `.gitignore` → 視需要用 git filter 改寫歷史 → 提醒協作者重新 clone。順序不可顛倒:改寫歷史後,舊 key 仍可能被他人或 fork 取得。
+3. **用 `git revert` 撤銷壞掉的 commit**:不要 `reset --hard` 刪歷史,而是 `git revert <commit>` 產生反向 commit,協作者在歷史裡仍看得到「加錯、又抵消」的完整過程。
+
+> 未核實/未處理:影片日期「2026-09-29」與頻道資訊未以 YouTube 頁面再次核對;「Commit message 寫法」屬實務建議,未對照外部慣例文件。
 
 ---
 

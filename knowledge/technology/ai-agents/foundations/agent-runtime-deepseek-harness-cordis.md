@@ -659,9 +659,9 @@ flowchart TB
 
 | 層面 | 概念 | 影片說法 | 原始碼核實 |
 |---|---|---|---|
-| **軟體系統** | **Plugin(插件)** | 每個插件宣告自己提供什麼服務、需要什麼依賴,由 Cordis 登記並「牽線搭橋」 | ✅ 即第二節的 service / `inject`。影片說 Agent Loop「需要六項服務」**未逐一核對數字** |
+| **軟體系統** | **Plugin(插件)** | 每個插件宣告自己提供什麼服務、需要什麼依賴,由 Cordis 登記並「牽線搭橋」 | ✅ 即第二節的 service / `inject`。影片說 Agent Loop「需要六項服務」,**已核實數字為 6**(見 10.5) |
 | | **Profile(運行方式)** | `dsh --profile web` 指定本次以哪種方式啟動,只載入需要的插件 | ✅ `web`、`headless`、`sdk`、`sdk-minimal`、`acp` 五個內建範本;`dsh <name>` 為簡寫 |
-| | **Bundle(組合包)** | 把一堆完成特定功能的插件打包,profile 直接寫 bundle 名,可重用 | ✅ `dsh-base`(模型轉接、工具、持久化、沙箱與核准、設定、憑證、遙測)、`dsh-web-app`(瀏覽器應用)等;bundle 在自己的 `package.json` 用 `dsh.bundle.patch` 指向 patch 檔 |
+| | **Bundle(組合包)** | 把一堆完成特定功能的插件打包,profile 直接寫 bundle 名,可重用 | ✅ `dsh-base`(模型轉接、工具、持久化、沙箱與核准、設定、憑證、遙測)、`dsh-web-app`(瀏覽器應用)等;bundle 在自己的 `package.json` 的 `dsh` 欄位宣告:`dsh.profile` 列出 profile 的 bundle,`dsh.bundle` 指向該 bundle 的 patch 檔(2026-11-07 依 `docs/architecture.md` 更正欄位名稱) |
 | **Agent 層面** | **Preset(Agent 預設)** | Agent 約等於「模型 + 系統提示詞 + Agent 迴圈 + 工具 + Skills」,Preset 就是一組預設,建立 session 時可選 | ✅ 但**有一個重要細節**:見 10.2 |
 
 ```mermaid
@@ -710,11 +710,51 @@ flowchart TB
 |---|---|
 | Profile / Bundle / Plugin / Preset 概念與四個內建 preset | 已核實(repo 原始碼) |
 | 「Agent = 模型 + 提示詞 + 迴圈 + 工具 + Skills」 | 需修正:preset 不含模型路由(10.2) |
-| Agent Loop 需要「六項服務」 | 未能核實 |
-| 圖片生成接「ZMG」模型 | 未能核實(字幕音譯) |
+| Agent Loop 需要「六項服務」 | ✅ 已核實(2026-11-07):`packages/core/agent-loop/src/index.ts` 的 `static inject` 共 6 項 |
+| 圖片生成接「ZMG」模型 | ✅ 已核實為 Z-Image(Turbo)(見下節「延伸閱讀與深度補充」) |
 | repo 狀態 | developer preview,細節可能變動(同本文末段時效性提醒) |
 
 > 影片為自動字幕,同音字誤差多,已校正:「Deepsec/DeepSeq/DbscHarness」=DeepSeek Harness、「Cortis/Cortice/Carnage」=Cordis、「processet/Procept」=Preset、「揉件/拆件」=插件、「DSHGunbase」=dsh-base、「ADN/AZN/Aging」=Agent、「v6」推定為 video。
+
+## 延伸閱讀與深度補充(2026-11-07 核實增補)
+
+**核實方法**:(1)影片畫面截圖 7 張,時間點 2:00、2:45、3:05、3:30、4:59、5:00、6:04、6:09(畫面確認了啟動指令、bundle 名稱、Codex 提示詞與 profile 命名);(2)讀 GitHub 上 `deepseek-ai/deepseek-harness` 的 `docs/architecture.md` 與 `packages/core/agent-loop/src/index.ts`;(3)查 Z-Image-Turbo 的第三方託管頁。
+
+**影片畫面與字幕對照**
+
+- **啟動指令** `[1:56]`:字幕寫「pmpm dsh web」,畫面 2:00 顯示 `pnpm dsh web`。repo 文件的完整寫法為 `dsh --profile web`,`dsh <name>` 是簡寫。`dsh --profile web --dump-config` 可印出實際生效的配置(已核實)。
+- **dsh-web-app 的內容** `[2:53]`:字幕稱它「在底座之上增加了 API、web server、UI 和 processor 管理」。`docs/architecture.md` 寫的是「adds the browser application」,未逐項列出 API 與 processor 管理,此處只能確認到瀏覽器應用這一層。
+- **dsh-base 的共用範圍**(畫面 2:45 顯示 `dsh-base` bundle 名稱;畫面 3:30 顯示 web 與 video 兩個 profile 都含 `dsh-base` 與 `dsh-web-app`)。repo 文件寫明:`web`、`headless`、`sdk`、`acp` 都以 dsh-base 為第一層,**`sdk-minimal` 是例外**,不套用 dsh-base。影片未提這一點。
+- **video profile 是作者自建,不是出貨內容** `[6:04]`–`[6:07]`:畫面 6:09 出現 `pnpm dsh video`。repo 出貨的 profile 只有 `web`、`headless`、`sdk`、`sdk-minimal`、`acp` 五個範本,video 需要使用者自己建立(與 10.3 一致)。
+
+**Agent Loop 的六項服務** `[1:23]`:已核實。`packages/core/agent-loop/src/index.ts` 的宣告為
+
+```ts
+static inject = ['agents', 'sessions', 'llm', 'tools', 'systemPrompt', 'sessionProjections']
+```
+
+共 6 項,影片數字正確。
+
+**圖片模型「ZMG」** `[4:59]`–`[5:02]`:已核實為 **Z-Image(Turbo)**。
+- 證據:畫面 4:59 是 Codex 的對話,使用者提示詞要求「開發一個 Cordis 插件,用於生成圖片」,並寫明圖片生成 API 為 `evolink.ai/z-image-turbo`。這是影片作者實際使用的服務。
+- 模型背景:第三方託管頁(SiliconFlow)描述 Z-Image-Turbo 為 6B 參數的開源文生圖模型,授權為 Apache 2.0,由阿里巴巴通義(Tongyi-MAI)團隊發布;**未能取得 Hugging Face 模型卡或阿里官方公告,「阿里通義」這個歸屬只來自第三方頁面,標為未能以一手來源核實。**
+- 不採用的說法:Atlas Cloud 聲稱它在 Artificial Analysis 圖像榜排名第一,這是廠商自述,未核實;兩個託管頁的價格也互相矛盾,不列入。
+
+**「Codex,Coder」** `[6:19]`:字幕寫「Codex,Coder 等這些編程 Agent」。畫面未顯示第二個名字。**推定為 Codex 與 Claude Code**,未能核實。
+
+**修正的既有敘述**(已改入正文):
+- §10.1 的 bundle 宣告欄位:原寫 `dsh.bundle.patch`,repo 文件是 `package.json` 的 `dsh` 欄位,其中 `dsh.bundle` 指向 patch 檔。
+- §10.5 的 Agent Loop「六項服務」與 ZMG 兩列,由「未能核實」改為已核實。
+
+**仍未核實**:
+- 影片說 dsh-web-app 增加的 API、processor 管理等細節,未逐項對照 `packages/bundle/web-app/README.md`。
+- 影片沒有給出自建 video profile 的完整 bundle 與 preset 內容,無法比對。
+
+**來源**
+- [deepseek-ai/deepseek-harness `docs/architecture.md`](https://github.com/deepseek-ai/deepseek-harness/blob/main/docs/architecture.md)
+- [deepseek-ai/deepseek-harness `packages/core/agent-loop/src/index.ts`](https://github.com/deepseek-ai/deepseek-harness/blob/main/packages/core/agent-loop/src/index.ts)
+- [Z-Image-Turbo — SiliconFlow 模型頁(第三方託管,描述來源)](https://www.siliconflow.com/models/z-image-turbo)
+- [Z-Image-Turbo — Atlas Cloud 模型頁(廠商自述,僅作對照)](https://www.atlascloud.ai/models/z-image/turbo)
 
 ## 應用案例
 
