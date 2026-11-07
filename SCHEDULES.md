@@ -244,7 +244,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 
 ## 1. GitHub Weekly 週報整理(細則;2026-11-07 起併入排程 A)
 
-> ⭐⭐ **語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID、網址或檔案> -o <輸出.txt> [--prompt "詞表"|--prompt-file f]`**(2026-11-08 使用者決定):引擎固定 faster-whisper `large-v3-turbo` int8、參數與 `[m:ss]` 輸出格式都在腳本裡,YouTube ID 會自動下載音訊並清暫存。**不要自己 inline 寫 `WhisperModel(...)`、不要換 `small`**;成敗看最後一行 `segments N`,一律前景執行。下文各處殘留的 inline 轉錄參數僅是歷史說明,以本腳本為準。
+> ⭐⭐ **語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID、網址或檔案> -o <輸出.txt> [--clip 起-迄 --prompt "詞表"(僅「定點重轉不通順處」時用)]`**(2026-11-08 使用者決定):引擎固定 faster-whisper `large-v3-turbo` int8、參數與 `[m:ss]` 輸出格式都在腳本裡,YouTube ID 會自動下載音訊並清暫存。**不要自己 inline 寫 `WhisperModel(...)`、不要換 `small`**;成敗看最後一行 `segments N`,一律前景執行。下文各處殘留的 inline 轉錄參數僅是歷史說明,以本腳本為準。 ⚠️ **不要預設帶 `--prompt` 詞表**(2026-11-08 十支影片基準:帶詞表 CER 6.9% 比不帶 5.8% 更差、術語召回沒提升;SenseVoice 整體 7.3% 也沒有比 turbo 好,中英夾雜尤其差,故固定 turbo)。流程:先不帶詞表轉錄 → 讀逐字稿 → **只有語句不通順、疑似專有名詞聽錯處**,才用 `--clip 起-迄 --prompt "正確詞表"` 定點重轉並取代;不通順靠讀稿與影片畫面判斷,不能靠 `avg_logprob`(分佈太窄抓不到)。
 
 ```text
 每日 GitHub Weekly 週報整理任務。⚠️ Knowledge repo 已於 2026-08-30 重整:筆記在 knowledge/、腳本在 scripts/。步驟:
@@ -272,7 +272,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 ## 2. Gary Chen 頻道(細則;2026-11-07 起併入排程 A)
 
-> ⭐⭐ **語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID、網址或檔案> -o <輸出.txt> [--prompt "詞表"|--prompt-file f]`**(2026-11-08 使用者決定):引擎固定 faster-whisper `large-v3-turbo` int8、參數與 `[m:ss]` 輸出格式都在腳本裡,YouTube ID 會自動下載音訊並清暫存。**不要自己 inline 寫 `WhisperModel(...)`、不要換 `small`**;成敗看最後一行 `segments N`,一律前景執行。下文各處殘留的 inline 轉錄參數僅是歷史說明,以本腳本為準。
+> ⭐⭐ **語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID、網址或檔案> -o <輸出.txt> [--clip 起-迄 --prompt "詞表"(僅「定點重轉不通順處」時用)]`**(2026-11-08 使用者決定):引擎固定 faster-whisper `large-v3-turbo` int8、參數與 `[m:ss]` 輸出格式都在腳本裡,YouTube ID 會自動下載音訊並清暫存。**不要自己 inline 寫 `WhisperModel(...)`、不要換 `small`**;成敗看最後一行 `segments N`,一律前景執行。下文各處殘留的 inline 轉錄參數僅是歷史說明,以本腳本為準。 ⚠️ **不要預設帶 `--prompt` 詞表**(2026-11-08 十支影片基準:帶詞表 CER 6.9% 比不帶 5.8% 更差、術語召回沒提升;SenseVoice 整體 7.3% 也沒有比 turbo 好,中英夾雜尤其差,故固定 turbo)。流程:先不帶詞表轉錄 → 讀逐字稿 → **只有語句不通順、疑似專有名詞聽錯處**,才用 `--clip 起-迄 --prompt "正確詞表"` 定點重轉並取代;不通順靠讀稿與影片畫面判斷,不能靠 `avg_logprob`(分佈太窄抓不到)。
 
 > ⚠️⚠️ **2026-09-06:handle 從 `@garytalksstuff` 改成 `@garychenai`,舊 handle 直接 404。**
 > **本排程已改用 channel ID `UC9C3t-3ocL0LiwGRD0gBJ8A`**,不受日後再改名影響。詳見共通踩坑。
@@ -339,7 +339,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 ## 4. 美投君 / 美投讲美股 頻道(細則;2026-11-07 起併入排程 A)
 
-> ⭐⭐ **語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID、網址或檔案> -o <輸出.txt> [--prompt "詞表"|--prompt-file f]`**(2026-11-08 使用者決定):引擎固定 faster-whisper `large-v3-turbo` int8、參數與 `[m:ss]` 輸出格式都在腳本裡,YouTube ID 會自動下載音訊並清暫存。**不要自己 inline 寫 `WhisperModel(...)`、不要換 `small`**;成敗看最後一行 `segments N`,一律前景執行。下文各處殘留的 inline 轉錄參數僅是歷史說明,以本腳本為準。
+> ⭐⭐ **語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID、網址或檔案> -o <輸出.txt> [--clip 起-迄 --prompt "詞表"(僅「定點重轉不通順處」時用)]`**(2026-11-08 使用者決定):引擎固定 faster-whisper `large-v3-turbo` int8、參數與 `[m:ss]` 輸出格式都在腳本裡,YouTube ID 會自動下載音訊並清暫存。**不要自己 inline 寫 `WhisperModel(...)`、不要換 `small`**;成敗看最後一行 `segments N`,一律前景執行。下文各處殘留的 inline 轉錄參數僅是歷史說明,以本腳本為準。 ⚠️ **不要預設帶 `--prompt` 詞表**(2026-11-08 十支影片基準:帶詞表 CER 6.9% 比不帶 5.8% 更差、術語召回沒提升;SenseVoice 整體 7.3% 也沒有比 turbo 好,中英夾雜尤其差,故固定 turbo)。流程:先不帶詞表轉錄 → 讀逐字稿 → **只有語句不通順、疑似專有名詞聽錯處**,才用 `--clip 起-迄 --prompt "正確詞表"` 定點重轉並取代;不通順靠讀稿與影片畫面判斷,不能靠 `avg_logprob`(分佈太窄抓不到)。
 
 > ⚠️ 該頻道影片**幾乎都無字幕**、多為 20+ 分鐘,基本上每支都要走 Whisper。
 
@@ -376,7 +376,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 ## 5. YouTube 來源總巡檢(排程 A,每日 07:03 / `3 7 * * *`;含八個巡檢頻道細則)
 
-> ⭐⭐ **語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID、網址或檔案> -o <輸出.txt> [--prompt "詞表"|--prompt-file f]`**(2026-11-08 使用者決定):引擎固定 faster-whisper `large-v3-turbo` int8、參數與 `[m:ss]` 輸出格式都在腳本裡,YouTube ID 會自動下載音訊並清暫存。**不要自己 inline 寫 `WhisperModel(...)`、不要換 `small`**;成敗看最後一行 `segments N`,一律前景執行。下文各處殘留的 inline 轉錄參數僅是歷史說明,以本腳本為準。
+> ⭐⭐ **語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID、網址或檔案> -o <輸出.txt> [--clip 起-迄 --prompt "詞表"(僅「定點重轉不通順處」時用)]`**(2026-11-08 使用者決定):引擎固定 faster-whisper `large-v3-turbo` int8、參數與 `[m:ss]` 輸出格式都在腳本裡,YouTube ID 會自動下載音訊並清暫存。**不要自己 inline 寫 `WhisperModel(...)`、不要換 `small`**;成敗看最後一行 `segments N`,一律前景執行。下文各處殘留的 inline 轉錄參數僅是歷史說明,以本腳本為準。 ⚠️ **不要預設帶 `--prompt` 詞表**(2026-11-08 十支影片基準:帶詞表 CER 6.9% 比不帶 5.8% 更差、術語召回沒提升;SenseVoice 整體 7.3% 也沒有比 turbo 好,中英夾雜尤其差,故固定 turbo)。流程:先不帶詞表轉錄 → 讀逐字稿 → **只有語句不通順、疑似專有名詞聽錯處**,才用 `--clip 起-迄 --prompt "正確詞表"` 定點重轉並取代;不通順靠讀稿與影片畫面判斷,不能靠 `avg_logprob`(分佈太窄抓不到)。
 
 > 2026-09-01 新增,同日首次執行後依實測結果修訂。緣由:盤點發現 README 作者索引共 **49 位,
 > 先前僅 3 位有排程涵蓋**,pi agent / MCP / Codex / CS336 等內容都得靠手動丟連結補。
@@ -385,7 +385,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 ```text
 每日巡檢 Knowledge repo 的 12 個 YouTube 來源,把新影片整理成繁中筆記。⚠️ Knowledge repo 筆記在 knowledge/、腳本在 scripts/。
-⭐ 完整規則的唯一來源是 C:\Users\shoot\project\Knowledge\SCHEDULES.md:開跑前先 Read 第 5 節(含頻道清單與共通規則),再依來源讀第 1(IT咖啡馆 GitHub Weekly)、2(Gary Chen)、4(美投君)節的細則;各節 code block 內的步驟就是本任務的作業流程,照做。
+⭐ 完整規則的唯一來源是 C:\Users\shoot\project\Knowledge\SCHEDULES.md:開跑前先 Read 第 5 節(含頻道清單與共通規則),再依來源讀第 1(IT咖啡馆 GitHub Weekly)、2(Gary Chen)、4(美投君)節的細則;各節 code block 內的步驟就是本任務的作業流程,照做。⭐⭐ 語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID或檔案> -o <輸出.txt>`(固定 large-v3-turbo;**預設不帶 --prompt 詞表**,實測帶了更差;讀稿遇到語句不通順、疑似專有名詞聽錯處,才用 `--clip 起-迄 --prompt "正確詞表"` 定點重轉並取代),不要自己 inline 寫 WhisperModel、不要換 small、不要自己加 no_repeat_ngram_size;官方字幕優先,其次自動字幕(`scripts/youtube/transcript_tools.py fetch` 兩者都會抓),都沒有才轉錄。
 來源分兩組(一律用 channel ID,不用 handle;回報時用頻道中文名):
 A 核心三來源,有新的就全部處理、不受 2–3 篇上限:① IT咖啡馆 GitHub Weekly(UCXLV-KfDQAFUJ_as9H1Lfbw,第 1 節)② Gary Chen(UC9C3t-3ocL0LiwGRD0gBJ8A,第 2 節)③ 美投君/美投讲美股(UCBUH38E0ngqvmTqdchWunwQ,第 4 節,幾乎每支都要 Whisper)。
 B 其餘九頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模型、小Lin说、Redknot-乔红、Nick 美股咖啡館、轩辕的编程宇宙、橘鸦Juya(UCIDll3SRcbHwwcXbrwvBZNw,每日 AI 早報短影片,見第 5 節說明:同週早報併成週報式筆記並對官方來源核實,不逐日一篇)(清單與 ID 見第 5 節;規則照第 5 節,含「每次最多 2–3 篇、先增補既有筆記」)。
@@ -565,7 +565,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 ## 6. `new/` 收件匣巡檢(排程 B,每日 08:37 / `37 8 * * *`;2026-11-07 改為「資料夾 = 一批」)
 
-> ⭐⭐ **語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID、網址或檔案> -o <輸出.txt> [--prompt "詞表"|--prompt-file f]`**(2026-11-08 使用者決定):引擎固定 faster-whisper `large-v3-turbo` int8、參數與 `[m:ss]` 輸出格式都在腳本裡,YouTube ID 會自動下載音訊並清暫存。**不要自己 inline 寫 `WhisperModel(...)`、不要換 `small`**;成敗看最後一行 `segments N`,一律前景執行。下文各處殘留的 inline 轉錄參數僅是歷史說明,以本腳本為準。
+> ⭐⭐ **語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID、網址或檔案> -o <輸出.txt> [--clip 起-迄 --prompt "詞表"(僅「定點重轉不通順處」時用)]`**(2026-11-08 使用者決定):引擎固定 faster-whisper `large-v3-turbo` int8、參數與 `[m:ss]` 輸出格式都在腳本裡,YouTube ID 會自動下載音訊並清暫存。**不要自己 inline 寫 `WhisperModel(...)`、不要換 `small`**;成敗看最後一行 `segments N`,一律前景執行。下文各處殘留的 inline 轉錄參數僅是歷史說明,以本腳本為準。 ⚠️ **不要預設帶 `--prompt` 詞表**(2026-11-08 十支影片基準:帶詞表 CER 6.9% 比不帶 5.8% 更差、術語召回沒提升;SenseVoice 整體 7.3% 也沒有比 turbo 好,中英夾雜尤其差,故固定 turbo)。流程:先不帶詞表轉錄 → 讀逐字稿 → **只有語句不通順、疑似專有名詞聽錯處**,才用 `--clip 起-迄 --prompt "正確詞表"` 定點重轉並取代;不通順靠讀稿與影片畫面判斷,不能靠 `avg_logprob`(分佈太窄抓不到)。
 
 > 緣由:使用者要求「建立 `new/` 資料夾,有新東西(例如太大的檔案)就放這裡,定時來搜尋;整理完把資料夾加上 `done-` 前綴,下次就不會再處理」。
 > - `new/` 已加入 `.gitignore`,**素材本身永不進版控**,只有整理出的筆記進 repo。
@@ -578,7 +578,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 步驟:
 1. 列出 new/ 底下名稱不以 `done-` 開頭的子資料夾:ls -1 new/ | grep -v '^done-'。沒有就只回報「收件匣無新素材」,不 commit。一次只處理一個資料夾(多個就依資料夾修改時間由舊到新,處理完一個再下一個)。
 2. 盤點整個資料夾:每個檔的類型、大小、頁數/長度。影片/音檔用 PyAV 看長度與音軌;PDF 用 Read(pages 參數,每次最多 20 頁);圖片直接 Read;文字/Markdown 直接讀;.zip 解到 %TEMP% 下全新空目錄,讀完刪除(只整理重點,程式碼不放進 repo)。檔名常含作者與標題線索,用 WebSearch 找原始出處網址放進「來源」。**每個檔都要真的讀內文**(PDF 不能只看標題或第一頁);讀不了(損毀、加密、掃描圖檔無文字)就記下檔名與原因。⭐ **PDF 一律先用 python scripts/media/extract_images.py scan / text / figures 盤點**:`text` 取出可複製文字(筆記要寫的是可複製文字內容,不是貼整頁圖);`figures` 列出內嵌圖並標出頭像/logo/裝飾(略過)與候選圖表。**獨立圖檔、候選圖表、以及沒有文字層的輪播式 PDF(每頁就是一張圖)都要用 Read 看**,把圖裡的資訊(數據、架構、流程、文字)讀進筆記;無文字層的頁面由你看圖轉寫成 Markdown 文字。
-3. 影片/音檔轉錄:**一律呼叫 python scripts/media/whisper_transcribe.py <檔案或 YouTube ID> -o <逐字稿.txt> --prompt "<標題/說明欄/人名工具名詞表>"**(固定 faster-whisper large-v3-turbo int8,輸出帶 [m:ss],不要自己 inline 寫 WhisperModel、不要換 small)。成敗看最後一行 `segments N`;stderr 的 numpy/`_ARRAY_API` 警告可忽略;⚠️ 一律「前景」跑,不要 nohup 背景;轉完看結尾有無同句重複(腳本會警告幻覺迴圈)。逐字稿再 Read(大檔分段讀)。
+3. 影片/音檔轉錄:**一律呼叫 python scripts/media/whisper_transcribe.py <檔案或 YouTube ID> -o <逐字稿.txt>**(固定 faster-whisper large-v3-turbo int8,輸出帶 [m:ss],不要自己 inline 寫 WhisperModel、不要換 small;⚠️ **預設不要帶 --prompt 詞表**,實測帶了更差;讀稿發現語句不通順、疑似專有名詞聽錯的段落,才用 --clip 起-迄 --prompt "正確詞表" 定點重轉並取代)。成敗看最後一行 `segments N`;stderr 的 numpy/`_ARRAY_API` 警告可忽略;⚠️ 一律「前景」跑,不要 nohup 背景;轉完看結尾有無同句重複(腳本會警告幻覺迴圈)。逐字稿再 Read(大檔分段讀)。
 4. 分門別類與比對既有筆記:把整個資料夾的內容依主題歸類(例如 5 份 ML 演算法 PDF 併成一篇、各職涯路線圖併成一篇)。**每個主題動筆前先 grep -rl "<關鍵字>" knowledge/ 比對既有筆記**:主題相近就增補編號章節到既有筆記(檔名不動,檔頭與來源同時列出),沒有才新建。素材內容重複的檔案在筆記裡合併敘述並註明。
 5. 依 CLAUDE.md 寫作規範整理繁中筆記(應用案例、Mermaid 用 ["..."] 並跑 python scripts/knowledge/lint_mermaid.py、結尾**完整網址**來源,歸三層結構最貼切中類)。可查證的規格/數字/論文/repo 讀一手來源內文後標「已核實/需修正/未能核實」;開源 repo 就 git clone --depth 1 讀原始碼(讀完刪除)。**來源區塊必須寫明批次**:「使用者提供的本機素材批次 `new/<資料夾名>/`(<日期>收件),檔案:<檔名清單或數量>」;轉錄註明引擎、非官方字幕。⭐⭐ **筆記要有三樣東西(使用者 2026-11-07 要求)**:①**可複製的文字內容**(PDF 用 text 取出,無文字層的輪播頁由你看圖轉寫)②**你的延伸閱讀與查證**(一手來源、官方文件、論文,標已核實/需修正/未能核實)③**原稿已做好的精美圖表**嵌進 Markdown。⛔ **不要把整頁文字投影片轉成一張大圖貼進筆記**(那對我們沒意義,文字無法複製);只放真正的圖表、架構圖、流程圖、資料圖:有內嵌圖用 extract_images.py embedded 取出;無文字層輪播頁中真有圖表的區塊用 crop 裁出(純文字區塊不放);整頁本身就是一張圖表才用 pages。輸出為壓縮圖(寬 ≤1100px、單檔 ≤220KB),存到筆記同層 `assets/<筆記 slug>/`,在對應段落用 `![說明](assets/<slug>/<檔名>)` 嵌入,圖下一行註明出處(批次與頁碼)並解說重點;每篇建議 3–10 張,挑資訊量高的。原始大檔絕不進版控。投資類加⚠️非投資建議;作者推廣自家產品要在檔頭標明。寫 [[wikilink]] 前先 find knowledge -name "<slug>.md" 確認存在。若派 subagent 協助:指示裡必須要求它先讀完素材內文才可歸納,讀不到要明說,不可只憑檔名或標題寫內容。
 6. ⚠️⚠️ new/ 已在 .gitignore,素材原檔(PDF、zip、影片、原圖)絕不進版控;唯一例外是第 5 步經 extract_images.py 壓縮後的筆記配圖(放 assets/<slug>/,精準 git add 那些圖檔)。
@@ -598,6 +598,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-11-08(十支影片基準) | **使用者要求 profile 10 部影片;SenseVoice 比較好就換回去。** 結果(官方字幕為參考,10 支 × 約 260 秒,Why QQ / 小Lin说 / Nick / Gary Chen):整體 CER turbo 不帶詞表 **5.81%** < turbo 帶詞表 6.87% < SenseVoice 7.28%;純普通話 6 支 SenseVoice 3.84% 與 turbo 4.13% 打平且快 8.6 倍,中英夾雜 4 支 turbo 7.94% 明顯優於 SenseVoice 11.65%。**決定:不換回 SenseVoice,維持固定 turbo。詞表(`--prompt`)改為預設不帶**,只在讀稿發現不通順時用新加的 `--clip 起-迄` 定點重轉;`avg_logprob` 分佈太窄(最低 -0.68)無法自動偵測不通順。排程 A/B 的 prompt 同步改寫並重建為 A `bf3e6578`(07:03)、B `760910d8`(08:37),**新到期日約 11-15**(舊 `de94b8cd`、`32307a01` 已刪)。詳見基準筆記「增補二」 |
 | 2026-11-08(語音轉文字基準) | **使用者提供有字幕的影片 `fA7gNVUkkc8`(码农高天,6 分鐘)要求比較 large-v3-turbo vs SenseVoice-Small**。重大發現:`whisper_transcribe.py` 原本的 `no_repeat_ngram_size=3` 讓 turbo 中文 CER 由約 4% 變 8%(重複詞被迫換字:調查報告→調察/談查、員工→員功),**已從腳本移除**(所有舊配方中的 `no_repeat_ngram_size=3` 一律作廢)。修正後 turbo 與 SenseVoice 準確度相當(約 4%,參考為人工裁定、不確定度約 ±1.5 點),SenseVoice 約快 5 倍但專有名詞(幣安、web3)弱;詞表提示效果在不確定度內。⚠️ 該片只有 YouTube 自動字幕且其「原文」軌是英文翻譯,不能直接當中文參考。詳見 `knowledge/technology/dev-tools/whisper-cpp-vs-faster-whisper-benchmark.md` 增補節 |
 | 2026-11-08(延展) | **使用者要求「cron 幫我延展」**:排程 7 天自動到期無法延長,只能刪除重建以重設到期日。A 總巡檢 `2e61f6b6`→`de94b8cd`(07:03)、B 收件匣 `be0aa192`→`32307a01`(08:37),**新到期日約 11-15**;prompt 沿用最新版(A 補上語音轉錄呼叫腳本與自動字幕說明)。⚠️ session 一關就消失,新 session 要先 `CronList` 檢查並依本檔重建 |
 | 2026-11-08(語音轉文字統一入口) | **使用者決定**:語音轉文字做成單一 script,固定 `large-v3-turbo`,我與其他 LLM / subagent / 排程都呼叫它。`scripts/media/whisper_transcribe.py` 重寫:固定模型(移除 `--model`)、`--prompt`/`--prompt-file` 詞表、輸入可直接給 YouTube ID 或網址(自動下載音訊並清暫存)、輸出 `[m:ss]` 與 `transcript_tools.py find` 相容、結尾 `segments N`、幻覺迴圈偵測。第 1/2/4/5/6 節與 CLAUDE.md 加規則「一律呼叫此腳本」;收件匣排程重建(見該節)。以 AlgxsQlXrzg(70 秒)實測通過,35 segments |

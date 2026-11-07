@@ -13,6 +13,10 @@
     * 本機音訊/影片檔(``.webm`` ``.m4a`` ``.mp4`` ``.wav`` 等,PyAV 解碼,不需 ffmpeg)
     * YouTube 影片 ID 或網址(自動下載音訊到暫存資料夾,轉完刪除)
 
+**詞表提示(``--prompt``)預設不要帶**(2026-11-08 十支影片基準:帶標題+說明欄詞表的 CER 6.9% 比不帶的 5.8% 更差,
+術語召回幾乎沒提升,說明欄的推廣文字還會污染輸出)。正確流程:先不帶詞表轉錄 → 讀逐字稿,
+**只有遇到語句不通順、疑似專有名詞聽錯的段落**,才用 ``--clip 起-迄 --prompt "正確詞表"`` 定點重轉那一小段並取代。
+
 輸出為 ``[m:ss] 文字`` 逐行檔(與 ``scripts/youtube/transcript_tools.py find`` 相容),
 最後一行印出 ``segments N``;成敗以這個數字為準(stderr 的 numpy 警告可忽略)。
 
@@ -87,6 +91,29 @@ def format_timestamp(seconds: float) -> str:
     return f"[{total // 60}:{total % 60:02d}]"
 
 
+def _parse_clip(spec: str) -> tuple[float, float]:
+    """解析 ``--clip`` 參數(``起-迄``,各為秒數或 ``m:ss``)。
+
+    Args:
+        spec: 例如 ``"120-150"`` 或 ``"2:00-2:30"``。
+
+    Returns:
+        ``(起秒, 迄秒)``。
+
+    Raises:
+        ValueError: 格式錯誤或迄 <= 起。
+    """
+    def sec(t: str) -> float:
+        parts = [float(x) for x in t.split(":")]
+        return parts[0] * 60 + parts[1] if len(parts) == 2 else parts[0]
+
+    a, b = spec.split("-", 1)
+    start, end = sec(a), sec(b)
+    if end <= start:
+        raise ValueError(f"--clip 迄時間必須大於起時間:{spec}")
+    return start, end
+
+
 def is_youtube_ref(value: str) -> bool:
     """判斷輸入是不是 YouTube 影片 ID 或網址(且不是本機存在的檔案)。
 
@@ -147,6 +174,7 @@ def transcribe(
     prompt: str | None = None,
     threads: int = 6,
     beam_size: int = 5,
+    clip: tuple[float, float] | None = None,
 ) -> Iterator[Segment]:
     """轉錄單一音訊/影片檔,逐段產出結果(generator,可邊轉邊寫檔)。
 
@@ -158,6 +186,8 @@ def transcribe(
             能補一部分專有名詞,但不能取代畫面核對。
         threads: CPU 執行緒數。與其他重運算並行時調低。
         beam_size: beam search 寬度。
+        clip: ``(起秒, 迄秒)``,只轉錄這個範圍(輸出時間戳仍是整支影片的絕對時間);用於「讀到不通順處」
+            的定點重轉,可搭配 ``prompt``。
 
     Yields:
         依時間排序的 :class:`Segment`。
@@ -185,6 +215,7 @@ def transcribe(
         # 幻覺迴圈改靠 VAD + condition_on_previous_text=False,並由結尾偵測警告。
         beam_size=beam_size,
         initial_prompt=prompt or None,
+        clip_timestamps=[clip[0], clip[1]] if clip else "0",
     )
     for seg in segments:
         text = seg.text.strip()
@@ -223,6 +254,7 @@ def transcribe_to_file(
     prompt: str | None = None,
     threads: int = 6,
     with_timestamps: bool = True,
+    clip: tuple[float, float] | None = None,
 ) -> int:
     """轉錄(本機檔或 YouTube 參照)並寫入逐行文字檔;邊轉邊 flush。
 
@@ -233,6 +265,7 @@ def transcribe_to_file(
         prompt: 詞表提示。
         threads: CPU 執行緒數。
         with_timestamps: 是否加 ``[m:ss]`` 前綴。
+        clip: 只轉錄 ``(起秒, 迄秒)``,見 :func:`transcribe`。
 
     Returns:
         實際寫出的行數(segments 數)。
@@ -248,7 +281,7 @@ def transcribe_to_file(
             audio = Path(source)
         texts: list[str] = []
         with open(out, "w", encoding="utf-8", newline="\n") as fh:
-            for seg in transcribe(audio, language=language, prompt=prompt, threads=threads):
+            for seg in transcribe(audio, language=language, prompt=prompt, threads=threads, clip=clip):
                 line = f"{format_timestamp(seg.start)} {seg.text}" if with_timestamps else seg.text
                 fh.write(line + "\n")
                 fh.flush()  # 中途中斷也保住已完成的部分
@@ -278,7 +311,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("-o", "--output", default=None, help="輸出檔;僅單一輸入時有效")
     parser.add_argument("--outdir", default=None, help="輸出目錄;多輸入時使用")
     parser.add_argument("--language", default="zh", help="語言代碼(預設 zh;auto 自動偵測)")
-    parser.add_argument("--prompt", default=None, help="詞表提示(標題、說明欄、專有名詞)")
+    parser.add_argument("--prompt", default=None, help="詞表提示;預設不要帶(見模組說明),只在讀到不通順處、搭配 --clip 定點重轉時使用")
+    parser.add_argument("--clip", default=None, help="只轉錄範圍 起-迄(秒或 m:ss),例:120-150 或 2:00-2:30")
     parser.add_argument("--prompt-file", default=None, help="從 UTF-8 檔讀詞表提示")
     parser.add_argument("--threads", type=int, default=6, help="CPU 執行緒數(預設 6)")
     parser.add_argument("--no-timestamps", action="store_true", help="不輸出時間戳")
@@ -289,6 +323,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.prompt_file:
         prompt = Path(args.prompt_file).read_text(encoding="utf-8").strip()
     language = None if args.language == "auto" else args.language
+    clip = _parse_clip(args.clip) if args.clip else None
 
     failures = 0
     for raw in args.inputs:
@@ -303,7 +338,7 @@ def main(argv: list[str] | None = None) -> int:
         try:
             n = transcribe_to_file(
                 raw, dest, language=language, prompt=prompt,
-                threads=args.threads, with_timestamps=not args.no_timestamps,
+                threads=args.threads, with_timestamps=not args.no_timestamps, clip=clip,
             )
             print(f"segments {n}", flush=True)
         except Exception as exc:  # noqa: BLE001 - 單檔失敗不該中斷整批
