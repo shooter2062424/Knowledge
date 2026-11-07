@@ -227,7 +227,7 @@ python -m pip install -U yt-dlp
 
 ```python
 from faster_whisper import WhisperModel
-m = WhisperModel('small', device='cpu', compute_type='int8', cpu_threads=6)
+m = WhisperModel('large-v3-turbo', device='cpu', compute_type='int8', cpu_threads=6)
 segs, info = m.transcribe(path, language='zh', vad_filter=True,
                           condition_on_previous_text=False,   # 防幻覺迴圈
                           no_repeat_ngram_size=3,             # 防幻覺迴圈
@@ -250,7 +250,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
    列最新 6 部:yt-dlp --no-update --js-runtimes node --flat-playlist --playlist-end 6 --print "%(id)s|%(title)s" "https://www.youtube.com/channel/UCXLV-KfDQAFUJ_as9H1Lfbw/videos"
    標題格式「「Github一周热点NNN期」…」,用正規表示式取 NNN。(⭐ YouTube 上沒有 123、125 期;123 期只在 repo 有,125 期兩邊都沒有。)
 2. 去重:若 C:\Users\shoot\project\Knowledge\knowledge\technology\github-weekly\issue-NNN.md 已存在就跳過、只回報、不 commit。
-   取內容:⭐ **說明欄就有完整專案清單(項目名稱 + GitHub 連結)**,用 yt_dlp Python API 取 description 寫 UTF-8 檔再 Read。影片**無字幕也無自動字幕**,講解內容要下載音訊跑 Whisper(--remote-components ejs:github + faster-whisper small/int8,vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3、beam_size=5,**前景跑**;每期約 7–8 分鐘)。專案名稱/指令以說明欄與 GitHub repo 為準(Whisper 常聽錯英文專名),⭐ 每個專案用 GitHub API(https://api.github.com/repos/<owner>/<repo>)核對描述、star、授權。
+   取內容:⭐ **說明欄就有完整專案清單(項目名稱 + GitHub 連結)**,用 yt_dlp Python API 取 description 寫 UTF-8 檔再 Read。影片**無字幕也無自動字幕**,講解內容要下載音訊跑 Whisper(--remote-components ejs:github + faster-whisper large-v3-turbo/int8(+initial_prompt 放標題、說明欄、專有名詞詞表;2026-11-08 起改用,small 僅當備援;純中文口播可改 SenseVoice-Small,見 CLAUDE.md),vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3、beam_size=5,**前景跑**;每期約 7–8 分鐘)。專案名稱/指令以說明欄與 GitHub repo 為準(Whisper 常聽錯英文專名),⭐ 每個專案用 GitHub API(https://api.github.com/repos/<owner>/<repo>)核對描述、star、授權。
    ⭐ 順手用 curl 看一下 https://raw.githubusercontent.com/itcoffee66/githubweekly/main/_weekly/NNN.md:若 repo 哪天恢復同步(200),可以拿它的文字稿對照 Whisper。
 3. 未整理的:依 CLAUDE.md 規範(繁中、必要時 Mermaid、結尾附完整網址來源)整理成 knowledge/technology/github-weekly/issue-NNN.md,逐一列出收錄專案的名稱/用途/亮點/連結。產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案>。
 4. 更新 README.md 的 github-weekly 索引與筆記數 badge,並跑 python scripts/knowledge/build_source_index.py 重建來源索引。
@@ -286,7 +286,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
    ⚠️⚠️⚠️ **範圍必須是 knowledge/,不可用 `.`** —— SCHEDULES.md 存有待處理 video id 清單,對整個 repo 搜尋會讓每一支都誤報 SEEN 且完全不報錯(2026-09-03 踩過,18 支全誤報)。
    ⚠️ -F fixed-string、-- 終止選項解析;--include 必須放在 -- 之前。判斷用 exit code:0=SEEN、非0=NEW。不要用 `grep … | head -1`。逐支直接 grep,不要繞暫存檔。
    ⚠️⚠️ **`BbofEyeE2Ek` 是頻道會員限定影片**(level: Gary AI 實戰營),`extract_info` 直接報 members-only、拿不到 metadata 或字幕,**永久跳過不要重試**。⚠️ `roUfF8nUYNo`(2026-09-27)、`JctGH-SOYBA`(2026-09-29)、`OtxkHfjWeaU`(2026-10-21)、`ftEBJkNNsRk`(2026-10-30)同為會員限定,永久跳過;該頻道新片常搭配一支會員專屬片。日後若再遇到 members-only 就同樣跳過並記錄。
-3. 未整理的:優先抓官方字幕(yt-dlp --write-subs --sub-langs zh-Hant/zh-TW/zh/zh-Hans/en),無官方字幕再抓自動字幕,都無則走 Whisper(下載音訊 --remote-components ejs:github + faster-whisper small/int8 zh,vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3、beam_size=5)。⚠️ 遇 HTTP 403 用同參數重試(最多 3 次),不要改 player_client;連續 3 次全 403 且 log 有 `n challenge solving failed` ⇒ 先 python -m pip install -U yt-dlp。⚠️ 字幕下載遇 HTTP 429 就重試(通常第 2–3 次會過)。⚠️ 不要用 `yt-dlp … | tail -1`。逐字稿寫暫存 .txt 再 Read;轉完掃結尾有無同句重複數十行(幻覺迴圈)。
+3. 未整理的:優先抓官方字幕(yt-dlp --write-subs --sub-langs zh-Hant/zh-TW/zh/zh-Hans/en),無官方字幕再抓自動字幕,都無則走 Whisper(下載音訊 --remote-components ejs:github + faster-whisper large-v3-turbo/int8(+initial_prompt 放標題、說明欄、專有名詞詞表;2026-11-08 起改用,small 僅當備援;純中文口播可改 SenseVoice-Small,見 CLAUDE.md) zh,vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3、beam_size=5)。⚠️ 遇 HTTP 403 用同參數重試(最多 3 次),不要改 player_client;連續 3 次全 403 且 log 有 `n challenge solving failed` ⇒ 先 python -m pip install -U yt-dlp。⚠️ 字幕下載遇 HTTP 429 就重試(通常第 2–3 次會過)。⚠️ 不要用 `yt-dlp … | tail -1`。逐字稿寫暫存 .txt 再 Read;轉完掃結尾有無同句重複數十行(幻覺迴圈)。
    ⚠️⚠️ **Whisper 一律用「前景」跑,不要用 `nohup ... &` 背景跑** —— 2026-09-13/14 連續兩天踩到:背景 shell 環境變數不完整,torch/numpy import 會失敗(`_ARRAY_API not found` 後直接 Traceback)。前景執行若超過 600s 會自動轉背景,再用 TaskOutput 等它完成即可。
    ⭐ **前景跑時 stderr 仍會印 `Failed to initialize NumPy: _ARRAY_API not found` 的 UserWarning,那只是警告、轉錄會正常完成**(2026-09-19 確認)。看到它不要以為失敗,看最後有沒有印出 segment 行數為準。
 4. 依 CLAUDE.md 寫作規範整理繁中筆記(含應用案例、Mermaid、結尾**完整網址**來源),歸三層結構最貼切中類(ai-agents/{foundations,autonomy,memory-retrieval,applications,resources}、claude-code、ai-productivity;LLM 架構→llm-internals;軟體工程→software-engineering;系統設計→system-design;設計工具→applied-ai/design;AI 安全→ai-safety;產業動態→ai-industry;職涯心態→knowledge/career/*)。
@@ -349,7 +349,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
    grep -rlF --include=*.md -- "<id>" knowledge/
    ⚠️⚠️⚠️ **範圍必須是 knowledge/,不可用 `.`** —— SCHEDULES.md 存有待處理 video id 清單,對整個 repo 搜尋會讓每一支都誤報 SEEN 且完全不報錯(2026-09-03 踩過,18 支全誤報)。
    ⚠️ -F fixed-string、-- 終止選項解析(id 可能以連字號開頭如 -ih9NBMHiU8);--include 必須放在 -- 之前。判斷用 exit code:0=SEEN、非0=NEW。不要用 `grep … | head -1`。逐支直接 grep,不要繞暫存檔。
-3. 未整理的:先試官方/自動字幕;無則走 Whisper——下載音訊 yt-dlp --no-update --js-runtimes node --remote-components ejs:github -f "bestaudio/best"(--remote-components 解 403),再用 faster-whisper(WhisperModel small, device=cpu, compute_type=int8, cpu_threads=6, transcribe language=zh, vad_filter=True, condition_on_previous_text=False, no_repeat_ngram_size=3, beam_size=5)。⚠️ 遇 HTTP 403 用同參數重試(最多 3 次,間隔 20 秒),不要改 player_client(會誤報 DRM protected);連續 3 次全 403 且 log 有 `n challenge solving failed` ⇒ 先 python -m pip install -U yt-dlp。⚠️ 字幕下載遇 HTTP 429 就重試。⚠️ 不要用 `yt-dlp … | tail -1`;要判斷成敗用 ${PIPESTATUS[0]} 或不接 pipe。
+3. 未整理的:先試官方/自動字幕;無則走 Whisper——下載音訊 yt-dlp --no-update --js-runtimes node --remote-components ejs:github -f "bestaudio/best"(--remote-components 解 403),再用 faster-whisper(WhisperModel large-v3-turbo(2026-11-08 起;small 僅備援), device=cpu, compute_type=int8, cpu_threads=6, transcribe language=zh, vad_filter=True, condition_on_previous_text=False, no_repeat_ngram_size=3, beam_size=5)。⚠️ 遇 HTTP 403 用同參數重試(最多 3 次,間隔 20 秒),不要改 player_client(會誤報 DRM protected);連續 3 次全 403 且 log 有 `n challenge solving failed` ⇒ 先 python -m pip install -U yt-dlp。⚠️ 字幕下載遇 HTTP 429 就重試。⚠️ 不要用 `yt-dlp … | tail -1`;要判斷成敗用 ${PIPESTATUS[0]} 或不接 pipe。
    ⚠️⚠️ **Whisper 一律用「前景」跑,不要用 `nohup ... &` 背景跑** —— 2026-09-13/14 連續兩天踩到:背景 shell 環境變數不完整,torch/numpy import 會失敗(`_ARRAY_API not found` 後直接 Traceback)。20+ 分鐘的影片約需 8–12 分鐘,前景超過 600s 會自動轉背景,再用 TaskOutput 等它完成即可。segment 寫暫存 .txt 再 Read(大檔先切半)。轉完掃有無同句重複數十行(幻覺迴圈)。多支影片串著跑,避免 CPU 競爭。
    ⭐ **前景跑時 stderr 仍會印 `Failed to initialize NumPy: _ARRAY_API not found` 的 UserWarning,那只是警告、轉錄會正常完成**(2026-09-19 確認)。看到它不要以為失敗,看最後有沒有印出 segment 行數為準。
 4. 依 CLAUDE.md 整理繁中筆記(含應用案例、Mermaid、來源註明「該片無字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕」、⚠️非投資建議)。歸 knowledge/investing/ 中類:個股/產業→equity-research、心法/ETF/被動/宏觀市場研判→strategy、AI 輔助→ai-assisted、選擇權→derivatives、技術分析→technical-analysis、房貸稅務繼承→personal-finance。
@@ -417,7 +417,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 | Redknot-乔红 | `UCAf2Y9FGJlE_ByXYF7BXv5g` | @redknot-miaomiao | 多數無(⚠️ `rQR_0WZzjV4` 實測無官方字幕,只有自動英文 ASR) |
 | Nick 美股咖啡館 | `UCjrP2TtSTifuRJ76hW2IW1A` | @nick_stockcafe | 官方 zh-TW(2026-10-17 加入) |
 | 轩辕的编程宇宙 | `UCLkwRNY9Ck9-d1ulZYHsl-Q` | @xuanyuancoding | 無(需 Whisper;2026-11-03 加入) |
-| 橘鸦Juya | `UCIDll3SRcbHwwcXbrwvBZNw` | @imjuya | 每日「AI Morning News」短影片(1.5–8 分鐘);字幕待實測(2026-11-08 加入) |
+| 橘鸦Juya | `UCIDll3SRcbHwwcXbrwvBZNw` | @imjuya | 每日「AI Morning News」短影片(1.5–8 分鐘);⭐ **有自動字幕 zh-Hans(不必 Whisper)**,說明欄有逐條新聞章節與一手來源連結(2026-11-08 加入;`transcript_tools.py fetch` 已改為官方字幕優先、無則自動字幕) |
 
 步驟:
 1. 逐個頻道列最新 6 部:
@@ -431,7 +431,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 3. ⚠️⚠️ **產出上限:每次執行最多產出 2–3 篇,其中需 Whisper 者最多 1 支。**(本倉庫每篇都要比對一手來源核實,一次灌一堆等於灌水。)
    ⭐ 挑選優先序:① **能增補既有筆記的優先**(同一工具/同一論文/同一事件的後續)→ ② 有官方或自動字幕的(成本低)→ ③ 其餘依新到舊。
    ⭐⭐ **動筆前先用 `grep -rl "<主題關鍵字>" knowledge/` 確認有無同主題筆記** —— 2026-09-22 實測:YAHA學堂一支 localhost 教學轉錄完才發現與既有部署筆記內容高度重疊,白花一支 Whisper。**能先看標題判斷撞題就先查**。
-4. 取逐字稿:優先官方字幕(--write-subs --sub-langs zh-Hant/zh-TW/zh/zh-Hans/en),次之自動字幕(--write-auto-subs),都無才走 Whisper(下載音訊 --remote-components ejs:github + faster-whisper small/int8,vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3、beam_size=5)。⚠️ 403 用同參數重試最多 3 次,不要改 player_client;連續 3 次全 403 且 log 有 `n challenge solving failed` ⇒ 先 python -m pip install -U yt-dlp。⚠️ 字幕下載遇 **HTTP 429 Too Many Requests** 就重試(通常第 2–3 次會過;⚠️ 但 `--write-auto-subs` 被限流較兇,曾連續 7 次全 429,遇到就順延別死磕)。⚠️ 不要用 `yt-dlp … | tail -1`。
+4. 取逐字稿:優先官方字幕(--write-subs --sub-langs zh-Hant/zh-TW/zh/zh-Hans/en),次之自動字幕(--write-auto-subs),都無才走 Whisper(下載音訊 --remote-components ejs:github + faster-whisper large-v3-turbo/int8(+initial_prompt 放標題、說明欄、專有名詞詞表;2026-11-08 起改用,small 僅當備援;純中文口播可改 SenseVoice-Small,見 CLAUDE.md),vad_filter=True、condition_on_previous_text=False、no_repeat_ngram_size=3、beam_size=5)。⚠️ 403 用同參數重試最多 3 次,不要改 player_client;連續 3 次全 403 且 log 有 `n challenge solving failed` ⇒ 先 python -m pip install -U yt-dlp。⚠️ 字幕下載遇 **HTTP 429 Too Many Requests** 就重試(通常第 2–3 次會過;⚠️ 但 `--write-auto-subs` 被限流較兇,曾連續 7 次全 429,遇到就順延別死磕)。⚠️ 不要用 `yt-dlp … | tail -1`。
    ⚠️⚠️ **Whisper 一律用「前景」跑,不要用 `nohup ... &` 背景跑** —— 2026-09-13/14 連續兩天踩到:背景 shell 環境變數不完整,torch/numpy import 會失敗(`_ARRAY_API not found` 後直接 Traceback)。前景超過 600s 會自動轉背景,再用 TaskOutput 等它完成即可。逐字稿寫暫存 .txt 再 Read。轉完掃結尾有無同句重複數十行(幻覺迴圈)。
    ⭐ **前景跑時 stderr 仍會印 `Failed to initialize NumPy: _ARRAY_API not found` 的 UserWarning,那只是警告、轉錄會正常完成**(2026-09-19 確認)。看到它不要以為失敗,看最後有沒有印出 segment 行數為準。
    ⭐ **影片說明欄常附指令與官方文件連結**(2026-09-23 YAHA 那支 Windows 安裝教學就是),Whisper 容易聽錯的指令直接從說明欄取原文。
@@ -594,7 +594,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 | 2026-11-07(收件匣圖片規則) | **使用者要求**:素材裡的圖片一定要閱讀並給出相關資訊,且**一定要附進 Markdown**。新增 `scripts/media/extract_images.py`(scan/pages/embedded/shrink,輸出寬 ≤1100px、≤220KB 的 JPEG/PNG 到筆記同層 `assets/<slug>/`);收件匣 prompt 加看圖與嵌圖步驟,並把「素材不進版控」改為「原檔不進版控、壓縮後配圖可進」;收件匣排程已重建為 `bf0936ec`(舊 `66c28dfa`、`1fda5ef7` 已刪)。 |
 | 2026-11-07(合併重建) | **使用者要求**:①排程 1/2/4 併入 5,合為 A「YouTube 來源總巡檢」`2e61f6b6`(07:03,查 11 個來源;gooaye 仍停用);②`new/` 收件匣重建為 B `bf0936ec`(08:37),規則改為**一個子資料夾=一批=一個 task**,整批處理、依內容分門別類、先比對既有筆記能合併就增補,來源註明批次,並新增 `INBOX-LOG.md` 帳本供回溯;③舊巡檢 `c830c233` 刪除。起因:發現 11-04 到期後只剩巡檢一個排程,`new/ai-guide/`(30 個檔、48 MB)無人處理。 |
 | 2026-11-08(巡檢) | 巡檢併入 1 篇(Whisper 1 支):**YAHA學堂** `8tmDJ9ZuFc8` → 增補 Grok Bot 筆記 §8;新存量 YAHA 2、白白 1、Nick 1(見第 5 節)。同日 Haiku 批次審閱 47 篇完成(`deepseek-v4-engineering` 因 Haiku 拒答待處理);`transcript_tools.py` 取代 `約 X:XX` 時間 |
-| 2026-11-06(巡檢) | **存量清空**(使用者:「各個頻道沒有歸檔的都要完成」):八頻道 67 支存量 + 新片 Why QQ `CghXuvlAhD0`、白白 `nuEYDFfDnOI` 全部整理,新建 30 篇(含使用者提供的 LLM-SLM-LRM-VLM 資訊圖)、追加既有筆記約 20 篇(含新中類 career/ai-transition、career/creator-business、technology/hardware)。方法:字幕遇 HTTP 429 全面改 Whisper(faster-whisper small/int8),subagent 分頻道寫筆記、主 session 統一 README/索引/commit。巡檢 cron 的 prompt 本身未變更,**`c830c233` 約 2026-11-10 到期須重建**。 |
+| 2026-11-06(巡檢) | **存量清空**(使用者:「各個頻道沒有歸檔的都要完成」):八頻道 67 支存量 + 新片 Why QQ `CghXuvlAhD0`、白白 `nuEYDFfDnOI` 全部整理,新建 30 篇(含使用者提供的 LLM-SLM-LRM-VLM 資訊圖)、追加既有筆記約 20 篇(含新中類 career/ai-transition、career/creator-business、technology/hardware)。方法:字幕遇 HTTP 429 全面改 Whisper(faster-whisper large-v3-turbo/int8(+initial_prompt 放標題、說明欄、專有名詞詞表;2026-11-08 起改用,small 僅當備援;純中文口播可改 SenseVoice-Small,見 CLAUDE.md)),subagent 分頻道寫筆記、主 session 統一 README/索引/commit。巡檢 cron 的 prompt 本身未變更,**`c830c233` 約 2026-11-10 到期須重建**。 |
 | 2026-11-05(巡檢) | 巡檢產出 1 新篇(零 Whisper):**Why QQ** `B7I0HBXbty8` → 新篇 llm-internals/architecture/tokenizer-tax-chinese-vs-english-token-cost.md(CLEAR 數字對照二手整理、tiktoken 實測 13;Token Bench 與蒙古語數字未能核實)。新存量:**白白说大模型** `nuEYDFfDnOI`(MCP / Skill / 本地 Tools 區別,14.5 分,無字幕需 Whisper;動筆前先 grep 既有 MCP/Skill 筆記)。Caleb `77hHgDkbtLI` 本輪未重試(留待下輪)。 |
 | 2026-11-04(巡檢) | 巡檢併入 1 篇(零 Whisper):**Why QQ** `038BebtLg1U` → 增補 deepseek-super-agent-router-walker-xuanyuan §7。Caleb `77hHgDkbtLI` auto-subs 429 順延。 |
 | 2026-11-03(巡檢) | 巡檢產出 1 新篇(零 Whisper):**Why QQ** `kpvZVBwQGlI` → ai-agents/applications/pixelfx-code-pixel-effects-agent-render-feedback-loop(已 clone patch-gg/pixelfx 核實)。其餘清單外 id 皆為已知存量。 |

@@ -2,7 +2,7 @@
 
 三個子命令,專門解決「逐字稿可疑詞要讓使用者回到影片對的時間點確認」的問題:
 
-* ``fetch``:下載 YouTube 字幕(含時間),輸出 ``[m:ss] 文字`` 逐行檔。
+* ``fetch``:下載 YouTube 字幕(官方優先,沒有就用自動字幕;含時間),輸出 ``[m:ss] 文字`` 逐行檔。
 * ``find``:在帶時間的逐字稿中搜尋片語,印出精確時間與可點擊的連結(預設提前 10 秒)。
 * ``frames``:下載低畫質影片並在指定秒數截圖,用來看燒錄字幕與投影片上的正確拼法。
 
@@ -101,7 +101,8 @@ def fetch_timed_subs(video_id: str, out_dir: str, retries: int = 4) -> str | Non
             "quiet": True,
             "skip_download": True,
             "writesubtitles": True,
-            "subtitleslangs": ["zh-TW", "zh-Hant", "zh-Hans", "zh", "en"],
+            "writeautomaticsub": True,  # 無官方字幕時退而用自動字幕(橘鸦Juya 等頻道只有自動字幕)
+            "subtitleslangs": ["zh-TW", "zh-Hant", "zh-Hans", "zh-Hans.*", "zh", "en"],
             "subtitlesformat": "vtt",
             "outtmpl": stem,
             "js_runtimes": {"node": {}},
@@ -109,10 +110,11 @@ def fetch_timed_subs(video_id: str, out_dir: str, retries: int = 4) -> str | Non
         try:
             with yt_dlp.YoutubeDL(opts) as ydl:
                 ydl.download([f"https://www.youtube.com/watch?v={video_id}"])
-        except Exception as exc:  # noqa: BLE001 - 429 等暫時性錯誤,重試
+        except Exception as exc:  # noqa: BLE001 - 429 等暫時性錯誤;已寫出的字幕檔仍可用
             print(f"{video_id} retry: {str(exc)[:80]}", file=sys.stderr)
-            time.sleep(15)
-            continue
+            if not glob.glob(f"{stem}*.vtt"):
+                time.sleep(15)
+                continue
         files = glob.glob(f"{stem}*.vtt")
         if files:
             break
