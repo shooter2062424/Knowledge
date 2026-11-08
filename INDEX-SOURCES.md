@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**495 個 YouTube video id**、**167 個 arXiv 編號**,涵蓋 **385 篇**筆記。
+> 統計:**496 個 YouTube video id**、**167 個 arXiv 編號**,涵蓋 **386 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(495 部,依 video id 排序)
+## YouTube(496 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -61,6 +61,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2eq-8GM2bhg` | 什麼是 AI Harness?兩種「harness」的差別 | [knowledge/technology/ai-agents/foundations/ai-harness-explained.md](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) |
 | `2i3FT1vfcrA` | Claude Code Mods:從「調旋鈕」到「改程式本身」——事件關卡、三種動作、會畫介面(howie和小能熊 + 官方文件 + 範例原始碼) | [knowledge/technology/claude-code/claude-code-mods-explained.md](./knowledge/technology/claude-code/claude-code-mods-explained.md) |
 | `2mtn-Qp59y4` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
+| `2PwxSjJV3HI` | Skill 沒效果?先跑對照實驗:Google 的 Skill 優化實驗與「四層檢查表」 | [knowledge/technology/ai-agents/applications/skill-evaluation-four-layer-checklist-google-qq.md](./knowledge/technology/ai-agents/applications/skill-evaluation-four-layer-checklist-google-qq.md) |
 | `2UYRqQvagrk` | MCP 史上最大改版(2026-07-28):從「打電話」變成「寄信」,以及三個功能的退場公告 | [knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md](./knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) |
 | `3CRtS3bY_D4` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
 | `3e_YTF3id_8` | Claude「降智」其實是算力危機:Opus 4.7 試玩與升級注意 | [knowledge/technology/ai-productivity/claude-throttling-opus-4-7.md](./knowledge/technology/ai-productivity/claude-throttling-opus-4-7.md) |
