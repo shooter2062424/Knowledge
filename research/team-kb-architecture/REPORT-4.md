@@ -166,6 +166,20 @@ flowchart TD
 4. **公司能用哪種 agent(內部模型 / Claude Code 類)?** 本輪結果是 Haiku low + Claude Code 式工具;換平台要重測。
 5. REPORT-3 §5 的六個決策仍然有效,本輪沒有改變其中任何一項。
 
+### 7.1 決策紀錄(2026-11-08,使用者拍板)
+
+| 決策 | 結論 |
+|---|---|
+| REPORT-3 §5-1 scope 維度 | 維持三個:project / platform / branch,真有需要再加客戶或產品線 |
+| REPORT-3 §5-2 同具體度衝突 | 一律要有人寫明確 claim(例如補一條「Windows + LTS」),不預設 LTS 優先 |
+| REPORT-3 §5-6 缺 scope | agent 反問並列出各情況 |
+| REPORT-4 §7-1 別名 | 入庫時 LLM 自動產生,審核者順手看一眼,不逐條人工審 |
+| REPORT-4 §7-2 「找不到」清單 | 每週指定一人輪值維護 |
+| REPORT-4 §7-3 成本 | 接受 agent 輪數 ×1.4 換更高查全率 |
+| REPORT-4 §7-4 平台 | Claude Code 類 agent,與本輪實驗平台相同,結果可直接套用 |
+
+REPORT-3 §5 的其餘項(例外 scope 負責人、共存最長期限、`deprecated` 改名 `sunsetting`)尚未決定。
+
 ## 8. 來源與核實
 
 - 論文與 IBM 影片的細節見 [grep vs 向量筆記](../../knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md);論文數字已對 [arXiv:2605.15184](https://arxiv.org/html/2605.15184v1) 原文核對(§8)。
