@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**493 個 YouTube video id**、**167 個 arXiv 編號**,涵蓋 **383 篇**筆記。
+> 統計:**494 個 YouTube video id**、**167 個 arXiv 編號**,涵蓋 **384 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(493 部,依 video id 排序)
+## YouTube(494 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -99,6 +99,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `7pSZx9-VT3k` | 「Token 省 120 倍」該怎麼讀?Codebase-Memory-MCP vs CodeGraph:同一個痛點的兩條路線 | [knowledge/technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md](./knowledge/technology/ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) |
 | `7qWH7e_AEDs` | 資本如何接連引爆多國金融危機:1994 墨西哥到 1998 俄羅斯,同一條「資金流入 → 熱錢撤離 → 空頭補刀」主線 | [knowledge/investing/strategy/capital-flows-1990s-crisis-chain-mexico-asia-russia.md](./knowledge/investing/strategy/capital-flows-1990s-crisis-chain-mexico-asia-russia.md) |
 | `8BN8p5xDkzw` | 日圓創 40 年新低:主導因素從「利差」換成「財政風險」,以及美日 15 年來首次聯手干預 | [knowledge/investing/strategy/yen-40-year-low-takaichi-trade-and-us-japan-intervention.md](./knowledge/investing/strategy/yen-40-year-low-takaichi-trade-and-us-japan-intervention.md) |
+| `8C4bh59FtsI` | Agent 長期記憶怎麼分:事實進 SQL、理解進向量庫、原始影音不進記憶(Google Cloud Tech) | [knowledge/technology/ai-agents/memory-retrieval/agent-memory-facts-vs-understanding-google-cloud-tech.md](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-facts-vs-understanding-google-cloud-tech.md) |
 | `8ji5vURIllM` | AI 額度老是不夠用?三招省 Token:丟掉、縮減、打折 | [knowledge/technology/ai-productivity/token-saving-three-moves-context-control.md](./knowledge/technology/ai-productivity/token-saving-three-moves-context-control.md) |
 | `8tmDJ9ZuFc8` | Always-on Agent 怎麼運作:Lee Robinson 在史丹佛 CS146S 拆解 Grok Bot | [knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) |
 | `8unONuKIaPs` | 給非技術人員的部署:為什麼 localhost 傳給朋友打不開,以及三個問題選平台 | [knowledge/technology/ai-productivity/deployment-for-vibe-coders-platform-selection.md](./knowledge/technology/ai-productivity/deployment-for-vibe-coders-platform-selection.md) |
