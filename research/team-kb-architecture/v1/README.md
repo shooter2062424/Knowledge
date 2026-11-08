@@ -11,10 +11,13 @@ cp <本資料夾>/kb.py <本資料夾>/AGENTS.md .
 git init                                  # 版本控制 = 免費的稽核紀錄
 mkdir -p claims raw inbox state topics    # raw/ 放不可變的原始紀錄(會議逐字稿等)
 python kb.py template                     # 看 claim 欄位
-python tests/test_v1.py                   # (選用)跑 24 項行為測試,確認你的 Python 沒問題
+python tests/test_v1.py                   # (選用)跑 27 項行為測試,確認你的 Python 沒問題
 ```
 
 把 `AGENTS.md` 放在 KB 根目錄,AI(Claude Code 之類)開在這個目錄時會先讀它。
+
+⚠️ **權限(安全審查提醒,必做):** 雙人規則只防「同一身分自己核准自己」。身分取自環境變數 `KB_USER` / 作業系統帳號,**同一個帳號下的程序(包含 AI)能改環境變數,所以真正的強制要靠 agent 的工具白名單**:只允許
+`Bash(python kb.py search:*)`、`resolve`、`unfound`、`propose`、`template`、`show`,**不要**給 `Bash(python kb.py:*)`(那會包含 `approve` / `reject`)。人用另一個帳號或一般終端機核准。`subject` / `concept` 限小寫英數與 `-_`、所有欄位不得含換行(防路徑與欄位注入),gate 會擋。
 
 ## 日常流程
 
@@ -22,7 +25,7 @@ python tests/test_v1.py                   # (選用)跑 24 項行為測試,確�
 |---|---|---|
 | 任何人 / AI | 查 | `python kb.py search "關鍵字"`;範圍相關用 `python kb.py resolve <concept> --project X --platform Y --branch Z` |
 | 任何人 / AI | 提案 | `python kb.py propose --subject … --statement … --valid-from … --source … --author … --aliases "a, b, c, d"` |
-| 另一個人 | 審核 | `python kb.py review` → `python kb.py approve <P-id> --by 名字`(作者不能核准自己的) |
+| 另一個人(人,不是 AI) | 審核 | `python kb.py review` → `python kb.py approve <P-id>`(身分取自 `KB_USER` 或作業系統帳號;提案者本人不能核准) |
 | 輪值者(每週) | 維護 | `python kb.py unfound --report` + `python kb.py lint` |
 
 ## 設計決策(已拍板)

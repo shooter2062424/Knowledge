@@ -82,7 +82,7 @@ def score_scope(qid, ans):
 
 def run_one(cond, qid, text):
     kb = KBS["SCOPE" if cond == "SCOPE" else cond]
-    tools = ["Grep", "Glob", "Read"] if cond == "CTRL" else ["Bash(python kb.py:*)", "Grep", "Glob", "Read"]
+    tools = ["Grep", "Glob", "Read"] if cond == "CTRL" else [f"Bash(python kb.py {sub}:*)" for sub in ("search", "resolve", "unfound")] + ["Grep", "Glob", "Read"]  # 不含 approve / reject / build / lint
     cmd = ["claude", "-p", "--model", "claude-haiku-5-5", "--effort", "low", "--output-format", "json", "--no-session-persistence",
            "--setting-sources", "project", "--disable-slash-commands", "--permission-mode", "dontAsk", "--allowedTools", *tools]
     env = dict(os.environ, PYTHONIOENCODING="utf-8", KB_USER="agent")

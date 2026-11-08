@@ -32,7 +32,7 @@ def propose(i, item):
     prompt = ("先讀 AGENTS.md。下面是一段會議摘錄,請依 AGENTS.md 的寫入規則,用 kb.py propose 把其中的結論提案到知識庫(只提一條,subject 請用貼切的英文小寫短詞)。"
               "source 請寫 M2X@00:00 格式(摘錄標題的會議編號)、valid-from 用 2026-11-08、author 用 ai:haiku。若被 gate 退回,依訊息修正後再提一次。\n摘錄:" + item[0])
     cmd = ["claude", "-p", "--model", "claude-haiku-5-5", "--effort", "low", "--output-format", "json", "--no-session-persistence",
-           "--setting-sources", "project", "--disable-slash-commands", "--permission-mode", "dontAsk", "--allowedTools", "Bash(python kb.py:*)", "Read", "Grep"]
+           "--setting-sources", "project", "--disable-slash-commands", "--permission-mode", "dontAsk", "--allowedTools", "Bash(python kb.py search:*)", "Bash(python kb.py propose:*)", "Bash(python kb.py template:*)", "Read", "Grep"]
     p = subprocess.run(cmd, input=prompt, cwd=str(DST), capture_output=True, text=True, encoding="utf-8", timeout=600,
                        env=dict(os.environ, PYTHONIOENCODING="utf-8", KB_USER="ai:haiku"))
     try:
@@ -54,7 +54,7 @@ def main():
     inbox = sorted((DST / "inbox").glob("P-*.md"))
     print("inbox 提案數:", len(inbox), "/ 8")
     for f in inbox:
-        r = kbcmd(DST, "approve", f.stem, "--by", "human")
+        r = kbcmd(DST, "approve", f.stem, user="human")
         if r.returncode:
             print("approve 失敗", f.stem, r.stdout.strip()[:120], r.stderr.strip()[:120])
     sys.path.insert(0, str(V1))

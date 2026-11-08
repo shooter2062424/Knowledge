@@ -7,6 +7,9 @@
 - `raw/`:不可變的原始紀錄(會議逐字稿等)。`notes/`:雜項。`inbox/`:待審,不算正式結論。
 - 範圍欄位:`project` / `platform` / `branch`。`*` = 全部;越具體的 claim 在它的範圍內優先。
 
+## 工具使用規則
+- Bash 一次只執行**單一** `python kb.py ...` 指令,**不要**用 `;`、`&&`、`|`、`2>&1`、`echo` 串接或附加(權限白名單會整條拒絕)。要看用法請用 `python kb.py template`,不要用 `--help`。
+
 ## 查詢(照這個順序)
 1. `python kb.py search "關鍵字"`:會標 current / SUPERSEDED / DEPRECATED,並自動附上取代鏈鄰居。
    - **至少用 3 種說法查**(中文、英文、口語/同義詞);第一次沒找到,換說法再查,不要立刻放棄。
@@ -28,7 +31,7 @@
 3. **aliases 必填至少 4 個,建議 6–12 個**:口語說法、同義詞、中英互換(例如 mutex 與 互斥鎖)、常見的換字問法;不要加原文沒有的事實。
 4. 取代舊 claim 用 `--supersedes <舊id>`,新範圍不得比舊的更窄;範圍的例外請另寫一條帶範圍的 claim。
 5. `deprecated` 必須帶 `--retire-when`。
-6. 提案後等**另一個人**用 `python kb.py review` / `approve` 核准(作者不能核准自己的)。
+6. 提案後等**另一個人**用 `python kb.py review` / `approve` 核准。**AI 不可以執行 `approve` / `reject` / `build`**(身分取自登入帳號或 `KB_USER`,提案者本人不能核准);這些由人執行。
 
 ## 每週維護(指定一人輪值)
 `python kb.py unfound --report` 看大家找不到什麼 → 補 aliases / 補詞彙 / 補缺的 claim;`python kb.py lint` 清掉 ERROR。

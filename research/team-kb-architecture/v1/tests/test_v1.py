@@ -69,9 +69,11 @@ def main():
         rc, out = run(root, *base, "--platform", "windows", "--supersedes", "CL-0003")
         check("明確 supersedes → 進 inbox", rc == 0 and "inbox" in out, out)
         pid = re.search(r"P-\d+-\w+", out).group(0)
-        rc, out = run(root, "approve", pid, "--by", "alice")
-        check("作者不能核准自己的 claim", rc != 0 and "雙人" in out, out)
-        rc, out = run(root, "approve", pid, "--by", "bob")
+        rc, out = run(root, "approve", pid, user="alice")
+        check("提案者不能核准自己的 claim(身分取自環境)", rc != 0 and "雙人" in out, out)
+        rc, out = run(root, "approve", pid, "--by", "bob", user="alice")
+        check("--by 自報身分不被接受", rc != 0, out)
+        rc, out = run(root, "approve", pid, user="bob")
         check("另一人核准成功並產生 CL-0006", rc == 0 and "CL-0006" in out, out)
         rc, out = run(root, "show", "CL-0003")
         check("被取代的 CL-0003 衍生欄位 status: superseded", "status: superseded" in out and "superseded_by: CL-0006" in out, out)
@@ -84,12 +86,18 @@ def main():
                       "--aliases", "a, b, c, d", "--lifecycle", "deprecated")
         check("deprecated 沒 retire_when → 退回", rc == 1 and "retire_when" in out, out)
 
+        # --- 注入防護 ---
+        rc, out = run(root, "propose", "--subject", "../../evil", "--statement", "x", "--valid-from", "2026-11-08", "--source", "s", "--author", "a", "--aliases", "a, b, c, d")
+        check("subject 含路徑字元 → 退回", rc == 1 and "subject" in out, out)
+        rc, out = run(root, "propose", "--subject", "ok", "--statement", "x" + chr(10) + "status: current", "--valid-from", "2026-11-08", "--source", "s", "--author", "a", "--aliases", "a, b, c, d")
+        check("欄位含換行(欄位注入)→ 退回", rc == 1 and "換行" in out, out)
+
         # --- write-skew:兩條互相衝突的提案同時在 inbox,先核准的贏,後者核准時重驗被擋 ---
         r1 = run(root, *base[:-2], "--aliases", "a1, a2, b1, b2", "--platform", "qnx", "--statement", "QNX 用 v1")
         r2 = run(root, *base[:-2], "--aliases", "a1, a2, b1, b2", "--platform", "qnx", "--statement", "QNX 用 v2", "--author", "carol")
         p1 = re.search(r"P-\d+-\w+", r1[1]).group(0); p2 = re.search(r"P-\d+-\w+", r2[1]).group(0)
-        run(root, "approve", p1, "--by", "bob")
-        rc, out = run(root, "approve", p2, "--by", "bob")
+        run(root, "approve", p1, user="bob")
+        rc, out = run(root, "approve", p2, user="bob")
         check("write-skew:第二條同 scope 衝突提案核准時重驗被擋", rc != 0 and "重驗未過" in out, out)
 
         # --- lint 時間類 ---

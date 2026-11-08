@@ -40,6 +40,14 @@ LIST_FIELDS = {"supersedes", "aliases", "superseded_by"}
 REQUIRED = ["subject", "statement", "valid_from", "source", "author", "aliases"]
 MIN_ALIASES = 4
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9_-]{0,63}$")  # subject / concept:會成為 topics/<subject>.md 的檔名,不得含路徑字元
+
+
+def identity() -> str:
+    """操作者身分:只認環境(KB_USER,由 harness / 登入帳號設定)或作業系統帳號,不接受命令列自報。
+    注意:同一個 OS 帳號下的程序仍可改環境變數;真正的強制要靠 agent 的工具白名單不含 approve/reject(見 README)。"""
+    return os.environ.get("KB_USER") or __import__("getpass").getuser()
+
 
 
 # ---------- 讀寫 ----------
@@ -65,7 +73,7 @@ def split_list(v: str) -> list[str]:
 
 def dump(c: dict) -> str:
     order = ["id", "concept", "subject", "statement", "lifecycle", *DIMS, "valid_from", "retire_when", "review_by",
-             "supersedes", "aliases", "source", "author", "reviewer", "status", "superseded_by"]
+             "supersedes", "aliases", "source", "author", "proposer", "reviewer", "status", "superseded_by"]
     lines = []
     for k in order + [k for k in c if k not in order and not k.startswith("_")]:
         v = c.get(k)
@@ -125,6 +133,13 @@ def log(name: str, rec: dict) -> None:
 def gate(c: dict, claims: dict[str, dict]) -> tuple[list[str], list[str]]:
     """回傳 (錯誤, 警告)。錯誤擋下,警告只提示。"""
     err, warn = [], []
+    for k, v in c.items():
+        vals = v if isinstance(v, list) else [v]
+        if any(isinstance(x, str) and re.search(r"[\r\n]", x) for x in vals):
+            err.append(f"欄位 {k} 不得含換行字元")
+    for k in ("subject", "concept"):
+        if c.get(k) and not SLUG_RE.match(c[k]):
+            err.append(f"{k} 只能是小寫英文、數字、- 或 _(開頭須為英數,最長 64):目前 {c[k]!r}")
     for k in REQUIRED:
         if not c.get(k):
             err.append(f"缺必填欄位 {k}")
@@ -196,6 +211,7 @@ def cmd_propose(a):
     INBOX.mkdir(parents=True, exist_ok=True)
     pid = f"P-{dt.datetime.now():%Y%m%d%H%M%S}-{secrets.token_hex(2)}"
     c["id"] = pid
+    c["proposer"] = identity()  # 信任來源的提案者身分;author 欄只是顯示用的自報名稱
     (INBOX / f"{pid}.md").write_text(dump(c), encoding="utf-8")
     print(f"已放入 inbox:{pid}(等另一人 review / approve)")
 
@@ -237,11 +253,9 @@ def cmd_approve(a):
     if a.pid not in items:
         sys.exit(f"inbox 沒有 {a.pid}")
     c = items[a.pid]
-    by = a.by or os.environ.get("KB_USER", "")
-    if not by:
-        sys.exit("需要 --by 或 KB_USER(核准者)")
-    if by == c.get("author"):
-        sys.exit("核准者不可以是作者本人(雙人規則)")
+    by = identity()
+    if by in (c.get("proposer"), c.get("author")):
+        sys.exit("核准者不可以是提案者本人(雙人規則;身分取自 KB_USER / 作業系統帳號,不接受 --by 自報)")
     claims = load_claims()
     err, _ = gate(c, claims)  # 核准當下重驗一次(等待期間可能有別的 claim 先進來:write-skew)
     if err:
@@ -283,6 +297,8 @@ def build() -> None:
     for c in claims.values():
         subjects[c["subject"]].append(c)
     for s, cs in subjects.items():
+        if not SLUG_RE.match(s):  # 手改過的壞檔:不寫檔,交給 lint 報
+            continue
         L = [f"# {s}(自動產生,請勿手改)\n", f"更新:{TODAY}\n", "## 現行\n"]
         for c in sorted(cs, key=lambda x: x["id"]):
             if c["id"] not in sup and c["lifecycle"] != "retired":
@@ -501,6 +517,8 @@ def cmd_lint(a):
     issues: list[tuple[str, str, str]] = []  # (級別, 代碼, 說明)
     for c in claims.values():
         i = c["id"]
+        if not SLUG_RE.match(c["subject"]) or not SLUG_RE.match(c["concept"]):
+            issues.append(("ERROR", "BAD-SLUG", f"{i} subject/concept 格式不合法({c['subject']!r}/{c['concept']!r}),topics 頁不會產生"))
         if c["lifecycle"] == "deprecated" and not c.get("retire_when"):
             issues.append(("ERROR", "NO-EXIT", f"{i} deprecated 但沒有 retire_when"))
         if c.get("retire_when") and c["retire_when"] < TODAY and c["lifecycle"] != "retired":
@@ -577,7 +595,7 @@ def main():
         p.add_argument("--" + k.replace("_", "-"), dest=k)
     p.set_defaults(fn=cmd_propose)
     sp.add_parser("review").set_defaults(fn=cmd_review)
-    p = sp.add_parser("approve"); p.add_argument("pid"); p.add_argument("--by"); p.set_defaults(fn=cmd_approve)
+    p = sp.add_parser("approve"); p.add_argument("pid"); p.set_defaults(fn=cmd_approve)
     p = sp.add_parser("reject"); p.add_argument("pid"); p.add_argument("--reason", default=""); p.set_defaults(fn=cmd_reject)
     sp.add_parser("build").set_defaults(fn=cmd_build)
     p = sp.add_parser("search"); p.add_argument("query", nargs="+"); p.add_argument("--k", type=int, default=8); p.add_argument("--no-log", action="store_true", help="提案前的重複檢查用,不記入查詢/未找到清單"); p.set_defaults(fn=cmd_search)
