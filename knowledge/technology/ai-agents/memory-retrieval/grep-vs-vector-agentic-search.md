@@ -143,6 +143,39 @@ flowchart BT
 
 ---
 
+## 8. 回頭核對 arXiv 原文(2026-11-08)
+
+讀了 [arXiv HTML 全文](https://arxiv.org/html/2605.15184v1)(Table 1–3、§3、§4.1.4、§5、§6),重新比對本篇數字。
+
+### 8.1 數字全部對得上(✅ 已核實)
+
+| 本篇引用 | 原文 |
+|---|---|
+| Chronos + Opus 4.6:inline grep 93.1% vs 向量 83.6% | Table 1 同 |
+| Chronos + Flash-Lite:86.2% vs 62.9%,為最大差距 | §4.1.3「The largest margin」 |
+| Codex + GPT-5.4:93.1% → file-based 55.2%,向量 67.2% | §4.1.3「sharpest regression」 |
+| 向量在 5 個組合中於 file-based 反超 | 原文列出五個組合 |
+| 同一 Opus 4.6 換 harness 約差 16pp | Chronos 93.1% vs Claude Code 76.7%,差 16.4pp |
+| Gemini CLI + Gemini 3.1 Pro 向量一路領先,full 89.7% vs 78.5% | §4.2.3 |
+
+### 8.2 本篇原先漏寫、會影響解讀的限定條件
+
+1. **Chronos 的「grep-only」並不是純 grep。** §3.3.1 寫明該 harness 每題開場先給一段「initial broad context block(top-15 vector results)」才進入工具迴圈,所以 Chronos 的 grep 組也吃了向量結果當種子。**Chronos 欄位的 grep 勝出,不能直接解讀成純詞彙檢索勝過向量**;純 grep 對照較接近 Claude Code / Gemini CLI 的 bash 組。(⚠️ 這是我對原文設計的解讀,論文自己沒把它列為限制。)
+2. **差距小的格子可能只是噪聲。** 116 題,每題 0.86pp:Claude Code + Opus inline 的 76.7% vs 75.0% 只差 2 題。論文沒報信賴區間或重複跑的變異。旁證:同樣是 Chronos + Opus 的 inline grep,Table 1 是 93.1%,Table 2 的 full 是 89.7%,差約 4 題,原文沒解釋(推測是不同次執行)。
+3. **雜訊實驗裡向量在小語料反而常領先。** Table 2/3:s5 時 Chronos grep 83.2–89.7%,向量 87.9–94.0%。grep 的優勢是「平均」(Figure 1 說明兩者退化都小、grep 平均較高),不是每個設定都贏;Chronos 在不同 s 值有交叉。
+4. **論文自己明說不主張 grep 通用勝出。** §5:「We do not claim that grep "beats" vector in general」,只主張在其任務與語料分佈下可勝出。摘要用 generally、結論用 consistently,語氣略有不一致,以限制章節為準。
+5. **領域特性:** LongMemEval 的答案多為逐字片段(日期、數量、偏好),有利於精確比對;論文承認科學綜述、視覺文件、程式語意可能不同。
+6. **評分者:** GPT-4o 當裁判、二元判斷,未報裁判誤差。
+7. **作者利益:** 作者全為 PwC US,且 Chronos 是同一團隊的 harness(Sen et al., 2026);論文沒有揭露外部複現。
+
+### 8.3 對本庫結論的修正
+
+- 「inline grep 常勝向量」成立,但要加:**在長記憶對話 QA、116 題、單次測試**。
+- [[llm-wiki-karpathy]] 引用本篇時說的「agentic 場景 inline grep 常打贏向量」宜讀作**單一基準的結果**,不是一般定理。
+- 與 §7 的 IBM 框架合讀:論文證明「措辭精確時 grep 夠用」;IBM 的「語意鴻溝」例子正好是論文自己承認 grep 的弱點(vocabulary mismatch)。
+
+---
+
 ## 來源
 
 - [arXiv:2605.15184v1 — Is Grep All You Need? How Agent Harnesses Reshape Agentic Search](https://arxiv.org/html/2605.15184v1)
