@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**497 個 YouTube video id**、**167 個 arXiv 編號**,涵蓋 **387 篇**筆記。
+> 統計:**498 個 YouTube video id**、**167 個 arXiv 編號**,涵蓋 **388 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(497 部,依 video id 排序)
+## YouTube(498 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -434,6 +434,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `uFaDKby_Wzs` | Tailworm:Tailscale SSH 的轉發與 AI Coding 代理的網路邊界 | [knowledge/technology/ai-safety/tailworm-tailscale-ssh-ai-coding-agent-boundary.md](./knowledge/technology/ai-safety/tailworm-tailscale-ssh-ai-coding-agent-boundary.md) |
 | `uflbrOB9ujQ` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |
 | `UG_IiOPAWng` | Sell Put 不必放到到期:提前買回、把資金換到下一張合約(Nick 美股咖啡館) | [knowledge/investing/derivatives/sell-put-early-close-roll-delta-nick.md](./knowledge/investing/derivatives/sell-put-early-close-roll-delta-nick.md) |
+| `Uj8nORSksP8` | 讓 Claude 和 GPT 做 PPT:差的是那幾句話——從「一句話」到能上台的四步提示法 | [knowledge/technology/ai-productivity/ai-ppt-claude-vs-gpt-four-prompt-steps-mia.md](./knowledge/technology/ai-productivity/ai-ppt-claude-vs-gpt-four-prompt-steps-mia.md) |
 | `UPF9Ogid4N0` | 黃仁勳談生死與接班:不做「接班計畫」,而是不停傳遞知識 | [knowledge/technology/ai-industry/jensen-huang-succession-and-vision.md](./knowledge/technology/ai-industry/jensen-huang-succession-and-vision.md) |
 | `UQDSftGndms` | Make 與 n8n 還值得學嗎:當維護的人從你換成 Agent,視覺化就從資產變成阻礙 | [knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md](./knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md) |
 | `UQtgJ2RWx64` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |

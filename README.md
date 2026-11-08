@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-431_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-432_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -152,7 +152,7 @@ flowchart LR
 | **IBM Technology** — 官方技術科普(廠商內容) | 1 | [檢索金字塔:還需要向量資料庫嗎(併入 grep vs 向量筆記 §7)](./knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md) |
 | **Google Cloud Tech** — 官方技術教學(廠商內容) | 1 | [Agent 長期記憶:事實進 SQL、理解進向量庫(含 Memory Bank 官方文件與示範碼核實)](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-facts-vs-understanding-google-cloud-tech.md) |
 | **P & H** — AI 工具實測(多選手同題橫評) | 1 | [Claude 做網頁該裝哪個 Skill?10 位選手兩輪實測](./knowledge/technology/applied-ai/design/claude-web-design-skills-benchmark-pnh.md) |
-| **Mia 码上 AI(@mia_ma_shang_ai)** — AI 入門科普(排程巡檢,內容要延伸到一手來源) | 1 | [量化完整地圖(Q4/Q8/QAT/三值)](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |
+| **Mia 码上 AI(@mia_ma_shang_ai)** — AI 入門科普(排程巡檢,內容要延伸到一手來源) | 2 | [量化完整地圖(Q4/Q8/QAT/三值)](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) · [讓 Claude 和 GPT 做 PPT:四步提示法](./knowledge/technology/ai-productivity/ai-ppt-claude-vs-gpt-four-prompt-steps-mia.md) |
 | **Jim AI Notebook** — AI 每日深度解析 | 2 | [MCP 2026-07-28 最大改版](./knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) · [Stanford CS336 訓練成本餐巾紙算法](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | **Simon Scrapes** — Claude skill/自動化實作(⚠️ 推廣 Skool 付費社群) | 1 | [官方 skill 最佳實踐七條(併入 Skill 實戰 §8)](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
 | **wow** — AI agent 真實系統壓測 | 2 | [Graphify 知識圖譜實戰壓測](./knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) · [本體論護欄與神經符號 AI(Frank Coyle)](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
@@ -553,6 +553,7 @@ flowchart LR
 | [AI 改 code 一直「改 A 壞 B」?讓 AI 安全接手舊專案的五步驟(Gary Chen)](./knowledge/technology/ai-productivity/ai-brownfield-codebase-five-steps.md) | Brownfield vs Greenfield;先看懂再動手;定位畫面→梳理 data flow→帶規則需求(guardrail)→小步 review→測試/log/回歸;前兩步勞力活可外包、後兩步決策活不能 |
 | [用 Skywork 從查資料到做簡報:AI 研究助理該看的三個能力(程序员老王)](./knowledge/technology/ai-productivity/skywork-research-report-to-slides.md) | ⚠️ **產品推廣片(含邀請碼)**,只萃取通用標準:⭐⭐⭐ **句子級溯源、自訂信源、單頁重生**;ReAct ≠ React;⭐ 老王抓到報告推薦 venv 而非 uv ⇒ AI 報告要有人審 |
 | [Vibe Coding 全解:模型、Agent、工作流三層與「需求→設計→任務→子 Agent」實戰(程序员老王)](./knowledge/technology/ai-productivity/vibe-coding-stack-model-agent-workflow.md) | ⭐⭐ 模型只吐內容、Agent 在本機替它動手、OpenSpec/Superpowers 把 SDD/TDD 話術打包成工作流,三層可混搭;⭐⭐⭐ 四段式提示詞(目標/輸入/輸出/步驟)+ 讓 AI 反問、每步開新對話、監工 + 子 Agent 生成 FC 模擬器,196 測試全過 |
+| [讓 Claude 和 GPT 做 PPT:差的是那幾句話(Mia 码上 AI)](./knowledge/technology/ai-productivity/ai-ppt-claude-vs-gpt-four-prompt-steps-mia.md) | 一句話→編造數字的 11–12 頁;給真數據→算對但像報告;先要大綱、在大綱改→定規矩(結論先行、標題一句話、正文≤3 行、圖表可編輯、決策頁、講稿、自檢)→預判老闆三問;核實演示頁提示詞與數字、Anthropic pptx Skill(原生圖表、addNotes);⚠️ 單次主觀比較、兩家條件不對等(GPT 在 Codex 最高推理)、+10%/−9%/14%/備註字數未能核實 |
 
 ### 🎨 applied-ai(應用)
 | 主題 | 一句話 |
