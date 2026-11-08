@@ -384,11 +384,11 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 ### 排程 A 實際 prompt(2026-11-07 合併版;細則見第 1、2、4 節與下方八頻道版)
 
 ```text
-每日巡檢 Knowledge repo 的 12 個 YouTube 來源,把新影片整理成繁中筆記。⚠️ Knowledge repo 筆記在 knowledge/、腳本在 scripts/。
+每日巡檢 Knowledge repo 的 13 個 YouTube 來源,把新影片整理成繁中筆記。⚠️ Knowledge repo 筆記在 knowledge/、腳本在 scripts/。
 ⭐ 完整規則的唯一來源是 C:\Users\shoot\project\Knowledge\SCHEDULES.md:開跑前先 Read 第 5 節(含頻道清單與共通規則),再依來源讀第 1(IT咖啡馆 GitHub Weekly)、2(Gary Chen)、4(美投君)節的細則;各節 code block 內的步驟就是本任務的作業流程,照做。⭐⭐ 語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID或檔案> -o <輸出.txt>`(固定 large-v3-turbo;**預設不帶 --prompt 詞表**,實測帶了更差;讀稿遇到語句不通順、疑似專有名詞聽錯處,才用 `--clip 起-迄 --prompt "正確詞表"` 定點重轉並取代),不要自己 inline 寫 WhisperModel、不要換 small、不要自己加 no_repeat_ngram_size;官方字幕優先,其次自動字幕(`scripts/youtube/transcript_tools.py fetch` 兩者都會抓),都沒有才轉錄。
 來源分兩組(一律用 channel ID,不用 handle;回報時用頻道中文名):
 A 核心三來源,有新的就全部處理、不受 2–3 篇上限:① IT咖啡馆 GitHub Weekly(UCXLV-KfDQAFUJ_as9H1Lfbw,第 1 節)② Gary Chen(UC9C3t-3ocL0LiwGRD0gBJ8A,第 2 節)③ 美投君/美投讲美股(UCBUH38E0ngqvmTqdchWunwQ,第 4 節,幾乎每支都要 Whisper)。
-B 其餘九頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模型、小Lin说、Redknot-乔红、Nick 美股咖啡館、轩辕的编程宇宙、橘鸦Juya(UCIDll3SRcbHwwcXbrwvBZNw,每日 AI 早報短影片,見第 5 節說明:同週早報併成週報式筆記並對官方來源核實,不逐日一篇)(清單與 ID 見第 5 節;規則照第 5 節,含「每次最多 2–3 篇、先增補既有筆記」)。
+B 其餘十頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模型、小Lin说、Redknot-乔红、Nick 美股咖啡館、轩辕的编程宇宙、橘鸦Juya(UCIDll3SRcbHwwcXbrwvBZNw,每日 AI 早報短影片,見第 5 節說明:同週早報併成週報式筆記並對官方來源核實,不逐日一篇)、Mia 码上 AI(UCEEj0DKPRQ3FS2AuccxRQJQ,AI 入門科普、無字幕要 Whisper;只巡 2026-11-05 之後的新片,更早的存量不補;⭐⭐ 使用者 2026-11-08 要求:科普頻道每篇都要把影片「提到但沒細講」的概念延伸到一手來源——官方部落格、論文、原始碼、模型卡逐項讀內文,標已核實/需修正/未能核實,延伸要完整到日後能靠這篇查到有用資料,可附小實驗,不是只複述影片;範例見 knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md)(清單與 ID 見第 5 節;規則照第 5 節,含「每次最多 2–3 篇、先增補既有筆記」)。
 全域上限:整次 Whisper 最多 2 支(A 組美投君 1 + B 組 1);其餘順延到隔天,並記入第 5 節存量。
 共通鐵則:
 - 去重:grep -rlF --include=*.md -- "<id>" knowledge/ (範圍必須是 knowledge/,不可用 .)。
@@ -480,6 +480,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 | **Redknot-乔红** | `UCAf2Y9FGJlE_ByXYF7BXv5g` | @redknot-miaomiao | 多數**無** | 14–19 分 |
 | **Nick 美股咖啡館** | `UCjrP2TtSTifuRJ76hW2IW1A` | @nick_stockcafe | **官方 zh-TW** | 11–32 分 |
 | **轩辕的编程宇宙** | `UCLkwRNY9Ck9-d1ulZYHsl-Q` | @xuanyuancoding | **無**(需 Whisper) | 10–15 分 |
+| **Mia 码上 AI** | `UCEEj0DKPRQ3FS2AuccxRQJQ` | (2026-11-08 加入) | **無**(需 Whisper) | 約 10 分;**只巡 2026-11-05 之後**(起點影片 `GvlftOu2uNA`),更早存量不補;⭐ 科普頻道,筆記須深度延伸(見 prompt) |
 
 > ⭐ 列表網址一律寫成 `https://www.youtube.com/channel/<channel ID>/videos`。
 
@@ -600,6 +601,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-11-08(新增 Mia 码上 AI) | **使用者提供 `GvlftOu2uNA`(量化 Q4/Q8)並要求把該頻道加入排程 A,且之後科普型內容都要「延伸得完整」以便日後查詢。** 排程 A 由 12 → **13 來源**(B 組十頻道);Mia 無字幕走 Whisper、只巡 2026-11-05 之後新片;prompt 新增「科普頻道延伸規則」。首篇筆記 `llm-quantization-q4-q8-gguf-qat-explained-mia.md`(延伸 Gemma 3/4 QAT 官方部落格、llama.cpp 原始碼、PyTorch QAT、PrismML 模型卡、NVFP4、18 篇論文摘要,附 numpy 玩具實驗 `research/quantization-toy/`)。排程 A 由 `bf3e6578` 刪除重建為 `08f81044`(07:03),到期日重設為約 11-15;B `760910d8` 不動。 |
 | 2026-11-08(排程 A 首次執行) | **12 來源總巡檢**:IT咖啡馆 GitHub Weekly 第 137 期 ✅ 新篇 issue-137(Whisper large-v3-turbo 不帶詞表轉錄 292 段;五個專案以 GitHub API、README 與 agent-browser.dev 文件頁核實,標 Super Agent 原型部分設計未實作、Claude SEO 作者 Skool 導流);Gary Chen `MzklWMQ87Yw`(Rieseberg 更有野心用 AI)✅ 併入 ai-productivity/more-ambitious-with-models-altitude-depth-range-rieseberg.md §八(核實:Altman 引文是 Gary 加的、12 萬顆恆星與 500 萬瀏覽未能核實);Why QQ `C2EzJjVpHpw`(OpenAI 948 個 Linux LPE 流水線)✅ 新篇 ai-safety/openai-linux-kernel-948-lpe-agent-pipeline-why-qq.md(OpenAI 原文 403,以兩份二手整理交叉核對,103 技術消融數字未能核實)。美投君無新片;Gary 會員限定 `ftEBJkNNsRk`、`OtxkHfjWeaU`、Nick `Uo9m4fkdkFs` 照舊永久跳過。**順延存量:** Caleb `IfiTVZS-dhk`(AI 基礎設施信用危機?,11-07)、YAHA `-7Y4E5qihaY`、`LtN0pAsmgjc`、白白 `iHmRszlT_WY`、Nick `dZ4skQnxewo`;橘鸦Juya 近 8 支(`r9lFf4d6JJY` 11/07、`aZ4ISFax7z8` 11/06、`UoLqNKs0_n0`、`8z3VXP_97Qg` 11/04、`SQfZgN-e2DI` 11/03、`Ir7OExbKsuc`、`Gx-P6B1JhdE` 11/01、`cwJTwCj6IJc`)尚未整理,計畫以週報式併筆記,B 組每次上限 2–3 篇、依序消化。 |
 | 2026-11-08(十支影片基準) | **使用者要求 profile 10 部影片;SenseVoice 比較好就換回去。** 結果(官方字幕為參考,10 支 × 約 260 秒,Why QQ / 小Lin说 / Nick / Gary Chen):整體 CER turbo 不帶詞表 **5.81%** < turbo 帶詞表 6.87% < SenseVoice 7.28%;純普通話 6 支 SenseVoice 3.84% 與 turbo 4.13% 打平且快 8.6 倍,中英夾雜 4 支 turbo 7.94% 明顯優於 SenseVoice 11.65%。**決定:不換回 SenseVoice,維持固定 turbo。詞表(`--prompt`)改為預設不帶**,只在讀稿發現不通順時用新加的 `--clip 起-迄` 定點重轉;`avg_logprob` 分佈太窄(最低 -0.68)無法自動偵測不通順。排程 A/B 的 prompt 同步改寫並重建為 A `bf3e6578`(07:03)、B `760910d8`(08:37),**新到期日約 11-15**(舊 `de94b8cd`、`32307a01` 已刪)。詳見基準筆記「增補二」 |
 | 2026-11-08(語音轉文字基準) | **使用者提供有字幕的影片 `fA7gNVUkkc8`(码农高天,6 分鐘)要求比較 large-v3-turbo vs SenseVoice-Small**。重大發現:`whisper_transcribe.py` 原本的 `no_repeat_ngram_size=3` 讓 turbo 中文 CER 由約 4% 變 8%(重複詞被迫換字:調查報告→調察/談查、員工→員功),**已從腳本移除**(所有舊配方中的 `no_repeat_ngram_size=3` 一律作廢)。修正後 turbo 與 SenseVoice 準確度相當(約 4%,參考為人工裁定、不確定度約 ±1.5 點),SenseVoice 約快 5 倍但專有名詞(幣安、web3)弱;詞表提示效果在不確定度內。⚠️ 該片只有 YouTube 自動字幕且其「原文」軌是英文翻譯,不能直接當中文參考。詳見 `knowledge/technology/dev-tools/whisper-cpp-vs-faster-whisper-benchmark.md` 增補節 |
