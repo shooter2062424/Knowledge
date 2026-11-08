@@ -40,6 +40,7 @@ LIST_FIELDS = {"supersedes", "aliases", "superseded_by"}
 REQUIRED = ["subject", "statement", "valid_from", "source", "author", "aliases"]
 MIN_ALIASES = 4
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+BAD_CHARS = chr(0x7f) + chr(0x85) + chr(0x2028) + chr(0x2029)  # DEL、NEL、Unicode 行/段分隔符;加上 ord<32 的控制字元一律拒絕
 SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9_-]{0,63}$")  # subject / concept:會成為 topics/<subject>.md 的檔名,不得含路徑字元
 
 
@@ -55,7 +56,7 @@ def parse(text: str) -> dict:
     """解析 `---` 之間的單行 `key: value` frontmatter(刻意不用 YAML,維持 grep 友善)。"""
     m = re.match(r"^---\n(.*?)\n---", text, re.S)
     out: dict = {}
-    for ln in (m.group(1) if m else "").splitlines():
+    for ln in (m.group(1) if m else "").split(chr(10)):  # 只認 LF;不用 splitlines()(它還會在   -      斷行,造成與驗證器不一致)
         k, sep, v = ln.partition(":")
         if sep:
             out[k.strip()] = v.strip()
@@ -135,8 +136,8 @@ def gate(c: dict, claims: dict[str, dict]) -> tuple[list[str], list[str]]:
     err, warn = [], []
     for k, v in c.items():
         vals = v if isinstance(v, list) else [v]
-        if any(isinstance(x, str) and re.search(r"[\r\n]", x) for x in vals):
-            err.append(f"欄位 {k} 不得含換行字元")
+        if any(isinstance(x, str) and (len(x.splitlines()) > 1 or any(ord(ch) < 32 or ch in BAD_CHARS for ch in x)) for x in vals):
+            err.append(f"欄位 {k} 不得含換行或控制字元")
     for k in ("subject", "concept"):
         if c.get(k) and not SLUG_RE.match(c[k]):
             err.append(f"{k} 只能是小寫英文、數字、- 或 _(開頭須為英數,最長 64):目前 {c[k]!r}")

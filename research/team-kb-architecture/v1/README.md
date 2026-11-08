@@ -11,7 +11,7 @@ cp <本資料夾>/kb.py <本資料夾>/AGENTS.md .
 git init                                  # 版本控制 = 免費的稽核紀錄
 mkdir -p claims raw inbox state topics    # raw/ 放不可變的原始紀錄(會議逐字稿等)
 python kb.py template                     # 看 claim 欄位
-python tests/test_v1.py                   # (選用)跑 27 項行為測試,確認你的 Python 沒問題
+python tests/test_v1.py                   # (選用)跑 33 項行為測試,確認你的 Python 沒問題
 ```
 
 把 `AGENTS.md` 放在 KB 根目錄,AI(Claude Code 之類)開在這個目錄時會先讀它。

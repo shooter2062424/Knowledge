@@ -5,7 +5,7 @@
 
 ## 1. 一頁結論
 
-1. **v1 做出來了,且行為測試 27/27 通過**(scope 解析、衝突、缺 scope 反問、gate、雙人規則、write-skew、折疊、lint、未找到清單)。測試過程抓到並修掉一個缺陷:已補明確 claim 的交集仍被 lint 報歧義。
+1. **v1 做出來了,且行為測試 33/33 通過**(scope 解析、衝突、缺 scope 反問、gate、雙人規則、write-skew、折疊、lint、未找到清單)。測試過程抓到並修掉一個缺陷:已補明確 claim 的交集仍被 lint 報歧義。
 2. **別名要「分欄加權」,不能直接併進全文**(本輪最重要的新發現)。同樣的別名,併進同一欄 hit@5 是 0.70(沒別名 0.72,等於沒用,英文題從 1.00 掉到 0.40);分成「主文 + 別名欄 × 0.5」是 **0.93**。原因:帶別名的同型干擾 claim 也有別名,別名詞頻會把字面完全吻合的結果擠下去。權重 0.3–0.5 都在平台(0.91–0.93),1.0 掉到 0.86。
 3. **agent 實驗:v1 全對、更省。** 17 題(含 1 題「知識庫沒有」):對照組(只有 Grep/Glob/Read)與 v1 都是 17/17,但 v1 平均 **8.2 輪、US$0.116**,對照組 **13.6 輪、US$0.25**(輪數 −40%、成本 −54%);對照組還有 20 次權限拒絕(agent 試圖用被禁的指令),v1 為 0。**正確率沒有分出高下(兩邊都滿分,題目對 Haiku 太容易),差別只在效率。**
 4. **兩項決策在 agent 層有效:** scope 4/4(缺 scope 反問、Vision/Linux/main 命中 deprecated 並講退場日、Windows LTS 用交集 claim、Audio/Windows/main 取 Windows 的 claim);「知識庫沒有」題 agent 回答找不到,且只在未找到清單留下 3 筆(2 筆自動 + 1 筆 agent 手動)。
@@ -33,7 +33,7 @@
 
 ### E0 行為測試([`v1/tests/test_v1.py`](./v1/tests/test_v1.py))
 
-27 項全過。涵蓋:同具體度重疊 → CONFLICT;補交集 claim → 唯一結論;缺 scope → ASK(且指出哪個維度會改變結論);deprecated 顯示退場日;未出現過的 project → 回全域;gate 擋(缺 retire_when、aliases 不足、取代時範圍變窄、同 scope 衝突無 supersedes);提案者不能核准自己、`--by` 自報被拒、路徑字元與換行注入被擋;write-skew(兩條衝突提案同時在 inbox,第二條核准時被重驗擋下);OVERDUE;別名命中;SUPERSEDED 不隱藏;未找到;折疊。
+33 項全過。涵蓋:同具體度重疊 → CONFLICT;補交集 claim → 唯一結論;缺 scope → ASK(且指出哪個維度會改變結論);deprecated 顯示退場日;未出現過的 project → 回全域;gate 擋(缺 retire_when、aliases 不足、取代時範圍變窄、同 scope 衝突無 supersedes);提案者不能核准自己、`--by` 自報被拒、路徑字元與換行注入被擋;write-skew(兩條衝突提案同時在 inbox,第二條核准時被重驗擋下);OVERDUE;別名命中;SUPERSEDED 不隱藏;未找到;折疊。
 **抓到的缺陷:** 補了 Windows + LTS 的明確 claim 後,lint 仍報 Windows 與 LTS 的歧義 → 已改成「交集範圍已有明確 claim 就不再報」。
 
 ### E1 離線檢索(`v1/experiments/e1_retrieval.py`,1,530 條 claim,43 題)
@@ -82,6 +82,8 @@ commit 後的自動安全審查指出兩項,都成立:
 |---|---|---|
 | 核准者身分取自 `--by`(自報)或 `KB_USER`,雙人規則可被繞過 | 移除 `--by`;身分只取 `KB_USER` 或作業系統帳號;提案時另記 `proposer`,核准者不可是 `proposer` 或 `author` | 提案者不能核准、`--by` 自報被拒 |
 | `subject` / `concept` 進檔名、欄位可含換行(路徑穿越、欄位注入) | gate 限 `^[a-z0-9][a-z0-9_-]{0,63}$`、所有欄位拒絕 CR/LF;`build` 寫主題頁前再驗路徑;`lint` 報 BAD-SLUG | `../../evil` 被退回、換行被退回 |
+| 第二次審查:驗證器只擋 `
+`,但解析器用 `splitlines()`,會在 `  -  U+2028 U+2029` 斷行 → 仍可注入欄位(parser differential) | 解析器改成只認 LF;驗證器拒絕所有 `ord<32`、DEL、NEL、U+2028/2029 與 `splitlines()` 會斷行的字元 | 5 種字元被退回、手寫壞檔含 U+2028 不產生額外欄位 |
 
 **仍然存在的限制(誠實說明):** 身分取自環境變數 / OS 帳號,**同一個帳號下的程序(包含 AI)能改環境變數**,所以雙人規則只防「誤操作」,不防「刻意繞過」。真正的強制要靠 agent 的工具白名單**不含 `approve` / `reject` / `build`**(`README.md` 已列為上線必做),或讓人在另一個帳號核准。
 **實驗本身的疏漏:** 前面幾輪實驗給 agent 的是 `Bash(python kb.py:*)`,技術上包含 `approve`,agent 沒有執行只是因為 AGENTS.md 沒叫它做。修正後的重跑已改成只開 search / resolve / unfound(E2)與 search / propose / template(E3)。

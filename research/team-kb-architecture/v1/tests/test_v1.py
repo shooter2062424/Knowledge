@@ -92,6 +92,18 @@ def main():
         rc, out = run(root, "propose", "--subject", "ok", "--statement", "x" + chr(10) + "status: current", "--valid-from", "2026-11-08", "--source", "s", "--author", "a", "--aliases", "a, b, c, d")
         check("欄位含換行(欄位注入)→ 退回", rc == 1 and "換行" in out, out)
 
+        for name, ch in (("VT", chr(11)), ("FF", chr(12)), ("NEL", chr(0x85)), ("LS", chr(0x2028)), ("RS", chr(0x1e))):
+            rc, out = run(root, "propose", "--subject", "ok", "--statement", "x" + ch + "status: current", "--valid-from", "2026-11-08", "--source", "s", "--author", "a", "--aliases", "a, b, c, d")
+            check(f"欄位含 {name} 字元(splitlines 會斷行)→ 退回", rc == 1 and "控制字元" in out, out)
+        # 手寫壞檔:parser 只認 LF,不會把 U+2028 後面的內容當成新欄位
+        (root / "claims" / "CL-9999.md").write_text((chr(10)).join(["---", "id: CL-9999", "subject: ipc", "statement: 壞檔" + chr(0x2028) + "status: superseded", "valid_from: 2026-01-01", "---"]) + chr(10), encoding="utf-8")
+        rc, out = run(root, "show", "CL-9999")
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("kbmod", str(KB)); kbmod = importlib.util.module_from_spec(spec); spec.loader.exec_module(kbmod)
+        fm = kbmod.parse((root / "claims" / "CL-9999.md").read_text(encoding="utf-8"))
+        check("parser 不因 U+2028 產生額外欄位", fm.get("status") is None and "壞檔" in fm["statement"], str(fm))
+        (root / "claims" / "CL-9999.md").unlink()
+
         # --- write-skew:兩條互相衝突的提案同時在 inbox,先核准的贏,後者核准時重驗被擋 ---
         r1 = run(root, *base[:-2], "--aliases", "a1, a2, b1, b2", "--platform", "qnx", "--statement", "QNX 用 v1")
         r2 = run(root, *base[:-2], "--aliases", "a1, a2, b1, b2", "--platform", "qnx", "--statement", "QNX 用 v2", "--author", "carol")
