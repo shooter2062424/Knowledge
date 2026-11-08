@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**491 個 YouTube video id**、**150 個 arXiv 編號**,涵蓋 **382 篇**筆記。
+> 統計:**492 個 YouTube video id**、**150 個 arXiv 編號**,涵蓋 **382 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(491 部,依 video id 排序)
+## YouTube(492 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -390,6 +390,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `rQR_0WZzjV4` | SSD 怎麼存資料:從量子穿隧到 3D NAND 陣列 | [knowledge/technology/hardware/ssd-nand-flash-floating-gate-engineering.md](./knowledge/technology/hardware/ssd-nand-flash-floating-gate-engineering.md) |
 | `Ru_YVdveirY` | 30 歲以上程式設計師怎麼轉型:五條出路與四個 AI 方向(白白說大模型 2 支影片合併) | [knowledge/career/ai-transition/over-30-developer-ai-career-switch-directions.md](./knowledge/career/ai-transition/over-30-developer-ai-career-switch-directions.md) |
 | `rv9aZRdtxsU` | MCP 無狀態化怎麼遷移:十分鐘自查、三個真正危險的點,與「狀態在哪裡,責任就在哪裡」 | [knowledge/technology/ai-agents/foundations/mcp-stateless-migration-guide.md](./knowledge/technology/ai-agents/foundations/mcp-stateless-migration-guide.md) |
+| `rXFV1ivDe6c` | Grep 就夠了嗎?Agent Harness 如何左右「代理式檢索」 | [knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md](./knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md) |
 | `S-sYlFiGFv8` | Claude Code 團隊自己怎麼用 Claude Code:從盯 tool call 到只給目標 | [knowledge/technology/claude-code/claude-code-team-how-they-work.md](./knowledge/technology/claude-code/claude-code-team-how-they-work.md) |
 | `s3yiXTxueoI` | Harness / Loop / Graph 三層排障地圖:把「Agent 又抽風了」翻譯成可執行的排查工單 | [knowledge/technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md](./knowledge/technology/ai-agents/foundations/harness-loop-graph-troubleshooting-map.md) |
 | `s48xeUP_2qI` | 英偉達的護城河究竟是什麼?從「CPU 為什麼跑不動大模型」一路算到 CUDA 軟體生態 | [knowledge/technology/ai-industry/nvidia-moat-memory-bandwidth-cuda-software.md](./knowledge/technology/ai-industry/nvidia-moat-memory-bandwidth-cuda-software.md) |
