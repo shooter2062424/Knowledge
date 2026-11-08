@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**494 個 YouTube video id**、**167 個 arXiv 編號**,涵蓋 **384 篇**筆記。
+> 統計:**495 個 YouTube video id**、**167 個 arXiv 編號**,涵蓋 **385 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(494 部,依 video id 排序)
+## YouTube(495 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -217,6 +217,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `gcCTxeLA6Mg` | NVIDIA N1X 能撞開 x86 四十年的城牆嗎?三個變量決定成敗 | [knowledge/technology/ai-industry/nvidia-n1x-vs-x86.md](./knowledge/technology/ai-industry/nvidia-n1x-vs-x86.md) |
 | `gD_so3Nc7Y0` | 當沖有技巧嗎?紐約證交所傳奇交易員 Peter Tuchman 的 40 年心法 | [knowledge/investing/technical-analysis/peter-tuchman-day-trading.md](./knowledge/investing/technical-analysis/peter-tuchman-day-trading.md) |
 | `gfhoJY2D4Jc` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
+| `GfYDsJvDQoc` | Claude 做網頁該裝哪個 Skill?10 位選手兩輪實測:免費版不裝就夠用,要裝就裝 UI UX Pro Max | [knowledge/technology/applied-ai/design/claude-web-design-skills-benchmark-pnh.md](./knowledge/technology/applied-ai/design/claude-web-design-skills-benchmark-pnh.md) |
 | `Gg2eGkhspFo` | DeepSeek 開賣搜尋:Search / Fetch API 每千次 0.75 美元,便宜的搜尋能不能變成可靠的證據 | [knowledge/technology/ai-agents/applications/deepseek-search-fetch-api-agent-evidence.md](./knowledge/technology/ai-agents/applications/deepseek-search-fetch-api-agent-evidence.md) |
 | `gM5wm2x7fi8` | 美股狂熱會終結嗎?三大短期風險與「市場需要一個觸發點來解毒」 | [knowledge/investing/strategy/us-stocks-three-risks-detox-trigger.md](./knowledge/investing/strategy/us-stocks-three-risks-detox-trigger.md) |
 | `gQmPD4I62rU` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |

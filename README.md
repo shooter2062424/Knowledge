@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-428_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-429_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -151,6 +151,7 @@ flowchart LR
 | **CTITV NEWS(影片授權 @IamJackLiu)** — 時事影片(筆記僅拆思考結構,非立場) | 1 | [辯證思考法與工具箱](./knowledge/career/mindset/dialectical-negation-thinking-layered-cognition.md) |
 | **IBM Technology** — 官方技術科普(廠商內容) | 1 | [檢索金字塔:還需要向量資料庫嗎(併入 grep vs 向量筆記 §7)](./knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md) |
 | **Google Cloud Tech** — 官方技術教學(廠商內容) | 1 | [Agent 長期記憶:事實進 SQL、理解進向量庫(含 Memory Bank 官方文件與示範碼核實)](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-facts-vs-understanding-google-cloud-tech.md) |
+| **P & H** — AI 工具實測(多選手同題橫評) | 1 | [Claude 做網頁該裝哪個 Skill?10 位選手兩輪實測](./knowledge/technology/applied-ai/design/claude-web-design-skills-benchmark-pnh.md) |
 | **Mia 码上 AI(@mia_ma_shang_ai)** — AI 入門科普(排程巡檢,內容要延伸到一手來源) | 1 | [量化完整地圖(Q4/Q8/QAT/三值)](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |
 | **Jim AI Notebook** — AI 每日深度解析 | 2 | [MCP 2026-07-28 最大改版](./knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) · [Stanford CS336 訓練成本餐巾紙算法](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | **Simon Scrapes** — Claude skill/自動化實作(⚠️ 推廣 Skool 付費社群) | 1 | [官方 skill 最佳實踐七條(併入 Skill 實戰 §8)](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
@@ -559,6 +560,7 @@ flowchart LR
 | [YAHA 影音 AI 工具:Filmora 16、Topview、Flova(Seedance 2.5)](./knowledge/technology/applied-ai/design/yaha-video-ai-tools-filmora-topview-flova.md) | 三個影音 AI 工具的可複用方法論,附推廣揭露 |
 | [用 Agent 五分鐘上手 Blender:把 3D 預覽當成 AI 影片的「參考影片」](./knowledge/technology/applied-ai/design/blender-previz-mcp-ai-video.md) | ⭐⭐ **把「昂貴的隨機重試」換成「免費的確定性迭代」** —— 本機 Blender 無限次排鏡頭,滿意了再餵給影片生成模型;不必學 Blender 的 UI,由 Agent 走 MCP 操作;⭐ **提示詞做不出攝影機角度急劇變化的鏡頭;要精準維持構圖與透視就必須靠 3D 預覽**;⚠️ **正文說「100% 免費」但說明欄自己補正:免費的只有本機那段,Agent 與影片生成另計費**;⚠️ 該片為產品推廣、連結帶推薦參數 |
 | [Impeccable 深度解析:AI 味從哪來,skill 怎麼把設計師流程教給 AI(Gary Chen)](./knowledge/technology/applied-ai/design/impeccable-frontend-design-skill-ai-slop.md) | ⭐⭐ **AI 味清單每年換,回到四原則**:符合預期/主次分明/克制/量身打造;⭐ **「遮住產品名」測試**;✅ 原始碼核實:產品訪談**明文禁止問顏色字體**、「擲骰子」是 `concept-seed` 腳本(**跑之前寫 code 算違約**)、兩層審查=獨立 finish-reviewer 子代理+detector hook;⚠️ 影片「67 條」vs README「61 條確定性規則+LLM 檢查」;⚠️ 同需求 2 分鐘 vs 一小時多,門面才值得跑 |
+| [Claude 做網頁該裝哪個 Skill?10 位選手兩輪實測(P & H)](./knowledge/technology/applied-ai/design/claude-web-design-skills-benchmark-pnh.md) | 免費版不裝 Skill 也能用;要裝就裝 UI UX Pro Max(第一輪獨自晉級、第二輪 20 分與 Claude Design 並列第一,Taste 9、Impeccable 6);核實官方文件:Skill 說明每輪佔額度、description 上限 1,536 字元、`/name` 須在訊息開頭;⚠️ 單題主觀評分、保送不對等、Claude Design 定價未核實 |
 | [Anatomy:一行字造出能上手玩的機器——「物體就是解釋」的 Claude Code 技能(Why QQ + 原始碼)](./knowledge/technology/applied-ai/design/anatomy-skill-object-is-the-explanation.md) | ⭐⭐⭐ **不准畫方塊箭頭,發明一台真實機器,它的運作就是概念**(哈希衝突=郵局分揀台、布隆過濾器=老虎機);⭐⭐ Claude 一個像素都沒畫,產出是 SVG/WebGL **程式碼**,可改可查有審計;十步流程**前四步不畫任何東西**;射線測深度的幾何審計 + 多 agent 評審自己重跑;⚠️ 讀原始碼補正:Figure 已不報時間(舊估計常高估)、「不問不開工」只限 Epic、互動是預設不是開關;作者自承「很會造、不太會看」 |
 | [Claude Design 使用評測:AI 設計工具與設計師的品味](./knowledge/technology/applied-ai/design/claude-design-review.md) | 執行被接管,人往「什麼該存在」的決策層移動 |
 | [別再叫 Claude「做專業一點」:把設計規則寫成 Skill,25 個技巧串成工作流(YAHA學堂,整理自 RoboNuggets)](./knowledge/technology/applied-ai/design/claude-design-25-tricks-design-rules-skill.md) | 設計系統 = 帶例子的說明書;給使用者與任務、要三個方向,**先定主方向再少量借細節**;中英數字一起看字體、免費下載 ≠ 可商用;語氣指南用改寫前後對照,「遮住產品名能不能放到競品網站」;素材先問「幫使用者完成什麼」;設計檢查先講不能改什麼;**方向對了就停止生成、直接調參數**;⭐ 官方補 `/design-sync` 與方案限制 |
