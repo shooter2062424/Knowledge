@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**490 個 YouTube video id**、**150 個 arXiv 編號**,涵蓋 **381 篇**筆記。
+> 統計:**491 個 YouTube video id**、**150 個 arXiv 編號**,涵蓋 **382 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(490 部,依 video id 排序)
+## YouTube(491 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -451,6 +451,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `wiQgPk8BnhM` | AI 名詞地圖:從 Token 到 Agent Skills——三種分層框架對照(八概念演進鏈 / 四層技術全景 / 職場四層選型) | [knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md](./knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md) |
 | `wj7mHCviMvs` | 15 分鐘學完 CLAUDE.md:三個位置、做減法的三問、做加法的五問、以及怎麼「修剪」 | [knowledge/technology/claude-code/claude-md-from-zero-to-mastery.md](./knowledge/technology/claude-code/claude-md-from-zero-to-mastery.md) |
 | `WOMdoiy9Qas` | Opus 4.7 不是更強的 4.6,是另一種模型:四個該跟著升級的工作流 | [knowledge/technology/ai-productivity/opus-4-7-workflow-upgrades.md](./knowledge/technology/ai-productivity/opus-4-7-workflow-upgrades.md) |
+| `WP_uW6HiiFg` | 「肯定 → 否定 → 否定之否定」:一場即興辯論拆出的辯證思考法,與它的對照工具箱 | [knowledge/career/mindset/dialectical-negation-thinking-layered-cognition.md](./knowledge/career/mindset/dialectical-negation-thinking-layered-cognition.md) |
 | `wpb-DrbhEiY` | SpaceX 為什麼這時間點上市?Musk 在 JP Morgan 投資人訪談說了什麼 | [knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md](./knowledge/investing/equity-research/spacex-ipo-musk-jpmorgan.md) |
 | `Wq1icAZYr4E` | Claude 訂閱的 9 個「付了錢卻沒打開」的設定:記憶搬家、Skill、連接器、Chrome、Cowork 排程與 Dispatch | [knowledge/technology/ai-productivity/claude-app-nine-hidden-settings-memory-skills-dispatch.md](./knowledge/technology/ai-productivity/claude-app-nine-hidden-settings-memory-skills-dispatch.md) |
 | `wt2kiCU6sA0` | 普通人的 AI 入局點:FDE(前線部署工程師)與應用層落地(白白說大模型 2 支影片 + Anjana FDE 路線圖 PDF 合併) | [knowledge/career/ai-transition/fde-and-ordinary-people-ai-entry-guide.md](./knowledge/career/ai-transition/fde-and-ordinary-people-ai-entry-guide.md) |
