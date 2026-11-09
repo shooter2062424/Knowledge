@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**501 個 YouTube video id**、**168 個 arXiv 編號**,涵蓋 **390 篇**筆記。
+> 統計:**502 個 YouTube video id**、**169 個 arXiv 編號**,涵蓋 **391 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(501 部,依 video id 排序)
+## YouTube(502 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -284,6 +284,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `KNP9Mr1rUQY` | 你不是不會寫 Prompt,是不會「定義任務」:五個欄位把需求寫成 AI 接得住的 brief | [knowledge/technology/ai-productivity/defining-tasks-not-prompts.md](./knowledge/technology/ai-productivity/defining-tasks-not-prompts.md) |
 | `KOAKRtBHecs` | OpenAI DevDay 2026:主角不是模型,是常駐 agent「dots」——以及 Sol、Ultrafast、Decisions API 與 Codex 上雲 | [knowledge/technology/ai-industry/openai-devday-2026-dots-sol-codex.md](./knowledge/technology/ai-industry/openai-devday-2026-dots-sol-codex.md) |
 | `KOfeTp-9PI8` | 網路安全憑什麼成為 AI 新王?Agent 時代的兩大需求與兩大趨勢(美投君) | [knowledge/investing/equity-research/cybersecurity-ai-agent-identity-platformization.md](./knowledge/investing/equity-research/cybersecurity-ai-agent-identity-platformization.md) |
+| `KOuwb96iSW4` | 一張圖變成會動的 VTuber:See-through 拆層 + Anime2.5DRig 綁骨,以及離真正 Live2D 還差多遠(Mia 码上 AI) | [knowledge/technology/applied-ai/design/ai-live2d-vtuber-see-through-anime25drig-pipeline-mia.md](./knowledge/technology/applied-ai/design/ai-live2d-vtuber-see-through-anime25drig-pipeline-mia.md) |
 | `kpvZVBwQGlI` | PixelFX:244 個純程式碼像素特效,與「讓 Agent 看自己的輸出」的視覺回饋迴圈 | [knowledge/technology/ai-agents/applications/pixelfx-code-pixel-effects-agent-render-feedback-loop.md](./knowledge/technology/ai-agents/applications/pixelfx-code-pixel-effects-agent-render-feedback-loop.md) |
 | `KY4dBSlTvwU` | 哈夫曼編碼:為什麼檔案能越壓越小,以及「前綴碼」這個關鍵限制 | [knowledge/technology/system-design/huffman-coding-prefix-free-tree.md](./knowledge/technology/system-design/huffman-coding-prefix-free-tree.md) |
 | `kYkIdXwW2AE` | Yann LeCun 押 10 億美元賭 LLM 的另一條路:JEPA 與世界模型(上) | [knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md](./knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md) |
@@ -532,7 +533,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(168 篇,依編號排序)
+## arXiv(169 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -667,6 +668,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2512.13564` | Agent Memory 綜述:用「形式 / 功能 / 動態」三個切面收拾一個亂掉的領域 | [knowledge/technology/ai-agents/memory-retrieval/agent-memory-survey-forms-functions-dynamics.md](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-survey-forms-functions-dynamics.md) |
 | `2601.01554` | MOSS-Transcribe-Diarize 0.9B 評估:端到端「轉錄+分辨說話者」開源模型,對我們的管線是否值得換? | [knowledge/technology/dev-tools/moss-transcribe-diarize-evaluation.md](./knowledge/technology/dev-tools/moss-transcribe-diarize-evaluation.md) |
 | `2602.00180` | Spec-to-Code 現況(2026):Spec Kit、Kiro、OpenSpec、BMAD 與大型專案的穩定做法 | [knowledge/technology/code-dev/spec-code-flow/spec-driven-development-landscape-2026.md](./knowledge/technology/code-dev/spec-code-flow/spec-driven-development-landscape-2026.md) |
+| `2602.03749` | 一張圖變成會動的 VTuber:See-through 拆層 + Anime2.5DRig 綁骨,以及離真正 Live2D 還差多遠(Mia 码上 AI) | [knowledge/technology/applied-ai/design/ai-live2d-vtuber-see-through-anime25drig-pipeline-mia.md](./knowledge/technology/applied-ai/design/ai-live2d-vtuber-see-through-anime25drig-pipeline-mia.md) |
 | `2603.07427` | AI 的安全對齊可能是個幻覺:AutoControl Arena 用「壓力 + 誘惑」測出的三個發現(程序员老王) | [knowledge/technology/ai-safety/alignment-illusion-safety-shallow.md](./knowledge/technology/ai-safety/alignment-illusion-safety-shallow.md) |
 | `2603.22106` | 當 Agent 代勞時,如何保持批判性思考:Addy Osmani 的認知投降、驗證與當責 | [knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md](./knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md) |
 | `2603.24621` | ARC-AGI-3:人類 100%、前沿 AI 不到 1% —— 一個用「行動效率」而不是「對不對」計分的 agentic 基準 | [knowledge/technology/ai-safety/arc-agi-3-agentic-benchmark.md](./knowledge/technology/ai-safety/arc-agi-3-agentic-benchmark.md) |

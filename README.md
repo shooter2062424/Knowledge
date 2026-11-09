@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-434_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-435_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -153,7 +153,7 @@ flowchart LR
 | **IBM Technology** — 官方技術科普(廠商內容) | 1 | [檢索金字塔:還需要向量資料庫嗎(併入 grep vs 向量筆記 §7)](./knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md) |
 | **Google Cloud Tech** — 官方技術教學(廠商內容) | 1 | [Agent 長期記憶:事實進 SQL、理解進向量庫(含 Memory Bank 官方文件與示範碼核實)](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-facts-vs-understanding-google-cloud-tech.md) |
 | **P & H** — AI 工具實測(多選手同題橫評) | 1 | [Claude 做網頁該裝哪個 Skill?10 位選手兩輪實測](./knowledge/technology/applied-ai/design/claude-web-design-skills-benchmark-pnh.md) |
-| **Mia 码上 AI(@mia_ma_shang_ai)** — AI 入門科普(排程巡檢,內容要延伸到一手來源) | 2 | [量化完整地圖(Q4/Q8/QAT/三值)](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) · [讓 Claude 和 GPT 做 PPT:四步提示法](./knowledge/technology/ai-productivity/ai-ppt-claude-vs-gpt-four-prompt-steps-mia.md) |
+| **Mia 码上 AI(@mia_ma_shang_ai)** — AI 入門科普(排程巡檢,內容要延伸到一手來源) | 3 | [量化完整地圖(Q4/Q8/QAT/三值)](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) · [讓 Claude 和 GPT 做 PPT:四步提示法](./knowledge/technology/ai-productivity/ai-ppt-claude-vs-gpt-four-prompt-steps-mia.md) · [一張圖變成會動的 VTuber(Live2D 流程)](./knowledge/technology/applied-ai/design/ai-live2d-vtuber-see-through-anime25drig-pipeline-mia.md) |
 | **Jim AI Notebook** — AI 每日深度解析 | 2 | [MCP 2026-07-28 最大改版](./knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) · [Stanford CS336 訓練成本餐巾紙算法](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | **Simon Scrapes** — Claude skill/自動化實作(⚠️ 推廣 Skool 付費社群) | 1 | [官方 skill 最佳實踐七條(併入 Skill 實戰 §8)](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
 | **wow** — AI agent 真實系統壓測 | 2 | [Graphify 知識圖譜實戰壓測](./knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) · [本體論護欄與神經符號 AI(Frank Coyle)](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
@@ -574,6 +574,7 @@ flowchart LR
 | [VoxCPM:無分詞器的開源 TTS](./knowledge/technology/applied-ai/speech-synthesis/voxcpm-report.md) | 直接生成連續語音表示、可用文字描述設計聲音 |
 | [edge-tts:免金鑰白嫖 Microsoft Edge 線上 TTS](./knowledge/technology/applied-ai/speech-synthesis/edge-tts-microsoft-edge-tts.md) | 逆向 Edge 朗讀的 WebSocket 端點;Sec-MS-GEC 時間雜湊權杖 + 時鐘校正;產 MP3 兼 SRT |
 | [五個開源英語學習專案:從聽力訓練流程到「把每天看的英文網頁變成教材」(仕宇JavaPub)](./knowledge/technology/applied-ai/language-learning/five-open-source-english-learning-tools.md) | ⭐⭐⭐ **五個專案解決的問題完全不重疊**:Echo Loop 管怎麼練、Enjoy 管方法論、Anki 管不忘、Read Frog 管把英文網頁變教材、LLPlayer 管把影片變學習材料;⭐⭐ **三個 repo 已 clone 讀過原始碼,抓到四處補正** —— ⚠️ **Echo Loop 首次學習順序已從「盲聽優先」改成「精聽→跟讀→盲聽(可跳過)→複述」**(理由寫在程式碼註解:讓使用者更早感受逐句精聽的價值);⭐⭐⭐ **七輪間隔存的是「距上一輪完成後的等待時長」而非絕對里程碑,所以拖延只會把時程往後推**;⚠️ **Read Frog「把上下文交給 AI」預設只注入標題+摘要**,`webContent` token 存在但沒用;⚠️⚠️ **LLPlayer 只跑 Windows,缺 MSVC Redistributable 時一開 ASR/OCR 就當掉**;⭐⭐⭐ **可抄走的技巧:`{{NO_TRANSLATION_NEEDED}}` 這種「假 token 哨兵」,因模板只替換已知 token 而能原封不動存活過提示詞組裝** |
+| [一張圖變成會動的 VTuber:See-through 拆層 + Anime2.5DRig 綁骨(Mia 码上 AI)](./knowledge/technology/applied-ai/design/ai-live2d-vtuber-see-through-anime25drig-pipeline-mia.md) | 生圖七條規則→See-through(SDXL+LayerDiffuse 式透明層+Marigold 偽深度)拆成最多 23 層 PSD→Anime2.5DRig 自動綁骨/追臉/OBS 透明;讀三個 repo 與論文:⚠️ 論文 preprint 為 19 部位、23 是 README V3;Cubism 免費版是 ArtMesh 100 + Parts 30;日本博主「23 項測試全過、一動就壞」;live2d-automation 匯出是 mock |
 
 ### 📊 ai-industry(AI 產業與算力經濟)
 | 主題 | 一句話 |
