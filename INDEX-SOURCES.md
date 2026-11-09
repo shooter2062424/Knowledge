@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**503 個 YouTube video id**、**169 個 arXiv 編號**,涵蓋 **392 篇**筆記。
+> 統計:**504 個 YouTube video id**、**169 個 arXiv 編號**,涵蓋 **393 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(503 部,依 video id 排序)
+## YouTube(504 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -319,6 +319,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `Mx8I6etcyL0` | Kimi K3.1 Pro:Terminal-Bench 65.7 只差 Opus 5.5 0.7 分,但選型要看你的倉庫驗收 | [knowledge/technology/ai-industry/kimi-k3-1-pro-open-weight-coding-acceptance.md](./knowledge/technology/ai-industry/kimi-k3-1-pro-open-weight-coding-acceptance.md) |
 | `MzklWMQ87Yw` | 怎麼對模型更有野心:速度、高度、深度、廣度四種提問升級(Felix Rieseberg) | [knowledge/technology/ai-productivity/more-ambitious-with-models-altitude-depth-range-rieseberg.md](./knowledge/technology/ai-productivity/more-ambitious-with-models-altitude-depth-range-rieseberg.md) |
 | `N3o8AcflmO4` | 磁軸鍵盤原理:霍爾感測、Rapid Trigger,與飛智 FS68 的雙霍爾與蜂窩墊設計 | [knowledge/technology/hardware/magnetic-switch-keyboard-hall-effect-principle.md](./knowledge/technology/hardware/magnetic-switch-keyboard-hall-effect-principle.md) |
+| `n86Np5hjXg4` | AI 寫代碼太快,Git 先扛不住?GitHub Rubicon、OpenAI Pando、Cursor Continuity 與 Origin、Anthropic Scion 四條路線(Why QQ) | [knowledge/technology/software-engineering/git-for-ai-agents-rubicon-pando-continuity-scion-why-qq.md](./knowledge/technology/software-engineering/git-for-ai-agents-rubicon-pando-continuity-scion-why-qq.md) |
 | `n8jL89H5d-c` | 第 135 期:藝術家的 AI IDE(ArtCraft)、互動式技術圖解 Skill(Anatomy)、組織多個 Agent 的工具(OpenRig)、生成原生 PPT 的工作流(PPT Master)與復刻 QQ 寵物(QQPet) | [knowledge/technology/github-weekly/issue-135.md](./knowledge/technology/github-weekly/issue-135.md) |
 | `nlNDzop6tBw` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [knowledge/technology/claude-code/output-style-communication-not-intelligence.md](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) |
 | `nLZ-C7bbZzs` | PLTR 財報後大漲 30%:市場真正在交易的不是業績,是「增速見頂」風險的釋放 | [knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md](./knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md) |
