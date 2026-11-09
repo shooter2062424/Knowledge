@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**498 個 YouTube video id**、**167 個 arXiv 編號**,涵蓋 **388 篇**筆記。
+> 統計:**499 個 YouTube video id**、**168 個 arXiv 編號**,涵蓋 **389 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(498 部,依 video id 排序)
+## YouTube(499 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -158,6 +158,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `cgKUgAJE3cs` | AI 產業秘密轉向:大模型集體從 C 端轉 B 端、訂閱轉用量,而「算力」成了現階段的勝負手 | [knowledge/investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md](./knowledge/investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md) |
 | `CHHEjuNBxoQ` | Agit:把 Git 那套用在「和 agent 的對話」上,以及影片沒講的兩個坑 | [knowledge/technology/ai-agents/applications/agit-version-control-for-agent-sessions.md](./knowledge/technology/ai-agents/applications/agit-version-control-for-agent-sessions.md) |
 | `CKKJuFVMvXQ` | Graph Engineering:把腦袋裡的分工、路由與驗收畫出來,別再當人肉 routing system | [knowledge/technology/ai-agents/foundations/graph-engineering-node-edge-state.md](./knowledge/technology/ai-agents/foundations/graph-engineering-node-edge-state.md) |
+| `CM4oCnvoK6E` | AI 日報 2026-11-09:Claude Code「不要再問」外流密碼、純 CPU 跑 284B、寫碼全對只有 26.4%(維維 AI 技術工坊) | [knowledge/technology/ai-industry/ai-daily-2026-11-09-claude-code-secrets-modchip-co-design-bench-weiwei.md](./knowledge/technology/ai-industry/ai-daily-2026-11-09-claude-code-secrets-modchip-co-design-bench-weiwei.md) |
 | `CMs8YMU6_RM` | AI 改 code 一直「改 A 壞 B」?讓 AI 安全接手舊專案(Brownfield)的五個步驟 | [knowledge/technology/ai-productivity/ai-brownfield-codebase-five-steps.md](./knowledge/technology/ai-productivity/ai-brownfield-codebase-five-steps.md) |
 | `CSfhmC_tUh8` | Claude Code Mods:從「調旋鈕」到「改程式本身」——事件關卡、三種動作、會畫介面(howie和小能熊 + 官方文件 + 範例原始碼) | [knowledge/technology/claude-code/claude-code-mods-explained.md](./knowledge/technology/claude-code/claude-code-mods-explained.md) |
 | `CV7HX6qFglc` | YAHA 影音 AI 工具:Filmora 16、Topview、Flova(Seedance 2.5)的可複用方法論 | [knowledge/technology/applied-ai/design/yaha-video-ai-tools-filmora-topview-flova.md](./knowledge/technology/applied-ai/design/yaha-video-ai-tools-filmora-topview-flova.md) |
@@ -529,7 +530,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(167 篇,依編號排序)
+## arXiv(168 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -700,6 +701,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2609.38752` | 5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼,以及反過來 | [knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) |
 | `2610.11959` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
 | `2610.14224` | Harness²:不換模型、不訓練,讓 agent 遞迴改自己的配置檔,弱模型反超強模型 | [knowledge/technology/ai-agents/foundations/harness2-recursive-agent-harnessing-google.md](./knowledge/technology/ai-agents/foundations/harness2-recursive-agent-harnessing-google.md) |
+| `2610.35138` | AI 日報 2026-11-09:Claude Code「不要再問」外流密碼、純 CPU 跑 284B、寫碼全對只有 26.4%(維維 AI 技術工坊) | [knowledge/technology/ai-industry/ai-daily-2026-11-09-claude-code-secrets-modchip-co-design-bench-weiwei.md](./knowledge/technology/ai-industry/ai-daily-2026-11-09-claude-code-secrets-modchip-co-design-bench-weiwei.md) |
 
 ---
 
