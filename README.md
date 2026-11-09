@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-433_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-434_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -159,7 +159,7 @@ flowchart LR
 | **wow** — AI agent 真實系統壓測 | 2 | [Graphify 知識圖譜實戰壓測](./knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) · [本體論護欄與神經符號 AI(Frank Coyle)](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
 | **Nick 美股咖啡館(@nick_stockcafe)** — 美股個股與投資觀 | 9 | [Google、Amazon 財報後大跌與加碼邏輯](./knowledge/investing/equity-research/google-amazon-q3-2026-selloff-nick.md) · [巴西大選暴跌:Nu Holdings 加碼與 SoFi Q3 財報](./knowledge/investing/equity-research/nubank-brazil-election-selloff-and-sofi-q3-2026-nick.md) · [Sell Put 提前買回換約](./knowledge/investing/derivatives/sell-put-early-close-roll-delta-nick.md) · [內部人買股五家公司(Form 4 實查)](./knowledge/investing/equity-research/insider-buying-signal-five-companies.md) · [CoreWeave 債務壓力測試](./knowledge/investing/equity-research/coreweave-neocloud-debt-stress.md) · [不把錢賺好賺滿:社會資產](./knowledge/investing/strategy/not-maximizing-income-social-assets-nick.md) · [不靠 AI 也能穩的五家公司](./knowledge/investing/equity-research/ai-proof-five-moat-stocks-nick.md) · [跌多少才加碼:看理由不看幾趴](./knowledge/investing/strategy/when-to-add-reason-not-percent-fico-nick.md) · [出國後首度買股(併入 Google/Amazon 財報後筆記)](./knowledge/investing/equity-research/google-amazon-q3-2026-selloff-nick.md) |
 | **財女珍妮** — 美股投資與 AI 投資工具訪談 | 1 | [用 AI Agent + Skill 讀財報、做估值(課程推廣集)](./knowledge/investing/ai-assisted/ai-agent-skill-stock-research-workflow.md) |
-| **AI懶人報** — 名校課堂與 AI 工程講座的中文重述 | 2 | [Always-on Agent 怎麼運作:Lee Robinson 拆解 Grok Bot](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) · [Herdr 多專案六條規則(增補 §十)](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
+| **AI懶人報** — 名校課堂與 AI 工程講座的中文重述 | 3 | [Always-on Agent 怎麼運作:Lee Robinson 拆解 Grok Bot](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) · [Herdr 多專案六條規則(增補 §十)](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) · [企業導入 AI 兩個卡關原因(含 Basis 原演講補全)](./knowledge/technology/ai-agents/applications/enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao.md) |
 | **Andy Lin 林玉堂** — 二次整理他人教學的中文摘要 | 1 | [「Claude 2.0」是什麼:巢狀對話、Projects、側聊](./knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md) |
 | **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
 | **人蔘 Try Catch** — AI 工程落地短講 | 1 | [Jev 落地場景與終端機守門員(併入 Jev 筆記)](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
@@ -455,6 +455,7 @@ flowchart LR
 | [Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生(AI超元域)](./knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) | 主 agent 拆解→分派 subagent 並行→合併;每 subagent 獨立模型(Kimi K3/MiniMax/GPT-5.6)+工具+skill;CC Switch 接第三方;多模型對抗審查抓嚴重 bug;具 Graph Engineering 初級特徵 |
 | [PixelFX:244 個純程式碼像素特效,與讓 Agent 看自己輸出的視覺回饋迴圈(Why QQ)](./knowledge/technology/ai-agents/applications/pixelfx-code-pixel-effects-agent-render-feedback-loop.md) | ⭐ 特效全是 JS 現場算、無序列幀,顏色/方向/種子皆參數;Pure(draw)vs Simulated(create+update,120Hz 以上步長);color+light 雙緩衝;`createAct` 把命中/停幀/震屏與姿勢放同一份時間資料;⭐⭐ **Skill 流水線:草稿→渲染成圖→看圖→一輪修一類→至少三輪,`check.mjs` 管合約、渲染管體驗**;✅ 已 clone 核實 244 個、120Hz、61 個角色特效;⚠️ 影片「12 連招」實為 12 個完整招式;⚠️ 字體不在 MIT 範圍、商用讀 NOTICE |
 | [to-tickets 深入實操:把 spec 拆成 agent 能穩定開工的工單(01Coder)](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) | spec 不是工作單元;按功能縱向切(tracer bullet)非按層;標依賴→frontier 並行調度;prefactor 先行/擴展-收縮;先讀代碼才拆(6→9 張)|
+| [個人用 AI 快 100 倍、公司卻沒感覺:能力落差與流程落差(AI懶人報 × Basis Mitch 演講)](./knowledge/technology/ai-agents/applications/enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao.md) | 企業導入卡關兩因:能力落差(使用者要自管 skill/記憶)、流程落差(各用各的,主管難簽);解法簡單+可靠+有主見;⭐ 補上摘要沒講的原演講後半:behavior spec、forking、simulations、context 當 run-time training data;核實 AlphaGo 第 37 手;⚠️ 賣 agent 的創辦人觀點、100 倍自述未核實 |
 
 **resources — 學習資源**
 | 主題 | 一句話 |

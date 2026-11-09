@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**499 個 YouTube video id**、**168 個 arXiv 編號**,涵蓋 **389 篇**筆記。
+> 統計:**501 個 YouTube video id**、**168 個 arXiv 編號**,涵蓋 **390 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(499 部,依 video id 排序)
+## YouTube(501 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -267,6 +267,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `j2I2TIvhs0c` | Jalapeño 首批跑分:推理晶片的評判標準換了,以及怎麼讀廠商自己給的數字 | [knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) |
 | `J5EbL1UaqG8` | 「Claude 2.0」是什麼:一個對話管所有對話——巢狀對話、Projects、側聊與三個省額度的指令(Andy Lin 林玉堂整理 RoboNuggets × Ben AI) | [knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md](./knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md) |
 | `j7nu_6cprMI` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
+| `JGtkTjn4120` | 個人用 AI 快 100 倍、公司卻沒感覺:能力落差與流程落差,以及原演講沒被摘要的後半(AI懶人報 × Basis Mitch) | [knowledge/technology/ai-agents/applications/enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao.md](./knowledge/technology/ai-agents/applications/enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao.md) |
 | `jgy1A0Mrx7g` | Omarchy 4「Quattro」:當 Agent 從外掛升格成作業系統的一等公民 | [knowledge/technology/ai-agents/applications/omarchy-4-agent-as-os-citizen.md](./knowledge/technology/ai-agents/applications/omarchy-4-agent-as-os-citizen.md) |
 | `jJ5WAKs0eGE` | Make 與 n8n 還值得學嗎:當維護的人從你換成 Agent,視覺化就從資產變成阻礙 | [knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md](./knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md) |
 | `jLeYfSBXG_E` | DeepSeek「Super Agent」是什麼:從 ReAct 單會話,到 Router / Walker 的五個模組 | [knowledge/technology/ai-agents/autonomy/deepseek-super-agent-router-walker-xuanyuan.md](./knowledge/technology/ai-agents/autonomy/deepseek-super-agent-router-walker-xuanyuan.md) |
@@ -345,6 +346,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `OzFszgfi5eI` | 第 131 期:讓 Agent 少說廢話的 Skill、飛書官方 CLI、消費級硬體跑兆級 MoE、CAD Agent 技能庫與原生 macOS 啟動器 | [knowledge/technology/github-weekly/issue-131.md](./knowledge/technology/github-weekly/issue-131.md) |
 | `P6UWIA_bvt8` | 大模型 API「中轉站」起底:0.5 折的 GPT/Claude 到底摻了多少水? | [knowledge/technology/ai-industry/llm-api-relay-stations.md](./knowledge/technology/ai-industry/llm-api-relay-stations.md) |
 | `pEMIF2Cu1mA` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
+| `PEUs59xg-uo` | 個人用 AI 快 100 倍、公司卻沒感覺:能力落差與流程落差,以及原演講沒被摘要的後半(AI懶人報 × Basis Mitch) | [knowledge/technology/ai-agents/applications/enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao.md](./knowledge/technology/ai-agents/applications/enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao.md) |
 | `pGYrWsNQ8A0` | Attention Residuals:把注意力「轉 90 度」用在網路深度上 | [knowledge/technology/llm-internals/architecture/attention-residuals.md](./knowledge/technology/llm-internals/architecture/attention-residuals.md) |
 | `Pio4SrsPHCY` | Agent / RAG 生產級面試題庫:字節 8 題 + 落地十連問 + 履歷五大雷區 | [knowledge/technology/ai-agents/applications/agent-rag-production-interview-playbook-baibai.md](./knowledge/technology/ai-agents/applications/agent-rag-production-interview-playbook-baibai.md) |
 | `pJR6I9_06e4` | Codex 2.0 新功能實戰:懸停導航 + Fork、側邊對話/引導、Record & Replay、手機遠端操控 | [knowledge/technology/ai-productivity/codex-2-record-replay-mobile-remote.md](./knowledge/technology/ai-productivity/codex-2-record-replay-mobile-remote.md) |
