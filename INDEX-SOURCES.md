@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**502 個 YouTube video id**、**169 個 arXiv 編號**,涵蓋 **391 篇**筆記。
+> 統計:**503 個 YouTube video id**、**169 個 arXiv 編號**,涵蓋 **392 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(502 部,依 video id 排序)
+## YouTube(503 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -452,6 +452,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `vj7hysh0mOI` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `vkpS7WztTMc` | 蘇姿丰 MIT 2026 畢業演講:如何創造自己的運氣,以及 AI 時代人類無可取代的價值 | [knowledge/career/mindset/lisa-su-mit-commencement.md](./knowledge/career/mindset/lisa-su-mit-commencement.md) |
 | `vZHaSwnJmSk` | 打造「0 人 AI 公司」:用 Hermes Agent + Paperclip 讓 AI 互相協作 | [knowledge/technology/ai-agents/applications/zero-person-ai-company.md](./knowledge/technology/ai-agents/applications/zero-person-ai-company.md) |
+| `VzO6PZeEkT8` | 在 Mac mini 上免費跑 MiniMax H3 影片生成:vpipe 實測、授權陷阱與買機建議(AI 策略室) | [knowledge/technology/applied-ai/design/minimax-h3-local-video-mac-mini-vpipe-ai-strategy-room.md](./knowledge/technology/applied-ai/design/minimax-h3-local-video-mac-mini-vpipe-ai-strategy-room.md) |
 | `W-gdYr3Vj8s` | Agent / RAG 生產級面試題庫:字節 8 題 + 落地十連問 + 履歷五大雷區 | [knowledge/technology/ai-agents/applications/agent-rag-production-interview-playbook-baibai.md](./knowledge/technology/ai-agents/applications/agent-rag-production-interview-playbook-baibai.md) |
 | `W973FsTECa8` | to-tickets 深入實操:把 spec 拆成 agent「能穩定開工、單獨驗收、可並行」的工單 | [knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) |
 | `Wah1vdFE92k` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |

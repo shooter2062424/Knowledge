@@ -4,6 +4,7 @@
 **研究對象:** 論文〈Is Grep All You Need? How Agent Harnesses Reshape Agentic Search〉(arXiv:2605.15184v1,2026-05-14;作者皆來自 PwC US:Sahil Sen、Akhil Kasturi、Elias Lumer、Anmol Gulati、Vamse Kumar Subbiah)
 **整理日期:** 2026-05-26
 **增補(2026-11-08):** §7 併入 IBM Technology〈Are Vector Databases Still Needed?〉([rXFV1ivDe6c](https://www.youtube.com/watch?v=rXFV1ivDe6c),2026-11-05)的「檢索金字塔」決策框架。
+**增補(2026-11-10):** §7.8 核對 Jerry_AI 的 Shorts 節錄版([Y9lCL95MdlA](https://youtube.com/shorts/Y9lCL95MdlA)),並以 Whisper 英文逐字稿確認工單標題原文。
 
 ---
 
@@ -140,6 +141,15 @@ flowchart BT
 - 連結:[[markdown-agent-memory]]、[[rag-from-scratch-buffett-clone-gary]]。
 - 影片說 grep「1973 年誕生」([0:08]):我讀到的維基摘要沒寫年份,**未能核實**,不影響結論。
 - 影片廣告意涵:IBM 同時販售向量資料庫與相關產品,其「先低後高」的建議與利益並不衝突,但也請以實測為準。
+
+### 7.8 增補(2026-11-10):Jerry_AI 的 Shorts 節錄版
+
+[Jerry_AI《向量資料庫還需要嗎?》](https://youtube.com/shorts/Y9lCL95MdlA)(2:45 的 Shorts,2026-11-09)是 IBM 原片的**中文旁白節錄**,說明欄自述「使用原片節錄與 AI 中文旁白」,沒有新增內容,只是壓縮。用 Whisper 轉了英文原片([2:45] 的 agentic loop、[6:31] 工單標題等)核對:
+
+- 工單標題原片是「credentials loop after update」(6:31),Shorts 旁白改成「更新後登入一直轉圈」,是意譯,不是原詞;§7.3 的「更新後憑證循環」較貼近原文。
+- Shorts 的四層金字塔、三個理由、兩題判斷法與 §7.1–7.4 一致;「一千倍」「數百萬」仍然只是講者說法,未核實。
+- Shorts 剪掉了講者對「填滿視窗會讓準確度下降」的承認,只留「書包裝太滿」比喻;要看完整論述請讀原片。
+- Shorts 的片中英文原聲與中文旁白混用,Whisper 在英文段落正常、中文旁白段有簡繁混雜,內容不影響。
 
 ---
 
