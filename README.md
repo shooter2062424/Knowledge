@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-437_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-438_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -153,7 +153,7 @@ flowchart LR
 | **IBM Technology** — 官方技術科普(廠商內容) | 1 | [檢索金字塔:還需要向量資料庫嗎(併入 grep vs 向量筆記 §7,§7.8 為 Jerry_AI Shorts 節錄版核對)](./knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md) |
 | **Google Cloud Tech** — 官方技術教學(廠商內容) | 1 | [Agent 長期記憶:事實進 SQL、理解進向量庫(含 Memory Bank 官方文件與示範碼核實)](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-facts-vs-understanding-google-cloud-tech.md) |
 | **P & H** — AI 工具實測(多選手同題橫評) | 1 | [Claude 做網頁該裝哪個 Skill?10 位選手兩輪實測](./knowledge/technology/applied-ai/design/claude-web-design-skills-benchmark-pnh.md) |
-| **Mia 码上 AI(@mia_ma_shang_ai)** — AI 入門科普(排程巡檢,內容要延伸到一手來源) | 3 | [量化完整地圖(Q4/Q8/QAT/三值)](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) · [讓 Claude 和 GPT 做 PPT:四步提示法](./knowledge/technology/ai-productivity/ai-ppt-claude-vs-gpt-four-prompt-steps-mia.md) · [一張圖變成會動的 VTuber(Live2D 流程)](./knowledge/technology/applied-ai/design/ai-live2d-vtuber-see-through-anime25drig-pipeline-mia.md) |
+| **Mia 码上 AI(@mia_ma_shang_ai)** — AI 入門科普(排程巡檢,內容要延伸到一手來源) | 4 | [量化完整地圖(Q4/Q8/QAT/三值)](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) · [讓 Claude 和 GPT 做 PPT:四步提示法](./knowledge/technology/ai-productivity/ai-ppt-claude-vs-gpt-four-prompt-steps-mia.md) · [一張圖變成會動的 VTuber(Live2D 流程)](./knowledge/technology/applied-ai/design/ai-live2d-vtuber-see-through-anime25drig-pipeline-mia.md) · [AI 老板 Luna 開除第一個真人(Andon Market)](./knowledge/technology/ai-agents/applications/ai-boss-luna-andon-market-fired-human-mia.md) |
 | **AI 策略室** — 本地 AI 實作(Mac / 影片生成) | 1 | [Mac mini 跑 MiniMax H3 本地影片生成](./knowledge/technology/applied-ai/design/minimax-h3-local-video-mac-mini-vpipe-ai-strategy-room.md) |
 | **Jim AI Notebook** — AI 每日深度解析 | 2 | [MCP 2026-07-28 最大改版](./knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) · [Stanford CS336 訓練成本餐巾紙算法](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | **Simon Scrapes** — Claude skill/自動化實作(⚠️ 推廣 Skool 付費社群) | 1 | [官方 skill 最佳實踐七條(併入 Skill 實戰 §8)](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
@@ -457,6 +457,7 @@ flowchart LR
 | [PixelFX:244 個純程式碼像素特效,與讓 Agent 看自己輸出的視覺回饋迴圈(Why QQ)](./knowledge/technology/ai-agents/applications/pixelfx-code-pixel-effects-agent-render-feedback-loop.md) | ⭐ 特效全是 JS 現場算、無序列幀,顏色/方向/種子皆參數;Pure(draw)vs Simulated(create+update,120Hz 以上步長);color+light 雙緩衝;`createAct` 把命中/停幀/震屏與姿勢放同一份時間資料;⭐⭐ **Skill 流水線:草稿→渲染成圖→看圖→一輪修一類→至少三輪,`check.mjs` 管合約、渲染管體驗**;✅ 已 clone 核實 244 個、120Hz、61 個角色特效;⚠️ 影片「12 連招」實為 12 個完整招式;⚠️ 字體不在 MIT 範圍、商用讀 NOTICE |
 | [to-tickets 深入實操:把 spec 拆成 agent 能穩定開工的工單(01Coder)](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) | spec 不是工作單元;按功能縱向切(tracer bullet)非按層;標依賴→frontier 並行調度;prefactor 先行/擴展-收縮;先讀代碼才拆(6→9 張)|
 | [個人用 AI 快 100 倍、公司卻沒感覺:能力落差與流程落差(AI懶人報 × Basis Mitch 演講)](./knowledge/technology/ai-agents/applications/enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao.md) | 企業導入卡關兩因:能力落差(使用者要自管 skill/記憶)、流程落差(各用各的,主管難簽);解法簡單+可靠+有主見;⭐ 補上摘要沒講的原演講後半:behavior spec、forking、simulations、context 當 run-time training data;核實 AlphaGo 第 37 手;⚠️ 賣 agent 的創辦人觀點、100 倍自述未核實 |
+| [AI 老板 Luna 開除了第一個真人:Andon Market 的心軟、健忘與看走眼(Mia 码上 AI)](./knowledge/technology/ai-agents/applications/ai-boss-luna-andon-market-fired-human-mia.md) | 讀 Andon Labs 五篇部落格與 Anthropic Project Vend 核實:23 班遲到 17 次只記 6 次、7 模型 21 次全建議錄用紅旗履歷;修正「同一個 Claude」(實為 Opus 4.8、Fable 5 等)、2 美元差額與 4 萬虧損等未能核實 |
 
 **resources — 學習資源**
 | 主題 | 一句話 |

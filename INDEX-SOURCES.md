@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**504 個 YouTube video id**、**169 個 arXiv 編號**,涵蓋 **393 篇**筆記。
+> 統計:**505 個 YouTube video id**、**169 個 arXiv 編號**,涵蓋 **394 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(504 部,依 video id 排序)
+## YouTube(505 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -445,6 +445,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `UQtgJ2RWx64` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `us_rw9gZRYI` | 什麼樣的 Agent 專案才能給履歷加分:玩具 Demo 與企業級應用的分水嶺 | [knowledge/technology/ai-agents/applications/agent-project-resume-enterprise-grade.md](./knowledge/technology/ai-agents/applications/agent-project-resume-enterprise-grade.md) |
 | `UWdn0w-fbzQ` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
+| `uWiu8e5uWmY` | AI 老板 Luna 開除了第一個真人:Andon Market 的心軟、健忘與看走眼(Mia 码上 AI) | [knowledge/technology/ai-agents/applications/ai-boss-luna-andon-market-fired-human-mia.md](./knowledge/technology/ai-agents/applications/ai-boss-luna-andon-market-fired-human-mia.md) |
 | `Uz7K757psEU` | 到底需不需要 GraphRAG?9 種 RAG 方案實測對照 + 脈絡優化省 19–53% token | [knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md](./knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md) |
 | `v0tNOeirrO0` | FlashProve:用零知識證明驗「你調用的真的是那個模型」——能證明什麼、不能證明什麼、貴在哪 | [knowledge/technology/ai-safety/flashprove-zk-proof-of-model-identity-api-gateway.md](./knowledge/technology/ai-safety/flashprove-zk-proof-of-model-identity-api-gateway.md) |
 | `VD9zEKQEJxo` | Sutton 的「行動認知 AI(enactive AI)」:一張自相矛盾的反大模型藍圖 | [knowledge/technology/llm-internals/world-models/sutton-enactive-ai.md](./knowledge/technology/llm-internals/world-models/sutton-enactive-ai.md) |
