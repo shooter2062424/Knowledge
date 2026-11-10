@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-438_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-439_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -187,6 +187,7 @@ flowchart LR
 | **復旦大學 / 北京大學 / 上海啟迪智風(論文)** | 1 | [Agentic Harness Engineering](./knowledge/technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md) |
 | **PricewaterhouseCoopers(論文)** | 1 | [Recursive Agent Harness](./knowledge/technology/ai-agents/foundations/recursive-agent-harness-harness-recursion.md) |
 | **Microsoft / 復旦 / 浙大 / 愛丁堡(論文)** | 1 | [Harnessed Agentic RL(Agent Lightning v1.0)](./knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md) |
+| **JayLuxAI | AI 系統導入**(⚠️ 推廣免費 Skool 社群與一對一諮詢) | 1 | [Claude 近期十個更新怎麼分:新手先做三件事](./knowledge/technology/claude-code/claude-code-ten-concepts-three-first-steps-jayluxai.md) |
 | **howie和小能熊** — Claude Code 新功能速解 | 1 | [Claude Code Mods](./knowledge/technology/claude-code/claude-code-mods-explained.md) |
 | **黃培碩(運達證券投顧)** — 進化波浪理論(⚠️ 推廣 LINE 粉絲團與投顧服務) | 1 | [進化波浪分析方式](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 
@@ -659,6 +660,7 @@ flowchart LR
 | [Claude Code 原始碼全覽地圖:11 個子系統怎麼咬合](./knowledge/technology/claude-code/claude-code-source-full-map.md) | 72 Haiku agent 兩層 fan-out 全覆蓋 1902 檔/51 萬行;子系統關係圖 + 每塊做什麼/依賴誰/被誰用 |
 | [Claude Code Mods:事件關卡、Observe/Rewrite/Answer、會畫介面(howie和小能熊 + 官方文件)](./knowledge/technology/claude-code/claude-code-mods-explained.md) | ⭐ 10-01 起、v2.1.287+;⭐⭐⭐ JS/TS 函式站在事件路上,next(e) 放行/改寫/不呼叫即攔截;能畫 pane/band、重畫 spinner,`/diff` 本身是內建 mod;讀 token-weather、blast-radius 原始碼;⚠️ 無沙箱、可先核准工具呼叫,裝前跑 `claude plugin validate`;⭐ §10(Why QQ):**模組變數 / `$.state`(響應式)/ `$.store`(落盤)三檔狀態**,`/clear`、`/resume`、`/branch` 後要靠 `classic.SessionStart` 重新載入;`tool.check` 改寫權限判定、`turn.step` 可改送別的模型;**mods 不是 App Store 是瀏覽器擴充**;選型三問(知識→skill、連接→MCP、卡點→hook,改工具本身才寫 mod) |
 | [Claude Code 新手觀念地圖:從 Terminal 到 Worktree,一次認清 25 個名詞(Gary Chen + 官方文件)](./knowledge/technology/claude-code/claude-code-beginner-concept-map-gary.md) | Context / 聊天紀錄 / Memory 三者分清;CLAUDE.md 每次讀、Skill 用到才載入、Hook 是自動機關、MCP 是外部工具;⚠️ 補正:Read deny 也擋 `cat`/`head` 等 Bash 指令(擋不住 `grep -r` 與腳本)、自動記憶是本機且按 git repo 共用 |
+| [Claude 近期十個更新怎麼分:新手先做三件事(JayLuxAI + 官方文件)](./knowledge/technology/claude-code/claude-code-ten-concepts-three-first-steps-jayluxai.md) | ⭐ CLAUDE.md 少於 200 行、Skill 描述常駐全文才載入;⭐⭐ `/goal` 另一模型判斷終點、本機排程電腦睡眠會跳過;Duet/Dashboards/Motion 僅二手報導核實 |
 | [Opus 5.5 官方 Prompting Guide 十三點(Gary Chen)](./knowledge/technology/claude-code/opus-5-5-prompting-guide-13-points.md) | ⭐ effort 預設 medium、同檔位想更多;⭐⭐⭐ 任務+終點+停下條件、checklist 檔、刪「仔細思考」、不要求寫出推理;時間預算加速 agent 團隊;📌 補正:改頂層 effort 仍讓 API 快取失效、提早停官方列四種、預算非硬上限;⭐⭐ **2026-10-15 增補 §10(YAHA學堂第二版)**:✅ 核實 **有 CLAUDE.md(含 CLAUDE.local.md)就不讀 AGENTS.md**,可設 `claude-md-and-agents-md` 兩者都讀;✅ 分類器誤判會自動換舊模型且整段對話留在舊模型,可在 `/config` 關閉;📌 「編輯舊訊息不失效快取」需補正,官方要求 append-only |
 
 ### 🌲 dev-tools(開發者工具)
