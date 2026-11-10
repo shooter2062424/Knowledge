@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**508 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **397 篇**筆記。
+> 統計:**514 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **398 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(508 部,依 video id 排序)
+## YouTube(514 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -130,6 +130,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `atqcAb7MFAM` | 給非技術人員的 Git / GitHub:Vibe Coding 必學的基礎技能 | [knowledge/technology/ai-productivity/git-github-for-vibe-coders.md](./knowledge/technology/ai-productivity/git-github-for-vibe-coders.md) |
 | `auolAJmicpg` | 一萬個 agent 破解千禧年難題:Navier-Stokes、抄襲指控,與「誰該被署名」 | [knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
 | `aYfZN8t6AQs` | Mem0 記憶架構拆解:三個儲存、抽取管線,與那個「加起來再除以 2.5」的混合排序 | [knowledge/technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md](./knowledge/technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md) |
+| `aZ4ISFax7z8` | AI 早報週報(2026-11-05 至 11-10):Gemini Omni 1.2 Flash、GPT-6 Cyber、METR 的 2 倍加速、Claude Dreams、OpenAI Control Room、TPU 8tx(橘鸦 Juya + 一手來源核實) | [knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md](./knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md) |
 | `aZEmxJ9ivzg` | 學了那麼多 AI,為什麼還是沒加薪?——省下的時間 85% 被雜事吃掉,以及納許議價怎麼算你該開多少 | [knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md](./knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md) |
 | `aZzWVQXKL0c` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `b3aYWkBf7jg` | OpenCode Console 被攻破:AI 在進攻、AI 在拒守——密鑰放哪與「護欄不對稱」 | [knowledge/technology/ai-safety/opencode-console-breach-guardrail-asymmetry.md](./knowledge/technology/ai-safety/opencode-console-breach-guardrail-asymmetry.md) |
@@ -141,6 +142,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `bBMp5tLxShQ` | Shopify Helix:用「檢查點 + 四道關卡」讓 AI 寫完的東西過得了關,以及怎麼在 Claude Code 裡自己搭一套 | [knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md](./knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md) |
 | `Bhe3uhfEK6E` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
 | `bhfBWHPYC-I` | 把安全審計當流程工程做:Cloudflare 開源的 security-audit skill,與「記帳比聰明重要」 | [knowledge/technology/ai-agents/applications/cloudflare-security-audit-skill-pipeline.md](./knowledge/technology/ai-agents/applications/cloudflare-security-audit-skill-pipeline.md) |
+| `bHFlbVUR26E` | AI 早報週報(2026-11-05 至 11-10):Gemini Omni 1.2 Flash、GPT-6 Cyber、METR 的 2 倍加速、Claude Dreams、OpenAI Control Room、TPU 8tx(橘鸦 Juya + 一手來源核實) | [knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md](./knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md) |
 | `BhHMGRcbPkQ` | 為什麼 Anthropic 工程師棄 Markdown 改用 HTML:當「理解」變成真正的瓶頸 | [knowledge/technology/ai-productivity/anthropic-html-work-pages.md](./knowledge/technology/ai-productivity/anthropic-html-work-pages.md) |
 | `bi2np7qc3Lw` | Kimi K3.1 Pro:Terminal-Bench 65.7 只差 Opus 5.5 0.7 分,但選型要看你的倉庫驗收 | [knowledge/technology/ai-industry/kimi-k3-1-pro-open-weight-coding-acceptance.md](./knowledge/technology/ai-industry/kimi-k3-1-pro-open-weight-coding-acceptance.md) |
 | `BkoCVZJcRHY` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
@@ -342,6 +344,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `OCE-qMzzb_U` | 用 Easy MCP AI 讓 Claude Code 管 WordPress:一句話批次補 SEO,與「強制草稿 / 停用工具 / 一鍵暫停」三道煞車 | [knowledge/technology/ai-agents/applications/easy-mcp-ai-wordpress-claude-code-seo-guardrails.md](./knowledge/technology/ai-agents/applications/easy-mcp-ai-wordpress-claude-code-seo-guardrails.md) |
 | `OcKl98ZQbMQ` | AI 資本圈的派系與捆綁:同級競爭、不同級綁在一起,以及「融了 1,100 億卻立刻欠出 1 兆」 | [knowledge/investing/equity-research/ai-capital-web-factions-and-mutual-binding.md](./knowledge/investing/equity-research/ai-capital-web-factions-and-mutual-binding.md) |
 | `oH0j8HYeMAM` | 「Claude 2.0」是什麼:一個對話管所有對話——巢狀對話、Projects、側聊與三個省額度的指令(Andy Lin 林玉堂整理 RoboNuggets × Ben AI) | [knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md](./knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md) |
+| `Oi55T8LtTSI` | AI 早報週報(2026-11-05 至 11-10):Gemini Omni 1.2 Flash、GPT-6 Cyber、METR 的 2 倍加速、Claude Dreams、OpenAI Control Room、TPU 8tx(橘鸦 Juya + 一手來源核實) | [knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md](./knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md) |
 | `OrNE5vMFD2k` | DeepSeek「Super Agent」是什麼:從 ReAct 單會話,到 Router / Walker 的五個模組 | [knowledge/technology/ai-agents/autonomy/deepseek-super-agent-router-walker-xuanyuan.md](./knowledge/technology/ai-agents/autonomy/deepseek-super-agent-router-walker-xuanyuan.md) |
 | `ou9SC0Z_CtI` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `OVl3fFSHxqY` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
@@ -378,6 +381,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `qANyQLdYC9E` | 記憶體五十年週期覆盤:四次科技革命都沒消滅週期,AI 這輪該盯哪三個信號? | [knowledge/investing/equity-research/memory-50-year-cycle-three-signals.md](./knowledge/investing/equity-research/memory-50-year-cycle-three-signals.md) |
 | `qbReD1cGykQ` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
 | `QHHTcYBEIEo` | 別追「最強 AI」:用一張分工地圖建立你的多工具工作流 | [knowledge/technology/ai-productivity/multi-tool-ai-workflow.md](./knowledge/technology/ai-productivity/multi-tool-ai-workflow.md) |
+| `Qire06L93oM` | AI 早報週報(2026-11-05 至 11-10):Gemini Omni 1.2 Flash、GPT-6 Cyber、METR 的 2 倍加速、Claude Dreams、OpenAI Control Room、TPU 8tx(橘鸦 Juya + 一手來源核實) | [knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md](./knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md) |
 | `qL6ca-mIeMI` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `qMYLjyqJzDU` | 32 個 AI 編排器怎麼挑:星數第一的不是編排器,七個維度與四類場景選型清單(Why QQ) | [knowledge/technology/ai-agents/resources/ai-orchestrators-32-tools-seven-dimensions.md](./knowledge/technology/ai-agents/resources/ai-orchestrators-32-tools-seven-dimensions.md) |
 | `qnIlKvW00Sk` | AI Agent 最大的缺陷:它沒有「世界地圖」——用本體論給大模型套上邏輯護欄 | [knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
@@ -391,6 +395,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `r1jHxwwg5tk` | REA:讓 Claude Code 帶著證據做逆向工程——分工、三類成品、四個案例與五個新手坑(YAHA學堂 + 原始碼) | [knowledge/technology/software-engineering/rea-ai-reverse-engineering-claude-code.md](./knowledge/technology/software-engineering/rea-ai-reverse-engineering-claude-code.md) |
 | `R1oLllxY7IQ` | 巴西大選「猜錯」引發的暴跌:Nu Holdings 為什麼被加碼,以及 SoFi 2026 Q3 財報 | [knowledge/investing/equity-research/nubank-brazil-election-selloff-and-sofi-q3-2026-nick.md](./knowledge/investing/equity-research/nubank-brazil-election-selloff-and-sofi-q3-2026-nick.md) |
 | `R549oFP9uN8` | Pre-norm vs Post-norm:為什麼現在的大模型全都把 LayerNorm 搬到前面 | [knowledge/technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md](./knowledge/technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md) |
+| `r9lFf4d6JJY` | AI 早報週報(2026-11-05 至 11-10):Gemini Omni 1.2 Flash、GPT-6 Cyber、METR 的 2 倍加速、Claude Dreams、OpenAI Control Room、TPU 8tx(橘鸦 Juya + 一手來源核實) | [knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md](./knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md) |
 | `RAFQc6zHdXE` | Codex Multi-agent V2 與 Graph Engineering:主 agent 調度、多模型混用、動態派生 subagent | [knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md](./knowledge/technology/ai-agents/applications/codex-multi-agent-v2-graph-engineering.md) |
 | `Rfd6CzX7HLQ` | ub-mode:Bob 大叔給 coding agent 的「工程質量門禁」技能(CRAP、dryer、mutator、UML) | [knowledge/technology/ai-agents/applications/ub-mode-uncle-bob-quality-gate-skill-crapper-dryer-mutator.md](./knowledge/technology/ai-agents/applications/ub-mode-uncle-bob-quality-gate-skill-crapper-dryer-mutator.md) |
 | `RhmzLKU9xvY` | Harness Learning:訓練一個「專門改 harness 的模型」,4B 學生贏過 35B 老師 | [knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md](./knowledge/technology/ai-agents/foundations/harness-learning-proposer-rl.md) |
@@ -443,6 +448,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `uflbrOB9ujQ` | AI 時代最被低估的技能:語音輸入,以及「把世界看成一場 context 轉換遊戲」 | [knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md](./knowledge/technology/ai-productivity/voice-input-ai-context-transformation.md) |
 | `UG_IiOPAWng` | Sell Put 不必放到到期:提前買回、把資金換到下一張合約(Nick 美股咖啡館) | [knowledge/investing/derivatives/sell-put-early-close-roll-delta-nick.md](./knowledge/investing/derivatives/sell-put-early-close-roll-delta-nick.md) |
 | `Uj8nORSksP8` | 讓 Claude 和 GPT 做 PPT:差的是那幾句話——從「一句話」到能上台的四步提示法 | [knowledge/technology/ai-productivity/ai-ppt-claude-vs-gpt-four-prompt-steps-mia.md](./knowledge/technology/ai-productivity/ai-ppt-claude-vs-gpt-four-prompt-steps-mia.md) |
+| `UoLqNKs0_n0` | AI 早報週報(2026-11-05 至 11-10):Gemini Omni 1.2 Flash、GPT-6 Cyber、METR 的 2 倍加速、Claude Dreams、OpenAI Control Room、TPU 8tx(橘鸦 Juya + 一手來源核實) | [knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md](./knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md) |
 | `UPF9Ogid4N0` | 黃仁勳談生死與接班:不做「接班計畫」,而是不停傳遞知識 | [knowledge/technology/ai-industry/jensen-huang-succession-and-vision.md](./knowledge/technology/ai-industry/jensen-huang-succession-and-vision.md) |
 | `UQDSftGndms` | Make 與 n8n 還值得學嗎:當維護的人從你換成 Agent,視覺化就從資產變成阻礙 | [knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md](./knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md) |
 | `UQtgJ2RWx64` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
