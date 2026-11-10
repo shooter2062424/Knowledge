@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**506 個 YouTube video id**、**169 個 arXiv 編號**,涵蓋 **395 篇**筆記。
+> 統計:**507 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **396 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(506 部,依 video id 排序)
+## YouTube(507 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -170,6 +170,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `DcibeCh1aZ4` | 美股連漲 13 天還能追嗎?「真實通脹」數據、AI 情緒三大轉向信號,與「踏空風險 > 回調風險」 | [knowledge/investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md](./knowledge/investing/strategy/us-stocks-ai-turning-point-fomo-over-pullback.md) |
 | `dECosPI6SUc` | 「Loop 已死,Graph 當立」?從工程視角看透這場名詞之爭 | [knowledge/technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md](./knowledge/technology/ai-agents/foundations/loop-vs-graph-debate-engineering-view.md) |
 | `dGHLg9NfvEo` | Fable 5.1:榜單全線第一,官方卻叫你先用 Opus 5 —— 旗艦模型開始為「可用性」讓路 | [knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md](./knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md) |
+| `DGI4vucR71w` | Stanford CS329Z 第 1 講:什麼是 AI Agent——歷史、五大元件、workflow 與 agent 的差別、可靠性挑戰(Diyi Yang) | [knowledge/technology/ai-agents/foundations/stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang.md](./knowledge/technology/ai-agents/foundations/stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang.md) |
 | `DhZ2F9DI7PY` | 用 AI Agent + Skill 讀財報、做估值:為什麼 AI 分析股票常出錯 | [knowledge/investing/ai-assisted/ai-agent-skill-stock-research-workflow.md](./knowledge/investing/ai-assisted/ai-agent-skill-stock-research-workflow.md) |
 | `diU-Nbb1P_c` | 4 組頂級 Agent Skill:從「自我進化」到「工程／設計／內容」生產力套件 | [knowledge/technology/ai-agents/applications/top-skills-for-agents.md](./knowledge/technology/ai-agents/applications/top-skills-for-agents.md) |
 | `dJc-h7ui8wc` | LeetCode 怎麼刷最有效(上):從 0 刷到 200 題的真實心路歷程與方法 | [knowledge/career/interview-prep/leetcode-0-to-200-grinding-experience.md](./knowledge/career/interview-prep/leetcode-0-to-200-grinding-experience.md) |
@@ -537,7 +538,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(169 篇,依編號排序)
+## arXiv(174 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -579,11 +580,13 @@ grep -rlF --include=*.md -- "<id>" .
 | `2208.07339` | 模型名裡的 Q4、Q8 是什麼?量化(PTQ / QAT / GGUF / 三值)完整地圖 | [knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |
 | `2210.03629` | Agentic AI 面試必知十概念地圖(Harness / Loop / Context / Tool / Memory / Orchestration / Guardrails / Evals / HITL / Observability) | [knowledge/technology/ai-agents/foundations/agentic-ai-ten-concepts-interview-map.md](./knowledge/technology/ai-agents/foundations/agentic-ai-ten-concepts-interview-map.md) |
 | `2210.03629` | AI 工程 20 個概念速查:模型推論、RAG 檢索、Agent 與上線維運 | [knowledge/technology/ai-agents/foundations/ai-engineering-twenty-concepts-serving-rag-ops.md](./knowledge/technology/ai-agents/foundations/ai-engineering-twenty-concepts-serving-rag-ops.md) |
+| `2210.03629` | Stanford CS329Z 第 1 講:什麼是 AI Agent——歷史、五大元件、workflow 與 agent 的差別、可靠性挑戰(Diyi Yang) | [knowledge/technology/ai-agents/foundations/stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang.md](./knowledge/technology/ai-agents/foundations/stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang.md) |
 | `2210.03629` | 用 Skywork 從查資料到做簡報:AI 研究助理該看的三個能力(溯源、自訂信源、單頁重生) | [knowledge/technology/ai-productivity/skywork-research-report-to-slides.md](./knowledge/technology/ai-productivity/skywork-research-report-to-slides.md) |
 | `2210.08277` | 29 個邏輯閘玩通馬里奧:沒有浮點數、沒有矩陣乘法的「AI」是什麼 | [knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md](./knowledge/technology/llm-internals/architecture/differentiable-logic-gate-networks-mario-29-gates.md) |
 | `2210.17323` | 模型名裡的 Q4、Q8 是什麼?量化(PTQ / QAT / GGUF / 三值)完整地圖 | [knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |
 | `2211.10438` | 模型名裡的 Q4、Q8 是什麼?量化(PTQ / QAT / GGUF / 三值)完整地圖 | [knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |
 | `2211.17192` | AI 工程 20 個概念速查:模型推論、RAG 檢索、Agent 與上線維運 | [knowledge/technology/ai-agents/foundations/ai-engineering-twenty-concepts-serving-rag-ops.md](./knowledge/technology/ai-agents/foundations/ai-engineering-twenty-concepts-serving-rag-ops.md) |
+| `2302.04761` | Stanford CS329Z 第 1 講:什麼是 AI Agent——歷史、五大元件、workflow 與 agent 的差別、可靠性挑戰(Diyi Yang) | [knowledge/technology/ai-agents/foundations/stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang.md](./knowledge/technology/ai-agents/foundations/stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang.md) |
 | `2302.12173` | AI 工程 7 個動手專案(MCP、多代理、評測、安全 RAG、稽核代理、LoRA、知識圖譜):讀完原始碼、實跑後的評估(Anjana「AI & Tech」素材) | [knowledge/technology/ai-agents/applications/ai-engineering-seven-projects-source-review.md](./knowledge/technology/ai-agents/applications/ai-engineering-seven-projects-source-review.md) |
 | `2304.03442` | Agent 長期記憶分層設計:別把一切丟進向量庫(四層記憶 + LVP + 雙時間戳 / 三層記憶 + 影子 Agent) | [knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md](./knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md) |
 | `2304.08485` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
@@ -592,6 +595,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2305.13245` | 100 萬上下文為什麼貴、又為什麼會變笨?從 MHA、MQA、GQA 到 MLA、DSA、CSA | [knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md](./knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md) |
 | `2305.14314` | 模型名裡的 Q4、Q8 是什麼?量化(PTQ / QAT / GGUF / 三值)完整地圖 | [knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |
 | `2305.14314` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
+| `2305.15334` | Stanford CS329Z 第 1 講:什麼是 AI Agent——歷史、五大元件、workflow 與 agent 的差別、可靠性挑戰(Diyi Yang) | [knowledge/technology/ai-agents/foundations/stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang.md](./knowledge/technology/ai-agents/foundations/stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang.md) |
 | `2305.17888` | 模型名裡的 Q4、Q8 是什麼?量化(PTQ / QAT / GGUF / 三值)完整地圖 | [knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |
 | `2305.18323` | 到底需不需要 GraphRAG?9 種 RAG 方案實測對照 + 脈絡優化省 19–53% token | [knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md](./knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md) |
 | `2305.20050` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
@@ -640,6 +644,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2407.11062` | 模型名裡的 Q4、Q8 是什麼?量化(PTQ / QAT / GGUF / 三值)完整地圖 | [knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |
 | `2407.13742` | 5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼,以及反過來 | [knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) |
 | `2409.13082` | 穩定開發大型 C/C++ 的工具箱:契約、靜態分析、形式驗證、fuzz 與 CI 分層(2026) | [knowledge/technology/code-dev/c-cpp/cpp-large-codebase-stability-toolbox.md](./knowledge/technology/code-dev/c-cpp/cpp-large-codebase-stability-toolbox.md) |
+| `2411.02391` | Stanford CS329Z 第 1 講:什麼是 AI Agent——歷史、五大元件、workflow 與 agent 的差別、可靠性挑戰(Diyi Yang) | [knowledge/technology/ai-agents/foundations/stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang.md](./knowledge/technology/ai-agents/foundations/stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang.md) |
 | `2411.04330` | 模型名裡的 Q4、Q8 是什麼?量化(PTQ / QAT / GGUF / 三值)完整地圖 | [knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |
 | `2411.07191` | 模型名裡的 Q4、Q8 是什麼?量化(PTQ / QAT / GGUF / 三值)完整地圖 | [knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |
 | `2412.03556` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
@@ -673,6 +678,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2601.01554` | MOSS-Transcribe-Diarize 0.9B 評估:端到端「轉錄+分辨說話者」開源模型,對我們的管線是否值得換? | [knowledge/technology/dev-tools/moss-transcribe-diarize-evaluation.md](./knowledge/technology/dev-tools/moss-transcribe-diarize-evaluation.md) |
 | `2602.00180` | Spec-to-Code 現況(2026):Spec Kit、Kiro、OpenSpec、BMAD 與大型專案的穩定做法 | [knowledge/technology/code-dev/spec-code-flow/spec-driven-development-landscape-2026.md](./knowledge/technology/code-dev/spec-code-flow/spec-driven-development-landscape-2026.md) |
 | `2602.03749` | 一張圖變成會動的 VTuber:See-through 拆層 + Anime2.5DRig 綁骨,以及離真正 Live2D 還差多遠(Mia 码上 AI) | [knowledge/technology/applied-ai/design/ai-live2d-vtuber-see-through-anime25drig-pipeline-mia.md](./knowledge/technology/applied-ai/design/ai-live2d-vtuber-see-through-anime25drig-pipeline-mia.md) |
+| `2602.16666` | Stanford CS329Z 第 1 講:什麼是 AI Agent——歷史、五大元件、workflow 與 agent 的差別、可靠性挑戰(Diyi Yang) | [knowledge/technology/ai-agents/foundations/stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang.md](./knowledge/technology/ai-agents/foundations/stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang.md) |
 | `2603.07427` | AI 的安全對齊可能是個幻覺:AutoControl Arena 用「壓力 + 誘惑」測出的三個發現(程序员老王) | [knowledge/technology/ai-safety/alignment-illusion-safety-shallow.md](./knowledge/technology/ai-safety/alignment-illusion-safety-shallow.md) |
 | `2603.22106` | 當 Agent 代勞時,如何保持批判性思考:Addy Osmani 的認知投降、驗證與當責 | [knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md](./knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md) |
 | `2603.24621` | ARC-AGI-3:人類 100%、前沿 AI 不到 1% —— 一個用「行動效率」而不是「對不對」計分的 agentic 基準 | [knowledge/technology/ai-safety/arc-agi-3-agentic-benchmark.md](./knowledge/technology/ai-safety/arc-agi-3-agentic-benchmark.md) |

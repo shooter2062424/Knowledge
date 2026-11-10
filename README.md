@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-439_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-440_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -188,6 +188,7 @@ flowchart LR
 | **PricewaterhouseCoopers(論文)** | 1 | [Recursive Agent Harness](./knowledge/technology/ai-agents/foundations/recursive-agent-harness-harness-recursion.md) |
 | **Microsoft / 復旦 / 浙大 / 愛丁堡(論文)** | 1 | [Harnessed Agentic RL(Agent Lightning v1.0)](./knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md) |
 | **JayLuxAI | AI 系統導入**(⚠️ 推廣免費 Skool 社群與一對一諮詢) | 1 | [Claude 近期十個更新怎麼分:新手先做三件事](./knowledge/technology/claude-code/claude-code-ten-concepts-three-first-steps-jayluxai.md) |
+| **Stanford Online** — 公開課(Diyi Yang) | 1 | [CS329Z 第 1 講:什麼是 AI Agent](./knowledge/technology/ai-agents/foundations/stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang.md) |
 | **howie和小能熊** — Claude Code 新功能速解 | 1 | [Claude Code Mods](./knowledge/technology/claude-code/claude-code-mods-explained.md) |
 | **黃培碩(運達證券投顧)** — 進化波浪理論(⚠️ 推廣 LINE 粉絲團與投顧服務) | 1 | [進化波浪分析方式](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 
@@ -313,6 +314,7 @@ flowchart LR
 **foundations — 基礎概念**
 | 主題 | 一句話 |
 |---|---|
+| [Stanford CS329Z 第 1 講:什麼是 AI Agent——簡史、五大元件、workflow vs agent、可靠性挑戰(Diyi Yang)](./knowledge/technology/ai-agents/foundations/stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang.md) | ⭐⭐⭐ 最強 agent 不一定最可靠;ReAct 幻覺 0% 僅為失敗樣本占比;Anthropic 研究時間縮短不顯著;HF 事件「17,000」存疑 |
 | [Agentic AI 面試必知十概念地圖(Anjana 輪播 PDF)](./knowledge/technology/ai-agents/foundations/agentic-ai-ten-concepts-interview-map.md) | Harness/Loop/Context/Tool/Memory/Orchestration/Guardrails/Evals/HITL/Observability 十概念分四組;無文字層輪播逐頁轉寫,附 6 張流程圖與原稿用語的修正 |
 | [12 種 AI 系統架構與實例(Anjana PDF)](./knowledge/technology/ai-agents/foundations/ai-architectures-twelve-patterns-practical-examples.md) | RAG/微調/Agent/事件驅動/邊緣/混合/人機協作 12 型;三層分組為整理者自訂,非標準分類 |
 | [AI 工程 20 個概念速查:推論、RAG、Agent 與上線維運(Anjana PDF)](./knowledge/technology/ai-agents/foundations/ai-engineering-twenty-concepts-serving-rag-ops.md) | 依模型推論/RAG/Agent/維運重新分組;指出 tokenization 範例對 cl100k_base 不成立等原稿錯誤 |
