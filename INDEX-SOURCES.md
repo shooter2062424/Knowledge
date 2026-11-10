@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**507 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **396 篇**筆記。
+> 統計:**508 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **397 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(507 部,依 video id 排序)
+## YouTube(508 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -254,6 +254,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `I-PMiyYZkrs` | 你以為健康,其實天天慢性發炎:四個敵人與四個對策 | [knowledge/health/wellness/chronic-inflammation-four-enemies.md](./knowledge/health/wellness/chronic-inflammation-four-enemies.md) |
 | `I3bnBM4vNnY` | LLMentalist 效應:AI 像通靈師一樣「冷讀」你,以及驗證器能管到哪裡為止 | [knowledge/technology/ai-productivity/llmentalist-effect-cold-reading-and-verifiers.md](./knowledge/technology/ai-productivity/llmentalist-effect-cold-reading-and-verifiers.md) |
 | `i6Q7bXnWGlM` | Claude Code 30 個藏得最深的快捷鍵與功能:暫存、插隊、回退與 Agent 視圖 | [knowledge/technology/claude-code/claude-code-30-hidden-shortcuts.md](./knowledge/technology/claude-code/claude-code-30-hidden-shortcuts.md) |
+| `i6ynxFOfkFU` | Claude Fable 5.2:1000 個 Agent 的兩場實驗(作業系統原型與費馬大定理形式化),以及能搬進專案的四層檢查表(Why QQ) | [knowledge/technology/ai-industry/claude-fable-5-2-1000-agents-os-fermat-harness-why-qq.md](./knowledge/technology/ai-industry/claude-fable-5-2-1000-agents-os-fermat-harness-why-qq.md) |
 | `ib74sLgjIBM` | 用 Claude 蓋一個「會自我改進」的知識庫:三個資料夾 + 一個 CLAUDE.md + 五步驟 | [knowledge/technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md](./knowledge/technology/ai-agents/memory-retrieval/self-improving-knowledge-base-claude-cowork.md) |
 | `IBpVGtty3iU` | 不會虛幻引擎也能用 Claude 做遊戲?UE 5.8 官方 MCP 的接法、下指令習慣與真實成本 | [knowledge/technology/ai-agents/applications/unreal-engine-mcp-claude-game-dev-reality-check.md](./knowledge/technology/ai-agents/applications/unreal-engine-mcp-claude-game-dev-reality-check.md) |
 | `iD_2QFur7Q4` | 為什麼沙箱成了 AI 圈最捲的新基建:microVM、快照,與「快照要多快」這道題 | [knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
