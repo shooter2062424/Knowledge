@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-442_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-443_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -107,6 +107,7 @@ flowchart LR
 | **程序员老王** — LLM 底層原理白話拆解 | 22 | [Token 與 Embedding(LLM vs RAG)](./knowledge/technology/llm-internals/architecture/token-vs-embedding-llm-and-rag.md) · [Attention Residuals(白話推導,與 bycloud 版合併)](./knowledge/technology/llm-internals/architecture/attention-residuals.md) · [LLM Abliteration:拒絕是一個方向](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) · [Stable Diffusion 原理](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) · [Gemini CLI 提示詞變 Agent](./knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md) · [Skywork 研究到簡報(推廣片)](./knowledge/technology/ai-productivity/skywork-research-report-to-slides.md) · [思維鏈演進與幻象(兩支)](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) · [Herdr 上手體驗(併入 Herdr 筆記 §九)](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) · [Pi「你好」字元數實測(併入 Pi 筆記 §十三)](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) · [DLSS/FSR 原理](./knowledge/technology/machine-learning/dlss-fsr-ai-upscaling-explained.md) · [英偉達護城河](./knowledge/technology/ai-industry/nvidia-moat-memory-bandwidth-cuda-software.md) · [PyTorch 從零五講](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) · [Vibe Coding 三層與實戰](./knowledge/technology/ai-productivity/vibe-coding-stack-model-agent-workflow.md) · [ViT 如何看圖](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) · [多頭注意力 QKV](./knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md) · [Skill 三階段(豆漿例)](./knowledge/technology/ai-agents/applications/building-claude-skills.md) · [安全對齊是幻覺](./knowledge/technology/ai-safety/alignment-illusion-safety-shallow.md) · [MoE 混合專家](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) · [提示詞/上下文/Harness 三工程](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) · [LoRA 微調](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) · [Transformers 本機跑 R1](./knowledge/technology/llm-internals/inference/transformers-local-deepseek-r1-distill.md) |
 | **Thinking Machines Lab** — LLM 系統與推論工程 | 1 | [擊敗推論不確定性(batch invariance)](./knowledge/technology/llm-internals/inference/defeating-nondeterminism-batch-invariance.md) |
 | **EZ.Encoder Academy** — 大模型面試題與論文精讀 | 1 | [Pre-norm vs Post-norm](./knowledge/technology/llm-internals/architecture/pre-norm-vs-post-norm-transformer.md) |
+| **西索 Celso** — 業務力與職場談判訪談 | 1 | [談判別說「我幫你爭取」:業務力八情境](./knowledge/career/workplace/sales-power-negotiation-eight-scenarios-boice-celso.md) |
 | **Ellen 李** — 社交心理與對話魅力 | 1 | [聊天有趣的四個特質](./knowledge/life/communication/four-traits-interesting-conversation.md) |
 | **程序員老王** — LLM 架構原理動畫解說 | 1 | [1M 上下文的秘密:GQA / Sparse Attention(併入 KV Cache 筆記)](./knowledge/technology/llm-internals/inference/kv-cache.md) |
 | **Deno(Denoise AI)** — AI 影片製作工作流(韓文) | 1 | [Blender 預覽當 AI 影片參考(MCP)](./knowledge/technology/applied-ai/design/blender-previz-mcp-ai-video.md) |
@@ -783,6 +784,7 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [十大恐怖主管特質:從竹科裸辭看「只做向上管理」如何逼走好員工](./knowledge/career/workplace/ten-toxic-manager-traits.md) | 看主管做了什麼別聽他說什麼;光說不練/微觀管理/造假……中一點就是有毒信號 |
+| [談判別說「我幫你爭取」:業務力八情境(西索 × Boice,含 Hahow 課程業配)](./knowledge/career/workplace/sales-power-negotiation-eight-scenarios-boice-celso.md) | 嫌貴時給高低兩案不說「幫你爭取」;認知差開場;加薪要平常記錄+年底獲利計劃書;LACE 客訴;Grant 2013 讀原文:中間型外向度業績最高,不是內向占優 |
 
 ### 🌱 mindset(職涯心態與成長)
 | 主題 | 一句話 |
