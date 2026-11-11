@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**516 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **400 篇**筆記。
+> 統計:**517 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **401 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(516 部,依 video id 排序)
+## YouTube(517 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -155,6 +155,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `BUHHheaKlDY` | 光刻機原理系列:從光的衍射、X 光的死路到 13.5nm EUV,再到 ASML 如何「繞過」阿貝極限 | [knowledge/technology/ai-industry/lithography-euv-light-source-and-asml-light-control.md](./knowledge/technology/ai-industry/lithography-euv-light-source-and-asml-light-control.md) |
 | `ByBLjNA3MvY` | 海鷗策略(Seagull):牛市中「不踏空又不怕跌」的三腿期權對沖 | [knowledge/investing/derivatives/seagull-options-hedge.md](./knowledge/investing/derivatives/seagull-options-hedge.md) |
 | `byCdyKQRe9A` | Claude 近期十個更新怎麼分:新手只要先做三件事(JayLuxAI + 官方文件核實) | [knowledge/technology/claude-code/claude-code-ten-concepts-three-first-steps-jayluxai.md](./knowledge/technology/claude-code/claude-code-ten-concepts-three-first-steps-jayluxai.md) |
+| `c1ogFTJnAAo` | Claude Code「不要再問」把密碼寫進設定檔:Apiiro 報告的口徑、官方文件對照與排查清單(Why QQ) | [knowledge/technology/ai-safety/claude-code-dont-ask-again-secrets-leak-checklist-why-qq.md](./knowledge/technology/ai-safety/claude-code-dont-ask-again-secrets-leak-checklist-why-qq.md) |
 | `C2EzJjVpHpw` | OpenAI 用 Agent 流水線審計 Linux 內核:948 個本地提權漏洞、121 萬美元、以及「拿到 root 卻做錯」的 20 次 | [knowledge/technology/ai-safety/openai-linux-kernel-948-lpe-agent-pipeline-why-qq.md](./knowledge/technology/ai-safety/openai-linux-kernel-948-lpe-agent-pipeline-why-qq.md) |
 | `CGd5zDUrWnw` | Agent 為什麼會長成 Runtime:DeepSeek Harness 的插件樹與事件日誌,以及底下那篇 Cordis 論文 | [knowledge/technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md](./knowledge/technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) |
 | `CghXuvlAhD0` | 當 Agent 代勞時,如何保持批判性思考:Addy Osmani 的認知投降、驗證與當責 | [knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md](./knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md) |
