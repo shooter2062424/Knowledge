@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**515 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **399 篇**筆記。
+> 統計:**516 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **400 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(515 部,依 video id 排序)
+## YouTube(516 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -534,6 +534,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `Z6AxbfCXeX8` | 一萬個 agent 破解千禧年難題:Navier-Stokes、抄襲指控,與「誰該被署名」 | [knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
 | `Zez7CMkSZsI` | AI 名詞地圖:從 Token 到 Agent Skills——三種分層框架對照(八概念演進鏈 / 四層技術全景 / 職場四層選型) | [knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md](./knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md) |
 | `zFSWbN7VKB8` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
+| `ZJkfmrbmuFg` | Claude 的「做夢」:記憶四層、三個老化問題與手動整理法(Gary Chen + Anthropic 原文核實) | [knowledge/technology/claude-code/claude-memory-dreaming-four-layers-gary.md](./knowledge/technology/claude-code/claude-memory-dreaming-four-layers-gary.md) |
 | `zK2TjT17b8U` | 一段提示詞、五個工具、3 分鐘抓出加班費算法裡的三個漏洞:Claude Cowork 實戰拆解 | [knowledge/technology/ai-productivity/claude-cowork-overtime-pay-audit-prompt.md](./knowledge/technology/ai-productivity/claude-cowork-overtime-pay-audit-prompt.md) |
 | `ZLDfTwHm56A` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `ZLM6Qy7pAHk` | Model Routing:同一份任務,Token 成本從 $21.7 降到 $9.15 —— 重點是「算力分配」不是「挑模型」 | [knowledge/technology/ai-productivity/model-routing-compute-allocation.md](./knowledge/technology/ai-productivity/model-routing-compute-allocation.md) |
