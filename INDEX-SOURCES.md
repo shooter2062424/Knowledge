@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**517 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **401 篇**筆記。
+> 統計:**518 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **402 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(517 部,依 video id 排序)
+## YouTube(518 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -263,6 +263,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `IBpVGtty3iU` | 不會虛幻引擎也能用 Claude 做遊戲?UE 5.8 官方 MCP 的接法、下指令習慣與真實成本 | [knowledge/technology/ai-agents/applications/unreal-engine-mcp-claude-game-dev-reality-check.md](./knowledge/technology/ai-agents/applications/unreal-engine-mcp-claude-game-dev-reality-check.md) |
 | `iD_2QFur7Q4` | 為什麼沙箱成了 AI 圈最捲的新基建:microVM、快照,與「快照要多快」這道題 | [knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md](./knowledge/technology/system-design/agent-sandbox-microvm-snapshot-iaa.md) |
 | `IDGXr9VFyQw` | 編譯通過 ≠ 記憶體安全:Rust issue #164250——借用檢查器裡住了約 11 年的 soundness 洞(Why QQ + issue 原文) | [knowledge/technology/software-engineering/rust-issue-164250-borrow-checker-soundness-hole.md](./knowledge/technology/software-engineering/rust-issue-164250-borrow-checker-soundness-hole.md) |
+| `IE6TXR86WjQ` | Claude Fable 5.2 用三行提示詞做遊戲:Saltline、Gears 風格關卡、SNES 遊戲的帳單與長時間 Agent 成本結構(Why QQ) | [knowledge/technology/ai-industry/claude-fable-5-2-one-prompt-games-saltline-gears-snes-why-qq.md](./knowledge/technology/ai-industry/claude-fable-5-2-one-prompt-games-saltline-gears-snes-why-qq.md) |
 | `iHVpk9IM1Uk` | Windows 原生安裝 Claude Code:一行指令,與五個報錯的官方修法 | [knowledge/technology/claude-code/claude-code-windows-native-install-troubleshooting.md](./knowledge/technology/claude-code/claude-code-windows-native-install-troubleshooting.md) |
 | `imvTUmRoqK8` | OpenAI DevDay 2026:主角不是模型,是常駐 agent「dots」——以及 Sol、Ultrafast、Decisions API 與 Codex 上雲 | [knowledge/technology/ai-industry/openai-devday-2026-dots-sol-codex.md](./knowledge/technology/ai-industry/openai-devday-2026-dots-sol-codex.md) |
 | `ipvuIOaN5wA` | 用 Claude Code 零程式碼做網站:突破 AI 預設風格、捲動動畫、設計策略 | [knowledge/technology/applied-ai/design/ai-website-building-claude-code.md](./knowledge/technology/applied-ai/design/ai-website-building-claude-code.md) |
