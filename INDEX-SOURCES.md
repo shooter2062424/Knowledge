@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**518 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **402 篇**筆記。
+> 統計:**519 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **403 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(518 部,依 video id 排序)
+## YouTube(519 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -63,6 +63,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2mtn-Qp59y4` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `2PwxSjJV3HI` | Skill 沒效果?先跑對照實驗:Google 的 Skill 優化實驗與「四層檢查表」 | [knowledge/technology/ai-agents/applications/skill-evaluation-four-layer-checklist-google-qq.md](./knowledge/technology/ai-agents/applications/skill-evaluation-four-layer-checklist-google-qq.md) |
 | `2UYRqQvagrk` | MCP 史上最大改版(2026-07-28):從「打電話」變成「寄信」,以及三個功能的退場公告 | [knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md](./knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) |
+| `3CQsXeGSWTI` | Fable 5.2 該怎麼下提示:Anthropic 官方提示指南的十項調整與影片漏講的細節(Why QQ + 官方文件對照) | [knowledge/technology/claude-code/prompting-claude-fable-5-2-official-guide-checklist-why-qq.md](./knowledge/technology/claude-code/prompting-claude-fable-5-2-official-guide-checklist-why-qq.md) |
 | `3CRtS3bY_D4` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
 | `3e_YTF3id_8` | Claude「降智」其實是算力危機:Opus 4.7 試玩與升級注意 | [knowledge/technology/ai-productivity/claude-throttling-opus-4-7.md](./knowledge/technology/ai-productivity/claude-throttling-opus-4-7.md) |
 | `3iXsVw9wsjw` | 一句 prompt 做出 iPhone 宣傳片:Opus 5.5 vs Opus 5,差在「會挑工具」與「會回頭檢查」 | [knowledge/technology/ai-agents/applications/opus-5-5-video-agent-tool-selection-self-check.md](./knowledge/technology/ai-agents/applications/opus-5-5-video-agent-tool-selection-self-check.md) |
