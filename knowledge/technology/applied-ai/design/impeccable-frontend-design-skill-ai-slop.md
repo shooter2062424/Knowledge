@@ -235,3 +235,4 @@ flowchart LR
 - [[issue-121]] — 同主題:第 121 期:DeepSeek 推理加速、Google 設計記憶規範、AI 投
 - [[issue-123]] — 同主題:第 123 期:多說話人 ASR、並行 Agent 工作台、DESIGN.md 
 - [[issue-124]] — 同主題:第 124 期:Kimi K3 與 Kimi Code、AI 網關、開源部署平台
+- [[modern-web-guidance-chrome-agent-skill-why-qq]] — 另一個讓 AI 前端更現代的 Skill,附官方評測

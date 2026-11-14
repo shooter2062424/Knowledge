@@ -171,3 +171,4 @@ flowchart TD
 - [[diagram-design-skill-rules-not-model-yaha]] — 同主題:diagram-design:Claude Code 畫圖 Skill 為什麼沒
 - [[issue-101]] — 同主題:GitHub Weekly 第 101 期:開源版 Cowork、資料工程實戰課
 - [[issue-137]] — 同主題:第 137 期:DeepSeek Super Agent 原型、讓 Agent 
+- [[modern-web-guidance-chrome-agent-skill-why-qq]] — Chrome 官方的現代前端知識庫與評測方法

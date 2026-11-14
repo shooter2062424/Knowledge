@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**523 個 YouTube video id**、**175 個 arXiv 編號**,涵蓋 **407 篇**筆記。
+> 統計:**527 個 YouTube video id**、**179 個 arXiv 編號**,涵蓋 **410 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(523 部,依 video id 排序)
+## YouTube(527 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -134,6 +134,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `aYfZN8t6AQs` | Mem0 記憶架構拆解:三個儲存、抽取管線,與那個「加起來再除以 2.5」的混合排序 | [knowledge/technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md](./knowledge/technology/ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md) |
 | `aZ4ISFax7z8` | AI 早報週報(2026-11-05 至 11-10):Gemini Omni 1.2 Flash、GPT-6 Cyber、METR 的 2 倍加速、Claude Dreams、OpenAI Control Room、TPU 8tx(橘鸦 Juya + 一手來源核實) | [knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md](./knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md) |
 | `aZEmxJ9ivzg` | 學了那麼多 AI,為什麼還是沒加薪?——省下的時間 85% 被雜事吃掉,以及納許議價怎麼算你該開多少 | [knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md](./knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md) |
+| `aZOuB8kQ_Yw` | 第 138 期:開源版 Grok Bot(OpenMausBot)、T3 Code、紫微斗數排盤引擎、Scrapling 爬蟲框架與 Meta Astryx 設計系統 | [knowledge/technology/github-weekly/issue-138.md](./knowledge/technology/github-weekly/issue-138.md) |
 | `aZzWVQXKL0c` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `b3aYWkBf7jg` | OpenCode Console 被攻破:AI 在進攻、AI 在拒守——密鑰放哪與「護欄不對稱」 | [knowledge/technology/ai-safety/opencode-console-breach-guardrail-asymmetry.md](./knowledge/technology/ai-safety/opencode-console-breach-guardrail-asymmetry.md) |
 | `B7I0HBXbty8` | 語言稅:中文問 AI 真的更貴嗎?Tokenizer、文字系統與多語言成本實測方法 | [knowledge/technology/llm-internals/architecture/tokenizer-tax-chinese-vs-english-token-cost.md](./knowledge/technology/llm-internals/architecture/tokenizer-tax-chinese-vs-english-token-cost.md) |
@@ -395,6 +396,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `qnIlKvW00Sk` | AI Agent 最大的缺陷:它沒有「世界地圖」——用本體論給大模型套上邏輯護欄 | [knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
 | `QqhyqMvdx5Q` | Matt Pocock 的 AI 開發 skills 全拆解:最紅的 skill 只有五行字,強在哪? | [knowledge/technology/ai-agents/applications/matt-pocock-skills-teardown.md](./knowledge/technology/ai-agents/applications/matt-pocock-skills-teardown.md) |
 | `QQqUj0ZB2Ro` | VHS:把終端機操作寫成腳本,改一行就重新生成 GIF 和 MP4 | [knowledge/technology/dev-tools/vhs-terminal-recording-tape-script.md](./knowledge/technology/dev-tools/vhs-terminal-recording-tape-script.md) |
+| `qtHozNsemsI` | 一支影片搞懂 LLM 底層邏輯:預訓練、SFT、RLHF,以及 Karpathy 三年前的預言有幾個成真(Gary Chen 導讀) | [knowledge/technology/llm-internals/architecture/karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen.md](./knowledge/technology/llm-internals/architecture/karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen.md) |
 | `QuQ2FOznK18` | Impeccable 深度解析:AI 做的網站為什麼有「AI 味」,以及一個 skill 怎麼把設計師流程教給 AI | [knowledge/technology/applied-ai/design/impeccable-frontend-design-skill-ai-slop.md](./knowledge/technology/applied-ai/design/impeccable-frontend-design-skill-ai-slop.md) |
 | `QwOUDPiBzfU` | 孫慶龍的「EPS × 本益比五檔價」估值法 + 護國群山、成長股複利 | [knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md](./knowledge/investing/equity-research/sun-qinglong-pe-band-valuation.md) |
 | `Qx4mrAfCs08` | 第 137 期:DeepSeek Super Agent 原型、讓 Agent 操作桌面軟體(agent-desktop)、網站 SEO Skill(Claude SEO)、DeepSeek Harness 插件目錄與動漫角色自動分層(See-through) | [knowledge/technology/github-weekly/issue-137.md](./knowledge/technology/github-weekly/issue-137.md) |
@@ -438,6 +440,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `t96q8onLu90` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `t9WA-BkLUps` | 非技術者的資安入門:用五個問題做威脅建模,再交給 Codex Security 掃描 | [knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md](./knowledge/technology/ai-safety/vibe-coding-security-threat-modeling.md) |
 | `ta5HOdr_32E` | Karpathy 的「能力漏斗」:為什麼你覺得 AI 很蠢,有人卻說已經看到另一個世界 | [knowledge/technology/ai-industry/karpathy-ai-capability-funnel-perception-gap.md](./knowledge/technology/ai-industry/karpathy-ai-capability-funnel-perception-gap.md) |
+| `ta5sXjdQ0sA` | Modern Web Guidance 1.0:Chrome 為 AI 編程工具做的「現代前端知識庫」,官方評測通過率 56% → 88%(Why QQ) | [knowledge/technology/applied-ai/design/modern-web-guidance-chrome-agent-skill-why-qq.md](./knowledge/technology/applied-ai/design/modern-web-guidance-chrome-agent-skill-why-qq.md) |
 | `TbeJwwp-YE4` | Martin Fowler〈LLM Voice〉:AI 文字的恐怖谷,與工程師該怎麼寫文件 | [knowledge/technology/software-engineering/fowler-llm-voice-ai-writing-uncanny-valley.md](./knowledge/technology/software-engineering/fowler-llm-voice-ai-writing-uncanny-valley.md) |
 | `tBnpspp4IH8` | 用 Agent 五分鐘上手 Blender:把 3D 預覽當成 AI 影片的「參考影片」 | [knowledge/technology/applied-ai/design/blender-previz-mcp-ai-video.md](./knowledge/technology/applied-ai/design/blender-previz-mcp-ai-video.md) |
 | `TBVjqvueeCo` | qm(YC 開源):把個人 Agent 變成「多人可用」的 Agent Harness —— scope 隔離、權限審批與可換 harness | [knowledge/technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md](./knowledge/technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md) |
@@ -541,6 +544,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `Z6AxbfCXeX8` | 一萬個 agent 破解千禧年難題:Navier-Stokes、抄襲指控,與「誰該被署名」 | [knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
 | `Zez7CMkSZsI` | AI 名詞地圖:從 Token 到 Agent Skills——三種分層框架對照(八概念演進鏈 / 四層技術全景 / 職場四層選型) | [knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md](./knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md) |
 | `zFSWbN7VKB8` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
+| `zjkBMFhNj_g` | 一支影片搞懂 LLM 底層邏輯:預訓練、SFT、RLHF,以及 Karpathy 三年前的預言有幾個成真(Gary Chen 導讀) | [knowledge/technology/llm-internals/architecture/karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen.md](./knowledge/technology/llm-internals/architecture/karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen.md) |
 | `ZJkfmrbmuFg` | Claude 的「做夢」:記憶四層、三個老化問題與手動整理法(Gary Chen + Anthropic 原文核實) | [knowledge/technology/claude-code/claude-memory-dreaming-four-layers-gary.md](./knowledge/technology/claude-code/claude-memory-dreaming-four-layers-gary.md) |
 | `zK2TjT17b8U` | 一段提示詞、五個工具、3 分鐘抓出加班費算法裡的三個漏洞:Claude Cowork 實戰拆解 | [knowledge/technology/ai-productivity/claude-cowork-overtime-pay-audit-prompt.md](./knowledge/technology/ai-productivity/claude-cowork-overtime-pay-audit-prompt.md) |
 | `ZLDfTwHm56A` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
@@ -554,7 +558,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(175 篇,依編號排序)
+## arXiv(179 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -621,9 +625,11 @@ grep -rlF --include=*.md -- "<id>" .
 | `2307.03172` | AI 名詞地圖:從 Token 到 Agent Skills——三種分層框架對照(八概念演進鏈 / 四層技術全景 / 職場四層選型) | [knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md](./knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md) |
 | `2307.03172` | Agent 長期記憶分層設計:別把一切丟進向量庫(四層記憶 + LVP + 雙時間戳 / 三層記憶 + 影子 Agent) | [knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md](./knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md) |
 | `2307.03172` | 到底需不需要 GraphRAG?9 種 RAG 方案實測對照 + 脈絡優化省 19–53% token | [knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md](./knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md) |
+| `2307.09288` | 一支影片搞懂 LLM 底層邏輯:預訓練、SFT、RLHF,以及 Karpathy 三年前的預言有幾個成真(Gary Chen 導讀) | [knowledge/technology/llm-internals/architecture/karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen.md](./knowledge/technology/llm-internals/architecture/karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen.md) |
 | `2309.06180` | 30 歲以上程式設計師怎麼轉型:五條出路與四個 AI 方向(白白說大模型 2 支影片合併) | [knowledge/career/ai-transition/over-30-developer-ai-career-switch-directions.md](./knowledge/career/ai-transition/over-30-developer-ai-career-switch-directions.md) |
 | `2309.06180` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
 | `2309.06180` | vLLM 為什麼能讓同一張 GPU 多扛幾倍請求:KV cache、PagedAttention、連續批處理與常用參數(小白debug) | [knowledge/technology/llm-internals/inference/vllm-pagedattention-engine-parameters-xiaobai-debug.md](./knowledge/technology/llm-internals/inference/vllm-pagedattention-engine-parameters-xiaobai-debug.md) |
+| `2309.12288` | 一支影片搞懂 LLM 底層邏輯:預訓練、SFT、RLHF,以及 Karpathy 三年前的預言有幾個成真(Gary Chen 導讀) | [knowledge/technology/llm-internals/architecture/karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen.md](./knowledge/technology/llm-internals/architecture/karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen.md) |
 | `2309.15217` | 30 歲以上程式設計師怎麼轉型:五條出路與四個 AI 方向(白白說大模型 2 支影片合併) | [knowledge/career/ai-transition/over-30-developer-ai-career-switch-directions.md](./knowledge/career/ai-transition/over-30-developer-ai-career-switch-directions.md) |
 | `2310.01831` | Code-to-Spec:從既有大型程式碼庫反推規格(CodeConcise、Clang、ACSL、C→Rust) | [knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md](./knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md) |
 | `2310.02446` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
@@ -671,6 +677,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2412.21077` | 多層規格並存下的程式演進:外部公定 spec + 內部實作 spec + 既有 code(5G NR → 6G Modem) | [knowledge/technology/code-dev/spec-code-flow/multi-spec-layered-evolution-modem-5g-to-6g.md](./knowledge/technology/code-dev/spec-code-flow/multi-spec-layered-evolution-modem-5g-to-6g.md) |
 | `2501.12599` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
 | `2501.12948` | Karpathy〈How I use LLMs〉:你在跟一個「1 TB 的壓縮檔」說話——一般人用 LLM 的完整心智模型 | [knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md](./knowledge/technology/ai-productivity/karpathy-how-i-use-llms.md) |
+| `2501.12948` | 一支影片搞懂 LLM 底層邏輯:預訓練、SFT、RLHF,以及 Karpathy 三年前的預言有幾個成真(Gary Chen 導讀) | [knowledge/technology/llm-internals/architecture/karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen.md](./knowledge/technology/llm-internals/architecture/karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen.md) |
 | `2501.13956` | Agent 長期記憶分層設計:別把一切丟進向量庫(四層記憶 + LVP + 雙時間戳 / 三層記憶 + 影子 Agent) | [knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md](./knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md) |
 | `2501.18837` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
 | `2503.13657` | 多 Agent 系統的資料一致性:為什麼數字越傳越亂,以及四層工程解法 | [knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md](./knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md) |
@@ -685,6 +692,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2508.01191` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2509.03505` | LimiX:用「遮罩聯合分布」打造的結構化資料(表格)基礎模型 | [knowledge/technology/machine-learning/limix-tabular-foundation-model.md](./knowledge/technology/machine-learning/limix-tabular-foundation-model.md) |
 | `2509.04664` | AI 為什麼會幻覺?「評分制度逼它硬猜」、四個高危場景與四句核查提示詞 | [knowledge/technology/ai-safety/why-llms-hallucinate-benchmarks-reward-guessing.md](./knowledge/technology/ai-safety/why-llms-hallucinate-benchmarks-reward-guessing.md) |
+| `2509.04664` | 一支影片搞懂 LLM 底層邏輯:預訓練、SFT、RLHF,以及 Karpathy 三年前的預言有幾個成真(Gary Chen 導讀) | [knowledge/technology/llm-internals/architecture/karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen.md](./knowledge/technology/llm-internals/architecture/karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen.md) |
 | `2509.13351` | PDDL-Instruct:用「邏輯式 CoT + 外部驗證」教 LLM 做真正的符號規劃 | [knowledge/technology/ai-agents/foundations/pddl-instruct-llm-planning.md](./knowledge/technology/ai-agents/foundations/pddl-instruct-llm-planning.md) |
 | `2509.22908` | 穩定開發大型 C/C++ 的工具箱:契約、靜態分析、形式驗證、fuzz 與 CI 分層(2026) | [knowledge/technology/code-dev/c-cpp/cpp-large-codebase-stability-toolbox.md](./knowledge/technology/code-dev/c-cpp/cpp-large-codebase-stability-toolbox.md) |
 | `2510.14348` | 5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼,以及反過來 | [knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) |
