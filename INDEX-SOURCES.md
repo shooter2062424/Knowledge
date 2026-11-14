@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**522 個 YouTube video id**、**175 個 arXiv 編號**,涵蓋 **406 篇**筆記。
+> 統計:**523 個 YouTube video id**、**175 個 arXiv 編號**,涵蓋 **407 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(522 部,依 video id 排序)
+## YouTube(523 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -238,6 +238,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `gv9IGo9qqZM` | 第 133 期:給 Agent 開家公司(Paperclip)、讓 Agent 剪影片(video-use)、騰訊開源 Octop、免費股票看板與 25MB 資料庫客戶端 | [knowledge/technology/github-weekly/issue-133.md](./knowledge/technology/github-weekly/issue-133.md) |
 | `GvlftOu2uNA` | 模型名裡的 Q4、Q8 是什麼?量化(PTQ / QAT / GGUF / 三值)完整地圖 | [knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |
 | `GzHfE50N8x4` | Google 五天 AI 開發課程 Day 1:從 Vibe Coding 到 Agentic Engineering 的完整心智模型 | [knowledge/technology/ai-agents/foundations/google-agentic-engineering-day1.md](./knowledge/technology/ai-agents/foundations/google-agentic-engineering-day1.md) |
+| `GzzC5tdJzhY` | GitHub 新星週報(2026-11-06 至 11-13):Graphify、Hallmark、Anthropic skills、Matt Pocock skills、T3 Code(辰星說Github) | [knowledge/technology/github-weekly/chenxing-github-top5-2026-11-14-graphify-hallmark-anthropic-skills-pocock-t3code.md](./knowledge/technology/github-weekly/chenxing-github-top5-2026-11-14-graphify-hallmark-anthropic-skills-pocock-t3code.md) |
 | `h0lDdWYreSw` | dbx:單一執行檔的跨平台資料庫客戶端(Rust 寫)+ 內建 MCP Server 讓 Agent 直接操作資料庫 | [knowledge/technology/dev-tools/dbx-rust-database-client-mcp.md](./knowledge/technology/dev-tools/dbx-rust-database-client-mcp.md) |
 | `H4zIuJ4G1QY` | Claude Sonnet 5.5:價格不變、效率拉高,以及「檔位開最高反而更差」與五個會報 400 的遷移變更 | [knowledge/technology/ai-industry/claude-sonnet-5-5-release-effort-migration.md](./knowledge/technology/ai-industry/claude-sonnet-5-5-release-effort-migration.md) |
 | `h7abDtqN9gs` | Google AI 課程 Day 4+5:怎麼放心讓 AI 上正式環境?三個動作 —— 講清楚、設邊界、做驗收 | [knowledge/technology/ai-agents/foundations/google-agentic-engineering-day4-5.md](./knowledge/technology/ai-agents/foundations/google-agentic-engineering-day4-5.md) |
