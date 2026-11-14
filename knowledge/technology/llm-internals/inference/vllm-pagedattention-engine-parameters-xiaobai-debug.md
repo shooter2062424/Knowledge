@@ -81,7 +81,7 @@ flowchart TD
 - **GPU Worker**:把上面這些能力封裝成進程,負責載入權重、做計算,預設一個 Worker 管一張卡。
 - 單卡放不下(影片舉滿血版 DeepSeek)時:
   - `--cpu-offload-gb 20` 是借 20 GB 主機記憶體放權重,用到哪塊搬哪塊;影片說自己玩還行、正式對外服務扛不住([9:48](https://youtu.be/4Gv6GDK7Lf0?t=578))。
-  - 主流做法是把模型拆到多卡:**張量並行**(切每層的計算,`--tensor-parallel-size`,卡間每層都要通訊,最好有 NVLink,[10:06](https://youtu.be/4Gv6GDK7Lf0?t=596))、**流水線並行**(按層切,`--pipeline-parallel-size`,通訊少但請求要依序走過所有卡、延遲高,[10:27](https://youtu.be/4Gv6GDK7Lf0?t=617))。
+  - 主流做法是把模型拆到多卡:**張量並行**(切每層的計算,`--tensor-parallel-size`,卡間每層都要通訊,最好有 [[nvidia-moat-memory-bandwidth-cuda-software|NVLink]],[10:06](https://youtu.be/4Gv6GDK7Lf0?t=596))、**流水線並行**(按層切,`--pipeline-parallel-size`,通訊少但請求要依序走過所有卡、延遲高,[10:27](https://youtu.be/4Gv6GDK7Lf0?t=617))。
 - 多卡就有多個 Worker,所以把調度與管理(請求分配、長 prompt 分段、塊的分配與搶占)抽出來集中到 **Engine Core** 進程([10:41](https://youtu.be/4Gv6GDK7Lf0?t=631))。
 - 前面再加 **API Server**,對外是 OpenAI 格式的 HTTP 介面,合起來就是 vLLM([10:58](https://youtu.be/4Gv6GDK7Lf0?t=648))。
 

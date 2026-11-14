@@ -1,6 +1,6 @@
 # LimiX:用「遮罩聯合分布」打造的結構化資料(表格)基礎模型
 
-> 來源:LimiX 論文〈Unleashing Structured-Data Modeling Capability for Generalist Intelligence〉(arXiv:2509.03505,Stable AI × 清華)與其開源程式碼 <https://github.com/limix-ldm-ai/LimiX>(Apache 2.0)。本筆記依慣例 clone repo 讀完原始碼後整理:LimiX 是**第一個面向通用智能的結構化資料基礎模型**——把表格資料當成「變數 + 缺失」的聯合分布,**單一模型不改網路結構就涵蓋分類、迴歸、缺失值填補、表格生成**,在 10 個主流基準上勝過 XGBoost、傳統表格深度學習與既有表格基礎模型(TabPFN-v2、TabICL)。
+> 來源:LimiX 論文〈Unleashing Structured-Data Modeling Capability for Generalist Intelligence〉(arXiv:2509.03505,Stable AI × 清華)與其開源程式碼 <https://github.com/limix-ldm-ai/LimiX>(Apache 2.0)。本筆記依慣例 clone repo 讀完原始碼後整理:LimiX 是**第一個面向通用智能的結構化資料基礎模型**——把表格資料當成「變數 + 缺失」的聯合分布,**單一模型不改網路結構就涵蓋分類、迴歸、缺失值填補、表格生成**,在 10 個主流基準上勝過 [[supervised-ml-algorithms-guide|XGBoost]]、傳統表格深度學習與既有表格基礎模型(TabPFN-v2、TabICL)。
 
 ---
 

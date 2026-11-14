@@ -35,7 +35,7 @@ flowchart LR
 > 作者對 Harness 的舊吐槽:這詞讓人困惑,因為**我們自始至終就是在「駕馭」大模型**——
 > - 最初人直接駕馭模型 = Prompt Engineering;
 > - 後來駕馭工作交給 Agent = Context Engineering;
-> - 再後來研究怎麼駕馭 Agent(自己給自己訂規範、或用 OpenSpec 這類框架管理)= Harness Engineering。
+> - 再後來研究怎麼駕馭 Agent(自己給自己訂規範、或用 [[spec-driven-development-landscape-2026|OpenSpec]] 這類框架管理)= Harness Engineering。
 >
 > **「自始至終不都是在駕馭嗎?當一個詞的作用範圍過大,就成了廢話和干擾。」** 而 Loop 連概括作用都起不到,卻被冠以紅官(宏觀)概念,更費解。
 

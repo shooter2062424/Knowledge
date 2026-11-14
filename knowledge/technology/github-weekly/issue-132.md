@@ -164,7 +164,7 @@ CLI 刻意做成 `kubectl` 的形狀(`apply / get / describe / watch / delete`),
 
 **它解決什麼:** 很多 Agent 號稱有記憶,其實只是**把以前的對話存起來,下次做相似度搜尋**。Hindsight 想多走一步——讓 Agent **會學習,而不只是記得**。
 
-**記憶分層(存放在 Memory Bank 裡):**
+**記憶分層(存放在 [[agent-memory-facts-vs-understanding-google-cloud-tech|Memory Bank]] 裡):**
 
 | 類型 | 例子 |
 |---|---|

@@ -37,7 +37,7 @@ flowchart TD
     H --> I["UI UX Pro Max 20 分 = Claude Design 20 分,並列第一"]
 ```
 
-- **為什麼 Taste、Impeccable、Claude Design 保送(8:02,[連結](https://www.youtube.com/watch?v=GfYDsJvDQoc&t=472s)):** 第一輪的目的是看免費版能做到什麼;Taste 與 Impeccable 不適合在免費版跑,Claude Design 要付費。
+- **為什麼 Taste、Impeccable、[[claude-design-review|Claude Design]] 保送(8:02,[連結](https://www.youtube.com/watch?v=GfYDsJvDQoc&t=472s)):** 第一輪的目的是看免費版能做到什麼;Taste 與 Impeccable 不適合在免費版跑,Claude Design 要付費。
 - **第一輪題目(2:22,[連結](https://www.youtube.com/watch?v=GfYDsJvDQoc&t=132s)):** 台南老宅咖啡店「木日 Kibi」品牌網站;四個要求:第一屏 WebGL 液態咖啡 + 游標漣漪、往下捲一鏡到底(店外走到吧台)、內容(故事、招牌品項、地址時間、訂位按鈕)、附上的照片與 logo 都要用。
 - **第二輪題目(8:02,[連結](https://www.youtube.com/watch?v=GfYDsJvDQoc&t=472s)):** 開店一週年活動網站,提示詞只講「全品項第二杯半價、11 月 20 日」,其餘文案與設計交給選手;每組一次做完、不追加修改。
 - 完整提示詞在說明欄,可直接複製重跑(見 §6 案例)。
@@ -133,7 +133,7 @@ flowchart TD
 ## 7. UI UX Pro Max 實際是什麼(讀 `SKILL.md`)
 
 - **定位:** 本機可搜尋的「設計知識庫」,不是一份長篇規範。`SKILL.md` 說規則依優先序 1→10:無障礙(CRITICAL)、觸控與互動(CRITICAL)、效能、風格選擇、版面響應式、字體與顏色、動畫、表單、導覽、圖表。
-- **流程:** 新專案先用 `--design-system` 生成整套設計系統;針對單一問題用 `--domain`;已知技術棧用 `--stack`。查詢要「2–5 個詞、一個主要意圖」,結果要驗證領域與前幾筆是否符合產品,**查不到就說沒驗證到,不要把未驗證輸出寫進專案**。
+- **流程:** 新專案先用 `--design-system` 生成整套[[claude-design-25-tricks-design-rules-skill|設計系統]];針對單一問題用 `--domain`;已知技術棧用 `--stack`。查詢要「2–5 個詞、一個主要意圖」,結果要驗證領域與前幾筆是否符合產品,**查不到就說沒驗證到,不要把未驗證輸出寫進專案**。
 - **依賴:** 需要 Python 3(無外部套件);如果找不到 `python`,試 `python3`、`py -3`。
 - **範圍聲明:** 它自己說不處理純後端、API/資料庫、非視覺的效能工作、基礎設施;也不安裝套件、不改作業系統。
 - **為什麼可能贏:** 它把「配色/字體/風格」變成**查表**(CSV 資料 + 推理規則),而不是靠模型即興;這個設計與影片觀察「色彩一致、特效不誇張」相符。**但這是我讀完 `SKILL.md` 後的推測,影片沒有拆解它為何勝出。**

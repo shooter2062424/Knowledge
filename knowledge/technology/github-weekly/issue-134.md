@@ -144,7 +144,7 @@ npx -y rea-agents@latest analyze-javascript-application /absolute/path/to/app --
 
 1. **一個初始化流程:** `/impeccable init` 盤點專案、只針對缺漏追問,把受眾、目的、使用情境、限制、語氣等「產品事實」寫進 `PRODUCT.md`;視覺系統另記在 `DESIGN.md`。之後的指令都讀得到這些背景。
 2. **24 個指令:** 一套和 AI 共用的設計詞彙。
-3. **59 條確定性偵測規則:** CLI 與瀏覽器擴充功能**不需 LLM、不需 API Key** 就能跑;另有只靠 LLM 的評論檢查。
+3. **59 條確定性偵測規則:** CLI 與[[chatgpt-browser-extension-agent|瀏覽器擴充功能]]**不需 LLM、不需 API Key** 就能跑;另有只靠 LLM 的評論檢查。
 
 | 指令(節錄) | 用途 |
 |---|---|
@@ -169,7 +169,7 @@ npx impeccable install      # 在專案根目錄執行;自動偵測 ~/.claude、
 
 Claude Code 也可走外掛:`/plugin marketplace add pbakaus/impeccable`。
 
-> 💡 週報作者觀點:之前介紹過 Anthropic 的 frontend-design 和 UI UX Pro Max,Impeccable 是這一類裡相當熱門的一個。像他這種對設計沒太多概念的人,以前只會叫模型「再高級一點」;配合這類 skill 就能**把問題描述得更清楚**。把設計拆成**逐步改進**的流程,是它最好的地方。
+> 💡 週報作者觀點:之前介紹過 Anthropic 的 frontend-design 和 [[claude-web-design-skills-benchmark-pnh|UI UX Pro Max]],Impeccable 是這一類裡相當熱門的一個。像他這種對設計沒太多概念的人,以前只會叫模型「再高級一點」;配合這類 skill 就能**把問題描述得更清楚**。把設計拆成**逐步改進**的流程,是它最好的地方。
 
 ---
 

@@ -230,7 +230,7 @@ const jsonAttempt = "{" + argsStr
 
 4. **看起來像 tool call 卻解不出來的行,會寫 warning 到 stderr**——不靜默吞掉。
 
-> 🔎 **為什麼這段值得學:** 它示範了「**當底層平台還沒支援協定時,怎麼用 prompt + 解析器補上**」。這正是 [[function-calling-mcp-cli-tool-evolution]] 描述的演進史的活標本——MCP 出現前,大家就是這樣土砲 tool calling 的;而**約束解碼/原生 function calling 的價值,就是讓你不用寫這 359 行容錯**。
+> 🔎 **為什麼這段值得學:** 它示範了「**當底層平台還沒支援協定時,怎麼用 prompt + 解析器補上**」。這正是 [[function-calling-mcp-cli-tool-evolution]] 描述的演進史的活標本——MCP 出現前,大家就是這樣土砲 tool calling 的;而**約束解碼/原生 [[function-calling-mcp-a2a|function calling]] 的價值,就是讓你不用寫這 359 行容錯**。
 
 ---
 

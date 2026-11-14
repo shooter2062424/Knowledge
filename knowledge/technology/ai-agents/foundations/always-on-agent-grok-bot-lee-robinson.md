@@ -201,7 +201,7 @@ flowchart TD
 1. **自動審查**:有風險的動作執行前,先給**另一個模型**檢查;不通過就變成請你批准的請求,**15 秒內沒回應就當作擋下**(投影片數字)。
    - 講者有點反直覺的觀察:一長串指令看久了,**人其實審得沒有模型好**。⚠️ 這是他自己的看法,**他沒說做過測試,AI懶人報也沒找到公開數據**。
    - OpenAI Codex 有同概念的功能,叫 **Auto-review**。
-2. **追蹤來源**:從 email、webhook 進來的文字**一律標成不可信**——釣魚信裡可能寫著假指令(prompt injection)。**存下來的記憶也只當資訊,不當指令。**
+2. **追蹤來源**:從 email、webhook 進來的文字**一律標成不可信**——釣魚信裡可能寫著假指令([[prompt-injection-5-techniques-defenses|prompt injection]])。**存下來的記憶也只當資訊,不當指令。**
 3. **不主動對外**:除非是你叫它做的,不會自己寄信、傳訊息給別人;**新排程也要你同意**。
 4. **密碼放環境變數**,不出現在模型的對話中。
 
@@ -343,7 +343,7 @@ flowchart TD
 ### 3. 共用的雲端電腦(對應第二章)
 
 - 每隻 bot 有獨立畫面,但**底層共用同一台雲端電腦**:登入狀態、硬碟檔案共享。作者的實用法是建 `context/`(公司與品牌規範)、`meetings/`(規格)、`projects/`(程式碼)三個資料夾,派工時一句話指到資料夾,Dev bot 不用每次重講背景。
-- 三個工具:瀏覽器(沒有 API 的老後台、診所掛號也能點)、檔案管理器、終端機。右側面板三分頁:Details(任務與 Routines)、Library、Computer(可 Take control 接手)。
+- 三個工具:瀏覽器(沒有 API 的老後台、診所掛號也能點)、檔案管理器、終端機。右側面板三分頁:Details(任務與 [[claude-code-team-how-they-work|Routines]])、Library、Computer(可 Take control 接手)。
 - **把 Claude Code / Codex 裝進雲端電腦**:請 bot 安裝 CLI、你貼授權碼登入,再建一個「全域共用寫程式 Skill」;之後手機交代一句,寫程式走你的訂閱額度,不吃昂貴的 Grok Bot usage。
 
 ### 4. 觸發與自動化
@@ -447,7 +447,7 @@ flowchart TD
 }
 ```
 
-4. 隔天換台電腦 `git pull` 後說「讀 PROGRESS.md 接著做」,就從第 18 支繼續——這就是「狀態跟運算分開」在個人工作流的縮小版。
+4. 隔天換台電腦 `git pull` 後說「讀 [[gemini-cli-prompt-to-agent-progress-notes|PROGRESS.md]] 接著做」,就從第 18 支繼續——這就是「狀態跟運算分開」在個人工作流的縮小版。
 
 ### 案例 3:自己寫的 agent 工具,先檢查快取紀律
 

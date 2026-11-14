@@ -1,6 +1,6 @@
 # Claude Fable 5.2 用三行提示詞做遊戲:Saltline、Gears 風格關卡、SNES 遊戲的帳單與長時間 Agent 成本結構(Why QQ)
 
-> **來源影片:** Why QQ(為什麼叫 QQ)〈3 行 Prompt,做出「战争机器」?Claude Fable 5.2 的 1.5 个实验〉,11 分 18 秒,2026-11-12 上傳。官方簡體字幕已讀,時間點全部取自帶時間字幕(連結已提前 10 秒)。
+> **來源影片:** Why QQ(為什麼叫 QQ)〈3 行 Prompt,做出「战争机器」?[[claude-fable-72-hours-model-dependency|Claude Fable]] 5.2 的 1.5 个实验〉,11 分 18 秒,2026-11-12 上傳。官方簡體字幕已讀,時間點全部取自帶時間字幕(連結已提前 10 秒)。
 > **立場與利益揭露:** 逐字稿中沒有業配或聯盟口播;說明欄未逐字檢查,若有連結以影片頁為準。
 > **本篇做了什麼:** 影片裡的遊戲實驗(Saltline、Gears 風格關卡、Ember Wake、Lex 的家庭遊戲)出處都是開發者在社群平台的貼文,我查不到一手頁面,所以**專案細節一律標「影片轉述,未能核實」**。能核實的是兩塊:①**定價與成本算術**(對照 Anthropic 官方定價文件,自行重算影片的 3,668 美元與 165:1),②**GDC 2026 產業調查數字**(對照 GDC 官方文章)。
 > 相關既有筆記:[[claude-fable-5-2-1000-agents-os-fermat-harness-why-qq]](同一個模型的另一組長時間實驗與 harness)、[[ai-morning-news-weekly-2026-11-05-to-11-10-juya]](11/10 Fable 5.2 發布週報)、[[fable-5-1-usability-over-capability]](Fable 5.1 的定價與用法)。

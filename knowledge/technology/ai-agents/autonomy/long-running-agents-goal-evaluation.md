@@ -1,7 +1,7 @@
 # 讓 AI agent 連續跑 27 小時:/goal 功能與「Evaluation 才是關鍵」
 
 **主題分類:** AI / Agentic Engineering(代理工程)
-**來源:** YouTube〈我的 AI agent 連續跑了 27 個小時,/goal 功能怎麼用?〉(Gary Chen,2026-05-24,約 16 分;依繁中逐字稿整理)
+**來源:** YouTube〈我的 AI agent 連續跑了 27 個小時,[[claude-code-ten-concepts-three-first-steps-jayluxai|/goal]] 功能怎麼用?〉(Gary Chen,2026-05-24,約 16 分;依繁中逐字稿整理)
 **整理日期:** 2026-05-29
 
 ---

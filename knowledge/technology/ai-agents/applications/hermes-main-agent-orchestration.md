@@ -40,7 +40,7 @@ flowchart TB
   邏輯像一般聊天軟體,**不同 agent 的回覆加上名稱標識**方便區分。
 - **主 agent 認識所有子 agent、知道各自專長**,任務複雜時**自動把子任務分派(delegate task)**給合適對象,也知道三大模型各擅長什麼。
 - **互動**:在 TUI 輸入 `@`,原本顯示 git 指令的 panel 被改成「可通訊的 agent 與 CLI 清單」;prompt 送出後解析內容,決定走 gateway 還是呼叫 skill。
-- 受限於 TUI/終端,能改的有限;想要更好的多 agent 可視化可用 **Herdr**(基於 Tmux,可用滑鼠切 panel/tab、直觀顯示 agent 狀態)。開發專案作者仍偏好 IDE + 大模型外掛(VS Code 現也能接 Hermes)。
+- 受限於 TUI/終端,能改的有限;想要更好的多 agent 可視化可用 **[[herdr-terminal-runtime-agent-to-agent|Herdr]]**(基於 Tmux,可用滑鼠切 panel/tab、直觀顯示 agent 狀態)。開發專案作者仍偏好 IDE + 大模型外掛(VS Code 現也能接 Hermes)。
 
 ## 二、整合三大模型 CLI(沒有 API key 的繞法)
 

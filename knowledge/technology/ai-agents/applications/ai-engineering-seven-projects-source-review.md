@@ -158,7 +158,7 @@ lora = LoraConfig(r=16, lora_alpha=32, lora_dropout=0.05,
 **未實跑原因**:需要 torch、transformers、peft、datasets 與模型/資料集下載(依規定不裝大型套件、不下載大模型);PDF 本身也聲明此專案未執行、輸出為「illustrative」。以下是**讀碼與官方文件核實**:
 
 1. **PDF 的「~4.4M trainable、~0.9%」不對,約差一倍**。我用 Qwen2.5-0.5B-Instruct 官方 `config.json`(hidden 896、24 層、14 個注意力頭、**2 個 KV 頭**、故 k/v 投影輸出僅 128 維)計算:每層 q=16×(896+896)=28,672、k=16×(896+128)=16,384、v=16,384、o=28,672,共 90,112;×24 層 = **2,162,688(約 2.16M)**;基座約 494.0M(含詞嵌入 136.1M、tie embeddings),**可訓練比例約 0.44%**。若 `print_trainable_parameters()` 真印出 ~4.4M/0.9% 才反而奇怪。此為我手算、未實跑,標「需修正(理論值)」。
-2. **損失算在整段文字上,不只是助理回答**:`DataCollatorForLanguageModeling(mlm=False)`——官方文件寫明「labels are the same as the inputs with the padding tokens ignored」。所以 user 指令也被拿來算 loss;TRL `SFTTrainer` 提供 `assistant_only_loss=True`(需 chat template 含 `{% generation %}`)或 prompt-completion 資料集預設只算 completion。對 2000 筆小資料,這會稀釋學習訊號。
+2. **損失算在整段文字上,不只是助理回答**:`DataCollatorForLanguageModeling(mlm=False)`——官方文件寫明「labels are the same as the inputs with the padding tokens ignored」。所以 user 指令也被拿來算 loss;TRL `SFTTrainer` 提供 `assistant_only_loss=True`(需 [[transformers-local-deepseek-r1-distill|chat template]] 含 `{% generation %}`)或 prompt-completion 資料集預設只算 completion。對 2000 筆小資料,這會稀釋學習訊號。
 3. **eos 對齊**:TRL 文件提醒 Qwen 這類已有 chat template 的模型,要把 `eos_token` 對到 `<|im_end|>`,否則回答可能無法正確終止;此專案用 `tok.apply_chat_template(tokenize=False)` 自己轉文字、沒處理這點,實際影響**未能驗證**。
 4. **學習率與 LoRA 慣例**:TRL 文件建議訓練 adapter 時學習率約 1e-4;此處 2e-4 屬同量級偏高但常見。`lora_alpha/r = 2` 是縮放因子(PEFT 文件:預設縮放為 `lora_alpha / r`,rsLoRA 才是 `lora_alpha / sqrt(r)`)。
 5. **`merge_and_unload()` 的描述正確**:PEFT 文件說明它把 adapter 權重併回基座成為獨立模型、且**不是 in-place**(必須接收回傳值)——PDF 範例 `merged = ... .merge_and_unload()` 寫法正確。

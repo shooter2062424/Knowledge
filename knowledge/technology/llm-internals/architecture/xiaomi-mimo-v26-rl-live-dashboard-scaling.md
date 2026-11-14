@@ -333,7 +333,7 @@ flowchart LR
 這和 §五儀表盤上「生成與訓練幾乎對半開」一致,評分另占約八分之一。
 
 > **補正 §9.1 的分數快照:** 報告給的是 DeepSWE v1.1 的 average@3,**整個 RL 期間 Pro 從 58.4 升到 72.6,Flash 從 48.7 升到 65.7**。§9.1 的 65.97 是訓練中段的快照。
-> - 最終分數已高於 §9.1 表中的 Kimi K3(69%)與 Claude Fable 5(70%),仍低於 GPT-6 Astra(74%)。
+> - 最終分數已高於 §9.1 表中的 Kimi K3(69%)與 [[claude-fable-72-hours-model-dependency|Claude Fable]] 5(70%),仍低於 GPT-6 Astra(74%)。
 > - ⚠️ 但那張表是第三方報導的數字,與小米自報的 avg@3 **評測條件不一定相同**,不宜直接排名。
 >
 > **補正 §9.3 的規模:** 報告寫明 **Pro 是 1.02T 總參數、42B 啟用的 MoE**;Flash 是 310B 總參數、15B 啟用。
@@ -356,7 +356,7 @@ flowchart TD
 - **兩套引擎:** 推理用 SGLang、訓練用 Megatron-LM,報告也是這樣寫。兩邊要對齊 MoE 路由與 top-p 候選集;RL 期間凍結 router,避免專家負載崩潰。
 - **staleness 上限:** 報告設定 GRPO 搭配非同步 partial rollout,**staleness 上限 4**,也就是一個 token 最多可以來自落後 4 次權重更新的策略。
   - Caleb 讀儀表盤的觀察是 Flash 平均落後約 1 步、Pro 幾乎同步;這是儀表盤讀數,本文未獨立核實。
-- **精度差也會造成不一致:** rollout 時專家權重用 **MXFP4**,訓練保持較高精度。所以就算兩邊策略完全同步,產生的 token 也可能略有差異。報告也提到中訓練階段就用了 MXFP4 量化感知訓練(QAT),讓模型先適應低精度。
+- **精度差也會造成不一致:** rollout 時專家權重用 **MXFP4**,訓練保持較高精度。所以就算兩邊策略完全同步,產生的 token 也可能略有差異。報告也提到中訓練階段就用了 MXFP4 [[llm-quantization-q4-q8-gguf-qat-explained-mia|量化感知訓練]](QAT),讓模型先適應低精度。
 
 ### 12.3 損失函數:三個變數乘在一起
 

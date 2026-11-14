@@ -31,7 +31,7 @@ flowchart TD
 
 ## 趨勢 ②:企業內部 Agent 爆量 → 需要「Agent Manager(AI Observability)」
 
-- **規模**:微軟 CEO 納德拉——未來企業可能是「200 萬員工 + 2000 萬個 Agent」;黃仁勳(GTC)——10 年後英偉達可能「7.5 萬員工 + 750 萬個 AI Agent」。
+- **規模**:微軟 CEO 納德拉——未來企業可能是「200 萬員工 + 2000 萬個 Agent」;[[jensen-huang-succession-and-vision|黃仁勳]](GTC)——10 年後英偉達可能「7.5 萬員工 + 750 萬個 AI Agent」。
 - **新問題 = 新機會**:Workday——企業現有的權限/安全/政策/監管不變,**AI 要按這些要求執行才有回報**;Okta——未來每個 Agent 都需要**身份、權限、生命週期、關閉機制**。業內把這需求叫 **AI Observability**,像「員工多了要 Manager,Agent 多了要 Agent Manager」。
 - **受益**:① 管身份權限的 **Okta**(把「AI Agent / 非人類身份的監管」列為戰略重點,財報後漲約 30%);② 監控管理 Agent 工作流的 **ServiceNow**(推出 **AI Control Tower** 監管公司所有 Agent/模型/身份)。
 - **質疑與回應**:大模型會不會自己做掉這塊?作者認為**威脅存在但沒那麼危險**——短期是迫在眉睫需求,只有這些公司有最多經驗資源;且 Okta/Cloudflare 本身就是 OpenAI 的客戶(側面證明沒那麼容易被取代);長期大模型有能力但不一定做(有更值錢的事,最好是合作而非競爭)。**但這風險仍要留意,不能無腦看好。**

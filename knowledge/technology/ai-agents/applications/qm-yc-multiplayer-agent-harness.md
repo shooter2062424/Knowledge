@@ -54,7 +54,7 @@ flowchart LR
 
 這是最容易被誤解的一點,影片講得很明確:
 
-> **qm 不像 OpenClaw 與 Hermes Agent 那樣具備自己的 agent 內核。它是透過呼叫 Pi Agent、OpenCode、Codex、Claude Code 這些成熟的 agent 工具來執行任務。**
+> **qm 不像 OpenClaw 與 Hermes Agent 那樣具備自己的 agent 內核。它是透過呼叫 [[pi-agent-minimal-harness|Pi Agent]]、OpenCode、Codex、Claude Code 這些成熟的 agent 工具來執行任務。**
 
 原始碼佐證:README 寫著 **Pi、OpenCode、Codex、Claude Code 全都驅動同一個 core**,所以一個部署**不會被綁死在單一廠商**。
 

@@ -35,7 +35,7 @@
 
 ## 3. 兩種製作方法
 
-- **① 逆向工程(新手友善):** 先實際跟 agent 協作完成一次任務(例:連 Google Drive 撈工作日誌 + 翻 GitHub commit → 彙整週報),滿意後 **千萬別關 session**(這是你最值錢的 context)→ 用 Claude 官方 **skill-creator** skill(marketplace 安裝)說「把剛剛的對話轉成可重複使用的 skill」。(非 Claude 也行:先叫它上網查 skill best practice。)
+- **① [[rea-ai-reverse-engineering-claude-code|逆向工程]](新手友善):** 先實際跟 agent 協作完成一次任務(例:連 Google Drive 撈工作日誌 + 翻 GitHub commit → 彙整週報),滿意後 **千萬別關 session**(這是你最值錢的 context)→ 用 Claude 官方 **skill-creator** skill(marketplace 安裝)說「把剛剛的對話轉成可重複使用的 skill」。(非 Claude 也行:先叫它上網查 skill best practice。)
 - **② 主動發起(brain dump):** 還沒實作過時,把「想達成什麼目的 + 想像中的流程 + 可能難點」丟給 AI,請它做成 skill,並要求「開始前有不清楚的先跟我釐清」。
 
 > **心態:你是在當 AI 的 PM。** 別一直問「AI 能為我做什麼」,反過來想「我有沒有把 context、約束、方法、目標準備到足夠讓 AI 成功交付」。

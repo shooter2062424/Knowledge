@@ -83,7 +83,7 @@ flowchart TD
 官方(https://code.claude.com/docs/en/advisor.md、API 文件 https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool):
 - **實驗性**,只在 Anthropic API(Bedrock、Vertex、Foundry 等不支援);伺服器端執行,**由 Claude 決定何時呼叫**,你決定誰當 advisor。advisor 讀完整對話與每個工具結果,回傳策略性建議。
 - 開啟:`/advisor opus`(也可 `fable`、`sonnet`、完整模型 ID)、`advisorModel` 設定、`--advisor` 旗標;關閉 `/advisor off`。
-- ✅ 影片的說法「平常 Sonnet,遇關鍵決定才請 Opus 甚至 Fable」成立:例如 Sonnet 5.5 主模型可配 Fable / Opus 5 以上 / Sonnet 5.5。**advisor 必須不低於主模型**;Fable 主模型只能配 Fable。
+- ✅ 影片的說法「平常 Sonnet,遇關鍵決定才請 Opus 甚至 Fable」成立:例如 [[claude-sonnet-5-5-release-effort-migration|Sonnet 5.5]] 主模型可配 Fable / Opus 5 以上 / Sonnet 5.5。**advisor 必須不低於主模型**;Fable 主模型只能配 Fable。
 - 補充影片沒講的:**advisor 的 token 照 advisor 模型費率計**,訂閱方案算進額度(Fable advisor 在部分方案走額度點數);不是「不花額度」,而是**用在決策點、通常比整場跑強模型便宜**。啟停 advisor **不會讓主對話的提示快取失效**。短任務、每回合都要最強模型的工作價值較低。
 
 ### Mod:Ribbon(影片 [7:36])

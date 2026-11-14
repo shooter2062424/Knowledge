@@ -96,7 +96,7 @@ flowchart TB
 | **Snowflake** | 推出 **Cortex AI Gateway** —— 可依任務的**品質、速度、成本偏好**自動選擇合適模型 |
 | **Microsoft** | 最早做這件事(Copilot);自稱融合了 **1.1 萬個**模型 |
 
-📌 **核實:Cortex AI Gateway 屬實**,其**動態模型路由(dynamic model routing)**讓企業定義
+📌 **核實:Cortex AI Gateway 屬實**,其**動態模型路由(dynamic [[model-routing-compute-allocation|model routing]])**讓企業定義
 **核准使用的模型**以及要優先的取捨(**成本、效能、延遲**),與影片描述一致。
 ⚠️ **但公開資料稱該路由功能「即將進入 private preview」** —— **影片講得比實際進度稍前面一點。**
 

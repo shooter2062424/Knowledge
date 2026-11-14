@@ -31,7 +31,7 @@ flowchart TD
 | 隨後 | **Hamel Husain** 發了一篇標題極具煽動性的文章〈Loop Engineering Is Dead, Enter Graph Engineering〉 |
 | 點進去 | **內文只有一個句號**,外加一段「喬丹勸你停下來、找點幫助」的搞笑影片 |
 
-> **這是對技術圈「名詞通膨」的一次無情嘲諷。** 每隔幾個月我們就發明一個新詞:Prompt Engineering → Context Engineering → Loop Engineering → 現在又來 Graph Engineering。
+> **這是對技術圈「名詞通膨」的一次無情嘲諷。** 每隔幾個月我們就發明一個新詞:Prompt Engineering → Context Engineering → Loop Engineering → 現在又來 [[codex-multi-agent-v2-graph-engineering|Graph Engineering]]。
 
 **但影片作者立刻做了兩個重要的澄清:**
 
@@ -178,7 +178,7 @@ flowchart TD
     style R fill:#2ecc71,color:#fff
 ```
 
-影片認為 **Anthropic 的 Dynamic Workflows 已經展示了這個方向**:執行 JavaScript 工作流、協調子 Agent、支援恢復與並行。
+影片認為 **Anthropic 的 [[claude-dynamic-workflows|Dynamic Workflows]] 已經展示了這個方向**:執行 JavaScript 工作流、協調子 Agent、支援恢復與並行。
 
 > **我們需要的是「可控的智能」,不是「失控的黑盒」。**
 

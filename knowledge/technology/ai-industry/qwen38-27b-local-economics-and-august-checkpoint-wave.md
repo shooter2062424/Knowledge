@@ -14,7 +14,7 @@
 
 1. **Qwen3.8-27B 是 Apache-2.0、約 27B 的稠密(dense)視覺語言模型**,原生 262,144 token 脈絡。官方卡片自報 SWE-bench Pro 61.7(對照 Opus 4.6 Max 的 53.4),但 Terminal Bench 2.1、GPQA Diamond 仍輸 Opus 4.6 Max —— **「接近 Luna / Opus 4.6」是自報分數的挑選性說法**。
 2. **本地跑的速度主要由「記憶體頻寬 ÷ 權重大小」決定**:講者的 GPU(736 GB/s、Q3 量化 13 GB)跑出 41 tok/s,DGX Spark(237 GB/s、全精度 55 GB)只有 4 tok/s。
-3. **「電費 0.37 美元 / 百萬輸出 token vs CoreWeave 3 美元,省近 8 倍」的算式是對的,但比較的條件不對等**(只算電費、不含硬體攤提;Q3 量化 vs FP8;單人 vs 雲端)。
+3. **「電費 0.37 美元 / 百萬輸出 token vs [[coreweave-neocloud-debt-stress|CoreWeave]] 3 美元,省近 8 倍」的算式是對的,但比較的條件不對等**(只算電費、不含硬體攤提;Q3 量化 vs FP8;單人 vs 雲端)。
 4. 四個新模型三天內上線(Grok 4.6、DeepSeek V4 Pro 新 checkpoint、Nemotron 3.5 Lightning、Muse Glimmer),講者的主軸是 **「進步來自後訓練(post-training),不是更大的預訓練」**。
 
 ---

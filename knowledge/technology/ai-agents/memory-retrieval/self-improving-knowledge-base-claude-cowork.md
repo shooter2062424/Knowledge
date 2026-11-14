@@ -1,6 +1,6 @@
 # 用 Claude 蓋一個「會自我改進」的知識庫:三個資料夾 + 一個 CLAUDE.md + 五步驟
 
-> 整理自 YouTube 頻道 **Systems Made Better**〈Build A Claude Knowledge Base That Self-Improves!〉(2026-05-23,約 36 分鐘)。作者在 **Claude CoWork** 裡從零實作 **Karpathy 那套個人知識庫**——**不用 Obsidian、不用向量資料庫、不寫程式**,一個週末約 45 分鐘就能搭起來。
+> 整理自 YouTube 頻道 **Systems Made Better**〈Build A Claude Knowledge Base That Self-Improves!〉(2026-05-23,約 36 分鐘)。作者在 **[[claude-cowork-vs-chat-four-questions|Claude CoWork]]** 裡從零實作 **Karpathy 那套個人知識庫**——**不用 Obsidian、不用向量資料庫、不寫程式**,一個週末約 45 分鐘就能搭起來。
 >
 > 核心轉變一句話:**Notion / Obsidian 要求「你來當圖書館員」——你自己整理、自己連結、自己管標籤與外掛,然後就荒廢了。Karpathy 這套的洞見是:讓 AI 當圖書館員。**
 
@@ -19,7 +19,7 @@ flowchart TD
     style O fill:#2ecc71,color:#fff
 ```
 
-**就這樣:三個資料夾 + 一個檔案。** 沒有資料庫、沒有 Obsidian vault、沒有 RAG embedding、沒有 vector store。
+**就這樣:三個資料夾 + 一個檔案。** 沒有資料庫、沒有 [[kepano-obsidian-vault-format-and-team-rollout-plan|Obsidian vault]]、沒有 RAG embedding、沒有 vector store。
 
 > 影片引用的佐證:**Karpathy 自己的知識庫約 100 篇文章、40 萬字,LLM 靠「維護一個 index + 只讀需要的部分」就處理得很好。** 對一位頂尖 AI 研究者管用的東西,對你的業務大概也管用。
 
@@ -228,7 +228,7 @@ flowchart LR
 | 體感 / 阻力 | 低阻力,**但體感取決於你有沒有真的讀過** | 高體感、低阻力 |
 | 進入長期庫 | 直接編進 wiki | **需人工確認的「畢業」** |
 
-> Project Cairn 作者對 LLM Wiki 式做法的批評(「像雇機器人替你跑步」)在這裡同樣成立。**理想解是兩條線並行:資料類走本篇這套,經歷類走 Cairn。**
+> Project Cairn 作者對 [[llm-wiki-karpathy|LLM Wiki]] 式做法的批評(「像雇機器人替你跑步」)在這裡同樣成立。**理想解是兩條線並行:資料類走本篇這套,經歷類走 Cairn。**
 
 ### 案例 6|本倉庫其實已經是這個架構的變體
 

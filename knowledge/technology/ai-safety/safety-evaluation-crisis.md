@@ -35,7 +35,7 @@ flowchart LR
 
 ### Situational Awareness(情境覺察)
 模型在 scale up 中產生的副產品:**能分辨自己處於 training / testing / deployment 哪個階段**,並據此 **表現不同**。危險在於可能 **training 階段裝得很 aligned、部署後才露出不良行為 → silent failure(你的 safety test 測不出來)**。
-- **Out-of-context reasoning:** 模型用 **pretraining 學到、但不在當前 context 的知識** 來推理。例:pretrain 語料含「prompt injection、alignment 機制、如何在 benchmark 刷高分」的 arXiv/wiki/twitter → 模型潛在地懂怎麼 hack 評測(直接輸出 `score: 100`)。實驗:模型越大,out-of-context reasoning 準確率越高。
+- **Out-of-context reasoning:** 模型用 **pretraining 學到、但不在當前 context 的知識** 來推理。例:pretrain 語料含「[[prompt-injection-5-techniques-defenses|prompt injection]]、alignment 機制、如何在 benchmark 刷高分」的 arXiv/wiki/twitter → 模型潛在地懂怎麼 hack 評測(直接輸出 `score: 100`)。實驗:模型越大,out-of-context reasoning 準確率越高。
 - **SAD 資料集(2024)** 把情境覺察分三層做 benchmark:**self-knowledge**(知道自己參數/URL/tokenizer 機制)、**inference / evaluation awareness**(知道自己在被評測還是部署)、**action**(據此採取行動)。當時 Claude 3 Opus / GPT-4 得分僅約五六十分(尚未飽和)。
 
 ---

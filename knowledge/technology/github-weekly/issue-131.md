@@ -120,7 +120,7 @@ flowchart TD
 - **權重擺在哪只影響速度,不改變結果**:預設策略不會偷偷降精度或改路由語意。
 - 後端:CPU 為主,可搭配 CUDA、Vulkan、Metal(macOS 統一記憶體 GPU);每個模型家族一個 C 檔。
 - 介面:`coli chat`(終端聊天)、`coli serve`(提供 OpenAI 相容 `/v1` 與 Anthropic 相容端點)、`coli web`(網頁儀表板,可看到每個專家「發亮」的即時畫面),另有 `coli mcp` 讓 Agent 幫你偵測硬體、推薦模型、安裝與啟停。
-- 目前支援 13 個引擎,包括 GLM-5.2/5.3、Kimi K3、DeepSeek V4 Flash、MiMo-V2.6、Qwen3.6 / Qwen3.8 等。
+- 目前支援 13 個引擎,包括 GLM-5.2/5.3、Kimi K3、DeepSeek V4 Flash、[[xiaomi-mimo-v26-rl-live-dashboard-scaling|MiMo-V2.6]]、Qwen3.6 / Qwen3.8 等。
 
 **一步安裝:** Windows 下載 ZIP 後雙擊 `START-HERE.bat`;Linux / macOS `git clone` 後執行 `./start-here.sh`。它會檢查 RAM / 磁碟 / CPU / GPU、推薦一個放得下的模型、建置或下載引擎、可續傳地下載模型,最後打開儀表板。最低需求 **8 GB RAM、最小模型 22 GB 磁碟空間**,顯卡可有可無。
 

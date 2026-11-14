@@ -47,9 +47,9 @@ flowchart LR
 
 ## 3. 應用案例 / 對你的啟示
 
-- **企業導入 AI 工具前先建「成本護欄」:** 設 token 預算/告警、區分「真產出 vs 刷量」、避免 agent 死循環暴衝(初創一個月不小心燒 $20 萬可能直接資金鏈斷裂)。呼應 [[zero-person-ai-company]] 的「招財務長審核節流」、[[opus-4-7-workflow-upgrades]] 的模型分工(便宜任務別燒貴模型)。
-- **選模型看「單位價值」而非純 benchmark:** 同 [[opus-4-7-workflow-upgrades]] 的 model routing——web/terminal 給便宜模型、深度任務才用貴的。
-- **省 token 的工程手段:** prompt caching / 穩定前綴(見 [[kv-cache]])、在 I/O 邊界壓縮工具輸出(見 [[rtk-rust-token-killer-report]]),都是直接對應這支影片喊的「token 經濟學」。
+- **企業導入 AI 工具前先建「[[agent-paid-api-cost-guardrails-mcp|成本護欄]]」:** 設 token 預算/告警、區分「真產出 vs 刷量」、避免 agent 死循環暴衝(初創一個月不小心燒 $20 萬可能直接資金鏈斷裂)。呼應 [[zero-person-ai-company]] 的「招財務長審核節流」、[[opus-4-7-workflow-upgrades]] 的模型分工(便宜任務別燒貴模型)。
+- **選模型看「單位價值」而非純 benchmark:** 同 [[opus-4-7-workflow-upgrades]] 的 [[model-routing-compute-allocation|model routing]]——web/terminal 給便宜模型、深度任務才用貴的。
+- **省 token 的工程手段:** [[token-saving-three-moves-context-control|prompt caching]] / 穩定前綴(見 [[kv-cache]])、在 I/O 邊界壓縮工具輸出(見 [[rtk-rust-token-killer-report]]),都是直接對應這支影片喊的「token 經濟學」。
 - **看產業:** 真正穩賺的是 **底層算力/封裝/HBM/雲基礎設施寡頭**(對照 [[enterprise-ai-adoption-race]] 的落地競賽與 [[karpathy-software-3-0]] 的 agentic engineering 效率放大)。
 
 > **一句總結(去除聳動後的核心):** 2026 的 AI 競爭已從「比智商」轉向「比經濟效率」;能把每分算力鎖進自家生態、或用最少 token 產出穩定商業價值的玩家才活得下來,而上層應用在現有供應鏈下很大程度是在替硬體寡頭打工。

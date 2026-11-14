@@ -24,7 +24,7 @@
 - **用途:** EverMind AI 團隊開發的開源「長期記憶作業系統」,為「自進化智能體」提供記憶基礎設施。解決 agent 一超出上下文窗口就「像金魚一樣失憶」、每次從零開始的痛點——讓 agent 能記住、積累、複用經驗。
 - **亮點:**
   - 核心組件 **EverCore**,架構受人腦資訊處理啟發分四層(基礎設施/業務/記憶/智能體層);agent 跑完任務後會「復盤」,把經驗沉澱成下次可直接用的技能——**不只存資料,是真的在學習**。
-  - 是一個 **Umbrella Project**:含 Architecture Methods、完整 Benchmarks、25+ Use Cases(蜂群智能體、有記憶的 Live2D 角色等)。
+  - 是一個 **Umbrella Project**:含 Architecture Methods、完整 Benchmarks、25+ Use Cases(蜂群智能體、有記憶的 [[ai-live2d-vtuber-see-through-anime25drig-pipeline-mia|Live2D]] 角色等)。
   - Benchmark 在 **LoCoMo、LongMemEval** 上勝 mem0 等同類一截;`docker compose` 兩條命令上手,或用 EverOS Cloud。
   - 團隊為盛大集團(陳天橋)全資孵化;超圖記憶架構 **HyperMem** 入選 ACL 2026。
 
@@ -36,7 +36,7 @@
 - **用途:** 專為 DeepSeek 模型打造的終端編程 agent,核心賣點「便宜好用」。整個架構圍繞 DeepSeek 的 **prefix cache 穩定性**構建,讓快取命中率盡量高。
 - **亮點:**
   - 實測快取命中率 **99.82%**,同樣 API 成本比通用工具低 **5 倍**——可以放心開著跑不心疼。
-  - TypeScript、MIT;支援 MCP、計劃模式、自動工具調用修復;直連 `api.deepseek.com` 無中間轉換層(對國內用戶友善)。一條命令安裝。
+  - TypeScript、MIT;支援 MCP、[[obsidian-claude-code-cross-project-vault-agentcrew|計劃模式]]、自動工具調用修復;直連 `api.deepseek.com` 無中間轉換層(對國內用戶友善)。一條命令安裝。
   - 代價:功能全面性尚不足,看你的場景取捨。
 
 > **應用案例:** 主力用 DeepSeek 做編程、又怕 token 燒太快的人,值得一試——「省錢就是賺錢」。呼應本庫 [[ai-compute-token-economics]] 的成本優化主題。
@@ -47,7 +47,7 @@
 - **用途:** 影片 AI 頭部玩家 **HeyGen** 出品,思路巧妙:與其教 AI 學複雜的剪輯軟體,不如讓它用最熟的 **HTML/CSS/JS「寫」影片**。把 HTML 轉成影片的開源框架。
 - **亮點:**
   - Apache 2.0、20K+ stars;用 HTML+CSS+**GSAP** 寫動畫,本地渲染出**確定性 MP4**(同輸入永遠同輸出,對自動化產線關鍵)。
-  - 支援 GSAP/WebGL shader/Lottie;CLI 自帶網站 capture(Gemini 驅動設計系統提取);附 7 步製作 Skill 模板。
+  - 支援 GSAP/WebGL shader/Lottie;CLI 自帶網站 capture(Gemini 驅動[[claude-design-25-tricks-design-rules-skill|設計系統]]提取);附 7 步製作 Skill 模板。
   - Codex、Claude Code、豆包等可直接用其 Skill。
 
 > **應用案例:** 把影片製作「降維成前端開發」——批量生產基礎/動畫向短視頻、動態內容生成。與本庫 [[claude-fable-72-hours-model-dependency]] 提到的 Hyperframe 同源。
@@ -61,7 +61,7 @@
   - 特色是「**教而不只是炫**」(Graphs that teach):AI 生成的引導導覽、每個節點摘要、語意標籤、任兩節點的依賴路徑查找。輸出便攜的 `knowledge-graph.json`。
   - 一週 5K+ stars、MIT,對 Claude Code 幾乎即插即用。
 
-> **應用案例:** 這是「給人看、幫人快速理解」的版本;若要「給 Agent 查、省 token」則看本庫 [[codebase-memory-treesitter-knowledge-graph-mcp]](同期 120 期的 codebase-memory-mcp),兩者是同一條「結構化理解程式碼」路線的人/機兩端。
+> **應用案例:** 這是「給人看、幫人快速理解」的版本;若要「給 Agent 查、省 token」則看本庫 [[codebase-memory-treesitter-knowledge-graph-mcp]](同期 120 期的 [[codebase-memory-vs-codegraph-two-routes|codebase-memory-mcp]]),兩者是同一條「結構化理解程式碼」路線的人/機兩端。
 
 ## 5. academic-research-skills — 論文全流程 Skill 包
 

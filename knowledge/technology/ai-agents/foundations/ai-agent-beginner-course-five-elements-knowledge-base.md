@@ -276,7 +276,7 @@ flowchart LR
 
 ## 六之二、之後的課程安排(講師預告)
 
-智能體章節會以**扣子(Coze)與 Dify** 為主戰場,重點教**怎麼把知識庫真正掛到智能體身上,讓它幹活時自動翻書**。課程分三篇:認知篇(Agent 是什麼、ReAct、規劃、推理、記憶,跑通第一個 Agent Demo)、進階篇(LangChain 與 AutoGen 框架實戰、多 Agent 協作、Function Calling、RAG + Agent 混合架構、評估與除錯與安全邊界)、實戰篇(智能客服、自動化資料分析 Agent 上傳 Excel 產生報告與圖表、多 Agent 協作生產線)。
+智能體章節會以**扣子(Coze)與 Dify** 為主戰場,重點教**怎麼把知識庫真正掛到智能體身上,讓它幹活時自動翻書**。課程分三篇:認知篇(Agent 是什麼、ReAct、規劃、推理、記憶,跑通第一個 Agent Demo)、進階篇(LangChain 與 AutoGen 框架實戰、多 Agent 協作、[[function-calling-mcp-a2a|Function Calling]]、RAG + Agent 混合架構、評估與除錯與安全邊界)、實戰篇(智能客服、自動化資料分析 Agent 上傳 Excel 產生報告與圖表、多 Agent 協作生產線)。
 
 ---
 
@@ -344,7 +344,7 @@ flowchart LR
 - 「Claude Code 第一終端」「Coze 市占最高」「百度 130 萬 Agent」「扣子 800 多個外掛」「工作效率至少翻一倍」都是講師口述或行銷語。
 - 標題「2026 十二月」與上傳日期 2026-10-19 不一致。
 
-**⚠️ 未能核實:** OpenAI 9 月 Agents API、Claude Code 3 月多 Agent 模式與 8 月 Auto Mode 預設、各平台的數量與市占、騰訊 ima「訂閱知識庫」的官方說明。
+**⚠️ 未能核實:** OpenAI 9 月 Agents API、Claude Code 3 月多 Agent 模式與 8 月 [[claude-code-2026-feature-timeline|Auto Mode]] 預設、各平台的數量與市占、騰訊 ima「訂閱知識庫」的官方說明。
 
 ---
 

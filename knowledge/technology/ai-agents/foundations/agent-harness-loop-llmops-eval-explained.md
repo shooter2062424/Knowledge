@@ -90,7 +90,7 @@ flowchart LR
 ```
 
 1. **Tracing(追蹤)**:每次 agent run 追蹤一棵**事件樹**——問了什麼、做了哪些檢索、LLM 呼叫工具幾次、工具用得如何、回應時間/延遲、用了多少 token。工具:**LangFuse、LangSmith**。這是**收集資料**的第一步。
-2. **Eval(評估)**:資料用來回答「這次跑得好嗎?健康嗎?」可用 **LLM-as-a-judge** 打分(該觸發的會議有沒有觸發?延遲是 20 秒還是 2 毫秒?用了多少 token?),也可以寫成確定性程式碼。
+2. **Eval(評估)**:資料用來回答「這次跑得好嗎?健康嗎?」可用 **[[llm-evals-how-to-know-ai-works|LLM-as-a-judge]]** 打分(該觸發的會議有沒有觸發?延遲是 20 秒還是 2 毫秒?用了多少 token?),也可以寫成確定性程式碼。
 3. **診斷 + 上線**:給出**儀表板指標**看哪裡出錯(會議沒觸發?延遲 20 秒可能某個 tool call 太慢、或 working memory 太大、或根本不是每個問題都需要檢索——像「OpenAI 何時成立」模型本來就知道)。閘門:eval 通過就上線小修並把改良後的 prompt/config **餵回 agent run**(一個 LLM Ops loop 完成);若深層壞掉就修 bug、重跑、重 trace、重 eval。
 
 > **合起來**:agent run + 記憶檢索 + LLM 在 loop 裡 tool call 且知道何時停 = **harness**;外面再套 trace→observe→diagnose→fix→ship 的 **LLM Ops** = 一個會**自我演化、自我成長**的自主系統。

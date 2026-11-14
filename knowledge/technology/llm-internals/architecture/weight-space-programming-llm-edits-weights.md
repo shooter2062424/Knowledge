@@ -16,7 +16,7 @@
 2. **最亮眼的結果:** GPT-6 Astra 只改了 Qwen3.5-0.8B 約 **0.016%** 的權重,MATH-500 從 **7.9% 升到 48.1%**。
 3. **但那不是「教會它數學」:** 報導指出增益主要來自**移除與重複輸出(repetition loop)相關的方向**,屬於修復,不是新增數學能力。
 4. **講者自己也提醒:** 模型知道輸入 / 輸出層的結構,等於拿到了「考卷說明書」;拿掉輸入輸出層、換更大的模型,表現就明顯變弱。
-5. **獨立批評:** 這些任務多半是「聰明的人類研究者也能做」的事,更像權重層級的 steering / abliteration,**是技巧,不是新典範**。
+5. **獨立批評:** 這些任務多半是「聰明的人類研究者也能做」的事,更像權重層級的 [[pi-minimal-agent-harness-teardown|steering]] / abliteration,**是技巧,不是新典範**。
 
 ---
 
@@ -84,7 +84,7 @@ flowchart LR
 3. **是技巧不是新典範:** 直接改權重像改編譯後的二進位檔,厲害但不是最佳工作方式;AI 對研究的主要幫助仍可能在改進訓練。
 4. **「心算」不等於超人研究能力。**
 
-報導也列出作者自承的限制:增益來自修復重複、未證明比傳統訓練快 / 便宜 / 有效、**沒有展示遞迴自我改進**、缺乏與專門編輯方法(如 steering)的比較、需獨立複現。
+報導也列出作者自承的限制:增益來自修復重複、未證明比傳統訓練快 / 便宜 / 有效、**沒有展示[[rsi-recursive-self-improvement-anthropic|遞迴自我改進]]**、缺乏與專門編輯方法(如 steering)的比較、需獨立複現。
 
 ---
 
@@ -120,7 +120,7 @@ flowchart LR
 - **Logs repo**([RikiyaT/lm_understand-logs](https://github.com/RikiyaT/lm_understand-logs),CC BY 4.0 / MIT)含每個實驗的 prompt、回覆與評測腳本。repo 說明稱 1,125 輪「全部無工具」,但 exp3 / 6 / 7 / 8 的資料夾說明標示使用 Python sandbox——兩者**互相矛盾,未能釐清**,以論文原文為準。
 
 ### 圖表(影片截圖,標題 "Writing networks from scratch · weight-space-bench")
-截圖時間 605 秒(10:05),縱軸為「% of PPO, 500M steps」:GPT-6.1 Sol 86.5、Claude Opus 5.5 48.5、Claude Sonnet 5.5 23.2、Kimi K3.1 Pro 16.2、Muse Wonder 2.6、DeepSeek V4.1 Flash 0.7、GPT-6 Astra(論文)96.3、PPO 100M 步 46.3(PPO 500M 步 = 100.0)。**這是講者自建 benchmark 的成績,未獨立驗證**;逐字稿於 [10:01] 才提到「here's how other frontier models did」。
+截圖時間 605 秒(10:05),縱軸為「% of PPO, 500M steps」:[[openai-devday-2026-dots-sol-codex|GPT-6.1 Sol]] 86.5、Claude Opus 5.5 48.5、Claude [[claude-sonnet-5-5-release-effort-migration|Sonnet 5.5]] 23.2、[[kimi-k3-1-pro-open-weight-coding-acceptance|Kimi K3.1 Pro]] 16.2、Muse Wonder 2.6、DeepSeek V4.1 Flash 0.7、GPT-6 Astra(論文)96.3、PPO 100M 步 46.3(PPO 500M 步 = 100.0)。**這是講者自建 benchmark 的成績,未獨立驗證**;逐字稿於 [10:01] 才提到「here's how other frontier models did」。
 
 ### 獨立再現與批評
 - **Matthew Honnibal**([honnibal.dev](https://honnibal.dev/blog/astra-read-write-misleading)):摘要把三種技術混為一談——只讀原始權重、寫權重、寫 Python 分析權重、執行模型。Qwen 結果屬後三者,「不是單一技術」;但他承認 Qwen 結果仍有意義,能完成人類 ML 工程師會寫程式去做的事。他反對的是框架與把實驗並列在同一篇論文。

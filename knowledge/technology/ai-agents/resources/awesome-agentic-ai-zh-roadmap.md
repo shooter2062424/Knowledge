@@ -36,7 +36,7 @@ flowchart TD
 
 ## 3. 資源規模(以實際 repo 為準)
 
-- **145+ 個精選項目**(含星等、適合誰、教什麼、怎麼跑;含本地 LLM:Ollama、llama.cpp、LocalAI、MLX)。
+- **145+ 個精選項目**(含星等、適合誰、教什麼、怎麼跑;含本地 LLM:Ollama、[[inference-engines-llamacpp-vllm-sglang-tensorrt|llama.cpp]]、LocalAI、MLX)。
 - **62 個 MCP / Skill 目錄**(含中文 AI 生態 DeepSeek / Zhipu / Kimi)。
 - **約 27 個動手練習資料夾**(`examples/stage-*/...`)。
 - **5 條延伸路線**(`branches/`):研究員、開發者、教師、知識工作者、日常使用者。

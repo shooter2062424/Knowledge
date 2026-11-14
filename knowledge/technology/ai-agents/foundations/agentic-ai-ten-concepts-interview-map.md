@@ -75,8 +75,8 @@ flowchart LR
 圖:原稿 p7 流程圖。
 
 ### 8. Evals for Agents(agent 評測)
-- 原稿五步:定義任務 → 跑 agent → 用預先定義的規則/指標評分(品質、準確、安全)→ 分析結果回饋 → 迭代改進 prompt、工具、政策。流程圖:User Query → Agent → Evaluation → Results(pass/fail + metrics)→ Feedback 回 agent。
-- 補充:agent 的 eval 要看**整條軌跡**(用了哪些工具、花多少步、有沒有越權),不只最終答案。LLM-as-a-Judge 等做法見 [[ai-engineering-twenty-concepts-serving-rag-ops]] 第 18 項。
+- 原稿五步:[[defining-tasks-not-prompts|定義任務]] → 跑 agent → 用預先定義的規則/指標評分(品質、準確、安全)→ 分析結果回饋 → 迭代改進 prompt、工具、政策。流程圖:User Query → Agent → Evaluation → Results(pass/fail + metrics)→ Feedback 回 agent。
+- 補充:agent 的 eval 要看**整條軌跡**(用了哪些工具、花多少步、有沒有越權),不只最終答案。[[llm-evals-how-to-know-ai-works|LLM-as-a-Judge]] 等做法見 [[ai-engineering-twenty-concepts-serving-rag-ops]] 第 18 項。
 
 ### 9. Human-in-the-Loop Design(人在迴圈設計)
 - 原稿四步:人設定目標與限制 → AI 規劃執行並產出 → **人審核**(準確、安全、品質)並給回饋 → 回饋用來改進。

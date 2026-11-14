@@ -61,7 +61,7 @@ RTK 採 **指令代理** 結構。`main.rs` 用 **Clap** 解析呼叫,透過 `Co
 rtk init --global      # 或:rtk init -g
 ```
 
-會在代理(預設為 Claude Code / Copilot)中安裝一個 **PreToolUse hook**。該 hook 會在執行 *之前* **透明地把 Bash 指令改寫** 成對應的 `rtk` 版本(`git status` → `rtk git status` 等)。代理照常下達一般指令,RTK 攔截並壓縮輸出。專案稱此做法可達成「100% RTK 採用率」,且模型完全不需改變行為。
+會在代理(預設為 Claude Code / Copilot)中安裝一個 **[[claude-code-hooks-complete-guide|PreToolUse]] hook**。該 hook 會在執行 *之前* **透明地把 Bash 指令改寫** 成對應的 `rtk` 版本(`git status` → `rtk git status` 等)。代理照常下達一般指令,RTK 攔截並壓縮輸出。專案稱此做法可達成「100% RTK 採用率」,且模型完全不需改變行為。
 
 > **注意:** Claude Code 的 *內建* 工具(Read、Grep、Glob)會繞過 Bash hook。要在這些工作流程上獲得節省,代理必須明確呼叫 `rtk read` / `rtk grep`,或被引導去用 shell。
 

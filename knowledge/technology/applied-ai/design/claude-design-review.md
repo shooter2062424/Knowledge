@@ -30,7 +30,7 @@ Anthropic 推出的 AI 設計工具(目前 research preview、只能在瀏覽器
 
 > 以前做動畫要 After Effects、做網頁要 Figma + 工程師、做 app 要設計 + 工程團隊;**現在底層全是程式碼,而程式碼生成成本趨近於零** → 用自然語言就能做完。
 
-Anthropic 的拼圖:**Claude Code(工程師)+ Claude Cowork(非技術上班族)+ Claude Design(設計)** = 把知識工作者從頭到尾的工作都包了。Claude Design 不是獨立產品,是大局裡的一步棋。
+Anthropic 的拼圖:**Claude Code(工程師)+ [[claude-cowork-vs-chat-four-questions|Claude Cowork]](非技術上班族)+ Claude Design(設計)** = 把知識工作者從頭到尾的工作都包了。Claude Design 不是獨立產品,是大局裡的一步棋。
 
 **誰會受衝擊:**
 - **Gamma**(簡報/提案):與 deck 功能重疊最高;且 Claude Design 做完可再用 Claude Code 轉成互動網頁,同一工具完成。

@@ -148,7 +148,7 @@ flowchart TB
 
 **核對現行官方文件:**
 
-- `docs/harnesses.md` 明列 Claude Code 的子 agent **可巢狀、預設最多 3 層**;**Claude Cowork 的子 agent 不能再啟動子 agent**,所以要由主 context 直接派審查者(不經 synthesizer)。
+- `docs/harnesses.md` 明列 Claude Code 的子 agent **可巢狀、預設最多 3 層**;**[[claude-cowork-vs-chat-four-questions|Claude Cowork]] 的子 agent 不能再啟動子 agent**,所以要由主 context 直接派審查者(不經 synthesizer)。
 - 官方做法是走外掛安裝,**不需要在專案 `CLAUDE.md` 寫任何關於巢狀的說明**,所以影片遇到的矛盾在官方安裝路徑上不會出現。影片的結論「檢查你的 `CLAUDE.md`,看到這種行就請 Claude 改掉」,在你用「貼 install 連結」的方式安裝時仍然有效。
 
 ⭐ **版本要求(影片沒講):** Claude Code **2.1.271 以上**才有 `omitClaudeMd` 支援。官方明說**舊版不能當作已驗證的金魚隔離環境**。我的推測是:金魚應該看不到你的 `CLAUDE.md`,否則你寫的偏好也會滲進審查(官方文件只說明有這項設定,沒有明講理由)。repo 的審查者設定了 `omitClaudeMd: true` 且只給 `Read`、`Grep`、`Glob` 三個唯讀工具。

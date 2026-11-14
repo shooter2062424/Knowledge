@@ -66,7 +66,7 @@ flowchart TB
 > 市場預期變成了一種**自我實現的約束** —— 他若違背市場定價,代價是公信力。**
 
 📎 **這與本庫 [[us-treasury-selloff-warsh-communication-shift]] 記的「沃什少跟市場溝通的改革是唯一重要變量」是同一條線的延伸 ——
-那篇講它如何推高美債殖利率,這篇講它如何讓加息變得幾乎無法迴避。**
+那篇講它如何推高[[us-bond-stock-divergence-valuation-vs-earnings-1994|美債殖利率]],這篇講它如何讓加息變得幾乎無法迴避。**
 
 ### ⚠️ 歷史上首次加息之後會怎樣
 

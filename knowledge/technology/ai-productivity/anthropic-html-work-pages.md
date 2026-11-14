@@ -42,7 +42,7 @@ AI 把 **產出成本壓到趨近於零** → 人人能更快做更多 → 能�
 
 你跟 AI 大多用 **Markdown** 溝通(純文字、打得開、改得動、可 grep、可 git diff)——Claude Code、OpenClaw 的記憶系統底層就是一堆 markdown(對照 [[markdown-agent-memory]])。**markdown 會贏,贏在它一直站在人這一端。**
 
-但 AI 越強,要被人讀懂的東西越多越複雜,**markdown 最先撐不住**:Anthropic 工程師 Thariq 的文〈The Unreasonable Effectiveness of HTML〉說「超過 100 行的 markdown 自己就讀不下去」。markdown 放不了圖、不能並排對比兩個方案、不能讓你動手調參數。
+但 AI 越強,要被人讀懂的東西越多越複雜,**markdown 最先撐不住**:Anthropic 工程師 [[context-engineering-claude-5-unhobbling|Thariq]] 的文〈The Unreasonable Effectiveness of HTML〉說「超過 100 行的 markdown 自己就讀不下去」。markdown 放不了圖、不能並排對比兩個方案、不能讓你動手調參數。
 
 > **解法:用 HTML 當輸出格式**(瀏覽器打開、能放圖/表格/互動)。不是要你學前端,是讓 AI 把產出直接做成「一頁打開就能用」的東西。**HTML 不是更高級的 markdown,而是另一種工作介面**:markdown 適合承載文字,HTML 適合承載 **狀態、關係、對比、互動**。
 

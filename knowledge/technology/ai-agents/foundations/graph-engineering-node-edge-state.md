@@ -1,6 +1,6 @@
 # Graph Engineering:把腦袋裡的分工、路由與驗收畫出來,別再當人肉 routing system
 
-> 整理自 YouTube 頻道 **Gary Chen(@garytalksstuff)**〈Graph Engineering 解析,AI 圈新名詞到底在紅什麼?〉(2026-08-22,約 16.5 分鐘,官方 zh-TW 字幕)。
+> 整理自 YouTube 頻道 **Gary Chen(@garytalksstuff)**〈[[codex-multi-agent-v2-graph-engineering|Graph Engineering]] 解析,AI 圈新名詞到底在紅什麼?〉(2026-08-22,約 16.5 分鐘,官方 zh-TW 字幕)。
 
 > ⭐ **這篇是 [[loop-engineering-when-and-how-gary-chen]] 的續集** —— 影片開頭就是接著上個月那支講的。
 > 相關筆記:[[agent-five-cores-langgraph-trading-agent]]、[[agent-native-tooling-steinberger]]、[[seven-agent-architectures-selection-guide]]、[[task-decomposition-agentic-workflow]]、[[claude-dynamic-workflows]]、[[context-engineering-processing-vs-thinking]]、[[agent-runtime-deepseek-harness-cordis]]

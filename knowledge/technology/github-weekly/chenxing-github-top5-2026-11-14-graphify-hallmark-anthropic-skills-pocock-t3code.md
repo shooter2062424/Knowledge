@@ -39,7 +39,7 @@ flowchart TD
 
 - 產出三個檔案([1:21](https://youtu.be/GzzC5tdJzhY?t=71)):`graph.html`(瀏覽器裡可點可搜尋的互動圖)、`GRAPH_REPORT.md`(重點報告:核心概念、意外的連結、建議問題)、`graph.json`(完整圖資料,之後可反覆查詢)。
 - 每條連線標明是**原始碼直接寫的**(`EXTRACTED`)還是**推論出來的**(`INFERRED`)([1:35](https://youtu.be/GzzC5tdJzhY?t=85)),並可用 `graphify query "問題"` 問、`graphify path A B` 查兩個東西怎麼連。
-- 程式碼用 tree-sitter 在本機解析、不用大型語言模型、資料不離開電腦([1:10](https://youtu.be/GzzC5tdJzhY?t=60));支援約 40 種語言([1:18](https://youtu.be/GzzC5tdJzhY?t=68))。
+- 程式碼用 [[tree-sitter|tree-sitter]] 在本機解析、不用大型語言模型、資料不離開電腦([1:10](https://youtu.be/GzzC5tdJzhY?t=60));支援約 40 種語言([1:18](https://youtu.be/GzzC5tdJzhY?t=68))。
 - 要注意([1:54](https://youtu.be/GzzC5tdJzhY?t=104)):文件、PDF、圖片的分析會用到助理的模型或你設定的 API 金鑰;需 Python 3.10+;官方套件名是 `graphifyy`(後面兩個 y),其他名稱相近的 PyPI 套件都不是官方的([2:07](https://youtu.be/GzzC5tdJzhY?t=117))。
 
 實測別人怎麼用見 [[graphify-code-knowledge-graph-real-world-test]];程式碼圖譜的兩條路線見 [[codebase-memory-vs-codegraph-two-routes]]。

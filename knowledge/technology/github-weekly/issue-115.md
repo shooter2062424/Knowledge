@@ -64,7 +64,7 @@
 - **用途:** 自動把 **圖形介面軟體** 轉成「AI 能呼叫」的命令列介面,讓 Agent 也能操作原本只有 GUI 的工具。
 - **亮點:**
   - 從原始碼 / GitHub repo **自動生成 JSON-first 的 CLI**。
-  - 已有 **18+ 個社群貢獻的應用 adapter**:Blender、GIMP、LibreOffice、Zoom、Kdenlive、Godot 等。
+  - 已有 **18+ 個社群貢獻的應用 adapter**:[[blender-previz-mcp-ai-video|Blender]]、GIMP、LibreOffice、Zoom、Kdenlive、Godot 等。
   - 內建 **CLI-Hub 套件管理器**,可一鍵安裝各 adapter。
   - **2269+ 測試案例** 覆蓋。
 

@@ -120,7 +120,7 @@ DeepSeek MoE:**256 個細粒度 router experts + 共享 experts**;router 激活�
 
 ### 圍繞「推理瓶頸」重設計整個 stack
 - 訓練資料 32–33T token(雙倍於以往);用 token splitting、fill-in-the-middle、**DSML(XML 工具呼叫格式,讓 tool use 結構化)**、document packing + **sample-level attention masking**(避免無關文件互相 attend)。
-- **FP4 量化感知訓練(QAT)** for MoE expert 權重(訓練時就模擬 FP4,而非事後量化);**對華為晶片 day-zero 推理支援**(中國 NVIDIA 受限)。
+- **FP4 [[llm-quantization-q4-q8-gguf-qat-explained-mia|量化感知訓練]](QAT)** for MoE expert 權重(訓練時就模擬 FP4,而非事後量化);**對華為晶片 day-zero 推理支援**(中國 NVIDIA 受限)。
 > 主題:**「怎麼讓 100 萬 token context 真的便宜?」**——當注意力變便宜,瓶頸就轉移到 expert 權重的搬運與計算,於是連這層都量化。整份論文「讀起來更像系統工程論文」。
 
 > 🔸 排名小差異:AI Search 說「第二強開源(僅次 Kimi K2.6)」,bycloud 說「第三(在 Kimi K2.6 與 Mimo V2.5 Pro 之後)」——以實際榜單為準,總之是**開源前段班、逼近頂級閉源**。

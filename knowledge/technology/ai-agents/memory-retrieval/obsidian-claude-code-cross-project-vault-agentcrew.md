@@ -9,7 +9,7 @@
 
 ## 一句話結論
 
-跨專案記憶的做法是:**把知識庫放在一個 Obsidian vault(本機 Markdown),用 `wikilink` 把不同資料夾的檔案連成網,再裝 Obsidian 官方 skill 讓 Claude Code 透過 CLI 讀寫**。結構不要一次設計完,從 `projects` 加 `pillars` 兩個資料夾開始,需要才長出新的。
+跨專案記憶的做法是:**把知識庫放在一個 [[kepano-obsidian-vault-format-and-team-rollout-plan|Obsidian vault]](本機 Markdown),用 `wikilink` 把不同資料夾的檔案連成網,再裝 Obsidian 官方 skill 讓 Claude Code 透過 CLI 讀寫**。結構不要一次設計完,從 `projects` 加 `pillars` 兩個資料夾開始,需要才長出新的。
 
 ## 1. 要解的問題
 

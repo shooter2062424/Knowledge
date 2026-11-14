@@ -35,8 +35,8 @@ flowchart TB
 - **01 Foundations**:transformer、attention、embeddings、推論管線。(對照本庫 [[deepseek-v4-engineering]]、[[kv-cache]])
 - **02 Model Landscape**:Claude Opus 4.7、GPT-5.5、Gemini 3.1、DeepSeek V4、Llama 4、Kimi K2.6、Qwen 3.6… + **定價**(附 2026-05 驗證日期)+ 選型指南。
 - **03 訓練/適配**:fine-tuning、LoRA、DPO、distillation。
-- **04 推論優化**:KV cache、PagedAttention、vLLM。
-- **05 Prompting/Context**:prompt engineering、CoT、Extended Thinking、DSPy、prompt injection。(對照 [[context-engineering-processing-vs-thinking]]、[[grpo-vs-gepa]])
+- **04 推論優化**:KV cache、[[vllm-pagedattention-engine-parameters-xiaobai-debug|PagedAttention]]、vLLM。
+- **05 Prompting/Context**:prompt engineering、CoT、Extended Thinking、DSPy、[[prompt-injection-5-techniques-defenses|prompt injection]]。(對照 [[context-engineering-processing-vs-thinking]]、[[grpo-vs-gepa]])
 - **06 Retrieval/RAG**:chunking、向量庫、reranking、GraphRAG、**Agentic RAG**、ColBERT、Contextual Retrieval、production RAG。(對照 [[grep-vs-vector-agentic-search]])
 - **07 Agentic Systems**:**MCP 2.0、A2A 協定**、multi-agent、computer-use。(對照 [[function-calling-mcp-a2a]]、[[task-decomposition-agentic-workflow]]、[[harness-engineering-evolution]])
 - **08 記憶與狀態**:L1–L3 記憶分層、Mem0、快取。
@@ -49,7 +49,7 @@ flowchart TB
 
 1. **面試題庫(00-interview-prep)**:**110 題** staff 級真實題(到 2026-05)+ 答題框架 + 白板練習 + 2026 就業市場趨勢 + 角色轉職指南(後端/QA/PM/EM → AI)。題目像「設計一個競爭對手看不到彼此資料的多租戶 RAG」「agent 把 3 步任務做成 15 步,怎麼 debug」。
 2. **案例研究(16-case-studies)**:**20 個**附圖的真實架構與取捨,例如——多租戶 SaaS(可口可樂與百事同基礎設施的縱深隔離)、自主 coding agent(沙箱+自我修正)、computer-use agent(Firecracker VM + action gate + 間接 prompt injection 防禦)、客戶蒸餾管線(把 $50K/月前沿花費砍到 $6K)、eval-gated CI/CD(用 golden set + LLM judge 擋住會回退品質的 PR)。
-3. **Eval 深入指南(兩份各 3000+ 行)**:AI 評測 end-to-end(Phoenix+Langfuse / LangWatch+Langfuse)——LLM-as-a-Judge、RAG eval(faithfulness/context recall/answer relevance)、多輪評測、統計校正(`judgy`)、30 天學習路徑。
+3. **Eval 深入指南(兩份各 3000+ 行)**:AI 評測 end-to-end(Phoenix+Langfuse / LangWatch+Langfuse)——[[llm-evals-how-to-know-ai-works|LLM-as-a-Judge]]、RAG eval(faithfulness/context recall/answer relevance)、多輪評測、統計校正(`judgy`)、30 天學習路徑。
 
 ---
 

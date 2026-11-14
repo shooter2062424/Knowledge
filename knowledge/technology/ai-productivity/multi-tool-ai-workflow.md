@@ -45,7 +45,7 @@ flowchart TD
 2. 把資料交給 **Claude / GPT** 找出背後主軸(也許主軸不是「誰發布什麼」,而是「AI 競爭從模型競賽轉向協作與自動化」)。
 3. 再請它寫成 **口播稿**(標題、hook、段落架構)。
 
-> 這不是「叫 AI 生文章」,而是 **設計一條內容生產線、指揮一群在各自領域發光的 AI coworker**。其餘範例:自動化流程(抓 Gmail → 整理 → 寫 Notion → 發 Slack)諮詢用 ChatGPT、真要寫 script 跑測試交給 coding agent;改網站功能 ChatGPT 給範例、Cursor/Claude Code 進專案實改。**coding agent 很強但不能完全放手——你定義任務、AI 執行初稿、你 review 差異、AI 修正、你做最後驗收**(尤其涉及資料/安全/付款/權限)。
+> 這不是「叫 AI 生文章」,而是 **設計一條內容生產線、指揮一群在各自領域發光的 AI coworker**。其餘範例:自動化流程(抓 Gmail → 整理 → 寫 Notion → 發 Slack)諮詢用 ChatGPT、真要寫 script 跑測試交給 coding agent;改網站功能 ChatGPT 給範例、Cursor/Claude Code 進專案實改。**coding agent 很強但不能完全放手——你[[defining-tasks-not-prompts|定義任務]]、AI 執行初稿、你 review 差異、AI 修正、你做最後驗收**(尤其涉及資料/安全/付款/權限)。
 
 ---
 

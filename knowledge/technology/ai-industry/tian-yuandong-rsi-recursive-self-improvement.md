@@ -16,7 +16,7 @@
 
 - **遞迴自我改進**:用 AI 去優化 AI 自己的東西、讓 AI 變更強,「左腳踩右腳再踩上去」。終極願景是一個系統——**投進各種算力,輸出新知識、新洞察**(官網標語 *maximizing knowledge discovery rate*)。
 - **為何資本在「沒有產品」時就給 46.5 億估值**:「最頂級的資本還是看人。」AI 變化太快,一開始講不清最終產品/商業願景,所以資本看的是**團隊履歷、能力、磨合程度與執行力**。
-- **8 個聯創互補**:Richard Socher(CEO,前 MetaMind→Salesforce 首席科學家→You.com)、熊蔡明、**Tim Rocktäschel**(前 Meta→DeepMind,Project Genie 1/2/3 與 agent Open-Endedness 負責人,Google 口碑好、助攻融資)、**Jeff Clune**(agent Open-Endedness,《The AI Scientist-v2》被 Nature 收錄)、Josh Tobin(前 OpenAI agent science lead)、Alexey Dosovitskiy(**Vision Transformer 一作**)、Tim Shi(前 Cresta CTO)等。田淵棟負責建模/後訓練 + agentic harness 工程。
+- **8 個聯創互補**:Richard Socher(CEO,前 MetaMind→Salesforce 首席科學家→You.com)、熊蔡明、**Tim Rocktäschel**(前 Meta→DeepMind,Project Genie 1/2/3 與 agent Open-Endedness 負責人,Google 口碑好、助攻融資)、**Jeff Clune**(agent Open-Endedness,《The AI Scientist-v2》被 Nature 收錄)、Josh Tobin(前 OpenAI agent science lead)、Alexey Dosovitskiy(**[[vit-vision-transformer-how-llm-sees-images|Vision Transformer]] 一作**)、Tim Shi(前 Cresta CTO)等。田淵棟負責建模/後訓練 + agentic harness 工程。
 - **為何選小團隊**:大公司組織臃腫,CEO 很急、指令多,**對齊速度遠慢於小團隊**,跟不上 AI 發展速度——所以大廠頻繁 reorg、裁員、改方向。「很小很精的團隊把一件事做成」是當前趨勢。
 
 ---
@@ -33,7 +33,7 @@
 - **可解釋性比原來更重要**,兩個理由:① **安全**——要做 *safe* superintelligence,得理解模型內部機制才知道它怎麼運轉、將來有什麼威脅;② **效率**——遞迴自我改進要燒幾千上萬張卡,若不理解模型只能等訓練完才評估(很慢);**有可解釋性就能把評估提前**,大幅提高運算效率。RSI 內部有人專研可解釋性。
 
 ### Coconut / 潛在推理:語言不是思考本體
-- 田淵棟在 Meta 的重要工作 **Coconut(連續思維鏈)**:讓 AI 在**連續潛在空間**裡推理(latent reasoning)。他認為**人思考時並不靠語言**——更多是圖像、說不清的思路,**語言是事後的「解釋」而非思考過程本身**。
+- 田淵棟在 Meta 的重要工作 **Coconut(連續[[chain-of-thought-history-and-mirage|思維鏈]])**:讓 AI 在**連續潛在空間**裡推理(latent reasoning)。他認為**人思考時並不靠語言**——更多是圖像、說不清的思路,**語言是事後的「解釋」而非思考過程本身**。
 - **潛在推理效率更高**:每個 latent token 能存的信息高於語言 token,**可同時存幾個不同思路並行**,最後挑對的路徑出來;用語言則得一個一個人工寫下來。Looped Transformer 也是這條 latent-space 路線(外界猜 Anthropic 的 Mythos 用了它,因其在圖搜索問題上特別強)。RSI 會繼續做,但細節保密。
 
 ### 頓悟(grokking)與泛化

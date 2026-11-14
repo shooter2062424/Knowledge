@@ -89,7 +89,7 @@ Artificial Analysis Intelligence Index 給 K3.1 Pro **55 分**,比前代高 11 �
 ### 案例 B:BenchCAD 的工具增益
 
 - 用工具 92.7 vs 不用工具 72.8,差 **19.9 分**。
-- 不需要 MCP connector,就能直接寫並執行 Blender 與 CAD 腳本,修改幾何、材質與場景佈局。
+- 不需要 MCP connector,就能直接寫並執行 [[blender-previz-mcp-ai-video|Blender]] 與 CAD 腳本,修改幾何、材質與場景佈局。
 
 可帶走的經驗:**模型寫參數化腳本 → 軟體執行 → 評分程式檢查輸出 → 失敗訊息回到下一輪。** 單靠提示詞讓模型「想仔細一點」很難取代這條回饋鏈。你的 agent 專案也可以**先補齊執行器和檢查器**,這比加長提示詞更接近可靠自動化。
 
@@ -252,7 +252,7 @@ Caleb 的角度和 Why QQ 不同,不談怎麼驗收,而是問:**在算力短缺�
 
 ### 1. 算力:模型越大,越吃最新的卡
 
-- 他引用 SemiAnalysis 的圖表:**GPU 租金又在上漲**。
+- 他引用 [[ai-subscription-api-equivalent-value-semianalysis|SemiAnalysis]] 的圖表:**GPU 租金又在上漲**。
 - 2.8T 參數的模型,在 Hopper(H100 / H200)多節點上跑雖然可行,但推論複雜度與開銷讓它不實際;比較合理的是放在 **Blackwell(B200 / B300)**,而這類卡的供給更緊。
 - 三個月內從 K3 練出新 checkpoint,代表訓練效率下了很大功夫。
 

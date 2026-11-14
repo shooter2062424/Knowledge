@@ -313,7 +313,7 @@ flowchart TB
 
 **這是全片最有價值、也最容易被忽略的一段 —— 而且跟 Hook 無關也用得上。**
 
-> **前端設計 skill「Impeccable」在兩個時機各設了一道關:快的放前面(PostToolUse),慢的放後面(Stop)。**
+> **前端設計 skill「[[impeccable-frontend-design-skill-ai-slop|Impeccable]]」在兩個時機各設了一道關:快的放前面(PostToolUse),慢的放後面(Stop)。**
 > ⚠️ **多數人猜「深度檢查留到最後」是為了不拖慢速度。但它原始碼註釋裡寫的理由完全不是這個:**
 >
 > ⭐⭐⭐ **「如果每改一行就念他一次,這種持續不斷的嘮叨,會讓模型變得畏手畏腳、越來越保守。」**

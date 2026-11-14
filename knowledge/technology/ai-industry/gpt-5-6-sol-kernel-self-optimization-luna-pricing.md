@@ -64,7 +64,7 @@ flowchart LR
 
 ### 實測數據
 
-**Notion** 的實測:Terra 任務在這套 kernel 加持下,**延遲直接砍掉 60%**。對企業級應用來說,這不是簡單提速,而是生產力層級的跳躍。
+**Notion** 的實測:Terra 任務在這套 kernel 加持下,**延遲直接砍掉 60%**。對[[agent-project-resume-enterprise-grade|企業級應用]]來說,這不是簡單提速,而是生產力層級的跳躍。
 
 ---
 

@@ -486,7 +486,7 @@ flowchart TB
 3. ⭐⭐ **權限模型是全期最清楚的演進線**:3 月 auto mode 進 research preview(**定位是「全部核准」與 `--dangerously-skip-permissions` 之間的中間地帶**)→ 逐步補防護(**hard deny 無條件封鎖、擋破壞性 git、擋轉錄稿竄改、對未解析變數的 `rm -rf` 先問**)→ 擴大到 Pro 與三家雲 → **8/14 起成為 Pro/Max/Team 新 session 的預設**。⭐ **每條防護都對應一個具體可命名的破壞方式,不是抽象的安全論述。**
 4. ⭐⭐ **艦隊化那條線**:`claude agents` 一畫面看全部 → **dynamic workflows 編排數十到數百個 subagent** → **subagent 可再生 subagent(上限五層)** → subagent 預設背景執行 → `/fork` → ⭐ **跨 session 訊息傳遞(Claude 把發現從一個 session 傳到另一個,不用你重講)** → fork mode 預設開啟、`@` 提及其他 session。
 5. **長時間工作**:**Monitor**(串背景事件、能 tail log 即時反應)、**`/goal`**(跨輪持續工作直到完成條件成立)、**「Summarize up to here」壓縮早期上下文**、⭐ **`/rewind` 能回到 `/clear` 之前**、Desktop 額度重置後自動續跑。
-6. **離開終端**:**computer use**(定位是「收尾那些只有 GUI 才驗得了的事」)、**Routines**(排程/GitHub 事件/API 觸發雲端 agent)、**`/ultrareview`**(雲端抓蟲 agent 艦隊)、**Artifacts**(會就地更新的可分享頁面)、Desktop 內建瀏覽器與 iOS 模擬器、**自架環境**。
+6. **離開終端**:**computer use**(定位是「收尾那些只有 GUI 才驗得了的事」)、**[[claude-code-team-how-they-work|Routines]]**(排程/GitHub 事件/API 觸發雲端 agent)、**`/ultrareview`**(雲端抓蟲 agent 艦隊)、**Artifacts**(會就地更新的可分享頁面)、Desktop 內建瀏覽器與 iOS 模擬器、**自架環境**。
 7. ⭐⭐ **W29 的 Artifacts + 觀看者 MCP 最特別**:已發布的 artifact 能在別人打開時,**透過「那個人的」connector 拉即時資料、執行動作**。⚠️ 分享前要想清楚頁面裡的程式碼會做什麼。
 8. **模型線**:Opus 4.7(**新增 `xhigh` 且被推薦為多數 coding 工作的設定**)→ Opus 4.8(**預設 high effort**)→ Sonnet 5(**原生 1M 上下文、adaptive thinking 預設開**)→ **Opus 5(1M 上下文、fast mode $10/$50 per MTok)**;另有 **`fallbackModel`(最多三個依序嘗試)**。
 9. ⭐ **`/usage` 從「顯示額度」進化到「細分到 skill / subagent / plugin / MCP server」** —— 等於承認「裝了一堆東西之後你不知道錢花在哪」。

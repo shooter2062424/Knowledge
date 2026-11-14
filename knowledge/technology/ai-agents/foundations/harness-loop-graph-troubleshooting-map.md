@@ -1,6 +1,6 @@
 # Harness / Loop / Graph 三層排障地圖:把「Agent 又抽風了」翻譯成可執行的排查工單
 
-> 整理自 YouTube 頻道 **Why QQ(為什麼叫 QQ)**〈58 萬瀏覽 6.5 萬人收藏的 Agent 排障表,我抄了〉(2026-07-31,約 12 分鐘,官方簡中字幕)。影片拆解 X 上作者 **beamnxw** 的長文〈Agent Harness Engineering vs Loop Engineering vs Graph Engineering〉(58 萬瀏覽、6.5 萬收藏),並從一線工程師視角評估**哪幾條能直接抄、哪幾條要繞坑走**。
+> 整理自 YouTube 頻道 **Why QQ(為什麼叫 QQ)**〈58 萬瀏覽 6.5 萬人收藏的 Agent 排障表,我抄了〉(2026-07-31,約 12 分鐘,官方簡中字幕)。影片拆解 X 上作者 **beamnxw** 的長文〈Agent Harness Engineering vs Loop Engineering vs [[codex-multi-agent-v2-graph-engineering|Graph Engineering]]〉(58 萬瀏覽、6.5 萬收藏),並從一線工程師視角評估**哪幾條能直接抄、哪幾條要繞坑走**。
 >
 > 核心價值一句話:**這篇文章沒有發明任何新東西,它給的是一張「症狀 → 分層」的排障地圖。**
 
@@ -152,7 +152,7 @@ flowchart LR
 
 ### 坑 ②|術語包裝的嚴重通膨
 
-Prompt → Context → Harness → Loop → Graph,這些詞近兩年接連走紅。它們**確實指向不同的工程抽象層次**,談不上誰搶誰的風頭;但不可否認,**這個圈子造新詞的速度越來越快了**。
+[[harness-engineering-evolution|Prompt → Context → Harness]] → Loop → Graph,這些詞近兩年接連走紅。它們**確實指向不同的工程抽象層次**,談不上誰搶誰的風頭;但不可否認,**這個圈子造新詞的速度越來越快了**。
 
 > 工程師要清醒:**盲目追逐新名詞,並不能讓你的系統變得更穩。**
 

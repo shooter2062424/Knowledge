@@ -51,7 +51,7 @@ flowchart LR
 
 和上一代 Win on ARM 陣營的高通 X Elite 相比,**NVIDIA 在 PC 平台的生態成熟得多**:
 
-- **AI / 創作軟體棧:** CUDA、TensorRT、OptiX 等一應俱全;推動 **Adobe、Blackmagic Design、Blender、剪映、ComfyUI** 適配,中國開發者走在前列。
+- **AI / 創作軟體棧:** CUDA、TensorRT、OptiX 等一應俱全;推動 **Adobe、Blackmagic Design、[[blender-previz-mcp-ai-video|Blender]]、剪映、ComfyUI** 適配,中國開發者走在前列。
 - **遊戲:** 對光追、DLSS 支援程度業界難尋對手。
 - **本地 AI:** GB205 級 GPU + 128GB 統一記憶體 →「**大概是最適合本地推理的產品**」。
 

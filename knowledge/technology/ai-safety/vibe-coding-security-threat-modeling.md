@@ -250,7 +250,7 @@ flowchart LR
 
 1. **`SECURITY.md` 支援巢狀,而且「離程式碼越近的優先」。**
    影片只講了「放在專案資料夾裡」。官方文件明載支援**巢狀 `SECURITY.md`** 做目錄層級的規則,
-   且**最靠近程式碼的那一份優先**。monorepo 或前後端分離的專案,可以針對不同子目錄寫不同規則。
+   且**最靠近程式碼的那一份優先**。monorepo 或[[deployment-for-vibe-coders-platform-selection|前後端分離]]的專案,可以針對不同子目錄寫不同規則。
 
 2. **除了 plugin,還有獨立 CLI 與 SDK,而且有明確的環境需求。**
    影片只示範了 plugin。官方另提供:

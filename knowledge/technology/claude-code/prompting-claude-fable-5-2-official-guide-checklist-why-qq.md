@@ -2,7 +2,7 @@
 
 > **來源影片:** Why QQ(為什麼叫 QQ)〈Fable 5.2 越用越…?1M 上下文 | 任務 | 推理〉(標題字幕亂碼,以影片頁為準),12 分 39 秒,2026-11-13 上傳。官方簡體字幕已讀,時間點全取自帶時間字幕(連結已提前 10 秒)。
 > **立場與利益揭露:** 逐字稿中沒有業配或聯盟口播;說明欄未逐字檢查。
-> **本篇做了什麼:** 影片講的「官方提示工程指南」我直接讀了 Anthropic 文件〈Prompting Claude Fable 5.2〉與〈What's new in Claude Fable 5.2〉全文(2026-11-14 讀取),逐項核對影片的數字與建議。**影片大多正確**,但有三處歸屬不準、兩處漏掉重要限制,見 §3。
+> **本篇做了什麼:** 影片講的「官方提示工程指南」我直接讀了 Anthropic 文件〈Prompting [[claude-fable-72-hours-model-dependency|Claude Fable]] 5.2〉與〈What's new in Claude Fable 5.2〉全文(2026-11-14 讀取),逐項核對影片的數字與建議。**影片大多正確**,但有三處歸屬不準、兩處漏掉重要限制,見 §3。
 > 相關既有筆記:[[claude-fable-5-2-1000-agents-os-fermat-harness-why-qq]](同一模型的發布、基準分數與 1000 Agent 實驗核實)、[[claude-md-cut-82-percent-and-maintain-it]](CLAUDE.md 瘦身)、[[fable-5-1-usability-over-capability]](先用 Opus 的選型脈絡)、[[claude-memory-dreaming-four-layers-gary]](記憶累積的老化問題)。
 
 ## TL;DR
@@ -35,7 +35,7 @@
 | [9:03](https://www.youtube.com/watch?v=3CQsXeGSWTI&t=533s) | CLAUDE.md 累積的互相衝突規則要清理 | ✅ 官方「Keep caution from piling up」與「Rules, notes, and memories that have built up」 |
 | [10:24](https://www.youtube.com/watch?v=3CQsXeGSWTI&t=614s) | 自建 Agent loop 要注意 preserved thinking,改前文會 400 | ✅ 見 §2-5 |
 
-另外影片 [0:28](https://www.youtube.com/watch?v=3CQsXeGSWTI&t=18s) 說「顯示 token 預算可能讓模型花更多」:✅ 官方「A token budget shown to the model」:在 `high` 與 `xhigh` 的編碼任務上,拿掉一個大預算降低了成本且表現相當。**這是 prompt 文字,不是 API 的 task budgets(beta)**,官方明說該測試沒涵蓋後者。
+另外影片 [0:28](https://www.youtube.com/watch?v=3CQsXeGSWTI&t=18s) 說「顯示 token 預算可能讓模型花更多」:✅ 官方「A token budget shown to the model」:在 `high` 與 `xhigh` 的編碼任務上,拿掉一個大預算降低了成本且表現相當。**這是 prompt 文字,不是 API 的 [[claude-task-budgets-advisory-token-countdown|task budgets]](beta)**,官方明說該測試沒涵蓋後者。
 
 ## 2. 官方指南的實際內容(影片沒講全的部分補在這裡)
 

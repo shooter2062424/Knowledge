@@ -78,7 +78,7 @@ flowchart TB
 - **Repo**:`mattpocock/skills`(作者 Matt Pocock,TypeScript 圈知名教育者,15 個 skills)。
 - **核心邏輯**:寧可前期多花幾分鐘對齊需求,也不要後期花幾小時處理低品質代碼。針對三種困境:理解偏差、執行失敗(跑不通)、架構隱患(難維護)。
 - **重點命令(讀碼後)**:
-  - **grill-me / grill-with-docs**(考問模式):你提模糊需求(「想加個登入功能」)時不馬上動手,反覆考問細節,可能問完發現你真正要的是「SSO 環境下的多租戶登入」,把隱患消滅在開工前。
+  - **[[matt-pocock-skills-teardown|grill-me]] / grill-with-docs**(考問模式):你提模糊需求(「想加個登入功能」)時不馬上動手,反覆考問細節,可能問完發現你真正要的是「SSO 環境下的多租戶登入」,把隱患消滅在開工前。
   - **triage**(狀態機):把所有任務過一遍分清輕重緩急,確保你不是在修細枝末節卻忽略真正卡進度的核心問題。
   - **improve-codebase-architecture**(架構急救包):每隔幾天跑一次,站在全局視角找出「以後會越來越難改」的地方;讀碼可見它用 **deep-module(深模組)** 與 **deletion-test(刪除測試)** 等原則來判斷重構建議。
 
@@ -97,7 +97,7 @@ flowchart TB
 
 - **Repo**:`nextlevelbuilder/ui-ux-pro-max-skill`(~88K stars)。
 - **特點**:不靠直覺畫圖,而是把專業設計的條條框框變成底層邏輯。做金融/醫療界面時會明確告訴你「什麼配色體現安全感、什麼字體更顯專業」,還給**避坑指南**(哪些設計在商業場景絕不能碰)。
-- **讀碼後的真相**:後台是一個 **Python 搜尋引擎** + **161 條 reasoning rules / colors / products 的 CSV 規則庫**(影片說的「160 多個行業規則」即此)。可用 `--design-system` 生成一套**可持久化複用的設計系統**,下次新專案直接把文件丟給 Agent 就能用。命令列或插件都能跑,上手門檻低。
+- **讀碼後的真相**:後台是一個 **Python 搜尋引擎** + **161 條 reasoning rules / colors / products 的 CSV 規則庫**(影片說的「160 多個行業規則」即此)。可用 `--design-system` 生成一套**可持久化複用的[[claude-design-25-tricks-design-rules-skill|設計系統]]**,下次新專案直接把文件丟給 Agent 就能用。命令列或插件都能跑,上手門檻低。
 - **分工**:Frontend Design 負責**把畫面畫得出彩**;UIUX Pro Max 負責**把產品做得更專業**。
 
 ---

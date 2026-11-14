@@ -56,7 +56,7 @@ flowchart TD
 
 ### 步驟 3:對照組——「天真修改」(只把數字改大)
 
-把 `NEIGH_COUNT_BITS` 4→5、`NEIGH_MAX` 8→16:**四道關卡全紅**。其中最關鍵的是 golden vector 不再位元級一致:同一則訊息,Rel-20 期望 `a0d390f29ac0`,天真修改編出 `a0d391e53580`。
+把 `NEIGH_COUNT_BITS` 4→5、`NEIGH_MAX` 8→16:**[[shopify-helix-checkpoints-and-gates|四道關卡]]全紅**。其中最關鍵的是 golden vector 不再位元級一致:同一則訊息,Rel-20 期望 `a0d390f29ac0`,天真修改編出 `a0d391e53580`。
 
 > 🔴 推論:若只靠「編碼後再解碼」的往返測試,天真修改會自洽通過(編解碼同步改寬),**只有凍結的外部基準(golden vector、舊版解碼器)才抓得到佈局被改**。本實驗中天真修改同時因缺功能而紅,所以這點是推理,不是單獨實測。
 

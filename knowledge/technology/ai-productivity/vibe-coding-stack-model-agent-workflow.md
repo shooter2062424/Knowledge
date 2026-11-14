@@ -3,7 +3,7 @@
 **主題分類:** 科技 / AI 生產力 — AI 編程工具的層次與實戰流程
 **來源影片(程序员老王,皆無字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕):**
 - 〈VibeCoding就该这么做!〉(2026-05-14)— 實戰:從零做 FC(紅白機)模擬器跑超級瑪利歐
-- 〈Vibe Coding是什么?从AI模型、Agent到工作流,彻底搞懂AI编程工具〉(2026-06-25)— 概念:Claude、Claude Code、OpenSpec、Superpowers 各自是哪一層
+- 〈Vibe Coding是什么?从AI模型、Agent到工作流,彻底搞懂AI编程工具〉(2026-06-25)— 概念:Claude、Claude Code、[[spec-driven-development-landscape-2026|OpenSpec]]、Superpowers 各自是哪一層
 **整理日期:** 2026-10-02
 
 > ⚠️ 作者在兩集都推廣自己的「知識星球」付費社群(完整工程與提示詞放在那裡)。本文只整理影片公開講解的流程,**不轉載其付費內容**;下方提示詞範本是依影片口述的「四段式」結構改寫。
@@ -40,7 +40,7 @@
 1. 模型與網頁**跑在廠商的伺服器上**,碰不到你本機硬碟;
 2. 模型**唯一能做的是產生一段內容**——它說「我要讀 main.py」,沒人代勞的話檔案不會自己跑過去。
 
-⇒ 需要一個**跑在使用者電腦上的程式**替 AI 執行指令,這就是 **Agent**。實際上 AI 不會說「在第 7 行加 print」,而是回傳 **function calling**(通常是 JSON),Agent 靠這個格式分辨「這是指令」還是「要顯示給使用者的文字」。
+⇒ 需要一個**跑在使用者電腦上的程式**替 AI 執行指令,這就是 **Agent**。實際上 AI 不會說「在第 7 行加 print」,而是回傳 **[[function-calling-mcp-a2a|function calling]]**(通常是 JSON),Agent 靠這個格式分辨「這是指令」還是「要顯示給使用者的文字」。
 
 ```mermaid
 sequenceDiagram

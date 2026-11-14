@@ -58,7 +58,7 @@ flowchart LR
 
 > **你不只是在用模型,而是在建一套自己的 AI 生產系統。** 模型會換、會升級、會被取代,但 **系統建得好,下個模型來只要換中間那一塊,整個 pipeline 還在。** 別把自己綁在某個模型上。
 >
-> 四件事:**prompt 補意圖不補字數 / 高風險任務 cross-model review / model routing / review 流程化**。以前模型替你做的判斷、補的細節、做的檢查,現在都還給你了——「丟一句 prompt 就拿到完美結果」本來就是假象,4.7 只是把它戳破。**不是 4.7 難用,是你不能再用舊方法用它。**
+> 四件事:**prompt 補意圖不補字數 / 高風險任務 cross-model review / [[model-routing-compute-allocation|model routing]] / review 流程化**。以前模型替你做的判斷、補的細節、做的檢查,現在都還給你了——「丟一句 prompt 就拿到完美結果」本來就是假象,4.7 只是把它戳破。**不是 4.7 難用,是你不能再用舊方法用它。**
 >
 > (花絮:Anthropic 產品總負責人 Mike Krieger 在 4.7 發表前三天才從 Figma 董事會退下——同週 Anthropic 發了打對台的 Claude Design,見 [[claude-design-review]],屬利益迴避。)
 

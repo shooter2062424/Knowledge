@@ -16,7 +16,7 @@ flowchart LR
 ```
 
 - **Codex vs ChatGPT 的根本差別**:ChatGPT 你得上傳、下載、整理收尾(做事的還是你,它碰不到你電腦);**Codex 直接讀檔、改檔、做表格、做簡報、甚至架網站**,是個會在你電腦裡幹活的 agent。
-- 這種 agent 又分**桌面 app** 與**終端機(CLI)** 兩種;本片只講對非技術者最友善的桌面 app。Claude Code / Claude Cowork 是同道理(OpenAI vs Anthropic 各自的 agent)。Codex **有免費版**(有 ChatGPT 帳號就能用)、體驗順手、額度便宜大碗。
+- 這種 agent 又分**桌面 app** 與**終端機(CLI)** 兩種;本片只講對非技術者最友善的桌面 app。Claude Code / [[claude-cowork-vs-chat-four-questions|Claude Cowork]] 是同道理(OpenAI vs Anthropic 各自的 agent)。Codex **有免費版**(有 ChatGPT 帳號就能用)、體驗順手、額度便宜大碗。
 - **正因為它碰得到你的檔案,你不能像聊天機器人那樣丟一句話就走人——得先學會怎麼駕馭它。**
 
 ---

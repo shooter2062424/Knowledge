@@ -25,7 +25,7 @@
 - **亮點:**
   - 開發者是一位叫 **Hunter Bown** 的美國人,宣傳時還特地把推文翻成中文向「鯨魚兄弟」(DeepSeek 社群)求助,因此爆紅。
   - 安裝方式多元:**npm、cargo、brew、docker** 都支援;會用 Claude Code 大致就能上手。
-  - **Auto Mode 是最有意思的設計**:先用 `deepseek-v4-flash` 判斷任務該用哪個模型——簡單任務用 flash 省錢,複雜任務才調用更強的 `deepseek-v4-pro`。
+  - **[[claude-code-2026-feature-timeline|Auto Mode]] 是最有意思的設計**:先用 `deepseek-v4-flash` 判斷任務該用哪個模型——簡單任務用 flash 省錢,複雜任務才調用更強的 `deepseek-v4-pro`。
   - 生態定位類比:GPT 有 Codex、Claude 有 Claude Code、國內也有 qwencode / kimicode / Kcode,DeepSeek 終於補上這塊。
   - 目前 issue 區仍有不少待解問題,屬中規中矩、尚需時間驗證的早期專案,不宜盲目追捧。
 
@@ -38,7 +38,7 @@
 - **亮點:**
   - 切入點明確:金融業有大量**可結構化的認知勞動**(需要理解上下文、但非創意工作),恰好落在 Agent 最擅長的區間。
   - 覆蓋場景典型:投行的推銷 Agent、會議準備 Agent;研究端的市場研究、財報評審;以及基金管理、財務對帳、KYC 審核。
-  - 每個 agent 內含一份 **prompt、skill 和 connector**;可在 **Claude Cowork** 裡安裝,或走 **Claude Managed Agents API**。
+  - 每個 agent 內含一份 **prompt、skill 和 connector**;可在 **[[claude-cowork-vs-chat-four-questions|Claude Cowork]]** 裡安裝,或走 **Claude Managed Agents API**。
   - 形象比喻:以前你買的是一個 Excel,現在 Anthropic 直接給你一整套投行分析師常用模板,還把資料連接器與工作流也接好了——代表 Anthropic 不再只做大模型,也開始下場做「行業工作方法」。
   - 門檻其實不低:很多價值建立在**真實金融數據與內部流程**之上,一般開發者拿來直接玩體驗未必好。
 
@@ -87,7 +87,7 @@
 
 本期另分享兩份資料:
 
-- **《AI Token 經濟學與推理利潤入門指南》** — 拆解 AI 的「Token 經濟學」:為何不同模型、不同模態的推理利潤差距巨大。重點分析 **Z.ai 與 Minimax** 的推理成本、Token 定價、KV Cache、GPU 利用率等。
+- **《AI [[google-agentic-engineering-day1|Token 經濟學]]與推理利潤入門指南》** — 拆解 AI 的「Token 經濟學」:為何不同模型、不同模態的推理利潤差距巨大。重點分析 **Z.ai 與 Minimax** 的推理成本、Token 定價、KV Cache、GPU 利用率等。
 - **《中國人工智慧系列白皮書:具身智慧》** — 適逢特斯拉 Optimus(擎天柱)準備量產,具身智慧(embodied AI)關注度持續升高,可先了解內容。
 
 ---

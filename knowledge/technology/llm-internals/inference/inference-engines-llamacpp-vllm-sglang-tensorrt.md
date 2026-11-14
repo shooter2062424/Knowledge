@@ -15,7 +15,7 @@
 1. ⭐ **2023 年是分水嶺:** ChatGPT 推出、Meta 的 LLaMA 權重外流,**需求從「各式各樣的模型架構」轉向「自迴歸 LLM」**——推論引擎要處理的變成注意力、批次、KV cache 管理與量化。
 2. ⭐⭐ **四個引擎、四個問題:**
    - **llama.cpp**:不假設模型塞得進 GPU,**善用整個記憶體階層**(GPU → CPU/RAM → SSD),在消費級硬體上跑。
-   - **vLLM**:擁抱底層硬體,**管好 KV cache**(PagedAttention + 連續批次),追求多用戶吞吐量。
+   - **vLLM**:擁抱底層硬體,**管好 KV cache**([[vllm-pagedattention-engine-parameters-xiaobai-debug|PagedAttention]] + 連續批次),追求多用戶吞吐量。
    - **SGLang**:**共用前綴的 KV cache**(RadixAttention),避免重複計算。
    - **TensorRT-LLM**:NVIDIA 用自家晶片與軟體堆疊**榨乾自家硬體**。
 3. ⭐⭐ **它們後來功能趨同**——今天看會覺得「功能都差不多,為什麼有這麼多」;要回到**各自最初在解哪個問題**才看得懂。
@@ -82,7 +82,7 @@ flowchart LR
 | ⭐ **RadixAttention** | 把常用前綴整理成**基數樹(radix tree)**:常用的前綴保留、不常用的葉節點逐漸淘汰 ⇒ **共用前綴的 KV cache 直接重用,不必每次重算** |
 | ✅ **效果** | 論文回報吞吐量**最多提升 6.4 倍**——⚠️ Caleb 也強調「**這非常取決於工作負載**」(前綴重複多的 RAG、多輪對話、agent 才吃得到) |
 
-> 📎 這跟 API 層的**提示快取**(prompt caching)是同一個概念在不同層次的實作——本庫 [[claude-sonnet-5-5-release-effort-migration]] 提到的「快取讀取只要輸入價十分之一」,背後就是這類機制。
+> 📎 這跟 API 層的**提示快取**([[token-saving-three-moves-context-control|prompt caching]])是同一個概念在不同層次的實作——本庫 [[claude-sonnet-5-5-release-effort-migration]] 提到的「快取讀取只要輸入價十分之一」,背後就是這類機制。
 > 📌 本文補充:vLLM 後來也加入**自動前綴快取**(Automatic Prefix Caching),這正是 §6「功能趨同」的例子。
 
 ---

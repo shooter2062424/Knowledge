@@ -40,7 +40,7 @@
   - 支援目前主流各種 Agent 工具。
   - 安裝簡單:macOS / Linux 直接 `brew install`,Windows 也有一鍵安裝腳本;裝完 `multica setup` 設定後即可在網頁使用。
   - **技能積累**:每次 Agent 解決一個問題,解決方案會變成可複用的技能,整個團隊都能用 — 你的 Agent 團隊越用越強(但目前階段尚未完全成熟)。
-  - 類似專案有 Paperclip、vibekanban 等,專案內也列出對比。
+  - 類似專案有 [[zero-person-ai-company|Paperclip]]、vibekanban 等,專案內也列出對比。
 
 > **應用案例:** 你是一人公司的獨立開發者,手上同時有「修登入 bug」「補測試」「更新文件」三件事。在 Multica 看板上把三張卡分別指派給不同 Agent,牠們各自開工、卡住自己回報,你只需看板上巡視進度,而不必同時開三個終端機輪流貼 prompt。對重度 AI 開發者很實用;若非重度使用者,這套方案可能暫時偏重。
 

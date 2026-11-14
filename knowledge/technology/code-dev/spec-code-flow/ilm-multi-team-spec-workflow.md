@@ -58,7 +58,7 @@
 > 📊 **互動圖(Archify):** [ILM 變更流程 ICR](./ilm-multi-team-spec-workflow-diagrams/icr-flow.html)
 >
 > 1. producer 在同一個 PR 改 registry 與程式 → 2. CI 算 diff 與影響(誰讀、誰在下游、風險分類)→ 3. 依變更類別分流:**純新增、無人受影響**自動通過;**語意或結構破壞**必須走共存期(新增並存欄位);**邊界或行為**通知受影響 consumer 並附失敗案例。
-> 4. consumer 各自開遷移 PR,manifest 標記已遷移 → 5. 合併佇列在合併後狀態跑全部閘門 → 6. 確認無人讀取舊欄位(runtime 追蹤加契約加端到端)→ 7. 移除舊欄位。
+> 4. consumer 各自開遷移 PR,manifest 標記已遷移 → 5. [[claude-code-team-code-review-seven-layers|合併佇列]]在合併後狀態跑全部閘門 → 6. 確認無人讀取舊欄位(runtime 追蹤加契約加端到端)→ 7. 移除舊欄位。
 
 重點規則(🔴 推論,第五節實驗支持其中「共存期」與「移除前閘門」兩項):
 

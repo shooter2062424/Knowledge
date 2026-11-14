@@ -110,7 +110,7 @@ Claude Code 會幫 plugin 指令加前綴,所以 `/poteto-mode` 變成 `/pstack:
 
 ### 案例 2:不裝也能抄——把原則搬進自己的 CLAUDE.md
 
-本庫的寫作流程其實已經在用同樣的精神:每篇筆記數字都要比對一手來源(= prove-it-works),Whisper 轉完要掃結尾有無幻覺迴圈(= 驗證觀測方法本身)。可以直接把 `principle-explain-the-number` 的問句清單抄進自己的 agent 規則。
+本庫的寫作流程其實已經在用同樣的精神:每篇筆記數字都要比對一手來源(= prove-it-works),Whisper 轉完要掃結尾有無[[whisper-cpp-vs-faster-whisper-benchmark|幻覺迴圈]](= 驗證觀測方法本身)。可以直接把 `principle-explain-the-number` 的問句清單抄進自己的 agent 規則。
 
 ### 案例 3:`/automate-me` 做自己的 mode
 

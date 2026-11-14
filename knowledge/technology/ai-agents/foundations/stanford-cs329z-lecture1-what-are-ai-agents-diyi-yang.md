@@ -47,7 +47,7 @@
 | 2023 熱潮 | GPT-4 發布後兩週內出現 **BabyAGI**(給目標、自己寫任務清單、邊做邊加)與 **AutoGPT**(接搜尋、檔案系統,自己一直跑);講者坦言「兩者其實都沒有真的跑得好」,但打開了想像 | [15:09](https://youtu.be/DGI4vucR71w?t=899) |
 | 模型與 agent 同步進步 | GPT-3→4 在 MMLU 提升 43%;SWE-bench Verified 從 2025 年 1 月約 30% 到「現在都很高」;圖表開始同時畫價格與準確率 | [16:25](https://youtu.be/DGI4vucR71w?t=975) |
 
-**課堂問答([19:03](https://youtu.be/DGI4vucR71w?t=1133))**:能力會飽和嗎?講者說很難預估未來,提到遞迴自我改進(RSI)在開放數學題上的現象。為什麼準確率隨 API 成本上升?講者答:成本與消化的 token 數強相關,**想越久通常越準**;至於新模型為何更好(資料、蒸餾?),「我們其實不知道這些模型怎麼訓練的」。
+**課堂問答([19:03](https://youtu.be/DGI4vucR71w?t=1133))**:能力會飽和嗎?講者說很難預估未來,提到[[rsi-recursive-self-improvement-anthropic|遞迴自我改進]](RSI)在開放數學題上的現象。為什麼準確率隨 API 成本上升?講者答:成本與消化的 token 數強相關,**想越久通常越準**;至於新模型為何更好(資料、蒸餾?),「我們其實不知道這些模型怎麼訓練的」。
 
 **核實**
 - ✅ ReAct(Yao et al.,arXiv 2210.03629,ICLR 2023):摘要寫在 ALFWorld 與 WebShop 以 1–2 個 in-context 範例,分別比模仿學習與強化學習方法高出**絕對 34% 與 10%** 成功率。
@@ -89,7 +89,7 @@ flowchart LR
 ### 3.3 工具使用(46:30)
 
 - **Toolformer**([48:02](https://youtu.be/DGI4vucR71w?t=2872)):早期是在解碼過程中,用特殊 token 觸發 API(例:生成句子時遇到「發行者是……」就呼叫問答系統取答案再接回生成)。講者說當時只有五種工具:計算機、問答系統、搜尋引擎、翻譯、日曆。
-- **Gorilla**(Berkeley)([48:46](https://youtu.be/DGI4vucR71w?t=2916)):從 Hugging Face、Torch Hub、TensorFlow Hub 收 1,600+ 個 API,合成資料訓練一個 7B 模型;推論時檢索 API 文件,例如「想看貓咪跳舞慶祝」→ 檢索到 Stable Diffusion 並呼叫它,模型自己不必會生圖;幻覺明顯減少。
+- **Gorilla**(Berkeley)([48:46](https://youtu.be/DGI4vucR71w?t=2916)):從 Hugging Face、Torch Hub、TensorFlow Hub 收 1,600+ 個 API,合成資料訓練一個 7B 模型;推論時檢索 API 文件,例如「想看貓咪跳舞慶祝」→ 檢索到 [[stable-diffusion-how-it-draws|Stable Diffusion]] 並呼叫它,模型自己不必會生圖;幻覺明顯減少。
 - 完整骨架([50:23](https://youtu.be/DGI4vucR71w?t=3013)):LLM core 推理規劃;記憶跨步驟攜帶狀態;工具連到各種 API;環境讓 agent 行動並觀察。「你要建的每一個 agent,不管寫程式、瀏覽網頁或跑終端機,都是這張圖的某個版本;差別在每個方塊怎麼實作、合起來配得多好。」
 
 ---

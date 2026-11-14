@@ -4,7 +4,7 @@
 >
 > | 章節 | 來源等級 |
 > |---|---|
-> | 一、Meta Muse Code | ⚠️ **仍為二手媒體報導**,未取得官方公告原文 |
+> | 一、[[personal-agent-muse-meta-google-race|Meta Muse]] Code | ⚠️ **仍為二手媒體報導**,未取得官方公告原文 |
 > | 二、xAI Grok Bot | ⚠️ **仍為二手媒體報導** |
 > | ⭐ 三、Microsoft Agent Framework | ✅ **已比對官方 devblog 兩篇核實**,並**修正了原先兩處二手說法**(見該節) |
 >

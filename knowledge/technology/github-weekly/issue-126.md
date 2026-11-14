@@ -64,7 +64,7 @@ npx skills add https://github.com/MiniMax-AI/MiniMax-H3 --skill h3-prompt-writin
 
 **週報作者的比較與判斷:**
 
-- **對比 Seedance 2.5:** 網路上大量比較。Seedance 單次支援 30 秒連續影片、原生 4K 同步音視訊、最多 50 個多模態參考;作者實際體感是**純看生成效果 Seedance 仍較好,商業場景追求效果就直接選 Seedance**。MiniMax 則希望透過開源彎道超車。
+- **對比 [[yaha-video-ai-tools-filmora-topview-flova|Seedance 2.5]]:** 網路上大量比較。Seedance 單次支援 30 秒連續影片、原生 4K 同步音視訊、最多 50 個多模態參考;作者實際體感是**純看生成效果 Seedance 仍較好,商業場景追求效果就直接選 Seedance**。MiniMax 則希望透過開源彎道超車。
 - **開源影片生態:** 老牌開源玩家是阿里的萬相(Wan)系列,但作者指出 2025 年之後阿里已不再更新開源的萬系列,最新版本轉向閉源。在這個時間點 MiniMax 推出開源 H3,**能再次刺激整個開源影片生態**。
 - **本地部署門檻不低:** 作者估計至少需要 22GB 以上顯存,再往下量化對影片模型效果就不好;目前只支援 NVIDIA 顯卡、社群成熟度有待提升。一般使用者建議先用 Web 版或 API 體驗;要自己跑,ComfyUI 的門檻相對較低(官方也列了 SGLang、vLLM、diffusers 等推理框架)。
 

@@ -1,6 +1,6 @@
 # Graph Engineering 八分鐘講清楚:從 1736 年的柯尼斯堡七橋,到 108 個 agent 的 DAG
 
-> 整理自 YouTube 頻道 **Caleb Writes Code**〈Graph Engineering explained in 8min..〉(2026-07-30,約 8 分半)。
+> 整理自 YouTube 頻道 **Caleb Writes Code**〈[[codex-multi-agent-v2-graph-engineering|Graph Engineering]] explained in 8min..〉(2026-07-30,約 8 分半)。
 >
 > 核心論點一句話:**圖(graph)這個概念不是新東西,2023 年就有人做過;真正改變的不是「圖」,而是「節點裡面裝的東西」。** 當年節點只是一次 LLM 呼叫,脆弱到讓整張圖沒什麼用;現在節點是 Claude Code、Codex CLI 這種帶完整工具與 harness 的 agent,**瓶頸才從「節點能做什麼」轉移到「連接節點的邊」上**——於是我們繞了一圈又回到圖。
 
@@ -104,7 +104,7 @@ flowchart LR
 實際上更接近 $1
 ```
 
-> **prompt caching 是讓「單 agent → 並行 agent 圖」在經濟上可行的關鍵。** 沒有它,這種規模的展開對多數人來說貴到不切實際。
+> **[[token-saving-three-moves-context-control|prompt caching]] 是讓「單 agent → 並行 agent 圖」在經濟上可行的關鍵。** 沒有它,這種規模的展開對多數人來說貴到不切實際。
 >
 > 📌 這條也呼應本庫 [[gpt-5-6-sol-kernel-self-optimization-luna-pricing]] 與 [[six-ai-agent-trends-next-year]] 講的 Token Budget:**架構選擇本質上是成本選擇。**
 

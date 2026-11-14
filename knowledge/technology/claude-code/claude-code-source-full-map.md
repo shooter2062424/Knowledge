@@ -72,7 +72,7 @@ flowchart TB
 ## 2. tools — 20+ 工具的執行引擎
 
 **做什麼**:核心工具執行層,含 20+ 工具(Bash、PowerShell、File Read/Write/Edit、Glob/Grep、WebFetch/WebSearch、Agent、Skill、Task 管理、SendMessage、Team、ToolSearch…)。負責驗證與執行指令、檔案操作、權限與沙箱隔離、多代理工作流協調、整合 MCP/LSP。
-**內部結構**(6 桶分層):代理核心(Agent/AskUserQuestion + 內建 agent 定義 general-purpose/explore/plan/verify)→ BashTool(shell AST 解析 / bashClassifier 權限 / sandbox-adapter)→ 檔案工具群(Read/Write/Edit/Glob)→ 搜尋與服務整合(Grep/LSP/MCPTool/PowerShell)→ 高階調度(REPL/RemoteTrigger/Schedule/SendMessage/Skill/Sleep)→ 任務管理(Task CRUD/Output/Stop)+ Team + Web。
+**內部結構**(6 桶分層):代理核心(Agent/[[claude-code-team-how-they-work|AskUserQuestion]] + 內建 agent 定義 general-purpose/explore/plan/verify)→ BashTool(shell AST 解析 / bashClassifier 權限 / sandbox-adapter)→ 檔案工具群(Read/Write/Edit/Glob)→ 搜尋與服務整合(Grep/LSP/MCPTool/PowerShell)→ 高階調度(REPL/RemoteTrigger/Schedule/SendMessage/Skill/Sleep)→ 任務管理(Task CRUD/Output/Stop)+ Team + Web。
 **關鍵檔**:`Tool.ts`(基類)、`BashTool/BashTool.ts`、`FileReadTool`/`FileEditTool`、`AgentTool/runAgent.ts`、`TaskCreateTool` 等、`utils/permissions/*`、`utils/bash/*`、`PowerShellTool`、`utils/sandbox/sandbox-adapter`。
 **依賴**:`services/{mcp,lsp,analytics,oauth}`、`tasks`、`utils/{bash,permissions,sandbox,powershell}`。**被誰用**:AgentTool(spawn 子代理)、REPL 命令分派、hooks、skills、主迴圈。
 **對外介面**:`Tool.ts` 基類 + 各工具獨立 export;`constants/tools.ts` 列舉所有可用工具。
@@ -107,7 +107,7 @@ flowchart TB
 
 ## 6. input-hooks — 互動輸入層(92+ React hooks)
 
-**做什麼**:REPL 的互動輸入層,92+ React custom hooks 與事件處理:文字/語音輸入捕捉、命令 typeahead、檔案自動補全、鍵盤綁定、SSH/WebSocket 遠端連線、task/agent 生命週期、檔案監看、cron 排程、UI 狀態同步(本地與 swarm 多代理)。橋接終端 UI 與後端服務。
+**做什麼**:REPL 的互動輸入層,92+ React custom hooks 與事件處理:文字/[[voice-input-ai-context-transformation|語音輸入]]捕捉、命令 typeahead、檔案自動補全、鍵盤綁定、SSH/WebSocket 遠端連線、task/agent 生命週期、檔案監看、cron 排程、UI 狀態同步(本地與 swarm 多代理)。橋接終端 UI 與後端服務。
 **內部結構**(3 桶):核心 hooks(typeahead/voice/inbox poll/file autocomplete/repl bridge/virtual scroll)→ 組合 hooks 與通知(keybinding/SSH/WebSocket 遠端/task-agent 狀態/file watch/cron/通知)→ 權限 context + 多 handler 編排(interactive/swarm/coordinator)+ Ink 渲染子系統。
 **關鍵檔**:`hooks/useTypeahead`、`useVoiceInput`、`useReplBridge`、`useKeybinding`、`useRemoteSession`、`handlers/usePermissionHandler`、`ink/reconciler`、`ink/render-to-screen`、`ink/focus`、`ink/events/keyboard-event`。
 **依賴**:`context/{notifications,voice,mailbox}`、`services/{analytics,voiceStreamSTT,notifier,mcp,lsp,oauth}`、`commands`、`keybindings`、`vim/*`、`AppState`、`tools/AgentTool`、`utils/{suggestions,permissions,swarm,ide}`、`remote/*`、`bridge/*`、`tasks/*`。**被誰用**:`components/PromptInput`、`components/permissions`、`ink/components/App`、AppState 訂閱者、CLI 主事件迴圈、多代理 REPL coordinator。
@@ -151,7 +151,7 @@ flowchart TB
 
 ## 11. misc — 常數、初始化、序列化、遷移等雜項基礎設施
 
-**做什麼**:雜項運行時基礎設施:命令路由、初始化 bootstrap、assistant bridge、狀態管理、上下文追蹤、任務排程、成本分析、會話歷史;UI 系統元件、React context provider、多代理協調;以及配置遷移、檔案索引、output style、protobuf 序列化、訊息正規化、upstream proxy。
+**做什麼**:雜項運行時基礎設施:命令路由、初始化 bootstrap、assistant bridge、狀態管理、上下文追蹤、任務排程、成本分析、會話歷史;UI 系統元件、React context provider、多代理協調;以及配置遷移、檔案索引、[[output-style-communication-not-intelligence|output style]]、protobuf 序列化、訊息正規化、upstream proxy。
 **內部結構**(4 層):核心業務(assistant/bootstrap/bridge:命令/初始化/成本/上下文/任務/會話歷史/REPL)→ 基礎設施(UI wizard、23 個常數模組、React context、多代理協調、SDK 入口)→ 工具(配置遷移、模型別名升級、檔案索引、output style、token budget、遠端會話)→ 序列化(protobuf 事件 schema、WebSocket relay、訊息處理庫)。
 **關鍵檔**:`assistant/`(命令路由)、`bootstrap/state`、`services/analytics`、`constants/`(23 模組)、`sdk/runtimeTypes`、`contexts/`、`utils/messages`、`upstreamproxy/`、`utils/zodToJsonSchema`、`migrations/`。
 **依賴**:`commands`、`services/{mcp,lsp,oauth,policyLimits,SessionMemory}`、`utils/*`、`state/AppState`、`components/*`、`skills/`、`plugins/`。**被誰用**:`entrypoints/cli`、bootstrap、`services/api`、所有 UI 渲染層、多代理 coordinator、插件系統、遠端會話。

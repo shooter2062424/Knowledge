@@ -160,7 +160,7 @@ flowchart TB
     W -->|"否(正在跑)"| NEXT["下一個 step 認領"]
 ```
 
-⚠️ 一個容易漏掉的細節:**被拒絕的 step 會把 steering 留在 inbox 裡等下一次**,而不是丟掉。
+⚠️ 一個容易漏掉的細節:**被拒絕的 step 會把 [[pi-minimal-agent-harness-teardown|steering]] 留在 inbox 裡等下一次**,而不是丟掉。
 
 另有一個細節值得記:**被拒絕的 step 會把 steering 留在 inbox 裡,等到下一次**,而不是丟掉。
 
@@ -683,7 +683,7 @@ flowchart TB
 ### 10.2 ⭐ 核實補正:Preset 管的是「Agent 平面」,不含模型
 
 - ✅ 原始碼的 web-app bundle 實際出貨 **4 個 preset**:`standard`(order 1)、`ptc`(2)、`minimal`(3)、`cordis`(4,Creator 模式)。這就是影片說的「內建 4 種模式是 4 種 Preset」。
-- ✅ 一個 preset 是一個 `@deepseek-ai/dsh-agent-preset` 宣告,內含 `config.plugins` 列表(persona、agent-instructions、time-context、各種 `tool-*`、compaction 等)。設計文件明寫 **"Model routing stays out of presets"**:模型/供應商/推理強度走另一條 per-agent seam,**所以 Preset 不等於影片說的「模型 + 提示詞 + 迴圈 + 工具」整包**,正確是「人設、提示詞區段、工具、壓縮策略」。
+- ✅ 一個 preset 是一個 `@deepseek-ai/dsh-agent-preset` 宣告,內含 `config.plugins` 列表(persona、agent-instructions、time-context、各種 `tool-*`、compaction 等)。設計文件明寫 **"[[model-routing-compute-allocation|Model routing]] stays out of presets"**:模型/供應商/推理強度走另一條 per-agent seam,**所以 Preset 不等於影片說的「模型 + 提示詞 + 迴圈 + 工具」整包**,正確是「人設、提示詞區段、工具、壓縮策略」。
 - ✅ 設計分兩個平面:**Host 平面**(全域唯一:各種 registry、持久化、web host)與 **Agent 平面**(每個 session 一份:工具、人設、提示詞)。設計文件實測十二個 row 的 preset 每次掛載約 3ms、600KB,所以預設每 session 獨立掛載。
 - ✅ **session 空白時才能換 preset**;跑過一輪後換會讓已記錄的工具呼叫失去對應,回 `agent-preset-locked`。
 - ✅ preset 可在 Web 設定頁編輯,存於 `$DSH_HOME/profiles/web/cordis.patch.yml`;出貨的 preset 不可覆寫,要「複製再改」。

@@ -90,7 +90,7 @@ flowchart LR
 
 用 **CapEx(前期投資)vs OpEx(營運成本)** 來算:
 
-- **Vibe coding 看似超便宜**(訂閱費 + 幾句 prompt,前期投資趨近零),但藏著**三個會複利成長的營運成本**:① **token 燃燒率**(沒整理的 context 整包倒進去、反覆叫 model 修它自己沒驗證過的錯,低成功率迴圈每輪都燒 API)② **維護稅**(沒結構一致性的 AI code,半年後出 bug,工程師花好幾天逆向工程那坨義大利麵)③ **資安補救**(生得快、漏洞多,production 修一個資安漏洞是設計階段抓到的好幾倍)。
+- **Vibe coding 看似超便宜**(訂閱費 + 幾句 prompt,前期投資趨近零),但藏著**三個會複利成長的營運成本**:① **token 燃燒率**(沒整理的 context 整包倒進去、反覆叫 model 修它自己沒驗證過的錯,低成功率迴圈每輪都燒 API)② **維護稅**(沒結構一致性的 AI code,半年後出 bug,工程師花好幾天[[rea-ai-reverse-engineering-claude-code|逆向工程]]那坨義大利麵)③ **資安補救**(生得快、漏洞多,production 修一個資安漏洞是設計階段抓到的好幾倍)。
 - **Agentic engineering 把帳反過來**:前期投工程時間(設計 API schema、建測試套件、整理 context)**CapEx 高**,但**每個功能的邊際成本大幅下降**——因為 AI 在一座治理好的工廠裡跑,產出天生結構就對、預先測過、符合公司標準。
 
 > **Context engineering 不只是技術,是財務槓桿**:LLM 按你送進去的每個 token 收費,把 10 萬 token 的 repo 整包塞進每個 prompt 很不划算;一份精準的 context 會直接拉高 **first-pass 成功率**,第一次就做對 = 省掉整條 trial-and-error 的錢。**你不能決定模型的費用,但可以用更少 token 完成一樣的任務——只要你管好 context。**

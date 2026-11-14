@@ -157,7 +157,7 @@ Karpathy 強調:**同樣這 200 行,既驅動 microGPT 生人名,也驅動 ChatG
 
 - **真正搞懂 LLM 在做什麼:** 把這 200 行讀一遍、最好手抄/重打一次——autograd、attention、Adam、取樣全在眼前,沒有框架黑箱。比讀十篇 attention 文章更有效。
 - **理解 KV cache:** microGPT 的 `keys[li].append(k)` 讓你看到「快取過去的 K/V、新 token 只算自己的 Q 去比對」——這就是 [[kv-cache]] 省 10 倍推論成本的本質,只是這裡沒做批次與優化。
-- **教學/面試:** 用它解釋「為什麼注意力是因果的(只看過去)」「殘差 + pre-norm 怎麼接」「cross-entropy 與取樣溫度」,每個概念都能指到具體幾行碼。
+- **教學/面試:** 用它解釋「為什麼注意力是因果的(只看過去)」「殘差 + [[pre-norm-vs-post-norm-transformer|pre-norm]] 怎麼接」「cross-entropy 與取樣溫度」,每個概念都能指到具體幾行碼。
 - **看清「幻覺」不是 bug 是特性:** 它本質就是從機率分布取樣;溫度越高越「有創意」也越容易胡謅——對非技術者解釋幻覺的最佳教具。
 
 ---

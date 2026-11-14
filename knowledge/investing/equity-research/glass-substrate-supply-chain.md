@@ -86,7 +86,7 @@ flowchart LR
 - **台廠普遍落後 Absolics/SEMCO 的成因**:(a) 韓國國家級補助 + 財閥垂直整合;(b) 美國 Intel/Absolics 有 CHIPS 法案資金;(c) 日本 Ibiden 從 ABF 客戶基礎延伸;(d) 台積電以晶圓代工龍頭直接定義規格;(e) 台灣面板廠長期專注顯示,封裝為轉型方向、需時間累積客戶驗證。
 - **時程現實**:真正永久性 GCS/Glass Interposer 的量產多落 **2026 底~2028 後**——題材會「市場早就在炒、放量在 2027–2028」,別被情緒帶著走(呼應本庫 gooaye agent 近期立場對「玻璃基板放量時間點」的提醒)。
 
-> 相關筆記:[[ai-software-stocks-usage-based]](AI 軟體股選股邏輯)、[[sun-qinglong-pe-band-valuation]](EPS×PE 估值);先進封裝/CoWoS/TGV 題材亦見 gooaye agent 記憶層(EP648 起多次談玻璃基板、放量 2027–2028)。
+> 相關筆記:[[ai-software-stocks-usage-based]](AI 軟體股選股邏輯)、[[sun-qinglong-pe-band-valuation]](EPS×PE 估值);[[advanced-packaging-explained|先進封裝]]/CoWoS/TGV 題材亦見 gooaye agent 記憶層(EP648 起多次談玻璃基板、放量 2027–2028)。
 
 ---
 

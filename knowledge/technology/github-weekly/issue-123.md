@@ -40,7 +40,7 @@ flowchart TD
 
 **適用場景:** 會議紀要、Podcast 切片、長影片拆條。**0.9B 的體積對本地執行非常友善。**
 
-> 📌 **本庫已有專門評估**:[[moss-transcribe-diarize-evaluation]] —— 針對「這個模型對我們的 YouTube 逐字稿流程有沒有幫助」做過評估,結論是**維持 faster-whisper**(我們的素材多為單人講述、痛點是幻覺迴圈而非說話人分離,且 MOSS-TD 是為 GPU 設計而我們的管線是 CPU-only)。
+> 📌 **本庫已有專門評估**:[[moss-transcribe-diarize-evaluation]] —— 針對「這個模型對我們的 YouTube 逐字稿流程有沒有幫助」做過評估,結論是**維持 faster-whisper**(我們的素材多為單人講述、痛點是[[whisper-cpp-vs-faster-whisper-benchmark|幻覺迴圈]]而非說話人分離,且 MOSS-TD 是為 GPU 設計而我們的管線是 CPU-only)。
 
 ---
 
@@ -74,7 +74,7 @@ Design Mode 對前端除錯特別實用——光說「這個按鈕不好看」�
 ## 3. awesome-design-md —— DESIGN.md 設計系統資源合集
 
 - **連結:** <https://github.com/VoltAgent/awesome-design-md>
-- **背景:** DESIGN.md 是 Google 提出的規範,是**寫給 AI Agent 看的設計系統文件**——顏色、字體、按鈕、卡片、佈局密度、品牌氣質全寫進一個 Markdown,讓 AI 生成 UI 時不會每一輪都換風格。
+- **背景:** DESIGN.md 是 Google 提出的規範,是**寫給 AI Agent 看的[[claude-design-25-tricks-design-rules-skill|設計系統]]文件**——顏色、字體、按鈕、卡片、佈局密度、品牌氣質全寫進一個 Markdown,讓 AI 生成 UI 時不會每一輪都換風格。
 
 **這個專案做的事:** 把很多真實網站的視覺風格**萃取成可複用的 DESIGN.md**,涵蓋 Claude、Mistral、Ollama、Cursor、Vercel、Linear、Notion、Stripe、Airbnb、Figma、Tesla、NVIDIA 等品牌,README 顯示目前已有 **70 多份**。
 

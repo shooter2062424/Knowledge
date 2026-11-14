@@ -61,7 +61,7 @@ ANTHROPIC_API_KEY=... npx paperclipai test-drive
 
 > 📌 **補正:** 影片說「需要最新的 Node.js」,README 明確寫的是 **Node.js 24.11 或更新版本**。
 
-> 💡 週報作者觀點:做這類 Agent 管理工具的人不少,**最大的壓力來自 OpenAI 這類第一方模型公司**——它們隨時可能推出類似功能吃掉這塊市場。另外,**如果你只用一個 Agent,其實沒有太大必要用它**。
+> 💡 週報作者觀點:做這類 [[ai-application-layer-4-trends-earnings|Agent 管理]]工具的人不少,**最大的壓力來自 OpenAI 這類第一方模型公司**——它們隨時可能推出類似功能吃掉這塊市場。另外,**如果你只用一個 Agent,其實沒有太大必要用它**。
 
 ---
 
@@ -156,7 +156,7 @@ flowchart LR
 
 **重點功能:**
 
-- **100+ 資料庫:** 從 MySQL / PostgreSQL / ClickHouse / DuckDB 到向量庫(Qdrant、Milvus、Weaviate)與國產庫(達夢、人大金倉、openGauss、OceanBase 等);另有 Kafka、RabbitMQ、MQTT、Nacos、etcd 等中介軟體主控台。
+- **100+ 資料庫:** 從 MySQL / PostgreSQL / ClickHouse / DuckDB 到向量庫(Qdrant、[[milvus-architecture-vector-database|Milvus]]、Weaviate)與國產庫(達夢、人大金倉、openGauss、OceanBase 等);另有 Kafka、RabbitMQ、MQTT、Nacos、etcd 等中介軟體主控台。
 - **多種形態:** macOS / Windows / Linux 桌面版,外加 Web、Docker 自架與 CLI。
 - **日常操作:** 寫 SQL(CodeMirror 6、自動補全)、看表結構、ER 圖、schema diff、執行計畫、改資料、匯入匯出、跨庫遷移;可直接匯入 DBeaver / Navicat 的連線設定。
 - **AI SQL 助手:** 選一張表、用自然語言描述需求就生成 SQL;支援 Claude、OpenAI、Ollama 本地模型,**執行前有內建安全檢查**。

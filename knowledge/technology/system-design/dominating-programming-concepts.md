@@ -1,6 +1,6 @@
 # 現在正在主導的 5 個程式設計概念
 
-> 來源:Shade of Code〈programming concepts that are DOMINATING right now〉。不是 X 上炒兩週就消失的熱點,而是**正在成為「嚴肅工程師如何思考建構軟體」基礎**的概念。影片點出 5 個現在真正主導的範式——不熟悉它們,很快就會感受到能力落差。
+> 來源:Shade of Code〈programming concepts that are DOMINATING right now〉。不是 X 上炒兩週就消失的熱點,而是**正在成為「嚴肅工程師如何思考建構軟體」基礎**的概念。影片點出 5 個現在真正主導的範式——不熟悉它們,很快就會感受到[[enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao|能力落差]]。
 
 ---
 

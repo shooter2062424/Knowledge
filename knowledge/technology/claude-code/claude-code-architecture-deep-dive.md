@@ -319,7 +319,7 @@ return `You are an interactive agent that helps users ${outputStyleConfig !== nu
   : 'with software engineering tasks.'} ...`
 ```
 
-這是為了讓自訂 **output style** 能徹底重塑人格——「You are Claude Code, Anthropic's official CLI」只出現在 `CLAUDE_CODE_SIMPLE` 捷徑和子 agent 的 `DEFAULT_AGENT_PROMPT`。
+這是為了讓自訂 **[[output-style-communication-not-intelligence|output style]]** 能徹底重塑人格——「You are Claude Code, Anthropic's official CLI」只出現在 `CLAUDE_CODE_SIMPLE` 捷徑和子 agent 的 `DEFAULT_AGENT_PROMPT`。
 
 **反直覺二(最常被誤解)**:你的專案 `CLAUDE.md`、`MEMORY.md` 內容、今天日期,**統統不進 system prompt**,而是被包成一則 user 訊息塞到 `messages[0]`:
 
@@ -434,7 +434,7 @@ if (toolPermissionContext.mode === 'acceptEdits' && isInWorkingDir)
 上面整條階梯是 Claude Code 內建的。但它在工具執行管線上**留了兩個給你(透過 `settings.json` 或 plugin)注入自己邏輯的掛鉤**——這是「為什麼 Claude Code 能被安全擴展」的答案:
 
 - **PreToolUse**(工具跑之前):可以**改權限決策**(回 `permissionDecision: deny/ask/allow`)、**改 input**(`updatedInput`,例如把模型給的相對路徑展開成絕對路徑),或直接回一個 blocking error 把這次工具呼叫攔下來。它的回傳**優先於**工具自己的 `checkPermissions`——所以你能用一個 hook 攔住「任何想碰 `prod` 目錄的 Bash」,不必改任何工具原碼。
-- **PostToolUse / PostToolUseFailure**(工具跑完之後 / 失敗時):可以**改 tool_result 再回給模型**(例如自動跑個 linter 把結果附上去),或回非零 exit code 告訴模型「這步有異常,你得處理」。
+- **[[claude-code-hooks-complete-guide|PostToolUse]] / PostToolUseFailure**(工具跑完之後 / 失敗時):可以**改 tool_result 再回給模型**(例如自動跑個 linter 把結果附上去),或回非零 exit code 告訴模型「這步有異常,你得處理」。
 
 **咬合關係**:hook 跑在「步驟 5 的權限階梯」與「步驟 6 的並行判定」之間——PreToolUse 改完 `updatedInput` 後,步驟 6 的 `isConcurrencySafe(input)` 是**基於改過的 input** 判斷的。所以一個把 `ls` 改寫成 `rm` 的 hook(別這樣做)會連帶讓它從「可並行」變「不可並行」。
 
@@ -779,7 +779,7 @@ return { messages }   // 外部 build 兩條都不可用 → no-op,壓力交給 
 
 > **先講「快取暖/冷」是什麼**:Anthropic 伺服器會把你最近送過的對話前綴存起來(prompt cache);**暖**= 這份前綴還在伺服器快取裡(你剛剛才送過、它還記得),下一次送同樣前綴幾乎免費;**冷**= 隔太久(超過設定分鐘數)伺服器已經把它丟了,下一次無論如何都要整段重算。
 
-**為什麼分冷熱**:快取**暖**著時若直接改本地訊息,會白白破壞那個暖前綴(下一次請求 cache miss、整段重算花大錢);所以暖時改用 API 的 `cache_edits` 在**伺服器端**刪 tool result、本地訊息一個位元組都不動。快取**冷**了(time-based)反正前綴本來就要重寫,就趁機直接清掉舊內容縮小重寫量。**一句話:暖的時候動手要無痕(別碰前綴),冷的時候反正要重來、就大方清。**
+**為什麼分冷熱**:快取**暖**著時若直接改本地訊息,會白白破壞那個暖前綴(下一次請求 cache miss、整段重算花大錢);所以暖時改用 API 的 `cache_edits` 在**伺服器端**刪 tool result、本地訊息一個位元組都不動。快取**冷**了([[claude-code-loop-types-official|time-based]])反正前綴本來就要重寫,就趁機直接清掉舊內容縮小重寫量。**一句話:暖的時候動手要無痕(別碰前綴),冷的時候反正要重來、就大方清。**
 
 **(B) full compact —— 重量級,fork 一個 summarizer**。送出的請求長這樣:
 

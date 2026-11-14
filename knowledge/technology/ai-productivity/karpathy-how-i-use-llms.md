@@ -8,7 +8,7 @@
 > ⚠️⚠️ **這支影片在社群上被錯誤包裝過,先校正:**
 > 素材檔名來自 X 上一批爆紅貼文:「**Karpathy 在 OpenAI 與 Tesla 待了 8 年,上週把畢生所學濃縮成一堂免費 2 小時課程——Agents → Loops → Graphs → Self-Improving Systems**,比 1.5 萬美元的 bootcamp 還好。」
 > - ❌ **不是「上週」**:這是 **2025 年 2 月 27 日**發布的影片,2026 年 8 月前後被大量轉貼成「新課程」。
-> - ❌ **內容也不是「Agents → Loops → Graphs → Self-Improving Systems」**:它是給一般使用者的**實用操作導覽**——ChatGPT、Claude、Gemini、Grok、Perplexity、Cursor、NotebookLM 等工具**怎麼用、什麼時候用哪個**。
+> - ❌ **內容也不是「Agents → Loops → Graphs → Self-Improving Systems」**:它是給一般使用者的**實用操作導覽**——ChatGPT、Claude、Gemini、Grok、Perplexity、Cursor、[[notebooklm-rapid-learning|NotebookLM]] 等工具**怎麼用、什麼時候用哪個**。
 > - ✅ 它確實免費,也確實值得看;只是**要知道自己在看什麼**。
 >
 > ⏳ **時效提醒:** 片中的模型與功能是 **2025 年 2 月**的狀態(GPT-4o、o1 pro、Claude 3.7 Sonnet 剛發布、Grok 3……)。**心智模型與使用原則仍然適用,但「哪個工具有什麼功能」大多已經變了**(見 §9)。

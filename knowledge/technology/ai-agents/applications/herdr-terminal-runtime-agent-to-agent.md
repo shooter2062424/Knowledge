@@ -83,7 +83,7 @@ flowchart LR
 
 ## 三、⭐ 核心設計:agent 狀態是「看」出來的,不需要 agent 配合
 
-這是全篇最值得記住的一點,**影片完全沒提到,但它是整個 agent-to-agent 能力的地基**。
+這是全篇最值得記住的一點,**影片完全沒提到,但它是整個 [[function-calling-mcp-a2a|agent-to-agent]] 能力的地基**。
 
 herdr 怎麼知道某個 agent 現在是在忙、卡住等你回答、還是已經做完了?
 
@@ -404,7 +404,7 @@ Agent 之間的交接**老老實實走 commit 與 patch**。
 
 **它給不了你的**(影片誠實列出):
 - ❌ 全域共享記憶 —— 多 Agent 之間還是得靠檔案與 Git 傳上下文
-- ❌ 產品級的任務依賴圖、組織級審批流、完整事件追蹤
+- ❌ 產品級的[[multi-agent-data-consistency-reliability|任務依賴圖]]、組織級審批流、完整事件追蹤
 - ❌ 併發一上去,你的 CI 與發布佇列照樣塞車
 - ⚠️ **狀態偵測該誤判還是會誤判** —— 面板能降噪,替不了你劃定任務邊界
 
@@ -486,7 +486,7 @@ Workspace: my-repo
 ## 十、⭐ 多專案配置六條規則與三個等級的起手配置(2026-11-08 增補,來源:AI懶人報 EP459)
 
 **來源:** YouTube 頻道 **AI懶人報**〈EP459 - Herdr:AI agent 時代的 tmux|一個人同時帶好幾個 Claude Code、Codex,關掉視窗照樣跑〉https://www.youtube.com/watch?v=OVl3fFSHxqY (2026-11-03,約 22.5 分鐘,**官方字幕**,逐字稿為帶時間的 VTT)。
-**揭露:** 片中 [7:38] 介紹作者自家的 Mac 語音輸入工具 **EasyType**(免費公測、只支援 Apple 晶片),說明欄附連結與打賞連結;本節不採納其產品宣傳。說明欄聲明畫面是在作者的 Mac mini 上真的安裝、跑六個 agent 錄下,並註明星數為 10/31 查詢、**官網首頁先推的桌面 app 與這集的 TUI 不互通**。
+**揭露:** 片中 [7:38] 介紹作者自家的 Mac [[voice-input-ai-context-transformation|語音輸入]]工具 **EasyType**(免費公測、只支援 Apple 晶片),說明欄附連結與打賞連結;本節不採納其產品宣傳。說明欄聲明畫面是在作者的 Mac mini 上真的安裝、跑六個 agent 錄下,並註明星數為 10/31 查詢、**官網首頁先推的桌面 app 與這集的 TUI 不互通**。
 **核實方式:** 影片用語對照官方文件(herdr.dev/docs 的 Agents、Concepts、Configuration、Keyboard、Plugins 各頁)與 repo(`herdrdev/herdr`,2026-11-08 讀 README 與 `docs/next/website` 文件;clone 已刪)。✅ 已核實 / ⚠️ 需修正 / ❓ 未能核實逐項標註。
 
 ### 10.1 影片補上的事實(與 §三、§八 的差異)

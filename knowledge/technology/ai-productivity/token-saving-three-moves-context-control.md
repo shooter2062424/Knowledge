@@ -441,7 +441,7 @@ ChatGPT / Claude / Gemini 的訂閱讓使用者不必每次擔心 agent 花多�
 10. **打折**:Prompt Caching。**命中後讀取打一折(0.1×)** ✅ 官方核實正確,Opus 5 $5/M → $0.5/M。
 11. **⭐ 補正一:快取預設 TTL 是 5 分鐘,不是 1 小時。** 1 小時要另外指定且加價;**Claude Code 訂閱版主對話用 1 小時**,API key 則是 5 分鐘,所以影片的說法只對訂閱版成立,當成通則會錯。而且 **TTL 從送出請求那刻起算,不是回應結束** —— 長輸出會吃掉自己的快取窗口。
 12. **⭐ 補正二:快取寫入要加價** —— 5 分鐘檔 **1.25×**、1 小時檔 **2×**。⇒ **寫進去卻沒再讀就跑掉是淨虧**;「開新 session 塞滿規則、問一句就關」是最貴的用法。
-13. **⭐ 補正三:快取有 `tools → system → messages` 的階層,改上層會讓下層全部失效。** ⇒ **tool search 不可用時,對話中途裝/移除 MCP 會把整包快取從頭打掉**(預設啟用 tool search 則不會)—— MCP 的增減仍建議在開新對話前決定好。換模型、開加速模式 ✅ 官方證實;調思考強度在 Opus 5.5 / Sonnet 5.5 / Haiku 5.5 / Fable 5.1 上**不會**失效(⚠️ 需修正)。另外還有 web search、citations、`tool_choice`、增刪圖片。
+13. **⭐ 補正三:快取有 `tools → system → messages` 的階層,改上層會讓下層全部失效。** ⇒ **tool search 不可用時,對話中途裝/移除 MCP 會把整包快取從頭打掉**(預設啟用 tool search 則不會)—— MCP 的增減仍建議在開新對話前決定好。換模型、開加速模式 ✅ 官方證實;調思考強度在 Opus 5.5 / [[claude-sonnet-5-5-release-effort-migration|Sonnet 5.5]] / [[claude-haiku-5-5-cheap-model-computer-use|Haiku 5.5]] / Fable 5.1 上**不會**失效(⚠️ 需修正)。另外還有 web search、citations、`tool_choice`、增刪圖片。
 14. **按 Enter 前兩個自問題**:① 這句真的需要前面的上下文嗎?不需要就開新對話。② 中間的討論過程 AI 真的需要全部知道嗎?不需要就整理成 Markdown 開新對話。
 15. **⭐ 講者的真正動機**:「Token 燒得多本身不是壞事,真正浪費的是**讓早就沒用的 Context 在每輪請求裡白白吃掉額度**。」省下來的是**乾淨的 context、更集中的注意力、更好的產出** —— 他把這稱為「清理 AI 時代的技術債」。
 

@@ -49,7 +49,7 @@
    推一個比 max 低的等級,不確定要解決什麼問題——推測見下。)
 2. **`ultrareview` 指令**:Claude Code 內新增的專屬 code review,丟一個 PR 給它,用獨立視角抓 bug、找設計問題。
    對沒有隊友 review 的 solo builder 很補。**注意:它的 token 不算進 Pro/Max 額度,走額外計費;Pro/Max 各有 3 次一次性免費,用完不重置。**
-3. **Max 開放 Auto mode**:讓 Claude 自己決定任務該用哪個 effort 級別,不用手動切。另外 API 推出 **Task budgets**(public beta)可設 token 預算上限。
+3. **Max 開放 [[claude-code-2026-feature-timeline|Auto mode]]**:讓 Claude 自己決定任務該用哪個 effort 級別,不用手動切。另外 API 推出 **[[claude-task-budgets-advisory-token-countdown|Task budgets]]**(public beta)可設 token 預算上限。
 
 ### 底層能力升級
 
@@ -96,7 +96,7 @@ Hex 技術長總結最狠:**「low-effort 的 Opus 4.7 大致等於 medium-effor
 
 ## 應用案例
 
-- **覺得 Claude 突然變笨時:** 先別急著退訂或換模型。理解這是「算力分配的結果、短期不會消失」,
+- **覺得 Claude 突然變笨時:** 先別急著退訂或換模型。理解這是「[[model-routing-compute-allocation|算力分配]]的結果、短期不會消失」,
   把力氣放回**寫清楚提示詞、整理工作流、把 context 放對位置**——這些是跨模型版本都有效的基本功。
 - **要不要升 Opus 4.7:** 若你常餵截圖/架構圖/設計稿,視覺三倍升級很有感;但要先意識到新 tokenizer 會讓帳單上升,
   且「字面化」指令需要你把需求講得更精確。

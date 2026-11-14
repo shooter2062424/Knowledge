@@ -287,7 +287,7 @@ flowchart LR
    - 依規則這是**機械性**錯誤,所以做成一條自訂 lint 規則,而不是在 CLAUDE.md 加一句「元件請放 src/components」。
    - 同時刪掉 CLAUDE.md 裡兩條從沒影響行為的 no-op 指令。
 4. **不用 Matt 的 skill,也能借用這三招:**
-   - 在 prompt 裡要求先畫任務依賴圖再並行。
+   - 在 prompt 裡要求先畫[[multi-agent-data-consistency-reliability|任務依賴圖]]再並行。
    - PR 模板加一欄「單向門 / 雙向門」。
    - 每週固定花十分鐘看一次最卡的 session 日誌。
 

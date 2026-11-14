@@ -88,7 +88,7 @@ flowchart TD
 | **最適合** | **定義良好、源源不絕的重複工作**:bug 回報、issue 分流、遷移、依賴升級等 |
 | **管控用量** | 把 routine 路由到**更小更快的模型**,只在需要判斷時用最強模型 |
 
-把上面的 primitive,加上 auto mode、dynamic workflows(research preview),**組合成長時運行的 loop**。例如處理進來的回饋:
+把上面的 primitive,加上 [[claude-code-2026-feature-timeline|auto mode]]、[[claude-dynamic-workflows|dynamic workflows]](research preview),**組合成長時運行的 loop**。例如處理進來的回饋:
 - **`/schedule`** 跑一個檢查新回報的 routine;
 - **`/goal`** 定義「做完」的樣子,用 skill 記錄如何驗證;
 - **Dynamic workflows** 編排 agent 去分流每個回報、修好、review 修法;

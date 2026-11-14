@@ -113,7 +113,7 @@ flowchart TD
 
 **未能核實**
 - 本篇全文的原始出處(X 貼文內容與是否有部落格版本)。
-- Boris Cherny、Thariq Shihipar、Storey 等被點名者的原話,僅憑譯文轉述。
+- Boris Cherny、[[context-engineering-claude-5-unhobbling|Thariq]] Shihipar、Storey 等被點名者的原話,僅憑譯文轉述。
 - 「用前沿模型問『我有漏掉什麼嗎?』總能再列出兩三點」是作者個人經驗,非對照實驗。
 
 ## 10. 補充:Why QQ〈600 行 PR〉影片版(2026-11-05)——同一篇文章的壓縮講法與延伸數據

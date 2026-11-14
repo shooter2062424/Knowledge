@@ -26,7 +26,7 @@ flowchart TD
 ### 1. Thoughtworks CodeConcise(Martin Fowler 網站)
 
 - **做法**:語言專屬 parser 把程式碼轉成 AST forest 存進圖資料庫;邊連到細粒度關係(例如條件分支跳到另一個檔案的程式碼)。這個攝取步驟是**確定性**的,目的是縮減餵給 LLM 的無關程式碼。理解階段對圖做 DFS post-order 走訪,在 method / class / package 層逐層加入 LLM 解釋;Neo4j 存放並支援向量檢索。
-- **數字(PoC 估計,不是正式準確度)**:COBOL/IDMS 客戶,每個 10,000 行模組的逆向工程估計由 6 週降到 2 週;全案估計省 240 FTE-years;約 1,500 個模組產出抽象 flowchart。
+- **數字(PoC 估計,不是正式準確度)**:COBOL/IDMS 客戶,每個 10,000 行模組的[[rea-ai-reverse-engineering-claude-code|逆向工程]]估計由 6 週降到 2 週;全案估計省 240 FTE-years;約 1,500 個模組產出抽象 flowchart。
 - **限制**:文中沒有正式 accuracy 指標;承認「沒有一體適用的圖建構準則」;部分問題光靠程式碼答不出來,仍需 SME 驗證。
 
 ### 2. 用在 C++:Autoware Universe

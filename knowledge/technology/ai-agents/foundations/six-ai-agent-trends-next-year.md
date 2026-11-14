@@ -71,7 +71,7 @@ flowchart LR
 
 ## 趨勢三|通用智能體成為主力工作平台(可能是最重要的一個)
 
-目前市場上兩大通用智能體:**Anthropic 的 Claude Cowork** 與 **OpenAI 的 Codex**。
+目前市場上兩大通用智能體:**Anthropic 的 [[claude-cowork-vs-chat-four-questions|Claude Cowork]]** 與 **OpenAI 的 Codex**。
 
 **特點是把知識工作可能涉及的所有功能都裝進同一個平台**:聊天、寫文件、做簡報、寫程式,甚至把做好的網頁直接託管上線。**以前這件事你得開五六個不同軟體來回切換。**
 

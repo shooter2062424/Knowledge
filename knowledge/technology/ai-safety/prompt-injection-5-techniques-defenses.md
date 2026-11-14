@@ -125,7 +125,7 @@ flowchart LR
 1. **掃描你下載的 skill / `.md`**:有掃描工具可偵測。作者展示 Snyk 的免費 **Snyk Agent**(`snyk agent scan`)會檢查 `.md` 檔,標出「偵測到 prompt injection」「偵測到可疑下載 URL」。
 2. **掃描 MCP server 的「有毒流程(toxic flows)」**:看什麼進、什麼出、觸發了什麼;工具會標「潛在不可信內容」並給風險評分。
 3. **強制結構化輸出**:凡是不需要純字串的輸出,就用 API 的**結構化輸出 / 嚴格 JSON schema**(例如 LangChain4j),拿回一個物件(POJO)再檢查——比放任自由文字安全得多。
-4. **輸入/輸出 Guardrail**:在進 LLM 前、印給使用者前各攔一道(LangChain4j 有);可用**硬編碼檢查**或 **LLM-as-a-judge**。工具(tool)也要做 **tool guards**。
+4. **輸入/輸出 Guardrail**:在進 LLM 前、印給使用者前各攔一道(LangChain4j 有);可用**硬編碼檢查**或 **[[llm-evals-how-to-know-ai-works|LLM-as-a-judge]]**。工具(tool)也要做 **tool guards**。
 5. **一般原則**:選對模型、清洗與正規化輸入輸出、加 guardrail、強制結構化輸出、**限制使用者輸入長度**(讓他編不出一整個故事線)、過濾、做**小範圍服務(限制爆炸半徑 blast radius)**、必要時**人在迴路(human-in-the-loop)**、並**維持嚴格的系統訊息別放鬆**。
 
 ### Q&A 三個重點

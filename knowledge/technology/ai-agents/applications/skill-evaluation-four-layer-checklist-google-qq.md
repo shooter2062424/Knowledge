@@ -89,7 +89,7 @@ flowchart TD
 
 ## 6. 未核實與限制
 
-- Google 兩篇文章的**全文逐字**未讀(抓取為摘要);Gemini 4 Argon、第四種 reward hacking、「第五條規則」編號需看原文。
+- Google 兩篇文章的**全文逐字**未讀(抓取為摘要);[[gemini-4-argon-release-benchmarks-pricing|Gemini 4 Argon]]、第四種 reward hacking、「第五條規則」編號需看原文。
 - NVIDIA Skill Evaluator 與「Five rules for evaluating agent skills before they bloat your context window」一文未讀。
 - 我**沒有自己重跑**任何實驗;表格中的數字都是原文自報。
 

@@ -55,7 +55,7 @@
 - **連結:** <https://github.com/DeusData/codebase-memory-mcp>
 - **用途:** 面向 AI 編程 agent 的代碼庫記憶與代碼智能引擎。把 repo 索引成**本地知識圖譜**,經 **MCP** 給 Claude Code/Codex CLI/Gemini CLI/OpenCode/OpenClaw 查詢——解決「agent 每次 grep→讀檔→再 grep,token 燒飛、還漏掉調用關係」。
 - **亮點:**
-  - 把函式/類/調用鏈/HTTP 路由/跨服務關係/基礎設施配置都變成圖上節點與邊。**普通 repo 毫秒級索引,Linux kernel(2800 萬行/7.5 萬檔)3 分鐘索引完**;用 **tree-sitter 支援 158 種語言** + Hybrid LSP 語義類型解析。
+  - 把函式/類/調用鏈/HTTP 路由/跨服務關係/基礎設施配置都變成圖上節點與邊。**普通 repo 毫秒級索引,Linux kernel(2800 萬行/7.5 萬檔)3 分鐘索引完**;用 **[[tree-sitter|tree-sitter]] 支援 158 種語言** + Hybrid LSP 語義類型解析。
   - 全程本地、代碼不出機器、單一靜態二進位檔、支援 3D 圖譜可視化(隱私敏感企業重要)。
   - 與 118/116 期的人看向工具不同,它是**給 agent 建可查詢的代碼知識圖譜**(結構化、持續記憶、精準查詢);小專案 agent 自己 grep 反而最好,幾十萬行以上多語言大專案才有價值。
 

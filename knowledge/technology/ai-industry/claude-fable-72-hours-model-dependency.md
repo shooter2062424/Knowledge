@@ -66,7 +66,7 @@ flowchart LR
 - **別把流程綁死在單一模型上**:這是全片最大的功課。你最強的工具可能因為太貴用不起、或政府/廠商一道決定一夜被拿走,**完全不是你做錯什麼**。手邊永遠留好可隨時替換的方案(不同廠商、不同價位、甚至開源)。作者認為這反而是**開源模型的機會**——與其把命脈交給一家公司隨時可能被收回的模型,不如留一個**自己完全掌控、誰都拿不走**的選項。
 - **升級到新一代強模型時,先「減法」**:把為舊模型寫的細節補丁指令拿掉、改成直接給目標;強模型越被細節綁越綁手綁腳。呼應本庫 [[bitter-lesson-cut-old-patterns]](模型變強後舊 prompt 會拖垮新模型)。
 - **把最強(最貴)的模型當指揮官,雜活外包便宜模型**:拿它最值錢的判斷力去規劃拆解,執行瑣碎任務丟便宜快的——這正是 [[mixture-of-agents-moa]]/[[cross-model-review-claude-codex-harness]] 的「分工」思路在成本面的應用。
-- **先定義任務再執行**:最貴的環節是「搞清楚要做什麼」,不是執行;先來回討論想透方向再放手。呼應 [[loop-engineering-when-and-how-gary-chen]](先把 Verifiable Goal 定清楚)。
+- **先[[defining-tasks-not-prompts|定義任務]]再執行**:最貴的環節是「搞清楚要做什麼」,不是執行;先來回討論想透方向再放手。呼應 [[loop-engineering-when-and-how-gary-chen]](先把 Verifiable Goal 定清楚)。
 - **雙用能力 = 監管張力**:能修 bug 就能找漏洞,這種「同一能力兩種用途」會讓前沿模型持續踩在監管紅線上——理解這點,對判斷 AI 產業與政策走向有幫助。對照 [[rsi-recursive-self-improvement-anthropic]]、[[safety-evaluation-crisis]]。
 
 > 延伸對照:[[nvidia-n1x-vs-x86]]、[[ai-compute-token-economics]](算力/成本經濟)、[[bitter-lesson-cut-old-patterns]](別被舊 prompt 綁住)、[[rsi-recursive-self-improvement-anthropic]](前沿模型的安全張力)。

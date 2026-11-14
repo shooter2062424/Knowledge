@@ -358,7 +358,7 @@ flowchart TD
 | 審核 | 上架審核 | 無統一審核,信任全看你裝誰的 |
 | 權限 | 最小化、逐項授權 | 能讀寫你帳號碰得到的任何檔案、開行程、連網、讀環境變數裡的 API key、看每一則 prompt、**在你被詢問前核准工具呼叫** |
 
-**更貼切的類比是瀏覽器擴充功能:能力給到頂,安全全看你裝誰的。** 結論很樸素:**裝一個 mod 等於執行一個陌生的二進位檔。**
+**更貼切的類比是[[chatgpt-browser-extension-agent|瀏覽器擴充功能]]:能力給到頂,安全全看你裝誰的。** 結論很樸素:**裝一個 mod 等於執行一個陌生的二進位檔。**
 
 安全面也不是沒有設計:權限確認框 mod 畫不了(防偽造授權畫面);安裝前可跑 `claude plugin validate` 靜態列出 `hooks:` 與 `calls:`(例如一個只顯示 git branch 的 mod 卻出現網路請求,就該警覺);企業有內建守衛 `sec-default`,managed settings 可以只允許組織的 mod(`allowManagedModsOnly`)。
 

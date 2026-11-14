@@ -31,7 +31,7 @@ flowchart TD
 ```
 
 1. **Weakness Mining(挖弱點)**:用當前 harness 執行任務、收集 execution traces;把**失敗的 trace 按「verifier-grounded failure signature(驗證器佐證的失敗簽名)」聚類**——把失敗拆成**終端原因(terminal cause)/ agent 行為 / 底層機制**三層,而不是把每個失敗當孤立事件。→ 找出「共享同一因果機制」的失敗群。
-2. **Harness Proposal(提修改)**:用**同一個模型(在當前 harness 下)當 proposer**,生成 **K 個多樣但最小(diverse yet minimal)**的候選 harness 修改。每個 edit **只針對一個特定失敗 pattern**,並被約束**保留無關行為**、**避免大刀闊斧改架構**。
+2. **Harness Proposal(提修改)**:用**同一個模型(在當前 harness 下)當 [[harness-learning-proposer-rl|proposer]]**,生成 **K 個多樣但最小(diverse yet minimal)**的候選 harness 修改。每個 edit **只針對一個特定失敗 pattern**,並被約束**保留無關行為**、**避免大刀闊斧改架構**。
 3. **Proposal Validation(驗證)**:候選在 **held-in 與 held-out** 兩個任務切分上評估;只有滿足**非退化接受規則(non-regressive acceptance)**的才晉級——「**至少在一個切分上改善、且不損害另一個**」。
 
 > **核心設計哲學**:把 harness 改進當成「**有依據的經驗性狀態轉移(empirical state transition)**」,而非無約束的優化——每個改動都綁定在記錄到的行為證據上,且保持**可解釋**(minimal edits 只動必要的 harness 表面)。

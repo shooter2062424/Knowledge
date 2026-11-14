@@ -70,7 +70,7 @@
 ## 5. ui-ux-pro-max-skill — 替 AI 注入專業 UI/UX 設計知識的 Agent Skill
 
 - **連結:** <https://github.com/nextlevelbuilder/ui-ux-pro-max-skill>
-- **用途:** 一個面向 AI 編程助手(Claude Code、Cursor、Windsurf、Copilot、OpenCode 等)的開源 **設計智慧庫(Agent Skill)**,本質是「結構化設計知識庫 + 設計系統生成引擎」,在 AI 接到 UI/UX 任務時 **自動注入背景知識與規範**,讓產出的介面更專業、更符合 UI/UX 實務標準。
+- **用途:** 一個面向 AI 編程助手(Claude Code、Cursor、Windsurf、Copilot、OpenCode 等)的開源 **設計智慧庫(Agent Skill)**,本質是「結構化設計知識庫 + [[claude-design-25-tricks-design-rules-skill|設計系統]]生成引擎」,在 AI 接到 UI/UX 任務時 **自動注入背景知識與規範**,讓產出的介面更專業、更符合 UI/UX 實務標準。
 - **亮點:**
   - 內含大量設計資產:**67 個 UI 樣式、96 種配色方案、56 種字體搭配、100 條產業特定推理規則** 等。
   - 安裝彈性:可用自帶的 CLI 工具,或手動安裝。

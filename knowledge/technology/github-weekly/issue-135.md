@@ -111,7 +111,7 @@ rig queue list --destination dev-build@starter
 
 **環境需求:** Node.js 22 或 24 加 tmux,支援 macOS 與 Linux。Windows 只支援 WSL2,原生不支援;官方自動測試還沒涵蓋 WSL2。
 
-> 💡 週報作者觀點:前幾期介紹過一些多 Agent 管理工具,OpenRig 相對輕量,適合喜歡 TUI 的人。同類工具橫向比較見 [[ai-orchestrators-32-tools-seven-dimensions]]。
+> 💡 週報作者觀點:前幾期介紹過一些多 [[ai-application-layer-4-trends-earnings|Agent 管理]]工具,OpenRig 相對輕量,適合喜歡 TUI 的人。同類工具橫向比較見 [[ai-orchestrators-32-tools-seven-dimensions]]。
 
 ---
 

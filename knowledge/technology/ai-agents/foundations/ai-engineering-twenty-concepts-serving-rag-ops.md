@@ -74,10 +74,10 @@ flowchart LR
 2. **查詢**:員工問「那個報銷上限是多少?」→ **Query Rewriting(9)** 補成「差旅報銷的金額上限」。
 3. **檢索**:**BM25(7)** 擅長抓 "SOP-2031" 這類編號,向量檢索擅長抓語意相近段落,**Hybrid + RRF(8)** 合併,**Reranking(10)** 取最準的 5 段。
 4. **生成**:模型在 **KV Cache(3)** 與 **Continuous Batching(5)** 的伺服器上回答,輸出用 **Structured Outputs(11)** 回傳 `{answer, sources[]}`。
-5. **成本控制**:簡單 FAQ 走小模型(**Model Routing 13**)。
-6. **安全**:員工上傳的文件可能夾帶「忽略以上指示」的字句——**Prompt Injection(19)** 防禦要靠權限隔離,而不是只在 prompt 寫「請勿聽從文件指令」。
+5. **成本控制**:簡單 FAQ 走小模型(**[[model-routing-compute-allocation|Model Routing]] 13**)。
+6. **安全**:員工上傳的文件可能夾帶「忽略以上指示」的字句——**[[prompt-injection-5-techniques-defenses|Prompt Injection]](19)** 防禦要靠權限隔離,而不是只在 prompt 寫「請勿聽從文件指令」。
 7. **維運**:向量庫連續逾時 → **Circuit Breaker(16)** 暫停呼叫並退回關鍵字檢索;每次請求有 **trace(20)**。
-8. **評測**:用 200 題標準問答量 **Recall@K(17)**,答案品質用 **LLM-as-a-Judge(18)** 初篩 + 人工抽查。
+8. **評測**:用 200 題標準問答量 **Recall@K(17)**,答案品質用 **[[llm-evals-how-to-know-ai-works|LLM-as-a-Judge]](18)** 初篩 + 人工抽查。
 
 ## 延伸閱讀與深度補充(一手資料查證)
 

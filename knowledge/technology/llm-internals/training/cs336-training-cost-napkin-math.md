@@ -440,7 +440,7 @@ D = 總 FLOPs / (6N) = 1.84e24 / (6 × 200e9) ≈ 1.5e12 tokens,約 1.5T tokens
 所以正確的優化方向是:
 
 1. 選 **GQA / MQA** 設計的模型(同樣參數量,KV Cache 可能小數倍到十倍)
-2. 導入 **prompt caching**(把重複前綴的 KV 存起來,別每次重算重搬)
+2. 導入 **[[token-saving-three-moves-context-control|prompt caching]]**(把重複前綴的 KV 存起來,別每次重算重搬)
 3. 檢查是不是把「用不到的文件」也塞進上下文——**你付的是搬運費,不是聰明費**
 
 ### 案例 D|一行 log 讓 GPU 餓死

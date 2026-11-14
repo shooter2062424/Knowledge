@@ -91,7 +91,7 @@
 - 差異點打平:`電焊`(whisper.cpp ✅ / faster ❌「電汗」);`零星火花`(faster ✅ / whisper.cpp ❌「靈星」);**英文術語 `issue`**(faster ✅ 保留英文 / whisper.cpp ❌「一宿」)。
 - → 中文兩者品質相當;faster 在「中英混雜時保留英文詞」略好,whisper.cpp 在部分中文詞略好。
 
-**英文**(蘇姿丰演講,本就好轉):
+**英文**([[lisa-su-mit-commencement|蘇姿丰]]演講,本就好轉):
 - 兩者幾乎逐字相同、都很準。
 - 人名:`Anantha`(faster ✅ 接近正確 / whisper.cpp「Ananda」);`Gorenberg`/`Gorinberg`(難分);兩者都把 MIT 的 `UROP` 聽錯(faster「Europe」/ whisper.cpp「year up」)。
 - whisper.cpp **會標 `[APPLAUSE]`** 等非語音事件(視需求是優點或雜訊)。
@@ -103,7 +103,7 @@
 
 ## 重大踩雷:whisper.cpp 無 VAD → 背景音樂/靜音段「幻覺迴圈」
 
-benchmark 用的是**乾淨人聲**素材,所以沒暴露這個問題;但在一支**帶背景配樂的財經敘事影片**(社交套利,~39 分鐘)實測時踩了大雷:
+benchmark 用的是**乾淨人聲**素材,所以沒暴露這個問題;但在一支**帶背景配樂的財經敘事影片**([[social-arbitrage-chris-camillo|社交套利]],~39 分鐘)實測時踩了大雷:
 
 - **現象**:whisper.cpp 從某個轉場配樂段開始,**把同一句話「我剛剛在中國爆發的那個時候…」連續重複了數百行**(line 280 一路壞到結尾),整份逐字稿從中段全毀、無法使用。
 - **根因**:**whisper.cpp(pywhispercpp)沒有內建 VAD(語音活動偵測)**。當某段沒有語音(純配樂、長靜音、雜訊)時,Whisper 模型仍被迫「解碼出文字」,就會吐出上一段的殘留並陷入自我重複的**幻覺迴圈(hallucination loop)**。

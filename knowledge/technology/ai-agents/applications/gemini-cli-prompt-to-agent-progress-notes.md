@@ -147,7 +147,7 @@ progress.md 範例格式:
 """
 ```
 
-> ⭐ 老王強調:這套提示詞**不只適用 Gemini CLI**——只要工具能**讀寫本地檔案、執行命令**(例如 Claude Desktop、Cherry Studio),都能直接用。
+> ⭐ 老王強調:這套提示詞**不只適用 Gemini CLI**——只要工具能**讀寫本地檔案、執行命令**(例如 Claude Desktop、[[ai-agent-beginner-course-five-elements-knowledge-base|Cherry Studio]]),都能直接用。
 
 ---
 

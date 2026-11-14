@@ -39,7 +39,7 @@ flowchart TD
 **兩個最抓人的點:**
 
 1. **1M token 上下文** —— 對聊天可能不直觀,但對程式碼與知識工作很關鍵。以前 Agent 處理大專案要不停壓縮、切檔案、丟上下文;1M token 意味著**有機會一次讀進更大範圍的 codebase、長文件、多輪歷史**,再持續做複雜任務。
-2. **Coding 與 Agent 能力** —— 外部報導提到它在前端相關榜單表現很強,一度在 Frontend Code Arena 這類評測上超過 Claude Fable 5 與 GPT-5.6 Sol。**這數字還需更多第三方驗證**,但至少說明它不是只靠參數規模做噱頭。
+2. **Coding 與 Agent 能力** —— 外部報導提到它在前端相關榜單表現很強,一度在 Frontend Code Arena 這類評測上超過 [[claude-fable-72-hours-model-dependency|Claude Fable]] 5 與 GPT-5.6 Sol。**這數字還需更多第三方驗證**,但至少說明它不是只靠參數規模做噱頭。
 
 **Kimi Code** 是 Kimi 版的 Claude Code,已開源。編程 agent 入口是兵家必爭之地;搭配 K3 的速度體感不錯,對自家 coding plan 使用更方便。
 

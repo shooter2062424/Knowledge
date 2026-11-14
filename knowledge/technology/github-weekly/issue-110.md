@@ -77,7 +77,7 @@
   - **自動長技能:** 任務完成後自動建立 skill,日後遇到類似任務直接複用。
   - **持久記憶:** 用 **SQLite + FTS5** 全文搜尋跨會話檢索歷史對話。
   - **定期自省:** 主動把重要知識沉澱下來。
-  - **多後端:** 支援本地、Docker、SSH、Daytona、Modal 等;Daytona 與 Modal 提供 **Serverless 持久化**(閒置自動休眠、有訊息時喚醒)。
+  - **多後端:** 支援本地、Docker、SSH、Daytona、Modal 等;Daytona 與 Modal 提供 **[[deployment-for-vibe-coders-platform-selection|Serverless]] 持久化**(閒置自動休眠、有訊息時喚醒)。
   - **模型全支援:** OpenRouter 上 200 多個模型、OpenAI、Anthropic、Kimi、MiniMax 及私有模型,一條命令切換 `hermes model`。
   - **訊息平台全覆蓋:** Telegram、Discord、Slack、WhatsApp、Signal 及 CLI;支援用自然語言設定定時任務。
   - **搶用戶利器:** 提供 `hermes claw migrate`,可從 **OpenClaw** 自動匯入記憶、技能、設定與 API 金鑰。社群討論多拿它與 OpenClaw 比較,不少人認為更好。

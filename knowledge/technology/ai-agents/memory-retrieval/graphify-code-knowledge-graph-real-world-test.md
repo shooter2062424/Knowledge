@@ -52,7 +52,7 @@ detect() → extract() → build_graph() → cluster() → analyze() → report(
 
 ### 三個關鍵設計決策
 
-1. **程式碼零 LLM、全本地**:走 tree-sitter AST,**確定性解析**,不出機器。只有文件/PDF/圖片/影片才走語意 pass(用你 assistant 的模型或自備 API key)。
+1. **程式碼零 LLM、全本地**:走 [[tree-sitter|tree-sitter]] AST,**確定性解析**,不出機器。只有文件/PDF/圖片/影片才走語意 pass(用你 assistant 的模型或自備 API key)。
 2. **每條邊都要標可信度**:
    | 標籤 | 意義 |
    |---|---|
@@ -66,7 +66,7 @@ detect() → extract() → build_graph() → cluster() → analyze() → report(
 
 `query_graph`(BFS/DFS 搜尋,回傳相關節點與邊的文字上下文)、`get_node`、`get_neighbors`、`get_community`、`god_nodes`(最多連線的節點 = 核心抽象)、`graph_stats`、`shortest_path`,另有 PR 相關的 `list_prs` / `get_pr_impact` / `triage_prs`。extractors 目錄涵蓋 Rust/Go/C#/Dart/Elixir/Julia/Fortran/Verilog/Pascal/PowerShell/Terraform/SQL/Blade/Razor… 數十種語言。
 
-官方 `BENCHMARKS.md`(2026-07-05)自報:LOCOMO recall@10 **0.497**(mem0 0.048、BM25 0.362)、LOCOMO QA **45.3%**、LongMemEval-S **76%**,建圖 LLM 成本 **$0**、ingest 約 $1.40(supermemory $15.67)。
+官方 `BENCHMARKS.md`(2026-07-05)自報:LOCOMO recall@10 **0.497**(mem0 0.048、BM25 0.362)、LOCOMO QA **45.3%**、LongMemEval-S **76%**,建圖 LLM 成本 **$0**、ingest 約 $1.40([[supermemory-memory-layer|supermemory]] $15.67)。
 
 ---
 

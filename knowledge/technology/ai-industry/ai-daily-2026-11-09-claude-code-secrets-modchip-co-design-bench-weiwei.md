@@ -32,7 +32,7 @@
 **應用案例:** 你在專案裡叫 Claude Code 跑 `psql postgres://user:密碼@host/db -c ...`,按了「不要再問」。這時檢查:`git check-ignore -v .claude/settings.local.json`,沒被忽略就把它加進 `.gitignore`,並 `grep -rn "postgres://" .claude/`。更根本的做法:密碼放環境變數,指令只寫 `$DB_URL`,核准規則裡就不會有明文。可搭配 [[claude-code-hooks-complete-guide]] 用 PreToolUse hook 擋掉含密碼樣式的指令。
 
 ### 2. llama-modchip:64GB 純 CPU 跑 284B(1:25)
-**影片說法:** GitHub 開源專案宣稱在沒有顯示卡、64GB 記憶體的電腦跑 DeepSeek V4 Flash:總參數 284B、每次啟用約 13B,把 llama.cpp 改大量、壓到平均 1.71 bit/參數、檔案約 57GB;16 核 AMD 上讀提示約 44 token/s、生成約 9–15 token/s。作者自己的數字,HN 有人質疑壓到近 2 bit 後品質。
+**影片說法:** GitHub 開源專案宣稱在沒有顯示卡、64GB 記憶體的電腦跑 DeepSeek V4 Flash:總參數 284B、每次啟用約 13B,把 [[inference-engines-llamacpp-vllm-sglang-tensorrt|llama.cpp]] 改大量、壓到平均 1.71 bit/參數、檔案約 57GB;16 核 AMD 上讀提示約 44 token/s、生成約 9–15 token/s。作者自己的數字,HN 有人質疑壓到近 2 bit 後品質。
 
 **查證(讀 README,已核實):** 模型為 DeepSeek-V4-Flash-0731-Fractal,284.33B 總參數/13.17B 啟用,1.71 bpw;
 - 檔案約 **56.56 GiB(60.73 GB)**,所以「57」是 GiB,換成 GB 約 61。
@@ -47,7 +47,7 @@
 
 **查證(arXiv 2610.35138):**
 - 已核實:26,314 個 session(去重後 37,463 條查詢)、273 任務、10 個端點、最佳平均 **69.9%(是「Strict」分數)**、完全正確 **26.4%**、頂尖模型為 gpt-6-astra;作者單位含復旦與阿里。
-- **需修正:** 「75 掉到 56」不是「換執行環境」,而是 Qwen3.8-27B 在 Repository Editing 賽道,**opencode harness 0.749 對 qwen-code harness 0.560**(附錄 H 表 12),也就是換的是 agent harness(外框)。這反而支持「harness 比想的重要」。
+- **需修正:** 「75 掉到 56」不是「換執行環境」,而是 [[qwen38-27b-local-economics-and-august-checkpoint-wave|Qwen3.8-27B]] 在 Repository Editing 賽道,**opencode harness 0.749 對 qwen-code harness 0.560**(附錄 H 表 12),也就是換的是 agent harness(外框)。這反而支持「harness 比想的重要」。
 - 我讀 HTML 只到約 10 萬字元(全文約 10.6 萬),末段未讀。
 
 **應用案例:** 評估自家的 agent 時,別只看「功能完成率」,另外算「整個任務一次全對率」;每個月拿 20 條真實需求(含被你回滾過的)跑一遍,記錄全對比例,比跑公開基準更貼近真實使用。
@@ -65,7 +65,7 @@ flowchart LR
     D -->|"未通過"| A
 ```
 
-**查證:** README 已核實(大象持有專案脈絡並起草規格、金魚審查者讀草稿時無先前對話記憶;支援 Claude Code、Codex、Antigravity,另列 Claude Cowork、ChatGPT Work;聲明 not an officially supported Google product;金魚需要能開新子代理的 agent)。**需修正出處:**「大象一行程式都不寫」「每天數千名工程師」來自 Help Net Security 報導,README 沒有這句;該報導只提到 Antigravity。
+**查證:** README 已核實(大象持有專案脈絡並起草規格、金魚審查者讀草稿時無先前對話記憶;支援 Claude Code、Codex、Antigravity,另列 [[claude-cowork-vs-chat-four-questions|Claude Cowork]]、ChatGPT Work;聲明 not an officially supported Google product;金魚需要能開新子代理的 agent)。**需修正出處:**「大象一行程式都不寫」「每天數千名工程師」來自 Help Net Security 報導,README 沒有這句;該報導只提到 Antigravity。
 
 **延伸:** 這個設計的洞見是「聽的人沒有前情,才測得出文件寫得清不清楚」,和寫 CLAUDE.md 時用乾淨 session 驗證指令是否自足同理,見 [[claude-md-from-zero-to-mastery]]。
 
@@ -87,7 +87,7 @@ flowchart LR
 **查證(讀 hunch.net/?p=13764006,已核實):** 約 50 人、9 月初併入 Microsoft AI、前 Inflection 領導層「重規模而非研究」的理念與團隊不合。影片正確點出「目前是 Langford 單方面的說法」。HN 約 500 分未逐一核對。
 
 ### 8. 蘋果趕工代理型 Siri(6:44)
-**影片說法:** Bloomberg 的 Mark Gurman 報導,蘋果執行長(Whisper 稿寫「John Turnus」,疑為 John Ternus,**推定**)催 AI 負責人 Craig Federighi 加快 Siri,要做出能對標 OpenAI dots、Meta Muse 的 AI 代理;iOS 27.3 的 Siri 可細部操作蘋果自己的 App(照片旋轉裁切、整理 Safari 分頁),明年春天才可能操作第三方 App。講者說「這些還只是報導」。
+**影片說法:** Bloomberg 的 Mark Gurman 報導,蘋果執行長(Whisper 稿寫「John Turnus」,疑為 John Ternus,**推定**)催 AI 負責人 Craig Federighi 加快 Siri,要做出能對標 OpenAI dots、[[personal-agent-muse-meta-google-race|Meta Muse]] 的 AI 代理;iOS 27.3 的 Siri 可細部操作蘋果自己的 App(照片旋轉裁切、整理 Safari 分頁),明年春天才可能操作第三方 App。講者說「這些還只是報導」。
 
 **查證:** **未能核實**,我沒讀到 Gurman/Bloomberg 原文。次級網站搜尋結果顯示 iOS 27.3 beta 約 11/3 起透過 App Intents 開放給第三方 App,上架預期在春天,與影片「春天才可能」方向一致,但未一手確認。講者「我自己實測還是覺得 Siri 不夠」是個人評價,不是證據。
 

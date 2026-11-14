@@ -2,7 +2,7 @@
 
 **主題分類:** Claude Code —— 團隊實務、工作流演進與 harness 設計取捨
 **來源影片:** YouTube〈How the Claude Code team uses Claude Code〉(Anthropic 官方頻道 @claude,2026-09-02,約 22.4 分鐘,**官方英文字幕**)
-**受訪者:** Thariq Shihipar、Sid Bidasaria、Robert Boyce(皆為 Claude Code 團隊成員)
+**受訪者:** [[context-engineering-claude-5-unhobbling|Thariq]] Shihipar、Sid Bidasaria、Robert Boyce(皆為 Claude Code 團隊成員)
 **整理日期:** 2026-09-04
 
 > 📎 相關筆記:[[claude-dynamic-workflows]](本文 §4 workflows 的專門拆解)、

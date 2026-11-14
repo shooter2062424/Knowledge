@@ -31,7 +31,7 @@
 | **晶片層** | **NVIDIA(AI 加速器市佔約 八九成)**;AMD、Intel;Google TPU;Amazon Trainium;**Broadcom = ASIC 霸主**(Google TPU 與 Meta 的晶片都與它合作生產) |
 
 ⭐ 影片的選取標準值得記:**只看站在最前沿、資本市場活躍、估值千億美元以上**的公司 ——
-CoreWeave、Figure AI 這種規模「上不了今天的牌桌」。
+[[coreweave-neocloud-debt-stress|CoreWeave]]、Figure AI 這種規模「上不了今天的牌桌」。
 
 **兩家最特殊的公司是 OpenAI 與 Anthropic** —— 因為只有它們是**獨立的純大模型公司**,
 其餘都是大廠。所以資本運作幾乎都圍繞這兩家展開。

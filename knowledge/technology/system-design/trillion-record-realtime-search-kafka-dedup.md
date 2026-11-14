@@ -159,7 +159,7 @@ flowchart TB
     G --> H["ack 該 (partition, offset)"]
 ```
 
-一個關鍵細節:重複訊息進來時是**直接丟棄、不延長 TTL**。這讓 TTL 成為「我最多願意等多久讓更新變得可搜尋」的硬上限,而不是會被連續更新無限往後推的滑動窗口。
+一個關鍵細節:重複訊息進來時是**直接丟棄、不延長 TTL**。這讓 TTL 成為「我最多願意等多久讓更新變得可搜尋」的硬上限,而不是會被連續更新無限往後推的[[agent-memory-eight-strategies-window-to-memoryos|滑動窗口]]。
 
 ---
 

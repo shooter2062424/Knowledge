@@ -37,7 +37,7 @@ flowchart TD
 
 ### ① Prompt Engineering(成本最低,人人該會)
 - 好 prompt 三要素:**給誰看、產出格式、重點是什麼**。
-- **最重要的技巧是 Prompt Chaining**(≠ Chain of Thought):把複雜 prompt 拆成多個獨立 prompt、前一個輸出餵下一個 → 每步可獨立測試/debug,得到 **observability**。
+- **最重要的技巧是 [[five-agent-patterns|Prompt Chaining]]**(≠ Chain of Thought):把複雜 prompt 拆成多個獨立 prompt、前一個輸出餵下一個 → 每步可獨立測試/debug,得到 **observability**。
 - BCG 實驗三發現:**Jagged Frontier**(AI 不是每個任務都好)、**Falling asleep at the wheel**(在 AI 不擅長處太信任它,比不用更慘)、**Centaurs vs Cyborgs**(委派型 vs 高頻來回型——重複流程用 centaur,需判斷/創意用 cyborg,有意識切換)。
 
 ### ② Fine-Tuning(能不做就不做)
@@ -75,7 +75,7 @@ flowchart TD
 
 ## 5. 應用案例:客服改地址 agent(把全部串起來)
 
-「我要改 A127 訂單地址」→ 先 **task decomposition**(學生答「先去客服旁邊坐一兩天看人怎麼做」,教授激賞):
+「我要改 A127 訂單地址」→ 先 **[[task-decomposition-agentic-workflow|task decomposition]]**(學生答「先去客服旁邊坐一兩天看人怎麼做」,教授激賞):
 1. 抽關鍵資訊(intent/order ID/新地址)→ LLM one-shot
 2. 查客戶紀錄 → custom tool / MCP
 3. 查公司政策 → RAG

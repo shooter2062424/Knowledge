@@ -67,7 +67,7 @@ flowchart TD
 ## 六、取得方式與官方核實(含影片需修正處)
 
 - Messages API,放在 `output_config.task_budget`,欄位:`type`(固定 `"tokens"`)、`total`、可選 `remaining`;需 beta 標頭 **`task-budgets-2026-03-13`**(✅ 與影片「2026 年 3 月 13 日」一致)。
-- ⚠️ **影片支援清單需修正**:影片 [10:01]–[10:10] 說支援 Fable 5/5.1、Mythos 5/5.1、Opus 4.7/4.8/5/5.5,不支援 Sonnet 5、Opus 4.6、Sonnet 4.6、Haiku 4.5。官方 Feature support 表(2026-11-07 讀取)為:Fable 5.1、Mythos 5.1、Opus 5.5、Opus 5、Fable 5、Mythos 5、**Sonnet 5.5、Haiku 5.5 皆為 Beta**、Opus 4.8、Opus 4.7 為 Beta;**Sonnet 5、Opus 4.6、Sonnet 4.6、Haiku 4.5 Not supported**。影片漏了 Sonnet 5.5 與 Haiku 5.5。以官方頁為準。另:官方 front matter 的 supportedModels 還列了 `claude-mythos-preview`,但 Feature support 表未列它,**此點未能核實**。
+- ⚠️ **影片支援清單需修正**:影片 [10:01]–[10:10] 說支援 Fable 5/5.1、Mythos 5/5.1、Opus 4.7/4.8/5/5.5,不支援 Sonnet 5、Opus 4.6、Sonnet 4.6、Haiku 4.5。官方 Feature support 表(2026-11-07 讀取)為:Fable 5.1、Mythos 5.1、Opus 5.5、Opus 5、Fable 5、Mythos 5、**[[claude-sonnet-5-5-release-effort-migration|Sonnet 5.5]]、[[claude-haiku-5-5-cheap-model-computer-use|Haiku 5.5]] 皆為 Beta**、Opus 4.8、Opus 4.7 為 Beta;**Sonnet 5、Opus 4.6、Sonnet 4.6、Haiku 4.5 Not supported**。影片漏了 Sonnet 5.5 與 Haiku 5.5。以官方頁為準。另:官方 front matter 的 supportedModels 還列了 `claude-mythos-preview`,但 Feature support 表未列它,**此點未能核實**。
 - ✅ **Claude Code 與 Cowork 未開放此參數**:官方原文「Task budgets are not supported on Claude Code or Cowork surfaces.」影片 [10:20] 的說法一致。Managed Agents 官方標為 Not available,改用 Session budgets。
 - ✅ **快取影響**:官方原文:「the budget value participates in the rendered prompt, so a changed value does not match cache entries created under the old one」;倒數標記在伺服器端注入,每次請求都不同,若每次遞減 `remaining` 也會讓快取前綴失效。官方建議:初始請求設一次,讓伺服器倒數。(影片補一句「穩定配置也不保證全命中」,與官方一致。)
 

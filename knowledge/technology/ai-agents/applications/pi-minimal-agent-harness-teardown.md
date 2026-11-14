@@ -301,7 +301,7 @@ flowchart TB
 ### 幾個示範效果
 
 - **subagents**:一句「設計五個不同風格的個人網頁」→ **啟動 5 個 worker 並行開發**,並完成並行的審查與修復
-- **dynamic workflows**:一句「調研 22 到 26 年 AI 領域最具影響力的論文」→ **啟動 10 個 agent**,可用 `/workflows` 查看每個子代理的工作狀態。影片評價:**體驗跟 Claude Code 幾乎一模一樣**
+- **[[claude-dynamic-workflows|dynamic workflows]]**:一句「調研 22 到 26 年 AI 領域最具影響力的論文」→ **啟動 10 個 agent**,可用 `/workflows` 查看每個子代理的工作狀態。影片評價:**體驗跟 Claude Code 幾乎一模一樣**
 - **go 模式**:給一個大目標(做 HTML 坦克大戰、自己試玩、輸出測試結論、再重做),**Pi 迭代了三次**完成,可在 iterations 裡看歷史迭代過程
 
 ---
@@ -381,7 +381,7 @@ flowchart TB
 
 ## 六之三、⭐⭐ 擴充開發全流程實戰(2026-08-30 新增)
 
-> 本節整理自 **暮闲**〈pi agent 最佳实践 | Harness Agent 定制全流程实战〉(2026-06-06),
+> 本節整理自 **暮闲**〈[[pi-agent-minimal-harness|pi agent]] 最佳实践 | Harness Agent 定制全流程实战〉(2026-06-06),
 > 並**逐項比對 clone 下來的官方文件**(`packages/coding-agent/docs/` 底下的
 > `extensions.md`、`packages.md`、`prompt-templates.md`、`themes.md`)。補正處已標出。
 

@@ -105,7 +105,7 @@ flowchart TD
     style A4 fill:#2ecc71,color:#fff
 ```
 
-**以前有狀態的設計跟 Serverless 環境天生不合,現在合了。**
+**以前有狀態的設計跟 [[deployment-for-vibe-coders-platform-selection|Serverless]] 環境天生不合,現在合了。**
 
 ---
 
@@ -290,7 +290,7 @@ flowchart TD
 1. **收掉了「server 主動打進來」這個入口**(Sampling / Roots / Elicitation 都改成 MRTR 退件模式)。原本 server 能反過來要求你的模型做事,這是個很大的攻擊面。
 2. **授權面收緊**:DCR 被棄用改推 Client ID Metadata Documents;授權回應要帶 `iss` 並由 client 驗證;client 憑證必須以 issuer 為 key 保存、不得跨授權伺服器重用。
 
-但**工具說明文字裡藏惡意指令(tool poisoning)這個問題,協議層並沒有解決**——那仍然要靠你自己的 prompt injection 防線。
+但**工具說明文字裡藏惡意指令(tool poisoning)這個問題,協議層並沒有解決**——那仍然要靠你自己的 [[prompt-injection-5-techniques-defenses|prompt injection]] 防線。
 
 ---
 

@@ -70,13 +70,13 @@ yᵢ = ⊕ⱼ[Aᵢ,ⱼ(xᵢ)] + x₁ ,   xᵢ₊₁ = yᵢ
 
 實務上最後一層只需要**一個** LLM 出最終答案,所以末層用 `Al,1(xl)` 的輸出作為結果。
 
-**一個特例**:如果某層放的全是同一個模型(靠 temperature 取樣產生不同輸出),就退化成 **single-proposer**(單一提議者),只有稀疏子集被啟用——這正好用來和「多樣模型」做對照實驗(見下)。
+**一個特例**:如果某層放的全是同一個模型(靠 temperature 取樣產生不同輸出),就退化成 **single-[[harness-learning-proposer-rl|proposer]]**(單一提議者),只有稀疏子集被啟用——這正好用來和「多樣模型」做對照實驗(見下)。
 
 ---
 
 ## 4. 和 Mixture-of-Experts(MoE)的類比
 
-MoA 的靈感來自經典的 **MoE**(混合專家)。MoE 一層由 `n` 個專家網路 + 一個 gating(門控)網路 + 殘差連接組成:`yᵢ = Σⱼ Gᵢ,ⱼ(xᵢ)·Eᵢ,ⱼ(xᵢ) + xᵢ`。
+MoA 的靈感來自經典的 **MoE**([[moe-mixture-of-experts-from-ffn|混合專家]])。MoE 一層由 `n` 個專家網路 + 一個 gating(門控)網路 + 殘差連接組成:`yᵢ = Σⱼ Gᵢ,ⱼ(xᵢ)·Eᵢ,ⱼ(xᵢ) + xᵢ`。
 
 > **MoA 把 MoE 的概念從「激活層級(activation level)」提升到「模型層級(model level)」**:不是在單一模型內部放專門的子網路,而是**跨層用多個完整的 LLM**;而且**完全透過 prompt 介面運作**,不需要改內部激活或權重。更妙的是,MoA 用 **LLM 本身同時扮演 gating 和 expert**——因為 LLM 的內在能力足以靠「讀懂 prompt、生成連貫輸出」自己調控輸入,不需要外部協調機制。
 

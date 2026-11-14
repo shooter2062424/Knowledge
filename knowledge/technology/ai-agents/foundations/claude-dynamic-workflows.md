@@ -109,7 +109,7 @@ flowchart TB
 - 但他**老實說:目前沒遇到「沒這功能會死」的 use case**。
 - 核心觀念(反覆強調):**AI 工具一直推陳出新,重點從來不是哪個功能最強,而是你手上的任務適不適合它**。不要因為新、聽起來猛就什麼都塞給它——任務不對,再強的工具也只是幫你燒錢。
 
-> 對照本庫 [[five-agent-patterns]](五大 agent 模式)、[[task-decomposition-agentic-workflow]](拆 SOP 成 workflow)、[[long-running-agents-goal-evaluation]](/goal 與深度迭代)——Dynamic Workflows 等於把「Orchestrator-Workers + Evaluator-Optimizer」模式做成 Claude Code 的內建、自動編排功能。
+> 對照本庫 [[five-agent-patterns]](五大 agent 模式)、[[task-decomposition-agentic-workflow]](拆 SOP 成 workflow)、[[long-running-agents-goal-evaluation]]([[claude-code-ten-concepts-three-first-steps-jayluxai|/goal]] 與深度迭代)——Dynamic Workflows 等於把「Orchestrator-Workers + Evaluator-Optimizer」模式做成 Claude Code 的內建、自動編排功能。
 
 ---
 

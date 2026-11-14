@@ -80,7 +80,7 @@ flowchart LR
 踩這坑的通常是技術強、自己在建 agent 系統的人:每次呼叫塞 200K token context、system prompt 寫 15K、
 參考文件沒索引全炸進去。
 
-- 呼應作者另一支談 **skills** 的影片提到的 **漸進式披露(progressive disclosure)**:用不到的東西就不載入,需要時再給。
+- 呼應作者另一支談 **skills** 的影片提到的 **[[building-claude-skills|漸進式披露]](progressive disclosure)**:用不到的東西就不載入,需要時再給。
 - AI **不會自動跳過不相關的部分**:給 200K 它就處理 200K。大量雜訊會**稀釋注意力**;真正需要的那段若埋在中間,
   找到它的準確度明顯下降——業界叫 **Lost in the Middle**。所以這不只浪費錢,**產出品質也變差**。
 - 「資訊給得多不如給得巧」。沒意識到的人一天花 $50–100,說服自己「最高端模型就是燒錢」;
