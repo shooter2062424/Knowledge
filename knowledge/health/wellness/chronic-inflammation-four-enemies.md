@@ -112,3 +112,8 @@ flowchart TD
 - Dr. Grace,〈你以為健康,其實天天慢性發炎〉,YouTube:<https://www.youtube.com/watch?v=I-PMiyYZkrs>(2026-06-06)
 - 影片提及文獻:NOVA 食品分類系統;哈佛腸道菌相飲食研究(24–48 小時);2014 年起久坐與發炎/胰島素阻抗研究;亞洲族群內臟脂肪與 BMI 研究;睡眠與 CRP/IL-6 的 72 人研究及逾 5 萬人系統分析。
 - **該片無字幕,逐字稿以 CPU 版 faster-whisper 轉錄取得,非官方字幕**;專有名詞(如 LPS、LPL、IL-6、TNF-α、HS-CRP、NOVA)已校正,可能仍有少量聽寫誤差。
+
+## 相關筆記
+
+- [[ldl-cholesterol-targets-plaque-regression]] — 慢性發炎與血管斑塊的同一條主線
+- [[hidden-money-draining-habits]] — 小習慣慢性累積造成的長期損失

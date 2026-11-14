@@ -113,3 +113,7 @@ flowchart LR
 
 - Sean's AI Stories,〈You Can Learn AI Agent Harness & Loop Engineering In 19 Min | LLM Ops, Eval, Tracing, RAG〉,YouTube:<https://www.youtube.com/watch?v=GrNbuWWJYiI>(2026-06-26,約 20 分鐘)
 - 本文依該片**英文自動字幕**整理(非官方人工字幕);提及工具:LangGraph / LangChain / Pydantic(harness)、LangFuse / LangSmith(tracing)、Salesforce / HubSpot / Stripe / Alipay(工具範例)、資料庫 AWS / Supabase / GCP / Azure。作者另有記憶系統與 RAG 的前作影片。
+
+## 相關筆記
+
+- [[harness-loop-graph-troubleshooting-map]] — 同主題:Harness / Loop / Graph 三層排障地圖:把「Agent 又抽

@@ -160,3 +160,8 @@ flowchart TB
 
 - Gary Chen(@garytalksstuff)YouTube:[一支影片帶你搞懂如何建立 agent 能跑的工作流,Task Decomposition 解析](https://www.youtube.com/watch?v=Yzpx4Xaigms)
 - 延伸:[Model Context Protocol 官方文件](https://modelcontextprotocol.io)、本庫 [[building-claude-skills]]、[[function-calling-mcp-a2a]]、[[12-factor-agents]]。
+
+## 相關筆記
+
+- [[issue-103]] — 同主題:GitHub Weekly 第 103 期:超輕量 OpenClaw 復刻、程式
+- [[issue-118]] — 同主題:GitHub Weekly 第 118 期:自託管 AI 工作空間、AI 求職系

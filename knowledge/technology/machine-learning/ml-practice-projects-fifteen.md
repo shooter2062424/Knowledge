@@ -247,3 +247,9 @@ pipe.fit(X_tr, y_tr)                       # 只重採樣訓練資料
 - mlxtend association_rules:https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/association_rules/
 - PyTorch/text(torchtext)repo:https://github.com/pytorch/text
 - Dash 官方文件:https://dash.plotly.com/dash-core-components
+
+## 相關筆記
+
+- [[ml-ten-core-concepts-guide]] — 同系列的機器學習核心概念
+- [[supervised-ml-algorithms-guide]] — 監督式演算法的完整對照
+- [[model-evaluation-techniques-guide]] — 不平衡分類的評估指標

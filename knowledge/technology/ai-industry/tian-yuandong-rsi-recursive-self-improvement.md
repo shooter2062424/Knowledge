@@ -93,3 +93,8 @@
 - 受訪者:田淵棟(Recursive Superintelligence 聯合創始人/前 Meta FAIR 研究總監)。
 - 提及之研究/公司:Coconut(連續思維鏈)、Looped Transformer、Vision Transformer、The AI Scientist-v2(Jeff Clune, Nature)、AlphaFold/AlphaEvolve/AlphaZero、SSI、AMI Labs、Ineffable Intelligence、Thinking Machines、DeepSeek V4、Anthropic Mythos、Meta Muse Spark。
 - 延伸:本庫 [[rsi-recursive-self-improvement-anthropic]]、[[self-harness]]、[[karpathy-autoresearch]]、[[jepa-lecun-world-models]]、[[deepseek-v4-engineering]]、[[spacex-rise-history]](同為硅谷101)。
+
+## 相關筆記
+
+- [[harness-learning-proposer-rl]] — 訓練改 harness 的模型
+- [[agentic-harness-engineering-observability-evolution]] — harness 自我演化與可觀測性

@@ -133,3 +133,7 @@ flowchart LR
 - Anthropic:[The components of agent memory](https://anthropic.com/research/components-of-agent-memory)(2026-11-06,Lance Martin;已讀全文)。
 - Claude Code 官方文件:[Memory](https://code.claude.com/docs/en/memory)(已讀 CLAUDE.md 與 auto memory 段落)。
 - 社群報導(僅讀搜尋摘要):[implicator.ai](https://www.implicator.ai/anthropic-adds-auto-dream-to-claude-code-fixing-memory-decay-between-sessions/)、[claudefa.st](https://claudefa.st/blog/guide/mechanics/auto-dream)。
+
+## 相關筆記
+
+- [[claude-md-from-zero-to-mastery]] — 同主題:15 分鐘學完 CLAUDE.md:三個位置、做減法的三問、做加法的五問、以及怎

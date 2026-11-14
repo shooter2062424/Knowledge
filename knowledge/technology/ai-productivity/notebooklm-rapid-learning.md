@@ -75,3 +75,9 @@ flowchart LR
 ## 來源
 
 - [商業周刊:MIT 研究生如何用 NotebookLM 三個提問,把一學期壓縮到 48 小時](https://www.businessweekly.com.tw/focus/blog/3020978)
+
+## 相關筆記
+
+- [[skywork-research-report-to-slides]] — 同主題:用 Skywork 從查資料到做簡報:AI 研究助理該看的三個能力(溯源、自訂信
+- [[five-open-source-english-learning-tools]] — 同主題:五個開源英語學習專案:從聽力訓練流程到「把每天看的英文網頁變成教材」
+- [[issue-112]] — 同主題:GitHub Weekly 第 112 期:DeepSeek V4 開源、GPT

@@ -116,3 +116,9 @@
 - [GitHub Weekly 第 99 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/99.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[codex-desktop-full-workflow-guide]] — Worktree 與多任務並行的實作流程
+- [[building-claude-skills]] — Claude Skill 製作與維護的實戰
+- [[reliable-structured-json-output-tool-use]] — Agent 生成 UI 所需的結構化 JSON 輸出

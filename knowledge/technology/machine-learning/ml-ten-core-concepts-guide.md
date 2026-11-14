@@ -203,3 +203,10 @@ flowchart TD
 - scikit-learn,r2_score:https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html
 - scikit-learn,BaggingClassifier:https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingClassifier.html
 - Bergstra & Bengio,Random Search for Hyper-Parameter Optimization(JMLR 13):https://jmlr.org/papers/v13/bergstra12a.html
+
+## 相關筆記
+
+- [[model-evaluation-techniques-guide]] — 驗證策略與評估指標的延伸
+- [[supervised-ml-algorithms-guide]] — 各監督式演算法的實作對照
+- [[ml-practice-projects-fifteen]] — 同類型的實戰專案與程式碼問題
+- [[unsupervised-ml-algorithms-guide]] — 同主題:非監督式機器學習演算法完整指南:K-Means、階層式、DBSCAN、PCA、t

@@ -185,3 +185,10 @@ flowchart TD
 - Codex 開源倉庫:https://github.com/openai/codex
 - 影片指定的原始碼版本:https://github.com/openai/codex/tree/25f4940d4affcf8c60f96ffec5e3752e1f590b8a(本機 shallow fetch 該 commit,讀 `codex-rs/memories/README.md`、`codex-rs/memories/write/src/{lib,phase1,phase1_output,phase2,rollout_input}.rs`、`codex-rs/memories/write/templates/memories/{consolidation,consolidation_v2,stage_one_system_v2}.md`、`codex-rs/ext/memories/src/{lib,prompts}.rs`、`codex-rs/ext/memories/src/tools/mod.rs`、`codex-rs/config/src/types.rs`,讀完已不留副本)
 - 影片的實驗專案「松果更新台」為作者為實驗構造,本筆記未獨立重跑。
+
+## 相關筆記
+
+- [[agent-memory-survey-forms-functions-dynamics]] — 跨工具的記憶分類框架
+- [[agent-long-term-memory-layered-design-baibai]] — 記憶分層與跨會話設計的同類思路
+- [[memharness-memory-reconstructed-not-replayed]] — 記憶的抽取與重建機制對照
+- [[claude-app-nine-hidden-settings-memory-skills-dispatch]] — Claude 端的記憶與搬家功能

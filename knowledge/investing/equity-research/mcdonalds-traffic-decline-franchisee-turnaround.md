@@ -297,6 +297,9 @@ flowchart TB
 - [[viking-holdings-river-cruise-moat]]:同頻道另一篇消費股研究,「新聞稿不會寫的風險在法說會」。
 
 ---
+- [[when-to-add-reason-not-percent-fico-nick]] — 判斷客流流失是否看得到底
+- [[ai-proof-five-moat-stocks-nick]] — 消費品護城河與估值的同類篩選
+- [[us-stocks-rate-hike-risk-2026]] — 升息與無風險利率對高殖利率股的影響
 
 ## 來源
 

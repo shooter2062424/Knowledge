@@ -168,3 +168,8 @@ flowchart TD
 - Obsidian 官方 skills:https://github.com/obsidianmd/obsidian-skills (影片說明欄連結為 https://github.com/kepano/obsidian-skills;本機 shallow clone 後讀 `README.md`、`plugins/obsidian/plugin.json`、`skills/obsidian-cli/SKILL.md`、`skills/obsidian-headless/SKILL.md`、`skills/obsidian-markdown/SKILL.md` 開頭,讀完已刪除副本)
 - Obsidian:https://obsidian.md
 - Claude Code:https://claude.com/claude-code
+
+## 相關筆記
+
+- [[issue-115]] — 同主題:GitHub Weekly 第 115 期:桌面 AI 助手、程式 Agent 
+- [[issue-118]] — 同主題:GitHub Weekly 第 118 期:自託管 AI 工作空間、AI 求職系

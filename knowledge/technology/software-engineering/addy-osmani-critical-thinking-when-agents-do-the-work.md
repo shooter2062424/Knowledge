@@ -192,3 +192,10 @@ flowchart TD
 - Shaw & Nave SSRN 原頁(本次回 HTTP 403,未能讀取):https://papers.ssrn.com/abstract=6097646
 
 相關閱讀:[[claude-code-team-code-review-seven-layers]](文中引用的 code review 原則)、[[agent-verification-before-scale-lauren-tan-reaction]](先給 Agent 驗證手段再談規模)、[[llmentalist-effect-cold-reading-and-verifiers]](流暢的輸出為何讓人放鬆警戒)。
+
+## 相關筆記
+
+- [[dialectical-negation-thinking-layered-cognition]] — 同主題:「肯定 → 否定 → 否定之否定」:一場即興辯論拆出的辯證思考法,與它的對照工具
+- [[enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao]] — 同主題:個人用 AI 快 100 倍、公司卻沒感覺:能力落差與流程落差,以及原演講沒被摘
+- [[issue-119]] — 同主題:GitHub Weekly 第 119 期:生產級 Agent 技能包、蘋果官方
+- [[fowler-llm-voice-ai-writing-uncanny-valley]] — 同主題:Martin Fowler〈LLM Voice〉:AI 文字的恐怖谷,與工程師該

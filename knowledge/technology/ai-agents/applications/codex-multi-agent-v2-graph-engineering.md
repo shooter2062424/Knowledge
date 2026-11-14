@@ -128,3 +128,7 @@ flowchart TD
   - 作者筆記:aivi.fyi/llms/codex-multi-agent-v2;開源專案:github.com/win4r
   - ⚠️ 該片無字幕,逐字稿以 **CPU 版 faster-whisper(small)** 轉錄取得、**非官方字幕**,可能有少量聽寫誤差(如版本號、CC Switch、SuperDesign 等專有名詞)。
 - 延伸(本庫):[Claude Dynamic Workflows 解析](../foundations/claude-dynamic-workflows.md)、[Cross-Model Review:Claude 跟 Codex 自動互審](./cross-model-review-claude-codex-harness.md)、[把 Hermes 爆改成主 Agent 中樞](./hermes-main-agent-orchestration.md)、[五大 Agent 模式](../foundations/five-agent-patterns.md)、[別跟單一模型結婚:Model Agnostic](../../ai-productivity/model-agnostic-ai-workflow.md)、[Codex 2.0 新功能實戰](../../ai-productivity/codex-2-record-replay-mobile-remote.md)
+
+## 相關筆記
+
+- [[issue-110]] — 同主題:GitHub Weekly 第 110 期:史上最快爆紅的 Rust 版 Cla

@@ -118,3 +118,7 @@ agent 解釋**什麼修好了它**:進場規則從來不是問題(RST 每次都�
 - YouTube:[Opus 4.8 + Claude Code + MCP = King of Algo Trading!(Algo-trading with Saleh)](https://www.youtube.com/watch?v=1SLbe0k6x4I)
 - [Jesse 演算法交易框架](https://jesse.trade) — 開源 Python 回測/實盤框架,內建 MCP server。
 - 延伸:本庫 [[task-decomposition-agentic-workflow]](MCP + 分步驟 agent 工作流)、[[using-ai-for-stock-analysis]]、[[selling-earnings-volatility]]。
+
+## 相關筆記
+
+- [[issue-123]] — 同主題:第 123 期:多說話人 ASR、並行 Agent 工作台、DESIGN.md 

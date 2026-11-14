@@ -158,3 +158,10 @@ flowchart TB
 - [Courthouse News:NY appeals court tosses Trump's $500M civil fraud penalty](https://www.courthousenews.com/new-york-appeals-court-tosses-trumps-500-million-civil-fraud-penalty/)
 - [InvestmentNews:NY Appeals court tosses $500M civil fraud penalty; upholds injunctive relief](https://investmentnews.com/regulation-and-legislation/ny-appeals-court-tosses-500m-civil-fraud-penalty-against-trump-upholds-injunctive-relief/261809)
 - [WHRO:An appeals court throws out a massive civil fraud penalty against President Trump](https://www.whro.org/2025-08-21/an-appeals-court-throws-out-a-massive-civil-fraud-penalty-against-president-trump)
+
+## 相關筆記
+
+- [[paramount-warner-bros-ellison-cash-acquisition]] — 家族資本與借殼上市的同類操作
+- [[us-tariff-ieepa-struck-down-refunds-and-section-301]] — 川普政府政策的法律與財務後果
+- [[retirement-risk-math-john-dagostino-coinbase]] — 穩定幣收益與加密資產的爭議
+- [[pamela-reif-creator-to-entrepreneur-business-model]] — 同主題:帕梅拉(Pamela Reif)怎麼「賺」:從健身 YouTuber 到多品牌企

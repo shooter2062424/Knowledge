@@ -190,3 +190,8 @@ flowchart BT
 
 - [arXiv:2605.15184v1 — Is Grep All You Need? How Agent Harnesses Reshape Agentic Search](https://arxiv.org/html/2605.15184v1)
 - [IBM Technology — Are Vector Databases Still Needed? RAG, AI Agents & Search](https://www.youtube.com/watch?v=rXFV1ivDe6c)(2026-11-05;該片字幕為 YouTube 提供的機器翻譯繁中,非原文逐字稿,時間點取自該字幕)
+
+## 相關筆記
+
+- [[deepseek-search-fetch-api-agent-evidence]] — 同主題:DeepSeek 開賣搜尋:Search / Fetch API 每千次 0.7
+- [[issue-111]] — 同主題:GitHub Weekly 第 111 期:Karpathy 經驗的 Claud

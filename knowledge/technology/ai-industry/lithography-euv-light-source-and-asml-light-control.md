@@ -148,3 +148,9 @@ flowchart LR
 - [Asianometry:A Deep Dive into Immersion Lithography](https://www.asianometry.com/p/a-deep-dive-into-immersion-lithography)
 - [Microscopy Research and Technique(斜照明文獻綜述)](https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/10.1002/jemt.22834)
 - 延伸(本庫):[[advanced-packaging-explained]]、[[hbm-high-bandwidth-memory-principle]]
+
+## 相關筆記
+
+- [[xring-o100-tsv-hybrid-bonding-3d-stack]] — 先進製程與封裝的另一端
+- [[ssd-nand-flash-floating-gate-engineering]] — 半導體物理與製程原理的同類拆解
+- [[nvidia-moat-memory-bandwidth-cuda-software]] — 晶片產業鏈的上游與護城河

@@ -168,3 +168,8 @@ GEPA 的特性,對照資訊圖:
 - [DeepSeekMath: Pushing the Limits of Mathematical Reasoning(arXiv 2402.03300)](https://arxiv.org/pdf/2402.03300) — GRPO 原始定義(group relative advantage、無 critic)。
 - [Hugging Face LLM Course — GRPO in DeepSeekMath](https://huggingface.co/learn/llm-course/en/chapter12/3a) — GRPO 機制說明。
 - 資訊圖:「GRPO vs GEPA — Same rollout. Different signal.」(社群整理,概念對照來源)。
+
+## 相關筆記
+
+- [[chain-of-thought-history-and-mirage]] — 同主題:AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」
+- [[harnessed-agentic-rl-agent-lightning]] — 同主題:Harnessed Agentic RL:當 harness 而不是訓練器擁有互

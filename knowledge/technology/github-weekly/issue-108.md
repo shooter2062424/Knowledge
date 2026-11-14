@@ -109,3 +109,11 @@
 - [GitHub Weekly 第 108 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/108.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[claude-code-hooks-complete-guide]] — 配置合集中 Hooks 機制說明
+- [[claude-code-architecture-deep-dive]] — Claude Code 內部運作迴圈
+- [[local-ai-every-hardware-size]] — 離線與本地模型的硬體門檻
+- [[ai-harness-explained]] — Harness 概念,對應從零手搓
+- [[claude-md-12-rules]] — 規則檔案設計,對應配置合集

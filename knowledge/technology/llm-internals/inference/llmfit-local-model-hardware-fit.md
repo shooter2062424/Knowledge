@@ -132,3 +132,10 @@ llmfit 有 REST API(`/api/v1/system`、`/api/v1/models`)。可以接進內部部
 - llmfit CLI 文件:https://github.com/AlexsJones/llmfit/blob/main/docs/cli.md
 - Ollama:https://ollama.com
 - Whisper 專有名詞還原:LLFIT / LLMFIT→llmfit、Olema / 歐拉瑪→Ollama、POO→pull、Avoret→eval rate、Verbos→--verbose、千問三→Qwen3
+
+## 相關筆記
+
+- [[minimax-h3-local-video-mac-mini-vpipe-ai-strategy-room]] — 同主題:在 Mac mini 上免費跑 MiniMax H3 影片生成:vpipe 實測
+- [[whisper-cpp-vs-faster-whisper-benchmark]] — 同主題:whisper.cpp vs faster-whisper:本機 CPU 轉錄 
+- [[issue-136]] — 同主題:第 136 期:消費級顯卡跑 DeepSeek(Strata)、DeepSeek
+- [[gpu-unlock-ada-tensor-half-rate-override]] — 同主題:4090 算力翻倍?gpu-unlock-ada 解開 Tensor「半速鎖」:

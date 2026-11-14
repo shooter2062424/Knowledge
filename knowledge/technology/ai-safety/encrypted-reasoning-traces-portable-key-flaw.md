@@ -433,3 +433,8 @@ ciphertext, tag = AEAD_encrypt(key, payload, associated_data=aad, nonce=csprng(2
 - 本倉庫相關筆記:[[agent-skill-three-layer-run-do-verify]]、[[prompt-injection-5-techniques-defenses]]
 
 > ⚠️ 本文為架構設計與防禦面的知識整理,**刻意不記錄任何攻擊的操作細節**(論文附錄 C 的萃取實作、注入位置與標記格式一律略過)。引用此文的目的在於「可攜憑證必須做上下文綁定」這個通用工程教訓,而非重現其結果。論文已完成負責任揭露且廠商已部署緩解措施。
+
+## 相關筆記
+
+- [[flashprove-zk-proof-of-model-identity-api-gateway]] — 同主題:FlashProve:用零知識證明驗「你調用的真的是那個模型」——能證明什麼、不
+- [[rsa-260-factored-verifiability-as-design]] — 同主題:RSA-260 被分解:一條推文、一次除法,全世界同時確認 —— 以及「可驗證性

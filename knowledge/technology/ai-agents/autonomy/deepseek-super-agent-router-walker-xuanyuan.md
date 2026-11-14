@@ -246,3 +246,7 @@ flowchart LR
 - 設計文章報導(二手):IT之家 https://www.ithome.com/1/020/615.htm ;愛范兒 https://www.ifanr.com/1687026
 
 > 本篇的設計內容主要來自影片轉述,**原文章未能取得(只確認存在於 2026-10-31,並以二手報導核對部分數字)**;與 repo 的對照以上述核實段為準。引用具體機制前請回到 DeepSeek 原文章與 repo 文件。
+
+## 相關筆記
+
+- [[issue-127]] — 同主題:第 127 期:DeepSeek Harness、出版級圖表 Skill、自我進

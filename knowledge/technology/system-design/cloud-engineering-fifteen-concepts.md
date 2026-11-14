@@ -109,3 +109,10 @@ flowchart TD
 - AWS IAM 最佳實務:https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html
 - Google Cloud Workload Identity Federation:https://docs.cloud.google.com/iam/docs/workload-identity-federation
 - OpenTelemetry Observability primer:https://opentelemetry.io/docs/concepts/observability-primer/
+
+## 相關筆記
+
+- [[scaling-web-architecture-bubble-tea]] — 網站擴展與負載的入門比喻
+- [[dawo-nixos-laptop-as-code-dutch-government]] — IaC 與 GitOps 的實際案例
+- [[raid-explained-why-raid5-unsafe]] — 儲存冗餘與容錯的基礎原理
+- [[trillion-record-realtime-search-kafka-dedup]] — 同主題:一兆筆紀錄的即時搜尋:從 36 小時延遲砍到 5 分鐘的去重管線

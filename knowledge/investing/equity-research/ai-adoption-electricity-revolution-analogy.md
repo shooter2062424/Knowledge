@@ -159,3 +159,10 @@ flowchart TD
 - 影片:[AI竟与100年前电力革命如此相似?90%的人都看错方向,历史已指明最大商机!(美投讲美股 @MeiTouJun,2026-07-12)](https://youtu.be/0kvj3lbJqoY)
   - ⚠️ 該片無字幕,逐字稿以 **CPU 版 faster-whisper(small)** 轉錄取得、**非官方字幕**,可能有少量聽寫誤差。
 - 延伸對照(本庫):[AI 產業秘密轉向:C→B、算力成勝負手](./ai-industry-shift-c-to-b-compute-decides.md)、[AI 應用層 4 大前瞻趨勢](./ai-application-layer-4-trends-earnings.md)、[AI 算力與 Token 經濟學](../../technology/ai-industry/ai-compute-token-economics.md)
+
+## 相關筆記
+
+- [[enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao]] — 能力落差與流程落差,採納的另一面
+- [[ai-application-layer-4-trends-earnings]] — 採納之後的應用層商機
+- [[ai-industry-shift-c-to-b-compute-decides]] — B 端採納與算力的產業結構
+- [[bill-gates-turbulent-ai-era-human-reserved]] — 同主題:Bill Gates〈AI 動盪時代〉長文導讀：工作、機器人稅、雙面刃、陪伴與「

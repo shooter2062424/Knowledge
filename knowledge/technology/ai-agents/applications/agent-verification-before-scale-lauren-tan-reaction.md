@@ -129,6 +129,8 @@ Agent 每次驗證都臨時寫腳本、用完就丟、下一個再重寫,既慢�
 - [[loop-engineering-when-and-how-gary-chen]]:驗收目標與 hard stop 的設計。
 
 ---
+- [[ai-boss-luna-andon-market-fired-human-mia]] — 同主題:AI 老板 Luna 開除了第一個真人:Andon Market 的心軟、健忘與
+- [[enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao]] — 同主題:個人用 AI 快 100 倍、公司卻沒感覺:能力落差與流程落差,以及原演講沒被摘
 
 ## 來源
 

@@ -563,3 +563,7 @@ L1–L3 = Prompt / Context / Tool;L4 = Loop(把決定權交給模型在循環裡
 - 本倉庫相關筆記:[[loop-engineering-when-and-how-gary-chen]](前傳)、[[agent-five-cores-langgraph-trading-agent]](LangGraph 實作)、[[seven-agent-architectures-selection-guide]](架構選型)、[[agent-native-tooling-steinberger]]、[[task-decomposition-agentic-workflow]]、[[claude-dynamic-workflows]]、[[context-engineering-processing-vs-thinking]]、[[token-saving-three-moves-context-control]]、[[agent-runtime-deepseek-harness-cordis]]、[[pi-minimal-agent-harness-teardown]]、[[matt-pocock-skills-teardown]]
 
 > ⚠️ 本文為影片論點的整理與延伸;第三節末的「五層對應本倉庫筆記」對照表與「應用案例」各節為整理者所加,非影片內容。
+
+## 相關筆記
+
+- [[harness-loop-graph-troubleshooting-map]] — 同主題:Harness / Loop / Graph 三層排障地圖:把「Agent 又抽

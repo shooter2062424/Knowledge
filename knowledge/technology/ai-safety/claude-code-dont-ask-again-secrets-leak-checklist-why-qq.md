@@ -103,3 +103,11 @@ flowchart LR
 - 說明欄引用:Apiiro 報告 [https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again/](https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again/)(HTTP 403,**未讀到正文**)。
 - Claude Code 官方文件:[權限](https://code.claude.com/docs/en/permissions)、[設定](https://code.claude.com/docs/en/settings)(已讀相關段落)。
 - 次級報導(僅讀搜尋摘要,Auto 模式實驗):[InfoWorld](https://www.infoworld.com/article/4207959/anthropic-makes-claude-codes-auto-mode-default-for-paid-users.html)、[letsdatascience](https://letsdatascience.com/news/anthropic-makes-auto-mode-default-in-claude-code-60dcee63)。
+
+## 相關筆記
+
+- [[prompt-injection-5-techniques-defenses]] — Agent 權限與外洩風險的攻防框架
+- [[opencode-console-breach-guardrail-asymmetry]] — 密鑰放置位置與護欄的實際案例
+- [[easy-mcp-ai-wordpress-claude-code-seo-guardrails]] — 同主題:用 Easy MCP AI 讓 Claude Code 管 WordPress:
+- [[jailbreak-bakery-test-allergy-prompt-mia]] — 同主題:AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI)
+- [[tailworm-tailscale-ssh-ai-coding-agent-boundary]] — 同主題:Tailworm:Tailscale SSH 的轉發與 AI Coding 代理

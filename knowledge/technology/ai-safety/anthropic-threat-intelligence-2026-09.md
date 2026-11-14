@@ -393,3 +393,8 @@ flowchart LR
   - ⭐ [Anthropic 威脅情報報告重磅解析(含台灣電戰模擬與長老教會案例)— AI Post Hub](https://www.aiposthub.com/anthropic-threat-intelligence-report-september-2026-china-distillation-deepseek-qwen-taiwan-electronic-warfare-deep-dive/)(**§7 的依據**)
   - [Anthropic's new threat report shows one hacker with AI now equals a state-backed team](https://pasqualepillitteri.it/en/news/15515/anthropic-threat-report-september-2026)
 - 延伸:本庫 [[prompt-injection-5-techniques-defenses]]、[[vibe-coding-security-threat-modeling]]、[[encrypted-reasoning-traces-portable-key-flaw]]、[[rsi-recursive-self-improvement-anthropic]]、[[agent-paid-api-cost-guardrails-mcp]]、[[safety-evaluation-crisis]]。
+
+## 相關筆記
+
+- [[claude-text-watermark-remover-repo-check-yaha]] — 同主題:Claude 文字水印與「1.8 萬星去水印工具」:用原始碼驗證影片的「蹭流量沒
+- [[jailbreak-bakery-test-allergy-prompt-mia]] — 同主題:AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI)

@@ -301,3 +301,10 @@ flowchart LR
 - Dex Horthy `show-me` skill(pr 的視覺化出處):<https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md>
 - Gary 的 Skool 社群(付費內容未轉述):<https://www.skool.com/gary-chen>
 - 延伸(本庫):[模型越強,Superpowers vs Matt Skills 該刪誰(專講「寫計畫」勝負手)](./superpowers-vs-matt-skills-strong-model.md)、[Skill 實戰:從製作到維護](./building-claude-skills.md)、[4 組頂級 Agent Skill(含 Matt Pocock/Superpowers)](./top-skills-for-agents.md)、[AI 安全接手舊專案五步驟](../../ai-productivity/ai-brownfield-codebase-five-steps.md)、[OpenAI GPT-5.6 官方提示指南(先做減法)](../foundations/gpt-5-6-prompting-guide-openai.md)、[Bitter Lesson:模型變強後砍舊 prompt](../foundations/bitter-lesson-cut-old-patterns.md)
+
+## 相關筆記
+
+- [[skill-evaluation-four-layer-checklist-google-qq]] — 同主題:Skill 沒效果?先跑對照實驗:Google 的 Skill 優化實驗與「四層
+- [[gemini-skills-and-claude-code-shared-skill-md-yaha]] — 同主題:一份 SKILL.md 兩邊跑:Gemini 技能(Skills)與 Claud
+- [[issue-100]] — 同主題:GitHub Weekly 第 100 期:開源程式 Agent、AI 技能框架
+- [[issue-113]] — 同主題:GitHub Weekly 第 113 期:AI 終端機開源、駭客工具箱、Ski

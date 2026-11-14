@@ -85,3 +85,11 @@
 ## 來源
 
 - itcoffee66/githubweekly 第 118 期:<https://github.com/itcoffee66/githubweekly/blob/main/_weekly/118.md>(2026/06/07–06/13)
+
+## 相關筆記
+
+- [[kepano-obsidian-vault-format-and-team-rollout-plan]] — Obsidian vault 格式與導入
+- [[obsidian-claude-code-cross-project-vault-agentcrew]] — AI 讀寫的 Markdown 知識庫
+- [[llm-abliteration-refusal-direction]] — Heretic 所用的方向消融原理
+- [[task-decomposition-agentic-workflow]] — Markdown 任務規劃的拆解方法
+- [[local-ai-every-hardware-size]] — 自架本地模型的硬體需求

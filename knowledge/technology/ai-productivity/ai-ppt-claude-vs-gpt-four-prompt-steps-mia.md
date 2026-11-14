@@ -116,3 +116,10 @@ Anthropic 的 `pptx` Skill(讀 SKILL.md 原文):
 - [anthropics/skills — pptx SKILL.md](https://github.com/anthropics/skills/blob/main/skills/pptx/SKILL.md)
 - 本庫:[[why-llms-hallucinate-benchmarks-reward-guessing]]
 - 逐字稿:faster-whisper `large-v3-turbo` int8,非官方字幕
+
+## 相關筆記
+
+- [[skywork-research-report-to-slides]] — 同為從查資料到簡報的工具實測
+- [[defining-tasks-not-prompts]] — 把需求寫成 AI 能接的任務定義
+- [[diagram-design-skill-rules-not-model-yaha]] — 簡報與圖表的規則化輸出
+- [[issue-135]] — 同主題:第 135 期:藝術家的 AI IDE(ArtCraft)、互動式技術圖解 Sk

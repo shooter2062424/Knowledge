@@ -225,3 +225,10 @@ flowchart LR
 
 > ⚠️ 影片為韓文,本文依**官方韓文字幕**翻譯整理;操作步驟為 2026-09-06 的介面,**UI 可能已變動**。
 > ⚠️ 該片含產品推廣與推薦連結,已於檔頭標明立場。
+
+## 相關筆記
+
+- [[unreal-engine-mcp-claude-game-dev-reality-check]] — 同主題:不會虛幻引擎也能用 Claude 做遊戲?UE 5.8 官方 MCP 的接法、下
+- [[ai-live2d-vtuber-see-through-anime25drig-pipeline-mia]] — 同主題:一張圖變成會動的 VTuber:See-through 拆層 + Anime2.
+- [[vhs-terminal-recording-tape-script]] — 同主題:VHS:把終端機操作寫成腳本,改一行就重新生成 GIF 和 MP4
+- [[issue-135]] — 同主題:第 135 期:藝術家的 AI IDE(ArtCraft)、互動式技術圖解 Sk

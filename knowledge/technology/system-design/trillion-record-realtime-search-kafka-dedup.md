@@ -347,3 +347,9 @@ flowchart TB
 - [Apache Solr](https://solr.apache.org/) / [ScyllaDB](https://www.scylladb.com/) / [Apache Kafka](https://kafka.apache.org/) / [ClickHouse](https://clickhouse.com/)
 
 > 該片無官方字幕,逐字稿以 YouTube 自動字幕取得,可能有少量聽寫誤差(講者姓名、專有名詞已對照議程頁面校正;字幕中的 "Solar" 實為 Solr、"Sealac" 實為 ScyllaDB)。
+
+## 相關筆記
+
+- [[milvus-architecture-vector-database]] — 大規模資料庫的儲存與架構
+- [[scaling-web-architecture-bubble-tea]] — 規模擴展與架構分層的入門
+- [[cloud-engineering-fifteen-concepts]] — 雲端規模化的基礎概念

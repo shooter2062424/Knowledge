@@ -115,3 +115,10 @@ flowchart LR
 - Live2D Cubism FREE / PRO 比較 <https://www.live2d.com/en/cubism/comparison/>;編輯器手冊:網格 <https://docs.live2d.com/en/cubism-editor-manual/mesh-edit/>、標準參數 <https://docs.live2d.com/en/cubism-editor-manual/standard-parametor-list/>
 - MediaPipe Face Landmarker <https://developers.google.com/edge/mediapipe/solutions/vision/face_landmarker>
 - VTube Studio <https://github.com/DenchiSoft/VTubeStudio>
+
+## 相關筆記
+
+- [[yaha-video-ai-tools-filmora-topview-flova]] — AI 影音工具的可複用方法論
+- [[minimax-h3-local-video-mac-mini-vpipe-ai-strategy-room]] — 本地跑 AI 影片生成的成本與限制
+- [[blender-previz-mcp-ai-video]] — 用 3D 預覽輔助 AI 影片的製作流程
+- [[issue-137]] — 同主題:第 137 期:DeepSeek Super Agent 原型、讓 Agent 

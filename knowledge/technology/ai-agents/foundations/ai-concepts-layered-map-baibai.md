@@ -190,3 +190,8 @@ sequenceDiagram
 - 〈职场人专属选型指南:看懂AI的四层底层逻辑〉— 白白说大模型,2026-09-11:<https://www.youtube.com/watch?v=Zez7CMkSZsI>
 
 > 三片均無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差。
+
+## 相關筆記
+
+- [[ai-agent-beginner-course-five-elements-knowledge-base]] — 同主題:AI Agent 入門課:五大核心要素、知識庫(RAG)與 Cherry Stu
+- [[ai-essential-13-concepts-beginner-map]] — 同主題:AI 入門 13 個必懂概念:LLM、Token、神經網路、幻覺、LoRA、Mo

@@ -273,3 +273,7 @@ const jsonAttempt = "{" + argsStr
 - Repo:[howardpen9/tmux-bridge-mcp(GitHub)](https://github.com/howardpen9/tmux-bridge-mcp) —— 本筆記以 `git clone --depth 1` 取得 v0.3.0 原始碼閱讀後整理,整理完已刪除暫存 clone。
 - 相關:[tmux(terminal multiplexer)](https://github.com/tmux/tmux)、[Model Context Protocol SDK](https://github.com/modelcontextprotocol)
 - 延伸(本庫):[Cross-Model Review:Claude 跟 Codex 自動互審](./cross-model-review-claude-codex-harness.md)、[把 Hermes 爆改成主 Agent 中樞](./hermes-main-agent-orchestration.md)、[AI Agent 工具調用:ReAct → Function Calling → MCP → CLI](../foundations/function-calling-mcp-cli-tool-evolution.md)、[五大 Agent 模式](../foundations/five-agent-patterns.md)
+
+## 相關筆記
+
+- [[vhs-terminal-recording-tape-script]] — 同主題:VHS:把終端機操作寫成腳本,改一行就重新生成 GIF 和 MP4

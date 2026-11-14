@@ -105,3 +105,10 @@ flowchart TD
 - 二手報導(未讀 Anthropic 原頁):
   - https://tbreak.com/claude-dashboards-motion-beta/(Dashboards、Motion、Docs/Slides/Design 方案與日期)
   - https://www.engadget.com/2293646/claude-duet-is-anthropics-answer-to-meta-muse-and-(Duet 美國 waitlist,2026-10-21)
+
+## 相關筆記
+
+- [[claude-md-from-zero-to-mastery]] — CLAUDE.md 三個位置與修剪方法
+- [[claude-app-nine-hidden-settings-memory-skills-dispatch]] — 桌面 App 記憶、Skill、排程設定
+- [[claude-code-30-hidden-shortcuts]] — /btw 等快捷鍵與側聊功能
+- [[claude-code-2026-feature-timeline]] — 近半年功能演進的完整脈絡

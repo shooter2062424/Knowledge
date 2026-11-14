@@ -102,3 +102,9 @@ flowchart TD
 - 範例包:https://github.com/buildinpublichub/YAHAClass-Document/tree/main/gemini-skill-kit(2026-11-07 clone 讀取 `kit/` 下三個版本)
 - Google Gemini Apps Help〈About the transition from Gems to skills〉:https://support.google.com/gemini/answer/18560919?hl=en
 - Claude Code 官方技能文件(頁面標題未核對):https://code.claude.com/docs/en/skills
+
+## 相關筆記
+
+- [[agent-skill-three-layer-run-do-verify]] — Skill 的跑、做、驗三層拆解
+- [[matt-pocock-skills-teardown]] — 跨平台可用的 Skill 寫法對照
+- [[top-skills-for-agents]] — 各類熱門 Skill 的整理與比較

@@ -241,6 +241,7 @@ RAG 的本質是**在有限的視窗裡,把最高密度、最正確的資料端�
 - [[kv-cache]]:快取如何讓重複前綴變便宜。
 
 ---
+- [[ai-essential-13-concepts-beginner-map]] — 同主題:AI 入門 13 個必懂概念:LLM、Token、神經網路、幻覺、LoRA、Mo
 
 ## 來源
 

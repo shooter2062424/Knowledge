@@ -280,3 +280,7 @@ flowchart TB
 - 本倉庫相關筆記:[[kv-cache]]、[[attention-residuals]]、[[token-vs-embedding-llm-and-rag]]、[[microgpt-karpathy]]、[[sdar-agentic-rl]]
 
 > ⚠️ 效能數字取決於硬體、模型與推論引擎版本,文中引用的是原文的實測環境;實際落地前應在自己的環境重測。
+
+## 相關筆記
+
+- [[vllm-pagedattention-engine-parameters-xiaobai-debug]] — 同主題:vLLM 為什麼能讓同一張 GPU 多扛幾倍請求:KV cache、PagedA

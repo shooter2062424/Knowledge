@@ -152,3 +152,7 @@ Minervini 反覆強調「**先想輸、再想贏**」,風控是整套系統的�
   - [Trend Template 8 條(ChartMill)](https://www.chartmill.com/documentation/stock-screener/technical-analysis-trading-strategies/496-Mark-Minervini-Trend-Template-A-Step-by-Step-Guide-for-Beginners)、[SEPA 框架(finermarketpoints)](https://www.finermarketpoints.com/post/mark-minervini-s-sepa-methodology-complete-framework-explained)
   - [漸進建倉 Progressive Exposure(TraderLion)](https://traderlion.com/lesson/lesson-7-progressive-exposure-the-minervini-method/)、[風控與 2021 年 334% 奪冠(TraderLion)](https://traderlion.com/investing-champions/mark-minervinis-risk-management/)
 - 延伸:本庫 [[short-term-trading-7-rules]]、[[double-top-bottom-momentum]]、[[just-keep-buying-nick-maggiulli]]。
+
+## 相關筆記
+
+- [[peter-tuchman-day-trading]] — 同主題:當沖有技巧嗎?紐約證交所傳奇交易員 Peter Tuchman 的 40 年心法

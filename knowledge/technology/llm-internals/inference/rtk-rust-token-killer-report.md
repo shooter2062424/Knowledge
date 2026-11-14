@@ -481,3 +481,7 @@ RTK 體現了一個值得追蹤的更廣模式:**在 I/O 邊界做確定性、�
 - [rtk/INSTALL.md at master](https://github.com/rtk-ai/rtk/blob/master/INSTALL.md)
 - [rtk/CONTRIBUTING.md at master](https://github.com/rtk-ai/rtk/blob/master/CONTRIBUTING.md)
 - [I Tried RTK (Rust Token Killer) — jangwook.net](https://jangwook.net/en/blog/en/rtk-rust-token-killer-llm-cost-optimization-guide-2026/)
+
+## 相關筆記
+
+- [[issue-117]] — 同主題:GitHub Weekly 第 117 期:開源 Claude Design、上

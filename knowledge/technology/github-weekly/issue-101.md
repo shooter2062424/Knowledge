@@ -117,3 +117,10 @@
 - [GitHub Weekly 第 101 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/101.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[claude-web-design-skills-benchmark-pnh]] — 含 UI UX Pro Max 的 Skill 實測
+- [[impeccable-frontend-design-skill-ai-slop]] — 設計 Skill 如何擺脫 AI 味
+- [[function-calling-mcp-cli-tool-evolution]] — MCP 協定與工具呼叫的演進
+- [[claude-cowork-vs-chat-four-questions]] — Cowork 類工具的選型對照

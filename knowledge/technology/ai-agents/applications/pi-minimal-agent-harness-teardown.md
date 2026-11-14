@@ -1167,3 +1167,7 @@ git add -A && git commit -m "before: <要嘗試的事>"
 > ⚠️ **技術爬爬蝦那一片**無字幕,逐字稿以 CPU 版 faster-whisper(small / int8 / zh)轉錄取得,**非官方字幕**(畅的科技工坊該片有官方 zh-CN 字幕,無此問題),可能有少量聽寫誤差。⚠️ **Kelly Tsai 那一片**同樣無字幕,逐字稿亦以 CPU 版 faster-whisper 轉錄,**非官方字幕**(轉錄中的「拍」為 **Pi**、「跨扣 / Clockhole / Claw Code」為 **Claude Code**、「歐米派 / 歐美派」為 **OMP**、「Sonic 5」為 **Sonnet 5**、「Open 4.8」為 **Opus 4.8**、「Termus II」為 **Terminus 2**、「中斷機」為**終端機**、「gethop」為 **GitHub**、「奧定力」為**奧地利**、「Mario Zegner」為 **Mario Zechner**、「賺號全線」為**帳號權限**)。文中專有名詞已對照原始碼校正(轉錄中的「派 / Pie」為 **Pi**、「大到致減」為**大道至簡**、「碳號」為**驚嘆號 `!`**、「克龍」為 **clone**、「Folk」為 **fork**、「斜線錘」為 **`/tree`**、「staring」為 **steering**、「杀箱」為**沙箱**、「全线」為**權限**、「Azence.md」為 **AGENTS.md**)。
 >
 > ⚠️ **§一的第三方基準轉述(Composio)未獨立驗證;Databricks 的數字已於 §12.12 逐項核實。** Pi 迭代快速,指令與插件生態可能已變動,以官方文件為準。
+
+## 相關筆記
+
+- [[issue-100]] — 同主題:GitHub Weekly 第 100 期:開源程式 Agent、AI 技能框架

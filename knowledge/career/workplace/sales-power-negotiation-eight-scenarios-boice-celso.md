@@ -201,3 +201,9 @@ flowchart LR
 - 影片說明欄:課程《業務進化力》連結 [https://go.hahow.in/Boice/CELSO500](https://go.hahow.in/Boice/CELSO500)(推廣連結,未點入閱讀課程內容)。
 - Grant, A. M. (2013). Rethinking the Extraverted Sales Ideal: The Ambivert Advantage. *Psychological Science*, 24(6), 1024–1030. [全文 PDF](https://faculty.wharton.upenn.edu/wp-content/uploads/2013/06/Grant_PsychScience2013.pdf)、[DOI 頁](https://journals.sagepub.com/doi/full/10.1177/0956797612463706)
 - Tversky, A., & Kahneman, D. (1974). Judgment under Uncertainty: Heuristics and Biases. *Science*, 185(4157), 1124–1131(僅查到引用資訊與二手摘要,未讀原文)。
+
+## 相關筆記
+
+- [[ten-toxic-manager-traits]] — 職場談判與主管關係的另一面
+- [[personality-question-trait-behaviour-evidence]] — 用行為與證據把能力講具體
+- [[four-traits-interesting-conversation]] — 同主題:為什麼跟有些人聊天特別有趣:四個特質,而且都不是話術

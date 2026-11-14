@@ -289,3 +289,10 @@ let new_tree = parser.parse(new_src, Some(&tree)); // ← Some(&tree) 觸發重�
 - [Code Navigation Systems 文件](https://tree-sitter.github.io/tree-sitter/4-code-navigation) — tagging 與 `@role.kind` 慣例。
 - [Rust binding README](https://github.com/tree-sitter/tree-sitter/blob/master/lib/binding_rust/README.md) — 增量編輯與 callback 輸入範例。
 - 影響其設計的論文:Tim Wagner《Efficient and Flexible Incremental Parsing》、《Incremental Analysis of Real Programming Languages》(GLR 增量解析)。
+
+## 相關筆記
+
+- [[codebase-memory-treesitter-knowledge-graph-mcp]] — 用 tree-sitter 建程式碼圖譜
+- [[codebase-memory-vs-codegraph-two-routes]] — 同一痛點的兩條程式碼記憶路線
+- [[codegraph-code-and-tui]] — 程式碼結構化理解工具的原始碼深讀
+- [[understand-anything-vs-graphify]] — 程式碼知識圖譜工具的實測對比

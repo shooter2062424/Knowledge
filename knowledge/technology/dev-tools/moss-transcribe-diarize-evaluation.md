@@ -109,3 +109,9 @@ flowchart TD
 - 模型:[OpenMOSS-Team/MOSS-Transcribe-Diarize(HuggingFace)](https://huggingface.co/OpenMOSS-Team/MOSS-Transcribe-Diarize)
 - 論文:[arXiv 2601.01554](https://arxiv.org/abs/2601.01554)
 - 本庫相關:[whisper.cpp vs faster-whisper 本機 CPU 轉錄 Benchmark](./whisper-cpp-vs-faster-whisper-benchmark.md)
+
+## 相關筆記
+
+- [[five-open-source-english-learning-tools]] — 同主題:五個開源英語學習專案:從聽力訓練流程到「把每天看的英文網頁變成教材」
+- [[voxcpm-report]] — 同主題:VoxCPM:無分詞器、可「用文字描述設計聲音」的開源 TTS
+- [[issue-122]] — 同主題:第 122 期:AI 求職助手、Photoshop 版 GIMP、Agent 省

@@ -203,3 +203,7 @@ dbx 的 MCP 權限設計值得抄:**三段式模式(唯讀 / 資料讀寫 / 完�
   - ⚠️ 影片錄於 2026-07-06,repo 持續更新中(例如資料庫支援數從影片的「60 多種」到 README 現稱 70+);實際採用請以最新 README 為準。
 - 範例資料:Northwind 資料庫(GitHub 可搜到並下載)。
 - 延伸(本庫):[qm(YC 開源)的 scope 與安全姿態](../ai-agents/applications/qm-yc-multiplayer-agent-harness.md) · [Google 課程 Day 4+5:zero-trust 三層](../ai-agents/foundations/google-agentic-engineering-day4-5.md) · [Loop 與 Graph 之爭](../ai-agents/foundations/loop-vs-graph-debate-engineering-view.md)(不可逆操作交給確定性規則) · [MCP 史上最大改版](../ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md)
+
+## 相關筆記
+
+- [[issue-133]] — 同主題:第 133 期:給 Agent 開家公司(Paperclip)、讓 Agent 

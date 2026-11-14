@@ -107,3 +107,11 @@ flowchart TD
 - (2026-11-07 增補,搜尋摘要)TransUnion 0.99 定價:https://nationalmortgageprofessional.com/news/transunion-locks-99-cent-vantagescore-pricing-through-2028 (403,未能直接讀取)
 
 > 以上數字來自二手媒體整理,**未直接讀 FICO / TransUnion 公司公告**;下單前請對照一手來源。⚠️ 非投資建議。
+
+## 相關筆記
+
+- [[google-amazon-q3-2026-selloff-nick]] — 同作者,下跌後加碼的理由判斷
+- [[ai-proof-five-moat-stocks-nick]] — 同作者,護城河與現金流的篩選標準
+- [[pltr-earnings-growth-ceiling-and-valuation-digestion]] — 財報後大跌的估值消化與增速見頂
+- [[just-keep-buying-nick-maggiulli]] — 同主題:在瘋狂股市裡,你還該「持續買入」嗎?——Nick Maggiulli 訪談筆記
+- [[mcdonalds-traffic-decline-franchisee-turnaround]] — 同主題:麥當勞跌三成是一生一次的機會嗎?客流、加盟商與兩次歷史翻身

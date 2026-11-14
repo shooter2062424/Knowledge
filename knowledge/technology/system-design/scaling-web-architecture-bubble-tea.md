@@ -65,3 +65,8 @@ flowchart TD
 ## 來源
 
 - [YouTube:為什麼你用 AI 寫的網站,一上線就掛?(Debug Tuboshu)](https://youtu.be/t5CtfUWJjm4)
+
+## 相關筆記
+
+- [[cloud-engineering-fifteen-concepts]] — 同主題:雲端工程 15 個基礎概念(含 AWS / GCP 官方文件查證)
+- [[trillion-record-realtime-search-kafka-dedup]] — 同主題:一兆筆紀錄的即時搜尋:從 36 小時延遲砍到 5 分鐘的去重管線

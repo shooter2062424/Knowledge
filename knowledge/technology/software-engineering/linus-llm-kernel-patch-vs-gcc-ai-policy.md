@@ -260,3 +260,10 @@ flowchart TD
 - [Codeberg Has Drawn a Hard Line on Use of AI With Community Backing(It's FOSS)](https://itsfoss.com/news/codeberg-bans-ai-contributions/)
 - [Codeberg has decided to ban predominantly AI-generated repositories after a community vote(AlternativeTo)](https://alternativeto.net/news/2026/7/codeberg-has-decided-to-ban-predominantly-ai-generated-repositories-after-a-community-vote/)
 - [QGIS bans AI-assisted contributions to protect its maintainers(zeli.app)](https://zeli.app/story/50054751)
+
+## 相關筆記
+
+- [[claude-code-team-code-review-seven-layers]] — AI 寫的程式碼如何審查
+- [[cpp-evolution-complexity-ai-era]] — 內核與 C 語言的 AI 時代背景
+- [[ai-native-sdlc-landing-checklist]] — 驗證與評審卡點的落地清單
+- [[rust-issue-164250-borrow-checker-soundness-hole]] — 同主題:編譯通過 ≠ 記憶體安全:Rust issue #164250——借用檢查器裡住

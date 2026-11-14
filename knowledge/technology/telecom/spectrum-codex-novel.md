@@ -512,3 +512,9 @@ PDCCH/PDSCH/PBCH(下行實體通道)、PUCCH/PUSCH/PRACH(上行實體通道)、D
 - [ITU-R M.2160 / IMT-2030 framework](https://www.itu.int/rec/R-REC-M.2160/en)
 - [ShareTechnote — NR Numerology](https://www.sharetechnote.com/html/5G/5G_Phy_Numerology.html)
 - arXiv 綜述:Rel-17 RedCap(2203.05634)、5G-Advanced Rel-18(2201.01358)、NR XR(2412.00741)
+
+## 相關筆記
+
+- [[5g-nr-to-6g-modem-spec-to-code-flow]] — 5G 到 6G 規格與實作的真實流程
+- [[wifi-how-it-works]] — 同為電磁波與通訊原理的科普
+- [[spec-driven-development-landscape-2026]] — 規格驅動開發與標準對照

@@ -93,3 +93,7 @@
 - plugin(ai-grocery):`plugins/spec-code-flow/`(本機 `C:\Users\shoot\project\ai-grocery\plugins\spec-code-flow\`)
 - 實驗程式:<https://github.com/shooter2062424/Knowledge/tree/main/research/spec-flow-skill>
 - 前置:[[ilm-multi-team-spec-workflow]]、[[multi-spec-roundtrip-experiment-python-sim]]、[[spec-code-flow-overview-greenfield-brownfield]]、[[spec-driven-development-landscape-2026]]、[[code-to-spec-reverse-engineering-legacy-codebase]]
+
+## 相關筆記
+
+- [[elephant-goldfish-model-egm-spec-review]] — 同主題:Elephant-Goldfish Model(EGM):大象寫規格,金魚在「零

@@ -110,3 +110,11 @@ agent 要擴散必須簡單,團隊要信任必須可靠;做法是對 agent 行�
 - 原演講:AI Engineer〈Why AI Makes You 100x Faster but Not Your Company – Mitchell Troyanovsky, Basis〉<https://www.youtube.com/watch?v=JGtkTjn4120>(無字幕,逐字稿以 CPU 版 faster-whisper large-v3-turbo 轉錄取得,非官方字幕)
 - Basis 官網 <https://www.getbasis.ai>、About <https://www.getbasis.ai/about>(僅能讀到產品描述)
 - Google DeepMind AlphaGo <https://deepmind.google/research/alphago/>
+
+## 相關筆記
+
+- [[enterprise-ai-adoption-race]] — 同樣談企業導入與只有模型沒用
+- [[agent-verification-before-scale-lauren-tan-reaction]] — 驗證與抽檢是流程信任的前提
+- [[defining-tasks-not-prompts]] — 能力落差的一半是定義任務的能力
+- [[addy-osmani-critical-thinking-when-agents-do-the-work]] — Agent 代勞時的當責與批判思考
+- [[ai-adoption-electricity-revolution-analogy]] — 同主題:AI 像 100 年前的電力革命:真正的商機不在「AI 應用」,而在「AI 採納

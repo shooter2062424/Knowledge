@@ -113,3 +113,10 @@ flowchart TD
 
 - [GitHub 一周热点第 122 期(itcoffee66/githubweekly)](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/122.md)
 - 專案連結:[ai-job-search](https://github.com/MadsLorentzen/ai-job-search) · [Lujie CareerKit](https://github.com/Chozzc/Lujie-Careerkit) · [PhotoGIMP](https://github.com/Diolinux/PhotoGIMP) · [caveman](https://github.com/JuliusBrussee/caveman) · [Meetily](https://github.com/Zackriya-Solutions/meetily) · [OfficeCLI](https://github.com/iOfficeAI/OfficeCLI)
+
+## 相關筆記
+
+- [[agent-project-resume-enterprise-grade]] — 求職與履歷相關的 agent 專案
+- [[token-saving-three-moves-context-control]] — 省 token 的方法,對應 caveman
+- [[moss-transcribe-diarize-evaluation]] — 會議轉錄模型的評估
+- [[local-tools-skill-mcp-three-layer-decision-baibai]] — 讓 agent 操作 Office 的工具選型

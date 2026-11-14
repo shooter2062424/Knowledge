@@ -151,3 +151,8 @@ flowchart TB
   - Matt Pocock skills:<https://github.com/mattpocock/skills>
   - UIUX Pro Max:<https://github.com/nextlevelbuilder/ui-ux-pro-max-skill>
   - 包子老師 baoyu-skills:<https://github.com/JimLiu/baoyu-skills>
+
+## 相關筆記
+
+- [[gemini-skills-and-claude-code-shared-skill-md-yaha]] — 同主題:一份 SKILL.md 兩邊跑:Gemini 技能(Skills)與 Claud
+- [[issue-130]] — 同主題:第 130 期:可驗證的架構圖 Skill、即時 3D 地球觀測台、多智能體 A

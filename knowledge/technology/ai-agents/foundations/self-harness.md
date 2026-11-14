@@ -82,3 +82,7 @@ flowchart TD
 
 - Hangfan Zhang, Shao Zhang, Kangcong Li, Chen Zhang, Yang Chen, Yiqun Zhang, Lei Bai, Shuyue Hu(Shanghai AI Laboratory),〈Self-Harness: Harnesses That Improve Themselves〉,arXiv:2606.09498v1:<https://arxiv.org/abs/2606.09498>
 - 基準:Terminal-Bench-2.0;受測模型:MiniMax M2.5、Qwen3.5-35B-A3B、GLM-5。(論文未提供開源程式碼連結。)
+
+## 相關筆記
+
+- [[issue-110]] — 同主題:GitHub Weekly 第 110 期:史上最快爆紅的 Rust 版 Cla

@@ -95,3 +95,9 @@ flowchart TD
 - ACL 2025 Findings 相關研究:https://aclanthology.org/2025.findings-acl.120/ (是否為影片所指的那篇未能確認)
 
 > 備註:本篇的預印本與 Nature 論文數字來自搜尋摘要與新聞稿,**沒有直接讀到論文全文**;引用具體數字前請回到原論文。
+
+## 相關筆記
+
+- [[addy-osmani-critical-thinking-when-agents-do-the-work]] — 代勞後如何保持批判性思考
+- [[defining-tasks-not-prompts]] — 寫清楚任務比寫提示詞重要
+- [[anthropic-html-work-pages]] — 文件形式與理解瓶頸的對照

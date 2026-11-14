@@ -246,3 +246,8 @@ flowchart LR
 - 本庫相關:[[nvidia-moat-memory-bandwidth-cuda-software]]、[[rtx-spark-gb10-soc]]、[[inference-engines-llamacpp-vllm-sglang-tensorrt]]、[[xiaomi-mimo-v26-rl-live-dashboard-scaling]]、[[agent-harness-launches-august-2026]]
 
 > ⚠️ 本文涉及的模型價格與跑分變動快速,具體數字以各廠官方頁為準。
+
+## 相關筆記
+
+- [[minimax-h3-local-video-mac-mini-vpipe-ai-strategy-room]] — 同主題:在 Mac mini 上免費跑 MiniMax H3 影片生成:vpipe 實測
+- [[issue-105]] — 同主題:GitHub Weekly 第 105 期:Rust 版 OpenClaw、本地

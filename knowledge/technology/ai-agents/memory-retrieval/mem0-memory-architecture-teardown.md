@@ -329,3 +329,9 @@ Mem0 把「這是 agent 的記憶、使用者的記憶,還是這次 run 的記�
 - 本倉庫相關筆記:[[agent-memory-survey-forms-functions-dynamics]]、[[memharness-memory-reconstructed-not-replayed]]、[[project-cairn-experience-to-knowledge-skill]]、[[self-improving-knowledge-base-claude-cowork]]
 
 > ⚠️ 原始碼細節以本文整理時的 main 分支為準;Mem0 迭代快速,權重與參數可能已變動。文中只描述設計與數值常數,未轉錄原始碼內容。
+
+## 相關筆記
+
+- [[issue-107]] — 同主題:GitHub Weekly 第 107 期:被 OpenAI 收購的 AI 安全
+- [[issue-110]] — 同主題:GitHub Weekly 第 110 期:史上最快爆紅的 Rust 版 Cla
+- [[issue-126]] — 同主題:第 126 期:MiniMax H3 全模態影音模型、PDF 解析分流、團隊級 

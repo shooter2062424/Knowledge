@@ -335,3 +335,7 @@ Caleb 的推論很合理 —— **只放 8K/1K、不放 AgentX**,
 
 > ⚠️ 本文為對一支公開影片的整理與查證。§8 已標示核實狀態;
 > 三組跑分的個別絕對數值未逐一比對原始附錄。Jalapeño 相關資訊變動快速,以官方發布為準。
+
+## 相關筆記
+
+- [[gpu-unlock-ada-tensor-half-rate-override]] — 同主題:4090 算力翻倍?gpu-unlock-ada 解開 Tensor「半速鎖」:

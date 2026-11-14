@@ -128,3 +128,9 @@ lazy import tqdm
 
 - 程序员老王,〈Python 3.15 有什么新特性〉,YouTube:<https://www.youtube.com/watch?v=t4QF0t_Y2Bs>(2026-06-11)
 - 該片無字幕,逐字稿以 CPU 版 whisper.cpp(`pywhispercpp`,small 模型)轉錄取得,非官方字幕(可能有少量聽寫誤差,程式碼為依語意還原的示意寫法,實際 API 名稱以 Python 3.15 官方文件為準)。
+
+## 相關筆記
+
+- [[higher-order-functions-readable-code]] — Python 函式寫法與可讀性
+- [[microgpt-karpathy]] — 純 Python 實作的 GPT 範例
+- [[rust-issue-164250-borrow-checker-soundness-hole]] — 語言型別與安全保證的另一例

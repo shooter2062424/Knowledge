@@ -154,3 +154,9 @@ flowchart LR
 - AMD:[FidelityFX Super Resolution](https://www.amd.com/en/products/graphics/technologies/fidelityfx/super-resolution.html)、[GPUOpen — FSR](https://gpuopen.com/fidelityfx-superresolution/)
 
 **Whisper 專有名詞還原對照:** 张亮核性 → Tensor Core(張量核心);光纤追踪 → 光線追蹤;DLSs / DLS S → DLSS;FS2.2.零 / FS2 3.0 → FSR 2.0 / FSR 3.0;亚象素抖动 → 亞像素抖動(subpixel jitter);真生长 / 真生厂 → 幀生成;V-SEN Transformer → Vision Transformer;卷机神经网络 → 卷積神經網路。
+
+## 相關筆記
+
+- [[gpu-unlock-ada-tensor-half-rate-override]] — Tensor Core 指令吞吐的硬體背景
+- [[nvidia-moat-memory-bandwidth-cuda-software]] — GPU 軟硬體生態與渲染加速
+- [[stable-diffusion-how-it-draws]] — 生成式圖像模型的入門原理

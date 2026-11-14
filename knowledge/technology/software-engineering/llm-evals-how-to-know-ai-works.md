@@ -204,3 +204,10 @@ flowchart TB
 - [arXiv 2609.12191:GAUGE: When Not to Trust LLM-as-a-Judge in User-Simulated Evaluation of Task-Oriented Agents](https://arxiv.org/abs/2609.12191)
 
 📎 相關筆記:[[agent-harness-loop-llmops-eval-explained]]、[[safety-evaluation-crisis]]、[[gemini-4-argon-release-benchmarks-pricing]]、[[alignment-illusion-safety-shallow]]
+
+## 相關筆記
+
+- [[skill-evaluation-four-layer-checklist-google-qq]] — 同主題:Skill 沒效果?先跑對照實驗:Google 的 Skill 優化實驗與「四層
+- [[vercel-vgpu-agent-shader-verification-golden-image]] — 同主題:Vercel vgpu:讓 Agent 寫的 Shader「畫對了」能被機器驗收
+- [[skywork-research-report-to-slides]] — 同主題:用 Skywork 從查資料到做簡報:AI 研究助理該看的三個能力(溯源、自訂信
+- [[issue-107]] — 同主題:GitHub Weekly 第 107 期:被 OpenAI 收購的 AI 安全

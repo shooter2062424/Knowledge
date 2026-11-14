@@ -530,3 +530,9 @@ Cloudflare Computer 的效能表是很好的教材:**同一個系統,看不同�
 - 本倉庫相關筆記:[[harness-loop-graph-troubleshooting-map]]、[[loop-vs-graph-debate-engineering-view]]
 
 > 效能數據與文件引述均取自 `cloudflare/computer` repo 於本文整理時的 main 分支,該專案標示 API 不穩定,數字與設計可能隨版本變動。
+
+## 相關筆記
+
+- [[skill-evaluation-four-layer-checklist-google-qq]] — 同主題:Skill 沒效果?先跑對照實驗:Google 的 Skill 優化實驗與「四層
+- [[local-tools-skill-mcp-three-layer-decision-baibai]] — 同主題:MCP、Skill、本地 Tools 到底有什麼區別:三層分工與選型決策樹
+- [[gemini-skills-and-claude-code-shared-skill-md-yaha]] — 同主題:一份 SKILL.md 兩邊跑:Gemini 技能(Skills)與 Claud

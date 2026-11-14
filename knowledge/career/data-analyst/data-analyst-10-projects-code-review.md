@@ -150,3 +150,9 @@ df["Strategy"] = df["Signal"].shift(1) * df["Return"]   # shift(1) 避免偷看�
 - VADER Sentiment(GitHub):https://github.com/cjhutto/vaderSentiment
 - Kaggle Superstore:https://www.kaggle.com/datasets/vivek468/superstore-dataset-final ;Telco Churn:https://www.kaggle.com/datasets/blastchar/telco-customer-churn ;IBM HR:https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset (皆為 PDF 所列,未核實可存取性)
 - Our World in Data COVID-19 資料:https://github.com/owid/covid-19-data/tree/master/public/data
+
+## 相關筆記
+
+- [[ai-engineering-seven-projects-source-review]] — 同類讀碼實跑後的專案評估方法
+- [[model-evaluation-techniques-guide]] — 訓練集內評估會高估,評估方法的正解
+- [[unsupervised-ml-algorithms-guide]] — 同作者系列的 ML 演算法補充

@@ -137,3 +137,12 @@ flowchart TD
 - Filmora 16 韓文試用與 AI credits 規則頁:https://filmora.wondershare.kr/upgrade/16-free-download.html 、https://filmora.wondershare.kr/filmora-ai-credits-rule.html
 - PC World(德文)Filmora 16 評測:https://www.pcwelt.de/?p=3270178
 - 以上皆非官方人工字幕:逐字稿為 YouTube 自動字幕,可能有同音字誤差。
+
+## 相關筆記
+
+- [[minimax-h3-local-video-mac-mini-vpipe-ai-strategy-room]] — 本地跑 AI 影片生成的實測
+- [[ai-live2d-vtuber-see-through-anime25drig-pipeline-mia]] — AI 影片與動畫的拆層綁骨流程
+- [[stable-diffusion-how-it-draws]] — 影像生成模型的底層原理
+- [[issue-113]] — 同主題:GitHub Weekly 第 113 期:AI 終端機開源、駭客工具箱、Ski
+- [[issue-120]] — 同主題:GitHub Weekly 第 120 期:Agent 影片生產系統、用戶名情報
+- [[issue-133]] — 同主題:第 133 期:給 Agent 開家公司(Paperclip)、讓 Agent 

@@ -131,3 +131,7 @@ OpenAI 從 166 個利用樣本抽樣研究技術,稱至少有十種過去沒見�
   - Unite.AI:<https://www.unite.ai/openai-pipeline-finds-948-linux-kernel-privilege-escalation-flaws/>
   - Neowin:<https://www.neowin.net/news/openais-upcoming-model-finds-948-linux-kernel-vulnerabilities-that-could-grant-root-access/>
 - 延伸(本庫):[OpenCode 控制台事件與護欄不對稱](./opencode-console-breach-guardrail-asymmetry.md) · [Loop Engineering:別球員兼裁判](../ai-agents/foundations/loop-engineering-when-and-how-gary-chen.md) · [先給 Agent 驗證再談規模](../ai-agents/applications/agent-verification-before-scale-lauren-tan-reaction.md) · [Bitter Lesson:砍掉舊提示手法](../ai-agents/foundations/bitter-lesson-cut-old-patterns.md)
+
+## 相關筆記
+
+- [[tailworm-tailscale-ssh-ai-coding-agent-boundary]] — 同主題:Tailworm:Tailscale SSH 的轉發與 AI Coding 代理

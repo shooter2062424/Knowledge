@@ -213,3 +213,8 @@ flowchart TB
 - Wu et al.,〈STaRK: Benchmarking LLM Retrieval on Textual and Relational Knowledge Bases〉,arXiv:2404.13207(NeurIPS 2024 D&B):<https://arxiv.org/abs/2404.13207>
 - Long Chen, Ryan Razkenari, Yuxuan Zhou, Yuan Tian, Rahul Ghosh, Venkatesh Pappakrishnan, Disha Ahuja, Vidya Sagar Ravipati,〈Is GraphRAG Needed? From Basic RAG to Graph-/Agentic Solutions with Context Optimization〉,arXiv:2606.25656(2026-06-24,AWS GenAI Innovation Center + Cisco):<https://arxiv.org/abs/2606.25656>
 - 資料集 STaRK-Prime(Wu et al. 2024,基於 PrimeKG);實作技術:Amazon Bedrock Knowledge Bases、Neptune Analytics、Titan Text Embedding v2、OpenSearch Serverless、LlamaIndex、Strands Agents(ReAct);評估用 Claude 3.7 Sonnet;方法參考 ReAct(Yao 2023)與 ReWOO(Xu et al. 2023,arXiv:2305.18323)。本文依論文全文(§3 方法、§5 結果、附錄 case study)整理。
+
+## 相關筆記
+
+- [[deepseek-search-fetch-api-agent-evidence]] — 同主題:DeepSeek 開賣搜尋:Search / Fetch API 每千次 0.7
+- [[issue-127]] — 同主題:第 127 期:DeepSeek Harness、出版級圖表 Skill、自我進

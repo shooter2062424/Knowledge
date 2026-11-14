@@ -76,3 +76,9 @@ flowchart TB
 
 - GitHub:[ombharatiya/ai-system-design-guide](https://github.com/ombharatiya/ai-system-design-guide)(MIT,持續更新)。
 - 延伸(本庫對應主題):[[function-calling-mcp-a2a]]、[[grep-vs-vector-agentic-search]]、[[task-decomposition-agentic-workflow]]、[[harness-engineering-evolution]]、[[deepseek-v4-engineering]]、[[kv-cache]]。
+
+## 相關筆記
+
+- [[ai-architectures-twelve-patterns-practical-examples]] — 系統架構模式的具體實例
+- [[ai-engineering-twenty-concepts-serving-rag-ops]] — 推論與 RAG 的概念速查,可對照章節
+- [[milvus-architecture-vector-database]] — 向量資料庫的架構實作拆解

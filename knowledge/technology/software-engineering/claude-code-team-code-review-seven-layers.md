@@ -202,3 +202,8 @@ flowchart TD
 
 - Why QQ〈AI 写了九成代码,回滚率反降四成〉:https://www.youtube.com/watch?v=-snid-l-rOA(官方 zh-Hans 字幕)
 - Anthropic(claude.dev 部落格)〈How the Claude Code team does code review〉,2026-10-15:https://claude.dev/blog/solving-code-review-at-anthropic/
+
+## 相關筆記
+
+- [[ub-mode-uncle-bob-quality-gate-skill-crapper-dryer-mutator]] — 同主題:ub-mode:Bob 大叔給 coding agent 的「工程質量門禁」技能
+- [[linus-llm-kernel-patch-vs-gcc-ai-policy]] — 同主題:Linus 用 Claude Code 寫內核補丁、GCC 劃下 15 行紅線:

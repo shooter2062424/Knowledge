@@ -309,3 +309,8 @@ Reasoning Gym 有幾十種程式化生成的推理題(迷宮、數獨、幾何�
 - ⭐⭐⭐ [Harness Learning Enables Generalizable Test-Time Adaptation — arXiv 2609.35738](https://arxiv.org/abs/2609.35738)(**一手素材;已讀 HTML 全文核實模型、數字、獎勵設計與限制**)
 - [The Last AI Built by Humans: Toward Genuine Recursive Self-Improvement — arXiv 2609.11873](https://arxiv.org/abs/2609.11873)(L1–L5 自主性分級)
 - 延伸:本庫 [[rsi-recursive-self-improvement-anthropic]](§9 RSI 分級)、[[self-harness]]、[[agentic-harness-engineering-observability-evolution]]、[[prime-agent-rlm-continual-harness]]、[[ai-harness-explained]]、[[harness-engineering-evolution]]
+
+## 相關筆記
+
+- [[tian-yuandong-rsi-recursive-self-improvement]] — 同主題:再訪田淵棟:46.5 億美金估值的 RSI,押注「AI 自進化」與前沿實驗室的組
+- [[harnessed-agentic-rl-agent-lightning]] — 同主題:Harnessed Agentic RL:當 harness 而不是訓練器擁有互

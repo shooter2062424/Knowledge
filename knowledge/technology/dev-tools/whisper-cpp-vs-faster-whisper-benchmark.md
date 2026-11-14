@@ -222,3 +222,12 @@ text = ' '.join(s.text.strip() for s in m.transcribe('audio.wav'))
 - faster-whisper(SYSTRAN,CTranslate2 後端):<https://github.com/SYSTRAN/faster-whisper>。
 - 測試音訊:本機既有的兩支 YouTube 影片音訊(中文科技解說 + 蘇姿丰 MIT 演講英文原音)各前 5 分鐘;benchmark 為單機單次量測,數字會隨機器/負載浮動,但兩引擎相對差距穩定。
 - **2026-07 更新來源**:whisper.cpp 內建 Silero VAD(`--vad`,v1.7.6+/v1.8.x/v1.9.1)— <https://github.com/ggml-org/whisper.cpp>、VAD 討論 [issue #3003](https://github.com/ggml-org/whisper.cpp/issues/3003);`pywhispercpp` v1.5.0(無 turnkey VAD)— <https://github.com/absadiki/pywhispercpp>;三方 2026 benchmark(CPU/GPU/Apple Silicon 速度、WER、VAD)— [promptquorum 2026 比較](https://www.promptquorum.com/power-local-llm/local-whisper-stt-comparison-2026);原版 OpenAI Whisper — <https://github.com/openai/whisper>。
+
+## 相關筆記
+
+- [[moss-transcribe-diarize-evaluation]] — 同為語音轉錄模型的評估與選型
+- [[local-ai-every-hardware-size]] — 本機 CPU 與本地推理的硬體條件
+- [[llmfit-local-model-hardware-fit]] — 本機跑模型前的硬體估算
+- [[five-open-source-english-learning-tools]] — 本庫實際使用的轉錄流程
+- [[voxcpm-report]] — 同主題:VoxCPM:無分詞器、可「用文字描述設計聲音」的開源 TTS
+- [[issue-130]] — 同主題:第 130 期:可驗證的架構圖 Skill、即時 3D 地球觀測台、多智能體 A

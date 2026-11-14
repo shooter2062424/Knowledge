@@ -226,3 +226,12 @@ flowchart LR
 - 官網:[impeccable.style](https://impeccable.style)
 - Anthropic 官方起點:[anthropics/skills — frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design)
 - Claude Code hooks 安全說明:[code.claude.com/docs/en/hooks#security-considerations](https://code.claude.com/docs/en/hooks#security-considerations)
+
+## 相關筆記
+
+- [[brainless-shadcn-registry-fake-claude-code-ui]] — 同主題:用 shadcn registry 做一個「假的 Claude Code」:br
+- [[issue-101]] — 同主題:GitHub Weekly 第 101 期:開源版 Cowork、資料工程實戰課
+- [[issue-117]] — 同主題:GitHub Weekly 第 117 期:開源 Claude Design、上
+- [[issue-121]] — 同主題:第 121 期:DeepSeek 推理加速、Google 設計記憶規範、AI 投
+- [[issue-123]] — 同主題:第 123 期:多說話人 ASR、並行 Agent 工作台、DESIGN.md 
+- [[issue-124]] — 同主題:第 124 期:Kimi K3 與 Kimi Code、AI 網關、開源部署平台

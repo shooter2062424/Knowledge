@@ -148,6 +148,8 @@ Agent 要自己判斷「此刻哪些記憶該放進工作區」。影片提到�
 - [[grep-vs-vector-agentic-search]]:不一定要向量庫,agent 也可 grep。
 
 ---
+- [[agent-memory-facts-vs-understanding-google-cloud-tech]] — 同主題:Agent 長期記憶怎麼分:事實進 SQL、理解進向量庫、原始影音不進記憶(Go
+- [[issue-116]] — 同主題:GitHub Weekly 第 116 期:Agent 記憶 OS、超省錢 De
 
 ## 來源
 

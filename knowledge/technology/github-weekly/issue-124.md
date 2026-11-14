@@ -183,3 +183,10 @@ flowchart LR
 - GitHub 一週熱點第 124 期(2026/7/19 – 2026/7/25):<https://github.com/itcoffee66/githubweekly/blob/main/_weekly/124.md>
 - 本期專案:[Kimi Code](https://github.com/MoonshotAI/kimi-code) · [OmniRoute](https://github.com/diegosouzapw/OmniRoute) · [Openship](https://github.com/oblien/openship) · [Hallmark](https://github.com/Nutlope/hallmark) · [Buzz](https://github.com/block/buzz)
 - 延伸(本庫):[第 123 期(awesome-design-md)](./issue-123.md) · [Codebase-Memory-MCP vs CodeGraph](../ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) · [2026 Agent 工程師能力與面試題](../ai-agents/foundations/production-agent-engineer-skills-2026.md) · [Harness/Loop/Graph 三層排障地圖](../ai-agents/foundations/harness-loop-graph-troubleshooting-map.md)
+
+## 相關筆記
+
+- [[impeccable-frontend-design-skill-ai-slop]] — 同為反 AI 味的設計 Skill
+- [[kimi-k3-1-pro-open-weight-coding-acceptance]] — 同期 Kimi K3 模型的編程能力與選型
+- [[model-routing-compute-allocation]] — 多模型路由與成本分配的概念背景
+- [[llm-api-relay-stations]] — 聚合多家 API 額度的風險與同類情境

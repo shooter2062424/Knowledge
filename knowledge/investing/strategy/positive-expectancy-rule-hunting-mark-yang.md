@@ -422,3 +422,7 @@ flowchart LR
   - [臺灣期貨市場新制專區 — 放寬期貨市場漲跌幅度(臺灣期貨交易所)](https://www.taifex.com.tw/chinese/event/train1040414/event.asp)
   - [處置股票是什麼意思?跟全額交割股有什麼不同? — StockFeel 股感](https://www.stockfeel.com.tw/處置股票是什麼意思?跟全額交割股有什麼不同?/)
 - 延伸:本庫 [[trading-math-expectancy-variance-risk]](期望值的完整數學與破產風險)、[[retail-investor-losing-system-not-luck]](散戶虧錢是沒系統不是運氣)、[[just-keep-buying-nick-maggiulli]](把決定自動化)、[[minervini-think-trade-like-champion]](控風險為核心)、[[social-arbitrage-chris-camillo]](另類資料與倉位紀律)、[[gooaye-stock-picking-philosophy]]。
+
+## 相關筆記
+
+- [[selling-earnings-volatility]] — 同主題:賣財報波動率:把 $1 萬變 $100 萬的選擇權策略(以及它真正的風險)

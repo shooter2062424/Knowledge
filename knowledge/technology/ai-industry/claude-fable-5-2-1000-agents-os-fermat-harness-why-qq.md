@@ -262,3 +262,8 @@ Helper 的迴圈(官方):查計畫 → 認領任務 → 寫 Lean 證明並檢查
 - Anthropic 研究〈Formalizing Fermat's Last Theorem〉(2026-09-04):https://www.anthropic.com/research/formalizing-fermats-last-theorem
 - Claude 官方定價頁:https://platform.claude.com/docs/en/about-claude/pricing
 - 公告引用但**本篇未讀**:System Card https://www.anthropic.com/document/claude-fable-5-2-mythos-5-2-system-card 、電子設計 https://www.anthropic.com/research/claude-electronics-design 、物理預印本 https://hexagonmath.org/2611.00175v1 與 https://hexagonmath.org/2611.00174v1 、促銷說明 https://support.claude.com/en/articles/17506494
+
+## 相關筆記
+
+- [[gpt-6-astra-napoleon-marmont-cipher]] — 同主題:GPT-6 Astra 解開 217 年的拿破崙密信:從一張模糊掃描圖到可重現的
+- [[astra-ten-open-problems-and-agi-two-axes-caleb]] — 同主題:Astra 解出十個數學開放問題,然後呢?用「機制」與「能力」兩條軸看 AGI 

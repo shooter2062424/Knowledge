@@ -103,3 +103,8 @@ flowchart LR
 - Model Context Protocol:https://modelcontextprotocol.io/docs/getting-started/intro
 - Martin Fowler, CircuitBreaker:https://martinfowler.com/bliki/CircuitBreaker.html
 - OWASP GenAI, LLM01 Prompt Injection:https://genai.owasp.org/llmrisk/llm01-prompt-injection/
+
+## 相關筆記
+
+- [[ai-agent-beginner-course-five-elements-knowledge-base]] — 同主題:AI Agent 入門課:五大核心要素、知識庫(RAG)與 Cherry Stu
+- [[ai-system-design-guide]] — 同主題:AI System Design Guide(ombharatiya):生產級 

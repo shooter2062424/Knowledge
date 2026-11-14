@@ -234,3 +234,7 @@ flowchart LR
   - ⚠️ 本文依論文摘要與 HTML 全文整理;**部分基準表格數字在不同段落略有出入(如 Gemini-2.5-Pro 的 WebShop 分數),採用前請以論文原表為準**。
 - 相關技術:GRPO(Group Relative Policy Optimization)、BGE-M3(embedding)、ALFWorld、WebShop、AgentGym(cold-start 種子資料)、Qwen2.5-7B-Instruct(backbone)。
 - 延伸(本庫):[Project Cairn:把做過的事沉澱成可複用知識](./project-cairn-experience-to-knowledge-skill.md)(provenance 的工程實作) · [用 Claude 蓋會自我改進的知識庫](./self-improving-knowledge-base-claude-cowork.md) · [Codebase-Memory-MCP vs CodeGraph](./codebase-memory-vs-codegraph-two-routes.md)(信噪比 > 資訊量) · [到底需不需要 GraphRAG?9 種 RAG 方案實測](./is-graphrag-needed-rag-variants-comparison.md) · [Google 課程 Day 4+5](../foundations/google-agentic-engineering-day4-5.md)(把糾正存起來當教材)
+
+## 相關筆記
+
+- [[codex-memory-two-phase-pipeline-v1-v2-01coder]] — 同主題:Codex 本地跨會話記憶:兩階段流水線、v1 與 v2 差異(01Coder 

@@ -191,6 +191,9 @@ flowchart TD
 - [[agent-verification-before-scale-lauren-tan-reaction]]:先給 Agent 驗證,再談規模。
 
 ---
+- [[opus-5-5-prompting-guide-13-points]] — 同樣講如何對新模型下指令
+- [[gpt-5-6-prompting-guide-openai]] — 以終點與停止條件描述任務的官方指南
+- [[prompting-claude-fable-5-2-official-guide-checklist-why-qq]] — 官方提示指南的調整清單
 
 ## 來源
 

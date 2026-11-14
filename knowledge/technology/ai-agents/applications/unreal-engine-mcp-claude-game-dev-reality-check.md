@@ -249,6 +249,10 @@ flowchart LR
 - [[harness-loop-graph-troubleshooting-map]]:「兩次失敗就回滾、把任務切小」在 agent 排障上的通用版本。
 
 ---
+- [[blender-previz-mcp-ai-video]] — 同用 MCP 操作 3D 軟體
+- [[mcp-server-first-build-four-pitfalls]] — MCP 接入與常見坑的基礎
+- [[function-calling-mcp-a2a]] — MCP 在 Agent 工具體系中的位置
+- [[issue-128]] — 同主題:第 128 期:圖片生成 Three.js 3D 模型、Omarchy、Mac 
 
 ## 來源
 

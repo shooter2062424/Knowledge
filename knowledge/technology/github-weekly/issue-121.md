@@ -112,3 +112,12 @@ flowchart TD
 
 - [GitHub 一周热点第 121 期(itcoffee66/githubweekly)](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/121.md)
 - 專案連結:[DeepSpec](https://github.com/deepseek-ai/DeepSpec) · [DESIGN.md](https://github.com/google-labs-code/design.md) · [AI Berkshire](https://github.com/xbtlin/ai-berkshire) · [Strix](https://github.com/usestrix/strix) · [free-for-dev](https://github.com/ripienaar/free-for-dev)
+
+## 相關筆記
+
+- [[inference-engines-llamacpp-vllm-sglang-tensorrt]] — 推論引擎與推測解碼的背景
+- [[vllm-pagedattention-engine-parameters-xiaobai-debug]] — 推論吞吐與批次處理原理
+- [[claude-design-25-tricks-design-rules-skill]] — 設計規則寫成 Skill,對應 DESIGN.md
+- [[impeccable-frontend-design-skill-ai-slop]] — AI 前端審美與設計記憶
+- [[ai-agent-skill-stock-research-workflow]] — 投研 Skill 的流程設計
+- [[cloudflare-security-audit-skill-pipeline]] — AI 安全審計流程,對應 Strix

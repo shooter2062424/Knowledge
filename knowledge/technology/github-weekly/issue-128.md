@@ -243,3 +243,10 @@ flowchart LR
   - [Switchyard](https://github.com/NVIDIA-NeMo/Switchyard)
   - [Needle](https://github.com/cactus-compute/needle)
 - 延伸(本庫):[Omarchy 4:Agent 成為作業系統一等公民](../ai-agents/applications/omarchy-4-agent-as-os-citizen.md) · [Model Routing 算力分配](../ai-productivity/model-routing-compute-allocation.md) · [可靠的結構化 JSON 輸出](../ai-agents/foundations/reliable-structured-json-output-tool-use.md)
+
+## 相關筆記
+
+- [[local-ai-every-hardware-size]] — Mac 與各尺寸硬體跑本地模型的背景
+- [[llm-slm-lrm-vlm-model-routing-guide]] — 端側小模型與模型分級路由的概念
+- [[inference-engines-llamacpp-vllm-sglang-tensorrt]] — oMLX 同類本地推理引擎的定位對照
+- [[unreal-engine-mcp-claude-game-dev-reality-check]] — 用 Agent 做 3D 與遊戲內容的實際成本

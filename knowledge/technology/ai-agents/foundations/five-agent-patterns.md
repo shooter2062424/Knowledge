@@ -123,3 +123,7 @@ flowchart LR
 - 起點圖:手繪「5 Agent Patterns」資訊圖(本筆記重整其內容,未轉存原圖)。
 - [Anthropic — Building Effective AI Agents](https://www.anthropic.com/research/building-effective-agents)(五模式原始出處);[Cloudflare agents — anthropic-patterns 實作](https://github.com/cloudflare/agents/blob/main/guides/anthropic-patterns/README.md)、[Spring AI — Effective Agents](https://docs.spring.io/spring-ai/reference/api/effective-agents.html)。
 - 延伸:本庫 [[task-decomposition-agentic-workflow]]、[[harness-engineering-evolution]]、[[hermes-main-agent-orchestration]]、[[grpo-vs-gepa]]、[[12-factor-agents]]、[[agent-trace-analysis-with-ai]]。
+
+## 相關筆記
+
+- [[issue-106]] — 同主題:GitHub Weekly 第 106 期:阿里 OpenClaw 替代、WiF

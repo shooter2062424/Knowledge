@@ -281,3 +281,7 @@ LOG 單條不超過 20 行、只寫摘要與連結;Cited.md 只留指針不複�
   - 安裝:Claude Code → `git clone … ~/.claude/skills/project-cairn`;Codex → `~/.agents/skills/project-cairn`;WorkBuddy 可直接上傳 ZIP。**前置需求:`git`,`scripts/*.sh` 需 bash(Windows 需 WSL 或 Git Bash),Python 腳本需 Python 3;目前尚無套件管理器發行版。**
 - 相關規範:Google 的 [Open Knowledge Format](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing)(專案僅採用其最小慣例)。
 - 延伸(本庫):[LLM Wiki(Karpathy)](./llm-wiki-karpathy.md) · [AI Agent 記憶管理:有時候 Markdown 就夠了](./markdown-agent-memory.md) · [15 分鐘學完 CLAUDE.md](../../claude-code/claude-md-from-zero-to-mastery.md) · [模型越強該刪 Superpowers 還是 Matt Skills](../applications/superpowers-vs-matt-skills-strong-model.md)
+
+## 相關筆記
+
+- [[kepano-obsidian-vault-format-and-team-rollout-plan]] — 同主題:kepano 的 Obsidian vault 格式(categories + 

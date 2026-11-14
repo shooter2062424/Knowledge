@@ -129,3 +129,9 @@ flowchart LR
 ## 來源
 
 - [dev.to:AI Agent Memory Management — When Markdown Files Are All You Need](https://dev.to/imaginex/ai-agent-memory-management-when-markdown-files-are-all-you-need-5ekk)
+
+## 相關筆記
+
+- [[kepano-obsidian-vault-format-and-team-rollout-plan]] — 同主題:kepano 的 Obsidian vault 格式(categories + 
+- [[claude-md-from-zero-to-mastery]] — 同主題:15 分鐘學完 CLAUDE.md:三個位置、做減法的三問、做加法的五問、以及怎
+- [[issue-103]] — 同主題:GitHub Weekly 第 103 期:超輕量 OpenClaw 復刻、程式

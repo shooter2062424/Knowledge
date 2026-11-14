@@ -93,3 +93,9 @@ flowchart TD
 - 美投君 / 美投讲美股(@MeiTouJun),〈美股涨到头了?这3类股票不要碰!还有1类反而出大机会?〉,YouTube:<https://www.youtube.com/watch?v=xEkNd6xG1qo>(2026-06-08)
 - 影片引用:1950 起美聯儲利率 vs 標普 500、5 月非農就業報告、CME FedWatch、2 年期美債收益率、摩根士丹利油價傳導與關稅通脹研究、標普動量股 vs 低波動股相對表現。
 - **該片無字幕,逐字稿以 CPU 版 faster-whisper 轉錄取得,非官方字幕**;原片「加息」即「升息」,專有名詞(非農、FOMC、鷹派、核心 CPI、Neo Cloud、Costco、Oracle、摩根士丹利)已校正,數字與新任主席姓名等細節可能有聽寫誤差,請以官方數據查證。
+
+## 相關筆記
+
+- [[qingan-3-0-and-inheritance-gender-gap]] — 同主題:青安 3.0 上路:為什麼「最高 1500 萬」多半貸不滿?以及財政部繼承數據透
+- [[us-stocks-rate-hike-three-stages-ai-vs-2000]] — 同主題:加息會引發美股大跌嗎?用 2000 泡沫「三階段」對照 AI 這輪革命(美投君)
+- [[mcdonalds-traffic-decline-franchisee-turnaround]] — 同主題:麥當勞跌三成是一生一次的機會嗎?客流、加盟商與兩次歷史翻身

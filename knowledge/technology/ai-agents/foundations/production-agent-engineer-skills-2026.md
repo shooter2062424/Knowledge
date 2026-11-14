@@ -443,3 +443,7 @@ flowchart TD
   - ⚠️ 該片無官方字幕也無自動字幕,**逐字稿以 CPU 版 faster-whisper(small/int8,`vad_filter=True`)轉錄取得,非官方字幕**,可能有少量聽寫誤差(專有名詞如 ReAct、few-shot、P99、指數退避、LLM-as-a-Judge 等已依上下文校正)。
   - 影片開頭明確點名的兩道面試題(「三方接口斷了怎麼自動降級」「高並發下上下文怎麼壓縮」)即本文 Q1、Q2;其餘題目為依影片各章節內容整理的延伸題,**答案中的「加分點」為本文補充的業界標準實務,非影片原文**。
 - 延伸(本庫):[Harness/Loop/Graph 三層排障地圖](./harness-loop-graph-troubleshooting-map.md) · [Loop Engineering 實務](./loop-engineering-when-and-how-gary-chen.md) · [Agent 最該具備的 Skill(白白說大模型)](../applications/top-skills-for-agents.md) · [工具調用:FC→MCP→CLI(白白說大模型)](./function-calling-mcp-cli-tool-evolution.md)
+
+## 相關筆記
+
+- [[stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang]] — 同主題:Stanford CS329Z 第 1 講:什麼是 AI Agent——歷史、五

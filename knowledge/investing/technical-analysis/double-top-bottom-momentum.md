@@ -67,3 +67,7 @@ flowchart LR
 ## 來源
 
 - [YouTube:雙底雙頂,90%的人都做錯了(簡一聊交易)](https://www.youtube.com/watch?v=doc0NQas32U)(非逐字稿,影片未提供字幕)
+
+## 相關筆記
+
+- [[taiex-elliott-wave-relay-pattern-huang-20261027]] — 同主題:颱風假躲過重挫,接下來補跌還是主跌?黃培碩用波浪結構看大盤、台積電與個股(202

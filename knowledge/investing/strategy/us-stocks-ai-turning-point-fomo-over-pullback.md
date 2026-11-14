@@ -70,3 +70,10 @@
 
 - 美投讲美股(美投君),〈连涨 13 天!美股还有机会吗?3 大利好信号交汇〉,YouTube:<https://www.youtube.com/watch?v=DcibeCh1aZ4>(2026-04-19,約 23 分鐘)
 - **該片無字幕,逐字稿以 CPU 版 faster-whisper(`vad_filter=True`,small,zh)轉錄,非官方字幕**;數字(連漲 13 天、標普 7800→8200、油價 80/60、真實通脹 47 項、5 年通脹預期 2.1–2.2%、就業 17.8/13.3 萬、消費 +9%、盈利前瞻 16%、Anthropic ARR 91→300 億/+330%、Meta +30%、1996 標普 +20%/納指 +42%)依語音還原,可能有聽寫誤差,實際以原片為準。**非投資建議**。
+
+## 相關筆記
+
+- [[software-stocks-ai-token-cost-and-agent-infrastructure]] — 軟體股從被顛覆到受益的轉折
+- [[microsoft-fy26q1-three-doubts-resolved]] — AI 價值鏈位移的具體財報例子
+- [[us-stocks-five-risks-2026q4-hike-treasury-midterm]] — 同作者的反面風險與導火線框架
+- [[nvda-fy27q2-guidance-and-circular-financing]] — AI 資本開支與估值結構

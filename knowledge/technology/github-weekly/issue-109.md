@@ -110,3 +110,11 @@
 - [GitHub Weekly 第 109 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/109.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[claude-code-source-full-map]] — 原始碼結構地圖與各子系統
+- [[rea-ai-reverse-engineering-claude-code]] — 以原始碼反推 Claude Code
+- [[claude-code-beginner-concept-map-gary]] — 入門觀念,對應 Claude How To
+- [[llm-slm-lrm-vlm-model-routing-guide]] — 小模型(SLM)與端側模型選型
+- [[local-ai-every-hardware-size]] — 端側與本地模型所需硬體

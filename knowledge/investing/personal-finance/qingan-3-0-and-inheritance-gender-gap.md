@@ -230,3 +230,9 @@ flowchart LR
   - 節目共三段,本文整理前兩個標題主題與總預算段落;第三段(跳蚤叮咬與過敏)與本庫主題無關,未收錄。
 - ⚠️ **本文為教育用途整理,非投資或財務建議。** 青安貸款的資格、額度、房價上限與利率條件請以**財政部/內政部與承貸銀行的最新公告**為準;繼承與稅務涉個案適用,重大決策請諮詢地政士、律師或會計師等專業人士。
 - 延伸(本庫):[Just Keep Buying(Nick Maggiulli)](../strategy/just-keep-buying-nick-maggiulli.md) · [4 隻安心買 ETF](../strategy/four-buy-anytime-etfs.md)
+
+## 相關筆記
+
+- [[retirement-risk-math-john-dagostino-coinbase]] — 房貸與退休的長期現金流計算
+- [[us-stocks-rate-hike-risk-2026]] — 升息會推高房貸月付的總體背景
+- [[hidden-money-draining-habits]] — 收入高也存不住錢的個人財務習慣

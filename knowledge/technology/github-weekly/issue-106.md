@@ -109,3 +109,10 @@
 - [GitHub Weekly 第 106 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/106.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[personal-agent-muse-meta-google-race]] — 個人 AI 助理的競爭格局
+- [[understand-anything-vs-graphify]] — repo 轉知識圖譜工具的實測
+- [[codebase-memory-treesitter-knowledge-graph-mcp]] — GitNexus 同類的程式碼圖譜做法
+- [[five-agent-patterns]] — 多代理研究框架的編排模式

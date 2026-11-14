@@ -328,3 +328,8 @@ DeepSeek 的結論:**沒有任何單一機制擋得住**。組合拳是 **AppArm
 **Whisper 專有名詞還原對照:** 杀箱/杀香/沙厢/云沙香/杀伤 → 沙箱/雲沙箱;经检/经棉 → 精簡;迷你虚弥机 → 迷你虛擬機;k3 → Kimi K3;agent ENV → AgentENV;某训 cube sandbox → 騰訊 CubeSandbox;某里 open sandbox → 阿里 OpenSandbox;AAA/iAA → IAA;志强/至强/智强 → Xeon(至強);RoxDB → RocksDB;兜包/逗包 → 豆包;Scale/Skil → Skill;Walkflow → Workflow;cloud code → Claude Code;科瑟的科瑞入 → Cursor 的 rules。
 - [YouTube:300万Sandbox背后基础设施揭秘DeepSeek DSec(Why QQ,2026-10-04)](https://www.youtube.com/watch?v=wxxzXI9bigM)
 - [arXiv 2609.22978:DeepSeek Elastic Compute (DSec): A Sandbox Infrastructure for Effective Agentic Training at Scale](https://arxiv.org/abs/2609.22978)
+
+## 相關筆記
+
+- [[issue-104]] — 同主題:GitHub Weekly 第 104 期:智譜 GLM-5 旗艦模型、AI 編
+- [[issue-119]] — 同主題:GitHub Weekly 第 119 期:生產級 Agent 技能包、蘋果官方

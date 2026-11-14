@@ -110,3 +110,9 @@ print(n)  # 本次實測為 13
 - 相近的 Token 比值資料集(未確認即影片所引) https://huggingface.co/datasets/shreyaskc/tokentax-results-v1
 
 相關閱讀:[[claude-throttling-opus-4-7]](Token 與額度消耗的另一個面向)、[[claude-haiku-5-5-cheap-model-computer-use]](便宜模型不等於便宜任務)。
+
+## 相關筆記
+
+- [[context-engineering-processing-vs-thinking]] — 同主題:你可能用錯 AI 了:Processing vs Thinking 與三層 to
+- [[transformers-local-deepseek-r1-distill]] — 同主題:用 Hugging Face Transformers 在本機跑 DeepSee
+- [[huffman-coding-prefix-free-tree]] — 同主題:哈夫曼編碼:為什麼檔案能越壓越小,以及「前綴碼」這個關鍵限制

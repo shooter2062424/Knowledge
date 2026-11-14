@@ -163,3 +163,8 @@ flowchart TB
 - OpenAI,〈Faulty Reward Functions in the Wild〉(2016-12-21): https://openai.com/index/faulty-reward-functions/
 - DeepSeekMath(GRPO),arXiv:2402.03300: https://arxiv.org/abs/2402.03300
 - DeepMind,AlphaGo 對李世乭: https://deepmind.google/research/breakthroughs/alphago/
+
+## 相關筆記
+
+- [[chain-of-thought-history-and-mirage]] — 同主題:AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」
+- [[harnessed-agentic-rl-agent-lightning]] — 同主題:Harnessed Agentic RL:當 harness 而不是訓練器擁有互

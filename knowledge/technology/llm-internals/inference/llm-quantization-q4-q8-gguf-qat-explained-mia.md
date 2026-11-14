@@ -263,3 +263,8 @@ flowchart LR
 - [NVIDIA:Introducing NVFP4 for Efficient and Accurate Low-Precision Inference](https://developer.nvidia.com/blog/introducing-nvfp4-for-efficient-and-accurate-low-precision-inference/)
 - 論文(arXiv):[1308.3432 STE](https://arxiv.org/abs/1308.3432)、[1712.05877 整數量化與訓練](https://arxiv.org/abs/1712.05877)、[2208.07339 LLM.int8()](https://arxiv.org/abs/2208.07339)、[2210.17323 GPTQ](https://arxiv.org/abs/2210.17323)、[2211.10438 SmoothQuant](https://arxiv.org/abs/2211.10438)、[2306.00978 AWQ](https://arxiv.org/abs/2306.00978)、[2305.14314 QLoRA](https://arxiv.org/abs/2305.14314)、[2305.17888 LLM-QAT](https://arxiv.org/abs/2305.17888)、[2407.11062 EfficientQAT](https://arxiv.org/abs/2407.11062)、[2310.11453 BitNet](https://arxiv.org/abs/2310.11453)、[2402.17764 BitNet b1.58](https://arxiv.org/abs/2402.17764)、[2404.00456 QuaRot](https://arxiv.org/abs/2404.00456)、[2405.16406 SpinQuant](https://arxiv.org/abs/2405.16406)、[2411.07191 Super Weight](https://arxiv.org/abs/2411.07191)、[2402.17762 Massive Activations](https://arxiv.org/abs/2402.17762)、[2411.04330 Scaling Laws for Precision](https://arxiv.org/abs/2411.04330)、[2310.10537 Microscaling 格式](https://arxiv.org/abs/2310.10537)
 - 玩具實驗:本倉庫 [`research/quantization-toy/`](../../../../research/quantization-toy/q.py)
+
+## 相關筆記
+
+- [[transformers-local-deepseek-r1-distill]] — 同主題:用 Hugging Face Transformers 在本機跑 DeepSee
+- [[huffman-coding-prefix-free-tree]] — 同主題:哈夫曼編碼:為什麼檔案能越壓越小,以及「前綴碼」這個關鍵限制

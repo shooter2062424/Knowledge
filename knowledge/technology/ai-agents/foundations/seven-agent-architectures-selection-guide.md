@@ -322,3 +322,7 @@ Q2:出錯的代價有多大?
 - 本倉庫相關筆記:[[loop-vs-graph-debate-engineering-view]]、[[harness-loop-graph-troubleshooting-map]]、[[five-agent-patterns]]、[[agent-skill-three-layer-run-do-verify]]、[[herdr-terminal-runtime-agent-to-agent]]
 
 > 該片無字幕,逐字稿以 CPU 版 faster-whisper(small / int8 / zh)轉錄取得,**非官方字幕**,可能有少量聽寫誤差。文中專有名詞已依上下文校正(轉錄中的「Rot Jaskiel / Route加Scale」為 **Router + Skill**、「Grawf or Flow / Graph or Cloth」為 **Graph Workflow**、「Land and execute / Brand Xcode」為 **Plan-and-Execute**、「Long Graph」為 **LangGraph**、「Prefix」為 **Prefect**、「偷肯」為 **token**)。
+
+## 相關筆記
+
+- [[stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang]] — 同主題:Stanford CS329Z 第 1 講:什麼是 AI Agent——歷史、五

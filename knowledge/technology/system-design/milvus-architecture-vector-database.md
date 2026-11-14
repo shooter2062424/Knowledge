@@ -449,3 +449,8 @@ def should_seal(segment_bytes: int, max_bytes: int, idle_seconds: float,
 - [Milvus 官方文件](https://milvus.io/docs)
 - [milvus-io/milvus — GitHub](https://github.com/milvus-io/milvus)
 - 延伸:本庫 [[token-vs-embedding-llm-and-rag]](embedding 怎麼來的)、[[kv-cache]]、[[multi-agent-data-consistency-reliability]]。
+
+## 相關筆記
+
+- [[ai-system-design-guide]] — 同主題:AI System Design Guide(ombharatiya):生產級 
+- [[trillion-record-realtime-search-kafka-dedup]] — 同主題:一兆筆紀錄的即時搜尋:從 36 小時延遲砍到 5 分鐘的去重管線

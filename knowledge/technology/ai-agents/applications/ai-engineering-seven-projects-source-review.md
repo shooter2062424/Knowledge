@@ -236,3 +236,7 @@ lora = LoraConfig(r=16, lora_alpha=32, lora_dropout=0.05,
 - LoRA 論文:https://arxiv.org/abs/2106.09685 ;GraphRAG 論文:https://arxiv.org/abs/2404.16130 ;間接提示注入論文:https://arxiv.org/abs/2302.12173
 - OWASP LLM01:2025:https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ;Presidio:https://presidio.dataprivacystack.org/ ;NeMo Guardrails:https://github.com/NVIDIA-NeMo/Guardrails
 - Ragas 指標:https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/ ;RFC 6962:https://datatracker.ietf.org/doc/html/rfc6962
+
+## 相關筆記
+
+- [[data-analyst-10-projects-code-review]] — 同主題:資料分析師作品集 10 專案:讀完原始碼、實跑 9 支後的真實評估(Anjana

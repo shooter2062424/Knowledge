@@ -158,3 +158,7 @@ Sol Fast 給了 2.5× 速度但價格翻倍——這其實是在提醒你:**模�
   - ⚠️ 影片為單一來源的市場評論,**價格與實測數字(Notion Terra 延遲 -60%、服務成本 -20%)均引自影片說法**,採用前請以 OpenAI 官方定價頁與自己的實測為準。
 - 影片提及:開發者 **Simon Willison**(`agent.datasette.io` 的維護者)的遷移實例。
 - 延伸(本庫):[未來一年的 6 個 AI Agent 趨勢(Token Budget 與開源追趕)](../ai-agents/foundations/six-ai-agent-trends-next-year.md) · [2026 Agent 工程師能力與面試題](../ai-agents/foundations/production-agent-engineer-skills-2026.md) · [GitHub Weekly 第 124 期(OmniRoute 多模型路由)](../github-weekly/issue-124.md) · [15 分鐘學完 CLAUDE.md](../claude-code/claude-md-from-zero-to-mastery.md)
+
+## 相關筆記
+
+- [[anthropic-s1-ipo-claude-code-unit-economics]] — 同主題:Anthropic S-1 從工程師視角讀:807 億虧損、經營現金流轉正,與 

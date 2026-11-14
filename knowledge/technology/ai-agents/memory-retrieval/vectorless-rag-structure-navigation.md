@@ -98,3 +98,8 @@ Vectorless RAG 是「**用結構/索引取代吞整包或盲比相似度**」這
 - [PageIndex(VectifyAI,GitHub)](https://github.com/VectifyAI/PageIndex) — 開源 vectorless、reasoning-based RAG。
 - [Vectorless RAG: How PageIndex Works(buildfastwithai)](https://www.buildfastwithai.com/blogs/vectorless-rag-pageindex-guide)、[PageIndex 介紹](https://pageindex.ai/blog/pageindex-intro)、[Microsoft Community Hub:Vectorless Reasoning-Based RAG](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/vectorless-reasoning-based-rag-a-new-approach-to-retrieval-augmented-generation/4502238)、[PageIndex Deep Dive(sjramblings)](https://sjramblings.io/pageindex-deep-dive-vectorless-rag/)。
 - 延伸:本庫 [[grep-vs-vector-agentic-search]]、[[codegraph-code-and-tui]]、[[understand-anything-vs-graphify]]、[[tree-sitter]]、[[context-engineering-processing-vs-thinking]]。
+
+## 相關筆記
+
+- [[deepseek-search-fetch-api-agent-evidence]] — 同主題:DeepSeek 開賣搜尋:Search / Fetch API 每千次 0.7
+- [[issue-102]] — 同主題:GitHub Weekly 第 102 期:個人 AI 助理、React 生成影

@@ -164,3 +164,9 @@ flowchart LR
 - 本庫相關:[[gpt-6-astra-token-efficiency-and-harness]]、[[rl-gains-concentrate-single-middle-layer]]
 
 > ⚠️ 本文基於影片與二手報導,**未直接讀原部落格 / 論文全文**;結論以原作者文章為準。
+
+## 相關筆記
+
+- [[llm-abliteration-refusal-direction]] — 同為直接改權重的技術,批評者類比對象
+- [[lora-fine-tuning-explained]] — 改權重的傳統替代方式對照
+- [[gpt-6-astra-napoleon-marmont-cipher]] — 同一模型 GPT-6 Astra 的其他實驗

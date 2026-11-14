@@ -87,3 +87,11 @@
 ## 來源
 
 - itcoffee66/githubweekly 第 116 期:<https://github.com/itcoffee66/githubweekly/blob/main/_weekly/116.md>(2026/05/24–05/30)
+
+## 相關筆記
+
+- [[agent-long-term-memory-layered-design-baibai]] — 四層記憶設計,對應 EverOS
+- [[agent-memory-eight-strategies-window-to-memoryos]] — 記憶實作策略與 MemoryOS
+- [[kv-cache]] — 省 token 所依賴的快取機制
+- [[anthropic-html-work-pages]] — HTML 作工作頁面,對應 HyperFrames
+- [[understand-anything-vs-graphify]] — 同為 repo 變知識圖譜的實測

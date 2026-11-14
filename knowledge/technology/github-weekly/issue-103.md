@@ -117,3 +117,10 @@
 - [GitHub Weekly 第 103 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/103.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[task-decomposition-agentic-workflow]] — 任務依賴拆解,對應 Beads 任務圖
+- [[markdown-agent-memory]] — 用檔案當程式 agent 的記憶
+- [[function-calling-mcp-a2a]] — 工具調用(function calling)基礎
+- [[personal-agent-muse-meta-google-race]] — 個人 AI 助理的生態與難點

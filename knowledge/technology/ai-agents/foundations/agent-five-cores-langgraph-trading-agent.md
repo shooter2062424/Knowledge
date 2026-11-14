@@ -285,3 +285,7 @@ flowchart TB
 > 該片無字幕,逐字稿以 CPU 版 faster-whisper(small / int8 / zh)轉錄取得,**非官方字幕**,可能有少量聽寫誤差。文中專有名詞已依上下文校正(轉錄中的「Long Graph / Languerov」為 **LangGraph**、「Lanchin」為 **LangChain**、「課鎖 / 科索」為 **Cursor**、「軍制回歸」為**均值回歸**、「definition of down」為 **Definition of Done**、「GAA」為**遺傳演算法**)。
 
 > ⚠️ **再次提醒:本文為架構知識整理,非投資建議。** 影片中的交易策略參數(暴跌 20%、單次 20% 倉位等)僅作為「如何把模糊指令寫成可判定條件」的示範,不代表任何操作建議。
+
+## 相關筆記
+
+- [[agent-intent-recognition-three-layer-funnel]] — 同主題:用最低成本做好 Agent 意圖識別:規則層、上下文層、工具層的三層漏斗

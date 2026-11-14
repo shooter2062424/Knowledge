@@ -137,3 +137,9 @@ flowchart TD
 
 - 小電Dian,〈我從竹科裸辭的真正原因!十大最恐怖的主管特質,最後一點最致命〉,YouTube:<https://youtu.be/KeRBNTOITEo>
 - (本筆記內容依影片逐字稿整理;逐字稿以 CPU Whisper 聽寫,可能有少量同音字誤差。)
+
+## 相關筆記
+
+- [[ai-skills-no-raise-nash-bargaining]] — 加薪談判與時間換收入的計算
+- [[sales-power-negotiation-eight-scenarios-boice-celso]] — 職場向老闆爭取資源與談加薪
+- [[programmer-meaning-crisis-hn-thread]] — 程式設計師職場處境與價值重排

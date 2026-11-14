@@ -367,3 +367,7 @@ print(len(enc.encode(你的_prompt)))          # 送出前先算成本
 - 本倉庫相關筆記:[[llm-explained-3blue1brown]]、[[microgpt-karpathy]]、[[attention-residuals]]、[[kv-cache]]、[[j-space-global-workspace-claude]]、[[grep-vs-vector-agentic-search]]、[[is-graphrag-needed-rag-variants-comparison]]、[[mem0-memory-architecture-teardown]]、[[token-saving-three-moves-context-control]]
 
 > ⚠️ 詞表大小與模型維度以整理時的公開資訊與實測為準,模型改版後可能變動。
+
+## 相關筆記
+
+- [[ai-essential-13-concepts-beginner-map]] — 同主題:AI 入門 13 個必懂概念:LLM、Token、神經網路、幻覺、LoRA、Mo

@@ -318,3 +318,7 @@ flowchart TD
   - ⚠️ 影片中的調研比例(90% / 2.5% / 0.7% / 0.5% 等)、各 SDK 版本狀態與社群踩坑細節,**均為影片轉述,本文未另行查核原始出處**;各 SDK 進度變動快,採用前請以官方遷移指南為準。
 - 前作(本庫):[MCP 史上最大改版(2026-07-28):從「打電話」變成「寄信」](./mcp-2026-07-28-stateless-rewrite.md) —— **規格層面的完整 changelog 拆解**(該篇已逐條核實於官方 changelog)。
 - 延伸(本庫):[Harness/Loop/Graph 三層排障地圖](./harness-loop-graph-troubleshooting-map.md)(同一作者) · [本體論護欄與神經符號 AI](./neuro-symbolic-ontology-guardrails-frank-coyle.md) · [2026 Agent 工程師能力與面試題](./production-agent-engineer-skills-2026.md) · [Google 課程 Day 2+3:MCP/A2A/AP2 三協定](./google-agentic-engineering-day2-3.md)
+
+## 相關筆記
+
+- [[local-tools-skill-mcp-three-layer-decision-baibai]] — 同主題:MCP、Skill、本地 Tools 到底有什麼區別:三層分工與選型決策樹

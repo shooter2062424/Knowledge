@@ -214,3 +214,8 @@ flowchart TD
 - [Artificial Analysis:GPT-6 Luna](https://artificialanalysis.ai/models/gpt-6-luna)
 - [DataCamp:Claude Haiku 5.5: Features, Benchmarks, and Pricing](https://www.datacamp.com/blog/claude-haiku-5-5)
 - Whisper 專有名詞還原:「Hyku / Hyco / Hykel」→ Haiku、「GBT6」→ GPT-6、「Peruda Frontier」→ Pareto frontier、「Quen」→ Qwen、「Clotcode」→ Claude Code、「OS world」→ OSWorld。
+
+## 相關筆記
+
+- [[anthropic-s1-ipo-claude-code-unit-economics]] — 同主題:Anthropic S-1 從工程師視角讀:807 億虧損、經營現金流轉正,與 
+- [[claude-fable-5-2-one-prompt-games-saltline-gears-snes-why-qq]] — 同主題:Claude Fable 5.2 用三行提示詞做遊戲:Saltline、Gear

@@ -118,3 +118,8 @@ answer = CH.mRetriever(Q='what are the certified values',
 
 - [BAMeScience/SimpleRAG (GitHub)](https://github.com/BAMeScience/SimpleRAG)
 - 模型:[MiniCPM-Llama3-V-2.5](https://huggingface.co/openbmb/MiniCPM-Llama3-V-2_5)、嵌入 BAAI/bge-large-en-v1.5、生成 [Ollama](https://ollama.com)、框架 [LangChain](https://www.langchain.com)
+
+## 相關筆記
+
+- [[issue-111]] — 同主題:GitHub Weekly 第 111 期:Karpathy 經驗的 Claud
+- [[issue-126]] — 同主題:第 126 期:MiniMax H3 全模態影音模型、PDF 解析分流、團隊級 

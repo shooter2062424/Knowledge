@@ -226,3 +226,10 @@ client.reflect(bank_id="my-bank", query="What should I know about Alice?")
   - AX:<https://github.com/google/ax>
   - Hindsight:<https://github.com/vectorize-io/hindsight>
 - 延伸(本庫):[不會打字的模型:Jev、System One](../llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) · [Cloudflare security-audit skill 拆解](../ai-agents/applications/cloudflare-security-audit-skill-pipeline.md) · [Agent 記憶綜述](../ai-agents/memory-retrieval/agent-memory-survey-forms-functions-dynamics.md) · [Mem0 記憶架構拆解](../ai-agents/memory-retrieval/mem0-memory-architecture-teardown.md)
+
+## 相關筆記
+
+- [[agent-long-term-memory-layered-design-baibai]] — 事實、經歷、觀察分層記憶的設計對照
+- [[reliable-structured-json-output-tool-use]] — 結構化判斷輸出與校驗的實作背景
+- [[ai-orchestrators-32-tools-seven-dimensions]] — Agent 編排器選型與 AX 同類比較
+- [[vibe-coding-security-threat-modeling]] — 安全審計流程與威脅建模的入門

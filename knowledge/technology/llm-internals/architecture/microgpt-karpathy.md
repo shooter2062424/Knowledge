@@ -177,3 +177,8 @@ Karpathy 強調:**同樣這 200 行,既驅動 microGPT 生人名,也驅動 ChatG
 - 原始碼 Gist:[karpathy/microgpt.py](https://gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95)(199 行,零依賴);亦有 [web 版](https://karpathy.ai/microgpt.html) 與 Colab。
 - 脈絡:micrograd / makemore / nanoGPT(Karpathy 教學系列)。
 - 延伸:本庫 [[kv-cache]]、[[deepseek-v4-engineering]]、[[attention-residuals]]。
+
+## 相關筆記
+
+- [[karpathy-ai-capability-funnel-perception-gap]] — 同主題:Karpathy 的「能力漏斗」:為什麼你覺得 AI 很蠢,有人卻說已經看到另一
+- [[python-3-15-new-features]] — 同主題:Python 3.15 幾個值得關注的新特性:frozendict、Sentin

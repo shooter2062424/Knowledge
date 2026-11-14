@@ -257,3 +257,10 @@ for (const p of picks) {
 - DeepSeek 2026-10-17 更新公告: https://api-docs.deepseek.com/news/news261017
 - Hugging Face 模型卡 DeepSeek-V4.1-Flash-1017: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017
 - DeepSeek Responses API 文件(查閱時未見內建 `web_search` 支援模型說明): https://api-docs.deepseek.com/guides/responses
+
+## 相關筆記
+
+- [[grep-vs-vector-agentic-search]] — 代理式檢索的工具選擇
+- [[is-graphrag-needed-rag-variants-comparison]] — 檢索方案的實測對照
+- [[vectorless-rag-structure-navigation]] — 不靠相似度的結構導航檢索
+- [[issue-100]] — 同主題:GitHub Weekly 第 100 期:開源程式 Agent、AI 技能框架

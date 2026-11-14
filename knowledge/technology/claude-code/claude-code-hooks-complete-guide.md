@@ -671,3 +671,8 @@ Impeccable 的 PostToolUse / Stop 分工是可推廣的模式:
 - 本倉庫相關筆記:[[claude-md-from-zero-to-mastery]]、[[claude-md-cut-82-percent-and-maintain-it]]、[[cross-model-review-claude-codex-harness]]、[[agent-skill-three-layer-run-do-verify]]
 
 > ⚠️ Hook 的事件清單與支援的 handler 組合**會隨版本變動**。文中數字以整理時的官方文件為準,實際設定前請以你的 Claude Code 版本文件為準。
+
+## 相關筆記
+
+- [[claude-code-source-full-map]] — 同主題:Claude Code 原始碼全覽地圖:11 個子系統與它們怎麼咬合
+- [[issue-108]] — 同主題:GitHub Weekly 第 108 期:Claude Code 終極優化、離

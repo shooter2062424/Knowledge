@@ -242,3 +242,9 @@ flowchart LR
   - RP1:<https://github.com/Roboparty/RP1>
   - AI Pose Gallery 中文版:<https://github.com/anhao/ai-pose-gallery-zh>
 - 延伸(本庫):[DeepSeek V4 工程拆解](../llm-internals/architecture/deepseek-v4-engineering.md) · [MoE 混合專家](../llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) · [OpenCode 三個幻覺](../ai-productivity/ai-coding-three-illusions-opencode.md) · [OpenCode 控制台事件](../ai-safety/opencode-console-breach-guardrail-asymmetry.md) · [LLM API 中轉站](../ai-industry/llm-api-relay-stations.md) · [第 135 期](./issue-135.md)
+
+## 相關筆記
+
+- [[local-ai-every-hardware-size]] — 各硬體等級跑本地模型的背景
+- [[llmfit-local-model-hardware-fit]] — 下載前估算本地模型能否跑的工具
+- [[inference-engines-llamacpp-vllm-sglang-tensorrt]] — DeepInfer 與同類推理框架的定位

@@ -244,3 +244,10 @@ bash skills/scripts/refresh-tool-index.sh                # Linux / macOS
   - reverse-skill:<https://github.com/zhaoxuya520/reverse-skill>
   - TencentDB Agent Memory:<https://github.com/TencentCloud/TencentDB-Agent-Memory>
 - 延伸(本庫):[Karpathy 的 LLM Wiki](../ai-agents/memory-retrieval/llm-wiki-karpathy.md) · [Codebase-Memory-MCP vs CodeGraph](../ai-agents/memory-retrieval/codebase-memory-vs-codegraph-two-routes.md) · [Cloudflare 安全稽核 Skill 流水線](../ai-agents/applications/cloudflare-security-audit-skill-pipeline.md)
+
+## 相關筆記
+
+- [[minimax-h3-local-video-mac-mini-vpipe-ai-strategy-room]] — 同為 MiniMax H3 本地跑影片的實測
+- [[local-ai-every-hardware-size]] — 低顯存與各硬體跑本地模型的背景
+- [[simplerag-pdf-rag]] — PDF 解析後接 RAG 的實作
+- [[mem0-memory-architecture-teardown]] — Agent 記憶系統的架構對照

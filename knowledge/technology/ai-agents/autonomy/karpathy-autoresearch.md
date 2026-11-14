@@ -132,3 +132,7 @@ Karpathy 建議:用低熵資料集(如 TinyStories)、降 `vocab_size`(8192→10
 ## 來源
 
 - [karpathy/autoresearch (GitHub)](https://github.com/karpathy/autoresearch)
+
+## 相關筆記
+
+- [[anthropic-art-enzyme-discovery-research-harness]] — 同主題:Anthropic 用 949 個 agent session 找到新酶系統 A

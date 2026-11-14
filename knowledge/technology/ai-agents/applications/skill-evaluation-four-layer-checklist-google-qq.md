@@ -100,3 +100,11 @@ flowchart TD
 - [Google Cloud:How to build an agent skill optimizer with AlphaEvolve and Harbor](https://cloud.google.com/blog/topics/developers-practitioners/how-to-build-an-agent-skill-optimizer-with-alphaevolve-and-harbor)
 - [google-deepmind/alphaevolve](https://github.com/google-deepmind/alphaevolve)
 - 字幕:官方簡中字幕(非 Whisper)
+
+## 相關筆記
+
+- [[llm-evals-how-to-know-ai-works]] — 對照實驗與評估方法的通用框架
+- [[agent-skill-three-layer-run-do-verify]] — Skill 的跑、做、驗三層工程棧
+- [[skill-doctor-self-improving-agent-loop]] — Skill 自我改進與審核流程
+- [[matt-pocock-skills-teardown]] — 另一套熱門 Skill 的拆解對照
+- [[diagram-design-skill-rules-not-model-yaha]] — 同主題:diagram-design:Claude Code 畫圖 Skill 為什麼沒

@@ -91,3 +91,7 @@ flowchart LR
 
 - Humbled Trader,〈I Built an AI Trading System With Claude + TradingView〉,YouTube:<https://www.youtube.com/watch?v=IqvnryFzZD4>(2026-06-06)
 - 內容整理自該片**英文自動字幕**(逐字稿經去重整理,非官方人工字幕,可能有少量辨識誤差)。作者的 prompt 與連結放在其 blog(影片說明欄)。
+
+## 相關筆記
+
+- [[using-ai-for-stock-analysis]] — 同主題:用 AI 輔助股票分析:該怎麼問、有哪些工具

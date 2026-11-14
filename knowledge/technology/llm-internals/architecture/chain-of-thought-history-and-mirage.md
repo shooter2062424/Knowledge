@@ -175,3 +175,10 @@ flowchart LR
 - [Is Chain-of-Thought Reasoning of LLMs a Mirage? A Data Distribution Lens](https://arxiv.org/abs/2508.01191)(Zhao et al.,2025)
 
 **Whisper 專有名詞還原對照:** 思续铲/思绝铅/斯维莲 → 思維鏈;Scratch → scratchpad;Training Worry Fires / Warrior Fire / Varifier → Training Verifiers / verifier;Self-Tought Resonance / START → STaR;Deepseak / DeepSeakMess → DeepSeek / DeepSeekMath;GPRO → GRPO;Jimmy Knight → Gemini;亚利桑那大学 → Arizona State University。
+
+## 相關筆記
+
+- [[grpo-vs-gepa]] — 思維鏈強化學習訓練訊號的延伸
+- [[why-reinforcement-learning-is-hard-caleb]] — 推理能力背後的強化學習難點
+- [[context-engineering-processing-vs-thinking]] — 思考與 token 成本的取捨
+- [[transformers-local-deepseek-r1-distill]] — 同主題:用 Hugging Face Transformers 在本機跑 DeepSee

@@ -154,3 +154,7 @@ flowchart TB
 - [CNBC:Anthropic tells investors annualized revenue run rate climbed to $65 billion in July](https://www.cnbc.com/2026/08/17/anthropic-says-annualized-revenue-climbed-to-65-billion-in-july.html)
 
 **Whisper 專有名詞還原對照:** 债势/股时 → 債市/股市;美倡/美倔/美借/美占/美卦/美値/美华/美卓/美质/美财/美战 → 美債;收盔率/收盟率/收盅率/稍微率/烧鱼 → 殖利率(收益率);美肤/美肯/每股 → 美股;标普败/标浦/标谱 → 標普 500;前占适应率/适应率 → 前瞻本益比(市盈率);级电/基电 → 基點;风陿/风陷/风陨 → 風險;FactSat → FactSet;3G度/基督 → 三季度/季度;大科计/大科继/打科技 → 大科技;半寿体/半寻体 → 半導體;R&THROPIC → Anthropic;假期/假细 → 加息;炮兽 → 拋售;王景 → 網景(Netscape);Mate Pro/METAPRO/美头Pro → 美投 Pro。
+
+## 相關筆記
+
+- [[yen-40-year-low-takaichi-trade-and-us-japan-intervention]] — 同主題:日圓創 40 年新低:主導因素從「利差」換成「財政風險」,以及美日 15 年來首

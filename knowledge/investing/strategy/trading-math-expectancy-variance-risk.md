@@ -330,3 +330,7 @@ flowchart TB
   - [The Growth of $100 Invested in Jim Simons' Medallion Fund — Visual Capitalist](https://www.visualcapitalist.com/growth-of-100-invested-in-jim-simons-medallion-fund/)(Medallion 1988–2018 毛報酬年均約 66.1%、扣費後約 39%)
   - Gregory Zuckerman《The Man Who Solved the Market》(Renaissance 與 Simons 的權威記述)
 - 內容整理自兩片的**英文自動字幕**(逐字稿經去重整理,非官方人工字幕,可能有少量辨識誤差;數字例子為影片中舉例,實際數值依你自己的系統而定)。**非投資建議**;影片亦附免責聲明,僅供教育用途。
+
+## 相關筆記
+
+- [[sell-put-early-close-roll-delta-nick]] — 同主題:Sell Put 不必放到到期:提前買回、把資金換到下一張合約(Nick 美股咖

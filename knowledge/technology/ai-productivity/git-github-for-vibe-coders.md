@@ -302,3 +302,8 @@ flowchart LR
   - 作者另在 Patreon 提供「27 個日常情境 ↔ Git 指令 ↔ 給 AI 的提示詞」對照表,以及一組檢查專案 Git 健康度的提示詞。
 - 延伸(本庫):[Codex 新手指南:四基本功](./codex-beginner-guide-four-basics.md)、[Codex 2.0 新功能實戰](./codex-2-record-replay-mobile-remote.md)、[AI 編程的三個致命錯覺](./ai-coding-three-illusions-opencode.md)、[Claude Dynamic Workflows](../ai-agents/foundations/claude-dynamic-workflows.md)
 - 增補(§七):[AI改崩代码回不去?别再做完才commit!教你用Git留住退路 — YAHA学堂](https://www.youtube.com/watch?v=o1EQ5wezMyA)(2026-09-29;使用自動字幕,可能有同音字誤差)
+
+## 相關筆記
+
+- [[continue-after-directory-move]] — 同主題:Claude Code:搬移專案目錄後,如何保住 `--continue` 對話
+- [[dawo-nixos-laptop-as-code-dutch-government]] — 同主題:荷蘭政府為什麼選 NixOS:DAWO 把 GitOps 推到每張辦公桌(Lap

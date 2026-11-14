@@ -93,3 +93,8 @@ NotebookLM 整理完,**接力給 Gemini**(現在 Gemini 左側工具欄有「筆
 ## 來源
 
 - 泛科學院(主持人 JuJu),〈NotebookLM + Gemini 超狂組合技!10 分鐘搞定完美行程!〉,YouTube:<https://www.youtube.com/watch?v=TN3ZrSQ4DTc>(2026-06-04)
+
+## 相關筆記
+
+- [[model-agnostic-ai-workflow]] — 多工具分工的通用原則
+- [[skywork-research-report-to-slides]] — 研究與簡報工具的串接做法

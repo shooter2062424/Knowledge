@@ -250,3 +250,9 @@ flowchart LR
 - nixpkgs 核心團隊解散:[NixOS Discourse 公告](https://discourse.nixos.org/t/the-nixpkgs-core-team-has-disbanded/79413)、[NixOS/org PR #277](https://github.com/NixOS/org/pull/277)、[Linuxiac 報導](https://linuxiac.com/nixpkgs-core-team-dissolves-leaving-governance-duties-without-a-direct-owner/)
 - 媒體報導:[It's FOSS](https://itsfoss.com/news/netherlands-dawo-initiative/)、[Trending Topics](https://www.trendingtopics.eu/netherlands-dawo-linux-government/)
 - 協作層參考:[openDesk](https://www.opendesk.eu/en)、[La Suite numérique](https://lasuite.numerique.gouv.fr/)
+
+## 相關筆記
+
+- [[git-github-for-vibe-coders]] — Git 版控與可稽核狀態的入門
+- [[cloud-engineering-fifteen-concepts]] — IaC、可觀測性等概念對照
+- [[deployment-for-vibe-coders-platform-selection]] — 部署平台選擇與依賴問題

@@ -135,3 +135,9 @@ flowchart TD
 - pixelmatch README:https://github.com/mapbox/pixelmatch
 - Mesa llvmpipe 文件:https://docs.mesa3d.org/drivers/llvmpipe.html
 - 原始碼:https://github.com/vercel-labs/vgpu (README、`packages/adapter-mock`、`packages/adapter-node`、`apps/docs/content/docs/get-started/node.mdx`、`packages/vgpu-api/test-utils/snapshot.ts`、`packages/vgpu/lib/{check,snapshot}`、`scripts/check-bundle-size.mjs`)
+
+## 相關筆記
+
+- [[pixelfx-code-pixel-effects-agent-render-feedback-loop]] — 同為 Agent 看自己輸出的視覺回饋
+- [[ai-native-sdlc-landing-checklist]] — 驗證與評審是 AI 寫碼的真正瓶頸
+- [[llm-evals-how-to-know-ai-works]] — 如何判斷 AI 產出真的變好

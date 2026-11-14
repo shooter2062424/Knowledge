@@ -142,3 +142,7 @@ C++26 之前:用 `Expects()` / `Ensures()` 或自家 assert 巨集把前後置�
 - Bazel:https://bazel.build/remote/caching 、 https://bazel.build/basics/hermeticity ;CMake:https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html 、 https://cmake.org/cmake/help/latest/prop_tgt/UNITY_BUILD.html ;Abseil:https://abseil.io/about/philosophy
 - MC/DC(維基,非權威):https://en.wikipedia.org/wiki/Modified_condition/decision_coverage
 - InfoWorld(僅搜尋摘要):https://www.infoworld.com/article/4065702/safe-c-proposal-for-memory-safety-flames-out.html
+
+## 相關筆記
+
+- [[rust-issue-164250-borrow-checker-soundness-hole]] — 同主題:編譯通過 ≠ 記憶體安全:Rust issue #164250——借用檢查器裡住

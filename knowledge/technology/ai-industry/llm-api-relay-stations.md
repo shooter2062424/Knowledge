@@ -93,3 +93,10 @@ flowchart LR
 - YouTube:[一個視頻搞懂大模型中轉站!(林亦LYi)](https://youtu.be/P6UWIA_bvt8) — **該片無字幕,逐字稿以 CPU 版 faster-whisper 轉錄、術語校正。**
 - 涉及:OpenAI Plus/Codex(Coding plan)、Anthropic Claude/KYC、Kiro/Antigravity、OneAPI/NewAPI/Sab2API、OpenRouter 調用數據、DeepSeek V4 降價;某研究對 28 付費 + 400 免費中轉的資安測試。
 - 延伸:本庫 [[ai-compute-token-economics]]、[[deepseek-v4-engineering]]、[[claude-throttling-opus-4-7]]、[[nvidia-n1x-vs-x86]]。
+
+## 相關筆記
+
+- [[claude-text-watermark-remover-repo-check-yaha]] — 同主題:Claude 文字水印與「1.8 萬星去水印工具」:用原始碼驗證影片的「蹭流量沒
+- [[flashprove-zk-proof-of-model-identity-api-gateway]] — 同主題:FlashProve:用零知識證明驗「你調用的真的是那個模型」——能證明什麼、不
+- [[issue-124]] — 同主題:第 124 期:Kimi K3 與 Kimi Code、AI 網關、開源部署平台
+- [[issue-129]] — 同主題:第 129 期:Agent 辦公室、GPT-Image-2 提示詞庫、Codex

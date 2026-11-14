@@ -128,3 +128,10 @@ flowchart LR
 - [npm registry 端點:brainless](https://registry.npmjs.org/brainless)(npmjs.com 網頁回 403,改讀此端點)
 - [shadcn registry 目錄](https://shadcnregistry.com/)
 - 延伸:本庫 [[ai-website-building-claude-code]]
+
+## 相關筆記
+
+- [[claude-design-25-tricks-design-rules-skill]] — 用規則約束 AI 設計輸出
+- [[impeccable-frontend-design-skill-ai-slop]] — 消除 AI 味的前端設計 Skill
+- [[claude-web-design-skills-benchmark-pnh]] — 網頁設計 Skill 的實測比較
+- [[vhs-terminal-recording-tape-script]] — 同主題:VHS:把終端機操作寫成腳本,改一行就重新生成 GIF 和 MP4

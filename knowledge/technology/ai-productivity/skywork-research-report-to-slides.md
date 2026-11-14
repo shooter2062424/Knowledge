@@ -103,3 +103,10 @@ flowchart LR
 - 工具官網:[Skywork](https://skywork.ai/)、[uv](https://docs.astral.sh/uv/)
 
 **Whisper 專有名詞還原對照:** react 框架 → ReAct;lanche / Lanchin → LangChain;排单题和AI / Pidentic / Pedantic AI → PydanticAI;Curve AI → CrewAI;V-INV / Vinv → venv;溯原 → 溯源。
+
+## 相關筆記
+
+- [[notebooklm-rapid-learning]] — 同為 AI 研究與學習工具的實操
+- [[ai-ppt-claude-vs-gpt-four-prompt-steps-mia]] — 從報告到簡報的提示詞做法
+- [[llm-evals-how-to-know-ai-works]] — 檢查 AI 研究輸出是否真的可靠
+- [[ai-travel-planning-notebooklm-gemini]] — 同主題:AI 旅遊規劃組合技:NotebookLM + Gemini + Google 

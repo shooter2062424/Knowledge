@@ -100,3 +100,12 @@ sf.write("out.wav", wav, tts.sample_rate)
 ## 來源
 
 - [OpenBMB/VoxCPM (GitHub)](https://github.com/OpenBMB/VoxCPM)
+
+## 相關筆記
+
+- [[edge-tts-microsoft-edge-tts]] — 另一種免費 TTS 方案對照
+- [[issue-111]] — 同主題,週報也介紹 VoxCPM2
+- [[moss-transcribe-diarize-evaluation]] — 語音輸入端的開源模型評估
+- [[whisper-cpp-vs-faster-whisper-benchmark]] — 本機語音轉錄引擎的比較
+- [[five-open-source-english-learning-tools]] — 同主題:五個開源英語學習專案:從聽力訓練流程到「把每天看的英文網頁變成教材」
+- [[issue-105]] — 同主題:GitHub Weekly 第 105 期:Rust 版 OpenClaw、本地

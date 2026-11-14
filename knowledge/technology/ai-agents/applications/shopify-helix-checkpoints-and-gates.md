@@ -254,3 +254,7 @@ flowchart TB
   - [Native is now the future of mobile at Shopify — Shopify Engineering](https://shopify.engineering/back-to-native)(**§一補正的依據**)
   - [Hooks reference — Claude Code 官方文件](https://code.claude.com/docs/en/hooks)(Stop hook exit code 2)
 - 延伸:本庫 [[claude-code-hooks-complete-guide]](⭐ `stop_hook_active` 防無限迴圈)、[[cloudflare-security-audit-skill-pipeline]](驗證者不能是發現者)、[[astra-vs-fable-find-bugs-vs-fix-bugs]](找 bug 與修 bug 是兩件事)、[[loop-engineering]]、[[harness-engineering-evolution]]。
+
+## 相關筆記
+
+- [[ub-mode-uncle-bob-quality-gate-skill-crapper-dryer-mutator]] — 同主題:ub-mode:Bob 大叔給 coding agent 的「工程質量門禁」技能

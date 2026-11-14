@@ -225,3 +225,9 @@ flowchart LR
 - 本倉庫相關筆記:[[memharness-memory-reconstructed-not-replayed]]、[[project-cairn-experience-to-knowledge-skill]]、[[self-improving-knowledge-base-claude-cowork]]、[[codebase-memory-vs-codegraph-two-routes]]、[[claude-md-cut-82-percent-and-maintain-it]]、[[agent-skill-three-layer-run-do-verify]]、[[pi-minimal-agent-harness-teardown]]
 
 > ⚠️ 本文依論文摘要頁與 HTML 全文的分類結構整理,**未逐頁精讀全文**;細部定義與各分類下引用的具體方法請以原文為準。
+
+## 相關筆記
+
+- [[agent-memory-facts-vs-understanding-google-cloud-tech]] — 同主題:Agent 長期記憶怎麼分:事實進 SQL、理解進向量庫、原始影音不進記憶(Go
+- [[codex-memory-two-phase-pipeline-v1-v2-01coder]] — 同主題:Codex 本地跨會話記憶:兩階段流水線、v1 與 v2 差異(01Coder 
+- [[issue-107]] — 同主題:GitHub Weekly 第 107 期:被 OpenAI 收購的 AI 安全

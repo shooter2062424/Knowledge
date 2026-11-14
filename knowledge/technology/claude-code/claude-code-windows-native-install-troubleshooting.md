@@ -365,3 +365,7 @@ curl -fsSL https://claude.ai/install.sh | bash
   - [Terminal guide — Claude Code 官方文件](https://code.claude.com/docs/en/terminal-guide)
 - [Git for Windows](https://git-scm.com/downloads/win)
 - 延伸:本庫 [[claude-code-2026-feature-timeline]](⭐ W13 起的 Windows 原生 PowerShell 工具、W18「不再需要 Git Bash」)、[[claude-code-hooks-complete-guide]]、[[deployment-for-vibe-coders-platform-selection]](⭐ 同樣是給非技術人員的「環境準備」)。
+
+## 相關筆記
+
+- [[continue-after-directory-move]] — 同主題:Claude Code:搬移專案目錄後,如何保住 `--continue` 對話

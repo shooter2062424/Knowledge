@@ -131,3 +131,9 @@ flowchart TD
 - 〈从"健身芭比"到"女企业家",帕梅拉有多会"赚"?〉小Lin说,2026-06-05:https://www.youtube.com/watch?v=7oF-JqEtWDU (該片僅自動字幕,非官方人工字幕;對談為英文被機器翻譯,誤差大)
 - Pamela Reif - Wikipedia:https://en.wikipedia.org/wiki/Pamela_Reif
 - 二手整理:BigGo 財經〈從健身芭比到女企業家,帕梅拉有多會賺?〉:https://finance.biggo.com.tw/podcast/e5e456979bca3c1d
+
+## 相關筆記
+
+- [[meitoujun-why-blog-and-how-to-pick-finance-bloggers]] — 財經博主靠內容變現與利益衝突
+- [[not-maximizing-income-social-assets-nick]] — 創作者為何不急著擴張、留出空間
+- [[trump-second-term-income-sources-2025]] — 把個人名字與 IP 變現的同類模式

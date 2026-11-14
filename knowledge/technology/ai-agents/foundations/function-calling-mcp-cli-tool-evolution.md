@@ -325,3 +325,9 @@ Agent 面對「程式內置的 API/Function、MCP 工具、CLI 工具」三條�
 
 - 白白说大模型,〈AI Agent 工具调用一次讲清:Function Calling、MCP、CLI 到底差在哪?〉,YouTube:<https://www.youtube.com/watch?v=hR5ephowvLM>(2026-06-13,約 21.5 分鐘)
 - **該片無字幕,逐字稿以 CPU 版 faster-whisper(`vad_filter=True`、`condition_on_previous_text=False`,small 模型,zh)轉錄取得,非官方字幕**;專有名詞(ReAct、Function Calling、約束解碼、有限狀態機、MCP 的 initialize/tools-list/tools-call/Resources/Prompts/Roots/Sampling/Elicitation、CLI、AllowList)與案例數字(公司收入 128 萬、N×M=5×10、5+10)依語音還原,可能有少量聽寫誤差,實際以原片為準。
+
+## 相關筆記
+
+- [[issue-101]] — 同主題:GitHub Weekly 第 101 期:開源版 Cowork、資料工程實戰課
+- [[issue-115]] — 同主題:GitHub Weekly 第 115 期:桌面 AI 助手、程式 Agent 
+- [[issue-131]] — 同主題:第 131 期:讓 Agent 少說廢話的 Skill、飛書官方 CLI、消費級

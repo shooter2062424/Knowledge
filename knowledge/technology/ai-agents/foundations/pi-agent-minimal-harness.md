@@ -94,3 +94,7 @@ flowchart TB
 - YouTube:[Pi Agent explained in 6min..(Caleb Writes Code)](https://youtu.be/FJxgz5pN4wU)
 - 涉及:Pi、OpenClaw、hooks(pre-tool-use)、SOLID(separation of concerns / open-closed)、`pi-ai`/`agent`/TUI 元件、LangChain/Manus 多次重寫、build-to-delete。
 - 延伸:本庫 [[harness-engineering-evolution]]、[[ai-coding-three-illusions-opencode]]、[[hermes-main-agent-orchestration]]、[[function-calling-mcp-a2a]]、[[task-decomposition-agentic-workflow]]。
+
+## 相關筆記
+
+- [[issue-105]] — 同主題:GitHub Weekly 第 105 期:Rust 版 OpenClaw、本地

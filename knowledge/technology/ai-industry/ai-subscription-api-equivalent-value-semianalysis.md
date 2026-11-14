@@ -165,6 +165,8 @@ OpenAI 負責 Codex 的 Tibo(Thibault Sottiaux)一方的說法是：OpenAI 模�
 - [[llm-api-relay-stations]]：API 中轉站，另一種壓低 token 成本的路徑與風險。
 
 ---
+- [[claude-fable-5-2-one-prompt-games-saltline-gears-snes-why-qq]] — 同主題:Claude Fable 5.2 用三行提示詞做遊戲:Saltline、Gear
+- [[claude-throttling-opus-4-7]] — 同主題:Claude「降智」其實是算力危機:Opus 4.7 試玩與升級注意
 
 ## 9. 增補(2026-11-01):「AI 訂閱怎麼選」——把帳單拆成兩層,再用每個成功任務的成本比
 

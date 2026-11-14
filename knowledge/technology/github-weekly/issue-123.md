@@ -160,3 +160,11 @@ flowchart LR
 - GitHub 一週熱點第 123 期(2026/7/12 – 2026/7/18):<https://github.com/itcoffee66/githubweekly/blob/main/_weekly/123.md>
 - 本期專案:[MOSS-Transcribe-Diarize](https://github.com/OpenMOSS/MOSS-Transcribe-Diarize) · [Orca](https://github.com/stablyai/orca) · [awesome-design-md](https://github.com/VoltAgent/awesome-design-md) · [Vibe-Trading](https://github.com/HKUDS/Vibe-Trading) · [exercises-dataset](https://github.com/hasaneyldrm/exercises-dataset)
 - 延伸(本庫):[MOSS-Transcribe-Diarize 對本倉庫工作流的評估](../dev-tools/moss-transcribe-diarize-evaluation.md) · [2026 Agent 工程師能力與面試題](../ai-agents/foundations/production-agent-engineer-skills-2026.md)
+
+## 相關筆記
+
+- [[dhh-16-threads-bottleneck-migration]] — 多個並行 agent 的瓶頸轉移
+- [[herdr-terminal-runtime-agent-to-agent]] — 多 agent 工作台與調度
+- [[impeccable-frontend-design-skill-ai-slop]] — 設計規範與 AI 前端審美
+- [[ai-agent-skill-stock-research-workflow]] — AI 投研 agent 的流程
+- [[ai-algo-trading-claude-jesse]] — AI 交易的驗證流程

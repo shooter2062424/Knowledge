@@ -478,3 +478,11 @@ def replace_tokens(template: str, values: dict[str, str]) -> str:
   - [ZuodaoTech/everyone-can-use-english](https://github.com/ZuodaoTech/everyone-can-use-english)(TypeScript,GPL-3.0)
   - [ankitects/anki](https://github.com/ankitects/anki)(Rust)
 - 延伸:本庫 [[whisper-cpp-vs-faster-whisper-benchmark]](⭐ LLPlayer 同時支援的兩套引擎)、[[claude-md-cut-82-percent-and-maintain-it]](提示詞的模組化結構)、[[token-vs-embedding-llm-and-rag]]。
+
+## 相關筆記
+
+- [[notebooklm-rapid-learning]] — 同為用工具加速學習的方法
+- [[moss-transcribe-diarize-evaluation]] — 聽力素材的語音轉錄工具評估
+- [[edge-tts-microsoft-edge-tts]] — 免費語音合成,可做聽力教材
+- [[voxcpm-report]] — 可用文字描述聲音的開源 TTS
+- [[issue-117]] — 同主題:GitHub Weekly 第 117 期:開源 Claude Design、上

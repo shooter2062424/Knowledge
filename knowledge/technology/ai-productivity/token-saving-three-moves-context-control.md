@@ -456,3 +456,8 @@ ChatGPT / Claude / Gemini 的訂閱讓使用者不必每次擔心 agent 花多�
 > ⚠️ 價格與 TTL 以整理時的官方文件為準,模型商調整頻繁,實際請以當下官方定價頁為準。
 - 增補(§六):[ClaudeCode 额度两天见底?每按一次回车,你都在为旧账全额付费 — YAHA学堂](https://www.youtube.com/watch?v=yrnGrdPZx_U)(2026-08-24;使用自動字幕,可能有同音字誤差);官方:[How Claude Code uses prompt caching](https://code.claude.com/docs/en/prompt-caching.md)
 - 2026-11-07 核實增補:[Anthropic 官方定價](https://platform.claude.com/docs/en/about-claude/pricing)、[Anthropic Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)、[Claude Code:How Claude Code uses prompt caching](https://code.claude.com/docs/en/prompt-caching.md)、[Anthropic 工程部落格:multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system)
+
+## 相關筆記
+
+- [[issue-117]] — 同主題:GitHub Weekly 第 117 期:開源 Claude Design、上
+- [[issue-122]] — 同主題:第 122 期:AI 求職助手、Photoshop 版 GIMP、Agent 省

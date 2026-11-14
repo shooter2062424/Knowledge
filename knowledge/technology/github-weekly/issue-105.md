@@ -112,3 +112,11 @@
 - [GitHub Weekly 第 105 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/105.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[agent-runtime-deepseek-harness-cordis]] — agent 執行時的架構
+- [[pi-agent-minimal-harness]] — 極簡 agent 執行環境
+- [[voxcpm-report]] — 同主題的開源語音合成
+- [[qwen38-27b-local-economics-and-august-checkpoint-wave]] — 本地跑 Qwen 系列的經濟性
+- [[cloudflare-security-audit-skill-pipeline]] — AI 安全審計與滲透測試流程

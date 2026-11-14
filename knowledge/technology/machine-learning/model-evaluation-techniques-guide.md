@@ -342,3 +342,9 @@ flowchart TD
 - scikit-learn precision_recall_curve:https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html
 - scikit-learn 比較模型的統計檢定範例(Nadeau-Bengio):https://scikit-learn.org/stable/auto_examples/model_selection/plot_grid_search_stats.html
 - Chen et al., Evaluating Large Language Models Trained on Code:https://arxiv.org/abs/2107.03374
+
+## 相關筆記
+
+- [[data-analyst-10-projects-code-review]] — 同主題:資料分析師作品集 10 專案:讀完原始碼、實跑 9 支後的真實評估(Anjana
+- [[ml-practice-projects-fifteen]] — 同主題:機器學習 15 個實戰專案整理(含信用卡詐欺偵測深入版與程式碼問題檢討)
+- [[ml-ten-core-concepts-guide]] — 同主題:機器學習十大核心概念:維度災難、R²、偏差變異、梯度下降、核技巧、混淆矩陣、過擬

@@ -164,3 +164,8 @@ flowchart TD
 - 程式碼(MIT,評測版本 v0.5.5):<https://github.com/DeusData/codebase-memory-mcp>
 - 關鍵相依技術:Tree-Sitter(增量解析,>100 語言文法)、Model Context Protocol(MCP,Anthropic,2025-12 捐給 Linux Foundation)、Louvain 社群偵測(Blondel et al. 2008)、XXH3 雜湊、SQLite;本文依論文全文(§3 系統設計、§4 評測、§5 討論)整理。
 - **➡️ 工程視角補充:[「Token 省 120 倍」該怎麼讀?本專案 vs CodeGraph 的兩條路線](./codebase-memory-vs-codegraph-two-routes.md)**(Why QQ,2026-07)——拆解 README 的 120 倍與論文 10 倍的差別、純 C 二進位 vs TypeScript 的選型代價、以及「圖譜當團隊資產」的快照設計。
+
+## 相關筆記
+
+- [[tree-sitter]] — 同主題:Tree-sitter:給程式工具用的「增量解析」引擎
+- [[issue-106]] — 同主題:GitHub Weekly 第 106 期:阿里 OpenClaw 替代、WiF

@@ -67,3 +67,7 @@ flowchart LR
 ## 來源
 
 - [YouTube:Opus 4.7 不是更強的 4.6,是另一種模型(Gary Chen)](https://youtu.be/WOMdoiy9Qas)
+
+## 相關筆記
+
+- [[claude-throttling-opus-4-7]] — 同主題:Claude「降智」其實是算力危機:Opus 4.7 試玩與升級注意

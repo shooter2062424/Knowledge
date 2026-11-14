@@ -164,3 +164,10 @@ flowchart TD
 - [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) · [pbakaus/impeccable](https://github.com/pbakaus/impeccable) · [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) · [emilkowalski/skills](https://github.com/emilkowalski/skills) · [Nutlope/hallmark](https://github.com/Nutlope/hallmark) · [elayadesign/ai-design-skills](https://github.com/elayadesign/ai-design-skills) · [anthropics/skills — frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design)
 - [Claude Code 官方文件:Skills](https://code.claude.com/docs/en/skills)
 - 逐字稿:faster-whisper `large-v3-turbo` int8 轉錄,非官方字幕
+
+## 相關筆記
+
+- [[brainless-shadcn-registry-fake-claude-code-ui]] — 同主題:用 shadcn registry 做一個「假的 Claude Code」:br
+- [[diagram-design-skill-rules-not-model-yaha]] — 同主題:diagram-design:Claude Code 畫圖 Skill 為什麼沒
+- [[issue-101]] — 同主題:GitHub Weekly 第 101 期:開源版 Cowork、資料工程實戰課
+- [[issue-137]] — 同主題:第 137 期:DeepSeek Super Agent 原型、讓 Agent 

@@ -106,3 +106,11 @@
 - [GitHub Weekly 第 112 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/112.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[deepseek-v4-engineering]] — DeepSeek V4 的工程細節
+- [[long-context-attention-mha-to-csa-xuanyuan]] — DeepSeek 稀疏注意力與長上下文
+- [[stable-diffusion-how-it-draws]] — 生圖模型的基本原理
+- [[using-ai-for-stock-analysis]] — AI 輔助股票分析的入門方法
+- [[notebooklm-rapid-learning]] — AI 個人化學習的方法對照

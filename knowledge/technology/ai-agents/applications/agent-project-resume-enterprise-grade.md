@@ -291,3 +291,7 @@ flowchart TD
   - ⚠️ 該片無官方字幕也無自動字幕,**逐字稿以 CPU 版 faster-whisper(small/int8,`vad_filter=True`)轉錄取得,非官方字幕**,可能有少量聽寫誤差(技術名詞如 QPS、Trace ID、RAG、ROI、向量資料庫等已依上下文校正)。
   - 影片為系列教學的一集,作者另提供配套資料(公眾號領取),本文僅整理影片中公開說明的方法論。
 - 延伸(本庫):[2026 Agent 工程師能力與面試題](../foundations/production-agent-engineer-skills-2026.md)(**同作者、可互補的姊妹篇**) · [Google 課程 Day 4+5:講清楚/設邊界/做驗收](../foundations/google-agentic-engineering-day4-5.md) · [Loop 與 Graph 之爭](../foundations/loop-vs-graph-debate-engineering-view.md)(何時該升級編排) · [MemHarness:記憶是重建不是重播](../memory-retrieval/memharness-memory-reconstructed-not-replayed.md) · [Opus 5 系統提示詞的工程模式](../foundations/opus5-system-prompt-engineering-patterns.md)
+
+## 相關筆記
+
+- [[issue-122]] — 同主題:第 122 期:AI 求職助手、Photoshop 版 GIMP、Agent 省

@@ -103,3 +103,9 @@ flowchart LR
 - 同作者相關:[[google-amazon-q3-2026-selloff-nick]]、[[viking-holdings-river-cruise-moat]]
 
 > 2026-11-07 增補:Hermès 半年報、SEC 8-K 已直接讀取;Ferrari 2025 數字僅來自二手報導,毛利率與 ROE **未能核實**;⚠️ 非投資建議,數字以公司公告/SEC 為準。
+
+## 相關筆記
+
+- [[when-to-add-reason-not-percent-fico-nick]] — 同作者,用護城河與市佔率判斷下跌理由
+- [[mcdonalds-traffic-decline-franchisee-turnaround]] — 護城河受侵蝕時如何檢查客流
+- [[just-keep-buying-nick-maggiulli]] — 長期持續買入與不靠預測的紀律

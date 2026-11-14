@@ -231,3 +231,10 @@ irm https://voicestudio.sh/install | iex            # Windows PowerShell
   - [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills)
   - [debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio)
 - 延伸(本庫):[打造 Claude Skills](../ai-agents/applications/building-claude-skills.md) · [edge-tts](../applied-ai/speech-synthesis/edge-tts-microsoft-edge-tts.md) · [VoxCPM](../applied-ai/speech-synthesis/voxcpm-report.md)
+
+## 相關筆記
+
+- [[anatomy-skill-object-is-the-explanation]] — 同為可驗證圖解的 Agent Skill
+- [[diagram-design-skill-rules-not-model-yaha]] — 同為讓 Agent 產出出版級圖表的 Skill
+- [[whisper-cpp-vs-faster-whisper-benchmark]] — 本機語音工作台的轉錄引擎對照
+- [[top-skills-for-agents]] — 各類 Agent Skill 技能庫的整理

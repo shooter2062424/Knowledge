@@ -220,3 +220,11 @@ flowchart TD
 - [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)(Anthropic 工程文章,讀取於 2026-11-07;文章發布日期未能從原文核實)
 - [Code execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp)(Anthropic 工程文章,讀取於 2026-11-07)
 - [MCP Specification 2025-06-18 · Transports](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports)(讀取於 2026-11-07)
+
+## 相關筆記
+
+- [[agent-skill-three-layer-run-do-verify]] — Skill 作為能力施工圖的工程拆解
+- [[anatomy-skill-object-is-the-explanation]] — Skill 如何把說明變成可執行能力
+- [[mcp-stateless-migration-guide]] — MCP 協定演進,影響選型判斷
+- [[issue-120]] — 同主題:GitHub Weekly 第 120 期:Agent 影片生產系統、用戶名情報
+- [[issue-122]] — 同主題:第 122 期:AI 求職助手、Photoshop 版 GIMP、Agent 省

@@ -84,3 +84,10 @@
 ## 來源
 
 - itcoffee66/githubweekly 第 119 期:<https://github.com/itcoffee66/githubweekly/blob/main/_weekly/119.md>(2026/06/14–06/20)
+
+## 相關筆記
+
+- [[addy-osmani-critical-thinking-when-agents-do-the-work]] — agent 的批判性思考與驗證
+- [[ai-native-sdlc-landing-checklist]] — 流程中驗證與評審的重要性
+- [[jepa-lecun-world-models]] — 世界模型的另一條技術路線
+- [[agent-sandbox-microvm-snapshot-iaa]] — 沙箱隔離的基礎設施

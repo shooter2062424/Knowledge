@@ -73,3 +73,7 @@
 - YouTube:[一整天都看盤的人,沒有賺比較多｜《會想的人,先有錢》｜文森說書](https://youtu.be/T1k0MCmO-SA)
 - 書籍:Jonathan Clements《The Best of Jonathan Clements: Timeless Advice for a Financial Life Well Lived(會想的人,先有錢)》。**本筆記為影片(文森解讀)之摘要,非書內文。**
 - 延伸:本庫 [[just-keep-buying-nick-maggiulli]]、[[four-buy-anytime-etfs]]、[[hidden-money-draining-habits]]、[[gooaye-stock-picking-philosophy]]。
+
+## 相關筆記
+
+- [[retirement-risk-math-john-dagostino-coinbase]] — 同主題:「不冒險才是最大的風險」?華爾街老將的退休數學、穩定幣收益,與「散戶打不贏機構」

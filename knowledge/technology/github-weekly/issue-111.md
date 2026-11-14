@@ -103,3 +103,11 @@
 - [GitHub Weekly 第 111 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/111.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[claude-md-cut-82-percent-and-maintain-it]] — CLAUDE.md 精簡,對應 Karpathy
+- [[claude-md-12-rules]] — 12 條規則的實際成效
+- [[voxcpm-report]] — VoxCPM2 的原始碼與介面細節
+- [[grep-vs-vector-agentic-search]] — 本地搜尋中 grep 與向量的取捨
+- [[simplerag-pdf-rag]] — 文件轉 Markdown 後的本地 RAG

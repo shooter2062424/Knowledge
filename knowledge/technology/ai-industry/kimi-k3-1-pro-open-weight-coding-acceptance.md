@@ -292,6 +292,8 @@ Caleb 的角度和 Why QQ 不同,不談怎麼驗收,而是問:**在算力短缺�
 - [[why-reinforcement-learning-is-hard-caleb]]:RL 環境與獎勵設計為什麼決定 agent 學到什麼。
 
 ---
+- [[issue-102]] — 同主題:GitHub Weekly 第 102 期:個人 AI 助理、React 生成影
+- [[issue-124]] — 同主題:第 124 期:Kimi K3 與 Kimi Code、AI 網關、開源部署平台
 
 ## 來源
 

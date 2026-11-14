@@ -144,3 +144,7 @@ Opus 5.5 會自己盤點環境,但你可以**主動降低它找錯路的機率**
 - 工具:[Blender](https://www.blender.org/)、[OpenCV](https://opencv.org/)、[Remotion](https://www.remotion.dev/)
 
 📎 相關筆記:[[rsi-recursive-self-improvement-anthropic]](§11 Opus 5.5 發布)、[[blender-previz-mcp-ai-video]](用 agent 操作 Blender)、[[shopify-helix-checkpoints-and-gates]](把「好」寫成關卡)
+
+## 相關筆記
+
+- [[pixelfx-code-pixel-effects-agent-render-feedback-loop]] — 同主題:PixelFX:244 個純程式碼像素特效,與「讓 Agent 看自己的輸出」的

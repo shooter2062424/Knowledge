@@ -220,3 +220,8 @@ flowchart TD
 - scikit-learn HistGradientBoostingClassifier:https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingClassifier.html
 - XGBoost PyPI:https://pypi.org/pypi/xgboost/json
 - XGBoost scikit-learn 介面:https://xgboost.readthedocs.io/en/stable/python/sklearn_estimator.html
+
+## 相關筆記
+
+- [[ml-practice-projects-fifteen]] — 同主題:機器學習 15 個實戰專案整理(含信用卡詐欺偵測深入版與程式碼問題檢討)
+- [[ml-ten-core-concepts-guide]] — 同主題:機器學習十大核心概念:維度災難、R²、偏差變異、梯度下降、核技巧、混淆矩陣、過擬

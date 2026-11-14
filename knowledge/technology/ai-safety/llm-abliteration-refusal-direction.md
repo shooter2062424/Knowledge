@@ -140,3 +140,8 @@ flowchart TB
 - 論文:[Efficient Estimation of Word Representations in Vector Space(word2vec)](https://arxiv.org/abs/1301.3781)(Mikolov et al.,2013)
 
 **Whisper 專有名詞還原對照:** Abolition/Ubiliter Ritter → abliteration / abliterator;Inbadding/Invading/Inviting → embedding;惨差/殉差 → 殘差;Lama、千吻、Gama → Llama、Qwen、Gemma;World to Wack → word2vec;RDT → Arditi;T度 → 梯度。
+
+## 相關筆記
+
+- [[issue-118]] — 同主題:GitHub Weekly 第 118 期:自託管 AI 工作空間、AI 求職系
+- [[weight-space-programming-llm-edits-weights]] — 同主題:權重空間編程(Weight-Space Programming):讓 LLM 直

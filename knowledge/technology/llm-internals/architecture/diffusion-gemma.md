@@ -105,3 +105,9 @@ vllm serve google/diffusiongemma-26B-A4B-it \
 - Google for Developers,〈DiffusionGemma: the developer guide〉:<https://developers.googleblog.com/en/diffusiongemma-the-developer-guide/>
 - 模型權重(Apache 2.0):<https://huggingface.co/google/diffusiongemma-26B-A4B-it>;文件:<https://ai.google.dev/gemma/docs/diffusiongemma>;訓練 recipe:<https://github.com/google-deepmind/gemma/tree/main/gemma/diffusion>
 - 部署:vLLM、Hugging Face Transformers、SGLang、MLX、Google Cloud Model Garden、NVIDIA NIM。
+
+## 相關筆記
+
+- [[stable-diffusion-how-it-draws]] — 擴散模型去噪的基礎原理
+- [[kv-cache]] — 自回歸生成的記憶體瓶頸背景
+- [[inference-engines-llamacpp-vllm-sglang-tensorrt]] — 推論引擎的瓶頸與部署背景

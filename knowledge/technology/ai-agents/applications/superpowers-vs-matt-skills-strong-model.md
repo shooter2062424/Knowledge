@@ -141,3 +141,8 @@ flowchart TD
 - 影片:[模型越强,Superpowers 和 MattPocock-Skills 应该删除谁?(AI随风,2026-07-21)](https://www.youtube.com/watch?v=JPGo_5fczaA)
   - ⚠️ 該片無字幕,逐字稿以 **CPU 版 faster-whisper(small)** 轉錄取得、**非官方字幕**,可能有少量聽寫誤差(如 Superpowers/Matt Skills/Kimi K3 等專有名詞、star 數字)。
 - 延伸(本庫):[Matt Pocock 的 AI 開發 skills 全拆解](./matt-pocock-skills-teardown.md)、[4 組頂級 Agent Skill(含 Superpowers)](./top-skills-for-agents.md)、[OpenAI GPT-5.6 官方提示指南](../foundations/gpt-5-6-prompting-guide-openai.md)、[Bitter Lesson:模型變強後砍舊 prompt](../foundations/bitter-lesson-cut-old-patterns.md)、[Skill 實戰:從製作到維護](./building-claude-skills.md)
+
+## 相關筆記
+
+- [[issue-100]] — 同主題:GitHub Weekly 第 100 期:開源程式 Agent、AI 技能框架
+- [[issue-113]] — 同主題:GitHub Weekly 第 113 期:AI 終端機開源、駭客工具箱、Ski

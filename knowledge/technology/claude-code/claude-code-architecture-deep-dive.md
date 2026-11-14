@@ -1024,3 +1024,7 @@ Context window 管理在主線散在步驟 2(組裝)、3、8、9、11(壓縮),�
 - **官方原始碼(npm sourcemap 外洩)**:`yasasbanukaofficial/claude-code`,<https://github.com/yasasbanukaofficial/claude-code>(2026-03-31,Chaofan Shou @Fried_rice 發現)。本筆記已 clone 全部 1900+ 檔讀完再刪、未進本庫;所有 `檔案:行號` 與程式碼片段均引自此原始碼(片段為求精簡有刪節,但忠於原碼語意)。
 - **CCB(Claude Code Best / 踩踩背)**:`claude-code-best/claude-code`,<https://github.com/claude-code-best/claude-code>;功能文檔 <https://ccb.agent-aura.top/>。
 - 本筆記由 **13 個 fan-out subagent** 分頭精讀各子系統(harness/queue/tools/skills/MCP/multi-agent/system-prompt/compaction + CCB 的群控/ACP/Remote/WebSearch/Poor)後綜合,並由作者親自核對關鍵程式碼。**僅供學習研究;Claude Code 一切權利屬 Anthropic。**
+
+## 相關筆記
+
+- [[issue-108]] — 同主題:GitHub Weekly 第 108 期:Claude Code 終極優化、離

@@ -130,3 +130,9 @@ flowchart TD
 - 谷歌第三季財報與股價反應:https://www.xtb.com/en/market-analysis/alphabet-disappoints-wall-street-despite-record-results-shares-plunge-over-8-and-test-300 ;https://tech-insider.org/alphabet-q3-2026-earnings-miss-9-percent-negative-free-cash-flow-developers-2026/
 
 ⚠️ 非投資建議。本篇的產品與財報數字多來自二手媒體報導(部分為聚合站),重大決策前請回到 Meta、OpenAI、Anthropic、Alphabet 的官方發布與 SEC 文件核對。
+
+## 相關筆記
+
+- [[issue-102]] — 同主題:GitHub Weekly 第 102 期:個人 AI 助理、React 生成影
+- [[issue-103]] — 同主題:GitHub Weekly 第 103 期:超輕量 OpenClaw 復刻、程式
+- [[issue-106]] — 同主題:GitHub Weekly 第 106 期:阿里 OpenClaw 替代、WiF

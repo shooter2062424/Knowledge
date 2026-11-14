@@ -94,3 +94,7 @@ flowchart TD
 - [[ai-native-sdlc-landing-checklist]]:AI 原生 SDLC 落地清單。
 - [[agent-skill-three-layer-run-do-verify]]、[[loop-engineering-when-and-how-gary-chen]]:驗證回路與別球員兼裁判。
 - [[linus-llm-kernel-patch-vs-gcc-ai-policy]]:大型 C 專案(Linux kernel)對 AI 生成補丁的政策。
+
+## 相關筆記
+
+- [[elephant-goldfish-model-egm-spec-review]] — 同主題:Elephant-Goldfish Model(EGM):大象寫規格,金魚在「零

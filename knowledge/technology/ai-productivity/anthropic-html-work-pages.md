@@ -314,3 +314,8 @@ flowchart LR
 
 > ⚠️ **§6 那支影片無字幕,逐字稿以 CPU 版 faster-whisper(small / int8 / zh)轉錄取得,非官方字幕**,可能有聽寫誤差;
 > 專有名詞對照已列於 §6.6。**倦怠數據 62/61/38 出自另一份未指名的調查,本文未能核實,引用請與哈佛研究分開。**
+
+## 相關筆記
+
+- [[issue-116]] — 同主題:GitHub Weekly 第 116 期:Agent 記憶 OS、超省錢 De
+- [[fowler-llm-voice-ai-writing-uncanny-valley]] — 同主題:Martin Fowler〈LLM Voice〉:AI 文字的恐怖谷,與工程師該

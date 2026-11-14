@@ -118,3 +118,13 @@ flowchart TD
 - 〈GitHub 冲榜第一的 Claude Code 画图 Skill…〉YAHA学堂,2026-09-03:https://www.youtube.com/watch?v=rq4EHbqaaAk (自動字幕,簡體,非官方人工字幕)
 - cathrynlavery/diagram-design(MIT):https://github.com/cathrynlavery/diagram-design(2026-11-07 shallow clone 讀取:`skills/diagram-design/SKILL.md`、`references/export.md`、`references/output-spec.md`、`commands/export-diagram.md`、`README.md`)
 - Playwright Python 文件:https://playwright.dev/python/docs/intro
+
+## 相關筆記
+
+- [[claude-design-review]] — 同為 Claude 設計工具的評測與取捨
+- [[ai-website-building-claude-code]] — 設計規則如何突破 AI 預設風格
+- [[claude-web-design-skills-benchmark-pnh]] — 網頁設計 Skill 的實測對照
+- [[skill-evaluation-four-layer-checklist-google-qq]] — 用對照實驗驗證 Skill 效果
+- [[ai-ppt-claude-vs-gpt-four-prompt-steps-mia]] — 同主題:讓 Claude 和 GPT 做 PPT:差的是那幾句話——從「一句話」到能上台
+- [[issue-127]] — 同主題:第 127 期:DeepSeek Harness、出版級圖表 Skill、自我進
+- [[issue-130]] — 同主題:第 130 期:可驗證的架構圖 Skill、即時 3D 地球觀測台、多智能體 A

@@ -362,3 +362,9 @@ flowchart LR
 
 > ⚠️ **非投資建議。** 本文為對一支公開影片的整理與交叉查證,核實狀態已列於上一節。
 > 匯率與政策變動快速,**具體數字請以日本財務省、美國財政部與聯準會的官方公告為準。**
+
+## 相關筆記
+
+- [[capital-flows-1990s-crisis-chain-mexico-asia-russia]] — 熱錢撤離與各國干預的歷史案例
+- [[us-treasury-selloff-warsh-communication-shift]] — 美債拋售與美國出手的連動
+- [[us-bond-stock-divergence-valuation-vs-earnings-1994]] — 債市、利率與股市的背離分析

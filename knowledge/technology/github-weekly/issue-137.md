@@ -197,3 +197,9 @@ flowchart LR
   - Awesome DSH Plugin:<https://github.com/awesome-dsh-plugin/awesome-dsh-plugin>
   - See-through:<https://github.com/shitagaki-lab/see-through>
 - 延伸(本庫):[DeepSeek Super Agent 筆記](../ai-agents/autonomy/deepseek-super-agent-router-walker-xuanyuan.md) · [DeepSeek Harness 運行時](../ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) · [Claude Haiku 5.5 與 computer use](../ai-industry/claude-haiku-5-5-cheap-model-computer-use.md) · [用 Claude Code 建網站](../applied-ai/design/ai-website-building-claude-code.md) · [第 136 期](./issue-136.md)
+
+## 相關筆記
+
+- [[ai-live2d-vtuber-see-through-anime25drig-pipeline-mia]] — See-through 分層技術的實際應用流程
+- [[claude-web-design-skills-benchmark-pnh]] — 網站類 Claude Code Skill 的實測對照
+- [[long-running-agents-goal-evaluation]] — 持續工作的 Agent 與評估機制

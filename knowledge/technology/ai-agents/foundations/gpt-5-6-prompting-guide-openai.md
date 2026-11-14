@@ -188,3 +188,8 @@ flowchart TD
 
 - OpenAI 官方文件:[Prompt guidance for GPT-5.6(developers.openai.com)](https://developers.openai.com/api/docs/guides/prompt-guidance-gpt-5p6)
 - 延伸(本庫):[Bitter Lesson:模型變強後舊 prompt 正在拖垮新模型](./bitter-lesson-cut-old-patterns.md)、[你不是不會寫 Prompt,是不會定義任務](../../ai-productivity/defining-tasks-not-prompts.md)、[Claude Code 官方四種 Loop](./claude-code-loop-types-official.md)、[Loop Engineering 實務(Gary Chen)](./loop-engineering-when-and-how-gary-chen.md)
+
+## 相關筆記
+
+- [[more-ambitious-with-models-altitude-depth-range-rieseberg]] — 同主題:怎麼對模型更有野心:速度、高度、深度、廣度四種提問升級(Felix Rieseb
+- [[prompting-claude-fable-5-2-official-guide-checklist-why-qq]] — 同主題:Fable 5.2 該怎麼下提示:Anthropic 官方提示指南的十項調整與影

@@ -211,3 +211,10 @@ flowchart LR
 - [GitHub 搜尋:rust-lang/rust 中 open 的 I-unsound issue](https://github.com/rust-lang/rust/issues?q=is%3Aissue+is%3Aopen+label%3AI-unsound)
 
 📎 相關筆記:[[cpp-evolution-complexity-ai-era]](C++ 的複雜度與安全演進,可對照「語言保證」與「實際邊界」)
+
+## 相關筆記
+
+- [[cpp-large-codebase-stability-toolbox]] — 型別與記憶體安全的工具鏈對照
+- [[linus-llm-kernel-patch-vs-gcc-ai-policy]] — 同樣談程式碼可信與責任的案例
+- [[ai-native-sdlc-landing-checklist]] — 程式碼可信度的驗證流程
+- [[python-3-15-new-features]] — 同主題:Python 3.15 幾個值得關注的新特性:frozendict、Sentin

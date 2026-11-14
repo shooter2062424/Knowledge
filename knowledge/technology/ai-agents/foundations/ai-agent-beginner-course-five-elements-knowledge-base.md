@@ -371,6 +371,10 @@ flowchart LR
 - [[grep-vs-vector-agentic-search]]:知識庫之外,agent 也可以用 grep 找資料。
 
 ---
+- [[ai-essential-13-concepts-beginner-map]] — 入門概念地圖,補足名詞背景
+- [[ai-concepts-layered-map-baibai]] — 同類分層概念地圖可對照
+- [[ai-architectures-twelve-patterns-practical-examples]] — RAG 與 Agent 的架構位置
+- [[ai-engineering-twenty-concepts-serving-rag-ops]] — RAG 與上線維運的概念速查
 
 ## 來源
 

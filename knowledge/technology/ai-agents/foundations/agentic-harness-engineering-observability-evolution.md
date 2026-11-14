@@ -380,3 +380,7 @@ Agent Debugger 的做法可以用在任何除錯情境:
 - 本倉庫相關筆記:[[agent-runtime-deepseek-harness-cordis]]、[[pi-minimal-agent-harness-teardown]]、[[herdr-terminal-runtime-agent-to-agent]]、[[seven-agent-architectures-selection-guide]]、[[graph-engineering-node-edge-state]]、[[loop-engineering-when-and-how-gary-chen]]、[[agent-harness-launches-august-2026]]、[[token-saving-three-moves-context-control]]、[[claude-md-cut-82-percent-and-maintain-it]]
 
 > ⚠️ 本文為論文內容之整理;所有數字均出自論文自報的實驗,**未經獨立複現**。論文為 preprint(v4),結論可能隨版本修訂。
+
+## 相關筆記
+
+- [[tian-yuandong-rsi-recursive-self-improvement]] — 同主題:再訪田淵棟:46.5 億美金估值的 RSI,押注「AI 自進化」與前沿實驗室的組

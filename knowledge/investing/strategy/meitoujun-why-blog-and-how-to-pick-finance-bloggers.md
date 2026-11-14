@@ -107,3 +107,9 @@ flowchart TD
 - [Science History Institute:A Study in Scarlet(warfarin 歷史)](https://www.sciencehistory.org/stories/magazine/a-study-in-scarlet/)
 - [誠品線上:Skin in the Game 繁體中文版《不對稱陷阱》](https://www.eslite.com/product/1002149592644865)
 - 逐字稿:faster-whisper `large-v3-turbo` int8,非官方字幕
+
+## 相關筆記
+
+- [[target-prices-institutional-secrets]] — 前外資分析師揭露研究與博主的差別
+- [[gooaye-stock-picking-philosophy]] — 知名財經頻道的選股心法對照
+- [[pamela-reif-creator-to-entrepreneur-business-model]] — 創作者靠內容變現與利益結構

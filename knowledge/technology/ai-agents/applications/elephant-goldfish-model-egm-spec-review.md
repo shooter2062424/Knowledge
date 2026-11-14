@@ -252,6 +252,9 @@ flowchart TB
 - [[harness-loop-graph-troubleshooting-map]]:agent 出問題時的排障地圖。
 
 ---
+- [[spec-driven-development-landscape-2026]] — 規格驅動開發主流做法的比較
+- [[spec-code-flow-overview-greenfield-brownfield]] — 規格與程式碼雙向流程總覽
+- [[spec-code-flow-skill-experiments]] — 同類 skill 的設計與實驗結果
 
 ## 來源
 

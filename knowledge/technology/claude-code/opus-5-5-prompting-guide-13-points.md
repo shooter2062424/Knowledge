@@ -219,3 +219,8 @@ YAHA學堂的版本同樣把官方指南拆成 13 條、順序幾乎相同,一�
 - [Claude Code Docs:Mods overview(內建 mod `cc-plugin-agents-md`)](https://code.claude.com/docs/en/plugins/mods/overview)
 
 📎 相關筆記:[[claude-sonnet-5-5-release-effort-migration]]、[[claude-md-cut-82-percent-and-maintain-it]]、[[gemini-cli-prompt-to-agent-progress-notes]]、[[impeccable-frontend-design-skill-ai-slop]]、[[gpt-5-6-prompting-guide-openai]]、[[claude-code-mods-explained]]
+
+## 相關筆記
+
+- [[more-ambitious-with-models-altitude-depth-range-rieseberg]] — 同主題:怎麼對模型更有野心:速度、高度、深度、廣度四種提問升級(Felix Rieseb
+- [[prompting-claude-fable-5-2-official-guide-checklist-why-qq]] — 同主題:Fable 5.2 該怎麼下提示:Anthropic 官方提示指南的十項調整與影

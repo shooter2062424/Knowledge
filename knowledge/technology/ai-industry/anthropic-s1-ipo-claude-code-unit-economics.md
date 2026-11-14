@@ -194,6 +194,9 @@ flowchart LR
 - [[rsi-recursive-self-improvement-anthropic]]:Anthropic 的 IPO 與安全表態互相糾纏(§9 一帶)。
 
 ---
+- [[claude-throttling-opus-4-7]] — 算力成本與限額如何影響使用體驗
+- [[gpt-5-6-sol-kernel-self-optimization-luna-pricing]] — 推理成本與定價的同業對照
+- [[claude-haiku-5-5-cheap-model-computer-use]] — 小模型單位成本的具體數字
 
 ## 來源
 

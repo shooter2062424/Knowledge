@@ -54,3 +54,7 @@ Anthropic 的拼圖:**Claude Code(工程師)+ Claude Cowork(非技術上班族)+
 ## 來源
 
 - [YouTube:Claude Design 使用評測,又一批新創公司遭殃?(Gary Chen)](https://youtu.be/Z613KdxJpKg)
+
+## 相關筆記
+
+- [[diagram-design-skill-rules-not-model-yaha]] — 同主題:diagram-design:Claude Code 畫圖 Skill 為什麼沒

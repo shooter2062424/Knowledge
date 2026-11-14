@@ -142,3 +142,10 @@ flowchart TD
 - Obsidian 商業授權改為選購:https://obsidian.md/blog/free-for-work/
 - Obsidian Sync 團隊共用 vault:https://obsidian.md/help/teams/sync
 - Obsidian Sync FAQ:https://obsidian.md/help/sync/faq
+
+## 相關筆記
+
+- [[markdown-agent-memory]] — Markdown 當記憶載體的依據
+- [[project-cairn-experience-to-knowledge-skill]] — 把經驗沉澱成知識庫的做法
+- [[claude-md-from-zero-to-mastery]] — Agent 規則檔的結構
+- [[issue-118]] — 同主題:GitHub Weekly 第 118 期:自託管 AI 工作空間、AI 求職系

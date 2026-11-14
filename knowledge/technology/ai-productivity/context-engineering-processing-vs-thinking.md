@@ -129,3 +129,10 @@ flowchart LR
 
 - Gary Chen(@garytalksstuff)YouTube:[You might be using AI wrong: Three mistakes that everyone from beginners to AI engineers makes](https://www.youtube.com/watch?v=FQ81w5UO9u8)
 - 相關概念:context engineering、progressive disclosure、Lost in the Middle、prompt caching。
+
+## 相關筆記
+
+- [[token-saving-three-moves-context-control]] — 同樣談 token 效率的三招省法
+- [[context-engineering-claude-5-unhobbling]] — Claude 5 時代的上下文工程新規則
+- [[tokenizer-tax-chinese-vs-english-token-cost]] — 不同語言的 token 成本差異
+- [[chain-of-thought-history-and-mirage]] — 同主題:AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」

@@ -213,6 +213,11 @@ repo 列出 RTX 4090 D、4080 / 4080 SUPER、4070 Ti / Ti SUPER、4070 / SUPER�
 - [[local-ai-every-hardware-size]]:不同硬體規模能跑什麼本地模型。
 
 ---
+- [[nvidia-moat-memory-bandwidth-cuda-software]] — GPU 算力與記憶體頻寬的瓶頸背景
+- [[jalapeno-inference-benchmark-boundaries]] — 讀廠商跑分的方法,與本篇判斷相通
+- [[llmfit-local-model-hardware-fit]] — 判斷本機硬體能否跑模型的工具
+- [[vllm-pagedattention-engine-parameters-xiaobai-debug]] — 同主題:vLLM 為什麼能讓同一張 GPU 多扛幾倍請求:KV cache、PagedA
+- [[dlss-fsr-ai-upscaling-explained]] — 同主題:DLSS 與 FSR 到底做了什麼:從「猜細節」到「用時間換細節」的遊戲畫面 A
 
 ## 來源
 

@@ -66,3 +66,8 @@ flowchart LR
 
 - 美投讲美股(美投君),〈00 年互联网泡沫,半导体都发生了什么?〉,YouTube:<https://www.youtube.com/watch?v=91yRxsdc0gA>(2026-05-18,約 27 分鐘)
 - **該片無字幕,逐字稿以 CPU 版 faster-whisper(`vad_filter=True`,small,zh)轉錄,非官方字幕**;歷史數字(SOX 各階段翻倍、高通 $3→$90、Intel $74.88 破 5000 億、SOX 55×/25× 估值、跌 84%、DRAM 崩盤日期)依語音+歷史常識還原,可能有聽寫誤差,實際以原片為準。**非投資建議**。
+
+## 相關筆記
+
+- [[us-stocks-rate-hike-three-stages-ai-vs-2000]] — 同主題:加息會引發美股大跌嗎?用 2000 泡沫「三階段」對照 AI 這輪革命(美投君)
+- [[taiex-elliott-wave-relay-pattern-huang-20261027]] — 同主題:颱風假躲過重挫,接下來補跌還是主跌?黃培碩用波浪結構看大盤、台積電與個股(202

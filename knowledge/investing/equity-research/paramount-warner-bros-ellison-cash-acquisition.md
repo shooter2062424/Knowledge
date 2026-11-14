@@ -328,3 +328,9 @@ flowchart TB
 - [Lexpert:Skydance Media and Paramount Global complete US$8B merger](https://www.lexpert.ca/big-deals/skydance-media-and-paramount-global-complete-us8b-merger/394273)
 - [Cord Cutters News:Paramount Completes WBD Acquisition, Launches Combined Company as Skydance](https://cordcuttersnews.com/its-done-paramount-completes-warner-bros-discovery-acquisition-launches-combined-company-as-skydance/)
 - [Wikipedia:Proposed acquisition of Warner Bros. Discovery(時間軸彙整)](https://en.wikipedia.org/wiki/Proposed_acquisition_of_Warner_Bros._Discovery)
+
+## 相關筆記
+
+- [[wanda-wang-jianlin-vam-bets-and-asset-unwinding]] — 對賭條款與上市殼資本操作的反噬
+- [[tesla-earnings-fsd-chip-spacex-four-quadrant]] — SpaceX 合併與資本操作的隱藏風險
+- [[trump-second-term-income-sources-2025]] — 同主題:川普第二任期的賺錢秘笈:從地產 IP 到加密貨幣

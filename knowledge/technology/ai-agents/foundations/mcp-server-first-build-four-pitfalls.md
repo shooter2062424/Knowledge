@@ -227,3 +227,8 @@ Claude **直接自己回答了,完全沒有呼叫工具,連授權確認框都沒
 
 > ⚠️ 套件版本與生態變動快速。文中版號為 **2026-08-30 查詢 npm registry 的結果**,
 > 動手前請自行以 `npm view <package> dist-tags` 再確認一次。
+
+## 相關筆記
+
+- [[easy-mcp-ai-wordpress-claude-code-seo-guardrails]] — 同主題:用 Easy MCP AI 讓 Claude Code 管 WordPress:
+- [[unreal-engine-mcp-claude-game-dev-reality-check]] — 同主題:不會虛幻引擎也能用 Claude 做遊戲?UE 5.8 官方 MCP 的接法、下

@@ -233,3 +233,9 @@ compliant = graph.check_decision_rules({"category": "vendor_selection"})  # 政�
   - Macro:<https://github.com/macro-inc/macro>
   - Semantica:<https://github.com/semantica-agi/semantica>
 - 延伸(本庫):[DeepSeek Harness 與 Cordis](../ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) · [Prime Agent:RLM 與 Continual Harness](../ai-agents/foundations/prime-agent-rlm-continual-harness.md) · [本體論邏輯護欄](../ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md)
+
+## 相關筆記
+
+- [[diagram-design-skill-rules-not-model-yaha]] — 同為 diagram-design 圖表 Skill 的拆解
+- [[deepseek-super-agent-router-walker-xuanyuan]] — DeepSeek Super Agent 的 Router/Worker 架構
+- [[is-graphrag-needed-rag-variants-comparison]] — 知識圖譜與檢索增強的方案比較

@@ -66,3 +66,7 @@ flowchart TD
 ## 來源
 
 - [YouTube:Mythos 要來了,你的舊提示詞正在拖垮新模型?(Gary Chen)](https://youtu.be/MdZWB8eC83Q)
+
+## 相關筆記
+
+- [[prompting-claude-fable-5-2-official-guide-checklist-why-qq]] — 同主題:Fable 5.2 該怎麼下提示:Anthropic 官方提示指南的十項調整與影

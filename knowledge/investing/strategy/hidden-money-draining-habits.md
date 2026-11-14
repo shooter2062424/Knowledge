@@ -80,3 +80,9 @@ flowchart TD
 ## 來源
 
 - [YouTube:收入高卻存不住錢?7個正在掏空你的隱形習慣(lililili_anna)](https://youtu.be/-XLTrE5bjko)
+
+## 相關筆記
+
+- [[ldl-cholesterol-targets-plaque-regression]] — 同主題:壞膽固醇 160 降到 55:心肌梗塞的警訊、LDL 目標值,與斑塊為什麼能縮小
+- [[chronic-inflammation-four-enemies]] — 同主題:你以為健康,其實天天慢性發炎:四個敵人與四個對策
+- [[qingan-3-0-and-inheritance-gender-gap]] — 同主題:青安 3.0 上路:為什麼「最高 1500 萬」多半貸不滿?以及財政部繼承數據透

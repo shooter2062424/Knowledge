@@ -138,3 +138,7 @@ C2Rust 的 README 也強調:非 trivial 專案需要 `compile_commands.json`(CMa
 - Daikon:https://plse.cs.washington.edu/daikon/ ;Joern:https://docs.joern.io/ ;Doxygen:https://www.doxygen.nl/manual/diagrams.html ;Clang Tooling:https://clang.llvm.org/docs/Tooling.html
 - C2Rust:https://github.com/immunant/c2rust ;DARPA TRACTOR:https://www.darpa.mil/research/programs/translating-all-c-to-rust ;MIT LL:https://www.ll.mit.edu/tractor ;Syzygy:https://arxiv.org/abs/2412.14234
 - Google giflib(二手):https://infoq.com/news/2026/09/c-rust-rewrite/
+
+## 相關筆記
+
+- [[higher-order-functions-readable-code]] — 同主題:用高階函式降低程式碼閱讀負擔:重點不是變短,是讀者的注意力放在哪

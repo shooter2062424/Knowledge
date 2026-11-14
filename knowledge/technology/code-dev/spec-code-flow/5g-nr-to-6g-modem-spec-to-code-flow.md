@@ -148,3 +148,7 @@ SpecLens 的 60 項分歧是個重要證據【推論】:**以任何單一實作�
 - ETSI TTCN-3:https://ttcn-3.etsi.org/index.php/downloads/publicts/publicts-3gpp/143-3gpp-5g-ue-test-suites
 - srsRAN_Project:https://github.com/srsran/srsRAN_Project ;OAI:https://gitlab.eurecom.fr/oai/openairinterface5g ;Sionna:https://github.com/NVlabs/sionna 、 https://arxiv.org/abs/2203.11854 ;AFF3CT:https://github.com/aff3ct/aff3ct ;asn1c:https://github.com/vlm/asn1c
 - 論文:Telco-RAG https://arxiv.org/abs/2404.15939 ;TSpec-LLM https://arxiv.org/abs/2406.01768 ;SpecGPT https://arxiv.org/abs/2510.14348 ;CellularLint https://arxiv.org/abs/2407.13742 ;CR 精煉 https://arxiv.org/abs/2507.04214 ;RRC 模擬 https://arxiv.org/abs/2505.16821 ;SpecLens https://arxiv.org/abs/2609.38752 ;GENESIS https://arxiv.org/abs/2605.27360 、 https://arxiv.org/html/2605.27360 ;AI/ML LCM https://arxiv.org/abs/2507.18538
+
+## 相關筆記
+
+- [[spectrum-codex-novel]] — 同主題:《頻譜密典:NR 的七封印》

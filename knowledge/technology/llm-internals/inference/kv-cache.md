@@ -423,3 +423,8 @@ flowchart LR
 - [Llama 2 70B config(NousResearch 鏡像)](https://huggingface.co/NousResearch/Llama-2-70b-hf/raw/main/config.json)(§7、§12.3)
 - [MiniMax Sparse Attention — arXiv 2606.13392 HTML](https://arxiv.org/html/2606.13392)(§10.6、§12.3)
 - 影片畫面與時間:[YouTube Hr-82fWJyWE](https://www.youtube.com/watch?v=Hr-82fWJyWE)(§11,軒轅的編程宇宙,自動字幕;畫面截圖於 §12.1 核對)
+
+## 相關筆記
+
+- [[issue-116]] — 同主題:GitHub Weekly 第 116 期:Agent 記憶 OS、超省錢 De
+- [[diffusion-gemma]] — 同主題:DiffusionGemma:把「擴散」搬進語言模型,並行生成、可自我修正

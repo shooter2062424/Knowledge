@@ -173,6 +173,9 @@ flowchart LR
 - [[cross-model-review-claude-codex-harness]]:另一種外部裁判(跨模型互審)。
 
 ---
+- [[cloudflare-security-audit-skill-pipeline]] — 同為把審計做成流程關卡的 Skill
+- [[shopify-helix-checkpoints-and-gates]] — 檢查點與關卡制度的同類做法
+- [[claude-code-team-code-review-seven-layers]] — 多層 code review 與品質門禁
 
 ## 來源
 

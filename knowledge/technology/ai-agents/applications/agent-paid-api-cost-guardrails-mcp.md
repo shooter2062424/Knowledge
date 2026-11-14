@@ -204,3 +204,8 @@ Agent 負責執行與計算,**人負責核實事實與邊界**。
 > 「iESA / ISA / AIsa」為 **AIsa**、「鋪盆」為 **PChome**、「數位時代 / 數為時代」為 **數位時代**、
 > 「魚額 / 鱼儿 / 餘額」為 **餘額**、「免賠」為 **免費**、「譽明 / 域名」為 **網域**、「進品分析」為 **競品分析**、
 > 「Nelson」依上下文為 **Notion**、「逐漁掉」為 **驟降**、「針掉了用戳」為 **真的掉了用戶**、「李彪」為 **裡標**。
+
+## 相關筆記
+
+- [[ai-boss-luna-andon-market-fired-human-mia]] — 同主題:AI 老板 Luna 開除了第一個真人:Andon Market 的心軟、健忘與
+- [[chatgpt-ads-stack-llm-orchestrator]] — 同主題:ChatGPT 廣告栈拆解:LLM 當編排者、確定性系統管錢、超時就丟

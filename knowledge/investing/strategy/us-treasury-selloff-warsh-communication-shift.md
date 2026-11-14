@@ -355,3 +355,7 @@ flowchart LR
 - 本倉庫相關筆記:[[us-stocks-rate-hike-risk-2026]]、[[us-stocks-rate-hike-three-stages-ai-vs-2000]]、[[us-stocks-three-risks-detox-trigger]]、[[ai-investing-four-principles-stock-logic]]、[[semiconductor-2000-bubble-vs-2026-ai]]
 
 > ⚠️⚠️ **再次聲明:本文為影片論點之整理,非投資建議。** 文中所有數字(收益率水平、債券供給量、短債佔比等)均為影片轉述,**未經獨立查證**;市場觀點具時效性,可能已失效。投資決策請自行判斷並承擔風險。
+
+## 相關筆記
+
+- [[yen-40-year-low-takaichi-trade-and-us-japan-intervention]] — 同主題:日圓創 40 年新低:主導因素從「利差」換成「財政風險」,以及美日 15 年來首

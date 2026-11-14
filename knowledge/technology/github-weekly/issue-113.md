@@ -101,3 +101,11 @@
 - [GitHub Weekly 第 113 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/113.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[matt-pocock-skills-teardown]] — 同一位作者的技能集拆解
+- [[superpowers-vs-matt-skills-strong-model]] — 技能集的選擇框架
+- [[herdr-terminal-runtime-agent-to-agent]] — 終端機中多 agent 互相指揮
+- [[codex-desktop-full-workflow-guide]] — Codex Skill 與 Hook 流程
+- [[yaha-video-ai-tools-filmora-topview-flova]] — 同為 AI 影片生成工具

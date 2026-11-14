@@ -209,3 +209,10 @@ flowchart LR
   - OpenStock:<https://github.com/Open-Dev-Society/OpenStock>
   - DBX:<https://github.com/t8y2/dbx>
 - 延伸(本庫):[打造「0 人 AI 公司」:Hermes Agent + Paperclip](../ai-agents/applications/zero-person-ai-company.md) · [第 111 期(提及 Paperclip 類專案)](./issue-111.md) · [用 AI 做股票分析](../../investing/ai-assisted/using-ai-for-stock-analysis.md)
+
+## 相關筆記
+
+- [[dbx-rust-database-client-mcp]] — 同為內建 MCP 的資料庫客戶端
+- [[yaha-video-ai-tools-filmora-topview-flova]] — AI 影音剪輯工具與方法論的對照
+- [[ai-agent-skill-stock-research-workflow]] — AI 看股工具的使用邊界
+- [[ai-orchestrators-32-tools-seven-dimensions]] — 管理多個 Agent 的編排工具選型

@@ -237,6 +237,8 @@ DSA 的新問題:為了從 100 萬個 token 挑 top-k,indexer 自己面對的候
 - [[local-ai-every-hardware-size]]:不同硬體規模能跑多長的上下文。
 
 ---
+- [[issue-104]] — 同主題:GitHub Weekly 第 104 期:智譜 GLM-5 旗艦模型、AI 編
+- [[issue-112]] — 同主題:GitHub Weekly 第 112 期:DeepSeek V4 開源、GPT
 
 ## 來源
 

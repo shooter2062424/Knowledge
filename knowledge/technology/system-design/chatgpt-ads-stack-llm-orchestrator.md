@@ -249,6 +249,8 @@ bundle 若在回答生成完之前到達,就顯示在回答下方、標示 spons
 - [[llm-evals-how-to-know-ai-works]]:「強模型評估、訓練小模型」背後的評估方法。
 
 ---
+- [[agent-paid-api-cost-guardrails-mcp]] — 確定性護欄管錢的同類實作
+- [[ai-compute-token-economics]] — AI 商業化與算力經濟的背景
 
 ## 來源
 

@@ -126,3 +126,10 @@ flowchart LR
 - 方法源頭與改編來源:Sprite Fusion pixel art VFX(Hugo Duprez)https://www.spritefusion.com/pixel-art-vfx ;Hollow Crown https://github.com/rehan-remade/hollow-crown
 
 相關閱讀:[[agent-verification-before-scale-lauren-tan-reaction]](先給 Agent 驗證手段再談規模)、[[anatomy-skill-object-is-the-explanation]](視覺類 skill 的另一個例子)。
+
+## 相關筆記
+
+- [[vercel-vgpu-agent-shader-verification-golden-image]] — 同為讓 Agent 驗收視覺輸出
+- [[opus-5-5-video-agent-tool-selection-self-check]] — 影片生成 Agent 的回頭檢查流程
+- [[claude-design-25-tricks-design-rules-skill]] — 把設計規則寫成 Skill 的做法
+- [[vhs-terminal-recording-tape-script]] — 同主題:VHS:把終端機操作寫成腳本,改一行就重新生成 GIF 和 MP4

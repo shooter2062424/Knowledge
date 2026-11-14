@@ -395,3 +395,10 @@ flowchart TB
 
 > ⚠️ 本文為對一支公開影片的整理與查證。§8 已標示核實狀態。
 > **三家公司的數字均為自述、未經第三方稽核**,引用時請標明來源與這個限制。
+
+## 相關筆記
+
+- [[vercel-vgpu-agent-shader-verification-golden-image]] — 同主題:Vercel vgpu:讓 Agent 寫的 Shader「畫對了」能被機器驗收
+- [[issue-119]] — 同主題:GitHub Weekly 第 119 期:生產級 Agent 技能包、蘋果官方
+- [[linus-llm-kernel-patch-vs-gcc-ai-policy]] — 同主題:Linus 用 Claude Code 寫內核補丁、GCC 劃下 15 行紅線:
+- [[rust-issue-164250-borrow-checker-soundness-hole]] — 同主題:編譯通過 ≠ 記憶體安全:Rust issue #164250——借用檢查器裡住

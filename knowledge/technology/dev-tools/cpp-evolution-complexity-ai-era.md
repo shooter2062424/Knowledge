@@ -76,3 +76,8 @@ flowchart TB
 - YouTube:[C++ 演进史 复杂性诅咒 内存危机与 AI 时代的绝地反击(安枫的叶)](https://youtu.be/dVRFSzbLR7M)
 - 涉及:Bjarne Stroustrup、C++98/03/11/20、RAII、移動語義/智慧指標、Concepts/Coroutines/Ranges/Modules、Rust 所有權與借用檢查、微軟 MSRC 70%、白宮記憶體安全報告、CUDA、PyTorch/TensorFlow、llama.cpp(Georgi Gerganov)、llm.c(Karpathy)、Chris Lattner。
 - 延伸:本庫 [[deepseek-v4-engineering]]、[[microgpt-karpathy]]、[[nvidia-n1x-vs-x86]]、[[tree-sitter]]。
+
+## 相關筆記
+
+- [[higher-order-functions-readable-code]] — 同主題:用高階函式降低程式碼閱讀負擔:重點不是變短,是讀者的注意力放在哪
+- [[linus-llm-kernel-patch-vs-gcc-ai-policy]] — 同主題:Linus 用 Claude Code 寫內核補丁、GCC 劃下 15 行紅線:

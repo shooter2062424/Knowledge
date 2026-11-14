@@ -249,3 +249,7 @@ claude -w fix-signup-form
 - Claude Code Checkpointing: https://code.claude.com/docs/en/checkpointing
 - Claude Code Memory(CLAUDE.md 與 auto memory): https://code.claude.com/docs/en/memory
 - Claude Code Permissions: https://code.claude.com/docs/en/permissions
+
+## 相關筆記
+
+- [[issue-109]] — 同主題:GitHub Weekly 第 109 期:被開源的 Claude Code、J

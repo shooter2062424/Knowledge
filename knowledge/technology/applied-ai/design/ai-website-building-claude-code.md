@@ -76,3 +76,7 @@ Claude Code、shadcn/ui、Lottie、Three.js、Hyper3D(圖生 3D)、Google Whisk(
 ## 來源
 
 - [YouTube:前端工程師失業倒數?AI 一句話就能生出整個網站(Debug Tuboshu)](https://youtu.be/ipvuIOaN5wA)
+
+## 相關筆記
+
+- [[diagram-design-skill-rules-not-model-yaha]] — 同主題:diagram-design:Claude Code 畫圖 Skill 為什麼沒

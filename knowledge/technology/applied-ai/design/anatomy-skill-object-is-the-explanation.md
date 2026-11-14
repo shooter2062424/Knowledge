@@ -261,3 +261,8 @@ SKILL.md 第 10 步「像評論家一樣驗收」的原文對應:擷取桌機、
 - [npm:anatomy-figures](https://www.npmjs.com/package/anatomy-figures) · [wheresryan22/anatomy-community(社群圖集)](https://github.com/wheresryan22/anatomy-community)
 
 📎 相關筆記:[[impeccable-frontend-design-skill-ai-slop]](同為把設計品味寫成 skill)、[[cloudflare-security-audit-skill-pipeline]](把審計寫成流程)、[[cross-model-review-claude-codex-harness]](驗證者不能只信自述)
+
+## 相關筆記
+
+- [[local-tools-skill-mcp-three-layer-decision-baibai]] — 同主題:MCP、Skill、本地 Tools 到底有什麼區別:三層分工與選型決策樹
+- [[issue-130]] — 同主題:第 130 期:可驗證的架構圖 Skill、即時 3D 地球觀測台、多智能體 A

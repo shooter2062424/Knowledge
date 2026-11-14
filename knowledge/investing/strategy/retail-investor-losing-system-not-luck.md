@@ -169,3 +169,9 @@ flowchart LR
 - 影片:[為什麼你買什麼跌什麼?臺股散戶虧錢的底層邏輯,從來都不是運氣差(極簡經濟學,2026-07-12)](https://youtu.be/xI3MCSTlCtA)
   - ⚠️ 該片無字幕,逐字稿以 **CPU 版 faster-whisper(small)** 轉錄取得、**非官方字幕**,可能有少量聽寫誤差。
 - 延伸對照(本庫):[《持續買進》(Nick Maggiulli)](./just-keep-buying-nick-maggiulli.md)、[《會想的人,先有錢》](./thinkers-get-rich-jonathan-clements.md)、[交易的贏家數學:期望值/系統設計/風險](./trading-math-expectancy-variance-risk.md)、[別再相信目標價:法人在看什麼](./target-prices-institutional-secrets.md)
+
+## 相關筆記
+
+- [[retirement-risk-math-john-dagostino-coinbase]] — 散戶打不贏機構的事實與退休數學
+- [[peter-tuchman-day-trading]] — 情緒與 FOMO 是散戶虧損的主因
+- [[just-keep-buying-nick-maggiulli]] — 有紀律的長期買入作為對照

@@ -199,6 +199,8 @@ flowchart LR
 - [[agent-sandbox-microvm-snapshot-iaa]]:替代理準備隔離的執行環境。
 
 ---
+- [[claude-code-dont-ask-again-secrets-leak-checklist-why-qq]] — AI Coding 工具的權限與外洩風險
+- [[openai-linux-kernel-948-lpe-agent-pipeline-why-qq]] — Agent 發掘系統層漏洞的實測
 
 ## 來源
 

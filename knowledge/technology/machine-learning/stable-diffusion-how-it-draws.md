@@ -161,3 +161,10 @@ flowchart TB
 - 論文:[Classifier-Free Diffusion Guidance](https://arxiv.org/abs/2207.12598)(Ho & Salimans,2022)
 
 **Whisper 專有名詞還原對照:** Unite/Unit → U-Net;Clip → CLIP;Coffee UI → ComfyUI;造点/造生/噪生 → 雜訊;圆图 → 原圖;taxi embedding → text embedding;Latant/Laton/前空间 → latent / 潛空間;余协/鱼咸/驴咸相似度 → 餘弦相似度;互相/负像提示辞 → 負向提示詞。
+
+## 相關筆記
+
+- [[yaha-video-ai-tools-filmora-topview-flova]] — 同主題:YAHA 影音 AI 工具:Filmora 16、Topview、Flova(S
+- [[issue-112]] — 同主題:GitHub Weekly 第 112 期:DeepSeek V4 開源、GPT
+- [[diffusion-gemma]] — 同主題:DiffusionGemma:把「擴散」搬進語言模型,並行生成、可自我修正
+- [[dlss-fsr-ai-upscaling-explained]] — 同主題:DLSS 與 FSR 到底做了什麼:從「猜細節」到「用時間換細節」的遊戲畫面 A

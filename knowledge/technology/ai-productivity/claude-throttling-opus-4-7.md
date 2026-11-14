@@ -116,3 +116,10 @@ Hex 技術長總結最狠:**「low-effort 的 Opus 4.7 大致等於 medium-effor
 
 - Gary Chen(@garytalksstuff)YouTube:[Anthropic 推出 Opus 4.7,Claude Code 完全不一樣了嗎?](https://www.youtube.com/watch?v=3e_YTF3id_8)
 - 影片中引用:AMD 工程師約 7,000 次對話的系統化分析、《Wall Street Journal》訓練支出預估、《Fortune》(4/14)算力危機專文、XBOW / Cursor / Rakuten / Hex 等實測與背書。
+
+## 相關筆記
+
+- [[opus-4-7-workflow-upgrades]] — 同一模型版本的工作流升級建議
+- [[ai-compute-token-economics]] — 算力與 token 成本的經濟背景
+- [[ai-subscription-api-equivalent-value-semianalysis]] — 訂閱額度與算力補貼的實測對照
+- [[anthropic-s1-ipo-claude-code-unit-economics]] — 同主題:Anthropic S-1 從工程師視角讀:807 億虧損、經營現金流轉正,與 

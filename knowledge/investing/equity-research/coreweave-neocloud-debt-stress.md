@@ -135,3 +135,8 @@ NVIDIA 同時是供應商、股東與資金來源。這種「互相捆綁」的�
 - Nick 美股咖啡館〈投資人公認最具「十倍潛力」的股票:暴跌50%後機會真的來了?!〉:https://www.youtube.com/watch?v=sr3y1-iQ1vI(官方 zh-TW 字幕)
 - SEC EDGAR XBRL companyfacts — CoreWeave(CIK 0001769628):https://data.sec.gov/api/xbrl/companyfacts/CIK0001769628.json(查詢日 2026-10-19)
 - 揭露:說明欄 IB 盈透證券與 Seeking Alpha 為推薦 / 聯盟連結,本文不收錄
+
+## 相關筆記
+
+- [[tesla-q2-2026-capex-shock-vs-narrative]] — 同主題:特斯拉暴跌 20% 拆解:資本開支才是恐慌根源,以及「大跌後持有半年 9 成賺」
+- [[wanda-wang-jianlin-vam-bets-and-asset-unwinding]] — 同主題:萬達怎麼一步步賣掉自己:兩份對賭、四次遞表失敗,與「名字還在、公司換人」

@@ -516,3 +516,8 @@ flowchart TD
 | 中端 / 中竿 | **終端機** |
 
 > ⚠️ 影片中屬作者個人實測與偏好的判斷(PPT 直出效果、Computer Use 消耗、`.env` 填寫體驗、60% 壓縮上下文)**未經獨立驗證**;所有規格性敘述已於 §9 標明核實狀態。
+
+## 相關筆記
+
+- [[issue-113]] — 同主題:GitHub Weekly 第 113 期:AI 終端機開源、駭客工具箱、Ski
+- [[issue-99]] — 同主題:GitHub Weekly 第 99 期:AI 程式代理編排、Claude Sk

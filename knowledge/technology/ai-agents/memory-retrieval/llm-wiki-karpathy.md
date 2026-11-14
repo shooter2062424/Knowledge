@@ -124,3 +124,7 @@ Karpathy 在結尾特別說明:**這份文件刻意抽象**,只描述 idea,不�
 
 - Andrej Karpathy,〈LLM Wiki〉(idea 文件,gist):<https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f>(本文依 `llm-wiki.md` 全文整理,clone 後已刪除暫存)
 - 文中提及工具:[qmd](https://github.com/tobi/qmd)(本地 Markdown 混合搜尋 + MCP)、Obsidian(Web Clipper / 圖視圖 / Marp / Dataview)、Vannevar Bush《As We May Think》(1945,Memex)。
+
+## 相關筆記
+
+- [[issue-115]] — 同主題:GitHub Weekly 第 115 期:桌面 AI 助手、程式 Agent 

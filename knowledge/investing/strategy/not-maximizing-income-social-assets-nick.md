@@ -110,3 +110,10 @@ flowchart TD
 - AMD 10-Q XBRL(CIK 0000002488,2026-06-27 資產負債表,查詢日 2026-10-19):https://data.sec.gov/api/xbrl/companyfacts/CIK0000002488.json
 - Paul Jarvis,《Company of One: Why Staying Small Is the Next Big Thing for Business》(2019):https://pjrvs.com/company/
 - 揭露:說明欄 IB 盈透證券推薦連結(點擊作者得回饋)、Excel 估值模型 / nickvischool 為作者自家產品,本文不收錄
+
+## 相關筆記
+
+- [[sell-put-early-close-roll-delta-nick]] — 同作者,頻率與時間成本的取捨
+- [[ai-skills-no-raise-nash-bargaining]] — 時間與收入的議價與取捨
+- [[pamela-reif-creator-to-entrepreneur-business-model]] — 創作者為何選擇不急著擴張
+- [[ldl-cholesterol-targets-plaque-regression]] — 同主題:壞膽固醇 160 降到 55:心肌梗塞的警訊、LDL 目標值,與斑塊為什麼能縮小

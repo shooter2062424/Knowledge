@@ -94,3 +94,7 @@ flowchart LR
 ## 來源
 
 - [YouTube:AI時代,真正拉開差距的3種能力!(李廠長來了)](https://youtu.be/pyqUiHyz_-c)
+
+## 相關筆記
+
+- [[bill-gates-turbulent-ai-era-human-reserved]] — 同主題:Bill Gates〈AI 動盪時代〉長文導讀：工作、機器人稅、雙面刃、陪伴與「

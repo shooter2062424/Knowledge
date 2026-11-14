@@ -282,3 +282,9 @@ flowchart TD
   - [The state of global AI diffusion in 2026 — Microsoft On the Issues](https://blogs.microsoft.com/on-the-issues/?p=67572)、[Microsoft Puts UAE AI Use at 73.3%, Global Rate at 18.8% — FourWeekMBA](https://fourweekmba.com/ai-microsoft-puts-uae-ai-use-at-73-3-global-rate-at-18-8/)
   - ⭐⭐ [Uplift update — METR 官方部落格(2026-02-24)](https://metr.org/blog/2026-02-24-uplift-update/)(後續研究與選擇偏差)
 - 延伸:本庫 [[rsi-recursive-self-improvement-anthropic]](§8.6 Hugging Face 事件兩方說法)、[[openai-navier-stokes-agent-swarm-and-attribution]]、[[harness-learning-proposer-rl]]、[[karpathy-how-i-use-llms]]、[[karpathy-software-3-0]]、[[google-agentic-engineering-day1]]、[[llm-evals-how-to-know-ai-works]]、[[ai-subscription-api-equivalent-value-semianalysis]]
+
+## 相關筆記
+
+- [[microgpt-karpathy]] — Karpathy 的教學脈絡
+- [[arc-agi-3-agentic-benchmark]] — agentic 基準上的能力差距
+- [[why-llms-hallucinate-benchmarks-reward-guessing]] — 評分制度塑造對能力的感知

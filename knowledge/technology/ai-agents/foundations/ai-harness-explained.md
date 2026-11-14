@@ -171,3 +171,8 @@ demo 任務需要 **即時網路資料**:「去 https://news.ycombinator.com,告
 - [TejasQ/basically-ai-harness (GitHub)](https://github.com/TejasQ/basically-ai-harness)
 - [YouTube:AI Agent 工作原理是什麼,Harness 又是什麼](https://youtu.be/B91bZL8wcAI)(非逐字稿,僅標題)
 - [YouTube:提示词工程 上下文工程 Harness工程 是什么?(程序员老王,2026-04-16)](https://www.youtube.com/watch?v=2eq-8GM2bhg)(無字幕,逐字稿以 CPU faster-whisper 轉錄、非官方字幕)
+
+## 相關筆記
+
+- [[harness-loop-graph-troubleshooting-map]] — 同主題:Harness / Loop / Graph 三層排障地圖:把「Agent 又抽
+- [[issue-108]] — 同主題:GitHub Weekly 第 108 期:Claude Code 終極優化、離

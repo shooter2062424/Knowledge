@@ -244,6 +244,9 @@ Gates 自己也承認，真正執行時還有很多問題沒有答案：
 - [[claude-fable-72-hours-model-dependency]]：同作者談政府以國安為由下架模型的事件，是本文「新機構/國安重組」的一個真實案例。
 
 ---
+- [[ai-adoption-electricity-revolution-analogy]] — 以電力革命類比 AI 的經濟衝擊
+- [[lisa-su-mit-commencement]] — 同談 AI 時代人類不可取代的價值
+- [[three-valuable-ai-skills]] — 呼應 Human Reserved
 
 ## 來源
 

@@ -220,3 +220,10 @@ flowchart LR
 - PostgreSQL 官方文件〈Connections, process per user〉:https://www.postgresql.org/docs/current/connect-estab.html
 - PostgreSQL 原始碼:https://github.com/postgres/postgres (`src/backend/access/nbtree/README`、`configure.ac`)
 - Lehman & Yao, 〈Efficient Locking for Concurrent Operations on B-Trees〉(B-Link 樹來源,經 `nbtree` README 引用)
+
+## 相關筆記
+
+- [[defeating-nondeterminism-batch-invariance]] — 批次大小如何影響推論結果
+- [[gpu-unlock-ada-tensor-half-rate-override]] — prefill 與 decode 瓶頸的實際差異
+- [[transformers-local-deepseek-r1-distill]] — 本機推論的另一條實作路線
+- [[issue-121]] — 同主題:第 121 期:DeepSeek 推理加速、Google 設計記憶規範、AI 投

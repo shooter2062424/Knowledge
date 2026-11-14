@@ -311,3 +311,8 @@ flowchart LR
   - 影片含作者自家付費研究平台的推廣內容,估值模型細節未在影片中公開。
 - ⚠️ **本文為教育用途整理,非投資建議。** 所有數據均為影片說法,未經第三方查核;投資有風險,決策前請自行閱讀微軟原始財報與財報會議紀錄。
 - 延伸(本庫):[GPT-5.6 Sol 自優化 kernel 與 Luna 降價 80%](../../technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md)(模型商品化的直接證據) · [AI 算力與 Token 經濟學](../../technology/ai-industry/ai-compute-token-economics.md) · [AI 產業 C→B 轉向:算力決定](./ai-industry-shift-c-to-b-compute-decides.md) · [特斯拉 Q2 2026 資本開支衝擊](./tesla-q2-2026-capex-shock-vs-narrative.md)(同作者上週的財報分析)
+
+## 相關筆記
+
+- [[google-amazon-q3-2026-selloff-nick]] — 同主題:Google、Amazon 財報後大跌:Nick 的「加碼 15 股」邏輯與我的
+- [[us-stocks-ai-turning-point-fomo-over-pullback]] — 同主題:美股連漲 13 天還能追嗎?「真實通脹」數據、AI 情緒三大轉向信號,與「踏空風

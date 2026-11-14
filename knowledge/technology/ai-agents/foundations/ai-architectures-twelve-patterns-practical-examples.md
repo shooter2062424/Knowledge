@@ -83,3 +83,8 @@ flowchart TD
 
 - 使用者提供的本機素材批次 `new/ai-guide/`(2026-11-07 收件),檔案:`12 AI Architectures with Practical Examples.pdf`(作者 Anjana「AI & Tech」@aiwithanju;社群引流型素材)。
 - OWASP GenAI, LLM01 Prompt Injection(引用其最小權限與高風險人工核可建議):https://genai.owasp.org/llmrisk/llm01-prompt-injection/
+
+## 相關筆記
+
+- [[ai-agent-beginner-course-five-elements-knowledge-base]] — 同主題:AI Agent 入門課:五大核心要素、知識庫(RAG)與 Cherry Stu
+- [[ai-system-design-guide]] — 同主題:AI System Design Guide(ombharatiya):生產級 

@@ -64,3 +64,7 @@
 ## 來源
 
 - Elijah Bricker(AI drivers),〈I Tried Every AI Model, This is What Works in 2026〉,YouTube:<https://youtu.be/FmIUUT-TXHs>(2026-06-07)
+
+## 相關筆記
+
+- [[ai-travel-planning-notebooklm-gemini]] — 同主題:AI 旅遊規劃組合技:NotebookLM + Gemini + Google 

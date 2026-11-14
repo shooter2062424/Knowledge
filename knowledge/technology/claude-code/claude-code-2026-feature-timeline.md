@@ -510,3 +510,8 @@ flowchart TB
 - 本倉庫相關筆記:[[output-style-communication-not-intelligence]]、[[claude-dynamic-workflows]]、[[long-running-agents-goal-evaluation]]、[[claude-code-hooks-complete-guide]]、[[claude-md-cut-82-percent-and-maintain-it]]、[[continue-after-directory-move]]、[[claude-code-architecture-deep-dive]]、[[claude-design-review]]、[[graph-engineering-node-edge-state]]、[[token-saving-three-moves-context-control]]、[[loop-engineering-when-and-how-gary-chen]]、[[pi-minimal-agent-harness-teardown]]、[[chatgpt-browser-extension-agent]]、[[codex-as-a-platform-open-agent-harness]]
 
 > ⚠️ **Claude Code 迭代極快(半年跨了 v2.1.83 → v2.1.239)**,本文是特定時點的快照。功能可能已改名、改預設值或移除(例如 `/output-style` 就在 v2.1.73 棄用、v2.1.91 移除)。**實際可用項目請以你當下版本的 `/help` 與官方文件為準。**
+
+## 相關筆記
+
+- [[claude-code-source-full-map]] — 同主題:Claude Code 原始碼全覽地圖:11 個子系統與它們怎麼咬合
+- [[claude-code-ten-concepts-three-first-steps-jayluxai]] — 同主題:Claude 近期十個更新怎麼分:新手只要先做三件事(JayLuxAI + 官方

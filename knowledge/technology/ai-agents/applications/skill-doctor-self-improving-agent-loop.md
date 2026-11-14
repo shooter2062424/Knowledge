@@ -300,3 +300,8 @@ flowchart TB
 
 > ⚠️ 本文為對一支公開影片的整理與查證。§10 已逐項標示核實狀態。
 > **§6 的 skill-doctor 細節出自實際讀取的 SKILL.md,§9 的產業推論為影片作者預測。**
+
+## 相關筆記
+
+- [[skill-evaluation-four-layer-checklist-google-qq]] — 同主題:Skill 沒效果?先跑對照實驗:Google 的 Skill 優化實驗與「四層
+- [[issue-110]] — 同主題:GitHub Weekly 第 110 期:史上最快爆紅的 Rust 版 Cla

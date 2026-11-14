@@ -253,3 +253,9 @@ flowchart TB
 - 影片中引用:電影《愛在黎明破曉時》(Before Sunrise)三部曲、小說《Good Material》
 - 心理學概念:**self-concept clarity(自我概念清晰度)** —— 為既有的心理學構念,文中的「與社交焦慮負相關」為影片轉述之研究結論,未逐一查證原始文獻
 - 本倉庫相關筆記:[[context-engineering-processing-vs-thinking]]、[[token-saving-three-moves-context-control]]、[[lisa-su-mit-commencement]]
+
+## 相關筆記
+
+- [[personality-question-trait-behaviour-evidence]] — 把特質轉成具體行為與例子
+- [[dialectical-negation-thinking-layered-cognition]] — 思考結構與表達清晰度的延伸
+- [[sales-power-negotiation-eight-scenarios-boice-celso]] — 溝通與說服中的情緒價值

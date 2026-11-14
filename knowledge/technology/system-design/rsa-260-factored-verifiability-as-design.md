@@ -287,3 +287,8 @@ RSA-250 的帳單以 2.1GHz 的 Xeon 核心折算,算力來自法國與美國的
 
 > ⚠️ 本文為對一支公開影片的整理與查證。§9 已逐項標示核實狀態。
 > **密碼學建議請以 NIST 現行標準與你所在組織的合規要求為準,本文不構成安全設計建議。**
+
+## 相關筆記
+
+- [[encrypted-reasoning-traces-portable-key-flaw]] — 金鑰管理與加密的實際安全教訓
+- [[flashprove-zk-proof-of-model-identity-api-gateway]] — 可驗證性與零知識證明的應用

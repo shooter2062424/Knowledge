@@ -239,3 +239,8 @@ flowchart TD
 
 - Redknot-乔红,〈用最好的动画为你讲解--HBM的原理〉,YouTube:<https://www.youtube.com/watch?v=yF2BY8kQfyo>(2026-06-18,約 16.7 分鐘)
 - **該片無字幕,逐字稿以 CPU 版 faster-whisper(`vad_filter=True`、`condition_on_previous_text=False`,small 模型,zh)轉錄取得,非官方字幕**;大量半導體專有名詞(矽 silicon、矽中介層 interposer、TSV 矽通孔、博世製程 / DRIE 深反應離子刻蝕、SF6 六氟化硫、C4F8 八氟環丁烷、鉭 Ta / 氮化鉭 TaN、環氧樹脂、微凸點 micro-bump、混合鍵合 hybrid bonding)與數字(GDDR7 32bit/266 線、HBM3e 1024bit/3982 線/8 顆 8192bit、12 層 36GB、288/1152GB、市佔 50%、200 萬人民幣)依語音+專業常識還原,small 模型對同音字(矽/焊/環氧等)有可觀聽寫誤差、已校正,實際以原片為準。
+
+## 相關筆記
+
+- [[magnetic-switch-keyboard-hall-effect-principle]] — 同主題:磁軸鍵盤原理:霍爾感測、Rapid Trigger,與飛智 FS68 的雙霍爾與
+- [[ssd-nand-flash-floating-gate-engineering]] — 同主題:SSD 怎麼存資料:從量子穿隧到 3D NAND 陣列

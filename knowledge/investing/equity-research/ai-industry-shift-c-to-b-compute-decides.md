@@ -91,3 +91,7 @@ flowchart TD
 
 - 美投讲美股(美投君),〈AI 产业已秘密转向!趁市场未动,这 3 大机会抓紧布局!〉,YouTube:<https://www.youtube.com/watch?v=cgKUgAJE3cs>(2026-05-03,約 22 分鐘)
 - **該片無字幕,逐字稿以 CPU 版 faster-whisper(`vad_filter=True`,small,zh)轉錄,非官方字幕**;公司名與數字(Gemini Enterprise +40%、Codex 50万→400万、OpenAI B 端 >40%、Anthropic ARR 90→300→440 億、微軟資本開支 1300→1900 億、OpenAI >30GW vs Anthropic ~6GW、雲廠 24×)依語音還原,可能有聽寫誤差,GW 等單位以原片為準。**非投資建議**。
+
+## 相關筆記
+
+- [[ai-adoption-electricity-revolution-analogy]] — 同主題:AI 像 100 年前的電力革命:真正的商機不在「AI 應用」,而在「AI 採納

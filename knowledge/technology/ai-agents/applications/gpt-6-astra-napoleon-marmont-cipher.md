@@ -119,3 +119,11 @@ flowchart TB
 - [Cryptonomist:GPT-6 codebreaking AI cracks 217-year-old Napoleon cipher in six hours](https://en.cryptonomist.ch/2026/10/04/gpt-6-codebreaking-ai-decipher/)
 
 📎 相關筆記:[[gpt-6-astra-token-efficiency-and-harness]]、[[anthropic-html-work-pages]]、[[vibe-coding-stack-model-agent-workflow]]、[[astra-vs-fable-find-bugs-vs-fix-bugs]]
+
+## 相關筆記
+
+- [[astra-ten-open-problems-and-agi-two-axes-caleb]] — 同一個 Astra 模型的數學成果與評價
+- [[openai-navier-stokes-agent-swarm-and-attribution]] — AI 大規模解題的同類案例與成果署名
+- [[claude-fable-5-2-1000-agents-os-fermat-harness-why-qq]] — 千個 Agent 做形式化證明
+- [[anthropic-art-enzyme-discovery-research-harness]] — 同主題:Anthropic 用 949 個 agent session 找到新酶系統 A
+- [[weight-space-programming-llm-edits-weights]] — 同主題:權重空間編程(Weight-Space Programming):讓 LLM 直

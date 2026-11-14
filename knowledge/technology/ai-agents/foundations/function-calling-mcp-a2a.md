@@ -61,3 +61,8 @@ flowchart TD
 ## 來源
 
 - [YouTube:AI Agent 三大核心技:Function Calling、MCP、A2A](https://youtu.be/PyctX9GQjXs)(非逐字稿,僅標題與既有知識還原)
+
+## 相關筆記
+
+- [[unreal-engine-mcp-claude-game-dev-reality-check]] — 同主題:不會虛幻引擎也能用 Claude 做遊戲?UE 5.8 官方 MCP 的接法、下
+- [[issue-103]] — 同主題:GitHub Weekly 第 103 期:超輕量 OpenClaw 復刻、程式

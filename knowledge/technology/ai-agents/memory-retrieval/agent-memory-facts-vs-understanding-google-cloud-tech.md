@@ -151,3 +151,9 @@ flowchart TB
 - 影片:[Google Cloud Tech — AI Agent Memory Architecture](https://www.youtube.com/watch?v=8C4bh59FtsI)(逐字稿由 CPU 版 Whisper large-v3-turbo 轉錄,非官方字幕)
 - 示範程式:[cuppibla/fashionmind](https://github.com/cuppibla/fashionmind)(Apache-2.0,clone 讀碼後已刪)
 - 官方文件:[Memory Bank overview](https://docs.cloud.google.com/agent-builder/agent-engine/memory-bank/overview)、[Generate memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories)、[Fetch memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories)
+
+## 相關筆記
+
+- [[agent-long-term-memory-layered-design-baibai]] — 同一主題的分層記憶設計,角度互補
+- [[agent-memory-eight-strategies-window-to-memoryos]] — 記憶實作策略的完整比較
+- [[agent-memory-survey-forms-functions-dynamics]] — 記憶領域的綜述框架

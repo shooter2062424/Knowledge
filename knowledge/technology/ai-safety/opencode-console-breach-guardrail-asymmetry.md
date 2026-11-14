@@ -183,3 +183,7 @@ David Sacks 在 X 上的評論:「護欄反噬了(The guardrails backfired)」,�
 - The Decoder,〈OpenAI launches GPT-5.6-Cyber to help defenders find vulnerabilities before attackers do〉(2026-08-10): https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/
 - INSIDE,〈金鑰恐外洩!OpenCode 證實 Console 遭入侵,1.4% 使用者受影響〉: https://www.inside.com.tw/article/42669-opencode-console-breach-1-4-percent-distillation-attack-provider-keys
 - Hugging Face 事件兩方說法:見本庫 `rsi-recursive-self-improvement-anthropic.md` §8.6
+
+## 相關筆記
+
+- [[claude-code-dont-ask-again-secrets-leak-checklist-why-qq]] — 同主題:Claude Code「不要再問」把密碼寫進設定檔:Apiiro 報告的口徑、官

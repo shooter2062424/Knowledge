@@ -156,3 +156,10 @@ KV cache 大小約 ≈ `2(K 與 V)× 層數 × KV 頭數 × 每頭維度 × 序�
 - 論文:[SGLang: Efficient Execution of Structured Language Model Programs](https://arxiv.org/abs/2312.07104)
 - 專案:[llama.cpp](https://github.com/ggml-org/llama.cpp)、[vLLM](https://github.com/vllm-project/vllm)、[SGLang](https://github.com/sgl-project/sglang)、[TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM)
 - 比較文章:[Spheron — vLLM vs SGLang 2026](https://www.spheron.network/blog/vllm-vs-sglang-2026/)
+
+## 相關筆記
+
+- [[issue-121]] — 同主題:第 121 期:DeepSeek 推理加速、Google 設計記憶規範、AI 投
+- [[issue-128]] — 同主題:第 128 期:圖片生成 Three.js 3D 模型、Omarchy、Mac 
+- [[issue-136]] — 同主題:第 136 期:消費級顯卡跑 DeepSeek(Strata)、DeepSeek
+- [[diffusion-gemma]] — 同主題:DiffusionGemma:把「擴散」搬進語言模型,並行生成、可自我修正

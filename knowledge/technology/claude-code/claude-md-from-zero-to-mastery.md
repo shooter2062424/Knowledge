@@ -240,3 +240,12 @@ Claude Code 官方團隊在幫最新一代的 **Fable 5 與 Opus 5** 優化系�
   - 影片時間戳:0:00 CLAUDE.md 是什麼 / 1:17 該放在哪個位置 / 4:06 用 `/init` 建立第一份 / 6:22 該寫什麼、該刪什麼 / 10:18 長期怎麼維護 / 13:19 健檢實測 / 14:47 總結。
   - 作者的「CLAUDE.md 健檢 Prompt」與完整文章放在其 Patreon(影片資訊欄有連結),本文僅整理影片中公開說明的方法與結論。
 - 延伸(本庫):[Claude 5 時代的 Context Engineering 新規則(官方刪 80% 系統提示詞的來龍去脈)](../ai-agents/foundations/context-engineering-claude-5-unhobbling.md) · [Bitter Lesson:模型變強後該砍舊 prompt](../ai-agents/foundations/bitter-lesson-cut-old-patterns.md) · [Skill 實戰:從製作到維護](../ai-agents/applications/building-claude-skills.md) · [Claude Code 原始碼徹底拆解](./claude-code-architecture-deep-dive.md)
+
+## 相關筆記
+
+- [[claude-md-cut-82-percent-and-maintain-it]] — CLAUDE.md 瘦身與長期維護
+- [[claude-md-12-rules]] — 12 條 CLAUDE.md 規則的實例
+- [[claude-memory-dreaming-four-layers-gary]] — CLAUDE.md 之外的記憶層
+- [[markdown-agent-memory]] — 用 Markdown 檔當 agent 記憶
+- [[kepano-obsidian-vault-format-and-team-rollout-plan]] — 同主題:kepano 的 Obsidian vault 格式(categories + 
+- [[claude-code-ten-concepts-three-first-steps-jayluxai]] — 同主題:Claude 近期十個更新怎麼分:新手只要先做三件事(JayLuxAI + 官方

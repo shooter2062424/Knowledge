@@ -373,3 +373,7 @@ flowchart TB
 - [Anthropic:Skill authoring best practices(官方文件)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
 - [Anthropic 工程部落格:Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)(§10.2、§10.6 核實)
 - [Agent Skills 規格 — agentskills.io/specification](https://agentskills.io/specification)(frontmatter 限制、目錄結構、漸進式披露,§10.2、§10.6 核實)
+
+## 相關筆記
+
+- [[issue-99]] — 同主題:GitHub Weekly 第 99 期:AI 程式代理編排、Claude Sk

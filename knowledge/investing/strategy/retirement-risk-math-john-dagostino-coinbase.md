@@ -341,3 +341,9 @@ flowchart LR
 📎 相關筆記:[[retail-investor-losing-system-not-luck]]、[[just-keep-buying-nick-maggiulli]]、[[trading-math-expectancy-variance-risk]]
 
 > ⚠️⚠️ **再次提醒:非投資建議。** 受訪者任職於 Coinbase,談加密資產與穩定幣時有利益關係;任何決策請以自己的財務狀況與風險承受度為準。
+
+## 相關筆記
+
+- [[thinkers-get-rich-jonathan-clements]] — 長期財富與不靠盯盤的觀點
+- [[trump-second-term-income-sources-2025]] — 穩定幣與加密資產收益的實例
+- [[qingan-3-0-and-inheritance-gender-gap]] — 同主題:青安 3.0 上路:為什麼「最高 1500 萬」多半貸不滿?以及財政部繼承數據透

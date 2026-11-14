@@ -143,3 +143,7 @@ BDI 不是過時的古董——**現代 agent loop 幾乎是 BDI 的重演**:
 - [Belief–desire–intention software model(Wikipedia)](https://en.wikipedia.org/wiki/Belief%E2%80%93desire%E2%80%93intention_software_model)
 - 理論源頭:Michael Bratman《Intention, Plans, and Practical Reason》;Rao & Georgeff(BDI_CTL / PRS);Michael Wooldridge(LORA)。
 - 延伸:本庫 [[task-decomposition-agentic-workflow]]、[[building-claude-skills]]、[[long-running-agents-goal-evaluation]]、[[grpo-vs-gepa]]、[[ai-harness-explained]]。
+
+## 相關筆記
+
+- [[stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang]] — 同主題:Stanford CS329Z 第 1 講:什麼是 AI Agent——歷史、五

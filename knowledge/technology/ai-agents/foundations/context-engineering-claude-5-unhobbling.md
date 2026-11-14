@@ -99,3 +99,7 @@ flowchart LR
 - 影片:[Context Engineering 的全新规则:Claude 5 时代,Claude Code 删掉了 80% 系统提示词(01Coder,2026-07-26,官方 zh 字幕)](https://youtu.be/FrAAxWbxSyE)
 - 原文:Thariq(@trq212)〈Claude 5 模型上下文工程的新規則〉(X:x.com/trq212/status/208071097122891806)
 - 延伸(本庫):[OpenAI GPT-5.6 官方提示指南(先做減法)](./gpt-5-6-prompting-guide-openai.md)、[Bitter Lesson:模型變強後砍舊 prompt](./bitter-lesson-cut-old-patterns.md)、[AI Agent 記憶管理:Markdown + 漸進式上下文披露](../memory-retrieval/markdown-agent-memory.md)、[Skill 實戰:從製作到維護](../applications/building-claude-skills.md)、[Matt Pocock skills 全拆解(writing-great-skills 修剪)](../applications/matt-pocock-skills-teardown.md)
+
+## 相關筆記
+
+- [[context-engineering-processing-vs-thinking]] — 同主題:你可能用錯 AI 了:Processing vs Thinking 與三層 to

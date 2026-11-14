@@ -92,3 +92,8 @@ flowchart TD
 ## 來源
 
 - [YouTube:【漫士】量子計算:量子效應如何突破計算的邊界(Meditation Math)](https://youtu.be/h7RA7yyMBYY)
+
+## 相關筆記
+
+- [[rsa-260-factored-verifiability-as-design]] — Shor 演算法威脅的密碼學背景
+- [[ssd-nand-flash-floating-gate-engineering]] — 量子穿隧效應在記憶體的應用

@@ -355,3 +355,9 @@ Review 把問題講清楚後,局部改 code、補格式、重跑測試與部署�
   - 影片時間戳:0:00 Token 為什麼一直爆 / 1:13 什麼是 Model Routing / 4:37 為什麼分工能省一半 / 6:22 五步流程怎麼拆 / 11:20 成本實算砍 54% / 15:00 重點是算力分配。
   - ⚠️ **文中價格與模型定位為影片錄製當下的假設數字**(作者自己也強調「不是要你背價格,重點是看懂成本結構」);**模型價格與優惠隨時會變,實際採用前請以官方定價頁為準**。作者另在 Patreon 提供 Model Routing Prompt Set 與各家模型定位整理,本文僅整理影片中公開說明的方法。
 - 延伸(本庫):[Google 課程 Day 4+5:講清楚/設邊界/做驗收](../ai-agents/foundations/google-agentic-engineering-day4-5.md)(驗證能力 = 自動化能力上限) · [未來一年的 6 個 AI Agent 趨勢](../ai-agents/foundations/six-ai-agent-trends-next-year.md)(Token Budget 與看菜下飯) · [Graph Engineering 八分鐘](../ai-agents/foundations/graph-engineering-explained-euler-to-agents.md)(驗證並行、裁決集中) · [Loop 與 Graph 之爭](../ai-agents/foundations/loop-vs-graph-debate-engineering-view.md)(回邊要帶證據) · [GPT-5.6 Sol 與 Luna 定價](../ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) · [你不是不會寫 Prompt,是不會定義任務](./defining-tasks-not-prompts.md)
+
+## 相關筆記
+
+- [[agent-intent-recognition-three-layer-funnel]] — 同主題:用最低成本做好 Agent 意圖識別:規則層、上下文層、工具層的三層漏斗
+- [[issue-114]] — 同主題:GitHub Weekly 第 114 期:DeepSeek V4 終端編程 A
+- [[issue-124]] — 同主題:第 124 期:Kimi K3 與 Kimi Code、AI 網關、開源部署平台

@@ -166,3 +166,7 @@ flowchart TD
 - 影片:[AI 改 code 一直改 A 壞 B?你缺的是這五個步驟(Gary Chen @garytalksstuff,2026-07-18,官方 zh-TW 字幕)](https://youtu.be/CMs8YMU6_RM)
   - 作者另在 Patreon 提供完整文章與提示詞模板。
 - 延伸(本庫):[給非技術人員的 Git / GitHub](./git-github-for-vibe-coders.md)、[AI 編程的三個致命錯覺](./ai-coding-three-illusions-opencode.md)、[AI 時代怎麼「讀」程式碼:6 個技巧](./reading-code-ai-era-6-techniques.md)、[你不是不會寫 Prompt,是不會定義任務](./defining-tasks-not-prompts.md)、[Codebase-Memory:Tree-Sitter 知識圖譜](../ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md)
+
+## 相關筆記
+
+- [[higher-order-functions-readable-code]] — 同主題:用高階函式降低程式碼閱讀負擔:重點不是變短,是讀者的注意力放在哪

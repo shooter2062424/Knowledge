@@ -150,3 +150,11 @@ flowchart TD
 - Anthropic〈Pricing〉:https://platform.claude.com/docs/en/about-claude/pricing
 - Preserved thinking prefix check:https://platform.claude.com/docs/en/build-with-claude/preserved-thinking/prefix-checks
 - Effort 文件(本篇未讀,僅作延伸入口):https://platform.claude.com/docs/en/build-with-claude/effort
+
+## 相關筆記
+
+- [[opus-5-5-prompting-guide-13-points]] — Opus 5.5 官方提示指南要點
+- [[gpt-5-6-prompting-guide-openai]] — 另一家廠商的提示指南對照
+- [[bitter-lesson-cut-old-patterns]] — 舊提示詞拖累新模型的同類論點
+- [[claude-fable-5-2-one-prompt-games-saltline-gears-snes-why-qq]] — 同模型的一句提示實測與成本
+- [[more-ambitious-with-models-altitude-depth-range-rieseberg]] — 同主題:怎麼對模型更有野心:速度、高度、深度、廣度四種提問升級(Felix Rieseb

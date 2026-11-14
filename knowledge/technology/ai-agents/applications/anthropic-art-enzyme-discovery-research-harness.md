@@ -231,3 +231,9 @@ Anthropic 能確認 10 次重跑都錯過,是因為**每個任務的工具呼叫
 - 相關論文:[Deterministic access to global viral sequence data enables robust agentic scientific discovery](https://arxiv.org/html/2606.06749v1)
 - Anthropic 工程文章:[How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system)(BrowseComp token 用量解釋 80% 效能差異)
 - 媒體報導:[Gizmodo](https://gizmodo.com/claude-found-a-mysterious-crispr-like-system-but-anthropic-cant-say-what-its-capable-of-2000816906)、[Interesting Engineering](https://interestingengineering.com/ai-robotics/claude-discovers-crispr-like-enzyme-system)
+
+## 相關筆記
+
+- [[karpathy-autoresearch]] — 自主做研究的最小 harness 對照
+- [[openai-navier-stokes-agent-swarm-and-attribution]] — 大規模 agent 研究的歸屬與驗證
+- [[gpt-6-astra-napoleon-marmont-cipher]] — 模型解謎的可重現工作流

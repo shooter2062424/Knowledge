@@ -214,6 +214,10 @@ description: Shiftly 排班工具的設計規則。做任何 Shiftly 頁面、�
 - [[ai-website-building-claude-code]]:用 Claude Code 做網站的完整流程。
 
 ---
+- [[pixelfx-code-pixel-effects-agent-render-feedback-loop]] — 同主題:PixelFX:244 個純程式碼像素特效,與「讓 Agent 看自己的輸出」的
+- [[brainless-shadcn-registry-fake-claude-code-ui]] — 同主題:用 shadcn registry 做一個「假的 Claude Code」:br
+- [[issue-117]] — 同主題:GitHub Weekly 第 117 期:開源 Claude Design、上
+- [[issue-121]] — 同主題:第 121 期:DeepSeek 推理加速、Google 設計記憶規範、AI 投
 
 ## 來源
 

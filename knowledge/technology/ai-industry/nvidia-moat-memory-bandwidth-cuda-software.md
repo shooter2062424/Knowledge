@@ -280,3 +280,10 @@ Stephen Jones 的話(逐字稿節錄大意):CUDA 的祕密在於**別人在上�
 - Meta:[Llama 3.1 介紹](https://ai.meta.com/blog/meta-llama-3-1/)
 
 **Whisper 專有名詞還原對照:** 因为达/英伪达/英估达 → 英偉達(NVIDIA);生疼/生腾 → 昇騰;jamini/Giminite → Gemini;Lama → Llama;IPK / EPYC-CPU → EPYC;枯大/库达/康大 → CUDA;CU Blast → cuBLAS;ROCK M → ROCm;M533X / MI35X → MI355X;Answerpick → Anthropic;T度 → 梯度;互称和/互成盒 → 護城河。
+
+## 相關筆記
+
+- [[lithography-euv-light-source-and-asml-light-control]] — 同主題:光刻機原理系列:從光的衍射、X 光的死路到 13.5nm EUV,再到 ASML
+- [[xring-o100-tsv-hybrid-bonding-3d-stack]] — 同主題:玄戒 O100 的三層堆疊:TSV 打孔、晶圓級鍵合與混合鍵合怎麼做
+- [[gpu-unlock-ada-tensor-half-rate-override]] — 同主題:4090 算力翻倍?gpu-unlock-ada 解開 Tensor「半速鎖」:
+- [[dlss-fsr-ai-upscaling-explained]] — 同主題:DLSS 與 FSR 到底做了什麼:從「猜細節」到「用時間換細節」的遊戲畫面 A

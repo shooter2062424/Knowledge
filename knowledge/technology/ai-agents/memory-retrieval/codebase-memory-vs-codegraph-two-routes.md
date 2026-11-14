@@ -395,3 +395,9 @@ flowchart TD
   - [Codebase-Memory:Tree-Sitter 知識圖譜 + MCP(arXiv 論文完整拆解)](./codebase-memory-treesitter-knowledge-graph-mcp.md) —— 系統架構、14 個 MCP 工具、31 repo 評測、供應鏈資安管線
   - [Graphify 實戰壓測:知識圖譜打不贏 grep?](./graphify-code-knowledge-graph-real-world-test.md) —— 真實生產系統的反直覺負面結果
   - [到底需不需要 GraphRAG?9 種 RAG 方案實測](./is-graphrag-needed-rag-variants-comparison.md) · [Grep 就夠了嗎?](./grep-vs-vector-agentic-search.md) · [LLM Wiki(Karpathy)](./llm-wiki-karpathy.md)
+
+## 相關筆記
+
+- [[tree-sitter]] — 同主題:Tree-sitter:給程式工具用的「增量解析」引擎
+- [[issue-115]] — 同主題:GitHub Weekly 第 115 期:桌面 AI 助手、程式 Agent 
+- [[issue-120]] — 同主題:GitHub Weekly 第 120 期:Agent 影片生產系統、用戶名情報

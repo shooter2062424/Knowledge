@@ -135,3 +135,10 @@
 - [GitHub Weekly 第 100 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/100.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[superpowers-vs-matt-skills-strong-model]] — 週報提到的技能框架比較
+- [[matt-pocock-skills-teardown]] — 同類程式 agent 技能集的拆解
+- [[pi-minimal-agent-harness-teardown]] — 極簡 coding agent 架構對照
+- [[deepseek-search-fetch-api-agent-evidence]] — 深度研究 agent 的搜尋與證據

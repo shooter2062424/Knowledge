@@ -262,6 +262,8 @@ flowchart LR
 - [[chronic-inflammation-four-enemies]]:慢性發炎的四個敵人,其中超加工食品與內臟脂肪也是血管風險的一部分。
 
 ---
+- [[not-maximizing-income-social-assets-nick]] — 健康作為不可換回的社會資產
+- [[hidden-money-draining-habits]] — 慢性累積的隱形習慣與長期代價
 
 ## 來源
 

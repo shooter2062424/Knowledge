@@ -186,3 +186,9 @@ flowchart LR
 
 > 該片無字幕,逐字稿以 CPU 版 faster-whisper(small / int8 / zh)轉錄取得,**非官方字幕**,可能有少量聽寫誤差
 > (轉錄中的「Colork」「Co-work」「Co-Ec」均為 **Claude Cowork**、「劳吉法」為**勞基法**、「eH2」為 **HR 系統**、「Hype」為 YouTube 的 **Hype** 曝光機制、「醉伤」為**倍數**)。
+
+## 相關筆記
+
+- [[claude-cowork-vs-chat-four-questions]] — 何時該用 Cowork 的判準
+- [[defining-tasks-not-prompts]] — 提示詞如何寫成可執行的任務
+- [[claude-app-nine-hidden-settings-memory-skills-dispatch]] — Cowork 排程與 Dispatch

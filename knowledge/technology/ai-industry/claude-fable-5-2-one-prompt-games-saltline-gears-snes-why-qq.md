@@ -145,3 +145,10 @@ flowchart TD
 - GDC 2026 State of the Game Industry:https://gdconf.com/article/gdc-2026-state-of-the-game-industry-reveals-impact-of-layoffs-generative-ai-and-more/
 - GDC 新聞稿(Business Wire):https://www.businesswire.com/news/home/20260129438528/en/2026-State-of-the-Game-Industry-Report-Reveals-Widening-Effect-of-Layoffs-Broader-Perspectives-on-Generative-AI-Unionization-Tariffs-and-More
 - 二手轉貼(僅標題核對 Lex 案例):https://zeli.app/story/50433659
+
+## 相關筆記
+
+- [[ai-subscription-api-equivalent-value-semianalysis]] — 訂閱與 API 的成本換算,補足帳單背景
+- [[long-running-agents-goal-evaluation]] — 長時間 Agent 的成本與評估
+- [[claude-haiku-5-5-cheap-model-computer-use]] — 同一系列模型的價格結構
+- [[prompting-claude-fable-5-2-official-guide-checklist-why-qq]] — 同主題:Fable 5.2 該怎麼下提示:Anthropic 官方提示指南的十項調整與影

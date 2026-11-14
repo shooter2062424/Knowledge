@@ -352,3 +352,7 @@ flowchart LR
   - [Cloudflare Pages Pricing 2026: Free Tier Limits, Workers Costs & When to Upgrade — DEV](https://dev.to/nayankyada/cloudflare-pages-pricing-2026-free-tier-limits-workers-costs-when-to-upgrade-2ono)
   - [Cloudflare Pages 官方](https://pages.cloudflare.com/)
 - 延伸:本庫 [[git-github-for-vibe-coders]](同作者的前一步:把程式碼推上 GitHub)、[[vibe-coding-security-threat-modeling]](同作者的資安入門)、[[anthropic-threat-intelligence-2026-09]](API key 已成攻擊目標)、[[function-calling-mcp-a2a]]、[[mcp-server-first-build-four-pitfalls]]、[[ai-brownfield-codebase-five-steps]]。
+
+## 相關筆記
+
+- [[dawo-nixos-laptop-as-code-dutch-government]] — 同主題:荷蘭政府為什麼選 NixOS:DAWO 把 GitOps 推到每張辦公桌(Lap

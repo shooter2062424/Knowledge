@@ -135,3 +135,8 @@ writeStdout(`\r\x1b[K${line}`);   // \r 回行首、\x1b[K 清到行尾,再重�
 
 - GitHub:[colbymchenry/codegraph](https://github.com/colbymchenry/codegraph)(MIT)。重點檔:`src/db/schema.sql`、`src/extraction/tree-sitter.ts`、`src/mcp/tools.ts`、`src/bin/codegraph.ts`、`src/ui/shimmer-worker.ts`、`src/ui/glyphs.ts`。
 - 延伸:本庫 [[tree-sitter]]、[[understand-anything-vs-graphify]]、[[grep-vs-vector-agentic-search]]、[[context-engineering-processing-vs-thinking]]、[[hermes-main-agent-orchestration]];GitHub Weekly 第 115 期(CodeGraph 首次收錄)。
+
+## 相關筆記
+
+- [[issue-115]] — 同主題:GitHub Weekly 第 115 期:桌面 AI 助手、程式 Agent 
+- [[issue-120]] — 同主題:GitHub Weekly 第 120 期:Agent 影片生產系統、用戶名情報

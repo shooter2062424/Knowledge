@@ -229,3 +229,9 @@ brew install --cask tinycast-universal  # Intel、macOS 26
   - [earthtojake/text-to-cad](https://github.com/earthtojake/text-to-cad)
   - [abue-ammar/tinycast](https://github.com/abue-ammar/tinycast)
 - 延伸(本庫):[打造 Claude Skills](../ai-agents/applications/building-claude-skills.md) · [從 FFN 理解 MoE 混合專家](../llm-internals/architecture/moe-mixture-of-experts-from-ffn.md)
+
+## 相關筆記
+
+- [[output-style-communication-not-intelligence]] — 同為調整 AI 輸出風格與囉嗦問題
+- [[local-ai-every-hardware-size]] — 消費級硬體跑大型 MoE 的背景
+- [[function-calling-mcp-cli-tool-evolution]] — Agent 呼叫外部工具與 CLI 路線的背景

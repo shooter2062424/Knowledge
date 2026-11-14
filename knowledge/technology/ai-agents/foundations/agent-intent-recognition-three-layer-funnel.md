@@ -294,3 +294,9 @@ def route(text: str, session: Session) -> dict:
 
 - [怎樣用最低的成本,做好Agent意圖識別? — 白白说大模型](https://www.youtube.com/watch?v=nXs-PMjU7KY)(2026-10-08,約 11.4 分鐘。該片無字幕,逐字稿以 CPU 版 Whisper(faster-whisper)轉錄取得,非官方字幕,可能有少量聽寫誤差。⚠️ 說明欄推廣作者公眾號配套教程)
 - 延伸:本庫 [[system-one-models-jev-calibrated-decisions]]、[[seven-agent-architectures-selection-guide]]、[[function-calling-mcp-cli-tool-evolution]]、[[multi-agent-data-consistency-reliability]]。
+
+## 相關筆記
+
+- [[model-routing-compute-allocation]] — 分層處理降低成本的同一思路
+- [[llm-slm-lrm-vlm-model-routing-guide]] — 小模型與大模型分工的選型法則
+- [[agent-five-cores-langgraph-trading-agent]] — 工作流與智能體的分界與取捨

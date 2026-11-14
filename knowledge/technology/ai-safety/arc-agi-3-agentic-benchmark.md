@@ -335,3 +335,7 @@ ARC-AGI-3 檢查新穎性的方法可以直接借用:
 - 本倉庫相關筆記:[[safety-evaluation-crisis]]、[[rsi-recursive-self-improvement-anthropic]]、[[agentic-harness-engineering-observability-evolution]]、[[recursive-agent-harness-harness-recursion]]
 
 > ⚠️ 本文為論文內容之整理;分數與時間點(如「截至 2026 年 3 月前沿 AI 低於 1%」)均為論文發表當時的狀態,**很可能已經改變**。基準本身也可能有後續版本。
+
+## 相關筆記
+
+- [[karpathy-ai-capability-funnel-perception-gap]] — 同主題:Karpathy 的「能力漏斗」:為什麼你覺得 AI 很蠢,有人卻說已經看到另一

@@ -207,3 +207,9 @@ Windows 有 `.exe` 桌面安裝檔,也有 Android(Termux)與手機 App。
   - [Apache Maka](https://github.com/apache/maka)
   - [FreeLLMAPI](https://github.com/tashfeenahmed/freellmapi)
 - 延伸(本庫):[Codex 平台化與 13.3% → 38.3%](../ai-agents/applications/codex-as-a-platform-open-agent-harness.md) · [DeepSeek Harness 與 Cordis](../ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) · [Model Routing 算力分配](../ai-productivity/model-routing-compute-allocation.md)
+
+## 相關筆記
+
+- [[herdr-terminal-runtime-agent-to-agent]] — 多終端 Agent 互相指揮的同類做法
+- [[zero-person-ai-company]] — 多 Agent 協作組成團隊的同類專案
+- [[llm-api-relay-stations]] — 免費模型額度聚合的風險與背景

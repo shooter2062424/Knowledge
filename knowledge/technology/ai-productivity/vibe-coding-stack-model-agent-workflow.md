@@ -207,3 +207,7 @@ flowchart TB
 📎 相關筆記:[[gemini-cli-prompt-to-agent-progress-notes]]、[[to-tickets-spec-to-agent-workunits]]、[[matt-pocock-skills-teardown]]、[[karpathy-how-i-use-llms]]、[[pi-minimal-agent-harness-teardown]]
 
 **Whisper 專有名詞還原對照:** 外部coding / Web Coding / Wipe Coding → Vibe Coding;Cloud → Claude;Answerpick / Anthropeak → Anthropic;Jamenite / Giminite → Gemini;签问 → 千問(Qwen);Misos → Mythos;FunctionColing → function calling;Anti Gravity → Antigravity;Andrey Kapasi → Andrej Karpathy;OpenSpark / OpenSpack → OpenSpec;买派 → mypy;Raf / ROF → Ruff;UV / 优威 → uv;Geminal CLI → Gemini CLI;紫Agent → 子 Agent;知识清球 / 支持星球 → 知識星球。
+
+## 相關筆記
+
+- [[issue-114]] — 同主題:GitHub Weekly 第 114 期:DeepSeek V4 終端編程 A

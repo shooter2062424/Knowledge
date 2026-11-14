@@ -107,3 +107,11 @@
 - [GitHub Weekly 第 115 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/115.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[codegraph-code-and-tui]] — CodeGraph 的原始碼深讀
+- [[codebase-memory-vs-codegraph-two-routes]] — 同為省 token 的程式碼圖譜
+- [[function-calling-mcp-cli-tool-evolution]] — GUI 軟體包成 CLI 的工具化路線
+- [[obsidian-claude-code-cross-project-vault-agentcrew]] — 讓 AI 讀寫的 Obsidian 知識庫
+- [[llm-wiki-karpathy]] — 會增長的個人知識庫概念

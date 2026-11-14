@@ -310,3 +310,7 @@ agit cherry-pick try-ratelimit#3..#4 -m "只拿 uid 改名的結論"
   - `docs/05_global_secret_filter.md`(`agit secrets add`)
   - `docs/06_repository_secret_dictionary.md`(可還原佔位符)
 - 延伸:本庫 [[shopify-helix-checkpoints-and-gates]](同一頻道;Stop hook 的另一種用法)、[[supermemory-memory-layer]](跨 session 的記憶層,與「對話版本控制」互補)、[[claude-code-hooks-complete-guide]]。
+
+## 相關筆記
+
+- [[continue-after-directory-move]] — 同主題:Claude Code:搬移專案目錄後,如何保住 `--continue` 對話

@@ -142,3 +142,12 @@ flowchart LR
 - 片中工具與模型:[TinyStories(論文)](https://arxiv.org/abs/2305.07759)、[Whisper](https://github.com/openai/whisper)、[Piper TTS](https://github.com/rhasspy/piper)、[Moondream](https://github.com/vikhyat/moondream)、[Google AI Edge Gallery](https://github.com/google-ai-edge/gallery)、[Draw Things](https://drawthings.ai/)、[Ultralytics YOLO](https://docs.ultralytics.com/)、[OpenCode](https://github.com/sst/opencode)
 
 📎 相關筆記:[[inference-engines-llamacpp-vllm-sglang-tensorrt]]、[[kv-cache]]、[[rtx-spark-gb10-soc]]
+
+## 相關筆記
+
+- [[minimax-h3-local-video-mac-mini-vpipe-ai-strategy-room]] — 同主題:在 Mac mini 上免費跑 MiniMax H3 影片生成:vpipe 實測
+- [[whisper-cpp-vs-faster-whisper-benchmark]] — 同主題:whisper.cpp vs faster-whisper:本機 CPU 轉錄 
+- [[issue-108]] — 同主題:GitHub Weekly 第 108 期:Claude Code 終極優化、離
+- [[issue-109]] — 同主題:GitHub Weekly 第 109 期:被開源的 Claude Code、J
+- [[issue-118]] — 同主題:GitHub Weekly 第 118 期:自託管 AI 工作空間、AI 求職系
+- [[issue-126]] — 同主題:第 126 期:MiniMax H3 全模態影音模型、PDF 解析分流、團隊級 

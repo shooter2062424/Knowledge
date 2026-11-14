@@ -228,3 +228,9 @@ flowchart LR
   - PPT Master:<https://github.com/hugohe3/ppt-master>
   - QQPet:<https://github.com/AnkioTomas/qqpet>
 - 延伸(本庫):[Anatomy 深度拆解](../applied-ai/design/anatomy-skill-object-is-the-explanation.md) · [Herdr 終端執行環境](../ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) · [32 個 AI 編排器七維度](../ai-agents/resources/ai-orchestrators-32-tools-seven-dimensions.md) · [LLM API 中轉站](../ai-industry/llm-api-relay-stations.md) · [第 134 期](./issue-134.md)
+
+## 相關筆記
+
+- [[ai-ppt-claude-vs-gpt-four-prompt-steps-mia]] — 同為生成簡報的 AI 工作流
+- [[blender-previz-mcp-ai-video]] — 先擺場景再生成影片的同類思路
+- [[qm-yc-multiplayer-agent-harness]] — 多人與多 Agent 團隊協作的 harness 對照

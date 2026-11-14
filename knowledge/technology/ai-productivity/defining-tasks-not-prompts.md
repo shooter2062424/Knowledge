@@ -87,3 +87,10 @@ flowchart LR
 
 - Gary Chen(@garytalksstuff),〈你不是不會寫 Prompt,是不會定義任務〉,YouTube:<https://youtu.be/KNP9Mr1rUQY>(2026-06-11)
 - 引用:Microsoft × LinkedIn, Work Trend Index(2024)。
+
+## 相關筆記
+
+- [[enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao]] — 同主題:個人用 AI 快 100 倍、公司卻沒感覺:能力落差與流程落差,以及原演講沒被摘
+- [[ai-ppt-claude-vs-gpt-four-prompt-steps-mia]] — 同主題:讓 Claude 和 GPT 做 PPT:差的是那幾句話——從「一句話」到能上台
+- [[claude-cowork-overtime-pay-audit-prompt]] — 同主題:一段提示詞、五個工具、3 分鐘抓出加班費算法裡的三個漏洞:Claude Cowo
+- [[fowler-llm-voice-ai-writing-uncanny-valley]] — 同主題:Martin Fowler〈LLM Voice〉:AI 文字的恐怖谷,與工程師該

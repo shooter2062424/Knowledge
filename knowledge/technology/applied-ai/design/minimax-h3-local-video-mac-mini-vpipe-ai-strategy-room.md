@@ -120,3 +120,13 @@ flowchart LR
 - [vpipe 原始碼](https://github.com/tgo-app-dev/vpipe)與其 [MiniMax H3 說明文件](https://github.com/tgo-app-dev/vpipe/blob/main/docs/MINIMAX-H3.md)
 - [h3.c(antirez)](https://github.com/antirez/h3.c)
 - [Apple Mac mini 規格(台灣)](https://www.apple.com/tw/mac-mini/specs/)
+
+## 相關筆記
+
+- [[local-ai-every-hardware-size]] — 各尺寸硬體能跑哪些本地模型
+- [[llmfit-local-model-hardware-fit]] — 下載前先估算本機能否跑得動
+- [[yaha-video-ai-tools-filmora-topview-flova]] — 同為 AI 影片生成與剪輯流程
+- [[qwen38-27b-local-economics-and-august-checkpoint-wave]] — 本地跑模型與雲端成本比較
+- [[ai-live2d-vtuber-see-through-anime25drig-pipeline-mia]] — 同主題:一張圖變成會動的 VTuber:See-through 拆層 + Anime2.
+- [[issue-120]] — 同主題:GitHub Weekly 第 120 期:Agent 影片生產系統、用戶名情報
+- [[issue-126]] — 同主題:第 126 期:MiniMax H3 全模態影音模型、PDF 解析分流、團隊級 

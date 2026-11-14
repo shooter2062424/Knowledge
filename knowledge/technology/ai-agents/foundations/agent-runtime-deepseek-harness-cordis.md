@@ -883,3 +883,7 @@ dsh 的 monotonic guard **只能 deny 或棄權,前面的策略不能繞過它**
 > 該片無字幕,逐字稿以 CPU 版 faster-whisper(small / int8 / zh)轉錄取得,**非官方字幕**,可能有少量聽寫誤差。文中專有名詞已對照原始碼校正(轉錄中的「deep-seq harness / Deepstick Harness」為 **DeepSeek Harness**、「Cordis / Tor-Colis」為 **Cordis**、「XGENT / Z-Agent」為 **Agent / Subagent**、「繪畫」為 **session(會話)**、「日制 / 日字」為**日誌**、「紫進城」為**子行程**、「杀箱 / 杀枪」為**沙箱**、「全线」為**權限**、「摧藥 / 摘药」為**摘要**、「單項保護規則」為 **monotonic guard**)。
 >
 > ⚠️ **時效性**:`deepseek-harness` 標示為 developer preview 且明說會有破壞性變更;Cordis 論文為 **2026-08-13 preprint、標明 under active revision**。本文所述以整理當時的 main 分支與該版 PDF 為準,細節可能已變動。
+
+## 相關筆記
+
+- [[issue-105]] — 同主題:GitHub Weekly 第 105 期:Rust 版 OpenClaw、本地

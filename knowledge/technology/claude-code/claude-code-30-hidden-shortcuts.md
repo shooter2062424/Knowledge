@@ -326,3 +326,8 @@ Claude 連改三個檔後測試全紅:
   - [Agent view](https://code.claude.com/docs/en/agent-view)
   - [Setup](https://code.claude.com/docs/en/setup)
 - Claude Code 官方 repo:<https://github.com/anthropics/claude-code>
+
+## 相關筆記
+
+- [[claude-code-ten-concepts-three-first-steps-jayluxai]] — 同主題:Claude 近期十個更新怎麼分:新手只要先做三件事(JayLuxAI + 官方
+- [[continue-after-directory-move]] — 同主題:Claude Code:搬移專案目錄後,如何保住 `--continue` 對話

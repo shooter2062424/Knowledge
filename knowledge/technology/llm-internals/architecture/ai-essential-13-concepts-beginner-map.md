@@ -64,3 +64,11 @@
 - 使用者提供的本機素材批次 `new/ai-guide/`(2026-11-07 收件),檔案:`13 Essential AI Concepts for Beginners.pdf`(作者 Anjana「AI & Tech」@aiwithanju;社群引流型素材)。
 - Hu 等,LoRA: Low-Rank Adaptation of Large Language Models:https://arxiv.org/abs/2106.09685
 - tiktoken(OpenAI 開源 tokenizer,本機以 `cl100k_base` 實測):https://github.com/openai/tiktoken
+
+## 相關筆記
+
+- [[ai-concepts-layered-map-baibai]] — 同為 AI 名詞地圖的分層整理
+- [[token-vs-embedding-llm-and-rag]] — Token 與 embedding 的概念區分
+- [[rag-from-scratch-buffett-clone-gary]] — RAG 的入門實作與排查
+- [[why-llms-hallucinate-benchmarks-reward-guessing]] — 幻覺概念的深入原因
+- [[ai-agent-beginner-course-five-elements-knowledge-base]] — 同主題:AI Agent 入門課:五大核心要素、知識庫(RAG)與 Cherry Stu

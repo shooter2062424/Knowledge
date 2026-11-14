@@ -261,3 +261,10 @@ Prompt → Context → Harness → Loop → Graph,這些詞近兩年接連走紅
 - 原始長文:X 上作者 **beamnxw**,〈Agent Harness Engineering vs Loop Engineering vs Graph Engineering〉(約 58 萬瀏覽、6.5 萬收藏)。影片中引用的框架文件包括 LangChain、LangGraph、OpenAI Agents SDK、AutoGen;持久化那條經驗源自 Anthropic 在多會話程式碼生成上的公開踩坑紀錄。
 - 影片另提及的社群討論:Reddit 的「戴帽子的 cron job」之爭、dailydoseofds 的 context rot 分析、從業者用 pgvector 檢索砍掉 5 倍上下文的實操。
 - 延伸(本庫):[Loop Engineering 實務:怎麼設計、什麼任務值得](./loop-engineering-when-and-how-gary-chen.md) · [Harness 演進史](./harness-engineering-evolution.md) · [Codex Multi-agent V2 與 Graph Engineering](../applications/codex-multi-agent-v2-graph-engineering.md) · [Bitter Lesson:模型變強後砍舊 prompt](./bitter-lesson-cut-old-patterns.md)
+
+## 相關筆記
+
+- [[agent-harness-loop-llmops-eval-explained]] — Harness、Loop 名詞入門解釋
+- [[ai-harness-explained]] — 釐清 harness 的兩種含義
+- [[loop-vs-graph-debate-engineering-view]] — Loop 與 Graph 之爭的工程視角
+- [[graph-engineering-node-edge-state]] — Graph 的節點、邊與狀態設計

@@ -102,3 +102,9 @@
 ## 來源
 
 - [YouTube:This Option Strategy Turned $10k Into $1 Million In One Year(Volatility Vibes)](https://youtu.be/oW6MHjzxHpU)
+
+## 相關筆記
+
+- [[sell-put-early-close-roll-delta-nick]] — 同樣財報週賣權,講操作管理細節
+- [[trading-math-expectancy-variance-risk]] — 期望值、變異與 Kelly 下注的數學
+- [[positive-expectancy-rule-hunting-mark-yang]] — 正期望值與規則篩選的基礎

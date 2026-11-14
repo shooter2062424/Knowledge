@@ -92,3 +92,8 @@ quadrantChart
 
 - 美投讲美股(美投君),〈马斯克又放大招!特斯拉发生 3 大变动,股价又要跌了?〉,YouTube:<https://www.youtube.com/watch?v=XOyG9mE-6KY>(2026-04-26,約 24 分鐘)
 - **該片無字幕,逐字稿以 CPU 版 faster-whisper(`vad_filter=True`,small,zh)轉錄,非官方字幕**;數字(交付 35.8 萬、毛利率 21.1%/19.2%、淨利 14.5 億、FSD 128 萬/+51%/滲透 ~38%、資本開支 200→250 億、現金 447 億、AI5 流片、SpaceX 估值 1.8 萬億、LEAP call $600)依語音還原,可能有聽寫誤差,實際以原片為準。**非投資建議**。
+
+## 相關筆記
+
+- [[paramount-warner-bros-ellison-cash-acquisition]] — 同主題:派拉蒙全現金收購華納兄弟:艾里森父子的「AB 股 + 上市殼」資本操作
+- [[tesla-q2-2026-capex-shock-vs-narrative]] — 同主題:特斯拉暴跌 20% 拆解:資本開支才是恐慌根源,以及「大跌後持有半年 9 成賺」

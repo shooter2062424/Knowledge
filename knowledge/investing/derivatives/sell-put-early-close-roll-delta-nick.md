@@ -141,3 +141,9 @@ flowchart LR
 - 字幕專名還原:「broadcomb / Bracon / Avago」→ Broadcom(AVGO)、「MD」→ AMD、「metal / Mac / Mate」→ Meta、「狗狗」→ Google、「朵Lingo」→ Duolingo、「調查值 / 貂蟬值」→ delta 值、「CELLPUT / SELFOOD」→ sell put、「clothes per諮詢」→ Close Position、「Sofi 手法」→ SOFI 合約。
 - 選擇權 delta 與指派機制一般說明:OCC《Characteristics and Risks of Standardized Options》 https://www.theocc.com/company-information/documents-and-archives/options-disclosure-document
 - ⚠️ 片中帳戶截圖與損益數字為作者自述,未能獨立核實。
+
+## 相關筆記
+
+- [[seagull-options-hedge]] — 同屬期權組合操作的策略比較
+- [[trading-math-expectancy-variance-risk]] — 期望值與部位管理的數學基礎
+- [[not-maximizing-income-social-assets-nick]] — 同作者,期權頻率與時間成本的取捨

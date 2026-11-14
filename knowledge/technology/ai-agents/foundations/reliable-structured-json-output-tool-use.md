@@ -212,3 +212,9 @@ Schema 過了,語法就沒問題了。**但 schema 擋不住另一種錯誤:語�
   - ⚠️ 該片無官方字幕也無自動字幕,**逐字稿以 CPU 版 faster-whisper(small/int8,`vad_filter=True`)轉錄取得,非官方字幕**,可能有少量聽寫誤差(技術名詞如 tool_choice / any、schema、Optional、strict、`detected_pattern` 等已依上下文校正)。
   - 影片為考點導向系列的一集(本集對應考點 4.3、4.4);作者預告下一集講考點 4.5、4.6:**處理一千份文件時該怎麼做、怎麼省錢、怎麼做品質檢查。**
 - 延伸(本庫):[2026 Agent 工程師能力與面試題](./production-agent-engineer-skills-2026.md)(確定性檢查優先於模型自評) · [Google 課程 Day 4+5:講清楚/設邊界/做驗收](./google-agentic-engineering-day4-5.md)(證據驅動的完成定義) · [Harness/Loop/Graph 三層排障地圖](./harness-loop-graph-troubleshooting-map.md)(有界重試四要素) · [本體論護欄與神經符號 AI](./neuro-symbolic-ontology-guardrails-frank-coyle.md)(用結構擋住違反常識的輸出)
+
+## 相關筆記
+
+- [[issue-102]] — 同主題:GitHub Weekly 第 102 期:個人 AI 助理、React 生成影
+- [[issue-132]] — 同主題:第 132 期:Jev 開源復刻 Laya、Cloudflare 安全審計 Sk
+- [[issue-99]] — 同主題:GitHub Weekly 第 99 期:AI 程式代理編排、Claude Sk

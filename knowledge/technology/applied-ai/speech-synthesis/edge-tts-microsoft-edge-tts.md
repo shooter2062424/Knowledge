@@ -274,3 +274,7 @@ edge-playback --text "Hello, world!"
 - rany2/edge-tts(GitHub,GPL-3.0):<https://github.com/rany2/edge-tts>(本文依 `src/edge_tts/` 與 `src/edge_playback/` 全部原始碼整理,clone 後已刪除暫存)
 - 關鍵實作參考檔案:`communicate.py`(切塊/SSML/WebSocket 串流/offset 補償)、`drm.py`(`Sec-MS-GEC` 權杖與時鐘偏移校正)、`constants.py`(端點與 `TrustedClientToken`)、`voices.py`(語音清單與篩選)、`submaker.py` + `srt_composer.py`(字幕生成)。
 - `Sec-MS-GEC` 演算法緣由討論:edge-tts issue #290(原始碼註解標註的來源)。
+
+## 相關筆記
+
+- [[five-open-source-english-learning-tools]] — 同主題:五個開源英語學習專案:從聽力訓練流程到「把每天看的英文網頁變成教材」

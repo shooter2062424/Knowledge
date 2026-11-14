@@ -101,3 +101,9 @@ flowchart LR
 - Anthropic 支援:[Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
 - Anthropic IP 位址(未實際讀取):[platform.claude.com/docs/en/api/ip-addresses](https://platform.claude.com/docs/en/api/ip-addresses)
 - 本庫延伸:[[agent-paid-api-cost-guardrails-mcp]]、[[function-calling-mcp-a2a]]
+
+## 相關筆記
+
+- [[mcp-server-first-build-four-pitfalls]] — 自己寫 MCP server 的常見坑
+- [[mcp-2026-07-28-stateless-rewrite]] — MCP 協定改版對 server 的影響
+- [[claude-code-dont-ask-again-secrets-leak-checklist-why-qq]] — Claude Code 權限與密鑰外洩

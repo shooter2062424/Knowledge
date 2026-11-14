@@ -111,3 +111,9 @@ flowchart TB
 - [EqualOcean:Xiaomi Unveils XRING O100](https://www.equalocean.com/news/2026082522135-xiaomi-unveils-xring-o100-1-22tb-s-ai-accelerator-device-models)
 - [AICybr:Xiaomi AI Cube and Xring O100](https://aicybr.com/blog/xiaomi-ai-cube-xring-o100-local-ai)
 - 延伸(本庫):[[advanced-packaging-explained]]、[[hbm-high-bandwidth-memory-principle]]
+
+## 相關筆記
+
+- [[lithography-euv-light-source-and-asml-light-control]] — 晶片製程的光學與設備基礎
+- [[nvidia-moat-memory-bandwidth-cuda-software]] — 記憶體頻寬與堆疊封裝的產業脈絡
+- [[ssd-nand-flash-floating-gate-engineering]] — 3D 堆疊的另一個實例

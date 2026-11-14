@@ -59,3 +59,7 @@
 
 - 蘇姿丰(Lisa Su,AMD CEO),MIT 2026 屆畢業典禮致詞;搬運整理:学用复利投资 Value Insights,YouTube:<https://youtu.be/vkpS7WztTMc>(2026-05-30)。
 - **原片為英文演講;本筆記逐字稿以 CPU 版 whisper.cpp(`pywhispercpp`,small 模型)從英文原音轉錄整理,非官方字幕**,人名/校訓拼寫可能有少量誤差(如 Mens et Manus、Antoniatis)。
+
+## 相關筆記
+
+- [[bill-gates-turbulent-ai-era-human-reserved]] — 同主題:Bill Gates〈AI 動盪時代〉長文導讀：工作、機器人稅、雙面刃、陪伴與「

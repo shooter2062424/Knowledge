@@ -494,3 +494,7 @@ flowchart TD
 - [Anthropic Tool Search Tool 文件](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool)
 - [Anthropic Prompt Caching 文件](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
 - 延伸:本庫 [[context-engineering-claude-5-unhobbling]]、[[long-running-agents-goal-evaluation]]、[[markdown-agent-memory]]、[[harness-engineering-evolution]]、[[bitter-lesson-cut-old-patterns]]
+
+## 相關筆記
+
+- [[issue-102]] — 同主題:GitHub Weekly 第 102 期:個人 AI 助理、React 生成影

@@ -169,3 +169,8 @@ flowchart TD
 - [Stanford Encyclopedia of Philosophy:Hegel's Dialectics](https://plato.stanford.edu/entries/hegel-dialectics/)(僅讀到搜尋摘要)
 - [青原惟信「見山是山」文本(terebess.hu)](https://terebess.hu/zen/qingyuan.html)、[五燈會元(維基文庫)](https://zh.wikisource.org/wiki/五燈會元)
 - [Gary Klein, Performing a Project Premortem(HBR 2007)](https://hbr.org/2007/09/performing-a-project-premortem)
+
+## 相關筆記
+
+- [[addy-osmani-critical-thinking-when-agents-do-the-work]] — 批判性思考與反例檢驗的工程版
+- [[four-traits-interesting-conversation]] — 自我覺察與清楚表達,對應思辨的基礎

@@ -69,3 +69,8 @@ CS2 還要多按一步反方向鍵才能剎停。機械軸「按下觸發點」�
 
 - 影片:[用最好的动画为你讲解--磁轴键盘的原理(Redknot-乔红,2026-05-12)](https://www.youtube.com/watch?v=N3o8AcflmO4)
   - ⚠️ 該片無官方字幕,逐字稿以 CPU 版 Whisper 轉錄,可能有同音字誤差。
+
+## 相關筆記
+
+- [[ssd-nand-flash-floating-gate-engineering]] — 同系列硬體原理的拆解
+- [[hbm-high-bandwidth-memory-principle]] — 同為硬體元件內部結構的原理

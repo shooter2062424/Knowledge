@@ -83,3 +83,11 @@
 ## 來源
 
 - itcoffee66/githubweekly 第 117 期:<https://github.com/itcoffee66/githubweekly/blob/main/_weekly/117.md>(2026/05/31–06/06)
+
+## 相關筆記
+
+- [[claude-design-25-tricks-design-rules-skill]] — 把設計規則寫成 Skill
+- [[impeccable-frontend-design-skill-ai-slop]] — 反 AI 味的前端 Skill
+- [[rtk-rust-token-killer-report]] — 工具輸出與 token 壓縮
+- [[token-saving-three-moves-context-control]] — 省 token 的三個方向
+- [[five-open-source-english-learning-tools]] — 開源英語學習工具比較

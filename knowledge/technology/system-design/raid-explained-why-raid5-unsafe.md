@@ -136,3 +136,8 @@ flowchart TD
 - 影片:[什么是硬盘阵列？Raid 5 为什么不安全？(Redknot-乔红,2025-12-05)](https://youtu.be/FvWfAgNyEWc)
   - ⚠️ 該片無字幕,逐字稿以 **CPU 版 faster-whisper(small)** 轉錄取得、**非官方字幕**,可能有少量聽寫誤差(如 URE、XOR、Reed-Solomon、ZFS、Hamming code 等專有名詞)。
 - 延伸(本庫):[為什麼 AI 寫的網站一上線就掛?用手搖飲店看懂架構擴展](./scaling-web-architecture-bubble-tea.md)、[現在正在主導的 5 個程式設計概念](./dominating-programming-concepts.md)
+
+## 相關筆記
+
+- [[ssd-nand-flash-floating-gate-engineering]] — 同主題:SSD 怎麼存資料:從量子穿隧到 3D NAND 陣列
+- [[cloud-engineering-fifteen-concepts]] — 同主題:雲端工程 15 個基礎概念(含 AWS / GCP 官方文件查證)

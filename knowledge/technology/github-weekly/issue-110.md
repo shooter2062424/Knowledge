@@ -128,3 +128,11 @@
 - [GitHub Weekly 第 110 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/110.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[claude-code-source-full-map]] — 原始碼結構,理解 claw-code 的對象
+- [[codex-multi-agent-v2-graph-engineering]] — 同為 Codex 的多代理工作流
+- [[mem0-memory-architecture-teardown]] — MemPalace 同類記憶系統拆解
+- [[self-harness]] — 自我改進 harness,對應 Hermes
+- [[skill-doctor-self-improving-agent-loop]] — 自改說明書並經 PR 審查

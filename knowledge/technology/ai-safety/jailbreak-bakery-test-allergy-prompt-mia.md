@@ -140,6 +140,8 @@ flowchart TD
 - [[safety-evaluation-crisis]]:安全評測的可信度問題。
 
 ---
+- [[anthropic-threat-intelligence-2026-09]] — 實際攻擊者手法的威脅情報
+- [[claude-code-dont-ask-again-secrets-leak-checklist-why-qq]] — 護欄失效後的實際損害與排查
 
 ## 來源
 

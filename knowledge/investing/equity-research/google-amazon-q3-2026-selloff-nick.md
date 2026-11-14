@@ -158,3 +158,9 @@ flowchart TD
 - Amazon 第三季:https://aiweekly.co/alerts/amazons-aws-growth-hits-39-in-q3-as-capex-guide-jolts-stock ;https://www.constellationr.com/insights/news/aws-q3-revenue-growth-surges-39-capex-stings-amazons-cash-flow
 
 > 數字均來自二手媒體整理,**沒有直接讀 SEC 8-K 與財報新聞稿**(本次未取得);下單前請對照 Alphabet 與 Amazon 的 IR 官方發布。⚠️ 非投資建議。
+
+## 相關筆記
+
+- [[when-to-add-reason-not-percent-fico-nick]] — 同作者,下跌後加碼要看理由
+- [[pltr-earnings-growth-ceiling-and-valuation-digestion]] — 財報後大跌的估值消化邏輯
+- [[microsoft-fy26q1-three-doubts-resolved]] — 大科技財報後的質疑拆解對照

@@ -102,6 +102,10 @@ flowchart TD
 - [[ai-concepts-layered-map-baibai]]:Token 到 Agent 的概念地圖與職場選型(另一種切法)
 - [[claude-haiku-5-5-cheap-model-computer-use]]:便宜小模型能做到什麼
 - [[qwen38-27b-local-economics-and-august-checkpoint-wave]]:本地小模型的成本算術
+- [[agent-intent-recognition-three-layer-funnel]] — 同主題:用最低成本做好 Agent 意圖識別:規則層、上下文層、工具層的三層漏斗
+- [[issue-109]] — 同主題:GitHub Weekly 第 109 期:被開源的 Claude Code、J
+- [[issue-114]] — 同主題:GitHub Weekly 第 114 期:DeepSeek V4 終端編程 A
+- [[issue-128]] — 同主題:第 128 期:圖片生成 Three.js 3D 模型、Omarchy、Mac 
 
 ## 來源
 - 使用者提供的資訊圖:"LLM vs SLM vs LRM vs VLM: Which Model To Use In Enterprise AI, and When"(作者與原始網址不明,第三方轉貼;僅作為整理依據,非一手來源)。

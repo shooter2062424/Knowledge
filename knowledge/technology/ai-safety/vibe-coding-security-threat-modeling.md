@@ -486,3 +486,7 @@ flowchart TD
 | 信任邊界 ✓ | Trust Boundary |
 
 > ⚠️ 文中凡屬「影片轉述、未經一手來源核實」者(High/Medium/Low 三級、What'Sub 事件性質)已於 §6 標明。
+
+## 相關筆記
+
+- [[issue-132]] — 同主題:第 132 期:Jev 開源復刻 Laya、Cloudflare 安全審計 Sk

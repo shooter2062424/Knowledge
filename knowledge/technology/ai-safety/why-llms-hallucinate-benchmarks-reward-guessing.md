@@ -199,6 +199,8 @@
 - [[grep-vs-vector-agentic-search]]:agent 查證時怎麼找資料。
 
 ---
+- [[karpathy-ai-capability-funnel-perception-gap]] — 同主題:Karpathy 的「能力漏斗」:為什麼你覺得 AI 很蠢,有人卻說已經看到另一
+- [[ai-essential-13-concepts-beginner-map]] — 同主題:AI 入門 13 個必懂概念:LLM、Token、神經網路、幻覺、LoRA、Mo
 
 ## 來源
 

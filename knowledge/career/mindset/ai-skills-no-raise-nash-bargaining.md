@@ -304,3 +304,8 @@ flowchart TD
   - 影片時間戳:0:00 學 AI 卻沒加薪 / 1:10 加薪的底層邏輯 / 3:07 創造商業價值 / 5:57 建立稀缺性 / 8:59 讓老闆看見 / 10:35 納許議價算薪水 / 14:56 提高薪水的四條路 / 18:25 你卡在哪一關。
   - ⚠️ **作者自陳「純屬個人觀點」**;片中引用的丹麥 2.5 萬人研究與 5000 名客服研究**未在影片中給出出處**,本文未另行查核;納許議價的數字全為示範假設。作者另在 Patreon 提供完整文章與算薪 Prompt,本文僅整理影片中公開說明的方法。
 - 延伸(本庫):[未來一年的 6 個 AI Agent 趨勢](../../technology/ai-agents/foundations/six-ai-agent-trends-next-year.md)(判斷力才是金字塔底層) · [2026 Agent 工程師能力與面試題](../../technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) · [什麼樣的 Agent 專案能給履歷加分](../../technology/ai-agents/applications/agent-project-resume-enterprise-grade.md)(用工程語言重構履歷)
+
+## 相關筆記
+
+- [[ten-toxic-manager-traits]] — 同主題:十大恐怖主管特質:從竹科裸辭看「只做向上管理」如何逼走一個好員工
+- [[not-maximizing-income-social-assets-nick]] — 同主題:為什麼「賺好賺滿」反而會害了你:社會資產與「不最大化」的選擇

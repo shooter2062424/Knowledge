@@ -103,3 +103,11 @@
 - [GitHub Weekly 第 114 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/114.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[model-routing-compute-allocation]] — 依任務分配模型的同類思路
+- [[llm-slm-lrm-vlm-model-routing-guide]] — 四種模型的分工與路由法則
+- [[vibe-coding-stack-model-agent-workflow]] — vibe coding 的模型與 agent 分層
+- [[ai-agent-skill-stock-research-workflow]] — 金融 agent 的研究流程
+- [[deepseek-v4-engineering]] — DeepSeek V4 的模型工程背景

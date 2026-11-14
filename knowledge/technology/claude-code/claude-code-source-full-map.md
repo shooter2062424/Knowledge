@@ -172,3 +172,12 @@ flowchart TB
 
 - 官方原始碼(npm sourcemap 外洩):`yasasbanukaofficial/claude-code`,<https://github.com/yasasbanukaofficial/claude-code>。本地圖由 **72 個 Haiku subagent(61 reader + 11 aggregator)兩層 fan-out** 全覆蓋精讀 `src`(1902 檔、~51.3 萬行)後綜合,逐檔職責覆蓋 1730/1902 檔。
 - 互補:敘事版 [[claude-code-architecture-deep-dive]]。**僅供學習研究;Claude Code 一切權利屬 Anthropic。**
+
+## 相關筆記
+
+- [[claude-code-hooks-complete-guide]] — 子系統之一:Hooks 機制指南
+- [[claude-code-mods-explained]] — 改寫 Claude Code 本身的 mod 機制
+- [[rea-ai-reverse-engineering-claude-code]] — 同樣以原始碼讀 Claude Code
+- [[claude-code-2026-feature-timeline]] — 功能演進,看子系統何時出現
+- [[issue-109]] — 同主題:GitHub Weekly 第 109 期:被開源的 Claude Code、J
+- [[issue-110]] — 同主題:GitHub Weekly 第 110 期:史上最快爆紅的 Rust 版 Cla

@@ -71,3 +71,7 @@ flowchart TD
 ## 來源
 
 - [YouTube《下班經濟學 721》:別再相信目標價?前外資分析師 ft. 余鎮文 Vincent(風傳媒)](https://youtu.be/Ec1jRVQ_YZU)
+
+## 相關筆記
+
+- [[meitoujun-why-blog-and-how-to-pick-finance-bloggers]] — 同主題:投資能賺錢還做博主?美投君談財經博主的行業內幕,以及怎麼篩選好博主

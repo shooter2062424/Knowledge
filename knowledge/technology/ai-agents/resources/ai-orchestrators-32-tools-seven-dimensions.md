@@ -274,3 +274,8 @@ gh api repos/getpaseo/paseo/license --jq '.content | @base64d' | head -20
 - [X 上的 AI 編排器天梯榜原帖](https://x.com/Ga_Vasques/status/2106391784913772883)
 - [Databricks:Benchmarking Coding Agents on Databricks' Multi-Million Line Codebase](https://databricks.com/blog/benchmarking-coding-agents-databricks-multi-million-line-codebase)
 - GitHub 倉庫:[NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)、[earendil-works/pi](https://github.com/earendil-works/pi)、[stablyai/orca](https://github.com/stablyai/orca)、[herdrdev/herdr](https://github.com/herdrdev/herdr)、[can1357/oh-my-pi](https://github.com/can1357/oh-my-pi)、[pingdotgg/t3code](https://github.com/pingdotgg/t3code)、[getpaseo/paseo](https://github.com/getpaseo/paseo)、[lidge-jun/opencodex](https://github.com/lidge-jun/opencodex)、[superset-sh/superset](https://github.com/superset-sh/superset)、[OrchestratorInc/agent-orchestrator](https://github.com/OrchestratorInc/agent-orchestrator)、[omnigent-ai/omnigent](https://github.com/omnigent-ai/omnigent)、[generalaction/emdash](https://github.com/generalaction/emdash)
+
+## 相關筆記
+
+- [[issue-132]] — 同主題:第 132 期:Jev 開源復刻 Laya、Cloudflare 安全審計 Sk
+- [[issue-133]] — 同主題:第 133 期:給 Agent 開家公司(Paperclip)、讓 Agent 

@@ -927,3 +927,9 @@ flowchart LR
   - [OpenAI faces theft accusation over Navier-Stokes claim — Cybernews](https://cybernews.com/ai-news/openai-navier-stokes-theft-accusations/)
   - [10,000 OpenAI agents crack 90-year-old Navier-Stokes mystery in just 88 hours — Interesting Engineering](https://interestingengineering.com/ai-robotics/openai-navier-stokes-mystery-solved)
 - 延伸:本庫 [[rsi-recursive-self-improvement-anthropic]]、[[anthropic-html-work-pages]]、[[gpt-6-astra-token-efficiency-and-harness]]、[[claude-cowork-overtime-pay-audit-prompt]]。
+
+## 相關筆記
+
+- [[anthropic-art-enzyme-discovery-research-harness]] — 同主題:Anthropic 用 949 個 agent session 找到新酶系統 A
+- [[gpt-6-astra-napoleon-marmont-cipher]] — 同主題:GPT-6 Astra 解開 217 年的拿破崙密信:從一張模糊掃描圖到可重現的
+- [[astra-ten-open-problems-and-agi-two-axes-caleb]] — 同主題:Astra 解出十個數學開放問題,然後呢?用「機制」與「能力」兩條軸看 AGI 

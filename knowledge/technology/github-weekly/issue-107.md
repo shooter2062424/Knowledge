@@ -126,3 +126,11 @@
 - [GitHub Weekly 第 107 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/107.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[llm-evals-how-to-know-ai-works]] — promptfoo 所屬的 eval 方法論
+- [[prompt-injection-5-techniques-defenses]] — 紅隊測試關注的攻擊手法
+- [[mem0-memory-architecture-teardown]] — agent 上下文與記憶的同類設計
+- [[agent-memory-survey-forms-functions-dynamics]] — 記憶系統的形式與功能分類
+- [[claude-code-mods-explained]] — 改寫 Claude Code 介面的機制

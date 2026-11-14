@@ -288,3 +288,9 @@ flowchart TB
 > ⚠️ **非投資建議。** 本文為對一支公開影片的整理與交叉查證,關鍵數字的核實狀態已列於上一節。
 > 訴訟仍在進行中(政府已就退款命令與 122 條款判決上訴,301 條款另有新訴訟),
 > **具體稅率與退款進度請以 CBP 與法院最新公告為準。**
+
+## 相關筆記
+
+- [[us-stocks-five-risks-2026q4-hike-treasury-midterm]] — 中美談判與關稅等短期風險
+- [[us-stocks-h2-2026-outlook-stock-vs-flow-ai]] — 政策不確定性與宏觀變數
+- [[trump-second-term-income-sources-2025]] — 同一時期川普政府的政策與財務脈絡

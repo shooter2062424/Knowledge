@@ -309,3 +309,10 @@ for (const item of items) {
 - 本倉庫相關筆記:[[dominating-programming-concepts]]、[[reading-code-ai-era-6-techniques]]
 
 > ⚠️ 第四節的三個反例為整理者補充,非影片內容;程式碼範例以 JavaScript 語法示意,其他語言的對應行為請自行確認。
+
+## 相關筆記
+
+- [[cpp-evolution-complexity-ai-era]] — 複雜性與可讀性的語言層面背景
+- [[code-to-spec-reverse-engineering-legacy-codebase]] — 讀懂既有程式碼的方法
+- [[ai-brownfield-codebase-five-steps]] — 讀與改舊程式碼的步驟
+- [[python-3-15-new-features]] — 同主題:Python 3.15 幾個值得關注的新特性:frozendict、Sentin

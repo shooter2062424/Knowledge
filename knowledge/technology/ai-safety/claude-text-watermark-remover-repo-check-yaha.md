@@ -149,3 +149,9 @@ python clean_text.py s.txt --stats -o s.out
 - Dathathri et al., 〈Scalable watermarking for identifying large language model outputs〉,*Nature* 2024:https://www.nature.com/articles/s41586-024-08025-4(PMC 版:https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11499265/)
 - google-deepmind/synthid-text(參考實作):https://github.com/google-deepmind/synthid-text
 - 相關筆記:[[prompt-injection-5-techniques-defenses]](同屬 AI 安全面向,角度不同)
+
+## 相關筆記
+
+- [[flashprove-zk-proof-of-model-identity-api-gateway]] — 同樣驗證 AI 來源與真偽的方法
+- [[llm-api-relay-stations]] — 第三方轉接服務的真偽查核
+- [[anthropic-threat-intelligence-2026-09]] — 蹭流量與濫用情境的威脅情報

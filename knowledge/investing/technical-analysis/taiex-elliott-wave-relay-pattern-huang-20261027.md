@@ -189,6 +189,9 @@ flowchart TB
 - [[supertrend-kd-ema200-filter-strategy]]:另一種「先定方向、再找訊號」的交易系統。
 
 ---
+- [[double-top-bottom-momentum]] — 用動能衰減判斷反彈強弱與中繼
+- [[high-yin-then-yang-low-yang-then-yin]] — 高低檔 K 線口訣的邏輯與限制
+- [[semiconductor-2000-bubble-vs-2026-ai]] — 台積電與費半的半導體循環脈絡
 
 ## 來源
 

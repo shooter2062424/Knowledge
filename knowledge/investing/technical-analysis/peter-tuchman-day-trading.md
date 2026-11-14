@@ -68,3 +68,9 @@
 
 - Business Insider Taiwan,〈當沖有技巧嗎?最懂紐約證交所的男人 揭開散戶 FOMO 慘賠的真相〉,YouTube:<https://www.youtube.com/watch?v=gD_so3Nc7Y0>(2026-06-10);受訪者 Peter Tuchman(NYSE 場內交易員)。
 - **原片為英文訪談、配中文字幕;本筆記逐字稿以 CPU 版 faster-whisper 從英文原音轉錄整理為繁中,非官方字幕**,可能有少量聽寫/翻譯誤差。
+
+## 相關筆記
+
+- [[retail-investor-losing-system-not-luck]] — 散戶 FOMO 虧損的系統性解法
+- [[minervini-think-trade-like-champion]] — 交易心態與紀律的職業觀點
+- [[supertrend-kd-ema200-filter-strategy]] — 均線與動能指標的具體 SOP

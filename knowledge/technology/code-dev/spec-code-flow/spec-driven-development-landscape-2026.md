@@ -150,3 +150,8 @@ Böckeler 與 Martinelli 的共同教訓:單行修正直接修並補測試;只�
 - Spec Growth Engine:https://arxiv.org/abs/2606.27045
 - Allegro:https://blog.allegro.tech/2026/06/spec-driven-development-best-practices
 - Brownfield 做法(非權威):https://intent-driven.dev/blog/2026/03/10/spec-driven-development-brownfield/ 、 https://www.augmentcode.com/guides/spec-driven-development-brownfield-codebases (vendor 指南)
+
+## 相關筆記
+
+- [[elephant-goldfish-model-egm-spec-review]] — 同主題:Elephant-Goldfish Model(EGM):大象寫規格,金魚在「零
+- [[spectrum-codex-novel]] — 同主題:《頻譜密典:NR 的七封印》

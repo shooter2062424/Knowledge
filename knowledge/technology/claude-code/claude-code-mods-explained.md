@@ -406,3 +406,8 @@ flowchart TD
 - [Next Steps 原始碼(anthropics/claude-plugins-community PR #2397)](https://github.com/anthropics/claude-plugins-community/pull/2397)
 
 📎 相關筆記:[[claude-code-hooks-complete-guide]]、[[building-claude-skills]]、[[claude-code-2026-feature-timeline]]、[[claude-code-architecture-deep-dive]]
+
+## 相關筆記
+
+- [[claude-code-source-full-map]] — 同主題:Claude Code 原始碼全覽地圖:11 個子系統與它們怎麼咬合
+- [[issue-107]] — 同主題:GitHub Weekly 第 107 期:被 OpenAI 收購的 AI 安全

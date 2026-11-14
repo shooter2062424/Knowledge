@@ -752,3 +752,8 @@ V16 處理的是昇騰 Cube/Vector 分離架構的 DMA 與佇列同步;兩者是
   - [deepseek-ai/DeepGEMM-Ascend — GitHub wiki](https://github.com/deepseek-ai/DeepGEMM-Ascend/wiki)
   - [Why DeepSeek V4 Can Run on Huawei Ascend: A Deep Technical Breakdown — besthub.dev](https://www.besthub.dev/articles/why-deepseek-v4-can-run-on-huawei-ascend-a-deep-technical-breakdown-3dd21a91e7ec)
 - 延伸:本庫 [[kv-cache]]、[[context-engineering-processing-vs-thinking]]、[[long-running-agents-goal-evaluation]]、[[token-saving-three-moves-context-control]]、[[gpt-6-astra-token-efficiency-and-harness]]、[[rsi-recursive-self-improvement-anthropic]]。
+
+## 相關筆記
+
+- [[issue-112]] — 同主題:GitHub Weekly 第 112 期:DeepSeek V4 開源、GPT
+- [[issue-114]] — 同主題:GitHub Weekly 第 114 期:DeepSeek V4 終端編程 A

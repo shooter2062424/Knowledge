@@ -156,3 +156,7 @@ flowchart LR
   - ⚠️ 影片附有免責聲明:內容僅供投資知識分享、不構成投資建議;證券市場具有風險,投資前請獨立判斷。**影片資訊欄含課程與付費服務連結。**
 - ⚠️ **本文為教育用途整理,非投資建議。** 文中「限制」與「應用案例」兩節為本文補充的批判性分析,非影片原文。投資決策前請自行研究並評估風險。
 - 延伸(本庫):[別再相信目標價](../strategy/target-prices-institutional-secrets.md) · [散戶輸在系統不是運氣](../strategy/retail-investor-losing-system-not-luck.md) · [股癌選股心法](../strategy/gooaye-stock-picking-philosophy.md)
+
+## 相關筆記
+
+- [[taiex-elliott-wave-relay-pattern-huang-20261027]] — 同主題:颱風假躲過重挫,接下來補跌還是主跌?黃培碩用波浪結構看大盤、台積電與個股(202

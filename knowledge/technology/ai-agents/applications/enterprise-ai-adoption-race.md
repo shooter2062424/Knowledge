@@ -65,3 +65,7 @@ flowchart LR
 ## 來源
 
 - [YouTube:Anthropic 跟 OpenAI 一起承認了只有模型是沒用的(Gary Chen)](https://youtu.be/MlhsoWmyEKE)
+
+## 相關筆記
+
+- [[enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao]] — 同主題:個人用 AI 快 100 倍、公司卻沒感覺:能力落差與流程落差,以及原演講沒被摘

@@ -128,3 +128,10 @@ flowchart LR
 - 影片:[加息是否会引发美股大跌?AI投资会不会转向?下半年最大风险,你该如何应对?(美投讲美股 @MeiTouJun,2026-07-19)](https://youtu.be/SPyXyB7lgWU)
   - ⚠️ 該片無字幕,逐字稿以 **CPU 版 faster-whisper(small)** 轉錄取得、**非官方字幕**,可能有少量聽寫誤差。
 - 延伸對照(本庫):[美股升息風險研判:3 類股票該避、1 類反而是機會](./us-stocks-rate-hike-risk-2026.md)、[這次半導體狂歡是 2000 泡沫重演嗎?](./semiconductor-2000-bubble-vs-2026-ai.md)、[AI 產業秘密轉向:C→B、算力成勝負手](../equity-research/ai-industry-shift-c-to-b-compute-decides.md)、[AI 像 100 年前電力革命:商機在 AI 採納](../equity-research/ai-adoption-electricity-revolution-analogy.md)
+
+## 相關筆記
+
+- [[semiconductor-2000-bubble-vs-2026-ai]] — 2000 泡沫與今日半導體的對照
+- [[us-stocks-rate-hike-risk-2026]] — 同作者,加息風險與受惠/受害股分類
+- [[us-stocks-five-risks-2026q4-hike-treasury-midterm]] — 加息作為五大風險之一的完整框架
+- [[us-treasury-selloff-warsh-communication-shift]] — 新任 Fed 主席與加息預期

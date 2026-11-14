@@ -152,3 +152,8 @@ flowchart LR
 
 - Perfology(轉錄 Voxxed Days Amsterdam 議程),〈How Hackers Trick AI Models (Prompt Injection Explained)〉,講者 Brian(Snyk),YouTube:<https://youtu.be/eWkZlS5JMD4>(2026-06-19,約 21 分鐘)
 - 內容依該片**英文自動字幕**整理(非官方人工字幕);講者口音造成的少數品牌詞已校正:**Snyk**(字幕作 “Sneak”)、**Quarkus**(作 “Quercus”)、**LangChain4j**(作 “LangChain for J”)。模型版本(GPT-3.5 / 4.1 / 4o / 5.x)、工具名(Snyk Agent)依語音還原,實際以原片為準。
+
+## 相關筆記
+
+- [[claude-code-dont-ask-again-secrets-leak-checklist-why-qq]] — 同主題:Claude Code「不要再問」把密碼寫進設定檔:Apiiro 報告的口徑、官
+- [[issue-107]] — 同主題:GitHub Weekly 第 107 期:被 OpenAI 收購的 AI 安全

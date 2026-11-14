@@ -214,3 +214,12 @@ flowchart LR
 - YouTube:[How SSD Works — Redknot-乔红](https://www.youtube.com/watch?v=rQR_0WZzjV4)(頻道:Redknot-乔红)
   - ⚠️ **該片無中文官方字幕,YouTube 限流抓不到官方字幕,逐字稿以 CPU 版 Whisper 轉錄取得;
     影片原音為英文,因轉錄語言設定誤判,部分段落出現無意義中文亂碼,已排除不轉述,僅保留可辨識內容。**
+
+## 相關筆記
+
+- [[magnetic-switch-keyboard-hall-effect-principle]] — 同為硬體感測與電磁原理的拆解
+- [[raid-explained-why-raid5-unsafe]] — 同為儲存系統的可靠性原理
+- [[hbm-high-bandwidth-memory-principle]] — 同為記憶體硬體的內部結構
+- [[lithography-euv-light-source-and-asml-light-control]] — 同主題:光刻機原理系列:從光的衍射、X 光的死路到 13.5nm EUV,再到 ASML
+- [[xring-o100-tsv-hybrid-bonding-3d-stack]] — 同主題:玄戒 O100 的三層堆疊:TSV 打孔、晶圓級鍵合與混合鍵合怎麼做
+- [[quantum-computing-explained]] — 同主題:量子計算:量子效應如何突破計算的邊界

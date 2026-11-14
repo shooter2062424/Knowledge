@@ -51,3 +51,10 @@
 - [Threads @0xspeter:daily_stock_analysis 開源專案](https://www.threads.com/@0xspeter/post/DYirYF6E4Ne)
 - [Threads @xccbill:質疑基本面分析](https://www.threads.com/@xccbill/post/DYg7MWSCamk)
 - [Threads @crypto_smc_daniel:布林通道](https://www.threads.com/@crypto_smc_daniel/post/DYhot3iCSJ8)
+
+## 相關筆記
+
+- [[ai-agent-skill-stock-research-workflow]] — 同主題:AI 讀財報的流程與常見錯誤
+- [[humbled-trader-claude-tradingview-pipeline]] — 盤前計畫流程的實作版本
+- [[ai-algo-trading-claude-jesse]] — 強調驗證流程而非單一策略
+- [[issue-112]] — 同主題:GitHub Weekly 第 112 期:DeepSeek V4 開源、GPT

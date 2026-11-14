@@ -145,3 +145,10 @@ for text in tok.batch_decode(new_tokens, skip_special_tokens=True):
 📎 相關筆記:[[pytorch-from-zero-transformer-series]]、[[lora-fine-tuning-explained]]、[[moe-mixture-of-experts-from-ffn]]、[[inference-engines-llamacpp-vllm-sglang-tensorrt]]
 
 **Whisper 專有名詞還原對照:** 抛弃 → 跑起;Huggingface/haggingface → Hugging Face;千吻/千吾/千万 → Qwen;徵流/争流 → 蒸餾;model.satensors → model.safetensors;Kuda → CUDA;ROC-M → ROCm;潜规神经网络 → 前饋神經網路;分组查询注意力 → GQA;BitSandBytes → bitsandbytes;千文二foldcastleLM → Qwen2ForCausalLM;FromPretrain → from_pretrained;英国/Causels → Causal(因果);Bird → BERT;Mapy → mypy;NPS → mps;兔函数 → `.to()`;WorldPeace → WordPiece;Tokeniser.json → tokenizer.json;pidingside → padding_side;肉曲 → role;syncing → thinking。
+
+## 相關筆記
+
+- [[tokenizer-tax-chinese-vs-english-token-cost]] — Tokenizer 與成本的背景
+- [[chain-of-thought-history-and-mirage]] — R1 推理模型的思維鏈背景
+- [[llm-quantization-q4-q8-gguf-qat-explained-mia]] — 本機跑模型時的量化格式說明
+- [[vllm-pagedattention-engine-parameters-xiaobai-debug]] — 同主題:vLLM 為什麼能讓同一張 GPU 多扛幾倍請求:KV cache、PagedA

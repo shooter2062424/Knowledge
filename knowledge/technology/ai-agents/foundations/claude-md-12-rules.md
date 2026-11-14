@@ -110,3 +110,9 @@ flowchart LR
 ## 來源
 
 - [數位時代:CLAUDE.md 12 條規則,把 AI 編碼錯誤率從 41% 降到 3%](https://www.bnext.com.tw/article/90965/claude.md-claude-code)
+
+## 相關筆記
+
+- [[claude-md-from-zero-to-mastery]] — 同主題:15 分鐘學完 CLAUDE.md:三個位置、做減法的三問、做加法的五問、以及怎
+- [[issue-108]] — 同主題:GitHub Weekly 第 108 期:Claude Code 終極優化、離
+- [[issue-111]] — 同主題:GitHub Weekly 第 111 期:Karpathy 經驗的 Claud

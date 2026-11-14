@@ -405,3 +405,9 @@ flowchart LR
 
 > ⚠️ **非投資建議。** 本文為對一支公開影片的整理,大部分財務細節未能逐項核對原始揭露,
 > 已在核實狀態中明確標示。**具體數字請以萬達相關主體的公開公告與財報為準。**
+
+## 相關筆記
+
+- [[paramount-warner-bros-ellison-cash-acquisition]] — 同為上市殼與資本操作的收購案
+- [[coreweave-neocloud-debt-stress]] — 高槓桿擴張與債務壓力
+- [[ai-capital-web-factions-and-mutual-binding]] — 資本圈互相捆綁的槓桿風險

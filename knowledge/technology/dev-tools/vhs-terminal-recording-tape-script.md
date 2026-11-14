@@ -236,6 +236,10 @@ Sleep 3s
 - [[claude-design-25-tricks-design-rules-skill]]:同頻道同日的另一支影片,也談「把重複工作寫成可重用的規則」。
 
 ---
+- [[pixelfx-code-pixel-effects-agent-render-feedback-loop]] — 讓 agent 看自己輸出的回饋迴圈
+- [[brainless-shadcn-registry-fake-claude-code-ui]] — 把終端機介面做成可改的元件
+- [[blender-previz-mcp-ai-video]] — 程式化產出可重現的影片素材
+- [[tmux-bridge-mcp]] — 終端機分頁與 agent 的互動
 
 ## 來源
 

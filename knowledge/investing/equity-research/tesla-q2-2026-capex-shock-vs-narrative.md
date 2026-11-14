@@ -187,3 +187,9 @@ flowchart LR
 - 影片:[财报深度分析:特斯拉暴跌的惊人规律?跌幅还没到头!但买点已经清晰!(美投讲美股 @MeiTouJun,2026-07-26)](https://youtu.be/-_U4YHElE2k)
   - ⚠️ 該片無字幕,逐字稿以 **CPU 版 faster-whisper(small)** 轉錄取得、**非官方字幕**,可能有少量聽寫誤差。
 - 延伸對照(本庫):[特斯拉財報深挖:FSD 拐點/造芯片/四象限/SpaceX 合併風險(上一季)](./tesla-earnings-fsd-chip-spacex-four-quadrant.md)、[加息會引發美股大跌嗎?2000 泡沫三階段對照 AI](../strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md)、[AI 產業秘密轉向:C→B、算力成勝負手](./ai-industry-shift-c-to-b-compute-decides.md)
+
+## 相關筆記
+
+- [[tesla-earnings-fsd-chip-spacex-four-quadrant]] — 同公司另篇:FSD 與 SpaceX
+- [[coreweave-neocloud-debt-stress]] — 資本開支與債務壓力的同類案例
+- [[nvda-fy27q2-guidance-and-circular-financing]] — AI 資本開支與循環融資的結構

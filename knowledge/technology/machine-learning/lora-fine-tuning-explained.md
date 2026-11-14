@@ -147,3 +147,7 @@ model.save_pretrained("lora-wenyan")       # 只存 LoRA 權重,檔案只有幾 
 📎 相關筆記:[[pytorch-from-zero-transformer-series]]、[[multi-head-attention-explained]]、[[llm-abliteration-refusal-direction]](另一種不重訓、直接改權重的方法)
 
 **Whisper 專有名詞還原對照:** 吞噬/吞吞模块 → Attention 模組;Cure projection → Q projection;DeepSeq/DeepSync → DeepSeek;预讯链 → 預訓練;监督为条/监独微谣 → 監督微調;DAR → 但二者;阿普主 → UP 主;千问三 → Qwen3;36万1个Token → 36 兆個 token;T度/体度 → 梯度;ADAM W 优发器 → AdamW 優化器;LowRank/Laura/Loro/LOWRA → LoRA;Adaption → Adaptation;KVcash → KV cache。
+
+## 相關筆記
+
+- [[weight-space-programming-llm-edits-weights]] — 同主題:權重空間編程(Weight-Space Programming):讓 LLM 直

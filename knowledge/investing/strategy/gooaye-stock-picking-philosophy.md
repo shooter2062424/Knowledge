@@ -66,3 +66,7 @@
 
 - YouTube:[【下班經濟學精華】投術面籌碼面都假的?股癌選股心法大公開(風傳媒)](https://www.youtube.com/watch?v=mnuk1GkJxDU)(完整版 [z0IvtUIF65Y](https://youtu.be/z0IvtUIF65Y))。**該片無字幕,逐字稿以 CPU 版 faster-whisper 轉錄。**
 - 延伸:本庫 [[short-term-trading-7-rules]]、[[minervini-think-trade-like-champion]]、[[just-keep-buying-nick-maggiulli]]。(股癌完整方法論的模擬另見 ai-grocery 倉庫的 `gooaye` skill。)
+
+## 相關筆記
+
+- [[meitoujun-why-blog-and-how-to-pick-finance-bloggers]] — 同主題:投資能賺錢還做博主?美投君談財經博主的行業內幕,以及怎麼篩選好博主

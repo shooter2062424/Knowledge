@@ -69,3 +69,10 @@ flowchart LR
 - Anthropic:Provable inference(FlashProve) https://www.anthropic.com/research/provable-inference (2026-11-02)
 - GitHub:anthropics/FlashProve(Apache 2.0) https://github.com/anthropics/FlashProve — `guide/performance.md`、`guide/what-is-proved.md`、`guide/known-limits.md`、`docs/architecture.md`
 - 延伸:本庫 [[ai-subscription-api-equivalent-value-semianalysis]]、[[opencode-console-breach-guardrail-asymmetry]]
+
+## 相關筆記
+
+- [[llm-api-relay-stations]] — API 網關偷換模型的實際案例
+- [[claude-text-watermark-remover-repo-check-yaha]] — 用原始碼與證據驗證說法的方法
+- [[encrypted-reasoning-traces-portable-key-flaw]] — 可攜載體與金鑰架構的安全教訓
+- [[rsa-260-factored-verifiability-as-design]] — 同主題:RSA-260 被分解:一條推文、一次除法,全世界同時確認 —— 以及「可驗證性

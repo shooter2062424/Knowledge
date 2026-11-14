@@ -210,6 +210,7 @@ if shortSig and strategy.position_size == 0
 - [[double-top-bottom-momentum]]:影片做空案例提到的「雙頂第二個頂部」。
 
 ---
+- [[peter-tuchman-day-trading]] — 同主題:當沖有技巧嗎?紐約證交所傳奇交易員 Peter Tuchman 的 40 年心法
 
 ## 來源
 

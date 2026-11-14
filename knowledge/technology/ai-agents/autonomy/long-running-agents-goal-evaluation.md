@@ -94,3 +94,8 @@ flowchart LR
 ## 來源
 
 - [YouTube:我的 AI agent 連續跑了 27 個小時,/goal 功能怎麼用?(Gary Chen)](https://youtu.be/PpeCur6fEXc)
+
+## 相關筆記
+
+- [[claude-fable-5-2-one-prompt-games-saltline-gears-snes-why-qq]] — 同主題:Claude Fable 5.2 用三行提示詞做遊戲:Saltline、Gear
+- [[issue-137]] — 同主題:第 137 期:DeepSeek Super Agent 原型、讓 Agent 

@@ -210,3 +210,10 @@ flowchart LR
 > - 「影子 Agent」(②[11:15])為影片用語,投影片以「後台影子 Agent」標示(未另外核實來源)。
 > - 「四合一動態組裝」(②[8:25])投影片中的模組名為 System Prompt、畫像插槽(Layer 2)、召回語境(Layer 3)、滑窗上下文(Layer 1),與本文第三節一致。
 > - 「90% 跑不下去的 Agent」「年薪 30 萬 / 60 萬」為行銷說法,未能核實。
+
+## 相關筆記
+
+- [[agent-memory-facts-vs-understanding-google-cloud-tech]] — 同主題:Agent 長期記憶怎麼分:事實進 SQL、理解進向量庫、原始影音不進記憶(Go
+- [[codex-memory-two-phase-pipeline-v1-v2-01coder]] — 同主題:Codex 本地跨會話記憶:兩階段流水線、v1 與 v2 差異(01Coder 
+- [[issue-116]] — 同主題:GitHub Weekly 第 116 期:Agent 記憶 OS、超省錢 De
+- [[issue-132]] — 同主題:第 132 期:Jev 開源復刻 Laya、Cloudflare 安全審計 Sk

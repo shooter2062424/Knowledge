@@ -84,3 +84,11 @@
 ## 來源
 
 - itcoffee66/githubweekly 第 120 期:<https://github.com/itcoffee66/githubweekly/blob/main/_weekly/120.md>(2026/06/21–06/27)
+
+## 相關筆記
+
+- [[local-tools-skill-mcp-three-layer-decision-baibai]] — 工具層(Skill/MCP)選型
+- [[yaha-video-ai-tools-filmora-topview-flova]] — AI 影片生產流程的工具比較
+- [[minimax-h3-local-video-mac-mini-vpipe-ai-strategy-room]] — 本地跑 AI 影片生成的實測
+- [[codebase-memory-vs-codegraph-two-routes]] — 程式碼記憶 MCP 的同類比較
+- [[codegraph-code-and-tui]] — 給 agent 查的程式碼圖譜原始碼

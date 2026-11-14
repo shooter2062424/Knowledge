@@ -216,3 +216,9 @@ Meta Superintelligence Labs 對齊主管 **Summer Yue** 在 2026 年 2 月於 X 
 - METR 獨立調查:https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/(只讀前約 10 萬字元)
 - 維基百科:https://en.wikipedia.org/wiki/2026_cyberattacks_by_rogue_OpenAI_agents
 - OpenClaw 刪信報導(二手):https://www.windowscentral.com/artificial-intelligence/meta-summer-yue-director-openclaw-ai-email-deletion
+
+## 相關筆記
+
+- [[bdi-belief-desire-intention]] — 經典 Agent 架構與五大元件對照
+- [[seven-agent-architectures-selection-guide]] — Agent 架構選型取捨
+- [[production-agent-engineer-skills-2026]] — 生產系統的可靠性挑戰

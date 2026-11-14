@@ -70,3 +70,7 @@ flowchart TD
 
 - 美投讲美股(美投君),〈AI 商业发展暗藏 4 大前瞻趋势!提前埋伏这些机会〉,YouTube:<https://www.youtube.com/watch?v=-ih9NBMHiU8>(2026-06-21,約 21 分鐘)
 - **該片無字幕,逐字稿以 CPU 版 faster-whisper(`vad_filter=True`,small,zh)轉錄,非官方字幕**;公司名與數字(Cloudflare 機器流量 68.4%、Shopify +8×/+13×、Okta/DataDog 漲 30%、納德拉 200 萬員工+2000 萬 Agent、黃仁勳 7.5 萬+750 萬)依語音還原,可能有聽寫誤差,實際以原片為準。**非投資建議**。
+
+## 相關筆記
+
+- [[ai-adoption-electricity-revolution-analogy]] — 同主題:AI 像 100 年前的電力革命:真正的商機不在「AI 應用」,而在「AI 採納

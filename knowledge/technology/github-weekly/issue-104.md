@@ -134,3 +134,10 @@
 - [GitHub Weekly 第 104 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/104.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[long-context-attention-mha-to-csa-xuanyuan]] — GLM-5 同用的 DSA 稀疏注意力
+- [[agent-sandbox-microvm-snapshot-iaa]] — 安全執行 AI 生成程式碼的沙箱
+- [[cloudflare-security-audit-skill-pipeline]] — 用 Skill 做安全審計的流程
+- [[ai-agent-skill-stock-research-workflow]] — 財務研究 agent 的工作流

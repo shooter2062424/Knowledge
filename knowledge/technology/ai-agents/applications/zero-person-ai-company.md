@@ -177,3 +177,8 @@ README 提到的嚇人場景:失控迴圈在你發現前燒掉幾百美元的 to
 - [YouTube:GitHub 9.8万星爆火项目Paperclip:给你的AI开一家公司?(YAHA學堂)](https://www.youtube.com/watch?v=vZHaSwnJmSk)
 - [paperclipai/paperclip GitHub repo](https://github.com/paperclipai/paperclip)
 - [Paperclip 官方文件:成本與預算](https://docs.paperclip.ing/guides/day-to-day/costs/)
+
+## 相關筆記
+
+- [[ai-boss-luna-andon-market-fired-human-mia]] — 同主題:AI 老板 Luna 開除了第一個真人:Andon Market 的心軟、健忘與
+- [[issue-129]] — 同主題:第 129 期:Agent 辦公室、GPT-Image-2 提示詞庫、Codex

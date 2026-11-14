@@ -102,3 +102,11 @@
 - [GitHub Weekly 第 102 期原文](https://github.com/itcoffee66/githubweekly/blob/main/_weekly/102.md)
 - [itcoffee66/githubweekly(週報倉庫)](https://github.com/itcoffee66/githubweekly)
 - 各專案連結見上文各節。
+
+## 相關筆記
+
+- [[vectorless-rag-structure-navigation]] — 同為不靠向量的 RAG
+- [[reliable-structured-json-output-tool-use]] — LangExtract 同類的結構化抽取
+- [[personal-agent-muse-meta-google-race]] — 個人 AI 助理的競賽格局
+- [[always-on-agent-grok-bot-lee-robinson]] — 常駐 agent 運作,對照 OpenClaw
+- [[kimi-k3-1-pro-open-weight-coding-acceptance]] — Kimi 系列開源模型的選型

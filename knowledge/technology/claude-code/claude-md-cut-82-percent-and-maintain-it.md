@@ -859,3 +859,7 @@ flowchart LR
 - 本倉庫相關筆記:[[claude-md-from-zero-to-mastery]]、[[output-style-communication-not-intelligence]]、[[agent-skill-three-layer-run-do-verify]]、[[gpt-6-astra-token-efficiency-and-harness]]
 
 > 該片無字幕,逐字稿以 CPU 版 faster-whisper(small / int8 / zh)轉錄取得,**非官方字幕**,可能有少量聽寫誤差。文中指令與專有名詞已依上下文校正(轉錄中的「Cloud 的點 MD」為 **CLAUDE.md**、「斜槓 Context」為 **`/context`**、「fab5」為 **Fable 5**、「Gate」為 **git**、「小老鼠符號」為 **`@`**、「軟鍊接」為 **symlink**)。
+
+## 相關筆記
+
+- [[issue-111]] — 同主題:GitHub Weekly 第 111 期:Karpathy 經驗的 Claud

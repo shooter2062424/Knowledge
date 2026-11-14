@@ -275,3 +275,10 @@ DBSCAN 的內部指標最漂亮、ARI 卻最差:eps=0.3 把重疊的群拆成更
 - UMAP 參數說明:https://umap-learn.readthedocs.io/en/latest/parameters.html
 - UMAP 轉換新資料:https://umap-learn.readthedocs.io/en/latest/transform.html
 - How to Use t-SNE Effectively(長版資源清單引用,本次未重讀):https://distill.pub/2016/misread-tsne/
+
+## 相關筆記
+
+- [[supervised-ml-algorithms-guide]] — 監督式與非監督式的對照
+- [[model-evaluation-techniques-guide]] — 聚類與評估指標的延伸
+- [[ml-ten-core-concepts-guide]] — 維度災難與 PCA 等基礎概念
+- [[data-analyst-10-projects-code-review]] — 同主題:資料分析師作品集 10 專案:讀完原始碼、實跑 9 支後的真實評估(Anjana

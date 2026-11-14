@@ -101,3 +101,7 @@ flowchart LR
 ## 來源
 
 - [YouTube:Yann LeCun's $1B Bet Against LLMs(Welch Labs,Part 1)](https://youtu.be/kYkIdXwW2AE)
+
+## 相關筆記
+
+- [[issue-119]] — 同主題:GitHub Weekly 第 119 期:生產級 Agent 技能包、蘋果官方

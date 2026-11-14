@@ -520,3 +520,8 @@ flowchart TB
 - [Recon 2024:VMProtect 3.8 架構演講(§11,僅見標題與摘要)](https://cfp.recon.cx/recon2024/talk/YQK3FK)
 
 📎 相關筆記:[[issue-134]](GitHub 週報收錄 REA)、[[claude-code-mods-explained]](同為擴充 Claude Code 能力,但 mod 跑在行程內、MCP 在行程外)
+
+## 相關筆記
+
+- [[claude-code-source-full-map]] — 同主題:Claude Code 原始碼全覽地圖:11 個子系統與它們怎麼咬合
+- [[issue-109]] — 同主題:GitHub Weekly 第 109 期:被開源的 Claude Code、J

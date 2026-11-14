@@ -74,3 +74,8 @@ Understand-Anything 與 Graphify(Graphy AI)就是兩個這樣的工具。
 
 - YouTube:[Understand-Anything vs Graphify: I Tested Both on My SaaS(Eric Tech)](https://www.youtube.com/watch?v=Ynv_WYO_slw)
 - 延伸:本庫 [[tree-sitter]]、[[context-engineering-processing-vs-thinking]];GitHub Weekly 第 115 期的 CodeGraph(程式 Agent 知識圖譜)。
+
+## 相關筆記
+
+- [[issue-106]] — 同主題:GitHub Weekly 第 106 期:阿里 OpenClaw 替代、WiF
+- [[issue-116]] — 同主題:GitHub Weekly 第 116 期:Agent 記憶 OS、超省錢 De

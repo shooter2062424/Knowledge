@@ -224,3 +224,8 @@ Strategic · Calm under pressure · Resourceful · Curious · Straightforward bu
 
 > ⚠️ 本文為對一則公開社群貼文的整理與延伸。**§5、§6 為本文補充,非原文內容。**
 > 面試建議因產業、地區與職級而異,請自行判斷適用性。
+
+## 相關筆記
+
+- [[sales-power-negotiation-eight-scenarios-boice-celso]] — 面試與業務都要把能力講成具體行為
+- [[four-traits-interesting-conversation]] — 自我覺察與表達,談可被看見的特質

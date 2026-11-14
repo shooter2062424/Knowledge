@@ -107,3 +107,7 @@ flowchart TD
 - [Best practices for getting started with Claude Cowork — Claude 官方部落格](https://claude.com/blog/best-practices-for-getting-started-with-claude-cowork)(2026-11-07 核實:先反問、描述交付物、Chat 與 Cowork 的判準)
 - [Get started with Claude Cowork — Claude 官方支援](https://support.claude.com/en/articles/13345190)(2026-11-07 核實:定時任務雲端執行、用量成本)
 - [Let Claude use your computer in Cowork — Claude 官方支援](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork)(2026-11-07 核實:computer use beta、Pro/Max/Ultra、Team/Enterprise 不可用、逐應用程式詢問)
+
+## 相關筆記
+
+- [[issue-101]] — 同主題:GitHub Weekly 第 101 期:開源版 Cowork、資料工程實戰課

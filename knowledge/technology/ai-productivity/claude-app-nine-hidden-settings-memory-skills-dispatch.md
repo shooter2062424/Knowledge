@@ -122,3 +122,9 @@ flowchart LR
 - 影片截圖:0:35 Memory 頁、1:06 匯入框、6:42 Connectors 目錄、9:39 Dispatch 側邊欄(由 `transcript_tools.py frames` 擷取,未存入版控)
 - 記憶匯入(第三方、非官方):[Product Hunt — Claude import memory](https://www.producthunt.com/p/claude/claude-import-memory)、[Medium — How to Import Memory into Claude](https://medium.com/@unicodeveloper/how-to-import-memory-into-claude-from-chatgpt-gemini-or-grok-step-by-step-guide-c78ac8f7e4a4)
 - 本庫延伸:[[claude-sonnet-5-5-release-effort-migration]]、[[model-routing-compute-allocation]]、[[building-claude-skills]]、[[claude-skills-governance-man-group]]
+
+## 相關筆記
+
+- [[codex-memory-two-phase-pipeline-v1-v2-01coder]] — 同主題:Codex 本地跨會話記憶:兩階段流水線、v1 與 v2 差異(01Coder 
+- [[claude-cowork-overtime-pay-audit-prompt]] — 同主題:一段提示詞、五個工具、3 分鐘抓出加班費算法裡的三個漏洞:Claude Cowo
+- [[claude-code-ten-concepts-three-first-steps-jayluxai]] — 同主題:Claude 近期十個更新怎麼分:新手只要先做三件事(JayLuxAI + 官方

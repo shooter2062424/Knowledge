@@ -651,3 +651,9 @@ herdr 自己的 skill description 就寫得很保守:「**不要僅僅因為某�
 
 > 該片無字幕,逐字稿以 CPU 版 faster-whisper(small / int8 / zh)轉錄取得,**非官方字幕**,可能有少量聽寫誤差。文中專有名詞已對照原始碼校正(轉錄中的「Header / 黑的 / Hider」皆為 **herdr**、「克拉克斯 / Colors / Koloss」為 **Codex**、「Cloud Code / 克拉克羅」為 **Claude Code**、「1P / YMP / Omp」為 **OMP**、「Feeble 5」為 **Opus 5**)。
 > Star 數與原始碼內容以本文整理時的 main 分支為準,可能隨版本變動。
+
+## 相關筆記
+
+- [[issue-113]] — 同主題:GitHub Weekly 第 113 期:AI 終端機開源、駭客工具箱、Ski
+- [[issue-123]] — 同主題:第 123 期:多說話人 ASR、並行 Agent 工作台、DESIGN.md 
+- [[issue-129]] — 同主題:第 129 期:Agent 辦公室、GPT-Image-2 提示詞庫、Codex

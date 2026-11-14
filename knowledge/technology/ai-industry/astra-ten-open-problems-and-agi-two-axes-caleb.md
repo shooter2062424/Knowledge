@@ -171,3 +171,9 @@ Tim Urban(Wait But Why,2015 年 1 月系列文 *The AI Revolution*,距今約 11 
 - 本庫相關:[[gpt-6-astra-token-efficiency-and-harness]]、[[arc-agi-3-agentic-benchmark]]、[[agent-verification-before-scale-lauren-tan-reaction]]、[[claude-sonnet-5-5-release-effort-migration]]
 
 > ⚠️ 數學成果的二手描述可能不準,**最終以 OpenAI 公告與 `openai/ten-proofs` repo 為準**;同行審查仍在進行。
+
+## 相關筆記
+
+- [[openai-navier-stokes-agent-swarm-and-attribution]] — AI 解數學難題的成果與爭議
+- [[claude-fable-5-2-1000-agents-os-fermat-harness-why-qq]] — 大規模 Agent 做數學的另一案例
+- [[gpt-6-astra-napoleon-marmont-cipher]] — 同一 Astra 模型的解題實測

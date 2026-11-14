@@ -229,3 +229,7 @@ qm 的複雜度不低(要跑 Postgres + core + Web UI + admin + auth + portal �
 - **專案原始碼**(本文的架構、安全姿態、部署與貢獻方式均據此核實):<https://github.com/yc-software/qm>
   - 特別參考:`README.md`(架構圖、harness 可換、deployment directory)、`SECURITY.md`(威脅模型與明確的限制聲明)。
 - 延伸(本庫):[Codex Multi-agent V2 與 Graph Engineering(同作者)](./codex-multi-agent-v2-graph-engineering.md) · [Google 課程 Day 4+5:zero-trust 三層與驗收](../foundations/google-agentic-engineering-day4-5.md) · [本體論護欄與神經符號 AI](../foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) · [Project Cairn:經驗知識化](../memory-retrieval/project-cairn-experience-to-knowledge-skill.md) · [2026 Agent 工程師能力與面試題](../foundations/production-agent-engineer-skills-2026.md)
+
+## 相關筆記
+
+- [[issue-135]] — 同主題:第 135 期:藝術家的 AI IDE(ArtCraft)、互動式技術圖解 Sk

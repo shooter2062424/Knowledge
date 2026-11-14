@@ -102,3 +102,10 @@ mv ~/.claude/projects/$OLD ~/.claude/projects/$NEW
 
 - [gist:Claude Code Continue Functionality — Directory Migration Guide(gwpl)](https://gist.github.com/gwpl/e0b78a711b4a6b2fc4b594c9b9fa2c4c)
 - [Claude Code 官方文件](https://docs.anthropic.com/en/docs/claude-code) · [JSONL 格式](https://jsonlines.org/)
+
+## 相關筆記
+
+- [[agit-version-control-for-agent-sessions]] — 把對話做版本控制,同屬會話管理
+- [[claude-code-windows-native-install-troubleshooting]] — Windows 下的路徑與安裝問題
+- [[git-github-for-vibe-coders]] — Git 與 worktree 的基礎概念
+- [[claude-code-30-hidden-shortcuts]] — 會話暫存、回退與接續操作

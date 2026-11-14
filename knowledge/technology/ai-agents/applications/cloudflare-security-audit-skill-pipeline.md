@@ -537,3 +537,10 @@ def unit_id(entry: str, boundary: str, subsystem: str, attack_class: str) -> str
 - ⭐⭐⭐ **官方部落格(全部統計數字的依據)**:[Build your own vulnerability harness — Cloudflare Blog](https://blog.cloudflare.com/build-your-own-vulnerability-harness/)
 - ⚠️ **§8.1 補正的依據**:[Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident — Hugging Face 官方](https://huggingface.co/blog/agent-intrusion-technical-timeline)
 - 延伸:本庫 [[rsi-recursive-self-improvement-anthropic]](⚠️ §8.6 已查證「700 個 agent」說法)、[[skill-doctor-self-improving-agent-loop]]、[[agent-skill-three-layer-run-do-verify]]、[[multi-agent-data-consistency-reliability]]、[[agent-paid-api-cost-guardrails-mcp]]、[[anthropic-threat-intelligence-2026-09]]。
+
+## 相關筆記
+
+- [[ub-mode-uncle-bob-quality-gate-skill-crapper-dryer-mutator]] — 同主題:ub-mode:Bob 大叔給 coding agent 的「工程質量門禁」技能
+- [[issue-104]] — 同主題:GitHub Weekly 第 104 期:智譜 GLM-5 旗艦模型、AI 編
+- [[issue-105]] — 同主題:GitHub Weekly 第 105 期:Rust 版 OpenClaw、本地
+- [[issue-121]] — 同主題:第 121 期:DeepSeek 推理加速、Google 設計記憶規範、AI 投

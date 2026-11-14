@@ -130,3 +130,9 @@ flowchart TD
 - [Andon Labs:斯德哥爾摩 AI 咖啡館](https://andonlabs.com/blog/ai-cafe-stockholm)與[Why Gemini 3.1 Pro lost money running Andon Café(2026-06-30)](https://andonlabs.com/blog/why-gemini-lost-money-andon-cafe)
 - [Andon Labs:Why we built Pion](https://andonlabs.com/blog/why-we-built-pion)
 - [Anthropic:Project Vend 第二階段](https://www.anthropic.com/research/project-vend-2)
+
+## 相關筆記
+
+- [[agent-paid-api-cost-guardrails-mcp]] — 讓 agent 自主花錢的護欄與停損
+- [[agent-verification-before-scale-lauren-tan-reaction]] — 人類抽檢與驗證先於規模
+- [[zero-person-ai-company]] — 無人公司與 AI 管理者的實驗對照

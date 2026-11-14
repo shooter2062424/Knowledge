@@ -182,3 +182,11 @@ flowchart TD
 - Financial Modeling Prep:https://site.financialmodelingprep.com/
 - FinMind:https://finmindtrade.com/
 - 揭露:說明欄課程連結(Hahow,含優惠碼)為導購連結,本文不收錄
+
+## 相關筆記
+
+- [[issue-104]] — 同主題:GitHub Weekly 第 104 期:智譜 GLM-5 旗艦模型、AI 編
+- [[issue-114]] — 同主題:GitHub Weekly 第 114 期:DeepSeek V4 終端編程 A
+- [[issue-121]] — 同主題:第 121 期:DeepSeek 推理加速、Google 設計記憶規範、AI 投
+- [[issue-123]] — 同主題:第 123 期:多說話人 ASR、並行 Agent 工作台、DESIGN.md 
+- [[issue-133]] — 同主題:第 133 期:給 Agent 開家公司(Paperclip)、讓 Agent 

@@ -85,3 +85,7 @@ Tesla 是長期持倉,短期面臨 SpaceX 上市的虹吸效應 + 宏觀壓力�
 
 - 美投讲美股(美投君),〈高手是如何在牛市中赚钱的?1招让你告别踏空,无惧下跌!〉,YouTube:<https://www.youtube.com/watch?v=ByBLjNA3MvY>(2026-06-14)
 - **該片無字幕,逐字稿以 CPU 版 faster-whisper(`vad_filter=True`,small 模型,zh)轉錄取得,非官方字幕**;選擇權專有名詞(Long/Short Put/Call、ATM、Protective Put、Seagull)與案例數字(QQQ 600/580/620、563、$3640;710/680/750;Tesla 360/400/450)依語音還原,可能有少量聽寫誤差,實際以原片為準。**非投資建議**;內文已略去影片中的期權課程廣告。
+
+## 相關筆記
+
+- [[sell-put-early-close-roll-delta-nick]] — 同主題:Sell Put 不必放到到期:提前買回、把資金換到下一張合約(Nick 美股咖

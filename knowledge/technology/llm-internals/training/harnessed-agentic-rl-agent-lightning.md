@@ -255,3 +255,9 @@ flowchart TB
 - 本倉庫相關筆記:[[sdar-agentic-rl]]、[[defeating-nondeterminism-batch-invariance]]、[[agentic-harness-engineering-observability-evolution]]、[[hermes-main-agent-orchestration]]、[[pi-minimal-agent-harness-teardown]]
 
 > ⚠️ 本文為論文內容之整理;所有數字均出自論文自報的實驗,**未經獨立複現**。論文為 preprint(v1)。
+
+## 相關筆記
+
+- [[why-reinforcement-learning-is-hard-caleb]] — 強化學習難點與資料生成的背景
+- [[grpo-vs-gepa]] — 同為 agent 訓練訊號的對照
+- [[harness-learning-proposer-rl]] — 讓 harness 自我改進的同類研究
