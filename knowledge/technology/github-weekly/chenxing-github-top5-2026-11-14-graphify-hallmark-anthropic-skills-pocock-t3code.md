@@ -123,3 +123,7 @@ flowchart TD
 - Matt Pocock skills:https://github.com/mattpocock/skills
 - T3 Code:https://github.com/pingdotgg/t3code
 - 本庫相關:[[graphify-code-knowledge-graph-real-world-test]]、[[matt-pocock-skills-teardown]]、[[claude-web-design-skills-benchmark-pnh]]、[[ai-orchestrators-32-tools-seven-dimensions]]
+
+## 相關筆記
+
+- [[issue-138]] — IT咖啡馆第 138 期同樣介紹 T3 Code,角度是與 Orca 比較

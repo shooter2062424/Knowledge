@@ -203,3 +203,4 @@ flowchart LR
 - [[ai-live2d-vtuber-see-through-anime25drig-pipeline-mia]] — See-through 分層技術的實際應用流程
 - [[claude-web-design-skills-benchmark-pnh]] — 網站類 Claude Code Skill 的實測對照
 - [[long-running-agents-goal-evaluation]] — 持續工作的 Agent 與評估機制
+- [[issue-138]] — 下一期(OpenMausBot、Scrapling、紫微斗數排盤引擎、Astryx 等)
