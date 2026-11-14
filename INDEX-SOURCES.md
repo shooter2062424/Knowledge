@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**521 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **405 篇**筆記。
+> 統計:**522 個 YouTube video id**、**175 個 arXiv 編號**,涵蓋 **406 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(521 部,依 video id 排序)
+## YouTube(522 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -74,6 +74,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `4CZiE0Y0FFQ` | 多 Agent 系統的資料一致性:為什麼數字越傳越亂,以及四層工程解法 | [knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md](./knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md) |
 | `4FJs4nd2uDA` | 交易的「贏家數學」:四個核心概念,以及一份完整的數學學習路線圖 | [knowledge/investing/strategy/trading-math-expectancy-variance-risk.md](./knowledge/investing/strategy/trading-math-expectancy-variance-risk.md) |
 | `4fpZhuJuIls` | Claude Dynamic Workflows 解析:什麼時候該用、什麼時候別用? | [knowledge/technology/ai-agents/foundations/claude-dynamic-workflows.md](./knowledge/technology/ai-agents/foundations/claude-dynamic-workflows.md) |
+| `4Gv6GDK7Lf0` | vLLM 為什麼能讓同一張 GPU 多扛幾倍請求:KV cache、PagedAttention、連續批處理與常用參數(小白debug) | [knowledge/technology/llm-internals/inference/vllm-pagedattention-engine-parameters-xiaobai-debug.md](./knowledge/technology/llm-internals/inference/vllm-pagedattention-engine-parameters-xiaobai-debug.md) |
 | `4j1omjaRu0A` | 在瘋狂股市裡,你還該「持續買入」嗎?——Nick Maggiulli 訪談筆記 | [knowledge/investing/strategy/just-keep-buying-nick-maggiulli.md](./knowledge/investing/strategy/just-keep-buying-nick-maggiulli.md) |
 | `4s-r0UA2iUM` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `4t8QcDdrL6Y` | AI 時代怎麼「讀」程式碼:6 個技巧(KodeKloud) | [knowledge/technology/ai-productivity/reading-code-ai-era-6-techniques.md](./knowledge/technology/ai-productivity/reading-code-ai-era-6-techniques.md) |
@@ -552,7 +553,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(174 篇,依編號排序)
+## arXiv(175 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -621,6 +622,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2307.03172` | 到底需不需要 GraphRAG?9 種 RAG 方案實測對照 + 脈絡優化省 19–53% token | [knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md](./knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md) |
 | `2309.06180` | 30 歲以上程式設計師怎麼轉型:五條出路與四個 AI 方向(白白說大模型 2 支影片合併) | [knowledge/career/ai-transition/over-30-developer-ai-career-switch-directions.md](./knowledge/career/ai-transition/over-30-developer-ai-career-switch-directions.md) |
 | `2309.06180` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
+| `2309.06180` | vLLM 為什麼能讓同一張 GPU 多扛幾倍請求:KV cache、PagedAttention、連續批處理與常用參數(小白debug) | [knowledge/technology/llm-internals/inference/vllm-pagedattention-engine-parameters-xiaobai-debug.md](./knowledge/technology/llm-internals/inference/vllm-pagedattention-engine-parameters-xiaobai-debug.md) |
 | `2309.15217` | 30 歲以上程式設計師怎麼轉型:五條出路與四個 AI 方向(白白說大模型 2 支影片合併) | [knowledge/career/ai-transition/over-30-developer-ai-career-switch-directions.md](./knowledge/career/ai-transition/over-30-developer-ai-career-switch-directions.md) |
 | `2310.01831` | Code-to-Spec:從既有大型程式碼庫反推規格(CodeConcise、Clang、ACSL、C→Rust) | [knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md](./knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md) |
 | `2310.02446` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
