@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**520 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **404 篇**筆記。
+> 統計:**521 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **405 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(520 部,依 video id 排序)
+## YouTube(521 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -190,6 +190,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `Ea1XvVD7GTY` | DeepSeek V4 的瘋狂工程:用「不夠的資源」做出頂尖模型 | [knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md](./knowledge/technology/llm-internals/architecture/deepseek-v4-engineering.md) |
 | `Ec1jRVQ_YZU` | 別再相信目標價:前外資分析師拆解法人到底在看什麼 | [knowledge/investing/strategy/target-prices-institutional-secrets.md](./knowledge/investing/strategy/target-prices-institutional-secrets.md) |
 | `EhcRX53sUJk` | DHH 的 16 條並行 Agent:當寫程式幾乎免費,瓶頸遷移到哪裡去了 | [knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md](./knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md) |
+| `EhMKfG1dvnI` | Obsidian + Claude Code 跨專案知識庫:讓 AI 讀、寫、連結,庫自己長大(AgentCrew Academy) | [knowledge/technology/ai-agents/memory-retrieval/obsidian-claude-code-cross-project-vault-agentcrew.md](./knowledge/technology/ai-agents/memory-retrieval/obsidian-claude-code-cross-project-vault-agentcrew.md) |
 | `eiisw5N2U6w` | 用需求逼出 Agent 的五臟六腑:工作流 vs 智能體的分界,與 LangGraph 只做的三件事 | [knowledge/technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md](./knowledge/technology/ai-agents/foundations/agent-five-cores-langgraph-trading-agent.md) |
 | `ejThzPk85K0` | GPT-6 Astra 解開 217 年的拿破崙密信:從一張模糊掃描圖到可重現的解法包(Why QQ) | [knowledge/technology/ai-agents/applications/gpt-6-astra-napoleon-marmont-cipher.md](./knowledge/technology/ai-agents/applications/gpt-6-astra-napoleon-marmont-cipher.md) |
 | `eKW9ITaltWw` | 一支影片看完 Stanford「Beyond LLM」:從 LLM 到 Multi-Agent 的技術地圖 | [knowledge/technology/ai-agents/resources/stanford-beyond-llm-course.md](./knowledge/technology/ai-agents/resources/stanford-beyond-llm-course.md) |
