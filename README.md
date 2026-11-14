@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-449_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-450_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -396,6 +396,7 @@ flowchart LR
 |---|---|
 | [Agent 長期記憶分層設計:別把一切丟進向量庫(白白说大模型)](./knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md) | 四層記憶 + LVP + 雙時間戳 / 三層記憶 + 影子 Agent;難點不是怎麼存而是怎麼扔、怎麼找 |
 | [Obsidian + Claude Code 跨專案知識庫:wikilink 連成網、計劃模式設計結構、官方 skill 讀寫、庫自己長大(AgentCrew Academy + 讀官方 CLI 文件與 obsidian-skills 倉庫核實)](./knowledge/technology/ai-agents/memory-retrieval/obsidian-claude-code-cross-project-vault-agentcrew.md) | 樹狀資料夾 + wikilink 讓 AI 跨專案讀;計劃模式三招(讀資料、上網找、問問題);作者演進順序 projects/pillars → decisions → 日誌 → 週報 → 回寫主檔;⭐ 核實:**CLI 現行需 1.12.7+(影片寫 1.12.4)、在設定中開啟而非請 Claude 安裝、勿裝無關 npm obsidian-cli**、倉庫已移到 obsidianmd/、CLI 失敗也回 0 且 `
+| [kepano 的 Obsidian vault 格式:categories 屬性 + Bases 三件套、命名與 7 分評分,以及部門導入規劃草案(交接文 + 讀 stephango.com/vault 與 kepano-obsidian 倉庫核實)](./knowledge/technology/ai-agents/memory-retrieval/kepano-obsidian-vault-format-and-team-rollout-plan.md) | 不用資料夾分主題,每個分類 = 範本 + 分類頁 + `.base`;`list(x).contains(this)` 情境視圖與 Related.base;核實:倉庫範本與 filter 與交接文一致,但 types.json 型別名是 multitext 不是 list、「值盡量用連結」文章沒明說;Part 2 為提案未定案,Obsidian Sync 20 人/每人訂閱/無地端已核實,「無細部權限、不能即時共編」未能核實;⭐ 列出 7 項與 kepano 原則及 AgentCrew 做法的衝突待使用者決定 |
 ` 會被轉換;⚠️ 作者推廣自家課程與診斷表單;外掛 3,000 個與「沒打過一個字」未能核實 |
 | [Codex 本地跨會話記憶:兩階段流水線、v1/v2 差異、預設值與糾正機制(01Coder 影片 + 讀 openai/codex 原始碼核實)](./knowledge/technology/ai-agents/memory-retrieval/codex-memory-two-phase-pipeline-v1-v2-01coder.md) | 階段一逐會話提煉入 SQLite、階段二整理成 Markdown;短摘要上限約 2,500 tokens;⭐ 讀固定 commit 核實:1 MB 單條記錄跳過、租約 3,600 秒、四個專用記憶工具預設關;補影片沒講的預設值(閒置 6 小時、年齡 10 天、每次 2 個、額度剩 25% 才跑、30 天未用淘汰、按使用次數排序)與密鑰遮蔽;⚠️ v1 是否禁開原始 rollout、啟動觸發點、預設版本未能核實;影片自述未測額外消耗與淨收益 |
 | [好的記憶系統贏在「會忘記」:Supermemory 拆解與評估記憶方案的三個問題(Why QQ)](./knowledge/technology/ai-agents/memory-retrieval/supermemory-memory-layer.md) | ⭐⭐⭐ **記憶和 RAG 是兩件事**:RAG 檢索文件片段、無狀態、對所有人一樣;**記憶追蹤的是關於人的事實,而且事實會變**(「我剛搬去舊金山」覆蓋「我住在紐約」並保留時間線);⭐⭐⭐ **它會主動遺忘**(「我明天有考試」過期自動作廢)——「**大多數團隊在卷怎麼記得更多,這個專案在做怎麼忘得乾淨**」;⭐⭐ **畫像是一等公民**:會話開始一次調用約 50ms 直接注入系統提示詞,**模型連搜都不用搜**;✅ **已 clone 核實**:三項基準 #1、**95% Recall@15 只加約 720 token(壓縮 99.4%)**、port 6767、本地版可完全離線;⭐ **本文補上分項召回率** —— ⚠️ **最弱的 Temporal 91% / Preference 90% 正是它主打要解決的**;⚠️⚠️ **「所有廠商分數都是自報的」**:同一套 LongMemEval 換三個答題模型就跑出 85.2/84.6/81.6,**分數跟著配置走不跟著品牌走**;⚠️ **補正:monorepo 沒有 LangChain/LangGraph/Mastra 套件;Mem0 有 65,790 star 是它兩倍多**;⭐⭐⭐ **最該帶走:評估記憶系統的三個問題 —— 會不會更新、會不會遺忘、給不給得動** |
