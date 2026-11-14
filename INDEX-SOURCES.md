@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**519 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **403 篇**筆記。
+> 統計:**520 個 YouTube video id**、**174 個 arXiv 編號**,涵蓋 **404 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(519 部,依 video id 排序)
+## YouTube(520 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -214,6 +214,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `fKoWrF49Qo8` | 川普第二任期的賺錢秘笈:從地產 IP 到加密貨幣 | [knowledge/investing/strategy/trump-second-term-income-sources-2025.md](./knowledge/investing/strategy/trump-second-term-income-sources-2025.md) |
 | `FmIUUT-TXHs` | 別跟單一模型「結婚」:Model Agnostic 才是槓桿位置 | [knowledge/technology/ai-productivity/model-agnostic-ai-workflow.md](./knowledge/technology/ai-productivity/model-agnostic-ai-workflow.md) |
 | `FmzFqM-kf0A` | AI 算力與 Token 經濟學:當「省錢神話」撞上天價帳單 | [knowledge/technology/ai-industry/ai-compute-token-economics.md](./knowledge/technology/ai-industry/ai-compute-token-economics.md) |
+| `fNDRs-gEX0E` | Codex 本地跨會話記憶:兩階段流水線、v1 與 v2 差異(01Coder 影片 + 原始碼核實) | [knowledge/technology/ai-agents/memory-retrieval/codex-memory-two-phase-pipeline-v1-v2-01coder.md](./knowledge/technology/ai-agents/memory-retrieval/codex-memory-two-phase-pipeline-v1-v2-01coder.md) |
 | `FnFynx60R_8` | 談判別說「我幫你爭取」:業務力八情境(西索 × Boice 林伯翰) | [knowledge/career/workplace/sales-power-negotiation-eight-scenarios-boice-celso.md](./knowledge/career/workplace/sales-power-negotiation-eight-scenarios-boice-celso.md) |
 | `FOHyospzUd4` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `FOmXeN_KQ6s` | Google、Amazon 財報後大跌:Nick 的「加碼 15 股」邏輯與我的核實 | [knowledge/investing/equity-research/google-amazon-q3-2026-selloff-nick.md](./knowledge/investing/equity-research/google-amazon-q3-2026-selloff-nick.md) |

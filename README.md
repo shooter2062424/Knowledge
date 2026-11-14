@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-447_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-448_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -163,7 +163,7 @@ flowchart LR
 | **財女珍妮** — 美股投資與 AI 投資工具訪談 | 1 | [用 AI Agent + Skill 讀財報、做估值(課程推廣集)](./knowledge/investing/ai-assisted/ai-agent-skill-stock-research-workflow.md) |
 | **AI懶人報** — 名校課堂與 AI 工程講座的中文重述 | 3 | [Always-on Agent 怎麼運作:Lee Robinson 拆解 Grok Bot](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) · [Herdr 多專案六條規則(增補 §十)](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) · [企業導入 AI 兩個卡關原因(含 Basis 原演講補全)](./knowledge/technology/ai-agents/applications/enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao.md) |
 | **Andy Lin 林玉堂** — 二次整理他人教學的中文摘要 | 1 | [「Claude 2.0」是什麼:巢狀對話、Projects、側聊](./knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md) |
-| **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 2 | [Matt Pocock to-tickets 實操](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
+| **01Coder(小木頭)** — AI 編程工作流/上下文工程 | 3 | [Codex 本地記憶兩階段流水線:v1/v2 差異(對原始碼核實)](./knowledge/technology/ai-agents/memory-retrieval/codex-memory-two-phase-pipeline-v1-v2-01coder.md) · [Matt Pocock to-tickets 實操](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) · [Claude 5 Context Engineering 新規則](./knowledge/technology/ai-agents/foundations/context-engineering-claude-5-unhobbling.md) |
 | **人蔘 Try Catch** — AI 工程落地短講 | 1 | [Jev 落地場景與終端機守門員(併入 Jev 筆記)](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | **仕宇JavaPub** — GitHub 開源專案推薦 | 1 | [五個開源英語學習專案(已讀原始碼)](./knowledge/technology/applied-ai/language-learning/five-open-source-english-learning-tools.md) |
 | **AI LABS** — Claude Code 工作流實作(⚠️ 含業配與付費社群) | 4 | [EGM:大象寫規格、金魚零記憶挑毛病](./knowledge/technology/ai-agents/applications/elephant-goldfish-model-egm-spec-review.md) · [Shopify Helix 檢查點與四道關卡](./knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md) · [Agit:對話的版本控制](./knowledge/technology/ai-agents/applications/agit-version-control-for-agent-sessions.md) · [Claude Code 90% 人不知道的功能(併入 30 個快捷鍵筆記)](./knowledge/technology/claude-code/claude-code-30-hidden-shortcuts.md) |
@@ -394,6 +394,7 @@ flowchart LR
 | 主題 | 一句話 |
 |---|---|
 | [Agent 長期記憶分層設計:別把一切丟進向量庫(白白说大模型)](./knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md) | 四層記憶 + LVP + 雙時間戳 / 三層記憶 + 影子 Agent;難點不是怎麼存而是怎麼扔、怎麼找 |
+| [Codex 本地跨會話記憶:兩階段流水線、v1/v2 差異、預設值與糾正機制(01Coder 影片 + 讀 openai/codex 原始碼核實)](./knowledge/technology/ai-agents/memory-retrieval/codex-memory-two-phase-pipeline-v1-v2-01coder.md) | 階段一逐會話提煉入 SQLite、階段二整理成 Markdown;短摘要上限約 2,500 tokens;⭐ 讀固定 commit 核實:1 MB 單條記錄跳過、租約 3,600 秒、四個專用記憶工具預設關;補影片沒講的預設值(閒置 6 小時、年齡 10 天、每次 2 個、額度剩 25% 才跑、30 天未用淘汰、按使用次數排序)與密鑰遮蔽;⚠️ v1 是否禁開原始 rollout、啟動觸發點、預設版本未能核實;影片自述未測額外消耗與淨收益 |
 | [好的記憶系統贏在「會忘記」:Supermemory 拆解與評估記憶方案的三個問題(Why QQ)](./knowledge/technology/ai-agents/memory-retrieval/supermemory-memory-layer.md) | ⭐⭐⭐ **記憶和 RAG 是兩件事**:RAG 檢索文件片段、無狀態、對所有人一樣;**記憶追蹤的是關於人的事實,而且事實會變**(「我剛搬去舊金山」覆蓋「我住在紐約」並保留時間線);⭐⭐⭐ **它會主動遺忘**(「我明天有考試」過期自動作廢)——「**大多數團隊在卷怎麼記得更多,這個專案在做怎麼忘得乾淨**」;⭐⭐ **畫像是一等公民**:會話開始一次調用約 50ms 直接注入系統提示詞,**模型連搜都不用搜**;✅ **已 clone 核實**:三項基準 #1、**95% Recall@15 只加約 720 token(壓縮 99.4%)**、port 6767、本地版可完全離線;⭐ **本文補上分項召回率** —— ⚠️ **最弱的 Temporal 91% / Preference 90% 正是它主打要解決的**;⚠️⚠️ **「所有廠商分數都是自報的」**:同一套 LongMemEval 換三個答題模型就跑出 85.2/84.6/81.6,**分數跟著配置走不跟著品牌走**;⚠️ **補正:monorepo 沒有 LangChain/LangGraph/Mastra 套件;Mem0 有 65,790 star 是它兩倍多**;⭐⭐⭐ **最該帶走:評估記憶系統的三個問題 —— 會不會更新、會不會遺忘、給不給得動** |
 | [AI Agent 記憶管理:有時候 Markdown 檔案就夠了](./knowledge/technology/ai-agents/memory-retrieval/markdown-agent-memory.md) | MEMORY.md + 日誌 + 漸進式上下文披露 |
 | [Grep 就夠了嗎?Agent Harness 如何左右代理式檢索](./knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md) | inline grep 常勝向量,但換 harness 影響達 16pp;§7 併入 IBM「檢索金字塔」(不檢索→grep→既有 DB 向量索引→專用向量庫)與語意鴻溝例 |
