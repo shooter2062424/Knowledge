@@ -201,6 +201,7 @@
 ---
 - [[karpathy-ai-capability-funnel-perception-gap]] — 同主題:Karpathy 的「能力漏斗」:為什麼你覺得 AI 很蠢,有人卻說已經看到另一
 - [[ai-essential-13-concepts-beginner-map]] — 同主題:AI 入門 13 個必懂概念:LLM、Token、神經網路、幻覺、LoRA、Mo
+- [[karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen]] — 從 Karpathy 入門演講導讀看幻覺成因,含反轉詛咒論文核實
 
 ## 來源
 

@@ -182,3 +182,4 @@ Karpathy 強調:**同樣這 200 行,既驅動 microGPT 生人名,也驅動 ChatG
 
 - [[karpathy-ai-capability-funnel-perception-gap]] — 同主題:Karpathy 的「能力漏斗」:為什麼你覺得 AI 很蠢,有人卻說已經看到另一
 - [[python-3-15-new-features]] — 同主題:Python 3.15 幾個值得關注的新特性:frozendict、Sentin
+- [[karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen]] — Karpathy 入門演講的預訓練、SFT、RLHF 全流程導讀
