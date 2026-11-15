@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**527 個 YouTube video id**、**179 個 arXiv 編號**,涵蓋 **410 篇**筆記。
+> 統計:**527 個 YouTube video id**、**183 個 arXiv 編號**,涵蓋 **411 篇**筆記。
 
 ---
 
@@ -558,18 +558,20 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(179 篇,依編號排序)
+## arXiv(183 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
 | `1212.5966` | Astra 解出十個數學開放問題,然後呢?用「機制」與「能力」兩條軸看 AGI 之爭 | [knowledge/technology/ai-industry/astra-ten-open-problems-and-agi-two-axes-caleb.md](./knowledge/technology/ai-industry/astra-ten-open-problems-and-agi-two-axes-caleb.md) |
 | `1301.3781` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
 | `1308.3432` | 模型名裡的 Q4、Q8 是什麼?量化(PTQ / QAT / GGUF / 三值)完整地圖 | [knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |
+| `1510.00149` | TinyML 與高效 AI 運算:MIT 6.5940 課程地圖與核心技術 | [knowledge/technology/llm-internals/inference/tinyml-efficient-ai-mit-6-5940-course-map.md](./knowledge/technology/llm-internals/inference/tinyml-efficient-ai-mit-6-5940-course-map.md) |
 | `1603.09320` | Agent / RAG 生產級面試題庫:字節 8 題 + 落地十連問 + 履歷五大雷區 | [knowledge/technology/ai-agents/applications/agent-rag-production-interview-playbook-baibai.md](./knowledge/technology/ai-agents/applications/agent-rag-production-interview-playbook-baibai.md) |
 | `1701.06538` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
 | `1706.03762` | 多頭注意力(Multi-Head Attention)用人話講:「語法表、需求表、內容表」就是 K、Q、V(程序员老王) | [knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md](./knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md) |
 | `1706.03762` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `1712.05877` | 模型名裡的 Q4、Q8 是什麼?量化(PTQ / QAT / GGUF / 三值)完整地圖 | [knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |
+| `1712.05877` | TinyML 與高效 AI 運算:MIT 6.5940 課程地圖與核心技術 | [knowledge/technology/llm-internals/inference/tinyml-efficient-ai-mit-6-5940-course-map.md](./knowledge/technology/llm-internals/inference/tinyml-efficient-ai-mit-6-5940-course-map.md) |
 | `1810.04805` | AI / ML 工程師學習路線圖:九個職位、104 主題、24 週計畫(Anjana「AI & Tech」5 份 PDF 合併) | [knowledge/career/ai-transition/ai-ml-engineer-learning-roadmaps-anjana.md](./knowledge/career/ai-transition/ai-ml-engineer-learning-roadmaps-anjana.md) |
 | `1810.04805` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `1911.02150` | 100 萬上下文為什麼貴、又為什麼會變笨?從 MHA、MQA、GQA 到 MLA、DSA、CSA | [knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md](./knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md) |
@@ -578,6 +580,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2005.11401` | 從零搞懂 RAG:用「巴菲特分身」走完 R、A、G 三步,以及答錯時的排查順序 | [knowledge/technology/ai-agents/memory-retrieval/rag-from-scratch-buffett-clone-gary.md](./knowledge/technology/ai-agents/memory-retrieval/rag-from-scratch-buffett-clone-gary.md) |
 | `2006.11239` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
 | `2007.00072` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
+| `2007.10319` | TinyML 與高效 AI 運算:MIT 6.5940 課程地圖與核心技術 | [knowledge/technology/llm-internals/inference/tinyml-efficient-ai-mit-6-5940-course-map.md](./knowledge/technology/llm-internals/inference/tinyml-efficient-ai-mit-6-5940-course-map.md) |
 | `2010.11929` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
 | `2103.00020` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
 | `2103.00020` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
@@ -587,6 +590,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2107.03374` | 機器學習模型評估完整指南:驗證策略、迴歸/分類/分群/排序/時間序列指標、統計嚴謹性與上線監控(Anjana「AI & Tech」) | [knowledge/technology/machine-learning/model-evaluation-techniques-guide.md](./knowledge/technology/machine-learning/model-evaluation-techniques-guide.md) |
 | `2110.05828` | 多層規格並存下的程式演進:外部公定 spec + 內部實作 spec + 既有 code(5G NR → 6G Modem) | [knowledge/technology/code-dev/spec-code-flow/multi-spec-layered-evolution-modem-5g-to-6g.md](./knowledge/technology/code-dev/spec-code-flow/multi-spec-layered-evolution-modem-5g-to-6g.md) |
 | `2110.14168` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
+| `2110.15352` | TinyML 與高效 AI 運算:MIT 6.5940 課程地圖與核心技術 | [knowledge/technology/llm-internals/inference/tinyml-efficient-ai-mit-6-5940-course-map.md](./knowledge/technology/llm-internals/inference/tinyml-efficient-ai-mit-6-5940-course-map.md) |
 | `2112.00114` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2112.10752` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
 | `2201.11903` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |

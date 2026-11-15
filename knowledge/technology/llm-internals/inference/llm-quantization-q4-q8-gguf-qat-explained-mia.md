@@ -266,5 +266,6 @@ flowchart LR
 
 ## 相關筆記
 
+- [[tinyml-efficient-ai-mit-6-5940-course-map]] — TinyML 與 MIT 6.5940:把量化、剪枝推到只有幾百 KB 記憶體的 MCU
 - [[transformers-local-deepseek-r1-distill]] — 同主題:用 Hugging Face Transformers 在本機跑 DeepSee
 - [[huffman-coding-prefix-free-tree]] — 同主題:哈夫曼編碼:為什麼檔案能越壓越小,以及「前綴碼」這個關鍵限制

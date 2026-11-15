@@ -159,6 +159,7 @@ KV cache 大小約 ≈ `2(K 與 V)× 層數 × KV 頭數 × 每頭維度 × 序�
 
 ## 相關筆記
 
+- [[tinyml-efficient-ai-mit-6-5940-course-map]] — TinyML 與 MIT 6.5940:把量化、剪枝推到只有幾百 KB 記憶體的 MCU
 - [[issue-121]] — 同主題:第 121 期:DeepSeek 推理加速、Google 設計記憶規範、AI 投
 - [[issue-128]] — 同主題:第 128 期:圖片生成 Three.js 3D 模型、Omarchy、Mac 
 - [[issue-136]] — 同主題:第 136 期:消費級顯卡跑 DeepSeek(Strata)、DeepSeek

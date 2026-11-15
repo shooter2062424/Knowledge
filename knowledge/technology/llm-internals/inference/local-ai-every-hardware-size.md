@@ -145,6 +145,7 @@ flowchart LR
 
 ## 相關筆記
 
+- [[tinyml-efficient-ai-mit-6-5940-course-map]] — TinyML 與 MIT 6.5940:把量化、剪枝推到只有幾百 KB 記憶體的 MCU
 - [[minimax-h3-local-video-mac-mini-vpipe-ai-strategy-room]] — 同主題:在 Mac mini 上免費跑 MiniMax H3 影片生成:vpipe 實測
 - [[whisper-cpp-vs-faster-whisper-benchmark]] — 同主題:whisper.cpp vs faster-whisper:本機 CPU 轉錄 
 - [[issue-108]] — 同主題:GitHub Weekly 第 108 期:Claude Code 終極優化、離
