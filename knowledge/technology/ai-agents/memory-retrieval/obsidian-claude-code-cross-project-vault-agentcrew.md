@@ -151,24 +151,6 @@ flowchart TD
 | 「我沒親自打過一個字」 | 作者自述,**無法核實**;且 AI 全自動寫入的風險見第 7 節 |
 | 上下文接近滿時表現明顯下降 | 常見經驗說法,影片未附資料 |
 
-## 10. 補充:公開的 kepano 範本與享哥的延伸設計(2026-11-16 加入)
-
-使用者提供兩個補充來源。**注意:kepano 的倉庫是 Obsidian 執行長 Steph Ango 的 vault 範本,不是 AgentCrew 作者的 vault**;AgentCrew 作者的真實 vault 仍未公開。
-
-### kepano 公開範本(✅ 已 clone 核對,commit `4736973`,2026-01-08)
-
-- 頂層資料夾:`Attachments`(1 檔)、`Categories`(21 頁)、`Clippings`(3)、`Daily`(2)、`Notes`(5)、`References`(19)、`Templates`(82 檔,含 `Bases/` 30 個 `.base`),另有 `.obsidian/` 6 個設定檔。**沒有 `CLAUDE.md`**。
-- 做法是由下而上:資料夾只分來源(自己寫、參考、剪藏),主題分類靠 properties 的 `categories` 欄位,再用 Bases 嵌入檢視。例:`Categories/Books.md` 只有 `tags: categories` 與 `![[Books.base]]`;`References/Kevin Kelly.md` 的 `categories` 是 `[[People]]`,並嵌入他的書、剪藏與 Podcast 檢視。
-- 與本影片的由上而下(先想 projects 與 pillars)是兩種起點,可以合用:用 categories 管資料,再加 `CLAUDE.md` 與 wikilink 讓 AI 找路。這是我的整理,不是任一方的說法。
-- 更完整的格式說明見 [[kepano-obsidian-vault-format-and-team-rollout-plan]]。
-
-### 享哥〈Obsidian AI 第二大腦〉(2026-11-11)
-
-- 作者自述是**延伸設計,不是 kepano 範本的原始結構**:`AI-Second-Brain/` 下有 `Notes`、`Projects`、`Daily`、`Clippings`、`References`、`Templates`、`Reviews`、`Skills`。文章只列名稱,沒說明各資料夾內容,也沒提 `CLAUDE.md`。
-- 工作流:把 GitHub 專案網址交給 AI 產生固定格式筆記;構想由多個 Agent 共用同一套知識,並提醒要處理同時修改的衝突、設單一主要寫入流程;AI 每週推薦約 5 則舊筆記重讀;三週導入計畫。以上皆為文章自述,未能核實。
-
-視覺化:互動資料夾樹 https://claude.ai/artifact/KQLhzpun8djTA1gZPKEPar (私人連結)。
-
 ## 應用案例
 
 1. **一人多專案顧問**:每個客戶一份 `projects/客戶名.md`,用 wikilink 連到 `pillars/顧問業務.md`。問 AI「這週哪些客戶有待辦」,它能跨客戶彙整。
@@ -184,13 +166,11 @@ flowchart TD
 - AgentCrew Academy〈AI 一直忘記?我用 Obsidian + Claude Code 蓋了會自己長大的知識庫〉:https://youtu.be/EhMKfG1dvnI (頻道人工字幕 zh-TW;時間點取自帶時間字幕,連結提前 10 秒)
 - Obsidian 官方 CLI 說明:https://obsidian.md/help/cli (原 https://help.obsidian.md/cli 已 301 轉址)
 - Obsidian 官方 skills:https://github.com/obsidianmd/obsidian-skills (影片說明欄連結為 https://github.com/kepano/obsidian-skills;本機 shallow clone 後讀 `README.md`、`plugins/obsidian/plugin.json`、`skills/obsidian-cli/SKILL.md`、`skills/obsidian-headless/SKILL.md`、`skills/obsidian-markdown/SKILL.md` 開頭,讀完已刪除副本)
-- kepano 公開 vault 範本:https://github.com/kepano/kepano-obsidian (clone 後逐一列檔核對,讀完已刪除)
-- 享哥〈Obsidian AI 第二大腦〉:https://blog.es2idea.com/posts/obsidian-ai-second-brain/
 - Obsidian:https://obsidian.md
 - Claude Code:https://claude.com/claude-code
 
 ## 相關筆記
 
-- [[kepano-obsidian-vault-format-and-team-rollout-plan]] — kepano 範本的 categories 與 Bases 三件套完整說明
+- [[kepano-obsidian-vault-format-and-team-rollout-plan]] — 另一種由下而上的架構(categories 加 Bases),與本影片的由上而下對照
 - [[issue-115]] — 同主題:GitHub Weekly 第 115 期:桌面 AI 助手、程式 Agent 
 - [[issue-118]] — 同主題:GitHub Weekly 第 118 期:自託管 AI 工作空間、AI 求職系

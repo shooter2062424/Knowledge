@@ -122,6 +122,32 @@ flowchart TD
 6. **這篇放哪**:交接文說「整理進目前的 Obsidian 知識庫」,但本倉庫(Knowledge)是 Markdown 筆記庫、**不是 Obsidian vault**,我放進 `memory-retrieval`;若你說的是另一個 vault,請告訴我路徑。
 7. **交接文自己列的待確認**:部門人數、資料能否放外部雲端、現在用哪個 issue tracker、舊知識放在哪、誰當 vault 管理員。這些會決定 Sync 或 Git 哪個合適。
 
+## 7. 補充:倉庫逐檔核對與享哥的 AI 延伸設計(2026-11-16 加入)
+
+### kepano 倉庫逐檔核對(✅ 已 clone,commit `4736973`,2026-01-08)
+
+| 位置 | 檔案數 | 內容 |
+|---|---|---|
+| `Categories/` | 21 | 分類總覽頁。例 `Books.md` 只有 `tags: categories` 與 `![[Books.base]]` |
+| `References/` | 19 | 外部事物。例 `Kevin Kelly.md`:`categories` 為 `[[People]]`、`type` 為 `[[Authors]]`,嵌入 `Books.base#Author`、`Clippings.base#Author`、`Podcast episodes.base#Guest` |
+| `Notes/` | 5 | 自己寫的。例 `2023 Japan Trip.md`:`categories` 為 `[[Trips]]`,有 `start`、`end`、`loc` |
+| `Clippings/` | 3 | 別人寫的文章 |
+| `Daily/` | 2 | 例 `2023-09-12.md` 只嵌入 `Daily.base` |
+| `Templates/` | 82 | 52 個 `X Template.md` 加 `Bases/` 30 個 `.base` |
+| `Attachments/` | 1 | 附件 |
+| `.obsidian/` | 6 | `app.json`(附件資料夾 `Attachments`、`alwaysUpdateLinks` 為 true)、`core-plugins`、`daily-notes`、`templates`、`types`、`zk-prefixer` |
+
+- 範本**沒有 `CLAUDE.md`**。這個格式是為人類整理筆記設計的,若要給 AI 用,入口檔要自己加(見 [[obsidian-claude-code-cross-project-vault-agentcrew]] 的做法)。
+- 起點是由下而上:資料夾只分來源,主題靠 `categories` 欄位加 Bases。與 AgentCrew 影片的由上而下(先想 `projects` 與 `pillars`)是兩種不同路線。兩者可以合用,這是我的整理,不是任一方的說法。
+
+### 享哥〈Obsidian AI 第二大腦〉(2026-11-11)
+
+- 作者:享哥(Frank Chiu),AI 應用規劃師。文中說明資料夾樹是**延伸設計,不是 kepano 範本的原始結構**:`AI-Second-Brain/` 下有 `Notes`、`Projects`、`Daily`、`Clippings`、`References`、`Templates`、`Reviews`、`Skills`。文章只列名稱,沒說明各資料夾內容,也沒提 `CLAUDE.md`。
+- 工作流(文章自述,未能核實):把 GitHub 專案網址交給 AI,依固定格式產生專案筆記;構想由 Codex、Claude Code 與個人助理分工共用同一套知識,並提醒多個 Agent 同時修改要處理衝突、設單一主要寫入流程;AI 每週推薦約 5 則舊筆記重讀;三週導入計畫(第一週熟悉範本、第二週每天累積 3 到 5 則、第三週導入 AI Agent)。
+- 與部門導入規劃的關聯:它的「單一主要寫入流程」對應第 6 節的衝突議題,可作為參考。
+
+視覺化:同時比較這兩種架構的互動資料夾樹 https://claude.ai/artifact/KQLhzpun8djTA1gZPKEPar (私人連結)。
+
 ## 應用案例
 
 1. **從單一分類開始**:先只做 Meetings 三件套(`Meeting Template.md`、`Categories/Meetings.md`、`Meetings.base`)。倉庫的 Meeting 範本欄位是 `type`、`date`、`org`、`loc`、`people`、`topics`,`Meetings.base` 有 `Person` 視圖用 `list(people).contains(this)`,嵌在人物頁就列出此人參加過的會議。
@@ -139,12 +165,14 @@ flowchart TD
   - https://claude.ai/artifact/6N2hcEADMVAxzDd9irB6a1 (部門導入規劃)
 - Steph Ango〈How I use Obsidian〉:https://stephango.com/vault
 - kepano-obsidian 倉庫:https://github.com/kepano/kepano-obsidian (本機 shallow clone 讀 `Readme.md`、`Templates/Movie Template.md`、`Templates/Meeting Template.md`、`Templates/Bases/{Movies,Meetings,Related}.base`、`Categories/Movies.md`、`.obsidian/{types,templates,daily-notes,zk-prefixer}.json`,讀完已刪除)
+- 享哥〈Obsidian AI 第二大腦〉:https://blog.es2idea.com/posts/obsidian-ai-second-brain/
 - Obsidian 商業授權改為選購:https://obsidian.md/blog/free-for-work/
 - Obsidian Sync 團隊共用 vault:https://obsidian.md/help/teams/sync
 - Obsidian Sync FAQ:https://obsidian.md/help/sync/faq
 
 ## 相關筆記
 
+- [[obsidian-claude-code-cross-project-vault-agentcrew]] — 由上而下(projects 與 pillars)的另一種架構,附 CLAUDE.md 入口與官方 skill
 - [[markdown-agent-memory]] — Markdown 當記憶載體的依據
 - [[project-cairn-experience-to-knowledge-skill]] — 把經驗沉澱成知識庫的做法
 - [[claude-md-from-zero-to-mastery]] — Agent 規則檔的結構
