@@ -260,9 +260,7 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 ⚠️ 用精準 git add <檔案> 而非 git add -A(避免誤入 grep.exe.stackdump 等垃圾檔)。
 ⚠️ push 遇 git-lfs locksverify 錯誤,改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push -q origin main 重試。
 ⚠️ 不要用 `git push … | grep …; echo $?` 判斷成敗(拿到的是 grep 的退出碼),改用 git rev-parse HEAD 與 origin/main 比對。
-⚠️ commit 訊息結尾要加:
-Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
+⚠️ commit 訊息:標題用 [feat] 或 [fix] 前綴,寫入 $TEMP/msg.txt 後 git commit -F;⛔ 不加 Co-Authored-By / Claude-Session 署名(使用者 2026-11-09 規則)。
 沒有新一期就只回報、不空 commit。完成後回報期數與結果。
 ⚠️ 每週約一期(週末上傳),平日空轉屬正常。⚠️ 但若**連續 14 天以上沒新期**,要主動到 YouTube 頻道頁確認,不要假設上游停更(2026-08 到 10 月就是這樣漏掉 8 期)。
 (此為 session-only 每日排程,7 天後會自動到期,若仍需要請在到期前用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
@@ -300,9 +298,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
    ⭐ 產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案>。⚠️ Mermaid 節點避免用圓形語法 `(("文字"))`,lint 會報 UNQUOTED-SPECIAL;一律用方括號 `["文字"]`。
    ⭐ 寫 `[[wikilink]]` 前先 `find knowledge -name "<slug>.md"` 確認目標存在。
 5. 更新 README 主題表格、筆記數 badge、Gary Chen 作者索引篇數(兩處都要;⚠️ 索引標題已於 09-06 改為 `@garychenai`),跑 python scripts/knowledge/build_source_index.py。無 BOM UTF-8 檔 commit([feat] 前綴)、git push -q origin main。⚠️ 精準 git add <檔案>,不要 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試;不要用 pipe 判斷 push 成敗,改用 git rev-parse 比對。清暫存。
-⚠️ commit 訊息結尾要加:
-Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
+⚠️ commit 訊息:標題用 [feat] 或 [fix] 前綴,寫入 $TEMP/msg.txt 後 git commit -F;⛔ 不加 Co-Authored-By / Claude-Session 署名(使用者 2026-11-09 規則)。
 無新片只回報、不空 commit。回報新增/略過哪些影片。(session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
@@ -329,9 +325,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
    ⭐ recent-stance.md 的維護方式:把舊的「🟢 最新進展」降級為「🟡 上一期進展」、再往前降為「⚪ 更早」,新集數插在最前面;並同步更新第 1–6 節(近期熱度、族群傾向表、退燒項、操作心態、生活、一句話總結)與檔頭的涵蓋範圍與基準集數。
    ⭐ 實作建議:用 Python 腳本做「精準字串替換 + 插入」(每次 replace 都 assert count==1),比整檔重寫安全;寫檔一律 encoding='utf-8', newline=''。
 4. 無 BOM UTF-8 暫存檔 commit(繁中訊息)、git push(SSH origin main)。清暫存下載的 pack。⚠️ 不要用 pipe 判斷 push 成敗,改用 git rev-parse 比對。
-⚠️ commit 訊息結尾要加:
-Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
+⚠️ commit 訊息:標題用 [feat] 或 [fix] 前綴,寫入 $TEMP/msg.txt 後 git commit -F;⛔ 不加 Co-Authored-By / Claude-Session 署名(使用者 2026-11-09 規則)。
 回報更新到第幾集。沒新集不空 commit。⚠️ 教育用途、非投資建議。(session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
@@ -366,9 +360,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
    ⭐ 此頻道常為「美投 Pro」付費訂閱做推廣,**務必在檔頭標明立場,不轉述付費素材**。
    ⭐ 產出 Mermaid 後跑 python scripts/knowledge/lint_mermaid.py <檔案>。⚠️ Mermaid 節點避免用圓形語法 `(("文字"))`,lint 會報 UNQUOTED-SPECIAL;一律用方括號 `["文字"]`。
 5. 更新 README 表格、筆記數 badge、美投君作者索引篇數,跑 python scripts/knowledge/build_source_index.py(⚠️ 來源要放**完整網址**,只寫標題會漏收)。無 BOM UTF-8 commit([feat] 前綴)、git push -q origin main。⚠️ 精準 git add <檔案>,不要 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試;不要用 pipe 判斷 push 成敗,改用 git rev-parse 比對。清暫存(音訊數十 MB)。
-⚠️ commit 訊息結尾要加:
-Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
+⚠️ commit 訊息:標題用 [feat] 或 [fix] 前綴,寫入 $TEMP/msg.txt 後 git commit -F;⛔ 不加 Co-Authored-By / Claude-Session 署名(使用者 2026-11-09 規則)。
 無新片只回報、不空 commit。**回報時用頻道中文名稱「美投君 / 美投讲美股」**,列出新增/略過哪些影片。(session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
@@ -399,9 +391,7 @@ B 其餘十頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模型�
 - 投資類標⚠️非投資建議;作者業配/聯盟/自家產品要在檔頭標明;Mermaid 節點用 ["..."] 並跑 python scripts/knowledge/lint_mermaid.py;[[wikilink]] 先確認目標存在。
 - 每個來源各自 commit(訊息標頻道名),更新 README 表格與 badge、作者索引、python scripts/knowledge/build_source_index.py;精準 git add 不用 -A;push 遇 LFS locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push;用 git rev-parse HEAD origin/main 判斷成敗。.claude/scheduled_tasks.lock 絕不 commit。
 - 完成後更新 SCHEDULES.md 第 5 節存量清單與「變更歷程」最上方一列,與筆記同 commit。
-⚠️ commit 訊息結尾要加:
-Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
+⚠️ commit 訊息:標題用 [feat] 或 [fix] 前綴,寫入 $TEMP/msg.txt 後 git commit -F;⛔ 不加 Co-Authored-By / Claude-Session 署名(使用者 2026-11-09 規則)。
 無新片只回報、不空 commit。回報列出各頻道(中文名)新增/略過/順延哪些影片,以及各頻道剩餘存量。(session-only 每日排程,7 天後自動到期,到期前請依 SCHEDULES.md 重建;完整規則備份在 SCHEDULES.md。)
 ```
 
@@ -462,9 +452,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
    ⭐ 寫 `[[wikilink]]` 前先 `find knowledge -name "<slug>.md"` 確認目標存在,避免留下死連結。
 6. 更新 README 主題表格、筆記數 badge、對應作者索引篇數(兩處都要),跑 python scripts/knowledge/build_source_index.py。無 BOM UTF-8 commit([feat] 前綴,訊息標作者名)、git push -q origin main。⚠️ 精準 git add <檔案>,不要 git add -A;遇 git-lfs locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push 重試;不要用 pipe 判斷 push 成敗,改用 git rev-parse 比對。清暫存(含 clone 與音訊)。
 7. 完成後把 SCHEDULES.md 第 5 節的存量清單更新(移除已完成者、加入新片),並在「變更歷程」表最上方插入當日一列。
-⚠️ commit 訊息結尾要加:
-Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
+⚠️ commit 訊息:標題用 [feat] 或 [fix] 前綴,寫入 $TEMP/msg.txt 後 git commit -F;⛔ 不加 Co-Authored-By / Claude-Session 署名(使用者 2026-11-09 規則)。
 無新片只回報、不空 commit。**回報時請用頻道中文名稱**,並列出本次新增哪幾篇、各頻道剩餘存量。(session-only 每日排程,7 天後自動到期,到期前若仍需要請用 CronCreate 續排;完整 prompt 備份在 Knowledge repo 的 SCHEDULES.md。)
 ```
 
@@ -598,9 +586,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 8. 更新 README 主題表格、badge、作者索引(兩處),跑 python scripts/knowledge/build_source_index.py。commit 訊息([feat] 前綴)寫明「new/ 收件匣批次 <資料夾名>」,精準 git add 不用 -A;push 遇 LFS locksverify 錯誤改用 git -c lfs.https://github.com/shooter2062424/Knowledge.git/info/lfs.locksverify=false push;用 git rev-parse HEAD origin/main 判斷成敗。
 9. commit 並 push 成功後,才 mv "new/<名稱>" "new/done-<名稱>"。若有檔案讀不了:其餘照常整理、INBOX-LOG 註明,資料夾仍改名 done-,但在回報中明確列出讀不了的檔與原因請使用者處理;若整批失敗(例如轉錄全部失敗)就不改名。
 10. 清暫存(逐字稿、clone、解壓目錄),並在 SCHEDULES.md「變更歷程」最上方加一列(同一 commit)。
-⚠️ commit 訊息結尾要加:
-Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
+⚠️ commit 訊息:標題用 [feat] 或 [fix] 前綴,寫入 $TEMP/msg.txt 後 git commit -F;⛔ 不加 Co-Authored-By / Claude-Session 署名(使用者 2026-11-09 規則)。
 沒有新素材就只回報、不空 commit。回報處理了哪個批次、產出哪些筆記、哪些檔讀不了、改名結果。(session-only 每日排程,7 天後自動到期,到期前請依 SCHEDULES.md 重建;完整 prompt 備份在 SCHEDULES.md 第 6 節。)
 ```
 
@@ -610,6 +596,7 @@ Claude-Session: https://claude.ai/code/session_01CjznW7K3y5MRDg2y2UcAKV
 
 | 日期 | 事件 |
 |---|---|
+| 2026-11-16(排程重建) | 排程 A 重建為 `fbfc7f8d`(07:03)、排程 B 重建為 `941b3110`(08:37),約 11-23 到期;舊 A `08f81044` 已刪、舊 B 已過期。stored prompt 全部移除 Co-Authored-By / Claude-Session 署名段,改為「不加署名、[feat]/[fix] 標題、`git commit -F`」。另:使用者補 Obsidian 兩種知識庫架構(AgentCrew 與 kepano)的筆記與 artifact。 |
 | 2026-11-15(排程 A 巡檢) | IT咖啡馆第 138 期 1 篇、Gary Chen(LLM 底層邏輯,Karpathy 導讀)1 篇、Why QQ(Modern Web Guidance)1 篇;美投君無新片;Whisper 1 支;YAHA、Juya、Mia 順延記入存量。⚠️ 排程 A/B 今天到期,須依本檔重建並刪掉 prompt 內的署名段(使用者 11-09 規則:commit 不加署名)。 |
 | 2026-11-14(排程 A 巡檢) | Why QQ(Fable 5.2 提示指南)1 篇;Gary 新片為會員限定跳過;Whisper 0;其餘順延記入存量 |
 | 2026-11-13(排程 A 巡檢) | Why QQ(Fable 5.2 三行提示詞做遊戲)1 篇;核心三源無新片;Whisper 0;其餘新片順延記入存量 |
