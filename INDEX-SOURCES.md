@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**529 個 YouTube video id**、**186 個 arXiv 編號**,涵蓋 **413 篇**筆記。
+> 統計:**530 個 YouTube video id**、**186 個 arXiv 編號**,涵蓋 **413 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(529 部,依 video id 排序)
+## YouTube(530 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -305,6 +305,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `KyXr6wdgkyE` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
 | `L1OBRtfPS34` | Always-on Agent 怎麼運作:Lee Robinson 在史丹佛 CS146S 拆解 Grok Bot | [knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) |
 | `l38ceFOWOAE` | 萬達怎麼一步步賣掉自己:兩份對賭、四次遞表失敗,與「名字還在、公司換人」 | [knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md](./knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md) |
+| `l5EBH6Y9AsE` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
 | `L5LLzXrKFIY` | 史上最強 AI 模型只活了 72 小時:Claude Fable 事件與「別把流程綁死在單一模型」 | [knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md](./knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md) |
 | `l_xDqUm0MDQ` | pstack:Cursor 內部最火的 agent 工作流插件(poteto-mode、23 個劇本、24 條原則) | [knowledge/technology/ai-agents/applications/pstack-poteto-mode-cursor-plugin.md](./knowledge/technology/ai-agents/applications/pstack-poteto-mode-cursor-plugin.md) |
 | `LdPT6S6fcvQ` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |

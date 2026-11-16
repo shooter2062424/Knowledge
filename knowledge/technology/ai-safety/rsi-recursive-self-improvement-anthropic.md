@@ -19,6 +19,8 @@
 > ⭐⭐⭐ **2026-09-24 再增補 Why QQ**〈[一起发新模型 Opus 5.5 Vs Sol 6 这次有什么看点?呼吁放缓,实则加速 言行不一](https://www.youtube.com/watch?v=F22wTQzVkI8)〉(2026-09-23,約 10.1 分鐘,官方 zh-Hans 字幕),成為 **§十一:十天後,呼籲放緩的三家 48 小時內全部發了新模型** —— §七那份宣言的後續。⭐⭐ 關鍵在宣言原文把「放緩」定義為「對齊與防護花夠時間、經第三方確認再發布」,**發版節奏本來就不在射程裡**;**真正的試金石是「評估機構進駐」有沒有落地**。✅ 已核實三家價格與關鍵跑分;⚠️ **補上影片沒提的:GPT-6 Sol 在 OSWorld 2.0 反而退步**(60.5% vs 前代 65.7%)。
 >
 > ⭐⭐⭐ **2026-10-07 再增補 Why QQ**〈[杰弗里·辛顿人工智能研发自动化引发智能爆炸会怎样?](https://www.youtube.com/watch?v=LdPT6S6fcvQ)〉(2026-10-06,約 9.6 分鐘,官方 zh-Hans 字幕),成為 **§十二**:Hinton 推薦的 22 人聯名論文(劍橋 CASP),數字已逐項對照論文原文;並據 **METR 的獨立調查**補正 §8.6 的 Hugging Face 事件敘述。
+>
+> ⭐⭐⭐ **2026-11-17 再增補 Why QQ**〈[AI 开始研发下一代 AI,人类可能跟不上了](https://www.youtube.com/watch?v=l5EBH6Y9AsE)〉(約 10 分鐘,官方 zh-Hans 字幕),成為 **§十三**:METR 對 Anthropic 的獨立實測(1.9 倍、CI 1.5–2.8)、Anthropic 26% 與 OpenAI 3.1 倍的邊界,逐項標已核實/未能核實(Forecasting Research Institute 綜述找不到)。
 
 ---
 
@@ -1465,6 +1467,54 @@ flowchart LR
 
 ---
 
+## 十三、⭐⭐⭐ 一個月後:AI 研發加速第一次有「第三方實測」(2026-11-17 增補,來源:Why QQ)
+
+> 來源:Why QQ〈AI 开始研发下一代 AI,人类可能跟不上了〉`l5EBH6Y9AsE`(官方 zh-Hans 字幕,約 10 分鐘,帶時間)。片中無業配或自家推廣。時間連結皆提前 10 秒。⚠️ 核實以搜尋摘要與我能讀到的頁面為準,哪些讀到全文、哪些只見摘要,逐項標在表內。
+
+### 13.1 影片主線
+
+| 時間 | 重點 |
+|---|---|
+| [0:08](https://www.youtube.com/watch?v=l5EBH6Y9AsE&t=0s) | 越來越多 AI 參與研發下一代 AI;下一輪進步怎麼發生 |
+| [0:38](https://www.youtube.com/watch?v=l5EBH6Y9AsE&t=28s) | Anthropic 的 AI 研發自動化指數:「AI 主導」佔比 8 月 26%,2 月不到 1%;但沒有任何一類工作被完全自主完成 |
+| [1:15](https://www.youtube.com/watch?v=l5EBH6Y9AsE&t=65s) | OpenAI:每個標準人類工作日對應約 3.1 個 Agent 工作日;高強度使用者每天推理按 API 價超過 7,000 美元;影片提醒 3.1 倍不等於效率 3.1 倍 |
+| [1:52](https://www.youtube.com/watch?v=l5EBH6Y9AsE&t=102s) | METR 花 11 週查 Anthropic:明確界定任務上進步速度約為早期的 2 倍,多半來自 AI 輔助研發,但不確定性大、證據有刪節 |
+| [2:29](https://www.youtube.com/watch?v=l5EBH6Y9AsE&t=139s) | Dwarkesh Patel:數學研究的變化預示 AI 研發下一階段;OpenAI 納維—斯托克斯 88 小時解法 + 17 小時 Lean 驗證 |
+| [3:44](https://www.youtube.com/watch?v=l5EBH6Y9AsE&t=214s) | 研發流水線拆解:預訓練(同損失更少算力)、RL 與後訓練(造環境、評分器)、推理效率(核心、批次、KV Cache);每條都有「可量測回饋」,也各有小規模不等於大規模、鑽評分漏洞等風險 |
+| [6:15](https://www.youtube.com/watch?v=l5EBH6Y9AsE&t=365s) | 並行化:一萬個研究員不會有一萬倍產出(叢集有限、實驗有依賴) |
+| [6:53](https://www.youtube.com/watch?v=l5EBH6Y9AsE&t=413s) | RSI 定義;今天只看到早期環節,「AI 完全自主訂目標、訓練、驗證並發布繼任模型」尚未被公開證明 |
+| [7:29](https://www.youtube.com/watch?v=l5EBH6Y9AsE&t=439s) | Dwarkesh 兩種情景:軟體層快速自我加速 vs「Spark」短暫火花式躍升,各約一半主觀機率;三道牆:實驗資源、研究判斷力、長期學習與資料 |
+| [8:45](https://www.youtube.com/watch?v=l5EBH6Y9AsE&t=525s) | 11 月 10 日 Forecasting Research Institute 的 RSI 獨立綜述:公開能力指數尚未明確顯示整體加速,剩下的任務可能恰是最難自動化的 |
+| [9:26](https://www.youtube.com/watch?v=l5EBH6Y9AsE&t=566s) | 對程式員:把問題變成「可驗證任務」的能力;可靠的 Agent 流水線 = 小型自動化研究實驗室 |
+
+### 13.2 逐項核實
+
+| 影片說法 | 結果 |
+|---|---|
+| Anthropic「主導」佔比 8 月 26%、2 月不到 1%;Claude 尚未在任何測量範圍內完全自主 | ✅ 多個報導與頁面摘要一致(我讀到 [implicator.ai 的整理頁](https://www.implicator.ai/anthropic-claude-leads-26-percent-ai-research/),該頁引 Anthropic 原文:「Claude is not operating fully autonomously for any measured subset of AI R&D work」)。「主導」= AL4(大部分任務可由高層提示端到端完成、人監督)。⚠️ 我沒讀到 [Anthropic 原頁](https://www.anthropic.com/institute/measuring-pace-of-ai-development)全文。該頁註明數字是 Anthropic 自己量、很大部分由 Claude 評分,無外部驗證;模型與員工評級完全一致僅 59% |
+| 影片「AI 協作 = 人密切指導下完成大部分工作」 | ⚠️ 我讀到的整理頁只定義「主導」,未定義「協作」,此句未能對原文核實 |
+| OpenAI:每人類工作日約 3.1 個 Agent 工作日,8 月中旬 | ✅ 搜尋結果一致(OpenAI 2026-09-06 研究更新,標準 8 小時日,含下游子 Agent)。⚠️ 「超過 7,000 美元」是**第 90 百分位**使用者,中位數研究員約 600 美元以上;OpenAI 自稱指標是初步的、不直接衡量研究進展;報導稱半數以上 4–8 小時成功任務仍需至少一次人工介入。我沒能讀到 OpenAI 原頁,以上為二手 |
+| METR:11 週、約 2 倍、多數來自 AI 輔助研發、證據被刪節 | ✅ 我讀到 [METR 原文](https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment)。實際數字:基準分數加速 **1.9 倍(95% CI 1.5–2.8)**,整體判斷約 2 倍,範圍 1.3–3 倍;田野作業 **8/12–10/29**,2.5 全職人力;METR 估計目前加速約 **80%** 來自 AI(不確定性大);Anthropic 有單方刪節權並刪掉 METR 認為最有說服力的多數證據,METR 自評透明度項目為「No」;非 Anthropic 前沿模型只約 1.4 倍;不同方法給 1.1–2.9 倍 |
+| 「加速只在明確界定任務上」 | ✅ METR 明列「收益集中在規格明確任務」可能高估整體 |
+| OpenAI 納維—斯托克斯:Agent 約 88 小時 + 17 小時 Lean 驗證;Clay 研究所「積極而審慎」 | ⚠️ 88/17 小時有多篇報導一致,但來源說法不一:報導稱動用約 10,000 個並行 Agent,且**Clay 尚未正式認可**、OpenAI 稱不打算領獎,另有人對功勞歸屬與驗證完整性有爭議。我的 WebFetch 讀 OpenAI 原頁被 403,**「積極而審慎」未能核實**,引用請標為 OpenAI 單方說法 |
+| Dwarkesh 兩情景各約一半機率、三道牆 | 未能核實:未找到原文或播客逐字稿,僅有影片轉述,影片自己也註明是主觀機率 |
+| 11-10 Forecasting Research Institute RSI 綜述 | ❌ 未能核實:兩次搜尋都找不到該機構同名報告(只找到 FutureSearch、Epoch、IAPS 等其他來源,不可混為一談),可能是名稱或日期轉述有誤 |
+
+### 13.3 我的判讀
+
+- 本節與 §十二(22 人聯名論文)互補:§十二是理論與路線圖,這支是**首次有獨立機構進到內部量**,但 METR 自己說證據被刪、單一實驗室、80% 歸因不確定。⚠️ 最乾淨的結論是「很可能真的在加速,幅度約 1.5–3 倍,還不是智能爆炸」。
+- 影片自己的邊界很清楚(26% 主導 ≠ 能獨立訓練下一代;3.1 倍 ≠ 生產力 3.1 倍),引用時帶著即可。
+- 與 §12.7 的三個數可併用:AI 寫碼佔比、無人介入最長任務時長、投入回報方向。
+- 關聯:影片最後給程式員的結論(把問題變成可驗證任務)與 [[llmentalist-effect-cold-reading-and-verifiers|驗證器討論]]呼應;外部對 RSI 路線的另一視角見 [[tian-yuandong-rsi-recursive-self-improvement|田淵棟談 RSI]]。
+
+### 13.4 應用案例:自建「可驗證任務」清單
+
+1. 挑團隊裡一個有明確指標的任務(例:推理服務 p95 延遲、單元測試覆蓋、訓練 loss/成本)。
+2. 讓 Agent 在隔離分支反覆嘗試,CI 當驗證器;人只審「指標之外」的風險(正確性、長上下文品質)。
+3. 每月記錄「Agent 工作時數 / 人工時數」與「需人工介入比例」,**兩者並看**(OpenAI 的 3.1 倍就是只有前者)。
+
+---
+
 ## 應用案例 / 怎麼看
 
 - **判斷「RSI 到了沒」別只看 demo**:用 Cotra 的「足夠/對等/超越」三門檻問——**移除所有人類後它還能研究嗎?** 純用 AI 工具加速研究還不算 RSI。
@@ -1537,3 +1587,4 @@ flowchart LR
 - [Geoffrey Hinton 推文](https://x.com/geoffreyhinton/status/2106122709285368061)
 - [METR:Brief independent investigation of agents' behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident(2026-08-26)](https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/)(§8.6 補正)
 - [Bulletin of the Atomic Scientists:Rogue AI didn't breach Hugging Face, human decisions did(2026-09)](https://thebulletin.org/2026/09/rogue-ai-didnt-breach-hugging-face-human-decisions-did/)
+- ⭐⭐⭐ §十三:[AI 开始研发下一代 AI,人类可能跟不上了 — Why QQ](https://www.youtube.com/watch?v=l5EBH6Y9AsE)(官方 zh-Hans 字幕);[METR:Independent Assessment of AI R&D Acceleration at Anthropic in October 2026](https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment)(已讀全文);[Anthropic:Measuring the pace of AI development](https://www.anthropic.com/institute/measuring-pace-of-ai-development)(僅見整理頁 [implicator.ai](https://www.implicator.ai/anthropic-claude-leads-26-percent-ai-research/));OpenAI 3.1 與納維—斯托克斯 <https://openai.com/index/navier-stokes-solution/>(WebFetch 403,僅見報導摘要)
