@@ -56,6 +56,10 @@ flowchart LR
 
 ---
 
+## 相關筆記
+
+- [[nvidia-without-jensen-huang-investment-view-meitoujun]] — 黃仁勳 2026-11-12 離職後的投資觀點與 8-K 事件核實(美投君)
+
 ## 來源
 
 - [YouTube:黃仁勳談生死,和他獨特而豁達的接班人部署(Yaay World)](https://youtu.be/UPF9Ogid4N0)

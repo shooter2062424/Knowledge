@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**528 個 YouTube video id**、**186 個 arXiv 編號**,涵蓋 **412 篇**筆記。
+> 統計:**529 個 YouTube video id**、**186 個 arXiv 編號**,涵蓋 **413 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(528 部,依 video id 排序)
+## YouTube(529 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -479,6 +479,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `W-gdYr3Vj8s` | Agent / RAG 生產級面試題庫:字節 8 題 + 落地十連問 + 履歷五大雷區 | [knowledge/technology/ai-agents/applications/agent-rag-production-interview-playbook-baibai.md](./knowledge/technology/ai-agents/applications/agent-rag-production-interview-playbook-baibai.md) |
 | `W973FsTECa8` | to-tickets 深入實操:把 spec 拆成 agent「能穩定開工、單獨驗收、可並行」的工單 | [knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md](./knowledge/technology/ai-agents/applications/to-tickets-spec-to-agent-workunits.md) |
 | `Wah1vdFE92k` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
+| `wcx2A_31VcU` | 沒有黃仁勳的英偉達還能投資嗎?美投君的四個「不可估量的損失」與核實 | [knowledge/investing/equity-research/nvidia-without-jensen-huang-investment-view-meitoujun.md](./knowledge/investing/equity-research/nvidia-without-jensen-huang-investment-view-meitoujun.md) |
 | `wexH7AueOeA` | NVIDIA RTX Spark(GB10 超級晶片)技術解析:最適合本地 AI 推理的 SoC 之一? | [knowledge/technology/ai-industry/rtx-spark-gb10-soc.md](./knowledge/technology/ai-industry/rtx-spark-gb10-soc.md) |
 | `Wf2PZN-Ep2M` | 轉做 AI 應用開發的學習路線:從零基礎到 40K 架構的四個階段(白白說大模型 4 支影片合併) | [knowledge/career/ai-transition/ai-app-dev-learning-roadmap-four-tiers.md](./knowledge/career/ai-transition/ai-app-dev-learning-roadmap-four-tiers.md) |
 | `whdEwyY9A78` | Graph Engineering:把腦袋裡的分工、路由與驗收畫出來,別再當人肉 routing system | [knowledge/technology/ai-agents/foundations/graph-engineering-node-edge-state.md](./knowledge/technology/ai-agents/foundations/graph-engineering-node-edge-state.md) |
