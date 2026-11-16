@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**527 個 YouTube video id**、**183 個 arXiv 編號**,涵蓋 **411 篇**筆記。
+> 統計:**528 個 YouTube video id**、**186 個 arXiv 編號**,涵蓋 **412 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(527 部,依 video id 排序)
+## YouTube(528 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -425,6 +425,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `s87lkkWk9rQ` | Claude Sonnet 5.5:價格不變、效率拉高,以及「檔位開最高反而更差」與五個會報 400 的遷移變更 | [knowledge/technology/ai-industry/claude-sonnet-5-5-release-effort-migration.md](./knowledge/technology/ai-industry/claude-sonnet-5-5-release-effort-migration.md) |
 | `se-dLUtIrIo` | 什麼是先進封裝?從有機基板到矽中介層、TSV、矽橋、玻璃基板一次看懂 | [knowledge/technology/ai-industry/advanced-packaging-explained.md](./knowledge/technology/ai-industry/advanced-packaging-explained.md) |
 | `SHRkOI0yO4Q` | 好的記憶系統贏在「會忘記」:Supermemory 拆解,與評估任何記憶方案的三個問題 | [knowledge/technology/ai-agents/memory-retrieval/supermemory-memory-layer.md](./knowledge/technology/ai-agents/memory-retrieval/supermemory-memory-layer.md) |
+| `sI_hz1p423M` | AI 寫代碼越快,系統越脆?Merz「脆弱代碼庫」與四項研究核實(Why QQ) | [knowledge/technology/software-engineering/ai-coding-fragile-codebase-merz-needle-in-repo-dora-why-qq.md](./knowledge/technology/software-engineering/ai-coding-fragile-codebase-merz-needle-in-repo-dora-why-qq.md) |
 | `SPyXyB7lgWU` | 加息會引發美股大跌嗎?用 2000 泡沫「三階段」對照 AI 這輪革命(美投君) | [knowledge/investing/strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md](./knowledge/investing/strategy/us-stocks-rate-hike-three-stages-ai-vs-2000.md) |
 | `SQ3fZ1sAqXI` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `SQMbCZH_5YY` | 先找規則,再判斷哪個選擇更有利:正期望值、手割分析,與「技術問題被講成心態問題」 | [knowledge/investing/strategy/positive-expectancy-rule-hunting-mark-yang.md](./knowledge/investing/strategy/positive-expectancy-rule-hunting-mark-yang.md) |
@@ -558,7 +559,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(183 篇,依編號排序)
+## arXiv(186 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -690,6 +691,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2505.16821` | 5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼,以及反過來 | [knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) |
 | `2506.06326` | Agent 記憶實作八種策略:從全量記憶、滑動窗口到 MemoryOS | [knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md) |
 | `2506.12605` | Bill Gates〈AI 動盪時代〉長文導讀：工作、機器人稅、雙面刃、陪伴與「Human Reserved」 | [knowledge/technology/ai-industry/bill-gates-turbulent-ai-era-human-reserved.md](./knowledge/technology/ai-industry/bill-gates-turbulent-ai-era-human-reserved.md) |
+| `2507.00788` | AI 寫代碼越快,系統越脆?Merz「脆弱代碼庫」與四項研究核實(Why QQ) | [knowledge/technology/software-engineering/ai-coding-fragile-codebase-merz-needle-in-repo-dora-why-qq.md](./knowledge/technology/software-engineering/ai-coding-fragile-codebase-merz-needle-in-repo-dora-why-qq.md) |
 | `2507.04214` | 5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼,以及反過來 | [knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) |
 | `2507.18538` | 5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼,以及反過來 | [knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) |
 | `2507.19457` | GRPO vs GEPA:同一條 rollout,兩種完全不同的「學習訊號」 | [knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md](./knowledge/technology/ai-agents/foundations/grpo-vs-gepa.md) |
@@ -712,6 +714,8 @@ grep -rlF --include=*.md -- "<id>" .
 | `2603.22106` | 當 Agent 代勞時,如何保持批判性思考:Addy Osmani 的認知投降、驗證與當責 | [knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md](./knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md) |
 | `2603.24621` | ARC-AGI-3:人類 100%、前沿 AI 不到 1% —— 一個用「行動效率」而不是「對不對」計分的 agentic 基準 | [knowledge/technology/ai-safety/arc-agi-3-agentic-benchmark.md](./knowledge/technology/ai-safety/arc-agi-3-agentic-benchmark.md) |
 | `2603.27277` | Codebase-Memory:把程式碼變成「可查詢的知識圖譜」,讓 LLM 探索程式碼省 10 倍 token | [knowledge/technology/ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md](./knowledge/technology/ai-agents/memory-retrieval/codebase-memory-treesitter-knowledge-graph-mcp.md) |
+| `2603.27745` | AI 寫代碼越快,系統越脆?Merz「脆弱代碼庫」與四項研究核實(Why QQ) | [knowledge/technology/software-engineering/ai-coding-fragile-codebase-merz-needle-in-repo-dora-why-qq.md](./knowledge/technology/software-engineering/ai-coding-fragile-codebase-merz-needle-in-repo-dora-why-qq.md) |
+| `2603.28592` | AI 寫代碼越快,系統越脆?Merz「脆弱代碼庫」與四項研究核實(Why QQ) | [knowledge/technology/software-engineering/ai-coding-fragile-codebase-merz-needle-in-repo-dora-why-qq.md](./knowledge/technology/software-engineering/ai-coding-fragile-codebase-merz-needle-in-repo-dora-why-qq.md) |
 | `2604.25850` | Agentic Harness Engineering:讓 harness 自己演化自己,而瓶頸不是能力是「可觀測性」 | [knowledge/technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md](./knowledge/technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md) |
 | `2605.15155` | SDAR:用「逐 token 門控」穩住多輪 Agent 的強化學習後訓練 | [knowledge/technology/llm-internals/training/sdar-agentic-rl.md](./knowledge/technology/llm-internals/training/sdar-agentic-rl.md) |
 | `2605.15184` | Grep 就夠了嗎?Agent Harness 如何左右「代理式檢索」 | [knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md](./knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md) |

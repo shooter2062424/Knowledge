@@ -399,6 +399,8 @@ flowchart TB
 ## 相關筆記
 
 - [[vercel-vgpu-agent-shader-verification-golden-image]] — 同主題:Vercel vgpu:讓 Agent 寫的 Shader「畫對了」能被機器驗收
+- [[ai-coding-fragile-codebase-merz-needle-in-repo-dora-why-qq]] — AI 寫太快:Merz 脆弱代碼庫與 Needle in the Repo、DORA 核實
+- [[ai-coding-fragile-codebase-merz-needle-in-repo-dora-why-qq]] — AI 寫太快:Merz 脆弱代碼庫與 Needle in the Repo、DORA 核實
 - [[issue-119]] — 同主題:GitHub Weekly 第 119 期:生產級 Agent 技能包、蘋果官方
 - [[linus-llm-kernel-patch-vs-gcc-ai-policy]] — 同主題:Linus 用 Claude Code 寫內核補丁、GCC 劃下 15 行紅線:
 - [[rust-issue-164250-borrow-checker-soundness-hole]] — 同主題:編譯通過 ≠ 記憶體安全:Rust issue #164250——借用檢查器裡住

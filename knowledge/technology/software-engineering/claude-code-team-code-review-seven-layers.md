@@ -206,4 +206,6 @@ flowchart TD
 ## 相關筆記
 
 - [[ub-mode-uncle-bob-quality-gate-skill-crapper-dryer-mutator]] — 同主題:ub-mode:Bob 大叔給 coding agent 的「工程質量門禁」技能
+- [[ai-coding-fragile-codebase-merz-needle-in-repo-dora-why-qq]] — AI 寫太快:Merz 脆弱代碼庫與 Needle in the Repo、DORA 核實
+- [[ai-coding-fragile-codebase-merz-needle-in-repo-dora-why-qq]] — AI 寫太快:Merz 脆弱代碼庫與 Needle in the Repo、DORA 核實
 - [[linus-llm-kernel-patch-vs-gcc-ai-policy]] — 同主題:Linus 用 Claude Code 寫內核補丁、GCC 劃下 15 行紅線:
