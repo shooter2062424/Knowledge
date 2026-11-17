@@ -310,4 +310,5 @@ CFO 在電話會開場就說,**FY2028 在最保守(供給受限)的情況下也�
 
 - [[tesla-q2-2026-capex-shock-vs-narrative]] — 同主題:特斯拉暴跌 20% 拆解:資本開支才是恐慌根源,以及「大跌後持有半年 9 成賺」
 - [[nvidia-without-jensen-huang-investment-view-meitoujun]] — 黃仁勳 2026-11-12 離職後的投資觀點與 8-K 事件核實(美投君)
+- [[nvidia-ceo-exit-ecosystem-commitments-three-scenarios-why-qq]] — 同事件:Why QQ 的財務與生態結構分析,對官方申報核實並補 11/17 第三季財報
 - [[us-stocks-ai-turning-point-fomo-over-pullback]] — 同主題:美股連漲 13 天還能追嗎?「真實通脹」數據、AI 情緒三大轉向信號,與「踏空風

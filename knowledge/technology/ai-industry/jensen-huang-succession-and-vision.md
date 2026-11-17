@@ -59,6 +59,7 @@ flowchart LR
 ## 相關筆記
 
 - [[nvidia-without-jensen-huang-investment-view-meitoujun]] — 黃仁勳 2026-11-12 離職後的投資觀點與 8-K 事件核實(美投君)
+- [[nvidia-ceo-exit-ecosystem-commitments-three-scenarios-why-qq]] — 同事件:Why QQ 的財務與生態結構分析,對官方申報核實並補 11/17 第三季財報
 
 ## 來源
 
