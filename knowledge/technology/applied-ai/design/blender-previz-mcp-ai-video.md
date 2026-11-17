@@ -228,6 +228,7 @@ flowchart LR
 
 ## 相關筆記
 
+- [[ai-frame-interpolation-anime-60fps-rife-timing-mia]] — AI 補幀與動畫節奏(一拍二、RIFE)
 - [[unreal-engine-mcp-claude-game-dev-reality-check]] — 同主題:不會虛幻引擎也能用 Claude 做遊戲?UE 5.8 官方 MCP 的接法、下
 - [[ai-live2d-vtuber-see-through-anime25drig-pipeline-mia]] — 同主題:一張圖變成會動的 VTuber:See-through 拆層 + Anime2.
 - [[vhs-terminal-recording-tape-script]] — 同主題:VHS:把終端機操作寫成腳本,改一行就重新生成 GIF 和 MP4

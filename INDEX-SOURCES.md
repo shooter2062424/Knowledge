@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**530 個 YouTube video id**、**186 個 arXiv 編號**,涵蓋 **413 篇**筆記。
+> 統計:**533 個 YouTube video id**、**188 個 arXiv 編號**,涵蓋 **414 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(530 部,依 video id 排序)
+## YouTube(533 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -117,6 +117,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `9tREtYASGbs` | 微軟財報大漲 15% 的真正原因:三大質疑逐一拆解,以及 AI 價值鏈的位移 | [knowledge/investing/equity-research/microsoft-fy26q1-three-doubts-resolved.md](./knowledge/investing/equity-research/microsoft-fy26q1-three-doubts-resolved.md) |
 | `9uq4FRJ0oEE` | 一萬個 agent 破解千禧年難題:Navier-Stokes、抄襲指控,與「誰該被署名」 | [knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
 | `9v_-p8Z3nC4` | Google、Amazon 財報後大跌:Nick 的「加碼 15 股」邏輯與我的核實 | [knowledge/investing/equity-research/google-amazon-q3-2026-selloff-nick.md](./knowledge/investing/equity-research/google-amazon-q3-2026-selloff-nick.md) |
+| `_KRb_qV9P4g` | AI 把動畫補到 60 幀為什麼更難看?一拍二、RIFE 與「補得出位置、補不出節奏」(Mia 码上 AI) | [knowledge/technology/applied-ai/design/ai-frame-interpolation-anime-60fps-rife-timing-mia.md](./knowledge/technology/applied-ai/design/ai-frame-interpolation-anime-60fps-rife-timing-mia.md) |
 | `_oDISo3B3xw` | 美債史詩級拋售:真正的變量不是 40 兆債務,是新任聯準會主席的「溝通方式」 | [knowledge/investing/strategy/us-treasury-selloff-warsh-communication-shift.md](./knowledge/investing/strategy/us-treasury-selloff-warsh-communication-shift.md) |
 | `_RD3iFDhuzs` | Karpathy 訪談:Software 3.0、Jagged Intelligence 與 Agentic Engineering | [knowledge/technology/ai-agents/foundations/karpathy-software-3-0.md](./knowledge/technology/ai-agents/foundations/karpathy-software-3-0.md) |
 | `_SVU3oC4JX8` | 別再叫 Claude「做專業一點」:把設計規則寫成 Skill,25 個技巧串成工作流 | [knowledge/technology/applied-ai/design/claude-design-25-tricks-design-rules-skill.md](./knowledge/technology/applied-ai/design/claude-design-25-tricks-design-rules-skill.md) |
@@ -300,9 +301,11 @@ grep -rlF --include=*.md -- "<id>" .
 | `KOfeTp-9PI8` | 網路安全憑什麼成為 AI 新王?Agent 時代的兩大需求與兩大趨勢(美投君) | [knowledge/investing/equity-research/cybersecurity-ai-agent-identity-platformization.md](./knowledge/investing/equity-research/cybersecurity-ai-agent-identity-platformization.md) |
 | `KOuwb96iSW4` | 一張圖變成會動的 VTuber:See-through 拆層 + Anime2.5DRig 綁骨,以及離真正 Live2D 還差多遠(Mia 码上 AI) | [knowledge/technology/applied-ai/design/ai-live2d-vtuber-see-through-anime25drig-pipeline-mia.md](./knowledge/technology/applied-ai/design/ai-live2d-vtuber-see-through-anime25drig-pipeline-mia.md) |
 | `kpvZVBwQGlI` | PixelFX:244 個純程式碼像素特效,與「讓 Agent 看自己的輸出」的視覺回饋迴圈 | [knowledge/technology/ai-agents/applications/pixelfx-code-pixel-effects-agent-render-feedback-loop.md](./knowledge/technology/ai-agents/applications/pixelfx-code-pixel-effects-agent-render-feedback-loop.md) |
+| `ktWEwBHjfVo` | AI 把動畫補到 60 幀為什麼更難看?一拍二、RIFE 與「補得出位置、補不出節奏」(Mia 码上 AI) | [knowledge/technology/applied-ai/design/ai-frame-interpolation-anime-60fps-rife-timing-mia.md](./knowledge/technology/applied-ai/design/ai-frame-interpolation-anime-60fps-rife-timing-mia.md) |
 | `KY4dBSlTvwU` | 哈夫曼編碼:為什麼檔案能越壓越小,以及「前綴碼」這個關鍵限制 | [knowledge/technology/system-design/huffman-coding-prefix-free-tree.md](./knowledge/technology/system-design/huffman-coding-prefix-free-tree.md) |
 | `kYkIdXwW2AE` | Yann LeCun 押 10 億美元賭 LLM 的另一條路:JEPA 與世界模型(上) | [knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md](./knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md) |
 | `KyXr6wdgkyE` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
+| `l-wUKu_V2Lk` | AI 把動畫補到 60 幀為什麼更難看?一拍二、RIFE 與「補得出位置、補不出節奏」(Mia 码上 AI) | [knowledge/technology/applied-ai/design/ai-frame-interpolation-anime-60fps-rife-timing-mia.md](./knowledge/technology/applied-ai/design/ai-frame-interpolation-anime-60fps-rife-timing-mia.md) |
 | `L1OBRtfPS34` | Always-on Agent 怎麼運作:Lee Robinson 在史丹佛 CS146S 拆解 Grok Bot | [knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) |
 | `l38ceFOWOAE` | 萬達怎麼一步步賣掉自己:兩份對賭、四次遞表失敗,與「名字還在、公司換人」 | [knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md](./knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md) |
 | `l5EBH6Y9AsE` | RSI(遞迴自我改進)是新的 AGI:Anthropic 為何呼籲全球按下暫停鍵 | [knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md](./knowledge/technology/ai-safety/rsi-recursive-self-improvement-anthropic.md) |
@@ -561,7 +564,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(186 篇,依編號排序)
+## arXiv(188 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -585,8 +588,10 @@ grep -rlF --include=*.md -- "<id>" .
 | `2007.00072` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `2007.10319` | TinyML 與高效 AI 運算:MIT 6.5940 課程地圖與核心技術 | [knowledge/technology/llm-internals/inference/tinyml-efficient-ai-mit-6-5940-course-map.md](./knowledge/technology/llm-internals/inference/tinyml-efficient-ai-mit-6-5940-course-map.md) |
 | `2010.11929` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
+| `2011.06294` | AI 把動畫補到 60 幀為什麼更難看?一拍二、RIFE 與「補得出位置、補不出節奏」(Mia 码上 AI) | [knowledge/technology/applied-ai/design/ai-frame-interpolation-anime-60fps-rife-timing-mia.md](./knowledge/technology/applied-ai/design/ai-frame-interpolation-anime-60fps-rife-timing-mia.md) |
 | `2103.00020` | 大模型怎麼「看懂」圖片:ViT(Vision Transformer)切塊、編碼器與多模態接法(程序员老王) | [knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md](./knowledge/technology/llm-internals/architecture/vit-vision-transformer-how-llm-sees-images.md) |
 | `2103.00020` | Stable Diffusion 是如何畫畫的:U-Net、CLIP、VAE 三個零件與「一路對 AI 說謊」 | [knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md](./knowledge/technology/machine-learning/stable-diffusion-how-it-draws.md) |
+| `2104.02495` | AI 把動畫補到 60 幀為什麼更難看?一拍二、RIFE 與「補得出位置、補不出節奏」(Mia 码上 AI) | [knowledge/technology/applied-ai/design/ai-frame-interpolation-anime-60fps-rife-timing-mia.md](./knowledge/technology/applied-ai/design/ai-frame-interpolation-anime-60fps-rife-timing-mia.md) |
 | `2106.09685` | AI 工程 7 個動手專案(MCP、多代理、評測、安全 RAG、稽核代理、LoRA、知識圖譜):讀完原始碼、實跑後的評估(Anjana「AI & Tech」素材) | [knowledge/technology/ai-agents/applications/ai-engineering-seven-projects-source-review.md](./knowledge/technology/ai-agents/applications/ai-engineering-seven-projects-source-review.md) |
 | `2106.09685` | AI 入門 13 個必懂概念:LLM、Token、神經網路、幻覺、LoRA、MoE、語音到 Agentic、Vibe Coding | [knowledge/technology/llm-internals/architecture/ai-essential-13-concepts-beginner-map.md](./knowledge/technology/llm-internals/architecture/ai-essential-13-concepts-beginner-map.md) |
 | `2106.09685` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |

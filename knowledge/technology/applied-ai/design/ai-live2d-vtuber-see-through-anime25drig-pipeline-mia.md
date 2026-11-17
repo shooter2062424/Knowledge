@@ -118,6 +118,7 @@ flowchart LR
 
 ## 相關筆記
 
+- [[ai-frame-interpolation-anime-60fps-rife-timing-mia]] — AI 補幀與動畫節奏(一拍二、RIFE)
 - [[yaha-video-ai-tools-filmora-topview-flova]] — AI 影音工具的可複用方法論
 - [[minimax-h3-local-video-mac-mini-vpipe-ai-strategy-room]] — 本地跑 AI 影片生成的成本與限制
 - [[blender-previz-mcp-ai-video]] — 用 3D 預覽輔助 AI 影片的製作流程
