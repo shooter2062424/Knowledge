@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**534 個 YouTube video id**、**188 個 arXiv 編號**,涵蓋 **415 篇**筆記。
+> 統計:**535 個 YouTube video id**、**188 個 arXiv 編號**,涵蓋 **416 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(534 部,依 video id 排序)
+## YouTube(535 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -339,6 +339,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `N3o8AcflmO4` | 磁軸鍵盤原理:霍爾感測、Rapid Trigger,與飛智 FS68 的雙霍爾與蜂窩墊設計 | [knowledge/technology/hardware/magnetic-switch-keyboard-hall-effect-principle.md](./knowledge/technology/hardware/magnetic-switch-keyboard-hall-effect-principle.md) |
 | `n86Np5hjXg4` | AI 寫代碼太快,Git 先扛不住?GitHub Rubicon、OpenAI Pando、Cursor Continuity 與 Origin、Anthropic Scion 四條路線(Why QQ) | [knowledge/technology/software-engineering/git-for-ai-agents-rubicon-pando-continuity-scion-why-qq.md](./knowledge/technology/software-engineering/git-for-ai-agents-rubicon-pando-continuity-scion-why-qq.md) |
 | `n8jL89H5d-c` | 第 135 期:藝術家的 AI IDE(ArtCraft)、互動式技術圖解 Skill(Anatomy)、組織多個 Agent 的工具(OpenRig)、生成原生 PPT 的工作流(PPT Master)與復刻 QQ 寵物(QQPet) | [knowledge/technology/github-weekly/issue-135.md](./knowledge/technology/github-weekly/issue-135.md) |
+| `n9o9Tv2s0HQ` | AI 早報週報(2026-11-12 至 11-17):Gemini Decision 1、Gemini 4 Hydrogen、DeepSeek 應用 API、llama.cpp v1.0、Kitesurf、Cursor 資安事件(橘鸦 Juya + 一手來源核實) | [knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-12-to-11-17-juya.md](./knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-12-to-11-17-juya.md) |
 | `nlNDzop6tBw` | Claude 不是變笨,是講話方式跟你對不上:用 output style 治好 AI 的囉嗦 | [knowledge/technology/claude-code/output-style-communication-not-intelligence.md](./knowledge/technology/claude-code/output-style-communication-not-intelligence.md) |
 | `nLZ-C7bbZzs` | PLTR 財報後大漲 30%:市場真正在交易的不是業績,是「增速見頂」風險的釋放 | [knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md](./knowledge/investing/equity-research/pltr-earnings-growth-ceiling-and-valuation-digestion.md) |
 | `nnTqbMhKr3E` | Always-on Agent 怎麼運作:Lee Robinson 在史丹佛 CS146S 拆解 Grok Bot | [knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) |

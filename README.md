@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-459_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-460_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -191,7 +191,7 @@ flowchart LR
 | **Microsoft / 復旦 / 浙大 / 愛丁堡(論文)** | 1 | [Harnessed Agentic RL(Agent Lightning v1.0)](./knowledge/technology/llm-internals/training/harnessed-agentic-rl-agent-lightning.md) |
 | **JayLuxAI | AI 系統導入**(⚠️ 推廣免費 Skool 社群與一對一諮詢) | 1 | [Claude 近期十個更新怎麼分:新手先做三件事](./knowledge/technology/claude-code/claude-code-ten-concepts-three-first-steps-jayluxai.md) |
 | **Stanford Online** — 公開課(Diyi Yang) | 1 | [CS329Z 第 1 講:什麼是 AI Agent](./knowledge/technology/ai-agents/foundations/stanford-cs329z-lecture1-what-are-ai-agents-diyi-yang.md) |
-| **橘鸦 Juya** — 每日 AI 早報(短影片) | 1 | [AI 早報週報 11/05–11/10:Omni 1.2 Flash、GPT-6 Cyber、METR 2 倍、Dreams、Control Room、TPU 8tx](./knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md) |
+| **橘鸦 Juya** — 每日 AI 早報(短影片) | 2 | [AI 早報週報 11/12–11/17:Gemini Decision 1、Hydrogen、DeepSeek 應用 API、llama.cpp v1.0、Kitesurf、Cursor 事件](./knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-12-to-11-17-juya.md) · [AI 早報週報 11/05–11/10:Omni 1.2 Flash、GPT-6 Cyber、METR 2 倍、Dreams、Control Room、TPU 8tx](./knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md) |
 | **howie和小能熊** — Claude Code 新功能速解 | 1 | [Claude Code Mods](./knowledge/technology/claude-code/claude-code-mods-explained.md) |
 | **黃培碩(運達證券投顧)** — 進化波浪理論(⚠️ 推廣 LINE 粉絲團與投顧服務) | 1 | [進化波浪分析方式](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 
@@ -616,6 +616,7 @@ flowchart LR
 | [什麼是先進封裝?從有機基板到矽中介層、TSV、矽橋、玻璃基板一次看懂](./knowledge/technology/ai-industry/advanced-packaging-explained.md) | 封裝從配角變主角;有機基板減成/半加成法 10μm;chiplet→晶片內互聯;矽中介層+TSV=2.5D(HBM-GPU 4000 連線);矽橋/玻璃基板降本;⭐ 第八節續集〈什么是玻璃基板〉:Rubin Ultra 傳縮版引出**矽 2.6 vs 有機基板約 17 的 CTE 失配 ⇒ 翹曲**、玻璃 CTE 可無級調、TGV 四步(飛秒激光改質 → 氫氟酸蝕刻 → 濺射鈦附著層 → 鍍銅)、SAP vs mSAP(iPhone X 起的 SLP);玻璃基板與有機基板互補非替代 |
 | [Claude Fable 5.2:1000 個 Agent 的作業系統原型與費馬大定理形式化(Why QQ + 官方公告與 harness 部落格)](./knowledge/technology/ai-industry/claude-fable-5-2-1000-agents-os-fermat-harness-why-qq.md) | ⭐⭐ 兩場實驗分開看:**OS 原型只有官方敘述,形式化有 harness 細節**;Lead + 999 Helper、每人獨立輕量 VM、Git + PostgreSQL 五張表、Lean 當機器驗收器;✅ 28.7 h / 60 命題 / 47 引理 / 2,418 節點全對;⚠️ 影片沒講:toy experiment、起點含 47 條已證引理、同設定 Opus 5.5 30 h 僅約 27%、「百萬次無攔截」那輪只用動作監控;✅ $8/$40 是 Opus 5.5 的兩倍、官方仍建議多數任務先用 Opus 5.5;System Card 與物理預印本未讀 |
 | [Fable 5.2 三行提示詞做遊戲:Saltline、Gears 風格關卡、SNES 遊戲的帳單與長時間 Agent 成本結構(Why QQ)](./knowledge/technology/ai-industry/claude-fable-5-2-one-prompt-games-saltline-gears-snes-why-qq.md) | 定價與 3,668 美元、165:1 經官方文件重算吻合;GDC 36%/52% 已核實;遊戲專案細節與開發者自述成本未能核實 |
+| [AI 早報週報(2026-11-12 至 11-17):七條官方原文核實(橘鸦 Juya)](./knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-12-to-11-17-juya.md) | ✅ Gemini Decision 1(150–250 ms、$0.10/百萬、noul/choice/score 與 Jev 同型)、Gemini 4 Hydrogen $1.50/$7.50 1M 不分段、DeepSeek 語音與 OCR 價(語音五折無到期日)、llama.cpp v1.0.0 版本規則、Kitesurf Apache 2.0、Cursor 事件(Fireworks 金鑰→假 Claude Code 擴充 5,000 人 11 小時);Qwen4-Max 58%、ChatGPT Wallet、黃仁勳重返傳聞未能核實;AA 指數與 Terminal-Bench 為官方自述 |
 | [AI 早報週報(2026-11-05 至 11-10):八條官方原文核實(橘鸦 Juya)](./knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md) | ✅ Gemini Omni 1.2 Flash(15 秒、降 30%)、GPT-6 Cyber(ExploitGym 48.5%、不越界 99.93%)、Images 2.6、OpenAI Control Room(35 秒、引擎層閘門、fail-closed)、TPU 8tx/8i Max、Fireworks 事件更新;⭐ **METR:Anthropic 增速約 2 倍,但範圍 1.3–3 倍且多數證據被遮蔽**;⭐ Claude Dreams 評測(13%→48%、wiki 有時比原檔還大);⚠️ **948 是「提權 exploit」不是早報標題的「補丁」**;其餘條目僅標題未核實 |
 | [Fable 5.1:榜單全線第一,官方卻叫你先用 Opus 5](./knowledge/technology/ai-industry/fable-5-1-usability-over-capability.md) | ⭐⭐ **輸入 $10／輸出 $50 的旗艦,官方文件第一句叫你大多數工作先用 Opus 5**;真正的變化在帳單 —— **快取讀取砍 75% 到 $0.25**,普通負載省約 25%、重度 agent 約 45%,**Devin 發布當天就把 Opus 5 流量遷過來,理由是「第一次算得過帳」**;⭐⭐⭐ **三個破壞性 API 變更**:強制工具呼叫回 400、thinking block 綁定產生它的模型(切回舊模型會**靜默丟棄**)、thinking block 只對產生它的精確上下文有效(**每次重拼系統提示詞會同時打爆快取與思考**);⚠️ **x high 會瘋狂開子 agent,一天燒 18 億 token** —— 用之前先設預算;選型框架:短任務+人在環 → Opus 5,長任務放著跑 → Fable 5.1,**多工具串接留在 Opus 5**;⭐ 主線不在分數在**「用起來煩不煩」**(Claude 腔、安全誤報降 60%／85%);核實:官方數字全部相符,另補 CursorBench 3.2 的 73.4% |
 | [史上最強 AI 模型只活 72 小時:Claude Fable 事件與別把流程綁死單一模型](./knowledge/technology/ai-industry/claude-fable-72-hours-model-dependency.md) | Fable=Mythos 加護欄;能修 bug=能找漏洞遭政府禁;用強模型三技巧;留可替換方案 |

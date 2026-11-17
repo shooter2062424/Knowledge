@@ -4,7 +4,7 @@
 > **讀了什麼 / 沒讀什麼:** 只有 11/06 那支(`aZ4ISFax7z8`)讀了自動字幕;其餘 5 支**只讀說明欄**(逐條標題與來源連結),沒有讀逐字稿。說明欄裡的條目只是標題,**未標「已核實」的條目一律只是頻道的新聞標題,不代表我查過**。下面核實的 8 條都是**直接讀官方原文**(Google、OpenAI、METR、Anthropic、Fireworks、Google Cloud blog)。
 > **立場:** 說明欄與字幕沒有業配或聯盟連結;資訊型頻道,沒有自家產品。
 > **形式:** 早報本來就是「每天十幾二十條標題」,不逐日一篇;本篇挑**有官方原文可核實、而且對工程選型有意義**的條目,其餘留標題索引。
-> 相關既有筆記:[[claude-fable-5-2-1000-agents-os-fermat-harness-why-qq]](11/10 頭條 Fable 5.2 的完整核實)、[[openai-linux-kernel-948-lpe-agent-pipeline-why-qq]](948 個 Linux 本地提權)、[[rsi-recursive-self-improvement-anthropic]](METR 評估的脈絡)。
+> 相關既有筆記:[[ai-morning-news-weekly-2026-11-12-to-11-17-juya]](下一份週報 11/12–11/17)、[[claude-fable-5-2-1000-agents-os-fermat-harness-why-qq]](11/10 頭條 Fable 5.2 的完整核實)、[[openai-linux-kernel-948-lpe-agent-pipeline-why-qq]](948 個 Linux 本地提權)、[[rsi-recursive-self-improvement-anthropic]](METR 評估的脈絡)。
 
 ## TL;DR
 
