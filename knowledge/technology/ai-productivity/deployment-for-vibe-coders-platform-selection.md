@@ -355,4 +355,5 @@ flowchart LR
 
 ## 相關筆記
 
+- [[ci-cd-for-ai-coding-gary]] — 後續:AI 說「等 CI 通過再 Merge」是什麼意思,Lint/Typecheck/Test/Build 與 CD
 - [[dawo-nixos-laptop-as-code-dutch-government]] — 同主題:荷蘭政府為什麼選 NixOS:DAWO 把 GitOps 推到每張辦公桌(Lap

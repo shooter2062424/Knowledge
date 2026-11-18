@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**535 個 YouTube video id**、**188 個 arXiv 編號**,涵蓋 **416 篇**筆記。
+> 統計:**537 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **417 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(535 部,依 video id 排序)
+## YouTube(537 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -125,6 +125,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `_yFen1B8hdU` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `A2i8D66J83U` | 用 shadcn registry 做一個「假的 Claude Code」:brainless 把終端機介面變成可改的 React 元件 | [knowledge/technology/applied-ai/design/brainless-shadcn-registry-fake-claude-code-ui.md](./knowledge/technology/applied-ai/design/brainless-shadcn-registry-fake-claude-code-ui.md) |
 | `a4IoNavG8jI` | Skill 實戰:從製作到維護一份「agent 會自動觸發、產出穩定、人類維護得了」的 skill | [knowledge/technology/ai-agents/applications/building-claude-skills.md](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
+| `aCvEYczBVSY` | 用 AI 寫程式為什麼要懂 CI/CD:Lint、Typecheck、Test、Build 四道關卡與「CI 全綠只是底線」 | [knowledge/technology/ai-productivity/ci-cd-for-ai-coding-gary.md](./knowledge/technology/ai-productivity/ci-cd-for-ai-coding-gary.md) |
 | `acvK103404s` | Skill 實戰:從製作到維護一份「agent 會自動觸發、產出穩定、人類維護得了」的 skill | [knowledge/technology/ai-agents/applications/building-claude-skills.md](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
 | `aHAmg_1q41M` | 用 Hugging Face Transformers 在本機跑 DeepSeek-R1 蒸餾模型:載入、tokenizer、padding、chat template 一次講清(程序员老王) | [knowledge/technology/llm-internals/inference/transformers-local-deepseek-r1-distill.md](./knowledge/technology/llm-internals/inference/transformers-local-deepseek-r1-distill.md) |
 | `ahb8kfsZmIk` | YAHA 影音 AI 工具:Filmora 16、Topview、Flova(Seedance 2.5)的可複用方法論 | [knowledge/technology/applied-ai/design/yaha-video-ai-tools-filmora-topview-flova.md](./knowledge/technology/applied-ai/design/yaha-video-ai-tools-filmora-topview-flova.md) |
@@ -479,6 +480,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `viQjQ3mgeOc` | 存儲還能漲嗎?用 1995、2018 兩輪暴漲對照 AI 這一輪的記憶體週期 | [knowledge/investing/equity-research/memory-cycle-history-1995-2018-vs-ai.md](./knowledge/investing/equity-research/memory-cycle-history-1995-2018-vs-ai.md) |
 | `vj7hysh0mOI` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `vkpS7WztTMc` | 蘇姿丰 MIT 2026 畢業演講:如何創造自己的運氣,以及 AI 時代人類無可取代的價值 | [knowledge/career/mindset/lisa-su-mit-commencement.md](./knowledge/career/mindset/lisa-su-mit-commencement.md) |
+| `vLTHW_MHWFM` | Modern Web Guidance 1.0:Chrome 為 AI 編程工具做的「現代前端知識庫」,官方評測通過率 56% → 88%(Why QQ) | [knowledge/technology/applied-ai/design/modern-web-guidance-chrome-agent-skill-why-qq.md](./knowledge/technology/applied-ai/design/modern-web-guidance-chrome-agent-skill-why-qq.md) |
 | `vZHaSwnJmSk` | 打造「0 人 AI 公司」:用 Hermes Agent + Paperclip 讓 AI 互相協作 | [knowledge/technology/ai-agents/applications/zero-person-ai-company.md](./knowledge/technology/ai-agents/applications/zero-person-ai-company.md) |
 | `VzO6PZeEkT8` | 在 Mac mini 上免費跑 MiniMax H3 影片生成:vpipe 實測、授權陷阱與買機建議(AI 策略室) | [knowledge/technology/applied-ai/design/minimax-h3-local-video-mac-mini-vpipe-ai-strategy-room.md](./knowledge/technology/applied-ai/design/minimax-h3-local-video-mac-mini-vpipe-ai-strategy-room.md) |
 | `W-gdYr3Vj8s` | Agent / RAG 生產級面試題庫:字節 8 題 + 落地十連問 + 履歷五大雷區 | [knowledge/technology/ai-agents/applications/agent-rag-production-interview-playbook-baibai.md](./knowledge/technology/ai-agents/applications/agent-rag-production-interview-playbook-baibai.md) |
@@ -566,7 +568,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(188 篇,依編號排序)
+## arXiv(189 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -634,6 +636,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2305.18323` | 到底需不需要 GraphRAG?9 種 RAG 方案實測對照 + 脈絡優化省 19–53% token | [knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md](./knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md) |
 | `2305.20050` | AI 思維鏈:它為什麼有用、怎麼一路演進,以及「它是幻象嗎?」 | [knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md](./knowledge/technology/llm-internals/architecture/chain-of-thought-history-and-mirage.md) |
 | `2306.00978` | 模型名裡的 Q4、Q8 是什麼?量化(PTQ / QAT / GGUF / 三值)完整地圖 | [knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |
+| `2306.05685` | 用 AI 寫程式為什麼要懂 CI/CD:Lint、Typecheck、Test、Build 四道關卡與「CI 全綠只是底線」 | [knowledge/technology/ai-productivity/ci-cd-for-ai-coding-gary.md](./knowledge/technology/ai-productivity/ci-cd-for-ai-coding-gary.md) |
 | `2307.02483` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
 | `2307.03172` | 一段提示詞把 Gemini CLI 變成自動化 Agent:拆成輸入/輸出/過程,再讓 AI 記「工作筆記」 | [knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md](./knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md) |
 | `2307.03172` | AI 名詞地圖:從 Token 到 Agent Skills——三種分層框架對照(八概念演進鏈 / 四層技術全景 / 職場四層選型) | [knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md](./knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md) |
