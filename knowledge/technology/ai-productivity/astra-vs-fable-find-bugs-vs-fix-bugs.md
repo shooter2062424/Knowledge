@@ -359,3 +359,7 @@ flowchart LR
 - [实测GPT-6与Claude Fable:找Bug第一名的AI,修Bug居然垫底? — YAHA學堂](https://www.youtube.com/watch?v=mAoXktiOhWY)(2026-09-19,約 14.6 分鐘;**該片無字幕,逐字稿以 CPU faster-whisper 轉錄取得、非官方字幕**)
 - ⚠️ **立場**:YAHA學堂為販售 AI 課程的頻道,本片為其自行設計、未公開素材的評測。
 - 延伸:本庫 [[gpt-6-astra-token-efficiency-and-harness]](⭐ 比的往往不是模型,是外殼)、[[fable-5-1-usability-over-capability]]、[[claude-md-cut-82-percent-and-maintain-it]](規矩寫在哪才會被遵守)、[[ai-native-sdlc-landing-checklist]]、[[agent-skill-three-layer-run-do-verify]]。
+
+## 相關筆記
+
+- [[gpt-6-2-astra-sol-reliability-regression-theo-system-card-why-qq]] — 後續:GPT-6.2 Astra/Sol 的可靠度退步訊號(Theo、AA、System Card)

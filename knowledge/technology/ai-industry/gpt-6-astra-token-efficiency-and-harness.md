@@ -858,3 +858,7 @@ flowchart TD
 > ⚠️ 本文為對三支公開影片的整理與交叉查證。§9 與 §11.9 已標示核實狀態。
 > 模型定價與能力變動快速,**具體數字以 OpenAI 官方定價頁與系統卡為準**。
 > §4 對 computer use 的評價兩位作者相反,文中已並陳。
+
+## 相關筆記
+
+- [[gpt-6-2-astra-sol-reliability-regression-theo-system-card-why-qq]] — 後續:GPT-6.2 Astra/Sol 的可靠度退步訊號(Theo、AA、System Card)

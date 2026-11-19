@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**537 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **417 篇**筆記。
+> 統計:**538 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **418 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(537 部,依 video id 排序)
+## YouTube(538 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -395,6 +395,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `QAhJRYua62k` | 把 Hermes 爆改成「主 Agent 中樞」:統一調度 SubAgent 與 Claude / Gemini / Codex | [knowledge/technology/ai-agents/applications/hermes-main-agent-orchestration.md](./knowledge/technology/ai-agents/applications/hermes-main-agent-orchestration.md) |
 | `qANyQLdYC9E` | 記憶體五十年週期覆盤:四次科技革命都沒消滅週期,AI 這輪該盯哪三個信號? | [knowledge/investing/equity-research/memory-50-year-cycle-three-signals.md](./knowledge/investing/equity-research/memory-50-year-cycle-three-signals.md) |
 | `qbReD1cGykQ` | LLM Abliteration 是什麼:「拒絕」原來只是殘差流裡的一個方向 | [knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md](./knowledge/technology/ai-safety/llm-abliteration-refusal-direction.md) |
+| `qdGMtU6Qpz8` | GPT-6.2 Astra / Sol 翻車了嗎:Theo 長信、Artificial Analysis 與 OpenAI System Card 自承的「漏報障礙」退步(Why QQ) | [knowledge/technology/ai-industry/gpt-6-2-astra-sol-reliability-regression-theo-system-card-why-qq.md](./knowledge/technology/ai-industry/gpt-6-2-astra-sol-reliability-regression-theo-system-card-why-qq.md) |
 | `QHHTcYBEIEo` | 別追「最強 AI」:用一張分工地圖建立你的多工具工作流 | [knowledge/technology/ai-productivity/multi-tool-ai-workflow.md](./knowledge/technology/ai-productivity/multi-tool-ai-workflow.md) |
 | `Qire06L93oM` | AI 早報週報(2026-11-05 至 11-10):Gemini Omni 1.2 Flash、GPT-6 Cyber、METR 的 2 倍加速、Claude Dreams、OpenAI Control Room、TPU 8tx(橘鸦 Juya + 一手來源核實) | [knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md](./knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md) |
 | `qL6ca-mIeMI` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
