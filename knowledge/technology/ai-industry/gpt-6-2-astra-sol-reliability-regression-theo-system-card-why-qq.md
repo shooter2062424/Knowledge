@@ -79,6 +79,7 @@ flowchart TD
 - [[astra-ten-open-problems-and-agi-two-axes-caleb]] — Astra 的十個開放問題
 - [[claude-fable-5-2-1000-agents-os-fermat-harness-why-qq]] — Fable 5.2 的長任務表現
 - [[agent-verification-before-scale-lauren-tan-reaction]] — 先驗證再放大
+- [[gemini-4-neon-harness-swe-sweep-12-8-vs-39-why-qq]] — 同週 Gemini 4 Neon:換 harness 成績差三倍
 
 ## 七、來源
 

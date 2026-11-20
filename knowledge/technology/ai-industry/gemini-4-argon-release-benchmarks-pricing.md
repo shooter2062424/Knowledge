@@ -200,4 +200,4 @@ flowchart LR
 - [Alphabet:Q2 2026 earnings call remarks(Sundar Pichai)](https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/)
 - [Constellation Research:OpenAI touts Codex 5 million weekly active users](https://www.constellationr.com/insights/news/openai-touts-broadening-codex-usage-5-million-weekly-active-users)
 
-📎 相關筆記:[[gpt-6-astra-token-efficiency-and-harness]]、[[astra-vs-fable-find-bugs-vs-fix-bugs]]、[[claude-sonnet-5-5-release-effort-migration]]、[[ai-harness-explained]]、[[prompt-injection-5-techniques-defenses]]
+📎 相關筆記:[[gemini-4-neon-harness-swe-sweep-12-8-vs-39-why-qq]]、[[gpt-6-astra-token-efficiency-and-harness]]、[[astra-vs-fable-find-bugs-vs-fix-bugs]]、[[claude-sonnet-5-5-release-effort-migration]]、[[ai-harness-explained]]、[[prompt-injection-5-techniques-defenses]]

@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**538 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **418 篇**筆記。
+> 統計:**539 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **419 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(538 部,依 video id 排序)
+## YouTube(539 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -199,6 +199,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `ejThzPk85K0` | GPT-6 Astra 解開 217 年的拿破崙密信:從一張模糊掃描圖到可重現的解法包(Why QQ) | [knowledge/technology/ai-agents/applications/gpt-6-astra-napoleon-marmont-cipher.md](./knowledge/technology/ai-agents/applications/gpt-6-astra-napoleon-marmont-cipher.md) |
 | `eKW9ITaltWw` | 一支影片看完 Stanford「Beyond LLM」:從 LLM 到 Multi-Agent 的技術地圖 | [knowledge/technology/ai-agents/resources/stanford-beyond-llm-course.md](./knowledge/technology/ai-agents/resources/stanford-beyond-llm-course.md) |
 | `EmwW59QMadY` | Pi:只有 4 個工具的極簡 Agent —— 雙層循環、對話樹,以及「刻意不做沙箱」 | [knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md](./knowledge/technology/ai-agents/applications/pi-minimal-agent-harness-teardown.md) |
+| `enLak0cYRKk` | Gemini 4 Neon:同一個模型 SWE-sweep 12.8% 對 39%,差的是 Harness 還是模型(Why QQ) | [knowledge/technology/ai-industry/gemini-4-neon-harness-swe-sweep-12-8-vs-39-why-qq.md](./knowledge/technology/ai-industry/gemini-4-neon-harness-swe-sweep-12-8-vs-39-why-qq.md) |
 | `eOcyZqtw0Fg` | 玄戒 O100 的三層堆疊:TSV 打孔、晶圓級鍵合與混合鍵合怎麼做 | [knowledge/technology/ai-industry/xring-o100-tsv-hybrid-bonding-3d-stack.md](./knowledge/technology/ai-industry/xring-o100-tsv-hybrid-bonding-3d-stack.md) |
 | `eoDylD3NYXc` | Claude Code 官方定義的四種 Loop:Turn-based / Goal-based / Time-based / Proactive | [knowledge/technology/ai-agents/foundations/claude-code-loop-types-official.md](./knowledge/technology/ai-agents/foundations/claude-code-loop-types-official.md) |
 | `EOg4gY0Yln0` | 讓訊號自己交易:Man Group 用 Claude Skills 治理打通系統化交易 | [knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md](./knowledge/technology/ai-agents/applications/claude-skills-governance-man-group.md) |
