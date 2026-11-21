@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-464_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-465_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -201,7 +201,7 @@ flowchart LR
 | 來源 | 篇數 | 筆記 |
 |---|---|---|
 | **Addy Osmani(X / 部落格)** | 1 | [當 Agent 代勞時如何保持批判性思考:認知投降、驗證、意圖債](./knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md) |
-| **GitHub Weekly(IT咖啡馆「Github一周热点」)** | 39 | [第 99–138 期(整個 github-weekly 資料夾)](./knowledge/technology/github-weekly/) |
+| **GitHub Weekly(IT咖啡馆「Github一周热点」)** | 40 | [第 99–139 期(整個 github-weekly 資料夾)](./knowledge/technology/github-weekly/) |
 | **辰星說Github** — GitHub 新星週報 | 1 | [2026-11-14 前五名:Graphify、Hallmark、Anthropic skills、Matt Pocock skills、T3 Code](./knowledge/technology/github-weekly/chenxing-github-top5-2026-11-14-graphify-hallmark-anthropic-skills-pocock-t3code.md) |
 
 ---
@@ -767,6 +767,7 @@ flowchart LR
 | 期數 | 主題 |
 |---|---|
 | [辰星說Github 新星週報(11-06 至 11-13):Graphify、Hallmark、Anthropic skills、Matt Pocock skills、T3 Code](./knowledge/technology/github-weekly/chenxing-github-top5-2026-11-14-graphify-hallmark-anthropic-skills-pocock-t3code.md) | ⭐⭐ 五個專案都對 clone 的原始碼核實:Graphify 三個輸出檔、EXTRACTED/INFERRED 標籤、`graphifyy` 雙 y 套件名、Hallmark 50 主題與 755 張照片、anthropics/skills 19 個技能、T3 Code MIT 與不轉賣 token ✅;⚠️ **需修正:Graphify 影片/音訊其實是 faster-whisper 本機轉錄,不是送助理模型**;各專案「本週新增星數」未能核實;⚠️ 影片自述沒有實際安裝執行這五個專案、旁白是 AI 語音 |
+| [第 139 期:Sure 個人財務帳本、AG-UI 協議、大象金魚評審插件(EGM)、Modern Web Guidance、NVIDIA Auto Ontology](./knowledge/technology/github-weekly/issue-139.md) | 逐一 clone 或讀 README 核實:Sure 為 Maybe Finance 社群 fork(AGPL-3.0);AG-UI 1.0 與 A2UI 分工(spec 與 runtime 協議)已證實,發起日期未能核實;EGM 八個 skill 與金魚不帶前情設計屬實;⚠️ Auto Ontology 五動作原文為 Discover/Ground/Validate/Expose/Learn,「對齊」譯法需修正,排行榜名次為廠商自報;Gartner 與 Token 白皮書未能核實 |
 | [第 138 期:開源版 Grok Bot(OpenMausBot)、T3 Code、紫微斗數排盤引擎、Scrapling 爬蟲框架、Meta Astryx 設計系統](./knowledge/technology/github-weekly/issue-138.md) | 逐一 clone 讀 README 核實:OpenMausBot 的 enterprise/ 授權例外與 Composio 500+ 應用;紫微斗數引擎開源、斷語庫與 AI 解讀不開源;Scrapling 反偵測功能須留意服務條款;Astryx 給 Agent 的 `astryx search`;統計報告數字未讀原文 |
 | [第 137 期:DeepSeek Super Agent 原型、讓 Agent 操作桌面軟體(agent-desktop)、網站 SEO Skill(Claude SEO)、DeepSeek Harness 插件目錄與動漫角色自動分層(See-through)](./knowledge/technology/github-weekly/issue-137.md) | dsh-superagent / agent-desktop / Claude SEO / Awesome DSH Plugin / See-through |
 | [第 136 期:消費級顯卡跑 DeepSeek(Strata)、DeepSeek 推理框架(DeepInfer)、OpenCode 2.x、開源人形機器人平台(RP1)與 AI 姿勢參考圖庫中文版](./knowledge/technology/github-weekly/issue-136.md) | Strata / DeepInfer / OpenCode 2.x / RP1 / AI Pose Gallery |

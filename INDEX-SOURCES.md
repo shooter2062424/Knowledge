@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**539 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **419 篇**筆記。
+> 統計:**540 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **420 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(539 部,依 video id 排序)
+## YouTube(540 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -321,6 +321,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `LPZh9BOjkQs` | 大型語言模型,簡單講(3Blue1Brown) | [knowledge/technology/llm-internals/architecture/llm-explained-3blue1brown.md](./knowledge/technology/llm-internals/architecture/llm-explained-3blue1brown.md) |
 | `LRJV5lcsnfA` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
 | `luN-yydHpYY` | Graphify 實戰壓測:10 萬 Star 的程式碼知識圖譜,打不贏 grep?「找」與「看」的分水嶺 | [knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md](./knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) |
+| `LvyC-FTblTM` | 第 139 期:Sure 個人財務帳本、AG-UI 協議、大象金魚評審插件、Modern Web Guidance 與 NVIDIA Auto Ontology | [knowledge/technology/github-weekly/issue-139.md](./knowledge/technology/github-weekly/issue-139.md) |
 | `Lx22N9R_0As` | Claude Code 30 個藏得最深的快捷鍵與功能:暫存、插隊、回退與 Agent 視圖 | [knowledge/technology/claude-code/claude-code-30-hidden-shortcuts.md](./knowledge/technology/claude-code/claude-code-30-hidden-shortcuts.md) |
 | `M6sOWI1QLEc` | 先給 Agent 驗證,再談規模:Lauren Tan 訪談的「人肉代理」、抽檢與自動合併 | [knowledge/technology/ai-agents/applications/agent-verification-before-scale-lauren-tan-reaction.md](./knowledge/technology/ai-agents/applications/agent-verification-before-scale-lauren-tan-reaction.md) |
 | `m6U_TGf9Z_M` | 新版 Codex 全流程實戰:從資料夾、辦公文件、生圖,到 Skill / Hook / Worktree / 一鍵部署 | [knowledge/technology/ai-agents/applications/codex-desktop-full-workflow-guide.md](./knowledge/technology/ai-agents/applications/codex-desktop-full-workflow-guide.md) |

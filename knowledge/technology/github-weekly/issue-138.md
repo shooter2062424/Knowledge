@@ -172,4 +172,5 @@ flowchart TD
 - [[ai-orchestrators-32-tools-seven-dimensions]] — T3 Code、Orca 等編排器的七維度比較
 - [[always-on-agent-grok-bot-lee-robinson]] — Grok Bot 概念與「常駐 Agent」的設計
 - [[issue-137]] — 上一期(DeepSeek Super Agent、agent-desktop 等)
+- [[issue-139]] — 下一期(Sure、AG-UI、EGM、Auto Ontology 等)
 - [[claude-web-design-skills-benchmark-pnh]] — 設計類 Skill 讓 AI 網頁不走樣的實測,與 Astryx 的用途相呼應
