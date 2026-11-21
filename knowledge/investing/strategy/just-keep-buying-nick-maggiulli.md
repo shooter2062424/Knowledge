@@ -224,4 +224,5 @@ flowchart TD
 - [[thinkers-get-rich-jonathan-clements]] — 長期財富與多看盤不等於多賺
 - [[retail-investor-losing-system-not-luck]] — 沒有系統的散戶與有紀律的持續買入對照
 - [[when-to-add-reason-not-percent-fico-nick]] — 下跌時加碼看理由而非幅度
+- [[long-term-investing-six-rules-moboo]] — 長期持有的六條心法:資金期限、賣最差、大船理論
 - [[ai-proof-five-moat-stocks-nick]] — 同主題:不靠 AI 也能穩的五家公司:愛馬仕、Costco、Cheesecake Fac

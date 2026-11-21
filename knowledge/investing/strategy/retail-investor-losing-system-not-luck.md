@@ -175,3 +175,4 @@ flowchart LR
 - [[retirement-risk-math-john-dagostino-coinbase]] — 散戶打不贏機構的事實與退休數學
 - [[peter-tuchman-day-trading]] — 情緒與 FOMO 是散戶虧損的主因
 - [[just-keep-buying-nick-maggiulli]] — 有紀律的長期買入作為對照
+- [[long-term-investing-six-rules-moboo]] — 不擇時、不槓桿的長期持有心法
