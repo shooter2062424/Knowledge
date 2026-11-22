@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**540 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **420 篇**筆記。
+> 統計:**542 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **421 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(540 部,依 video id 排序)
+## YouTube(542 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -362,6 +362,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `OcKl98ZQbMQ` | AI 資本圈的派系與捆綁:同級競爭、不同級綁在一起,以及「融了 1,100 億卻立刻欠出 1 兆」 | [knowledge/investing/equity-research/ai-capital-web-factions-and-mutual-binding.md](./knowledge/investing/equity-research/ai-capital-web-factions-and-mutual-binding.md) |
 | `oH0j8HYeMAM` | 「Claude 2.0」是什麼:一個對話管所有對話——巢狀對話、Projects、側聊與三個省額度的指令(Andy Lin 林玉堂整理 RoboNuggets × Ben AI) | [knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md](./knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md) |
 | `Oi55T8LtTSI` | AI 早報週報(2026-11-05 至 11-10):Gemini Omni 1.2 Flash、GPT-6 Cyber、METR 的 2 倍加速、Claude Dreams、OpenAI Control Room、TPU 8tx(橘鸦 Juya + 一手來源核實) | [knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md](./knowledge/technology/ai-industry/ai-morning-news-weekly-2026-11-05-to-11-10-juya.md) |
+| `OPAdcgNb4ts` | 所有程式碼都是垃圾,除了我的:Lauren Tan 把每次糾正變成確定性檢查(Agent 煉金術士) | [knowledge/technology/ai-agents/applications/all-code-is-slop-lauren-tan-deterministic-checks-agent-alchemist.md](./knowledge/technology/ai-agents/applications/all-code-is-slop-lauren-tan-deterministic-checks-agent-alchemist.md) |
 | `OrNE5vMFD2k` | DeepSeek「Super Agent」是什麼:從 ReAct 單會話,到 Router / Walker 的五個模組 | [knowledge/technology/ai-agents/autonomy/deepseek-super-agent-router-walker-xuanyuan.md](./knowledge/technology/ai-agents/autonomy/deepseek-super-agent-router-walker-xuanyuan.md) |
 | `ou9SC0Z_CtI` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `OVl3fFSHxqY` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
@@ -568,6 +569,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `ZWsZwX6nsV0` | 社交套利(Social Arbitrage):Chris Camillo 從日常生活挖出暴利機會的方法 | [knowledge/investing/strategy/social-arbitrage-chris-camillo.md](./knowledge/investing/strategy/social-arbitrage-chris-camillo.md) |
 | `ZxBRtRjMU88` | HBM 高頻寬記憶體原理:矽中介層、TSV、堆疊鍵合一次看懂 | [knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md](./knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md) |
 | `zxxAl7Wc2g0` | DHH 的 16 條並行 Agent:當寫程式幾乎免費,瓶頸遷移到哪裡去了 | [knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md](./knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md) |
+| `ZZ19zhYnDKY` | 所有程式碼都是垃圾,除了我的:Lauren Tan 把每次糾正變成確定性檢查(Agent 煉金術士) | [knowledge/technology/ai-agents/applications/all-code-is-slop-lauren-tan-deterministic-checks-agent-alchemist.md](./knowledge/technology/ai-agents/applications/all-code-is-slop-lauren-tan-deterministic-checks-agent-alchemist.md) |
 
 ---
 

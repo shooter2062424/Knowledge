@@ -25,7 +25,7 @@
 
 | # | 排程 | cron | 說明 |
 |---|---|---|---|
-| A | ⭐ **YouTube 來源總巡檢**(2026-11-07 合併) | `3 7 * * *`(每日 07:03) | 一個排程查 12 個來源:IT咖啡馆 GitHub Weekly、Gary Chen、美投君(核心三,細則在第 1/2/4 節)+ 九個巡檢頻道(第 5 節) |
+| A | ⭐ **YouTube 來源總巡檢**(2026-11-07 合併) | `3 7 * * *`(每日 07:03) | 一個排程查 14 個來源:IT咖啡馆 GitHub Weekly、Gary Chen、美投君(核心三,細則在第 1/2/4 節)+ 九個巡檢頻道(第 5 節) |
 | B | ⭐ `new/` 收件匣 | `37 8 * * *`(每日 08:37) | **一個子資料夾 = 一批 = 一個 task**,整批處理完改名 `done-`,並登記於 `INBOX-LOG.md` |
 | — | ~~gooaye 記憶更新~~ | ⛔ 2026-10-20 停用 | 重建時跳過,不要再建 |
 
@@ -376,11 +376,11 @@ segs, info = m.transcribe(path, language='zh', vad_filter=True,
 ### 排程 A 實際 prompt(2026-11-07 合併版;細則見第 1、2、4 節與下方八頻道版)
 
 ```text
-每日巡檢 Knowledge repo 的 13 個 YouTube 來源,把新影片整理成繁中筆記。⚠️ Knowledge repo 筆記在 knowledge/、腳本在 scripts/。
+每日巡檢 Knowledge repo 的 14 個 YouTube 來源,把新影片整理成繁中筆記。⚠️ Knowledge repo 筆記在 knowledge/、腳本在 scripts/。
 ⭐ 完整規則的唯一來源是 C:\Users\shoot\project\Knowledge\SCHEDULES.md:開跑前先 Read 第 5 節(含頻道清單與共通規則),再依來源讀第 1(IT咖啡馆 GitHub Weekly)、2(Gary Chen)、4(美投君)節的細則;各節 code block 內的步驟就是本任務的作業流程,照做。⭐⭐ 語音轉文字一律呼叫 `python scripts/media/whisper_transcribe.py <影片ID或檔案> -o <輸出.txt>`(固定 large-v3-turbo;**預設不帶 --prompt 詞表**,實測帶了更差;讀稿遇到語句不通順、疑似專有名詞聽錯處,才用 `--clip 起-迄 --prompt "正確詞表"` 定點重轉並取代),不要自己 inline 寫 WhisperModel、不要換 small、不要自己加 no_repeat_ngram_size;官方字幕優先,其次自動字幕(`scripts/youtube/transcript_tools.py fetch` 兩者都會抓),都沒有才轉錄。
 來源分兩組(一律用 channel ID,不用 handle;回報時用頻道中文名):
 A 核心三來源,有新的就全部處理、不受 2–3 篇上限:① IT咖啡馆 GitHub Weekly(UCXLV-KfDQAFUJ_as9H1Lfbw,第 1 節)② Gary Chen(UC9C3t-3ocL0LiwGRD0gBJ8A,第 2 節)③ 美投君/美投讲美股(UCBUH38E0ngqvmTqdchWunwQ,第 4 節,幾乎每支都要 Whisper)。
-B 其餘十頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模型、小Lin说、Redknot-乔红、Nick 美股咖啡館、轩辕的编程宇宙、橘鸦Juya(UCIDll3SRcbHwwcXbrwvBZNw,每日 AI 早報短影片,見第 5 節說明:同週早報併成週報式筆記並對官方來源核實,不逐日一篇)、Mia 码上 AI(UCEEj0DKPRQ3FS2AuccxRQJQ,AI 入門科普、無字幕要 Whisper;只巡 2026-11-05 之後的新片,更早的存量不補;⭐⭐ 使用者 2026-11-08 要求:科普頻道每篇都要把影片「提到但沒細講」的概念延伸到一手來源——官方部落格、論文、原始碼、模型卡逐項讀內文,標已核實/需修正/未能核實,延伸要完整到日後能靠這篇查到有用資料,可附小實驗,不是只複述影片;範例見 knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md)(清單與 ID 見第 5 節;規則照第 5 節,含「每次最多 2–3 篇、先增補既有筆記」)。
+B 其餘十一頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模型、小Lin说、Redknot-乔红、Nick 美股咖啡館、轩辕的编程宇宙、橘鸦Juya(UCIDll3SRcbHwwcXbrwvBZNw,每日 AI 早報短影片,見第 5 節說明:同週早報併成週報式筆記並對官方來源核實,不逐日一篇)、Agent 煉金術士(UCvaNNUtaDbZbHJy3jtK5yhg,AI 產業新聞與 agent 工程整理短影片,有官方 zh 字幕,說明欄附一手來源連結;2026-11-22 加入,只巡 2026-11-18 之後的新片,更早不補;核實時優先讀說明欄所列原演講/原文)、Mia 码上 AI(UCEEj0DKPRQ3FS2AuccxRQJQ,AI 入門科普、無字幕要 Whisper;只巡 2026-11-05 之後的新片,更早的存量不補;⭐⭐ 使用者 2026-11-08 要求:科普頻道每篇都要把影片「提到但沒細講」的概念延伸到一手來源——官方部落格、論文、原始碼、模型卡逐項讀內文,標已核實/需修正/未能核實,延伸要完整到日後能靠這篇查到有用資料,可附小實驗,不是只複述影片;範例見 knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md)(清單與 ID 見第 5 節;規則照第 5 節,含「每次最多 2–3 篇、先增補既有筆記」)。
 全域上限:整次 Whisper 最多 2 支(A 組美投君 1 + B 組 1);其餘順延到隔天,並記入第 5 節存量。
 共通鐵則:
 - 去重:grep -rlF --include=*.md -- "<id>" knowledge/ (範圍必須是 knowledge/,不可用 .)。
@@ -468,6 +468,7 @@ B 其餘十頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模型�
 | **Redknot-乔红** | `UCAf2Y9FGJlE_ByXYF7BXv5g` | @redknot-miaomiao | 多數**無** | 14–19 分 |
 | **Nick 美股咖啡館** | `UCjrP2TtSTifuRJ76hW2IW1A` | @nick_stockcafe | **官方 zh-TW** | 11–32 分 |
 | **轩辕的编程宇宙** | `UCLkwRNY9Ck9-d1ulZYHsl-Q` | @xuanyuancoding | **無**(需 Whisper) | 10–15 分 |
+| **Agent 煉金術士** | `UCvaNNUtaDbZbHJy3jtK5yhg` | @AIAgentAlchemist(2026-11-22 加入) | **官方 zh**(抓取偶遇 429,重試) | 9–11 分;**只巡 2026-11-18 之後**;說明欄有章節與一手來源連結 |
 | **Mia 码上 AI** | `UCEEj0DKPRQ3FS2AuccxRQJQ` | (2026-11-08 加入) | **無**(需 Whisper) | 約 10 分;**只巡 2026-11-05 之後**(起點影片 `GvlftOu2uNA`),更早存量不補;⭐ 科普頻道,筆記須深度延伸(見 prompt) |
 
 > ⭐ 列表網址一律寫成 `https://www.youtube.com/channel/<channel ID>/videos`。
@@ -487,6 +488,7 @@ B 其餘十頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模型�
 
 ### 存量清單(2026-09-01 首次巡檢盤點,已完成 1 支)
 
+- ⭐ **2026-11-22 新增 Agent 煉金術士(使用者提供 `OPAdcgNb4ts`)**:✅ 已整理 `OPAdcgNb4ts`(Lauren Tan〈All Code Is Slop〉)→ 新篇 ai-agents/applications/all-code-is-slop-lauren-tan-deterministic-checks-agent-alchemist(原演講與 X 貼文讀不到,數字以三份二手文章交叉,標明未能核實處);順延存量(只巡 11-18 之後):`-nnQ7uzPC_0`(AWS 154 場高管訪談:AI 省下的時間去哪了)、`3O6Ncr3UpWQ`(索羅斯前操盤手:AI 不賣 token 改賣任務,投資類⚠️)、`jyCPA0zR68Q`(Anthropic 長 86 倍跑得贏帳單嗎)、`V1MQCYjfdJI`(AI 晶片支出少 2,960 億為何多半是輝達);11-18 以前的 `xpvIVU7eCOs`、`jA48wHhIjxM`、`yX_kdGYLpR4` 不補。
 - ⭐ **2026-11-22 巡檢(排程 A)**:IT咖啡馆 `LvyC-FTblTM`(Github一周热点 139 期,Whisper 1 支)✅ 新篇 github-weekly/issue-139(淺 clone 讀 Sure、AG-UI、EGM、Auto Ontology;Auto Ontology 五動作為 Discover/Ground/Validate/Expose/Learn,影片「對齊」需修正;AG-UI 發起日期、Sure 同步範圍、Gartner 與 Token 白皮書未能核實)。Gary、美投君無新片。**新存量(順延):** Why QQ `fP9G3nnn97U`(精靈堆疊 Sprite Stacking 2D 轉 3D,無字幕需 Whisper);橘鸦Juya `3lQWDMhXPlg`(11/22 早報)併 `qBG86MsdfE8`、`bst5RVlKNFY`、`yFGyelcqMr4` 待週報(字幕 429 疑無);Mia 新增 `6t41fhC5Vdc`、`vbImKUrxrGo`、`HqPE0WJe_8A`、`TCRcXt6dd80`(皆需 Whisper+延伸);其餘存量同 11-21。
 - ⭐ **2026-11-21 巡檢(排程 A)**:Why QQ `enLak0cYRKk`〈Gemini 4 Neon〉(無字幕,Whisper 1 支)✅ 新篇 ai-industry/gemini-4-neon-harness-swe-sweep-12-8-vs-39-why-qq(讀模型卡、Google 發布文、Antigravity 部落格、AA 文章:12.8/39.0、65.2 對 65.8、Orchestrator 已核實;Opus 同表 3.6→10.1 影片未提;Opus 59 分、58.6、Plotly 數字、CLI 1.5.9 未能核實)。A 組三來源無新片。**新存量(順延):** Why QQ `VKD4v_a03Vk`(中國大模型被卡住了嗎,無字幕需 Whisper);YAHA `0fJNblNJgcs`(TokenEconomizer 實測,字幕 429、疑無字幕),其餘同 11-20;Nick `8TdPg5AFx4M`(熊市買四檔股票,先 grep);Juya `qBG86MsdfE8`(11/20 早報)併 `bst5RVlKNFY`、`yFGyelcqMr4` 待週報;Mia 新增 `VWG5YLUYNBA`、`EJijJBr2RQQ`、`r6AfQa0-iFE`、`k0lgRk8lL3M`(皆需 Whisper+延伸);其餘存量同 11-20。
 - ⭐ **2026-11-20 巡檢(排程 A)**:Why QQ `qdGMtU6Qpz8`〈GPT-6.2 翻車〉(自動字幕)✅ 新篇 ai-industry/gpt-6-2-astra-sol-reliability-regression-theo-system-card-why-qq(OpenAI 發布頁 403、System Card 404、Theo X 原文未抓,改以 Implicator 等二手交叉:價格 8/40 與 2/10、AA-3D 1,318、Coding Agent Index 持平與 Sol −3、Blocker Deception 11.09→22.28%、Broken Search Tool 7.58→23% 二手一致;Astra 62 分、VentureBeat 出處、HN 成本、Codex 回放數字未能核實)。A 組三來源無新片(Gary `4LUtbEsNA3Y` 會員限定)。Whisper 本輪 0 支。**新存量(順延):** Why QQ `S5Id5q2dz8k`(Windows 11 與 AI 編程工具,11/19)、`dKvC0nGW8dw`、`ZVUxINYDzT8`(GPT-6.2 vs Fable 5.2 動畫遊戲 8 美元對 81 美元,無字幕需 Whisper,可併入本篇 GPT-6.2 筆記);YAHA `gPh5T2eUFgU`(Astra 6.2 做遊戲)、`AqUpkztK9yg`(Higgsfield MCP AI 短劇)加 `1tsoTS8qqoM`、`2D6UZSlIXr0`、`-Rp2jh1gJsw`、`y-Kv0ZZeBGk`;小Lin说 `BHQEtI_JZhg`(GTA 千億豪賭);轩辕 `ATwBqOV5CyY`(Fable 5.2 用程式碼做影片,需 Whisper);橘鸦Juya `bst5RVlKNFY`(11/19 Gemini 4 Neon)與 `yFGyelcqMr4`(11/18),待併下一週週報;Mia 新增 `bmI2RHwALSY`、`KhqzZGrNERg`、`Ggkj6DYaZm0`、`4ReVUagRhxI`、`xQgvewK5U0E` 等(皆需 Whisper+延伸);Caleb、白白、Nick 存量同 11-19 項。頻道 ID 改用 `grep -m1 "^| 頻道名" SCHEDULES.md | grep -o UC...` 取,本輪零錯誤。commit 不加署名。
@@ -604,6 +606,7 @@ B 其餘十頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模型�
 
 | 日期 | 事件 |
 |---|---|
+| 2026-11-22(新增 Agent 煉金術士) | **使用者提供 `OPAdcgNb4ts` 並要求追蹤該頻道**:加入排程 A(13→14 個來源、B 組十一頻道,channel ID `UCvaNNUtaDbZbHJy3jtK5yhg`,只巡 11-18 之後);已整理該片為新篇;排程 A 由 `0fbd4eba` 重建為 `6072f0fc`(07:03,約 11-29 到期);B 仍為 `96e42976` |
 | 2026-11-22(重建) | **使用者要求重建**:舊 A `fbfc7f8d`、B `941b3110` 刪除,依本檔 prompt 原文重建為 A `0fbd4eba`(07:03)、B `96e42976`(08:37),**約 11-29 到期**;gooaye 照舊不建。當日 A、B 皆已跑過,不需補檢。 |
 | 2026-11-22(排程 A 巡檢) | IT咖啡馆 1 篇(GitHub 週報第 139 期,clone 讀 Sure、AG-UI、EGM、Auto Ontology README 核實);Whisper 1 支;其餘順延 |
 | 2026-11-21(排程 A 巡檢) | Why QQ 1 篇(Gemini 4 Neon harness 之爭,讀模型卡補出 Opus 同表數字);Whisper 1 支;其餘順延 |

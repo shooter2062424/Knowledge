@@ -215,6 +215,8 @@ Gary 的結論:兩者互補(Lauren 本人也這樣說),**一般人建議先從 M
 
 ---
 
+- 相關:[[all-code-is-slop-lauren-tan-deterministic-checks-agent-alchemist]](同一位 Lauren 的演講〈All Code Is Slop〉整理:每次糾正變成確定性檢查、禁用難用 API)
+
 ## 來源
 
 - Why QQ〈Cursor 内部最火插件开源:一周被同事调用九千次〉:https://www.youtube.com/watch?v=Z-Fy1DghUvI(官方 zh-Hans 字幕)

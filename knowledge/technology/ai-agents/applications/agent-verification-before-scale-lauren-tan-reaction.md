@@ -125,6 +125,7 @@ Agent 每次驗證都臨時寫腳本、用完就丟、下一個再重寫,既慢�
 - [[pstack-poteto-mode-cursor-plugin]]:Lauren Tan 的技能庫原始碼拆解。
 - [[matt-pocock-skills-teardown]]:Matt Pocock 的技能。
 - [[agent-skill-three-layer-run-do-verify]]:技能的跑、做、驗三層。
+- [[all-code-is-slop-lauren-tan-deterministic-checks-agent-alchemist]]:Lauren Tan 演講整理:把每次糾正變成確定性檢查、禁用難用 API。
 - [[cross-model-review-claude-codex-harness]]:用不同模型互審,降低球員兼裁判。
 - [[loop-engineering-when-and-how-gary-chen]]:驗收目標與 hard stop 的設計。
 
