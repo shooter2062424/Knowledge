@@ -197,6 +197,7 @@ flowchart LR
 - [[claude-throttling-opus-4-7]] — 算力成本與限額如何影響使用體驗
 - [[gpt-5-6-sol-kernel-self-optimization-luna-pricing]] — 推理成本與定價的同業對照
 - [[claude-haiku-5-5-cheap-model-computer-use]] — 小模型單位成本的具體數字
+- [[anthropic-ipo-compute-bill-vs-growth-424b4-agent-alchemist]] — 定案的 424B4:9,009 億算力帳單 vs 成長(Agent 煉金術士,讀 SEC 原文核實)
 
 ## 來源
 

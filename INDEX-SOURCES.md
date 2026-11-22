@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**542 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **421 篇**筆記。
+> 統計:**543 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **422 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(542 部,依 video id 排序)
+## YouTube(543 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -291,6 +291,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `jNOQ4yQRn3M` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `JNVK-fd2pH4` | AI 名詞地圖:從 Token 到 Agent Skills——三種分層框架對照(八概念演進鏈 / 四層技術全景 / 職場四層選型) | [knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md](./knowledge/technology/ai-agents/foundations/ai-concepts-layered-map-baibai.md) |
 | `JPGo_5fczaA` | 模型越強,Superpowers 和 Matt Skills 該刪掉誰?兩套 AI 編程工作流的選擇框架 | [knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md](./knowledge/technology/ai-agents/applications/superpowers-vs-matt-skills-strong-model.md) |
+| `jyCPA0zR68Q` | Anthropic 上市:9,009 億美元算力帳單,成長跑得贏嗎(Agent 煉金術士 + 招股書 424B4 核實) | [knowledge/technology/ai-industry/anthropic-ipo-compute-bill-vs-growth-424b4-agent-alchemist.md](./knowledge/technology/ai-industry/anthropic-ipo-compute-bill-vs-growth-424b4-agent-alchemist.md) |
 | `K9kk0e5xgCI` | REA:讓 Claude Code 帶著證據做逆向工程——分工、三類成品、四個案例與五個新手坑(YAHA學堂 + 原始碼) | [knowledge/technology/software-engineering/rea-ai-reverse-engineering-claude-code.md](./knowledge/technology/software-engineering/rea-ai-reverse-engineering-claude-code.md) |
 | `K_2Lu41SEuw` | 第 134 期:WebGPU 特效元件庫(Shaders)、PS5 遊戲移植到電腦(AnyPS5)、讓 Agent 逆向一切(REA)、提升 AI 前端設計的 Skill(Impeccable)與自架健身紀錄(openGym) | [knowledge/technology/github-weekly/issue-134.md](./knowledge/technology/github-weekly/issue-134.md) |
 | `KDz1RpudZ1o` | 第 129 期:Agent 辦公室、GPT-Image-2 提示詞庫、Codex Harness、Apache Maka 與免費模型路由 | [knowledge/technology/github-weekly/issue-129.md](./knowledge/technology/github-weekly/issue-129.md) |

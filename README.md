@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-466_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-467_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -160,7 +160,7 @@ flowchart LR
 | **Jim AI Notebook** — AI 每日深度解析 | 2 | [MCP 2026-07-28 最大改版](./knowledge/technology/ai-agents/foundations/mcp-2026-07-28-stateless-rewrite.md) · [Stanford CS336 訓練成本餐巾紙算法](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | **Simon Scrapes** — Claude skill/自動化實作(⚠️ 推廣 Skool 付費社群) | 1 | [官方 skill 最佳實踐七條(併入 Skill 實戰 §8)](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
 | **wow** — AI agent 真實系統壓測 | 2 | [Graphify 知識圖譜實戰壓測](./knowledge/technology/ai-agents/memory-retrieval/graphify-code-knowledge-graph-real-world-test.md) · [本體論護欄與神經符號 AI(Frank Coyle)](./knowledge/technology/ai-agents/foundations/neuro-symbolic-ontology-guardrails-frank-coyle.md) |
-| **Agent 煉金術士(@AIAgentAlchemist)** — AI 產業與 agent 工程新聞整理(排程巡檢) | 1 | [所有程式碼都是垃圾,除了我的(Lauren Tan)](./knowledge/technology/ai-agents/applications/all-code-is-slop-lauren-tan-deterministic-checks-agent-alchemist.md) |
+| **Agent 煉金術士(@AIAgentAlchemist)** — AI 產業與 agent 工程新聞整理(排程巡檢) | 2 | [Anthropic 上市:9,009 億算力帳單 vs 成長](./knowledge/technology/ai-industry/anthropic-ipo-compute-bill-vs-growth-424b4-agent-alchemist.md) · [所有程式碼都是垃圾,除了我的(Lauren Tan)](./knowledge/technology/ai-agents/applications/all-code-is-slop-lauren-tan-deterministic-checks-agent-alchemist.md) |
 | **Nick 美股咖啡館(@nick_stockcafe)** — 美股個股與投資觀 | 9 | [Google、Amazon 財報後大跌與加碼邏輯](./knowledge/investing/equity-research/google-amazon-q3-2026-selloff-nick.md) · [巴西大選暴跌:Nu Holdings 加碼與 SoFi Q3 財報](./knowledge/investing/equity-research/nubank-brazil-election-selloff-and-sofi-q3-2026-nick.md) · [Sell Put 提前買回換約](./knowledge/investing/derivatives/sell-put-early-close-roll-delta-nick.md) · [內部人買股五家公司(Form 4 實查)](./knowledge/investing/equity-research/insider-buying-signal-five-companies.md) · [CoreWeave 債務壓力測試](./knowledge/investing/equity-research/coreweave-neocloud-debt-stress.md) · [不把錢賺好賺滿:社會資產](./knowledge/investing/strategy/not-maximizing-income-social-assets-nick.md) · [不靠 AI 也能穩的五家公司](./knowledge/investing/equity-research/ai-proof-five-moat-stocks-nick.md) · [跌多少才加碼:看理由不看幾趴](./knowledge/investing/strategy/when-to-add-reason-not-percent-fico-nick.md) · [出國後首度買股(併入 Google/Amazon 財報後筆記)](./knowledge/investing/equity-research/google-amazon-q3-2026-selloff-nick.md) |
 | **財女珍妮** — 美股投資與 AI 投資工具訪談 | 1 | [用 AI Agent + Skill 讀財報、做估值(課程推廣集)](./knowledge/investing/ai-assisted/ai-agent-skill-stock-research-workflow.md) |
 | **AI懶人報** — 名校課堂與 AI 工程講座的中文重述 | 3 | [Always-on Agent 怎麼運作:Lee Robinson 拆解 Grok Bot](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) · [Herdr 多專案六條規則(增補 §十)](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) · [企業導入 AI 兩個卡關原因(含 Basis 原演講補全)](./knowledge/technology/ai-agents/applications/enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao.md) |
@@ -631,6 +631,7 @@ flowchart LR
 | [Gemini 4 Argon:跑分領先但分布不均、首發優惠價、先給網安防禦者(Why QQ)](./knowledge/technology/ai-industry/gemini-4-argon-release-benchmarks-pricing.md) | ⭐ Fairwind 首發、輸出上限 64K→1M;⭐⭐ 知識工作/長上下文領先、終端類輸 5 項;⭐⭐⭐ $2/$10 為首發價、之後翻倍 $4/$20,正常價每任務 $3.98 反比 Astra 貴;📌 勝場數更正為 13、Harvey 對手數字更正 |
 | [Kimi K3.1 Pro:Terminal-Bench 65.7 只差 Opus 5.5 0.7 分,但選型要看你的倉庫驗收(Why QQ + 官方部落格)](./knowledge/technology/ai-industry/kimi-k3-1-pro-open-weight-coding-acceptance.md) | 3T 級開放權重、百萬上下文、11-04 前釋出權重;⚠️ Terminal-Bench Science 38.1 vs Astra 68.1,能力不均;⭐ 官方腳註:對照組取各家自報最大值、評測 harness 不同;⭐⭐ 人體行走案例「獎勵調不動就去查模擬器」、BenchCAD 工具增益 19.9 分 ⇒ 先補執行器與檢查器;API 始終思考、$2/$10、推理 token 計費;xdev-bench-hard 清理前 90.5 → 發布版 81.0;⭐⭐⭐ 固定任務集 + 每個通過驗收的任務成本 |
 | [Anthropic S-1 從工程師視角讀:807 億虧損、經營現金流轉正,與 Agent 的單位任務成本(Why QQ)](./knowledge/technology/ai-industry/anthropic-s1-ipo-claude-code-unit-economics.md) | ⭐⭐⭐ **淨虧損 807 億裡約 724 億是公允價值變動、非現金**;上半年經營虧損 6.93 億、Q2 經營利潤 9.74 億、經營現金流 +39 億 ⇒ 三行分開看;每 1 美元算力收入 0.40→2.08;千億級算力承諾、用量不足仍要補付;Class F 50.1% 投票權;⭐⭐ Agent 帳本:trace ID、模型路由、五項驗收指標(先加人工接管次數);⚠️ 原文未能直讀,與草稿版報導多處不一致已並列;非投資建議 |
+| [Anthropic 上市:9,009 億算力帳單,成長跑得贏嗎(Agent 煉金術士,讀 SEC 424B4 核實)](./knowledge/technology/ai-industry/anthropic-ipo-compute-bill-vs-growth-424b4-agent-alchemist.md) | ⚠️非投資建議;✅ 9,009 億/707 億/take-or-pay/86 倍/Q3 虧 5.67 億(含 20 億非現金)/投票權 61.1%;⚠️ 補正:雲端平台占比 2025 年 47% 高點、今年 44% 回落,Q3 虧損含非現金費用;人事 58%→10%、現金 2,324 億、四家 4,400 億、13%/28% 持股未能核實 |
 | [AI 日報 11/09:Claude Code「不要再問」外流密碼、純 CPU 跑 284B、寫碼全對 26.4%(維維 AI 技術工坊)](./knowledge/technology/ai-industry/ai-daily-2026-11-09-claude-code-secrets-modchip-co-design-bench-weiwei.md) | 10 則速報逐則對一手來源:Apiiro 104,185 份設定檔掃出 1,122 份含密鑰;llama-modchip 實為 56.56 GiB、9–10 tok/s(無損);Co-Design Bench「75→56」其實是換 harness;大象金魚審查流程;⚠️ 蘋果/布盧明頓/Sutton 推文未能核實 |
 
 ### 🧱 software-engineering(軟體工程與程式碼品質)

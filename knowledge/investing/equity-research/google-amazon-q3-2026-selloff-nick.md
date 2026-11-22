@@ -164,3 +164,5 @@ flowchart TD
 - [[when-to-add-reason-not-percent-fico-nick]] — 同作者,下跌後加碼要看理由
 - [[pltr-earnings-growth-ceiling-and-valuation-digestion]] — 財報後大跌的估值消化邏輯
 - [[microsoft-fy26q1-three-doubts-resolved]] — 大科技財報後的質疑拆解對照
+- [[anthropic-ipo-compute-bill-vs-growth-424b4-agent-alchemist]] — 定案的 424B4:9,009 億算力帳單 vs 成長(Agent 煉金術士,讀 SEC 原文核實)
+
