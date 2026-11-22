@@ -96,6 +96,7 @@ flowchart TD
 - [[ai-proof-five-moat-stocks-nick]] — 護城河分析的類比框架
 - [[meitoujun-why-blog-and-how-to-pick-finance-bloggers]] — 同作者,如何辨別財經博主(本片就含業配與自家推廣)
 - [[nvidia-ceo-exit-ecosystem-commitments-three-scenarios-why-qq]] — 同事件:Why QQ 的財務與生態結構分析,對官方申報核實並補 11/17 第三季財報
+- [[us-stocks-freefall-fed-put-ai-demand-meitoujun-20261122]] — 同作者 11/22:美股自由落體、Fed Put 與 AI 需求(美投君)
 
 ## 來源
 

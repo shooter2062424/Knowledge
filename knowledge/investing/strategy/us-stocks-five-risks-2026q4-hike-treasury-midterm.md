@@ -407,3 +407,4 @@ flowchart TB
 
 - [[us-stocks-ai-turning-point-fomo-over-pullback]] — 同主題:美股連漲 13 天還能追嗎?「真實通脹」數據、AI 情緒三大轉向信號,與「踏空風
 - [[us-tariff-ieepa-struck-down-refunds-and-section-301]] — 同主題:川普關稅被判違法之後:1,660 億美元退稅、150 天的過渡條款,與無縫接上的
+- [[us-stocks-freefall-fed-put-ai-demand-meitoujun-20261122]] — 同作者 11/22:美股自由落體、Fed Put 與 AI 需求(美投君)
