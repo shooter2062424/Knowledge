@@ -604,6 +604,7 @@ B 其餘十頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模型�
 
 | 日期 | 事件 |
 |---|---|
+| 2026-11-22(重建) | **使用者要求重建**:舊 A `fbfc7f8d`、B `941b3110` 刪除,依本檔 prompt 原文重建為 A `0fbd4eba`(07:03)、B `96e42976`(08:37),**約 11-29 到期**;gooaye 照舊不建。當日 A、B 皆已跑過,不需補檢。 |
 | 2026-11-22(排程 A 巡檢) | IT咖啡馆 1 篇(GitHub 週報第 139 期,clone 讀 Sure、AG-UI、EGM、Auto Ontology README 核實);Whisper 1 支;其餘順延 |
 | 2026-11-21(排程 A 巡檢) | Why QQ 1 篇(Gemini 4 Neon harness 之爭,讀模型卡補出 Opus 同表數字);Whisper 1 支;其餘順延 |
 | 2026-11-20(排程 A 巡檢) | Why QQ 1 篇(GPT-6.2 翻車:Theo 長信、AA 與 System Card,官方頁讀不到僅二手交叉);Whisper 0 支;其餘順延 |
