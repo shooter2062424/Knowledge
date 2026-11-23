@@ -122,6 +122,7 @@ Agent 每次驗證都臨時寫腳本、用完就丟、下一個再重寫,既慢�
 
 ## 相關筆記
 
+- [[riemann-hypothesis-alpoge-claude-lean-proof-agent-alchemist-why-qq]] — Alpöge 與 Claude 的黎曼猜想 Lean 證明:短文、1,737 萬行、驗證範圍與保留(Agent 煉金術士 + Why QQ)
 - [[pstack-poteto-mode-cursor-plugin]]:Lauren Tan 的技能庫原始碼拆解。
 - [[matt-pocock-skills-teardown]]:Matt Pocock 的技能。
 - [[agent-skill-three-layer-run-do-verify]]:技能的跑、做、驗三層。

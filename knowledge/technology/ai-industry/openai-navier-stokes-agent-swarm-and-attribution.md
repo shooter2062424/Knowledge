@@ -930,6 +930,7 @@ flowchart LR
 
 ## 相關筆記
 
+- [[riemann-hypothesis-alpoge-claude-lean-proof-agent-alchemist-why-qq]] — Alpöge 與 Claude 的黎曼猜想 Lean 證明:短文、1,737 萬行、驗證範圍與保留(Agent 煉金術士 + Why QQ)
 - [[anthropic-art-enzyme-discovery-research-harness]] — 同主題:Anthropic 用 949 個 agent session 找到新酶系統 A
 - [[gpt-6-astra-napoleon-marmont-cipher]] — 同主題:GPT-6 Astra 解開 217 年的拿破崙密信:從一張模糊掃描圖到可重現的
 - [[astra-ten-open-problems-and-agi-two-axes-caleb]] — 同主題:Astra 解出十個數學開放問題,然後呢?用「機制」與「能力」兩條軸看 AGI 

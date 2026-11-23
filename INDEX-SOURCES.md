@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**544 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **423 篇**筆記。
+> 統計:**547 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **424 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(544 部,依 video id 排序)
+## YouTube(547 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -144,6 +144,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `B91bZL8wcAI` | 什麼是 AI Harness?兩種「harness」的差別 | [knowledge/technology/ai-agents/foundations/ai-harness-explained.md](./knowledge/technology/ai-agents/foundations/ai-harness-explained.md) |
 | `b9fvVzHgMbw` | 4090 算力翻倍?gpu-unlock-ada 解開 Tensor「半速鎖」:指令翻倍,但你的專案未必快 | [knowledge/technology/llm-internals/inference/gpu-unlock-ada-tensor-half-rate-override.md](./knowledge/technology/llm-internals/inference/gpu-unlock-ada-tensor-half-rate-override.md) |
 | `BAfRVpKIxZ4` | 交易的「贏家數學」:四個核心概念,以及一份完整的數學學習路線圖 | [knowledge/investing/strategy/trading-math-expectancy-variance-risk.md](./knowledge/investing/strategy/trading-math-expectancy-variance-risk.md) |
+| `bAnwMdfcMVw` | Alpöge 與 Claude 的黎曼猜想 Lean 證明:短文、1,737 萬行、驗證到哪一步(Agent 煉金術士 + Why QQ) | [knowledge/technology/ai-industry/riemann-hypothesis-alpoge-claude-lean-proof-agent-alchemist-why-qq.md](./knowledge/technology/ai-industry/riemann-hypothesis-alpoge-claude-lean-proof-agent-alchemist-why-qq.md) |
 | `bBMp5tLxShQ` | Shopify Helix:用「檢查點 + 四道關卡」讓 AI 寫完的東西過得了關,以及怎麼在 Claude Code 裡自己搭一套 | [knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md](./knowledge/technology/ai-agents/applications/shopify-helix-checkpoints-and-gates.md) |
 | `Bhe3uhfEK6E` | herdr:讓 Agent 互相指揮的終端 runtime —— 用 Claude Code 做計畫、Codex 審核、便宜模型執行 | [knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md](./knowledge/technology/ai-agents/applications/herdr-terminal-runtime-agent-to-agent.md) |
 | `bhfBWHPYC-I` | 把安全審計當流程工程做:Cloudflare 開源的 security-audit skill,與「記帳比聰明重要」 | [knowledge/technology/ai-agents/applications/cloudflare-security-audit-skill-pipeline.md](./knowledge/technology/ai-agents/applications/cloudflare-security-audit-skill-pipeline.md) |
@@ -356,6 +357,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `nySTPhneEjw` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
 | `o1EQ5wezMyA` | 給非技術人員的 Git / GitHub:Vibe Coding 必學的基礎技能 | [knowledge/technology/ai-productivity/git-github-for-vibe-coders.md](./knowledge/technology/ai-productivity/git-github-for-vibe-coders.md) |
 | `O1JMZvgFxKE` | Astra 解出十個數學開放問題,然後呢?用「機制」與「能力」兩條軸看 AGI 之爭 | [knowledge/technology/ai-industry/astra-ten-open-problems-and-agi-two-axes-caleb.md](./knowledge/technology/ai-industry/astra-ten-open-problems-and-agi-two-axes-caleb.md) |
+| `o2U-s57RZso` | Alpöge 與 Claude 的黎曼猜想 Lean 證明:短文、1,737 萬行、驗證到哪一步(Agent 煉金術士 + Why QQ) | [knowledge/technology/ai-industry/riemann-hypothesis-alpoge-claude-lean-proof-agent-alchemist-why-qq.md](./knowledge/technology/ai-industry/riemann-hypothesis-alpoge-claude-lean-proof-agent-alchemist-why-qq.md) |
 | `o8Ca8Y9LG_0` | REA:讓 Claude Code 帶著證據做逆向工程——分工、三類成品、四個案例與五個新手坑(YAHA學堂 + 原始碼) | [knowledge/technology/software-engineering/rea-ai-reverse-engineering-claude-code.md](./knowledge/technology/software-engineering/rea-ai-reverse-engineering-claude-code.md) |
 | `oBy94l_48CQ` | 2026 年 Agent 開發工程師要什麼能力:從 Demo 到生產系統的四塊拼圖(附面試題與標準答案) | [knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md](./knowledge/technology/ai-agents/foundations/production-agent-engineer-skills-2026.md) |
 | `OCcHTUiNnGI` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
@@ -395,6 +397,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `q-f2sD4FhJE` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `q15jcI0T5wQ` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
 | `Q4hTr67ECLg` | 讓 Agent 自己花錢:硬上限、先查價、停下來問 —— 一次付費 API 調用的成本護欄實錄 | [knowledge/technology/ai-agents/applications/agent-paid-api-cost-guardrails-mcp.md](./knowledge/technology/ai-agents/applications/agent-paid-api-cost-guardrails-mcp.md) |
+| `q6SFeJqgkaQ` | Alpöge 與 Claude 的黎曼猜想 Lean 證明:短文、1,737 萬行、驗證到哪一步(Agent 煉金術士 + Why QQ) | [knowledge/technology/ai-industry/riemann-hypothesis-alpoge-claude-lean-proof-agent-alchemist-why-qq.md](./knowledge/technology/ai-industry/riemann-hypothesis-alpoge-claude-lean-proof-agent-alchemist-why-qq.md) |
 | `q7HMQLM93qY` | 第 132 期:Jev 開源復刻 Laya、Cloudflare 安全審計 Skill、Univer Office SDK、Google 的 Agent 編排器 AX 與長期記憶 Hindsight | [knowledge/technology/github-weekly/issue-132.md](./knowledge/technology/github-weekly/issue-132.md) |
 | `QAhJRYua62k` | 把 Hermes 爆改成「主 Agent 中樞」:統一調度 SubAgent 與 Claude / Gemini / Codex | [knowledge/technology/ai-agents/applications/hermes-main-agent-orchestration.md](./knowledge/technology/ai-agents/applications/hermes-main-agent-orchestration.md) |
 | `qANyQLdYC9E` | 記憶體五十年週期覆盤:四次科技革命都沒消滅週期,AI 這輪該盯哪三個信號? | [knowledge/investing/equity-research/memory-50-year-cycle-three-signals.md](./knowledge/investing/equity-research/memory-50-year-cycle-three-signals.md) |
