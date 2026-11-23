@@ -131,4 +131,5 @@ flowchart TD
 
 ## 相關筆記
 
+- [[antigravity-swarm-board-coordinator-verifier-sdk-source]] — Google Antigravity /swarm:共享看板、coordinator 與 verifier、SDK 原始碼積木
 - [[issue-110]] — 同主題:GitHub Weekly 第 110 期:史上最快爆紅的 Rust 版 Cla

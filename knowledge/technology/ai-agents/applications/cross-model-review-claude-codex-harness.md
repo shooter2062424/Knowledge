@@ -103,6 +103,10 @@ LLM 有 **sycophancy(討好)傾向**——你請它 review,它就會想辦法挑
 
 ---
 
+## 相關筆記
+
+- [[antigravity-swarm-board-coordinator-verifier-sdk-source]] — Google Antigravity /swarm:共享看板、coordinator 與 verifier、SDK 原始碼積木
+
 ## 來源
 
 - Gary Chen(@garytalksstuff),〈AI 寫的 code 一堆 bug?讓 Claude 跟 Codex 自動互審〉,YouTube:<https://youtu.be/xzrvAERmvRk>(2026-06-27,約 12.5 分鐘)
