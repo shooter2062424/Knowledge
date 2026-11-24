@@ -497,4 +497,5 @@ flowchart TD
 
 ## 相關筆記
 
+- [[meta-muse-beginner-guide-instagram-threads-gary-chen]] — Gary Chen 新手教學:Muse 註冊、介面、IG/Threads 連接器與權限設定
 - [[issue-102]] — 同主題:GitHub Weekly 第 102 期:個人 AI 助理、React 生成影
