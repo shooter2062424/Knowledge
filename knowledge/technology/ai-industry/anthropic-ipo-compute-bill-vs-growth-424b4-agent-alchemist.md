@@ -91,3 +91,8 @@ run-rate 一個月多 100 億很亮眼,但要同步看調整後利潤率(19% →
 - Agent 煉金術士〈Chamath 團隊研究三個月:Anthropic 的成長跑得贏帳單嗎?〉:https://www.youtube.com/watch?v=jyCPA0zR68Q (官方字幕)
 - Anthropic, PBC 424B4 公開說明書(SEC,已下載文字比對關鍵段落):https://www.sec.gov/Archives/edgar/data/2130357/000162828026074944/anthropicpbc-424b4.htm
 - Social Capital Research〈Anthropic〉(付費牆,只讀到免費預覽):https://research.socialcapital.com/p/anthropic
+
+## 相關筆記
+
+- [[palo-alto-applied-compute-own-your-ai-open-weight-rl-agent-alchemist]] — Palo Alto 買 Applied Compute:自訓開放權重模型與訓練+監督合一
+

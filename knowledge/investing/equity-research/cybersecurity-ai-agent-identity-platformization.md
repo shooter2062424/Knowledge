@@ -166,6 +166,10 @@ flowchart TD
 
 ---
 
+## 相關筆記
+
+- [[palo-alto-applied-compute-own-your-ai-open-weight-rl-agent-alchemist]] — Palo Alto 買 Applied Compute:自訓開放權重模型與訓練+監督合一
+
 ## 來源
 
 - 影片:美投君 / 美投讲美股〈网络安全凭什么成为AI新王？历史规律预示，大牛股将从这两大趋势中诞生！〉(2026-10-11):<https://www.youtube.com/watch?v=KOfeTp-9PI8>

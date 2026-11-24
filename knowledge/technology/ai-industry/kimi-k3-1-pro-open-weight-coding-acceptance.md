@@ -286,6 +286,7 @@ Caleb 的角度和 Why QQ 不同,不談怎麼驗收,而是問:**在算力短缺�
 
 ## 相關筆記
 
+- [[palo-alto-applied-compute-own-your-ai-open-weight-rl-agent-alchemist]] — Palo Alto 買 Applied Compute:自訓開放權重模型與訓練+監督合一
 - [[gpt-6-astra-token-efficiency-and-harness]]:Astra 的 token 效率與 harness 之爭,本文對照組之一。
 - [[deepseek-v4-engineering]]:另一個開放權重的中國前沿模型,官方表格也引用了 V4.1-Flash。
 - [[llm-evals-how-to-know-ai-works]]:固定任務集與自動驗收背後的評估方法。

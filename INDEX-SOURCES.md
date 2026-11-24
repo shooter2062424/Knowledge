@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**548 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **425 篇**筆記。
+> 統計:**550 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **426 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(548 部,依 video id 排序)
+## YouTube(550 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -138,6 +138,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `aZEmxJ9ivzg` | 學了那麼多 AI,為什麼還是沒加薪?——省下的時間 85% 被雜事吃掉,以及納許議價怎麼算你該開多少 | [knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md](./knowledge/career/mindset/ai-skills-no-raise-nash-bargaining.md) |
 | `aZOuB8kQ_Yw` | 第 138 期:開源版 Grok Bot(OpenMausBot)、T3 Code、紫微斗數排盤引擎、Scrapling 爬蟲框架與 Meta Astryx 設計系統 | [knowledge/technology/github-weekly/issue-138.md](./knowledge/technology/github-weekly/issue-138.md) |
 | `aZzWVQXKL0c` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
+| `B-MxM-OqON8` | Palo Alto 花 45 億美元買下 Applied Compute:「不擁有自己的 AI 就會被擁有」,開放權重 + 強化學習,以及訓練與監督合一 | [knowledge/technology/ai-industry/palo-alto-applied-compute-own-your-ai-open-weight-rl-agent-alchemist.md](./knowledge/technology/ai-industry/palo-alto-applied-compute-own-your-ai-open-weight-rl-agent-alchemist.md) |
 | `b3aYWkBf7jg` | OpenCode Console 被攻破:AI 在進攻、AI 在拒守——密鑰放哪與「護欄不對稱」 | [knowledge/technology/ai-safety/opencode-console-breach-guardrail-asymmetry.md](./knowledge/technology/ai-safety/opencode-console-breach-guardrail-asymmetry.md) |
 | `B7I0HBXbty8` | 語言稅:中文問 AI 真的更貴嗎?Tokenizer、文字系統與多語言成本實測方法 | [knowledge/technology/llm-internals/architecture/tokenizer-tax-chinese-vs-english-token-cost.md](./knowledge/technology/llm-internals/architecture/tokenizer-tax-chinese-vs-english-token-cost.md) |
 | `b84VdIprZXA` | Opus 5.5 官方 Prompting Guide 十三點:effort 用 medium、刪掉「仔細思考」、講清終點與何時停(Gary Chen) | [knowledge/technology/claude-code/opus-5-5-prompting-guide-13-points.md](./knowledge/technology/claude-code/opus-5-5-prompting-guide-13-points.md) |
@@ -482,6 +483,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `us_rw9gZRYI` | 什麼樣的 Agent 專案才能給履歷加分:玩具 Demo 與企業級應用的分水嶺 | [knowledge/technology/ai-agents/applications/agent-project-resume-enterprise-grade.md](./knowledge/technology/ai-agents/applications/agent-project-resume-enterprise-grade.md) |
 | `UWdn0w-fbzQ` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
 | `uWiu8e5uWmY` | AI 老板 Luna 開除了第一個真人:Andon Market 的心軟、健忘與看走眼(Mia 码上 AI) | [knowledge/technology/ai-agents/applications/ai-boss-luna-andon-market-fired-human-mia.md](./knowledge/technology/ai-agents/applications/ai-boss-luna-andon-market-fired-human-mia.md) |
+| `uX5HOd7Xiw4` | Palo Alto 花 45 億美元買下 Applied Compute:「不擁有自己的 AI 就會被擁有」,開放權重 + 強化學習,以及訓練與監督合一 | [knowledge/technology/ai-industry/palo-alto-applied-compute-own-your-ai-open-weight-rl-agent-alchemist.md](./knowledge/technology/ai-industry/palo-alto-applied-compute-own-your-ai-open-weight-rl-agent-alchemist.md) |
 | `Uz7K757psEU` | 到底需不需要 GraphRAG?9 種 RAG 方案實測對照 + 脈絡優化省 19–53% token | [knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md](./knowledge/technology/ai-agents/memory-retrieval/is-graphrag-needed-rag-variants-comparison.md) |
 | `v0tNOeirrO0` | FlashProve:用零知識證明驗「你調用的真的是那個模型」——能證明什麼、不能證明什麼、貴在哪 | [knowledge/technology/ai-safety/flashprove-zk-proof-of-model-identity-api-gateway.md](./knowledge/technology/ai-safety/flashprove-zk-proof-of-model-identity-api-gateway.md) |
 | `v_2Q_rdJPf0` | 美股自由落體:Fed Put 會先到,AI 需求才決定能不能續漲(美投君 11/22) | [knowledge/investing/strategy/us-stocks-freefall-fed-put-ai-demand-meitoujun-20261122.md](./knowledge/investing/strategy/us-stocks-freefall-fed-put-ai-demand-meitoujun-20261122.md) |
