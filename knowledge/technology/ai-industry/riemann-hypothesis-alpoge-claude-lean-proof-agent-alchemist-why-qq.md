@@ -136,7 +136,7 @@ flowchart LR
 - [[openai-navier-stokes-agent-swarm-and-attribution]] — 九月 Navier–Stokes 風波與 Alpöge、Buckmaster 的貢獻歸屬爭議
 - [[agent-verification-before-scale-lauren-tan-reaction]] — 先有確定性驗證再擴大 agent 規模
 - [[karpathy-ai-capability-funnel-perception-gap]] — AI 能力與外界認知落差的另一個視角
-
+- [[openai-integer-multiplication-below-n-log-n-karatsuba-fft-mia]] — 另一個 AI 數學成果:整數乘法低於 n log n 與「人類讀不懂、問 Claude」的 Harvey 案例
 ## 來源
 
 - 影片:[菲爾茲獎得主估2050年,黎曼猜想提早24年(Agent 煉金術士,2026-11-23)](https://www.youtube.com/watch?v=q6SFeJqgkaQ);說明欄列出的資料來源即下列 Lean 聲明與短文。官方 zh-Hant 字幕。

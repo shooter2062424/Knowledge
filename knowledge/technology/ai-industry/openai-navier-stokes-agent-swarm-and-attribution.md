@@ -934,3 +934,4 @@ flowchart LR
 - [[anthropic-art-enzyme-discovery-research-harness]] — 同主題:Anthropic 用 949 個 agent session 找到新酶系統 A
 - [[gpt-6-astra-napoleon-marmont-cipher]] — 同主題:GPT-6 Astra 解開 217 年的拿破崙密信:從一張模糊掃描圖到可重現的
 - [[astra-ten-open-problems-and-agi-two-axes-caleb]] — 同主題:Astra 解出十個數學開放問題,然後呢?用「機制」與「能力」兩條軸看 AGI 
+- [[openai-integer-multiplication-below-n-log-n-karatsuba-fft-mia]] — 同一批 OpenAI 數學預印本:整數乘法低於 n log n,含 Harvey 筆記核實(Mia 科普)

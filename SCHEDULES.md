@@ -488,6 +488,7 @@ B 其餘十一頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模�
 
 ### 存量清單(2026-09-01 首次巡檢盤點,已完成 1 支)
 
+- ⭐ **2026-11-26 使用者貼連結(非排程)**:Mia `cgVYAFPk8hU`(乘法、Karatsuba 與 OpenAI 低於 n log n)✅ 新篇 ai-industry/openai-integer-multiplication-below-n-log-n-karatsuba-fft-mia(Whisper 1 支;讀 Harvey 筆記全文、GitHub 預印本頁、CrocSwap 倉庫與 Quanta);自 Mia 存量移出 `cgVYAFPk8hU`,剩 `nn44Z1VS2HA`、`uLFz7KOvPqI`。同日另有 Andy Lin `C9XzsJF-FNY`(Skills 六層級,commit 369e18a,非巡檢頻道)。
 - ⭐ **2026-11-25 巡檢(排程 A)**:Gary Chen `UrFrDJ-G6h8`(Meta Muse 新手教學,官方字幕,無 Whisper)✅ 新篇 ai-agents/applications/meta-muse-beginner-guide-instagram-threads-gary-chen(次級來源核對月費需修正;Meta 官方定價頁未能讀到);Agent 煉金術士 `uX5HOd7Xiw4`(官方字幕,無 Whisper)✅ 新篇 ai-industry/palo-alto-applied-compute-own-your-ai-open-weight-rl-agent-alchemist(讀 SEC 8-K 新聞稿、CNBC、Applied Compute 官網與兩個案例頁核實)。清單外新片順延:Why QQ `HNF1Ch35uno`(Vercel 重寫組件庫)、白白说大模型 `V-coqrw5gcY`(RAG 三大範式)、Redknot `IBC2sW6FP9I`(OLED 製程)、Nick `PowFk00xIig`(黃仁勳回歸買哪家)、橘鸦Juya `3jf8OWsujPg`(11/24 早報,GLM-5.4)、Mia `nn44Z1VS2HA`、`cgVYAFPk8hU`、`uLFz7KOvPqI`、Agent 煉金術士 `-nnQ7uzPC_0`、`3O6Ncr3UpWQ`、`V1MQCYjfdJI` 舊存量;IT咖啡马、美投君無新片。
 - ⭐ **2026-11-24 巡檢(排程 A+B)**:Agent 煉金術士 `q6SFeJqgkaQ` + Why QQ `o2U-s57RZso`(Whisper 1 支;同題黎曼猜想併成一篇)✅ 新篇 ai-industry/riemann-hypothesis-alpoge-claude-lean-proof-agent-alchemist-why-qq(讀 Alpöge 短文 PDF、Lean 聲明、MIT 檢查頁核實)。A 組(IT咖啡马、Gary Chen、美投君)無新片。清單外新片順延:橘鸦Juya `5O6Uc9eZrPE`(11/23 早報;⚠️ 近期 Juya 影片已**無自動字幕**,`3lQWDMhXPlg`、`qBG86MsdfE8`、`bst5RVlKNFY`、`hKm2nCvSsiQ` 皆 NO_SUBS,要併成週報須 Whisper 5 支,說明欄有章節與一手連結可先取);YAHA學堂 `z_FOC_GvBVg`(OpenDesign + Claude Code 教學);Mia 码上 AI `tiUwYZbG-Rg`(Claude Fable 5.2 對 GPT-6.2 Astra 性格)、`KGScuSUZ4cg`(Claude Opus 5.5 開機械臂收桌子)、`dQqFSjZeLHs`(ChatGPT 念不出重庆时时彩彩),連同舊存量全需 Whisper+一手延伸。
 - ⭐ **2026-11-23 巡檢(排程 A)**:美投君 `v_2Q_rdJPf0`(AI 泡沫破裂?,Whisper 1 支)✅ 新篇 investing/strategy/us-stocks-freefall-fed-put-ai-demand-meitoujun-20261122;Agent 煉金術士 `jyCPA0zR68Q`(Anthropic 帳單 vs 成長)✅ 新篇 ai-industry/anthropic-ipo-compute-bill-vs-growth-424b4-agent-alchemist(下載 SEC 424B4 原文逐項核實);其餘存量 `-nnQ7uzPC_0`、`3O6Ncr3UpWQ`(投資類⚠️)、`V1MQCYjfdJI`。清單外新片順延:Juya `hKm2nCvSsiQ`(11/22 早報,併入下一週週報,連同 `3lQWDMhXPlg`、`qBG86MsdfE8`、`bst5RVlKNFY`);YAHA學堂 `ZoexGoFe-HI`(4K 真人感 AI 影片完整流程);Caleb `SWj4o8QadPM`(why is P vs NP so hard);Mia 码上 AI `1BglECvDTuM`(日報)、`KX5eCh4bFYY`(AI 詐騙電話七招)、`__3_CxYpRxw`(Claude 接管 Godot 做 3D 遊戲)、`b4ZUw62UvMk`(Claude Whiteboard),全需 Whisper+一手延伸。
@@ -609,6 +610,7 @@ B 其餘十一頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模�
 
 | 日期 | 事件 |
 |---|---|
+| 2026-11-26(使用者貼連結) | Mia `cgVYAFPk8hU` 1 篇(Karatsuba、FFT 與 OpenAI 低於 n log n;Whisper 1 支;核對 Harvey 筆記、GitHub 預印本、CrocSwap 倉庫、Quanta,修正「省 300 多倍」為約 290);另 Andy Lin Skills 六層級 1 篇 |
 | 2026-11-25(排程 A 巡檢) | Gary Chen 1 篇(Meta Muse 新手教學,次級來源核對月費 16→20 美元);Agent 煉金術士 1 篇(Palo Alto 買 Applied Compute,讀 SEC 新聞稿與案例頁,補正 Harvey 成本只對 Sonnet 5);Why QQ、白白、Redknot、Nick、Juya、Mia 3 支新片順延 |
 | 2026-11-24(排程 A+B 巡檢) | Agent 煉金術士 + Why QQ 併 1 篇(黎曼猜想 Lean 證明,Why QQ 走 Whisper 1 支,核對 Alpöge 短文與 Lean 聲明);A 組無新片;Juya 近期影片已無字幕、Mia 3 支與 YAHA 1 支新片順延 |
 | 2026-11-23(排程 A 巡檢) | 美投君 1 篇(Fed Put 與 AI 需求,Whisper 1 支);Agent 煉金術士 1 篇(Anthropic 上市 424B4,下載 SEC 原文核實);清單外新片順延(Juya、YAHA、Caleb、Mia 4 支) |

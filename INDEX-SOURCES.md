@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**552 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **427 篇**筆記。
+> 統計:**553 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **428 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(552 部,依 video id 排序)
+## YouTube(553 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -168,6 +168,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `CGd5zDUrWnw` | Agent 為什麼會長成 Runtime:DeepSeek Harness 的插件樹與事件日誌,以及底下那篇 Cordis 論文 | [knowledge/technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md](./knowledge/technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) |
 | `CghXuvlAhD0` | 當 Agent 代勞時,如何保持批判性思考:Addy Osmani 的認知投降、驗證與當責 | [knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md](./knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md) |
 | `cgKUgAJE3cs` | AI 產業秘密轉向:大模型集體從 C 端轉 B 端、訂閱轉用量,而「算力」成了現階段的勝負手 | [knowledge/investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md](./knowledge/investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md) |
+| `cgVYAFPk8hU` | 竖式是最慢的乘法:從 Karatsuba、FFT 到 OpenAI「低於 n log n」整數乘法,與 Harvey 用 Claude 讀了兩週(Mia 码上 AI) | [knowledge/technology/ai-industry/openai-integer-multiplication-below-n-log-n-karatsuba-fft-mia.md](./knowledge/technology/ai-industry/openai-integer-multiplication-below-n-log-n-karatsuba-fft-mia.md) |
 | `CHHEjuNBxoQ` | Agit:把 Git 那套用在「和 agent 的對話」上,以及影片沒講的兩個坑 | [knowledge/technology/ai-agents/applications/agit-version-control-for-agent-sessions.md](./knowledge/technology/ai-agents/applications/agit-version-control-for-agent-sessions.md) |
 | `CKKJuFVMvXQ` | Graph Engineering:把腦袋裡的分工、路由與驗收畫出來,別再當人肉 routing system | [knowledge/technology/ai-agents/foundations/graph-engineering-node-edge-state.md](./knowledge/technology/ai-agents/foundations/graph-engineering-node-edge-state.md) |
 | `CM4oCnvoK6E` | AI 日報 2026-11-09:Claude Code「不要再問」外流密碼、純 CPU 跑 284B、寫碼全對只有 26.4%(維維 AI 技術工坊) | [knowledge/technology/ai-industry/ai-daily-2026-11-09-claude-code-secrets-modchip-co-design-bench-weiwei.md](./knowledge/technology/ai-industry/ai-daily-2026-11-09-claude-code-secrets-modchip-co-design-bench-weiwei.md) |
