@@ -83,6 +83,10 @@ $$C(k) = \frac{S_k - S_{\text{base}}}{S_{\text{full}} - S_{\text{base}}}$$
 
 ---
 
+
+## 相關筆記
+
+- [[looped-transformers-universal-transformer-latent-reasoning-caleb]] — 同樣關注中間層:Looped Transformer 只循環中間區塊的推理偏置(Google ICLR 2025 論文核實)
 ## 來源
 
 - Zijian Zhang, Rizhen Hu, Athanasios Glentis, Dawei Li, Chung-Yiu Yau, Hongzhou Lin, Mingyi Hong,〈Is One Layer Enough? Training A Single Transformer Layer Can Match Full-Parameter RL Training〉,arXiv:2607.01232(2026-07,University of Minnesota / Peking University / Amazon):<https://arxiv.org/abs/2607.01232>

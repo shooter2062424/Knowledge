@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**555 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **429 篇**筆記。
+> 統計:**556 個 YouTube video id**、**193 個 arXiv 編號**,涵蓋 **430 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(555 部,依 video id 排序)
+## YouTube(556 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -130,6 +130,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `aHAmg_1q41M` | 用 Hugging Face Transformers 在本機跑 DeepSeek-R1 蒸餾模型:載入、tokenizer、padding、chat template 一次講清(程序员老王) | [knowledge/technology/llm-internals/inference/transformers-local-deepseek-r1-distill.md](./knowledge/technology/llm-internals/inference/transformers-local-deepseek-r1-distill.md) |
 | `ahb8kfsZmIk` | YAHA 影音 AI 工具:Filmora 16、Topview、Flova(Seedance 2.5)的可複用方法論 | [knowledge/technology/applied-ai/design/yaha-video-ai-tools-filmora-topview-flova.md](./knowledge/technology/applied-ai/design/yaha-video-ai-tools-filmora-topview-flova.md) |
 | `ajtCT6jl1Nw` | Viking Holdings(VIK):碼頭權 × 高齡高淨值客群的雙層護城河,與那場被低估的歐洲枯水 | [knowledge/investing/equity-research/viking-holdings-river-cruise-moat.md](./knowledge/investing/equity-research/viking-holdings-river-cruise-moat.md) |
+| `Ane0wdhb4wo` | Looped Transformer:把同一組層重複跑,真的省顯存也更會推理嗎?從 Universal Transformer 到中間層循環(Caleb Writes Code) | [knowledge/technology/llm-internals/architecture/looped-transformers-universal-transformer-latent-reasoning-caleb.md](./knowledge/technology/llm-internals/architecture/looped-transformers-universal-transformer-latent-reasoning-caleb.md) |
 | `aR97E7aKEgg` | Matt Pocock 的 AI 開發 skills 全拆解:最紅的 skill 只有五行字,強在哪? | [knowledge/technology/ai-agents/applications/matt-pocock-skills-teardown.md](./knowledge/technology/ai-agents/applications/matt-pocock-skills-teardown.md) |
 | `atqcAb7MFAM` | 給非技術人員的 Git / GitHub:Vibe Coding 必學的基礎技能 | [knowledge/technology/ai-productivity/git-github-for-vibe-coders.md](./knowledge/technology/ai-productivity/git-github-for-vibe-coders.md) |
 | `auolAJmicpg` | 一萬個 agent 破解千禧年難題:Navier-Stokes、抄襲指控,與「誰該被署名」 | [knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md](./knowledge/technology/ai-industry/openai-navier-stokes-agent-swarm-and-attribution.md) |
@@ -586,7 +587,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(189 篇,依編號排序)
+## arXiv(193 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -600,6 +601,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `1706.03762` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `1712.05877` | 模型名裡的 Q4、Q8 是什麼?量化(PTQ / QAT / GGUF / 三值)完整地圖 | [knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |
 | `1712.05877` | TinyML 與高效 AI 運算:MIT 6.5940 課程地圖與核心技術 | [knowledge/technology/llm-internals/inference/tinyml-efficient-ai-mit-6-5940-course-map.md](./knowledge/technology/llm-internals/inference/tinyml-efficient-ai-mit-6-5940-course-map.md) |
+| `1807.03819` | Looped Transformer:把同一組層重複跑,真的省顯存也更會推理嗎?從 Universal Transformer 到中間層循環(Caleb Writes Code) | [knowledge/technology/llm-internals/architecture/looped-transformers-universal-transformer-latent-reasoning-caleb.md](./knowledge/technology/llm-internals/architecture/looped-transformers-universal-transformer-latent-reasoning-caleb.md) |
 | `1810.04805` | AI / ML 工程師學習路線圖:九個職位、104 主題、24 週計畫(Anjana「AI & Tech」5 份 PDF 合併) | [knowledge/career/ai-transition/ai-ml-engineer-learning-roadmaps-anjana.md](./knowledge/career/ai-transition/ai-ml-engineer-learning-roadmaps-anjana.md) |
 | `1810.04805` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `1911.02150` | 100 萬上下文為什麼貴、又為什麼會變笨?從 MHA、MQA、GQA 到 MLA、DSA、CSA | [knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md](./knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md) |
@@ -715,6 +717,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2501.12948` | 一支影片搞懂 LLM 底層邏輯:預訓練、SFT、RLHF,以及 Karpathy 三年前的預言有幾個成真(Gary Chen 導讀) | [knowledge/technology/llm-internals/architecture/karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen.md](./knowledge/technology/llm-internals/architecture/karpathy-intro-to-llm-pretrain-sft-rlhf-gary-chen.md) |
 | `2501.13956` | Agent 長期記憶分層設計:別把一切丟進向量庫(四層記憶 + LVP + 雙時間戳 / 三層記憶 + 影子 Agent) | [knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md](./knowledge/technology/ai-agents/memory-retrieval/agent-long-term-memory-layered-design-baibai.md) |
 | `2501.18837` | AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI) | [knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md](./knowledge/technology/ai-safety/jailbreak-bakery-test-allergy-prompt-mia.md) |
+| `2502.17416` | Looped Transformer:把同一組層重複跑,真的省顯存也更會推理嗎?從 Universal Transformer 到中間層循環(Caleb Writes Code) | [knowledge/technology/llm-internals/architecture/looped-transformers-universal-transformer-latent-reasoning-caleb.md](./knowledge/technology/llm-internals/architecture/looped-transformers-universal-transformer-latent-reasoning-caleb.md) |
 | `2503.13657` | 多 Agent 系統的資料一致性:為什麼數字越傳越亂,以及四層工程解法 | [knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md](./knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md) |
 | `2504.21061` | Code-to-Spec:從既有大型程式碼庫反推規格(CodeConcise、Clang、ACSL、C→Rust) | [knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md](./knowledge/technology/code-dev/spec-code-flow/code-to-spec-reverse-engineering-legacy-codebase.md) |
 | `2505.09388` | LoRA 是什麼:微調為什麼吃顯存,以及「兩個小矩陣」怎麼把 26GB 壓到 8GB(程序员老王) | [knowledge/technology/machine-learning/lora-fine-tuning-explained.md](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) |
@@ -732,6 +735,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2509.13351` | PDDL-Instruct:用「邏輯式 CoT + 外部驗證」教 LLM 做真正的符號規劃 | [knowledge/technology/ai-agents/foundations/pddl-instruct-llm-planning.md](./knowledge/technology/ai-agents/foundations/pddl-instruct-llm-planning.md) |
 | `2509.22908` | 穩定開發大型 C/C++ 的工具箱:契約、靜態分析、形式驗證、fuzz 與 CI 分層(2026) | [knowledge/technology/code-dev/c-cpp/cpp-large-codebase-stability-toolbox.md](./knowledge/technology/code-dev/c-cpp/cpp-large-codebase-stability-toolbox.md) |
 | `2510.14348` | 5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼,以及反過來 | [knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) |
+| `2510.25741` | Looped Transformer:把同一組層重複跑,真的省顯存也更會推理嗎?從 Universal Transformer 到中間層循環(Caleb Writes Code) | [knowledge/technology/llm-internals/architecture/looped-transformers-universal-transformer-latent-reasoning-caleb.md](./knowledge/technology/llm-internals/architecture/looped-transformers-universal-transformer-latent-reasoning-caleb.md) |
 | `2511.00592` | COMPILOT:讓現成 LLM 當「優化 agent」,在與編譯器的閉環對話中把迴圈優化到 3.5 倍 | [knowledge/technology/ai-agents/applications/compilot-llm-guided-loop-optimization.md](./knowledge/technology/ai-agents/applications/compilot-llm-guided-loop-optimization.md) |
 | `2512.02556` | 100 萬上下文為什麼貴、又為什麼會變笨?從 MHA、MQA、GQA 到 MLA、DSA、CSA | [knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md](./knowledge/technology/llm-internals/architecture/long-context-attention-mha-to-csa-xuanyuan.md) |
 | `2512.02556` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
@@ -749,6 +753,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2604.25850` | Agentic Harness Engineering:讓 harness 自己演化自己,而瓶頸不是能力是「可觀測性」 | [knowledge/technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md](./knowledge/technology/ai-agents/foundations/agentic-harness-engineering-observability-evolution.md) |
 | `2605.15155` | SDAR:用「逐 token 門控」穩住多輪 Agent 的強化學習後訓練 | [knowledge/technology/llm-internals/training/sdar-agentic-rl.md](./knowledge/technology/llm-internals/training/sdar-agentic-rl.md) |
 | `2605.15184` | Grep 就夠了嗎?Agent Harness 如何左右「代理式檢索」 | [knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md](./knowledge/technology/ai-agents/memory-retrieval/grep-vs-vector-agentic-search.md) |
+| `2605.23872` | Looped Transformer:把同一組層重複跑,真的省顯存也更會推理嗎?從 Universal Transformer 到中間層循環(Caleb Writes Code) | [knowledge/technology/llm-internals/architecture/looped-transformers-universal-transformer-latent-reasoning-caleb.md](./knowledge/technology/llm-internals/architecture/looped-transformers-universal-transformer-latent-reasoning-caleb.md) |
 | `2605.27360` | 5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼,以及反過來 | [knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) |
 | `2606.06749` | Anthropic 用 949 個 agent session 找到新酶系統 ART:科研 harness 怎麼分工,以及「模型會 ≠ Agent 會」 | [knowledge/technology/ai-agents/applications/anthropic-art-enzyme-discovery-research-harness.md](./knowledge/technology/ai-agents/applications/anthropic-art-enzyme-discovery-research-harness.md) |
 | `2606.09498` | Self-Harness:讓 Agent 自己改進「操作自己的那層 harness」 | [knowledge/technology/ai-agents/foundations/self-harness.md](./knowledge/technology/ai-agents/foundations/self-harness.md) |

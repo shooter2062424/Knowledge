@@ -182,3 +182,4 @@ flowchart LR
 - [[why-reinforcement-learning-is-hard-caleb]] — 推理能力背後的強化學習難點
 - [[context-engineering-processing-vs-thinking]] — 思考與 token 成本的取捨
 - [[transformers-local-deepseek-r1-distill]] — 同主題:用 Hugging Face Transformers 在本機跑 DeepSee
+- [[looped-transformers-universal-transformer-latent-reasoning-caleb]] — 對照:在潛在空間推理的 Looped Transformer,T 次循環可模擬 T 步 CoT
