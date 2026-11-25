@@ -377,3 +377,4 @@ flowchart TB
 ## 相關筆記
 
 - [[issue-99]] — 同主題:GitHub Weekly 第 99 期:AI 程式代理編排、Claude Sk
+- [[anthropic-skills-over-agents-six-levels-andy-lin]] — Andy Lin 整理 RoboNuggets:Skills 六層級與「殘害效應」說法的核實

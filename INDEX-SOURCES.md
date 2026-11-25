@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**550 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **426 篇**筆記。
+> 統計:**552 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **427 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(550 部,依 video id 排序)
+## YouTube(552 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -164,6 +164,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `byCdyKQRe9A` | Claude 近期十個更新怎麼分:新手只要先做三件事(JayLuxAI + 官方文件核實) | [knowledge/technology/claude-code/claude-code-ten-concepts-three-first-steps-jayluxai.md](./knowledge/technology/claude-code/claude-code-ten-concepts-three-first-steps-jayluxai.md) |
 | `c1ogFTJnAAo` | Claude Code「不要再問」把密碼寫進設定檔:Apiiro 報告的口徑、官方文件對照與排查清單(Why QQ) | [knowledge/technology/ai-safety/claude-code-dont-ask-again-secrets-leak-checklist-why-qq.md](./knowledge/technology/ai-safety/claude-code-dont-ask-again-secrets-leak-checklist-why-qq.md) |
 | `C2EzJjVpHpw` | OpenAI 用 Agent 流水線審計 Linux 內核:948 個本地提權漏洞、121 萬美元、以及「拿到 root 卻做錯」的 20 次 | [knowledge/technology/ai-safety/openai-linux-kernel-948-lpe-agent-pipeline-why-qq.md](./knowledge/technology/ai-safety/openai-linux-kernel-948-lpe-agent-pipeline-why-qq.md) |
+| `C9XzsJF-FNY` | 別再為每個任務做新 Agent:模型是晶片、Agent 是作業系統、Skill 是 App,以及 Skills 的六個層級(Andy Lin 林玉堂整理 RoboNuggets) | [knowledge/technology/ai-agents/applications/anthropic-skills-over-agents-six-levels-andy-lin.md](./knowledge/technology/ai-agents/applications/anthropic-skills-over-agents-six-levels-andy-lin.md) |
 | `CGd5zDUrWnw` | Agent 為什麼會長成 Runtime:DeepSeek Harness 的插件樹與事件日誌,以及底下那篇 Cordis 論文 | [knowledge/technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md](./knowledge/technology/ai-agents/foundations/agent-runtime-deepseek-harness-cordis.md) |
 | `CghXuvlAhD0` | 當 Agent 代勞時,如何保持批判性思考:Addy Osmani 的認知投降、驗證與當責 | [knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md](./knowledge/technology/software-engineering/addy-osmani-critical-thinking-when-agents-do-the-work.md) |
 | `cgKUgAJE3cs` | AI 產業秘密轉向:大模型集體從 C 端轉 B 端、訂閱轉用量,而「算力」成了現階段的勝負手 | [knowledge/investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md](./knowledge/investing/equity-research/ai-industry-shift-c-to-b-compute-decides.md) |
@@ -276,6 +277,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `IDGXr9VFyQw` | 編譯通過 ≠ 記憶體安全:Rust issue #164250——借用檢查器裡住了約 11 年的 soundness 洞(Why QQ + issue 原文) | [knowledge/technology/software-engineering/rust-issue-164250-borrow-checker-soundness-hole.md](./knowledge/technology/software-engineering/rust-issue-164250-borrow-checker-soundness-hole.md) |
 | `IE6TXR86WjQ` | Claude Fable 5.2 用三行提示詞做遊戲:Saltline、Gears 風格關卡、SNES 遊戲的帳單與長時間 Agent 成本結構(Why QQ) | [knowledge/technology/ai-industry/claude-fable-5-2-one-prompt-games-saltline-gears-snes-why-qq.md](./knowledge/technology/ai-industry/claude-fable-5-2-one-prompt-games-saltline-gears-snes-why-qq.md) |
 | `iHVpk9IM1Uk` | Windows 原生安裝 Claude Code:一行指令,與五個報錯的官方修法 | [knowledge/technology/claude-code/claude-code-windows-native-install-troubleshooting.md](./knowledge/technology/claude-code/claude-code-windows-native-install-troubleshooting.md) |
+| `IMSYKloMFrE` | 別再為每個任務做新 Agent:模型是晶片、Agent 是作業系統、Skill 是 App,以及 Skills 的六個層級(Andy Lin 林玉堂整理 RoboNuggets) | [knowledge/technology/ai-agents/applications/anthropic-skills-over-agents-six-levels-andy-lin.md](./knowledge/technology/ai-agents/applications/anthropic-skills-over-agents-six-levels-andy-lin.md) |
 | `imvTUmRoqK8` | OpenAI DevDay 2026:主角不是模型,是常駐 agent「dots」——以及 Sol、Ultrafast、Decisions API 與 Codex 上雲 | [knowledge/technology/ai-industry/openai-devday-2026-dots-sol-codex.md](./knowledge/technology/ai-industry/openai-devday-2026-dots-sol-codex.md) |
 | `ipvuIOaN5wA` | 用 Claude Code 零程式碼做網站:突破 AI 預設風格、捲動動畫、設計策略 | [knowledge/technology/applied-ai/design/ai-website-building-claude-code.md](./knowledge/technology/applied-ai/design/ai-website-building-claude-code.md) |
 | `IqvnryFzZD4` | 用 Claude Code + TradingView 蓋一條「盤前交易計畫」流水線(Humbled Trader 實作) | [knowledge/investing/ai-assisted/humbled-trader-claude-tradingview-pipeline.md](./knowledge/investing/ai-assisted/humbled-trader-claude-tradingview-pipeline.md) |

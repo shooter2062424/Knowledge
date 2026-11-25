@@ -305,3 +305,4 @@ flowchart TB
 
 - [[skill-evaluation-four-layer-checklist-google-qq]] — 同主題:Skill 沒效果?先跑對照實驗:Google 的 Skill 優化實驗與「四層
 - [[issue-110]] — 同主題:GitHub Weekly 第 110 期:史上最快爆紅的 Rust 版 Cla
+- [[anthropic-skills-over-agents-six-levels-andy-lin]] — Andy Lin 整理:Skills 六層級,含每半年清理規則的主張(未能核實)
