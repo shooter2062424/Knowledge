@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**553 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **428 篇**筆記。
+> 統計:**555 個 YouTube video id**、**189 個 arXiv 編號**,涵蓋 **429 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(553 部,依 video id 排序)
+## YouTube(555 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -313,6 +313,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `KY4dBSlTvwU` | 哈夫曼編碼:為什麼檔案能越壓越小,以及「前綴碼」這個關鍵限制 | [knowledge/technology/system-design/huffman-coding-prefix-free-tree.md](./knowledge/technology/system-design/huffman-coding-prefix-free-tree.md) |
 | `kYkIdXwW2AE` | Yann LeCun 押 10 億美元賭 LLM 的另一條路:JEPA 與世界模型(上) | [knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md](./knowledge/technology/llm-internals/world-models/jepa-lecun-world-models.md) |
 | `KyXr6wdgkyE` | GPT-6 Astra:智能指數原地踏步,但 token 效率與 computer use 換代 —— 以及「分數到底在測模型還是測外殼」 | [knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md](./knowledge/technology/ai-industry/gpt-6-astra-token-efficiency-and-harness.md) |
+| `KZTifxyuX-8` | 發明印刷機的人破產了,AI 呢?〈The Commanding Heights〉:模型每年便宜 13 倍,長期收錢的是入口與付款軌道(Agent 煉金術士) | [knowledge/technology/ai-industry/commanding-heights-ai-moat-distribution-payment-rails-agent-alchemist.md](./knowledge/technology/ai-industry/commanding-heights-ai-moat-distribution-payment-rails-agent-alchemist.md) |
 | `l-wUKu_V2Lk` | AI 把動畫補到 60 幀為什麼更難看?一拍二、RIFE 與「補得出位置、補不出節奏」(Mia 码上 AI) | [knowledge/technology/applied-ai/design/ai-frame-interpolation-anime-60fps-rife-timing-mia.md](./knowledge/technology/applied-ai/design/ai-frame-interpolation-anime-60fps-rife-timing-mia.md) |
 | `L1OBRtfPS34` | Always-on Agent 怎麼運作:Lee Robinson 在史丹佛 CS146S 拆解 Grok Bot | [knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md](./knowledge/technology/ai-agents/foundations/always-on-agent-grok-bot-lee-robinson.md) |
 | `l38ceFOWOAE` | 萬達怎麼一步步賣掉自己:兩份對賭、四次遞表失敗,與「名字還在、公司換人」 | [knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md](./knowledge/investing/equity-research/wanda-wang-jianlin-vam-bets-and-asset-unwinding.md) |
@@ -543,6 +544,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `xzrvAERmvRk` | Cross-Model Review:用 stop hook + skill + marker 讓 Claude 跟 Codex 自動互審(自建 harness) | [knowledge/technology/ai-agents/applications/cross-model-review-claude-codex-harness.md](./knowledge/technology/ai-agents/applications/cross-model-review-claude-codex-harness.md) |
 | `Y2yElMkwH_A` | Claude Code Hooks 完全指南:CLAUDE.md 是提醒紙條,Hook 才是自動門 | [knowledge/technology/claude-code/claude-code-hooks-complete-guide.md](./knowledge/technology/claude-code/claude-code-hooks-complete-guide.md) |
 | `Y31OgSV-S8k` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
+| `ycfwZXnQO2Q` | 發明印刷機的人破產了,AI 呢?〈The Commanding Heights〉:模型每年便宜 13 倍,長期收錢的是入口與付款軌道(Agent 煉金術士) | [knowledge/technology/ai-industry/commanding-heights-ai-moat-distribution-payment-rails-agent-alchemist.md](./knowledge/technology/ai-industry/commanding-heights-ai-moat-distribution-payment-rails-agent-alchemist.md) |
 | `YCswP_xmxu0` | 一段提示詞把 Gemini CLI 變成自動化 Agent:拆成輸入/輸出/過程,再讓 AI 記「工作筆記」 | [knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md](./knowledge/technology/ai-agents/applications/gemini-cli-prompt-to-agent-progress-notes.md) |
 | `yDGpqBKJBpc` | 英偉達 FY27Q2:三十年來第一次提前給全年指引,以及「循環融資」如何改寫它的估值結構 | [knowledge/investing/equity-research/nvda-fy27q2-guidance-and-circular-financing.md](./knowledge/investing/equity-research/nvda-fy27q2-guidance-and-circular-financing.md) |
 | `yDR5EIvIni4` | 用 Skywork 從查資料到做簡報:AI 研究助理該看的三個能力(溯源、自訂信源、單頁重生) | [knowledge/technology/ai-productivity/skywork-research-report-to-slides.md](./knowledge/technology/ai-productivity/skywork-research-report-to-slides.md) |

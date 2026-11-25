@@ -95,4 +95,4 @@ run-rate 一個月多 100 億很亮眼,但要同步看調整後利潤率(19% →
 ## 相關筆記
 
 - [[palo-alto-applied-compute-own-your-ai-open-weight-rl-agent-alchemist]] — Palo Alto 買 Applied Compute:自訓開放權重模型與訓練+監督合一
-
+- [[commanding-heights-ai-moat-distribution-payment-rails-agent-alchemist]] — 同主題:模型價格每年下降、價值留在入口與付款軌道的論點(Commanding Heights)

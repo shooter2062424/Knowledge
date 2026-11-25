@@ -64,3 +64,4 @@ flowchart LR
 
 - [[claude-throttling-opus-4-7]] — 同主題:Claude「降智」其實是算力危機:Opus 4.7 試玩與升級注意
 - [[chatgpt-ads-stack-llm-orchestrator]] — 同主題:ChatGPT 廣告栈拆解:LLM 當編排者、確定性系統管錢、超時就丟
+- [[commanding-heights-ai-moat-distribution-payment-rails-agent-alchemist]] — 同主題:同等能力每年便宜約 13 倍、訓練成本上升,誰能長期收錢
