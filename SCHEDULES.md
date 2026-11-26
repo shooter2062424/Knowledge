@@ -488,6 +488,7 @@ B 其餘十一頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模�
 
 ### 存量清單(2026-09-01 首次巡檢盤點,已完成 1 支)
 
+- ⭐ **2026-11-27 巡檢(排程 A)**:Gary Chen `tE-ahWIDFIs`(Claude Artifact Install as app,自動字幕,無 Whisper)✅ 新篇 ai-productivity/claude-artifact-install-as-app-personal-software-gary-chen;讀 Anthropic 公告與說明中心全文核實
 - ⭐ **2026-11-26 巡檢(排程 A,Whisper 0 支)**:Agent 煉金術士 `KZTifxyuX-8`(官方字幕,無 Whisper)✅ 新篇 ai-industry/commanding-heights-ai-moat-distribution-payment-rails-agent-alchemist(讀 Epoch、Stripe 新聞稿;文章僅讀前 10 萬字,多項公司數字未能核實)。A 組(IT咖啡马、Gary Chen、美投君)無新片。清單外新片:Juya `FyrpstpidQI`(11/25 早報,併同週早報)、Why QQ `IpleYl_j0Ds`(七次 CEO 回歸,無字幕,需 Whisper)、YAHA `kL8b53s3LlQ`(Claude Code 無臉短影音)、Mia `Ce77vz_99SU`(日報,矩陣乘法 2.25)、`h_lsRzVH1E8`(Minecraft 250 AI)、`uEYN5uA5D2M`(AI 寫客訴信)、Caleb `Ane0wdhb4wo` ✅ 新篇 llm-internals/architecture/looped-transformers-universal-transformer-latent-reasoning-caleb(讀 Saunshi 等 ICLR 2025 論文與 Universal Transformers 摘要;英文自動字幕有翻譯雜訊)。
 - ⭐ **2026-11-26 使用者貼連結(非排程)**:Mia `cgVYAFPk8hU`(乘法、Karatsuba 與 OpenAI 低於 n log n)✅ 新篇 ai-industry/openai-integer-multiplication-below-n-log-n-karatsuba-fft-mia(Whisper 1 支;讀 Harvey 筆記全文、GitHub 預印本頁、CrocSwap 倉庫與 Quanta);自 Mia 存量移出 `cgVYAFPk8hU`,剩 `nn44Z1VS2HA`、`uLFz7KOvPqI`。同日另有 Andy Lin `C9XzsJF-FNY`(Skills 六層級,commit 369e18a,非巡檢頻道)。
 - ⭐ **2026-11-25 巡檢(排程 A)**:Gary Chen `UrFrDJ-G6h8`(Meta Muse 新手教學,官方字幕,無 Whisper)✅ 新篇 ai-agents/applications/meta-muse-beginner-guide-instagram-threads-gary-chen(次級來源核對月費需修正;Meta 官方定價頁未能讀到);Agent 煉金術士 `uX5HOd7Xiw4`(官方字幕,無 Whisper)✅ 新篇 ai-industry/palo-alto-applied-compute-own-your-ai-open-weight-rl-agent-alchemist(讀 SEC 8-K 新聞稿、CNBC、Applied Compute 官網與兩個案例頁核實)。清單外新片順延:Why QQ `HNF1Ch35uno`(Vercel 重寫組件庫)、白白说大模型 `V-coqrw5gcY`(RAG 三大範式)、Redknot `IBC2sW6FP9I`(OLED 製程)、Nick `PowFk00xIig`(黃仁勳回歸買哪家)、橘鸦Juya `3jf8OWsujPg`(11/24 早報,GLM-5.4)、Mia `nn44Z1VS2HA`、`cgVYAFPk8hU`、`uLFz7KOvPqI`、Agent 煉金術士 `-nnQ7uzPC_0`、`3O6Ncr3UpWQ`、`V1MQCYjfdJI` 舊存量;IT咖啡马、美投君無新片。
@@ -611,6 +612,7 @@ B 其餘十一頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模�
 
 | 日期 | 事件 |
 |---|---|
+| 2026-11-27(排程 A 巡檢) | Gary Chen 1 篇(Claude Artifact Install as app;核實官方公告,補 Team/Enterprise 預設、外站程式碼可變、計入用量;Felix 合集與 PWA 2015 未能核實) |
 | 2026-11-26(排程 A 巡檢) | Caleb Writes Code 1 篇(Looped Transformer,更正影片對正則化實驗的轉述);Agent 煉金術士 1 篇(〈The Commanding Heights〉:Epoch 13 倍/年、TCS、Stripe 買 OpenRouter 核實,文章僅讀前 10 萬字);A 組無新片;Juya、Why QQ、YAHA、Mia 3 支順延;Caleb 1 篇(Looped Transformer,讀 ICLR 2025 論文全文) |
 | 2026-11-26(使用者貼連結) | Mia `cgVYAFPk8hU` 1 篇(Karatsuba、FFT 與 OpenAI 低於 n log n;Whisper 1 支;核對 Harvey 筆記、GitHub 預印本、CrocSwap 倉庫、Quanta,修正「省 300 多倍」為約 290);另 Andy Lin Skills 六層級 1 篇 |
 | 2026-11-25(排程 A 巡檢) | Gary Chen 1 篇(Meta Muse 新手教學,次級來源核對月費 16→20 美元);Agent 煉金術士 1 篇(Palo Alto 買 Applied Compute,讀 SEC 新聞稿與案例頁,補正 Harvey 成本只對 Sonnet 5);Why QQ、白白、Redknot、Nick、Juya、Mia 3 支新片順延 |

@@ -111,3 +111,4 @@ flowchart TD
 ## 相關筆記
 
 - [[issue-101]] — 同主題:GitHub Weekly 第 101 期:開源版 Cowork、資料工程實戰課
+- [[claude-artifact-install-as-app-personal-software-gary-chen]] — Artifact 安裝成桌面 App 的權限與限制

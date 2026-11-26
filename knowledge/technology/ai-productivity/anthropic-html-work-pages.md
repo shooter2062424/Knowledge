@@ -319,3 +319,4 @@ flowchart LR
 
 - [[issue-116]] — 同主題:GitHub Weekly 第 116 期:Agent 記憶 OS、超省錢 De
 - [[fowler-llm-voice-ai-writing-uncanny-valley]] — 同主題:Martin Fowler〈LLM Voice〉:AI 文字的恐怖谷,與工程師該
+- [[claude-artifact-install-as-app-personal-software-gary-chen]] — Claude Artifact 可安裝成桌面 App、權限分級與無人審查

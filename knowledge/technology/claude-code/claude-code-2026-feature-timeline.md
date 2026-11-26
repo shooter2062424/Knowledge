@@ -515,3 +515,4 @@ flowchart TB
 
 - [[claude-code-source-full-map]] — 同主題:Claude Code 原始碼全覽地圖:11 個子系統與它們怎麼咬合
 - [[claude-code-ten-concepts-three-first-steps-jayluxai]] — 同主題:Claude 近期十個更新怎麼分:新手只要先做三件事(JayLuxAI + 官方
+- [[claude-artifact-install-as-app-personal-software-gary-chen]] — Artifact「Install as app」(2026-11-24)

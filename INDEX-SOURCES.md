@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**556 個 YouTube video id**、**193 個 arXiv 編號**,涵蓋 **430 篇**筆記。
+> 統計:**557 個 YouTube video id**、**193 個 arXiv 編號**,涵蓋 **431 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(556 部,依 video id 排序)
+## YouTube(557 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -465,6 +465,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `TbeJwwp-YE4` | Martin Fowler〈LLM Voice〉:AI 文字的恐怖谷,與工程師該怎麼寫文件 | [knowledge/technology/software-engineering/fowler-llm-voice-ai-writing-uncanny-valley.md](./knowledge/technology/software-engineering/fowler-llm-voice-ai-writing-uncanny-valley.md) |
 | `tBnpspp4IH8` | 用 Agent 五分鐘上手 Blender:把 3D 預覽當成 AI 影片的「參考影片」 | [knowledge/technology/applied-ai/design/blender-previz-mcp-ai-video.md](./knowledge/technology/applied-ai/design/blender-previz-mcp-ai-video.md) |
 | `TBVjqvueeCo` | qm(YC 開源):把個人 Agent 變成「多人可用」的 Agent Harness —— scope 隔離、權限審批與可換 harness | [knowledge/technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md](./knowledge/technology/ai-agents/applications/qm-yc-multiplayer-agent-harness.md) |
+| `tE-ahWIDFIs` | Claude Artifact「Install as app」:小工具一鍵裝成桌面 App、權限分級,與「個人軟體時代」的說法核實 | [knowledge/technology/ai-productivity/claude-artifact-install-as-app-personal-software-gary-chen.md](./knowledge/technology/ai-productivity/claude-artifact-install-as-app-personal-software-gary-chen.md) |
 | `tEjPWVEuu_8` | 為什麼「賺好賺滿」反而會害了你:社會資產與「不最大化」的選擇 | [knowledge/investing/strategy/not-maximizing-income-social-assets-nick.md](./knowledge/investing/strategy/not-maximizing-income-social-assets-nick.md) |
 | `tGp6Ns9GtSU` | KV Cache:每個 LLM 背後那個看不見的把戲 | [knowledge/technology/llm-internals/inference/kv-cache.md](./knowledge/technology/llm-internals/inference/kv-cache.md) |
 | `thIPYsSsuIs` | 推理成本腰斬的背後:GPT-5.6 Sol 讓模型自己重寫核心,與 Luna 降價 80% 的算盤 | [knowledge/technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md](./knowledge/technology/ai-industry/gpt-5-6-sol-kernel-self-optimization-luna-pricing.md) |
