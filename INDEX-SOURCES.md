@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**557 個 YouTube video id**、**193 個 arXiv 編號**,涵蓋 **431 篇**筆記。
+> 統計:**558 個 YouTube video id**、**193 個 arXiv 編號**,涵蓋 **431 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(557 部,依 video id 排序)
+## YouTube(558 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -450,6 +450,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `SQ3fZ1sAqXI` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `SQMbCZH_5YY` | 先找規則,再判斷哪個選擇更有利:正期望值、手割分析,與「技術問題被講成心態問題」 | [knowledge/investing/strategy/positive-expectancy-rule-hunting-mark-yang.md](./knowledge/investing/strategy/positive-expectancy-rule-hunting-mark-yang.md) |
 | `sr3y1-iQ1vI` | CoreWeave 跌 50%:Neocloud「十倍股」的債務壓力測試(2026-10) | [knowledge/investing/equity-research/coreweave-neocloud-debt-stress.md](./knowledge/investing/equity-research/coreweave-neocloud-debt-stress.md) |
+| `SSfMy4Is9I8` | Looped Transformer:把同一組層重複跑,真的省顯存也更會推理嗎?從 Universal Transformer 到中間層循環(Caleb Writes Code) | [knowledge/technology/llm-internals/architecture/looped-transformers-universal-transformer-latent-reasoning-caleb.md](./knowledge/technology/llm-internals/architecture/looped-transformers-universal-transformer-latent-reasoning-caleb.md) |
 | `sX6n9lL_9F8` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `t0ZWNh-UXDs` | 一兆筆紀錄的即時搜尋:從 36 小時延遲砍到 5 分鐘的去重管線 | [knowledge/technology/system-design/trillion-record-realtime-search-kafka-dedup.md](./knowledge/technology/system-design/trillion-record-realtime-search-kafka-dedup.md) |
 | `T1k0MCmO-SA` | 《會想的人,先有錢》(Jonathan Clements):一整天看盤的人,沒有賺比較多 | [knowledge/investing/strategy/thinkers-get-rich-jonathan-clements.md](./knowledge/investing/strategy/thinkers-get-rich-jonathan-clements.md) |
