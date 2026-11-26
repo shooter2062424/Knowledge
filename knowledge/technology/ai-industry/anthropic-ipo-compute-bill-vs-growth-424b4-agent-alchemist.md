@@ -96,3 +96,4 @@ run-rate 一個月多 100 億很亮眼,但要同步看調整後利潤率(19% →
 
 - [[palo-alto-applied-compute-own-your-ai-open-weight-rl-agent-alchemist]] — Palo Alto 買 Applied Compute:自訓開放權重模型與訓練+監督合一
 - [[commanding-heights-ai-moat-distribution-payment-rails-agent-alchemist]] — 同主題:模型價格每年下降、價值留在入口與付款軌道的論點(Commanding Heights)
+- [[tpu-vs-gpu-systolic-array-cuda-anthropic-four-chips-agent-alchemist]] — TPU 與 GPU 差在哪、S-1 四種晶片原文核對

@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**558 個 YouTube video id**、**193 個 arXiv 編號**,涵蓋 **431 篇**筆記。
+> 統計:**559 個 YouTube video id**、**194 個 arXiv 編號**,涵蓋 **432 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(558 部,依 video id 排序)
+## YouTube(559 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -342,6 +342,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `MlhsoWmyEKE` | 落地競賽:OpenAI 與 Anthropic 同日進軍企業導入,承認「只有模型沒用」 | [knowledge/technology/ai-agents/applications/enterprise-ai-adoption-race.md](./knowledge/technology/ai-agents/applications/enterprise-ai-adoption-race.md) |
 | `mnuk1GkJxDU` | 股癌選股心法:籌碼/技術都是工具,本質是「選對題材的好股」 | [knowledge/investing/strategy/gooaye-stock-picking-philosophy.md](./knowledge/investing/strategy/gooaye-stock-picking-philosophy.md) |
 | `mpGiFuRYrDk` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
+| `MrPEhOvqX-k` | TPU 與 GPU 到底差在哪:專才的脈動陣列、通才的 CUDA,以及 Anthropic 為什麼四種晶片都買 | [knowledge/technology/ai-industry/tpu-vs-gpu-systolic-array-cuda-anthropic-four-chips-agent-alchemist.md](./knowledge/technology/ai-industry/tpu-vs-gpu-systolic-array-cuda-anthropic-four-chips-agent-alchemist.md) |
 | `msHyYioAyNE` | 一張餐巾紙算完 LLM 訓練成本:Stanford CS336 前六講的三個判斷 | [knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md](./knowledge/technology/llm-internals/training/cs336-training-cost-napkin-math.md) |
 | `msrADZcUS60` | Agent 記憶實作八種策略:從全量記憶、滑動窗口到 MemoryOS | [knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md](./knowledge/technology/ai-agents/memory-retrieval/agent-memory-eight-strategies-window-to-memoryos.md) |
 | `MWNuu9m93dk` | 多 Agent 系統的資料一致性:為什麼數字越傳越亂,以及四層工程解法 | [knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md](./knowledge/technology/ai-agents/foundations/multi-agent-data-consistency-reliability.md) |
@@ -589,7 +590,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(193 篇,依編號排序)
+## arXiv(194 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -599,6 +600,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `1510.00149` | TinyML 與高效 AI 運算:MIT 6.5940 課程地圖與核心技術 | [knowledge/technology/llm-internals/inference/tinyml-efficient-ai-mit-6-5940-course-map.md](./knowledge/technology/llm-internals/inference/tinyml-efficient-ai-mit-6-5940-course-map.md) |
 | `1603.09320` | Agent / RAG 生產級面試題庫:字節 8 題 + 落地十連問 + 履歷五大雷區 | [knowledge/technology/ai-agents/applications/agent-rag-production-interview-playbook-baibai.md](./knowledge/technology/ai-agents/applications/agent-rag-production-interview-playbook-baibai.md) |
 | `1701.06538` | MoE 為什麼這麼快:從前饋網路、注意力、Dense 到混合專家(程序员老王) | [knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md](./knowledge/technology/llm-internals/architecture/moe-mixture-of-experts-from-ffn.md) |
+| `1704.04760` | TPU 與 GPU 到底差在哪:專才的脈動陣列、通才的 CUDA,以及 Anthropic 為什麼四種晶片都買 | [knowledge/technology/ai-industry/tpu-vs-gpu-systolic-array-cuda-anthropic-four-chips-agent-alchemist.md](./knowledge/technology/ai-industry/tpu-vs-gpu-systolic-array-cuda-anthropic-four-chips-agent-alchemist.md) |
 | `1706.03762` | 多頭注意力(Multi-Head Attention)用人話講:「語法表、需求表、內容表」就是 K、Q、V(程序员老王) | [knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md](./knowledge/technology/llm-internals/architecture/multi-head-attention-explained.md) |
 | `1706.03762` | 從零看懂神經網路與 Transformer:程序员老王「Transformer 結構拆解」系列五講 | [knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) |
 | `1712.05877` | 模型名裡的 Q4、Q8 是什麼?量化(PTQ / QAT / GGUF / 三值)完整地圖 | [knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md](./knowledge/technology/llm-internals/inference/llm-quantization-q4-q8-gguf-qat-explained-mia.md) |

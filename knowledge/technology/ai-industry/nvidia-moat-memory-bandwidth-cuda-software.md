@@ -287,3 +287,4 @@ Stephen Jones 的話(逐字稿節錄大意):CUDA 的祕密在於**別人在上�
 - [[xring-o100-tsv-hybrid-bonding-3d-stack]] — 同主題:玄戒 O100 的三層堆疊:TSV 打孔、晶圓級鍵合與混合鍵合怎麼做
 - [[gpu-unlock-ada-tensor-half-rate-override]] — 同主題:4090 算力翻倍?gpu-unlock-ada 解開 Tensor「半速鎖」:
 - [[dlss-fsr-ai-upscaling-explained]] — 同主題:DLSS 與 FSR 到底做了什麼:從「猜細節」到「用時間換細節」的遊戲畫面 A
+- [[tpu-vs-gpu-systolic-array-cuda-anthropic-four-chips-agent-alchemist]] — TPU 脈動陣列對 GPU 通用性,以及 Anthropic 四種晶片策略
