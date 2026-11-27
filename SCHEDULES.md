@@ -613,6 +613,7 @@ B 其餘十一頻道:Why QQ、Caleb Writes Code、YAHA學堂、白白说大模�
 
 | 日期 | 事件 |
 |---|---|
+| 2026-11-28(使用者貼連結) | ADAM LIL `JEQmOjb80A8` 1 篇(Anthropic 工程師 Lydia Hallie 談 Claude Code 新做法;新頻道、無字幕、Whisper 1 支;核實 8/7 自動模式公告 1,053 人實驗與 10/13 工程文 2,500→3 萬,對照官方 best practices;標出「反而更差」官方找不到、原演講未讀);回連 3 篇、README、來源索引。 |
 | 2026-11-27(排程 A 巡檢) | Agent 煉金術士 1 篇(TPU 對 GPU 與四種晶片,核實 TPU 論文與 S-1);Why QQ 增補 1 篇(GLM-5.4 併入 Looped Transformer 筆記 §五,核實智譜官方文,GLM-5.4 由「未能核實」改為已核實);Gary Chen 1 篇(Claude Artifact Install as app;核實官方公告,補 Team/Enterprise 預設、外站程式碼可變、計入用量;Felix 合集與 PWA 2015 未能核實) |
 | 2026-11-26(排程 A 巡檢) | Caleb Writes Code 1 篇(Looped Transformer,更正影片對正則化實驗的轉述);Agent 煉金術士 1 篇(〈The Commanding Heights〉:Epoch 13 倍/年、TCS、Stripe 買 OpenRouter 核實,文章僅讀前 10 萬字);A 組無新片;Juya、Why QQ、YAHA、Mia 3 支順延;Caleb 1 篇(Looped Transformer,讀 ICLR 2025 論文全文) |
 | 2026-11-26(使用者貼連結) | Mia `cgVYAFPk8hU` 1 篇(Karatsuba、FFT 與 OpenAI 低於 n log n;Whisper 1 支;核對 Harvey 筆記、GitHub 預印本、CrocSwap 倉庫、Quanta,修正「省 300 多倍」為約 290);另 Andy Lin Skills 六層級 1 篇 |

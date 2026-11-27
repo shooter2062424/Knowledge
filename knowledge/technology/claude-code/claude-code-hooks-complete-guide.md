@@ -676,3 +676,4 @@ Impeccable 的 PostToolUse / Stop 分工是可推廣的模式:
 
 - [[claude-code-source-full-map]] — 同主題:Claude Code 原始碼全覽地圖:11 個子系統與它們怎麼咬合
 - [[issue-108]] — 同主題:GitHub Weekly 第 108 期:Claude Code 終極優化、離
+- [[claude-code-rethinking-best-practices-reversible-checkpoints-lydia-hallie-adam-lil]] — Anthropic 工程師的觀點:零例外規則做成 hook/deny,加檢查點與複審

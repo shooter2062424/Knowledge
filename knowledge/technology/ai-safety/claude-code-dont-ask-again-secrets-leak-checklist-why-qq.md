@@ -111,3 +111,4 @@ flowchart LR
 - [[easy-mcp-ai-wordpress-claude-code-seo-guardrails]] — 同主題:用 Easy MCP AI 讓 Claude Code 管 WordPress:
 - [[jailbreak-bakery-test-allergy-prompt-mia]] — 同主題:AI 越獄實測:奶奶漏洞擋得住,一句「我過敏」卻撬得開(Mia 碼上 AI)
 - [[tailworm-tailscale-ssh-ai-coding-agent-boundary]] — 同主題:Tailworm:Tailscale SSH 的轉發與 AI Coding 代理
+- [[claude-code-rethinking-best-practices-reversible-checkpoints-lydia-hallie-adam-lil]] — 自動模式實驗:人只擋 13.6%、按 50 次後剩約 5%,以及「收得回來嗎」判斷法

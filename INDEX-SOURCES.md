@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**559 個 YouTube video id**、**194 個 arXiv 編號**,涵蓋 **432 篇**筆記。
+> 統計:**560 個 YouTube video id**、**194 個 arXiv 編號**,涵蓋 **433 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(559 部,依 video id 排序)
+## YouTube(560 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -290,6 +290,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `j2I2TIvhs0c` | Jalapeño 首批跑分:推理晶片的評判標準換了,以及怎麼讀廠商自己給的數字 | [knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md](./knowledge/technology/llm-internals/inference/jalapeno-inference-benchmark-boundaries.md) |
 | `J5EbL1UaqG8` | 「Claude 2.0」是什麼:一個對話管所有對話——巢狀對話、Projects、側聊與三個省額度的指令(Andy Lin 林玉堂整理 RoboNuggets × Ben AI) | [knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md](./knowledge/technology/claude-code/claude-app-redesign-nested-sessions-projects-side-chat.md) |
 | `j7nu_6cprMI` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
+| `JEQmOjb80A8` | 重新思考 Claude Code 最佳實踐:人是爛審核員、「收得回來嗎」、門禁卡與檢查點(Lydia Hallie 演講導讀,ADAM LIL) | [knowledge/technology/claude-code/claude-code-rethinking-best-practices-reversible-checkpoints-lydia-hallie-adam-lil.md](./knowledge/technology/claude-code/claude-code-rethinking-best-practices-reversible-checkpoints-lydia-hallie-adam-lil.md) |
 | `JGtkTjn4120` | 個人用 AI 快 100 倍、公司卻沒感覺:能力落差與流程落差,以及原演講沒被摘要的後半(AI懶人報 × Basis Mitch) | [knowledge/technology/ai-agents/applications/enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao.md](./knowledge/technology/ai-agents/applications/enterprise-ai-adoption-competency-process-gap-basis-mitch-ai-lanrenbao.md) |
 | `jgy1A0Mrx7g` | Omarchy 4「Quattro」:當 Agent 從外掛升格成作業系統的一等公民 | [knowledge/technology/ai-agents/applications/omarchy-4-agent-as-os-citizen.md](./knowledge/technology/ai-agents/applications/omarchy-4-agent-as-os-citizen.md) |
 | `jJ5WAKs0eGE` | Make 與 n8n 還值得學嗎:當維護的人從你換成 Agent,視覺化就從資產變成阻礙 | [knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md](./knowledge/technology/ai-productivity/lowcode-automation-vs-agent-first.md) |

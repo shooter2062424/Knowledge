@@ -106,6 +106,7 @@ LLM 有 **sycophancy(討好)傾向**——你請它 review,它就會想辦法挑
 ## 相關筆記
 
 - [[antigravity-swarm-board-coordinator-verifier-sdk-source]] — Google Antigravity /swarm:共享看板、coordinator 與 verifier、SDK 原始碼積木
+- [[claude-code-rethinking-best-practices-reversible-checkpoints-lydia-hallie-adam-lil]] — 官方 /code-review 與「沒參與的 AI 複審」的權限與驗證脈絡
 
 ## 來源
 
