@@ -129,6 +129,7 @@ flowchart TB
 - [[openai-navier-stokes-agent-swarm-and-attribution]] — 同一批 OpenAI 數學成果的另一個案例與署名問題
 - [[riemann-hypothesis-alpoge-claude-lean-proof-agent-alchemist-why-qq]] — AI 數學證明與可驗證性(Lean)
 - [[ai-boss-luna-andon-market-fired-human-mia]] — 同頻道的另一篇 Mia 科普
+- [[openai-matrix-multiplication-exponent-nine-fourths-lower-bound-why-qq]] — 同系列 OpenAI 數學稿:矩陣乘法指數 9/4 的上界、下界與 Lean 範圍
 
 ## 來源
 

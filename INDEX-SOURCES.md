@@ -3,7 +3,7 @@
 貼連結前先在這裡查,就知道有沒有整理過。
 
 > ⚠️ **本檔由 `scripts/knowledge/build_source_index.py` 自動產生,請勿手動編輯。**
-> 統計:**560 個 YouTube video id**、**194 個 arXiv 編號**,涵蓋 **433 篇**筆記。
+> 統計:**562 個 YouTube video id**、**195 個 arXiv 編號**,涵蓋 **435 篇**筆記。
 
 ---
 
@@ -24,7 +24,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## YouTube(560 部,依 video id 排序)
+## YouTube(562 部,依 video id 排序)
 
 | video id | 筆記 | 路徑 |
 |---|---|---|
@@ -124,6 +124,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `_xM8scs4_x4` | 推論引擎為什麼有這麼多?llama.cpp、vLLM、SGLang、TensorRT-LLM 各自在解哪個問題 | [knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md](./knowledge/technology/llm-internals/inference/inference-engines-llamacpp-vllm-sglang-tensorrt.md) |
 | `_yFen1B8hdU` | 不會打字的模型:Jev、System One,與「返回枚舉值的調用可以下沉」 | [knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md](./knowledge/technology/llm-internals/architecture/system-one-models-jev-calibrated-decisions.md) |
 | `A2i8D66J83U` | 用 shadcn registry 做一個「假的 Claude Code」:brainless 把終端機介面變成可改的 React 元件 | [knowledge/technology/applied-ai/design/brainless-shadcn-registry-fake-claude-code-ui.md](./knowledge/technology/applied-ai/design/brainless-shadcn-registry-fake-claude-code-ui.md) |
+| `a36Qg9nw8tE` | OpenAI 稱矩陣乘法指數恰為 9/4(2.25):上界、下界、Lean 範圍,與對訓練、推理、晶片的真實影響(Why QQ + 一手來源核實) | [knowledge/technology/ai-industry/openai-matrix-multiplication-exponent-nine-fourths-lower-bound-why-qq.md](./knowledge/technology/ai-industry/openai-matrix-multiplication-exponent-nine-fourths-lower-bound-why-qq.md) |
 | `a4IoNavG8jI` | Skill 實戰:從製作到維護一份「agent 會自動觸發、產出穩定、人類維護得了」的 skill | [knowledge/technology/ai-agents/applications/building-claude-skills.md](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
 | `aCvEYczBVSY` | 用 AI 寫程式為什麼要懂 CI/CD:Lint、Typecheck、Test、Build 四道關卡與「CI 全綠只是底線」 | [knowledge/technology/ai-productivity/ci-cd-for-ai-coding-gary.md](./knowledge/technology/ai-productivity/ci-cd-for-ai-coding-gary.md) |
 | `acvK103404s` | Skill 實戰:從製作到維護一份「agent 會自動觸發、產出穩定、人類維護得了」的 skill | [knowledge/technology/ai-agents/applications/building-claude-skills.md](./knowledge/technology/ai-agents/applications/building-claude-skills.md) |
@@ -584,6 +585,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `zmUbbJYtxmM` | 一份 SKILL.md 兩邊跑:Gemini 技能(Skills)與 Claude Code 互通,與「分階段技能」 | [knowledge/technology/ai-productivity/gemini-skills-and-claude-code-shared-skill-md-yaha.md](./knowledge/technology/ai-productivity/gemini-skills-and-claude-code-shared-skill-md-yaha.md) |
 | `zN3-5rLblsQ` | 你的 AI 變好了?你可能根本測不出來:一套可落地的 LLM 評估(eval)方法(Why QQ) | [knowledge/technology/software-engineering/llm-evals-how-to-know-ai-works.md](./knowledge/technology/software-engineering/llm-evals-how-to-know-ai-works.md) |
 | `zPlrFloJZy4` | 進化波浪理論:一套可照做的波浪分析方式(黃培碩「進化波浪實戰教學」全 8 集整理) | [knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md](./knowledge/investing/technical-analysis/evolved-elliott-wave-analysis-method.md) |
+| `ztKRgSAwQfs` | Fable low 約等於 Sonnet max?模型與推理強度「斜著走」:四個模型 × 五個檔位怎麼選(Agent 煉金術士 + 官方文件核實) | [knowledge/technology/ai-industry/claude-model-vs-effort-diagonal-fable-low-sonnet-max-agent-alchemist.md](./knowledge/technology/ai-industry/claude-model-vs-effort-diagonal-fable-low-sonnet-max-agent-alchemist.md) |
 | `ZWsZwX6nsV0` | 社交套利(Social Arbitrage):Chris Camillo 從日常生活挖出暴利機會的方法 | [knowledge/investing/strategy/social-arbitrage-chris-camillo.md](./knowledge/investing/strategy/social-arbitrage-chris-camillo.md) |
 | `ZxBRtRjMU88` | HBM 高頻寬記憶體原理:矽中介層、TSV、堆疊鍵合一次看懂 | [knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md](./knowledge/technology/ai-industry/hbm-high-bandwidth-memory-principle.md) |
 | `zxxAl7Wc2g0` | DHH 的 16 條並行 Agent:當寫程式幾乎免費,瓶頸遷移到哪裡去了 | [knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md](./knowledge/technology/ai-agents/autonomy/dhh-16-threads-bottleneck-migration.md) |
@@ -591,7 +593,7 @@ grep -rlF --include=*.md -- "<id>" .
 
 ---
 
-## arXiv(194 篇,依編號排序)
+## arXiv(195 篇,依編號排序)
 
 | arXiv | 筆記 | 路徑 |
 |---|---|---|
@@ -788,6 +790,7 @@ grep -rlF --include=*.md -- "<id>" .
 | `2609.38752` | 5G NR Modem 到 6G Modem:3GPP 規格如何變成程式碼,以及反過來 | [knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md](./knowledge/technology/code-dev/spec-code-flow/5g-nr-to-6g-modem-spec-to-code-flow.md) |
 | `2610.11959` | 把訓練過程開源:小米 MiMo-V2.6 的 RL 即時儀表盤,與「RL 的主要矛盾已從演算法轉到工程」 | [knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md](./knowledge/technology/llm-internals/architecture/xiaomi-mimo-v26-rl-live-dashboard-scaling.md) |
 | `2610.14224` | Harness²:不換模型、不訓練,讓 agent 遞迴改自己的配置檔,弱模型反超強模型 | [knowledge/technology/ai-agents/foundations/harness2-recursive-agent-harnessing-google.md](./knowledge/technology/ai-agents/foundations/harness2-recursive-agent-harnessing-google.md) |
+| `2610.30054` | OpenAI 稱矩陣乘法指數恰為 9/4(2.25):上界、下界、Lean 範圍,與對訓練、推理、晶片的真實影響(Why QQ + 一手來源核實) | [knowledge/technology/ai-industry/openai-matrix-multiplication-exponent-nine-fourths-lower-bound-why-qq.md](./knowledge/technology/ai-industry/openai-matrix-multiplication-exponent-nine-fourths-lower-bound-why-qq.md) |
 | `2610.35138` | AI 日報 2026-11-09:Claude Code「不要再問」外流密碼、純 CPU 跑 284B、寫碼全對只有 26.4%(維維 AI 技術工坊) | [knowledge/technology/ai-industry/ai-daily-2026-11-09-claude-code-secrets-modchip-co-design-bench-weiwei.md](./knowledge/technology/ai-industry/ai-daily-2026-11-09-claude-code-secrets-modchip-co-design-bench-weiwei.md) |
 
 ---

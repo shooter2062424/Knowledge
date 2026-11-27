@@ -935,3 +935,4 @@ flowchart LR
 - [[gpt-6-astra-napoleon-marmont-cipher]] — 同主題:GPT-6 Astra 解開 217 年的拿破崙密信:從一張模糊掃描圖到可重現的
 - [[astra-ten-open-problems-and-agi-two-axes-caleb]] — 同主題:Astra 解出十個數學開放問題,然後呢?用「機制」與「能力」兩條軸看 AGI 
 - [[openai-integer-multiplication-below-n-log-n-karatsuba-fft-mia]] — 同一批 OpenAI 數學預印本:整數乘法低於 n log n,含 Harvey 筆記核實(Mia 科普)
+- [[openai-matrix-multiplication-exponent-nine-fourths-lower-bound-why-qq]] — 後續:openai/math 倉庫的矩陣乘法指數 9/4 預印本與機器驗證範圍

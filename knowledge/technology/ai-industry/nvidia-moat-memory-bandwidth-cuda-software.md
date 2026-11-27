@@ -288,3 +288,4 @@ Stephen Jones 的話(逐字稿節錄大意):CUDA 的祕密在於**別人在上�
 - [[gpu-unlock-ada-tensor-half-rate-override]] — 同主題:4090 算力翻倍?gpu-unlock-ada 解開 Tensor「半速鎖」:
 - [[dlss-fsr-ai-upscaling-explained]] — 同主題:DLSS 與 FSR 到底做了什麼:從「猜細節」到「用時間換細節」的遊戲畫面 A
 - [[tpu-vs-gpu-systolic-array-cuda-anthropic-four-chips-agent-alchemist]] — TPU 脈動陣列對 GPU 通用性,以及 Anthropic 四種晶片策略
+- [[openai-matrix-multiplication-exponent-nine-fourths-lower-bound-why-qq]] — 算術下界碰不到解碼的帶寬瓶頸(矩陣乘法指數 9/4 案例)
