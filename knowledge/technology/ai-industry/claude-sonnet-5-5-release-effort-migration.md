@@ -357,6 +357,10 @@ flowchart TD
 
 ---
 
+## 相關筆記
+
+- [[claude-model-vs-effort-diagonal-fable-low-sonnet-max-agent-alchemist]] — 四個模型 × 五個檔位怎麼選:斜著走與官方三步順序(Agent 煉金術士)
+
 ## 來源
 
 - YouTube:[Sonnet 5.5 更新了什么?](https://www.youtube.com/watch?v=s87lkkWk9rQ)(Why QQ,2026-09-29;官方簡中字幕)

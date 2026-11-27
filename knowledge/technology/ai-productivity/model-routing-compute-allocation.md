@@ -361,3 +361,4 @@ Review 把問題講清楚後,局部改 code、補格式、重跑測試與部署�
 - [[agent-intent-recognition-three-layer-funnel]] — 同主題:用最低成本做好 Agent 意圖識別:規則層、上下文層、工具層的三層漏斗
 - [[issue-114]] — 同主題:GitHub Weekly 第 114 期:DeepSeek V4 終端編程 A
 - [[issue-124]] — 同主題:第 124 期:Kimi K3 與 Kimi Code、AI 網關、開源部署平台
+- [[claude-model-vs-effort-diagonal-fable-low-sonnet-max-agent-alchemist]] — Claude 模型與 effort 的任務成本比較與反例(Agent 煉金術士)

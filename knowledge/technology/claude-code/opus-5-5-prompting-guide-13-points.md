@@ -224,3 +224,4 @@ YAHA學堂的版本同樣把官方指南拆成 13 條、順序幾乎相同,一�
 
 - [[more-ambitious-with-models-altitude-depth-range-rieseberg]] — 同主題:怎麼對模型更有野心:速度、高度、深度、廣度四種提問升級(Felix Rieseb
 - [[prompting-claude-fable-5-2-official-guide-checklist-why-qq]] — 同主題:Fable 5.2 該怎麼下提示:Anthropic 官方提示指南的十項調整與影
+- [[claude-model-vs-effort-diagonal-fable-low-sonnet-max-agent-alchemist]] — 官方起點 Opus 5.5 開 medium 與升檔順序
