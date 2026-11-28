@@ -143,3 +143,4 @@ flowchart TD
 - [[ai-skills-no-raise-nash-bargaining]] — 加薪談判與時間換收入的計算
 - [[sales-power-negotiation-eight-scenarios-boice-celso]] — 職場向老闆爭取資源與談加薪
 - [[programmer-meaning-crisis-hn-thread]] — 程式設計師職場處境與價值重排
+- [[presentation-three-biases-curse-of-knowledge-primacy-spotlight]] — 報告前三個認知偏誤:知識詛咒、首因、聚光燈

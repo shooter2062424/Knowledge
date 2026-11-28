@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-481_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-482_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -830,6 +830,7 @@ flowchart LR
 |---|---|
 | [十大恐怖主管特質:從竹科裸辭看「只做向上管理」如何逼走好員工](./knowledge/career/workplace/ten-toxic-manager-traits.md) | 看主管做了什麼別聽他說什麼;光說不練/微觀管理/造假……中一點就是有毒信號 |
 | [談判別說「我幫你爭取」:業務力八情境(西索 × Boice,含 Hahow 課程業配)](./knowledge/career/workplace/sales-power-negotiation-eight-scenarios-boice-celso.md) | 嫌貴時給高低兩案不說「幫你爭取」;認知差開場;加薪要平常記錄+年底獲利計劃書;LACE 客訴;Grant 2013 讀原文:中間型外向度業績最高,不是內向占優 |
+| [報告前先對抗三個認知偏誤:知識詛咒、首因、聚光燈](./knowledge/career/workplace/presentation-three-biases-curse-of-knowledge-primacy-spotlight.md) | 結論放最前、沒解釋的地方自問對方懂嗎、小口誤直接講下去;附 Newton 敲擊實驗 2.5% 與 Gilovich 聚光燈研究查證 |
 
 ### 🌱 mindset(職涯心態與成長)
 | 主題 | 一句話 |

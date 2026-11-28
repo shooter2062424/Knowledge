@@ -207,3 +207,4 @@ flowchart LR
 - [[ten-toxic-manager-traits]] — 職場談判與主管關係的另一面
 - [[personality-question-trait-behaviour-evidence]] — 用行為與證據把能力講具體
 - [[four-traits-interesting-conversation]] — 同主題:為什麼跟有些人聊天特別有趣:四個特質,而且都不是話術
+- [[presentation-three-biases-curse-of-knowledge-primacy-spotlight]] — 報告前三個認知偏誤:知識詛咒、首因、聚光燈
