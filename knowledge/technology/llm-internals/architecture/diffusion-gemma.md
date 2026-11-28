@@ -111,3 +111,4 @@ vllm serve google/diffusiongemma-26B-A4B-it \
 - [[stable-diffusion-how-it-draws]] — 擴散模型去噪的基礎原理
 - [[kv-cache]] — 自回歸生成的記憶體瓶頸背景
 - [[inference-engines-llamacpp-vllm-sglang-tensorrt]] — 推論引擎的瓶頸與部署背景
+- [[gemma-4-fine-tuning-overview-official-guide]] — Gemma 4 官方微調總覽:方法選擇與顯存表

@@ -151,3 +151,4 @@ model.save_pretrained("lora-wenyan")       # 只存 LoRA 權重,檔案只有幾 
 ## 相關筆記
 
 - [[weight-space-programming-llm-edits-weights]] — 同主題:權重空間編程(Weight-Space Programming):讓 LLM 直
+- [[gemma-4-fine-tuning-overview-official-guide]] — Gemma 4 官方微調總覽:方法選擇與顯存表

@@ -10,7 +10,7 @@
 
 <br/>
 
-![Notes](https://img.shields.io/badge/筆記-482_篇-4c8bf5?style=flat-square)
+![Notes](https://img.shields.io/badge/筆記-483_篇-4c8bf5?style=flat-square)
 ![Categories](https://img.shields.io/badge/大類-4-9b59b6?style=flat-square)
 ![Language](https://img.shields.io/badge/語言-繁體中文-e74c3c?style=flat-square)
 ![Updated](https://img.shields.io/badge/更新-每週-2ecc71?style=flat-square)
@@ -546,6 +546,7 @@ flowchart LR
 | [DLSS 與 FSR 到底做了什麼:從「猜細節」到「用時間換細節」(程序员老王)](./knowledge/technology/machine-learning/dlss-fsr-ai-upscaling-explained.md) | ⭐ 低解析度渲染再 AI 放大,跑在 Tensor Core;⚠️ DLSS 1.0 靠猜、每遊戲單獨訓練而翻車;⭐⭐⭐ DLSS 2.0 亞像素抖動 + 運動向量,多幀累積細節、一個模型通吃;FSR 長期非 AI、FSR 4 才改 AI 並綁 RDNA 4;DLSS 4 改 Transformer;✅ 時間線核實 |
 | [從零看懂神經網路與 Transformer:Linear、啟動函數、梯度下降到 PyTorch 實作(程序员老王五講)](./knowledge/technology/machine-learning/pytorch-from-zero-transformer-series.md) | ⭐ Encoder/Decoder、GPT 只留解碼器、BERT 只留編碼器;⭐⭐ Linear + ReLU 疊成 FFN/MLP,線性再疊仍是直線;⭐⭐⭐ 梯度下降手算一步(w 0.5→0.644);MNIST 784→256→128→10、CrossEntropyLoss 內含 softmax;附可跑 PyTorch 程式碼與除錯清單 |
 | [LoRA 是什麼:微調為什麼吃顯存,兩個小矩陣怎麼把 26GB 壓到 8GB(程序员老王)](./knowledge/technology/machine-learning/lora-fine-tuning-explained.md) | ⭐ 預訓練佔 99% 算力(Qwen3 約 36T token)、SFT 只教對話;⭐⭐ 1.5B 全量微調粗估 26GB(AdamW FP32 狀態 18GB);⭐⭐⭐ LoRA 凍結原矩陣、只訓 A·B(r=8 ⇒ 12%),α/r 縮放、B 初始化為 0;真實比例常小於 1%;附 PEFT 範例與顯存公式 |
+| [Gemma 4 微調總覽:RAG、LoRA 或全量?顯存表(官方文件導讀)](./knowledge/technology/machine-learning/gemma-4-fine-tuning-overview-official-guide.md) | 多數從 -it 起手;事實常變用 RAG、新任務 LoRA、嚴格正確用 GRPO;QLoRA 12B 約 11GB、全量約 80GB;含 Google 產品推廣 |
 
 ### 🚀 ai-productivity(AI 生產力)
 | 主題 | 一句話 |
